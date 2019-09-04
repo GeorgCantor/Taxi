@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Kassa.Taxi</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="login_agreement">Нажимая на кнопку, я даю согласие на обработку персональных данных, соглашаюсь с <a href="https://kassa.taxi/privacy">политикой конфиденциальности</a> и принимаю условия <a href="https://kassa.taxi/agreement">лицензионного соглашения</a>.</string>
+    <string name="login_btn">Войти</string>
+    <string name="login_agreement_title">Я принимаю условия</string>
+    <string-array name="spinner_test">
+        <item>Test 1</item>
+        <item>Test 2</item>
+        <item>Test 3</item>
+    </string-array>
+</resources>

@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff">
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/mainBackground">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.18">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:background="@color/colorBalanceTop"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/balance_total_value"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="25dp"
+                        android:layout_weight="1"
+                        android:text="0.00 ₽"
+                        android:textColor="@color/blackText"
+                        android:textSize="32sp"
+                        android:fontWeight="300"/>
+
+                    <TextView
+                        android:id="@+id/balance_total_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="-20dp"
+                        android:layout_weight="1"
+                        android:text="Баланс по всем партнерам"
+                        android:textColor="@color/grayText"
+                        android:textStyle="normal"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/border_bottom">
+
+                    <ImageView
+                        android:id="@+id/balance_city_photo"
+                        android:layout_width="75dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_height="30dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/paint_logo_city"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:contentDescription="City Mobil" />
+
+                    <TextView
+                        android:id="@+id/balance_city_value"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="20dp"
+                        android:layout_weight="1"
+                        android:text="0.00 ₽"
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/blackText" />
+
+                    <Button
+                        android:id="@+id/balance_city_btn"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:padding="14dp"
+                        android:gravity="end"
+                        android:text="Вывести"
+                        android:background="@drawable/btn_white"
+                        android:textAlignment="center" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/border_bottom">
+
+                    <ImageView
+                        android:id="@+id/balance_gett_photo"
+                        android:layout_width="75dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_height="30dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/paint_logo_gett"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:contentDescription="Gett Taxi" />
+
+                    <TextView
+                        android:id="@+id/balance_gett_value"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="20dp"
+                        android:layout_weight="1"
+                        android:text="0.00 ₽"
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/blackText" />
+
+                    <Button
+                        android:id="@+id/balance_gett_btn"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:padding="14dp"
+                        android:gravity="end"
+                        android:text="Вывести"
+                        android:background="@drawable/btn_white"
+                        android:textAlignment="center" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/border_bottom">
+
+                    <ImageView
+                        android:id="@+id/balance_yandex_photo"
+                        android:layout_width="75dp"
+                        android:layout_marginTop="9dp"
+                        android:layout_height="30dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/paint_logo_yandex"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:contentDescription="Яндекс.Такси" />
+
+                    <TextView
+                        android:id="@+id/balance_yandex_value"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="20dp"
+                        android:layout_weight="1"
+                        android:text="0.00 ₽"
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/blackText" />
+
+                    <Button
+                        android:id="@+id/balance_yandex_btn"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="100dp"
+                        android:layout_height="50dp"
+                        android:padding="14dp"
+                        android:gravity="end"
+                        android:text="Вывести"
+                        android:background="@drawable/btn_white"
+                        android:textAlignment="center" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+</android.support.constraint.ConstraintLayout>

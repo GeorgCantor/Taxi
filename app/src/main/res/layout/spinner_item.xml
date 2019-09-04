@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingTop="0dp"
+    android:paddingBottom="0dp"
+    android:paddingStart="5dp"
+    android:paddingEnd="25dp">
+
+    <TextView
+        android:id="@+id/spinner_bank"
+        android:layout_width="match_parent"
+        android:layout_height="18dp"
+        android:textSize="14sp"
+        android:singleLine="true"
+        android:textColor="#222"
+        android:layout_marginTop="-3dp"/>
+
+    <TextView
+        android:id="@+id/spinner_number"
+        android:layout_width="match_parent"
+        android:layout_marginTop="2dp"
+        android:layout_height="16dp"
+        android:textColor="#777"
+        android:textSize="13sp"/>
+
+    <TextView
+        android:id="@+id/spinner_driver"
+        android:layout_width="match_parent"
+        android:layout_marginTop="2dp"
+        android:layout_height="18dp"
+        android:textColor="#777"
+        android:textSize="13sp"/>
+
+</LinearLayout>
