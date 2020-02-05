@@ -3,14 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="taxi.kassa">
 
-    <supports-screens
-        android:anyDensity="true"
-        android:largeScreens="true"
-        android:normalScreens="true"
-        android:resizeable="true"
-        android:smallScreens="true"
-        android:xlargeScreens="true" />
-
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
@@ -30,11 +22,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<!--        <activity-->
-<!--            android:name=".ui.MainActivityOld"-->
-<!--            android:label="@string/app_name"-->
-<!--            android:theme="@style/AppTheme.NoActionBar"-->
-<!--            android:windowSoftInputMode="adjustResize" />-->
     </application>
 
 </manifest>

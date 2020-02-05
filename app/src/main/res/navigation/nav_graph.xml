@@ -9,4 +9,9 @@
         android:name="taxi.kassa.view.intro.IntroFragment"
         android:label="IntroFragment" />
 
+    <fragment
+        android:id="@+id/authPhoneFragment"
+        android:name="taxi.kassa.view.auth_phone.AuthPhoneFragment"
+        android:label="AuthPhoneFragment" />
+
 </navigation>
