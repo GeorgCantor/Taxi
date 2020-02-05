@@ -5,14 +5,14 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
-import taxi.kassa.responses.AccountsList;
-import taxi.kassa.responses.ResponseAPI;
-import taxi.kassa.responses.ResponseCreateRequest;
-import taxi.kassa.responses.ResponseOwner;
-import taxi.kassa.responses.ResponseAuthSendCode;
-import taxi.kassa.responses.ResponseAuthSendPhone;
-import taxi.kassa.responses.ResponseSimple;
-import taxi.kassa.responses.Withdraws;
+import taxi.kassa.model.responses.AccountsList;
+import taxi.kassa.model.responses.ResponseAPI;
+import taxi.kassa.model.responses.ResponseCreateRequest;
+import taxi.kassa.model.responses.ResponseOwner;
+import taxi.kassa.model.responses.ResponseAuthSendCode;
+import taxi.kassa.model.responses.ResponseAuthSendPhone;
+import taxi.kassa.model.responses.ResponseSimple;
+import taxi.kassa.model.responses.Withdraws;
 
 public interface API {
 

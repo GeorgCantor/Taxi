@@ -3,17 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="taxi.kassa">
 
-    <supports-screens android:anyDensity="true"
+    <supports-screens
+        android:anyDensity="true"
         android:largeScreens="true"
         android:normalScreens="true"
         android:resizeable="true"
         android:smallScreens="true"
-        android:xlargeScreens="true"/>
+        android:xlargeScreens="true" />
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <!--<uses-permission android:name="android.permission.RECEIVE_SMS"/>-->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
+        android:name=".MyApplication"
         android:allowBackup="false"
         android:icon="@drawable/favicon"
         android:label="@string/app_name"
@@ -21,21 +23,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity
-            android:name="taxi.kassa.ui.MainActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustResize">
+        <activity android:name=".view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!--<receiver android:name="taxi.kassa.tools.ReciveSMS" android:enabled="true">
-            <intent-filter android:priority="1000">
-                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
-            </intent-filter>
-        </receiver>-->
+<!--        <activity-->
+<!--            android:name=".ui.MainActivityOld"-->
+<!--            android:label="@string/app_name"-->
+<!--            android:theme="@style/AppTheme.NoActionBar"-->
+<!--            android:windowSoftInputMode="adjustResize" />-->
     </application>
 
 </manifest>
