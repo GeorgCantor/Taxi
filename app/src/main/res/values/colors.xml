@@ -9,4 +9,5 @@
     <color name="blackText">#000000</color>
     <color name="grayText">#646464</color>
     <color name="lightGray">#ddd</color>
+    <color name="grayIntroText">#CAD0D2</color>
 </resources>

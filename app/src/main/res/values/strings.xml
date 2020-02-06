@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Kassa.Taxi</string>
+    <string name="app_name">Fast Kassa</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_desc">Navigation header</string>
@@ -10,6 +10,8 @@
     <string name="accept_conditions_error">необходимо принять условия работы</string>
     <string name="input_field_error">заполните поле</string>
     <string name="wrong_format_error">неправильный формат</string>
+    <string name="intro_message">Удобные выплаты для водителей с баланса агрегаторов такси на личный счет</string>
+    <string name="registration">Регистрация</string>
     <string-array name="spinner_test">
         <item>Test 1</item>
         <item>Test 2</item>
