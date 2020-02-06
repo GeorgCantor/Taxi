@@ -10,4 +10,7 @@
     <color name="grayText">#646464</color>
     <color name="lightGray">#ddd</color>
     <color name="grayIntroText">#CAD0D2</color>
+    <color name="loginBackground">#101017</color>
+    <color name="continueColor">#23252D</color>
+    <color name="agreementTextColor">#C1C1C1</color>
 </resources>

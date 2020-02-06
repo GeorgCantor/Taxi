@@ -3,12 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff">
+    android:background="@color/loginBackground">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="30dp"
         android:descendantFocusability="beforeDescendants"
         android:focusableInTouchMode="true"
@@ -17,25 +18,14 @@
         android:paddingTop="30dp"
         android:paddingBottom="50dp">
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="20dp"
-            android:layout_weight="1"
-            android:contentDescription="Kassa.Taxi"
-            app:srcCompat="@drawable/paint_logo" />
-
         <TextView
-            android:id="@+id/textView3"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_marginBottom="30dp"
             android:layout_weight="1"
-            android:text="Заявка на подключение"
+            android:text="@string/register_application"
             android:textAlignment="center"
-            android:textColor="#999"
+            android:textColor="@color/grayIntroText"
             android:textSize="20sp" />
 
         <EditText
@@ -53,7 +43,8 @@
             android:maxLength="16"
             android:maxLines="1"
             android:text="+7 "
-            android:textColorHint="#aaa"
+            android:textColor="@color/grayIntroText"
+            android:textColorHint="@color/grayText"
             android:textCursorDrawable="@drawable/color_cursor"
             android:textSize="36sp"
             android:theme="@style/CustomTheme"
@@ -71,35 +62,31 @@
         <Button
             android:id="@+id/btn_signup"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="56dp"
             android:layout_marginStart="0dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="7dp"
             android:layout_marginEnd="0dp"
-            android:layout_marginBottom="7dp"
-            android:background="@drawable/btn_primary"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/bg_intro_btn"
             android:minWidth="0dp"
             android:minHeight="0dp"
             android:radius="0dp"
             android:stateListAnimator="@null"
-            android:text="Отправить"
-            android:textColor="#ffffff" />
+            android:text="@string/continue_hint"
+            android:textAllCaps="false"
+            android:textColor="@color/continueColor"
+            android:textSize="20sp" />
 
         <CheckBox
             android:id="@+id/login_checkbox"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="wrap_content"
             android:checked="true"
             android:drawable="@drawable/checkbox_primary"
-            android:padding="0dp"
-            android:text="@string/login_agreement_title" />
-
-        <TextView
-            android:id="@+id/tv_agreement"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:lineSpacingMultiplier="1.2"
-            android:text="@string/login_agreement"
-            android:textColorLink="#222"
+            android:paddingStart="8dp"
+            android:paddingTop="22dp"
+            android:text="@string/login_agreement_title"
+            android:textColor="@color/agreementTextColor"
             android:textSize="13sp" />
 
         <requestFocus />
