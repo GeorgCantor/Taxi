@@ -7,6 +7,9 @@
     <string name="login_agreement">Нажимая на кнопку, я даю согласие на обработку персональных данных, соглашаюсь с <a href="https://kassa.taxi/privacy">политикой конфиденциальности</a> и принимаю условия <a href="https://kassa.taxi/agreement">лицензионного соглашения</a>.</string>
     <string name="login_btn">Войти</string>
     <string name="login_agreement_title">Я принимаю условия</string>
+    <string name="accept_conditions_error">необходимо принять условия работы</string>
+    <string name="input_field_error">заполните поле</string>
+    <string name="wrong_format_error">неправильный формат</string>
     <string-array name="spinner_test">
         <item>Test 1</item>
         <item>Test 2</item>

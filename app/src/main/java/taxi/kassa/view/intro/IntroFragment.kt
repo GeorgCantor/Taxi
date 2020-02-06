@@ -23,5 +23,9 @@ class IntroFragment : Fragment() {
         btn_login.setOnClickListener {
             Navigation.findNavController(it).navigate(R.id.authPhoneFragment)
         }
+
+        btn_signup.setOnClickListener {
+            Navigation.findNavController(it).navigate(R.id.authSignUpFragment)
+        }
     }
 }

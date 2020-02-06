@@ -14,4 +14,9 @@
         android:name="taxi.kassa.view.auth_phone.AuthPhoneFragment"
         android:label="AuthPhoneFragment" />
 
+    <fragment
+        android:id="@+id/authSignUpFragment"
+        android:name="taxi.kassa.view.auth_sign_up.AuthSignUpFragment"
+        android:label="AuthSignUpFragment" />
+
 </navigation>

@@ -1,4 +1,4 @@
-package taxi.kassa.view.auth_phone
+package taxi.kassa.view.auth_sign_up
 
 import android.os.Bundle
 import android.text.Editable
@@ -8,23 +8,23 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import kotlinx.android.synthetic.main.fragment_auth_phone.*
+import kotlinx.android.synthetic.main.fragment_auth_sign_up.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.util.shortToast
 import taxi.kassa.util.showError
 
-class AuthPhoneFragment : Fragment() {
+class AuthSignUpFragment : Fragment() {
 
-    private lateinit var viewModel: AuthPhoneViewModel
+    private lateinit var viewModel: AuthSignUpViewModel
     private var loginIsReady = false
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = inflater.inflate(R.layout.fragment_auth_phone, container, false)
+    ): View? = inflater.inflate(R.layout.fragment_auth_sign_up, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -77,17 +77,28 @@ class AuthPhoneFragment : Fragment() {
             }
         })
 
-        btn_login.setOnClickListener {
+        btn_signup.setOnClickListener {
             if (!loginIsReady) {
                 showError(context, tv_error, getString(R.string.accept_conditions_error), 5000, 0)
                 return@setOnClickListener
             }
 
-            val phone: String = input_login.text.toString().replace("[^\\d]", "")
-            viewModel.login(phone)
+            val phone = input_login.text.toString().replace("[^\\d]".toRegex(), "")
+
+            if (phone == "7") {
+                showError(context, tv_error, getString(R.string.input_field_error), 5000, 0)
+                return@setOnClickListener
+            }
+
+            if (phone.length != 11) {
+                showError(context, tv_error, getString(R.string.wrong_format_error), 5000, 0)
+                return@setOnClickListener
+            }
+
+            viewModel.signUp(phone)
         }
 
-        viewModel.isLoggedIn.observe(viewLifecycleOwner, Observer {
+        viewModel.isSignUp.observe(viewLifecycleOwner, Observer {
             requireActivity().shortToast(if (it == true) "Success" else "Not success")
         })
     }
