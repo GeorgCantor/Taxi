@@ -12,11 +12,15 @@ import kotlinx.android.synthetic.main.fragment_auth_phone.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
+import taxi.kassa.util.Constants.PHONE
+import taxi.kassa.util.PreferenceManager
 import taxi.kassa.util.shortToast
+import taxi.kassa.util.showError
 
 class AuthPhoneFragment : Fragment() {
 
     private lateinit var viewModel: AuthPhoneViewModel
+    private var loginIsReady = false
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,9 +32,15 @@ class AuthPhoneFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel = getViewModel { parametersOf() }
 
+        loginIsReady = true
+
         viewModel.error.observe(viewLifecycleOwner, Observer {
             tv_error.text = it
         })
+
+        login_checkbox.setOnCheckedChangeListener { _, isChecked ->
+            loginIsReady = isChecked
+        }
 
         input_login.addTextChangedListener(object : TextWatcher {
             var length_before = 0
@@ -70,7 +80,14 @@ class AuthPhoneFragment : Fragment() {
         })
 
         btn_login.setOnClickListener {
+            if (!loginIsReady) {
+                showError(context, tv_error, getString(R.string.accept_conditions_error), 5000, 0)
+                return@setOnClickListener
+            }
+
             val phone: String = input_login.text.toString().replace("[^\\d]", "")
+            PreferenceManager(requireActivity()).saveString(PHONE, phone)
+
             viewModel.login(phone)
         }
 

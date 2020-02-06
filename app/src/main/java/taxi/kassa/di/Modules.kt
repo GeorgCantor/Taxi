@@ -5,6 +5,7 @@ import org.koin.dsl.module
 import taxi.kassa.model.remote.ApiClient
 import taxi.kassa.repository.ApiRepository
 import taxi.kassa.view.auth_phone.AuthPhoneViewModel
+import taxi.kassa.view.auth_sign_up.AuthSignUpViewModel
 
 val repositoryModule = module {
     single { ApiRepository(get()) }
@@ -13,6 +14,9 @@ val repositoryModule = module {
 val viewModelModule = module {
     viewModel {
         AuthPhoneViewModel(get())
+    }
+    viewModel {
+        AuthSignUpViewModel(get())
     }
 }
 

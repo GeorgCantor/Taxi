@@ -14,4 +14,14 @@
         android:name="taxi.kassa.view.auth_phone.AuthPhoneFragment"
         android:label="AuthPhoneFragment" />
 
+    <fragment
+        android:id="@+id/authSignUpFragment"
+        android:name="taxi.kassa.view.auth_sign_up.AuthSignUpFragment"
+        android:label="AuthSignUpFragment" />
+
+    <fragment
+        android:id="@+id/successRequestFragment"
+        android:name="taxi.kassa.view.success_request.SuccessRequestFragment"
+        android:label="SuccessRequestFragment" />
+
 </navigation>

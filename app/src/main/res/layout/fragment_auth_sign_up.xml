@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/login_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="30dp"
+        android:descendantFocusability="beforeDescendants"
+        android:focusableInTouchMode="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingTop="30dp"
+        android:paddingBottom="50dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="30dp"
+            android:layout_weight="1"
+            android:text="@string/register_application"
+            android:textAlignment="center"
+            android:textColor="@color/gray_intro_text"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/input_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginBottom="3dp"
+            android:background="@drawable/edittext_primary"
+            android:cursorVisible="true"
+            android:digits="+() 1234567890-"
+            android:ems="10"
+            android:inputType="phone"
+            android:maxLength="16"
+            android:maxLines="1"
+            android:text="+7 "
+            android:textColor="@color/gray_intro_text"
+            android:textColorHint="@color/grayText"
+            android:textCursorDrawable="@drawable/color_cursor"
+            android:textSize="36sp"
+            android:theme="@style/CustomTheme"
+            app:backgroundTint="@color/grayText" />
+
+        <TextView
+            android:id="@+id/tv_error"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:textAlignment="center"
+            android:textColor="#FF4A4A" />
+
+        <Button
+            android:id="@+id/btn_signup"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/bg_intro_btn"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:radius="0dp"
+            android:stateListAnimator="@null"
+            android:text="@string/continue_hint"
+            android:textAllCaps="false"
+            android:textColor="@color/continue_color"
+            android:textSize="20sp" />
+
+        <CheckBox
+            android:id="@+id/login_checkbox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:drawable="@drawable/checkbox_primary"
+            android:paddingStart="8dp"
+            android:paddingTop="22dp"
+            android:text="@string/login_agreement_title"
+            android:textColor="@color/agreement_text_color"
+            android:textSize="13sp" />
+
+        <requestFocus />
+    </LinearLayout>
+
+</ScrollView>

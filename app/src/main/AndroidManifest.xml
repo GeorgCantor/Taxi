@@ -9,9 +9,9 @@
     <application
         android:name=".MyApplication"
         android:allowBackup="false"
-        android:icon="@drawable/favicon"
+        android:icon="@drawable/ic_app_logo"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/favicon"
+        android:roundIcon="@drawable/ic_app_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">

@@ -18,17 +18,14 @@ import java.util.concurrent.TimeUnit
 
 object ApiClient {
 
-    var access_token = ""
+    private var access_token = ""
     private const val API_VERSION = "1"
-
-    private lateinit var loggingInterceptor: HttpLoggingInterceptor
 
     fun create(context: Context): ApiService {
 
-        if (BuildConfig.DEBUG) {
-            loggingInterceptor = HttpLoggingInterceptor()
-            loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
-        }
+        val loggingInterceptor = HttpLoggingInterceptor()
+        loggingInterceptor.level =
+            if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
 
         val interceptor: Interceptor = object : Interceptor {
             @Throws(IOException::class)
