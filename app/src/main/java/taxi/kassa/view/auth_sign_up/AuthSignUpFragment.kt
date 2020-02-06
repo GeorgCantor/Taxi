@@ -98,8 +98,8 @@ class AuthSignUpFragment : Fragment() {
             viewModel.signUp(phone)
         }
 
-        viewModel.isSignUp.observe(viewLifecycleOwner, Observer {
-            Navigation.findNavController(view).navigate(R.id.successRequestFragment)
+        viewModel.isSignUp.observe(viewLifecycleOwner, Observer { success ->
+            if (success) Navigation.findNavController(view).navigate(R.id.successRequestFragment)
         })
     }
 }
