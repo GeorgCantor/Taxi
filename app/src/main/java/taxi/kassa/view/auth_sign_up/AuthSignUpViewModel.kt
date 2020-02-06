@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import io.reactivex.Observable
 import io.reactivex.schedulers.Schedulers
 import taxi.kassa.repository.ApiRepository
-import taxi.kassa.util.Constants.key
+import taxi.kassa.util.Constants.KEY
 
 class AuthSignUpViewModel(private val repository: ApiRepository) : ViewModel() {
 
@@ -14,7 +14,7 @@ class AuthSignUpViewModel(private val repository: ApiRepository) : ViewModel() {
 
     fun signUp(phone: String) {
         Observable.fromCallable {
-            repository.signUp("", phone, 11, key)
+            repository.signUp("", phone, 11, KEY)
                 ?.subscribe({
                     isSignUp.postValue(it?.success)
                     it?.errorMsg?.let { error.postValue(it) }

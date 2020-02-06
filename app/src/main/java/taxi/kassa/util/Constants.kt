@@ -1,5 +1,8 @@
 package taxi.kassa.util
 
 object Constants {
-    const val key = "ZVc3THdVdzM5dDhXQVBoR1ZJNk80SmNxdjBGcEhGUzY4YkJIcmV"
+
+    const val KEY = "ZVc3THdVdzM5dDhXQVBoR1ZJNk80SmNxdjBGcEhGUzY4YkJIcmV"
+    const val MAIN_STORAGE = "MainStorage"
+    const val PHONE = "phone"
 }

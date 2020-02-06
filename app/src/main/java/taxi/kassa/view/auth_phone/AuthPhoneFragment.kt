@@ -12,6 +12,8 @@ import kotlinx.android.synthetic.main.fragment_auth_phone.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
+import taxi.kassa.util.Constants.PHONE
+import taxi.kassa.util.PreferenceManager
 import taxi.kassa.util.shortToast
 import taxi.kassa.util.showError
 
@@ -84,6 +86,8 @@ class AuthPhoneFragment : Fragment() {
             }
 
             val phone: String = input_login.text.toString().replace("[^\\d]", "")
+            PreferenceManager(requireActivity()).saveString(PHONE, phone)
+
             viewModel.login(phone)
         }
 
