@@ -21,9 +21,12 @@ class SuccessRequestFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        btn_back_login.setOnClickListener {
-            val navOption = NavOptions.Builder().setPopUpTo(R.id.introFragment, true).build()
-            Navigation.findNavController(it).navigate(R.id.introFragment, null, navOption)
-        }
+        back_arrow.setOnClickListener { closeFragment() }
+        ok_button.setOnClickListener { closeFragment() }
+    }
+
+    private fun closeFragment() {
+        val navOption = NavOptions.Builder().setPopUpTo(R.id.introFragment, true).build()
+        Navigation.findNavController(requireView()).navigate(R.id.introFragment, null, navOption)
     }
 }

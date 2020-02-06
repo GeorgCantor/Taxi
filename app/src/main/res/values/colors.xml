@@ -9,8 +9,10 @@
     <color name="blackText">#000000</color>
     <color name="grayText">#646464</color>
     <color name="lightGray">#ddd</color>
-    <color name="grayIntroText">#CAD0D2</color>
-    <color name="loginBackground">#101017</color>
-    <color name="continueColor">#23252D</color>
-    <color name="agreementTextColor">#C1C1C1</color>
+
+    <color name="gray_intro_text">#CAD0D2</color>
+    <color name="login_background">#101017</color>
+    <color name="continue_color">#23252D</color>
+    <color name="agreement_text_color">#C1C1C1</color>
+    <color name="gray_application_text">#61636F</color>
 </resources>

@@ -43,7 +43,7 @@
             android:layout_weight="1"
             android:text="@string/intro_message"
             android:textAlignment="center"
-            android:textColor="@color/grayIntroText"
+            android:textColor="@color/gray_intro_text"
             android:textSize="16sp" />
 
         <Button

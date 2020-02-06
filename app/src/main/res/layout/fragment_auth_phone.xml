@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/loginBackground">
+    android:background="@color/login_background">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,7 +25,7 @@
             android:layout_weight="1"
             android:text="@string/input_phone_number"
             android:textAlignment="center"
-            android:textColor="@color/grayIntroText"
+            android:textColor="@color/gray_intro_text"
             android:textSize="20sp" />
 
         <EditText
@@ -43,7 +43,7 @@
             android:maxLength="16"
             android:maxLines="1"
             android:text="+7 "
-            android:textColor="@color/grayIntroText"
+            android:textColor="@color/gray_intro_text"
             android:textColorHint="@color/grayText"
             android:textCursorDrawable="@drawable/color_cursor"
             android:textSize="36sp"
@@ -74,7 +74,7 @@
             android:stateListAnimator="@null"
             android:text="@string/continue_hint"
             android:textAllCaps="false"
-            android:textColor="@color/continueColor"
+            android:textColor="@color/continue_color"
             android:textSize="20sp" />
 
         <CheckBox
@@ -86,7 +86,7 @@
             android:paddingStart="8dp"
             android:paddingTop="22dp"
             android:text="@string/login_agreement_title"
-            android:textColor="@color/agreementTextColor"
+            android:textColor="@color/agreement_text_color"
             android:textSize="13sp" />
 
         <requestFocus />

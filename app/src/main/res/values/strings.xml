@@ -15,6 +15,9 @@
     <string name="input_phone_number">Введите номер телефона</string>
     <string name="continue_hint">Далее</string>
     <string name="register_application">Заявка на подключение</string>
+    <string name="register_application_success">Заявка на подключение отправлена!</string>
+    <string name="application_success_message">В ближайшее время наш менеджер связется с вами по телефону</string>
+    <string name="ok">Хорошо</string>
     <string-array name="spinner_test">
         <item>Test 1</item>
         <item>Test 2</item>
