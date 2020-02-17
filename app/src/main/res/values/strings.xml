@@ -24,4 +24,7 @@
         <item>Test 2</item>
         <item>Test 3</item>
     </string-array>
+
+    <!--    Profile-->
+    <string name="exit">Выход</string>
 </resources>

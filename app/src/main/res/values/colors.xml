@@ -16,4 +16,5 @@
     <color name="agreement_text_color">#C1C1C1</color>
     <color name="gray_application_text">#61636F</color>
     <color name="gray_code_text">#EEEEEE</color>
+    <color name="gray_profile">#787A86</color>
 </resources>

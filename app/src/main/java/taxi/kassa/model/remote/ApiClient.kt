@@ -13,7 +13,7 @@ import taxi.kassa.BuildConfig
 import taxi.kassa.model.remote.interceptor.OfflineResponseCacheInterceptor
 import taxi.kassa.model.remote.interceptor.ResponseCacheInterceptor
 import taxi.kassa.util.Constants.API_VERSION
-import taxi.kassa.util.Constants.access_token
+import taxi.kassa.util.Constants.accessToken
 import java.io.File
 import java.io.IOException
 import java.util.concurrent.TimeUnit
@@ -34,7 +34,7 @@ object ApiClient {
                     .addHeader("X-Requested-With", "XMLHttpRequest")
                     .addHeader("Accept", "application/json")
                     .addHeader("v", API_VERSION)
-                    .addHeader("token", access_token)
+                    .addHeader("token", accessToken)
                     .build()
                 return chain.proceed(request)
             }

@@ -16,6 +16,7 @@ import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.util.Constants.PHONE
 import taxi.kassa.util.Constants.TOKEN
+import taxi.kassa.util.Constants.accessToken
 import taxi.kassa.util.PreferenceManager
 
 class AuthCodeFragment : Fragment() {
@@ -43,10 +44,11 @@ class AuthCodeFragment : Fragment() {
 
         viewModel.token.observe(viewLifecycleOwner, Observer {
             prefManager.saveString(TOKEN, it)
+            accessToken = it
         })
 
         viewModel.isLoggedIn.observe(viewLifecycleOwner, Observer { loggedIn ->
-             if (loggedIn) Navigation.findNavController(view).navigate(R.id.introFragment)
+            if (loggedIn) Navigation.findNavController(view).navigate(R.id.profileFragment)
         })
 
         login_button.setOnClickListener {

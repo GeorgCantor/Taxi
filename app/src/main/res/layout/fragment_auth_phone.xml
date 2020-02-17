@@ -39,6 +39,7 @@
             android:cursorVisible="true"
             android:digits="+() 1234567890-"
             android:ems="10"
+            android:imeOptions="actionDone"
             android:inputType="phone"
             android:maxLength="16"
             android:maxLines="1"

@@ -29,4 +29,9 @@
         android:name="taxi.kassa.view.auth_code.AuthCodeFragment"
         android:label="AuthCodeFragment" />
 
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="taxi.kassa.view.profile.ProfileFragment"
+        android:label="ProfileFragment" />
+
 </navigation>

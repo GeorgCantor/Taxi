@@ -93,8 +93,7 @@ class AuthPhoneFragment : Fragment() {
         }
 
         viewModel.isLoggedIn.observe(viewLifecycleOwner, Observer { loggedIn ->
-           // if (loggedIn) Navigation.findNavController(view).navigate(R.id.authCodeFragment)
-            Navigation.findNavController(view).navigate(R.id.authCodeFragment)
+            if (loggedIn) Navigation.findNavController(view).navigate(R.id.authCodeFragment)
         })
     }
 
