@@ -12,14 +12,13 @@ import retrofit2.converter.gson.GsonConverterFactory
 import taxi.kassa.BuildConfig
 import taxi.kassa.model.remote.interceptor.OfflineResponseCacheInterceptor
 import taxi.kassa.model.remote.interceptor.ResponseCacheInterceptor
+import taxi.kassa.util.Constants.API_VERSION
+import taxi.kassa.util.Constants.access_token
 import java.io.File
 import java.io.IOException
 import java.util.concurrent.TimeUnit
 
 object ApiClient {
-
-    private var access_token = ""
-    private const val API_VERSION = "1"
 
     fun create(context: Context): ApiService {
 

@@ -101,6 +101,16 @@
 
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/error_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:textAlignment="center"
+        android:textColor="#FF4A4A"
+        app:layout_constraintTop_toBottomOf="@+id/code_inputs_layout" />
+
     <Button
         android:id="@+id/login_button"
         android:layout_width="336dp"
