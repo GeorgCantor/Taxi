@@ -24,4 +24,9 @@
         android:name="taxi.kassa.view.success_request.SuccessRequestFragment"
         android:label="SuccessRequestFragment" />
 
+    <fragment
+        android:id="@+id/authCodeFragment"
+        android:name="taxi.kassa.view.auth_code.AuthCodeFragment"
+        android:label="AuthCodeFragment" />
+
 </navigation>

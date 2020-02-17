@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/login_background">
+
+    <TextView
+        android:id="@+id/input_code_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:gravity="center"
+        android:text="@string/input_code"
+        android:textColor="@color/gray_intro_text"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/code_inputs_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_code_title">
+
+        <EditText
+            android:id="@+id/input1"
+            android:layout_width="64dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:imeOptions="actionNext"
+            android:inputType="phone"
+            android:maxLength="1"
+            android:maxLines="1"
+            android:orientation="horizontal"
+            android:singleLine="true"
+            android:textColor="@color/gray_code_text"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            app:backgroundTint="@color/gray_application_text"
+            tools:text="4" />
+
+        <EditText
+            android:id="@+id/input2"
+            android:layout_width="64dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:gravity="center"
+            android:imeOptions="actionNext"
+            android:inputType="phone"
+            android:maxLength="1"
+            android:maxLines="1"
+            android:orientation="horizontal"
+            android:singleLine="true"
+            android:textColor="@color/gray_code_text"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            app:backgroundTint="@color/gray_application_text" />
+
+        <EditText
+            android:id="@+id/input3"
+            android:layout_width="64dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:gravity="center"
+            android:imeOptions="actionNext"
+            android:inputType="phone"
+            android:maxLength="1"
+            android:maxLines="1"
+            android:orientation="horizontal"
+            android:singleLine="true"
+            android:textColor="@color/gray_code_text"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            app:backgroundTint="@color/gray_application_text" />
+
+        <EditText
+            android:id="@+id/input4"
+            android:layout_width="64dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:gravity="center"
+            android:imeOptions="actionDone"
+            android:inputType="phone"
+            android:maxLength="1"
+            android:maxLines="1"
+            android:orientation="horizontal"
+            android:singleLine="true"
+            android:textColor="@color/gray_code_text"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            app:backgroundTint="@color/gray_application_text" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/login_button"
+        android:layout_width="336dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/bg_intro_btn"
+        android:text="@string/login_btn"
+        android:textAllCaps="false"
+        android:textColor="@color/continue_color"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

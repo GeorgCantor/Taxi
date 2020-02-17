@@ -13,6 +13,7 @@
     <string name="intro_message">Удобные выплаты для водителей с баланса агрегаторов такси на личный счет</string>
     <string name="registration">Регистрация</string>
     <string name="input_phone_number">Введите номер телефона</string>
+    <string name="input_code">Введите код из СМС</string>
     <string name="continue_hint">Далее</string>
     <string name="register_application">Заявка на подключение</string>
     <string name="register_application_success">Заявка на подключение отправлена!</string>
