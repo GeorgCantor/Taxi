@@ -4,6 +4,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation
 import taxi.kassa.R
+import taxi.kassa.util.Constants.TOKEN
+import taxi.kassa.util.PreferenceManager
 
 class MainActivity : AppCompatActivity() {
 
@@ -11,6 +13,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        Navigation.findNavController(this, R.id.navHostFragment).navigate(R.id.introFragment)
+        val token = PreferenceManager(this).getString(TOKEN) ?: ""
+
+        Navigation.findNavController(this, R.id.navHostFragment)
+            .navigate(if (token.isEmpty()) R.id.introFragment else R.id.profileFragment)
     }
 }
