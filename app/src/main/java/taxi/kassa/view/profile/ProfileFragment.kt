@@ -24,6 +24,7 @@ import java.util.*
 class ProfileFragment : Fragment() {
 
     private lateinit var viewModel: ProfileViewModel
+    private var logoutPressed = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,10 +61,11 @@ class ProfileFragment : Fragment() {
 
     override fun onDetach() {
         super.onDetach()
-        activity?.finish()
+        if (!logoutPressed) activity?.finish()
     }
 
     private fun logout() {
+        logoutPressed = true
         val prefManager = PreferenceManager(requireActivity())
         prefManager.saveString(PHONE, "")
         prefManager.saveString(TOKEN, "")

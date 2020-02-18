@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="rectangle">
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <item>
+        <ripple android:color="@color/colorPrimary" tools:targetApi="lollipop">
+            <item>
+                <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
 
-    <corners
-        android:bottomLeftRadius="8dp"
-        android:bottomRightRadius="8dp"
-        android:topLeftRadius="8dp"
-        android:topRightRadius="8dp" />
+                    <corners android:bottomLeftRadius="8dp" android:bottomRightRadius="8dp" android:topLeftRadius="8dp" android:topRightRadius="8dp" />
 
-    <solid android:color="#D3A956" />
+                    <solid android:color="#D3A956" />
 
-</shape>
+                </shape>
+            </item>
+        </ripple>
+    </item>
+</selector>
