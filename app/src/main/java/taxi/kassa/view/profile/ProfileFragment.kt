@@ -1,9 +1,12 @@
 package taxi.kassa.view.profile
 
+import android.os.Build
 import android.os.Bundle
+import android.telephony.PhoneNumberUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.NavOptions
@@ -16,10 +19,16 @@ import taxi.kassa.util.Constants.PHONE
 import taxi.kassa.util.Constants.TOKEN
 import taxi.kassa.util.PreferenceManager
 import taxi.kassa.util.shortToast
+import java.util.*
 
 class ProfileFragment : Fragment() {
 
     private lateinit var viewModel: ProfileViewModel
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel = getViewModel { parametersOf() }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -27,22 +36,31 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? = inflater.inflate(R.layout.fragment_profile, container, false)
 
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = getViewModel { parametersOf() }
         viewModel.getUserInfo()
 
         viewModel.error.observe(viewLifecycleOwner, Observer {
             activity?.shortToast(it)
         })
 
-        viewModel.responseOwner.observe(viewLifecycleOwner, Observer {
-            name_tv.text = it.fullName
+        viewModel.responseOwner.observe(viewLifecycleOwner, Observer { response ->
+            response?.let {
+                name_tv.text = it.fullName
+                number_tv.text = "+${PhoneNumberUtils.formatNumber(it.phone, Locale.getDefault().country)}"
+                balance_tv.text = "${it.balanceTotal} \u20BD"
+            }
         })
 
         exit_tv.setOnClickListener {
             logout()
         }
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        activity?.finish()
     }
 
     private fun logout() {
