@@ -18,6 +18,7 @@ import taxi.kassa.util.Constants.PHONE
 import taxi.kassa.util.Constants.TOKEN
 import taxi.kassa.util.Constants.accessToken
 import taxi.kassa.util.PreferenceManager
+import taxi.kassa.util.showError
 
 class AuthCodeFragment : Fragment() {
 
@@ -39,7 +40,7 @@ class AuthCodeFragment : Fragment() {
         viewModel = getViewModel { parametersOf() }
 
         viewModel.error.observe(viewLifecycleOwner, Observer {
-            error_tv.text = it
+            showError(context, error_tv, it, 5000, 0)
         })
 
         viewModel.token.observe(viewLifecycleOwner, Observer {
@@ -53,6 +54,10 @@ class AuthCodeFragment : Fragment() {
 
         login_button.setOnClickListener {
             val code = "${input1.text}${input2.text}${input3.text}${input4.text}"
+            if (code.isEmpty()) {
+                showError(context, error_tv, getString(R.string.input_code), 5000, 0)
+                return@setOnClickListener
+            }
             viewModel.login(phone ?: "", code)
         }
     }

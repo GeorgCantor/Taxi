@@ -36,7 +36,7 @@ class AuthPhoneFragment : Fragment() {
         loginIsReady = true
 
         viewModel.error.observe(viewLifecycleOwner, Observer {
-            tv_error.text = it
+            showError(context, tv_error, it, 5000, 0)
         })
 
         login_checkbox.setOnCheckedChangeListener { _, isChecked ->
