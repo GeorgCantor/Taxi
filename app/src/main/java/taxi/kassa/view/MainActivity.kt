@@ -2,6 +2,7 @@ package taxi.kassa.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavOptions
 import androidx.navigation.Navigation
 import taxi.kassa.R
 import taxi.kassa.util.Constants.TOKEN
@@ -15,7 +16,14 @@ class MainActivity : AppCompatActivity() {
 
         val token = PreferenceManager(this).getString(TOKEN) ?: ""
 
-        Navigation.findNavController(this, R.id.navHostFragment)
-            .navigate(if (token.isEmpty()) R.id.introFragment else R.id.profileFragment)
+        if (token.isEmpty()) {
+            val navOption = NavOptions.Builder().setPopUpTo(R.id.introFragment, true).build()
+            Navigation.findNavController(this, R.id.navHostFragment)
+                .navigate(R.id.introFragment, null, navOption)
+        } else {
+            val navOption = NavOptions.Builder().setPopUpTo(R.id.profileFragment, true).build()
+            Navigation.findNavController(this, R.id.navHostFragment)
+                .navigate(R.id.profileFragment, null, navOption)
+        }
     }
 }
