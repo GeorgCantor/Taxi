@@ -45,12 +45,10 @@ class ProfileFragment : Fragment() {
             activity?.shortToast(it)
         })
 
-        viewModel.responseOwner.observe(viewLifecycleOwner, Observer { response ->
-            response?.let {
-                name_tv.text = it.fullName
-                number_tv.text = "+${PhoneNumberUtils.formatNumber(it.phone, Locale.getDefault().country)}"
-                balance_tv.text = "${it.balanceTotal} \u20BD"
-            }
+        viewModel.responseOwner.observe(viewLifecycleOwner, Observer {
+            name_tv.text = it?.fullName
+            number_tv.text = "+${PhoneNumberUtils.formatNumber(it?.phone, Locale.getDefault().country)}"
+            balance_tv.text = "${it?.balanceTotal} \u20BD"
         })
 
         exit_tv.setOnClickListener {

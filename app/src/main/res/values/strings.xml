@@ -27,4 +27,9 @@
 
     <!--    Profile-->
     <string name="exit">Выход</string>
+    <string name="balance">Баланс</string>
+    <string name="orders">Заказы</string>
+    <string name="withdrawal_applications">Заявки на вывод</string>
+    <string name="accounts_and_cards">Счета и карты</string>
+    <string name="support_service">Служба поддержки</string>
 </resources>

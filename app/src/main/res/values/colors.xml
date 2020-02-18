@@ -17,4 +17,5 @@
     <color name="gray_application_text">#61636F</color>
     <color name="gray_code_text">#EEEEEE</color>
     <color name="gray_profile">#787A86</color>
+    <color name="gray_light_profile">#D9DFE1</color>
 </resources>
