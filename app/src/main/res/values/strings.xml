@@ -6,13 +6,14 @@
     <string name="action_settings">Settings</string>
     <string name="login_agreement">Нажимая на кнопку, я даю согласие на обработку персональных данных, соглашаюсь с <a href="https://kassa.taxi/privacy">политикой конфиденциальности</a> и принимаю условия <a href="https://kassa.taxi/agreement">лицензионного соглашения</a>.</string>
     <string name="login_btn">Войти</string>
-    <string name="login_agreement_title">Подтверждаю свое согласие на обработкуи хранение моих персональных данныхв соответствии с пользовательским соглашением</string>
+    <string name="login_agreement_title">Подтверждаю свое согласие на обработку и хранение моих персональных данныхв соответствии с пользовательским соглашением</string>
     <string name="accept_conditions_error">необходимо принять условия работы</string>
     <string name="input_field_error">заполните поле</string>
     <string name="wrong_format_error">неправильный формат</string>
     <string name="intro_message">Удобные выплаты для водителей с баланса агрегаторов такси на личный счет</string>
     <string name="registration">Регистрация</string>
     <string name="input_phone_number">Введите номер телефона</string>
+    <string name="input_code">Введите код из СМС</string>
     <string name="continue_hint">Далее</string>
     <string name="register_application">Заявка на подключение</string>
     <string name="register_application_success">Заявка на подключение отправлена!</string>
@@ -23,4 +24,14 @@
         <item>Test 2</item>
         <item>Test 3</item>
     </string-array>
+
+    <!--    Profile-->
+    <string name="exit">Выход</string>
+    <string name="balance">Баланс</string>
+    <string name="orders">Заказы</string>
+    <string name="withdrawal_applications">Заявки на вывод</string>
+    <string name="accounts_and_cards">Счета и карты</string>
+    <string name="support_service">Служба поддержки</string>
+    <!--    Balance-->
+    <string name="all_partners_sum">Общая сумма по всем партнерам</string>
 </resources>

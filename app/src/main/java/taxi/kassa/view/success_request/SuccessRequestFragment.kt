@@ -25,6 +25,11 @@ class SuccessRequestFragment : Fragment() {
         ok_button.setOnClickListener { closeFragment() }
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        closeFragment()
+    }
+
     private fun closeFragment() {
         val navOption = NavOptions.Builder().setPopUpTo(R.id.introFragment, true).build()
         Navigation.findNavController(requireView()).navigate(R.id.introFragment, null, navOption)

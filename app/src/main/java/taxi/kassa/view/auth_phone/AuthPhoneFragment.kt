@@ -8,13 +8,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.Navigation
 import kotlinx.android.synthetic.main.fragment_auth_phone.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.util.Constants.PHONE
 import taxi.kassa.util.PreferenceManager
-import taxi.kassa.util.shortToast
+import taxi.kassa.util.hideKeyboard
 import taxi.kassa.util.showError
 
 class AuthPhoneFragment : Fragment() {
@@ -35,7 +36,7 @@ class AuthPhoneFragment : Fragment() {
         loginIsReady = true
 
         viewModel.error.observe(viewLifecycleOwner, Observer {
-            tv_error.text = it
+            showError(context, tv_error, it, 5000, 0)
         })
 
         login_checkbox.setOnCheckedChangeListener { _, isChecked ->
@@ -91,8 +92,13 @@ class AuthPhoneFragment : Fragment() {
             viewModel.login(phone)
         }
 
-        viewModel.isLoggedIn.observe(viewLifecycleOwner, Observer {
-            requireActivity().shortToast(if (it == true) "Success" else "Not success")
+        viewModel.isLoggedIn.observe(viewLifecycleOwner, Observer { loggedIn ->
+            if (loggedIn) Navigation.findNavController(view).navigate(R.id.authCodeFragment)
         })
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        hideKeyboard(requireView())
     }
 }

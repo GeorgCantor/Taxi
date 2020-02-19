@@ -2,9 +2,7 @@ package taxi.kassa.repository
 
 import io.reactivex.Observable
 import taxi.kassa.model.remote.ApiService
-import taxi.kassa.model.responses.ResponseAPI
-import taxi.kassa.model.responses.ResponseAuthSendPhone
-import taxi.kassa.model.responses.ResponseCreateRequest
+import taxi.kassa.model.responses.*
 
 class ApiRepository(private val apiService: ApiService) {
 
@@ -16,4 +14,11 @@ class ApiRepository(private val apiService: ApiService) {
         source_id: Int,
         key: String
     ): Observable<ResponseAPI<ResponseCreateRequest?>?>? = apiService.createRequest(name, phone, source_id, key)
+
+    fun getCode(
+        phone: String,
+        code: String
+    ): Observable<ResponseAPI<ResponseAuthSendCode?>?>? = apiService.getCode(phone, code)
+
+    fun getOwner(): Observable<ResponseAPI<ResponseOwner?>?>? = apiService.getOwner()
 }
