@@ -7,32 +7,96 @@
     <fragment
         android:id="@+id/introFragment"
         android:name="taxi.kassa.view.intro.IntroFragment"
-        android:label="IntroFragment" />
+        android:label="IntroFragment">
+        <action
+            android:id="@+id/action_introFragment_to_authPhoneFragment"
+            app:destination="@id/authPhoneFragment"
+            app:enterAnim="@animator/slide_in_right"
+            app:exitAnim="@animator/slide_out_left"
+            app:popEnterAnim="@animator/slide_in_left"
+            app:popExitAnim="@animator/slide_out_right" />
+        <action
+            android:id="@+id/action_introFragment_to_authSignUpFragment"
+            app:destination="@id/authSignUpFragment"
+            app:enterAnim="@animator/slide_in_right"
+            app:exitAnim="@animator/slide_out_left"
+            app:popEnterAnim="@animator/slide_in_left"
+            app:popExitAnim="@animator/slide_out_right" />
+    </fragment>
 
     <fragment
         android:id="@+id/authPhoneFragment"
         android:name="taxi.kassa.view.auth_phone.AuthPhoneFragment"
-        android:label="AuthPhoneFragment" />
+        android:label="AuthPhoneFragment">
+        <action
+            android:id="@+id/action_authPhoneFragment_to_authCodeFragment"
+            app:destination="@id/authCodeFragment"
+            app:enterAnim="@animator/slide_in_right"
+            app:exitAnim="@animator/slide_out_left"
+            app:popEnterAnim="@animator/slide_in_left"
+            app:popExitAnim="@animator/slide_out_right" />
+    </fragment>
 
     <fragment
         android:id="@+id/authSignUpFragment"
         android:name="taxi.kassa.view.auth_sign_up.AuthSignUpFragment"
-        android:label="AuthSignUpFragment" />
+        android:label="AuthSignUpFragment">
+        <action
+            android:id="@+id/action_authSignUpFragment_to_successRequestFragment"
+            app:destination="@id/successRequestFragment"
+            app:enterAnim="@animator/slide_in_right"
+            app:exitAnim="@animator/slide_out_left"
+            app:popEnterAnim="@animator/slide_in_left"
+            app:popExitAnim="@animator/slide_out_right" />
+    </fragment>
 
     <fragment
         android:id="@+id/successRequestFragment"
         android:name="taxi.kassa.view.success_request.SuccessRequestFragment"
-        android:label="SuccessRequestFragment" />
+        android:label="SuccessRequestFragment">
+        <action
+            android:id="@+id/action_successRequestFragment_to_introFragment"
+            app:destination="@id/introFragment"
+            app:enterAnim="@animator/slide_in_right"
+            app:exitAnim="@animator/slide_out_left"
+            app:popEnterAnim="@animator/slide_in_left"
+            app:popExitAnim="@animator/slide_out_right"
+            app:popUpTo="@id/introFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/authCodeFragment"
         android:name="taxi.kassa.view.auth_code.AuthCodeFragment"
-        android:label="AuthCodeFragment" />
+        android:label="AuthCodeFragment">
+        <action
+            android:id="@+id/action_authCodeFragment_to_profileFragment"
+            app:destination="@id/profileFragment"
+            app:enterAnim="@animator/slide_in_right"
+            app:exitAnim="@animator/slide_out_left"
+            app:popEnterAnim="@animator/slide_in_left"
+            app:popExitAnim="@animator/slide_out_right" />
+    </fragment>
 
     <fragment
         android:id="@+id/profileFragment"
         android:name="taxi.kassa.view.profile.ProfileFragment"
-        android:label="ProfileFragment" />
+        android:label="ProfileFragment">
+        <action
+            android:id="@+id/action_profileFragment_to_balanceFragment"
+            app:destination="@id/balanceFragment"
+            app:enterAnim="@animator/slide_in_right"
+            app:exitAnim="@animator/slide_out_left"
+            app:popEnterAnim="@animator/slide_in_left"
+            app:popExitAnim="@animator/slide_out_right" />
+        <action
+            android:id="@+id/action_profileFragment_to_introFragment"
+            app:destination="@id/introFragment"
+            app:enterAnim="@animator/slide_in_right"
+            app:exitAnim="@animator/slide_out_left"
+            app:popEnterAnim="@animator/slide_in_left"
+            app:popExitAnim="@animator/slide_out_right"
+            app:popUpTo="@id/introFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/balanceFragment"

@@ -99,7 +99,7 @@ class AuthSignUpFragment : Fragment() {
         }
 
         viewModel.isSignUp.observe(viewLifecycleOwner, Observer { success ->
-            if (success) Navigation.findNavController(view).navigate(R.id.successRequestFragment)
+            if (success) Navigation.findNavController(view).navigate(R.id.action_authSignUpFragment_to_successRequestFragment)
         })
     }
 }
