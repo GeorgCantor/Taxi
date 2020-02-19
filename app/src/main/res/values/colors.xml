@@ -19,4 +19,9 @@
     <color name="gray_profile">#787A86</color>
     <color name="gray_light_profile">#D9DFE1</color>
     <color name="checkbox_color">#E0C7B0</color>
+
+    <color name="balance_gradient_light">#1D1D23</color>
+    <color name="balance_gradient_dark">#16161E</color>
+    <color name="balance_green">#1F924D</color>
+    <color name="balance_red">#BD3139</color>
 </resources>

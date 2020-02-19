@@ -50,7 +50,7 @@ class ProfileFragment : Fragment() {
             response?.let {
                 name_tv.text = it.fullName
                 number_tv.text = "+${PhoneNumberUtils.formatNumber(it.phone, Locale.getDefault().country)}"
-                balance_tv.text = "${it.balanceTotal} \u20BD"
+                balance_tv.text = getString(R.string.balance_format, it.balanceTotal)
             }
         })
 

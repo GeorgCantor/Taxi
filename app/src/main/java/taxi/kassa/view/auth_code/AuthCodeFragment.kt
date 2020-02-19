@@ -18,11 +18,13 @@ import taxi.kassa.util.Constants.PHONE
 import taxi.kassa.util.Constants.TOKEN
 import taxi.kassa.util.Constants.accessToken
 import taxi.kassa.util.PreferenceManager
+import taxi.kassa.util.hideKeyboard
 import taxi.kassa.util.showError
 
 class AuthCodeFragment : Fragment() {
 
     private lateinit var viewModel: AuthCodeViewModel
+    private var phone = ""
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,7 +37,7 @@ class AuthCodeFragment : Fragment() {
         addChangingRequestFocus()
 
         val prefManager = PreferenceManager(requireActivity())
-        val phone = prefManager.getString(PHONE)
+        phone = prefManager.getString(PHONE) ?: ""
 
         viewModel = getViewModel { parametersOf() }
 
@@ -53,13 +55,25 @@ class AuthCodeFragment : Fragment() {
         })
 
         login_button.setOnClickListener {
-            val code = "${input1.text}${input2.text}${input3.text}${input4.text}"
-            if (code.isEmpty()) {
-                showError(context, error_tv, getString(R.string.input_code), 5000, 0)
-                return@setOnClickListener
-            }
-            viewModel.login(phone ?: "", code)
+            login()
         }
+
+        input4.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(p0: Editable?) {
+                login()
+            }
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+        })
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        hideKeyboard(requireView())
     }
 
     private fun addChangingRequestFocus() {
@@ -86,5 +100,14 @@ class AuthCodeFragment : Fragment() {
                 if (code.isNotEmpty()) second.requestFocus()
             }
         })
+    }
+
+    private fun login() {
+        val code = "${input1.text}${input2.text}${input3.text}${input4.text}"
+        if (code.isEmpty()) {
+            showError(context, error_tv, getString(R.string.input_code), 5000, 0)
+            return
+        }
+        viewModel.login(phone, code)
     }
 }
