@@ -49,7 +49,10 @@ class ProfileFragment : Fragment() {
         viewModel.responseOwner.observe(viewLifecycleOwner, Observer { response ->
             response?.let {
                 name_tv.text = it.fullName
-                number_tv.text = "+${PhoneNumberUtils.formatNumber(it.phone, Locale.getDefault().country)}"
+                number_tv.text = getString(
+                    R.string.profile_format,
+                    PhoneNumberUtils.formatNumber(it.phone, Locale.getDefault().country)
+                )
                 balance_tv.text = getString(R.string.balance_format, it.balanceTotal)
             }
         })

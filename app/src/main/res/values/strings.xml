@@ -1,4 +1,5 @@
 <resources>
+
     <string name="app_name">Fast Kassa</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -19,11 +20,6 @@
     <string name="register_application_success">Заявка на подключение отправлена!</string>
     <string name="application_success_message">В ближайшее время наш менеджер связется с вами по телефону</string>
     <string name="ok">Хорошо</string>
-    <string-array name="spinner_test">
-        <item>Test 1</item>
-        <item>Test 2</item>
-        <item>Test 3</item>
-    </string-array>
 
     <!--    Profile-->
     <string name="exit">Выход</string>
@@ -32,11 +28,16 @@
     <string name="withdrawal_applications">Заявки на вывод</string>
     <string name="accounts_and_cards">Счета и карты</string>
     <string name="support_service">Служба поддержки</string>
+    <string name="profile_format">+%s</string>
     <!--    Balance-->
     <string name="all_partners_sum">Общая сумма по всем партнерам</string>
     <string name="yandex_title">Яндекс Такси</string>
     <string name="citymobil_title">Ситимобил</string>
     <string name="gett_title">Gett taxi</string>
+    <string name="gazprom_title">Газпром-нефть</string>
     <string name="withdraw">Вывести</string>
+    <string name="replenish">Пополнить</string>
     <string name="balance_format">%s ₽</string>
+    <string name="fuel_title">Топливо</string>
+
 </resources>
