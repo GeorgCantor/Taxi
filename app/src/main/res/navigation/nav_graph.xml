@@ -88,14 +88,6 @@
             app:exitAnim="@animator/slide_out_left"
             app:popEnterAnim="@animator/slide_in_left"
             app:popExitAnim="@animator/slide_out_right" />
-        <action
-            android:id="@+id/action_profileFragment_to_introFragment"
-            app:destination="@id/introFragment"
-            app:enterAnim="@animator/slide_in_right"
-            app:exitAnim="@animator/slide_out_left"
-            app:popEnterAnim="@animator/slide_in_left"
-            app:popExitAnim="@animator/slide_out_right"
-            app:popUpTo="@id/introFragment" />
     </fragment>
 
     <fragment

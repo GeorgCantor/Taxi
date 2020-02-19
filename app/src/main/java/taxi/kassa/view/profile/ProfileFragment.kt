@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.NavOptions
 import androidx.navigation.Navigation
 import kotlinx.android.synthetic.main.fragment_profile.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
@@ -76,6 +77,7 @@ class ProfileFragment : Fragment() {
         prefManager.saveString(PHONE, "")
         prefManager.saveString(TOKEN, "")
 
-        Navigation.findNavController(requireView()).navigate(R.id.action_profileFragment_to_introFragment)
+        val navOption = NavOptions.Builder().setPopUpTo(R.id.introFragment, true).build()
+        Navigation.findNavController(requireView()).navigate(R.id.introFragment, null, navOption)
     }
 }

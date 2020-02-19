@@ -51,7 +51,10 @@ class AuthCodeFragment : Fragment() {
         })
 
         viewModel.isLoggedIn.observe(viewLifecycleOwner, Observer { loggedIn ->
-            if (loggedIn) Navigation.findNavController(view).navigate(R.id.action_authCodeFragment_to_profileFragment)
+            try {
+                if (loggedIn) Navigation.findNavController(view).navigate(R.id.action_authCodeFragment_to_profileFragment)
+            } catch (e: IllegalArgumentException) {
+            }
         })
 
         login_button.setOnClickListener {
