@@ -34,4 +34,9 @@
         android:name="taxi.kassa.view.profile.ProfileFragment"
         android:label="ProfileFragment" />
 
+    <fragment
+        android:id="@+id/balanceFragment"
+        android:name="taxi.kassa.view.balance.BalanceFragment"
+        android:label="BalanceFragment" />
+
 </navigation>

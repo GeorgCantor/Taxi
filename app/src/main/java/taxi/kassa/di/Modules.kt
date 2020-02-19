@@ -7,6 +7,7 @@ import taxi.kassa.repository.ApiRepository
 import taxi.kassa.view.auth_code.AuthCodeViewModel
 import taxi.kassa.view.auth_phone.AuthPhoneViewModel
 import taxi.kassa.view.auth_sign_up.AuthSignUpViewModel
+import taxi.kassa.view.balance.BalanceViewModel
 import taxi.kassa.view.profile.ProfileViewModel
 
 val repositoryModule = module {
@@ -25,6 +26,9 @@ val viewModelModule = module {
     }
     viewModel {
         ProfileViewModel(get())
+    }
+    viewModel {
+        BalanceViewModel(get())
     }
 }
 

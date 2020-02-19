@@ -54,6 +54,10 @@ class ProfileFragment : Fragment() {
             }
         })
 
+        balance_view.setOnClickListener {
+            Navigation.findNavController(requireView()).navigate(R.id.balanceFragment)
+        }
+
         exit_tv.setOnClickListener {
             logout()
         }
