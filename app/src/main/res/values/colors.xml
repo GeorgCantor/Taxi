@@ -25,4 +25,7 @@
     <color name="balance_green">#1F924D</color>
     <color name="balance_red">#BD3139</color>
     <color name="balance_fuel_gray">#C1BFBC</color>
+
+    <color name="withdraws_gray">#949599</color>
+    <color name="withdraws_yellow">#D3A956</color>
 </resources>

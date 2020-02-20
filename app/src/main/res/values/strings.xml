@@ -39,5 +39,7 @@
     <string name="replenish">Пополнить</string>
     <string name="balance_format">%s ₽</string>
     <string name="fuel_title">Топливо</string>
+    <!--    Withdraws-->
+    <string name="withdraws_title">Заявки на вывод</string>
 
 </resources>
