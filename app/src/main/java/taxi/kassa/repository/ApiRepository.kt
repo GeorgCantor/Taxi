@@ -21,4 +21,6 @@ class ApiRepository(private val apiService: ApiService) {
     ): Observable<ResponseAPI<ResponseAuthSendCode?>?>? = apiService.getCode(phone, code)
 
     fun getOwner(): Observable<ResponseAPI<ResponseOwner?>?>? = apiService.getOwner()
+
+    fun getWithdraws(): Observable<ResponseAPI<Withdraws?>?>? = apiService.getWithdraws()
 }

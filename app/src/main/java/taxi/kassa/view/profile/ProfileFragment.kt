@@ -66,6 +66,11 @@ class ProfileFragment : Fragment() {
                 .navigate(R.id.action_profileFragment_to_balanceFragment)
         }
 
+        withdrawal_applications_view.setOnClickListener {
+            Navigation.findNavController(requireView())
+                .navigate(R.id.action_profileFragment_to_withdrawsFragment)
+        }
+
         exit_tv.setOnClickListener {
             logout()
         }

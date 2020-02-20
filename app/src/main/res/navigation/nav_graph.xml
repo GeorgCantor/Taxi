@@ -88,11 +88,23 @@
             app:exitAnim="@animator/slide_out_left"
             app:popEnterAnim="@animator/slide_in_left"
             app:popExitAnim="@animator/slide_out_right" />
+        <action
+            android:id="@+id/action_profileFragment_to_withdrawsFragment"
+            app:destination="@id/withdrawsFragment"
+            app:enterAnim="@animator/slide_in_right"
+            app:exitAnim="@animator/slide_out_left"
+            app:popEnterAnim="@animator/slide_in_left"
+            app:popExitAnim="@animator/slide_out_right" />
     </fragment>
 
     <fragment
         android:id="@+id/balanceFragment"
         android:name="taxi.kassa.view.balance.BalanceFragment"
         android:label="BalanceFragment" />
+
+    <fragment
+        android:id="@+id/withdrawsFragment"
+        android:name="taxi.kassa.view.withdraws.WithdrawsFragment"
+        android:label="WithdrawsFragment" />
 
 </navigation>

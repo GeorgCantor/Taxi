@@ -32,7 +32,7 @@ public class Withdraw {
     public String getDate() {
         long dv = (long) this.date * 1000;
         Date df = new java.util.Date(dv);
-        SimpleDateFormat dd = new SimpleDateFormat("dd.MM.yy в HH:mm");
+        SimpleDateFormat dd = new SimpleDateFormat("HH:mm");
         return dd.format(df);
     }
 
@@ -41,9 +41,9 @@ public class Withdraw {
         String result = "";
 
         if (id == 0) result = "Новая";
-        else if (id == 1) result = "В обработке";
-        else if (id == 2) result = "Выполнено";
-        else if (id == -1) result = "Отказано";
+        else if (id == 1) result = "Одобрено";
+        else if (id == 2) result = "Списано";
+        else if (id == -1) result = "Оменено";
 
         return result;
     }
