@@ -1,7 +1,9 @@
 package taxi.kassa.model.responses;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.TimeZone;
 
 public class Withdraw {
 
@@ -29,11 +31,24 @@ public class Withdraw {
         return this.amount;
     }
 
-    public String getDate() {
+    public String getHours() {
         long dv = (long) this.date * 1000;
         Date df = new java.util.Date(dv);
         SimpleDateFormat dd = new SimpleDateFormat("HH:mm");
+
         return dd.format(df);
+    }
+
+    public String getDate() {
+        long dv = (long) this.date * 1000;
+        Date df = new java.util.Date(dv);
+        SimpleDateFormat dd = new SimpleDateFormat("dd.MM.yy");
+
+        return dd.format(df);
+    }
+
+    public Integer getIntDate() {
+        return date;
     }
 
     public String getStatus() {
@@ -48,4 +63,12 @@ public class Withdraw {
         return result;
     }
 
+    public Integer getDay() {
+        long dv = (long) this.date * 1000;
+        Date df = new java.util.Date(dv);
+        Calendar cal = Calendar.getInstance(TimeZone.getDefault());
+        cal.setTime(df);
+
+        return cal.get(Calendar.DAY_OF_MONTH);
+    }
 }
