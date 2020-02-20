@@ -17,6 +17,7 @@ import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.util.Constants.PHONE
 import taxi.kassa.util.Constants.TOKEN
+import taxi.kassa.util.Constants.accessToken
 import taxi.kassa.util.PreferenceManager
 import taxi.kassa.util.shortToast
 import java.util.*
@@ -24,11 +25,14 @@ import java.util.*
 class ProfileFragment : Fragment() {
 
     private lateinit var viewModel: ProfileViewModel
+    private lateinit var prefManager: PreferenceManager
     private var logoutPressed = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel = getViewModel { parametersOf() }
+        prefManager = PreferenceManager(requireActivity())
+        accessToken = prefManager.getString(TOKEN) ?: ""
     }
 
     override fun onCreateView(
@@ -58,7 +62,8 @@ class ProfileFragment : Fragment() {
         })
 
         balance_view.setOnClickListener {
-            Navigation.findNavController(requireView()).navigate(R.id.action_profileFragment_to_balanceFragment)
+            Navigation.findNavController(requireView())
+                .navigate(R.id.action_profileFragment_to_balanceFragment)
         }
 
         exit_tv.setOnClickListener {
@@ -73,7 +78,6 @@ class ProfileFragment : Fragment() {
 
     private fun logout() {
         logoutPressed = true
-        val prefManager = PreferenceManager(requireActivity())
         prefManager.saveString(PHONE, "")
         prefManager.saveString(TOKEN, "")
 

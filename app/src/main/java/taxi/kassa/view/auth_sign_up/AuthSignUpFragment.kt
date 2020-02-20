@@ -99,7 +99,10 @@ class AuthSignUpFragment : Fragment() {
         }
 
         viewModel.isSignUp.observe(viewLifecycleOwner, Observer { success ->
-            if (success) Navigation.findNavController(view).navigate(R.id.action_authSignUpFragment_to_successRequestFragment)
+            try {
+                if (success) Navigation.findNavController(view).navigate(R.id.action_authSignUpFragment_to_successRequestFragment)
+            } catch (e: IllegalArgumentException) {
+            }
         })
     }
 }
