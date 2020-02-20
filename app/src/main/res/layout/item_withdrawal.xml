@@ -37,21 +37,21 @@
         android:layout_width="16dp"
         android:layout_height="16dp"
         android:layout_margin="10dp"
+        android:src="@drawable/ic_yandex"
         app:layout_constraintStart_toStartOf="@+id/background"
-        app:layout_constraintTop_toTopOf="@+id/background"
-        tools:src="@drawable/ic_yandex" />
+        app:layout_constraintTop_toTopOf="@+id/background" />
 
     <TextView
         android:id="@+id/taxi_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
+        android:text="@string/yandex_title"
         android:textColor="@color/withdraws_gray"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/taxi_icon"
         app:layout_constraintStart_toEndOf="@+id/taxi_icon"
-        app:layout_constraintTop_toTopOf="@+id/taxi_icon"
-        tools:text="@string/yandex_title" />
+        app:layout_constraintTop_toTopOf="@+id/taxi_icon" />
 
     <TextView
         android:id="@+id/amount_tv"

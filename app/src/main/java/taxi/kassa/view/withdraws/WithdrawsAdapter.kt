@@ -11,12 +11,12 @@ import kotlinx.android.synthetic.main.item_withdrawal.view.*
 import taxi.kassa.R
 import taxi.kassa.model.responses.Withdraw
 
-class WithdrawsAdapter(withdraws: MutableList<Withdraw>) :
-    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class WithdrawsAdapter(withdraws: MutableList<Withdraw>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     companion object {
         private const val TYPE_ITEM = 0
         private const val TYPE_DATE = 1
+        private const val DATE_ITEM_ID = "777"
     }
 
     private val withdraws = mutableListOf<Withdraw>()
@@ -27,7 +27,7 @@ class WithdrawsAdapter(withdraws: MutableList<Withdraw>) :
         try {
             for (i in 0..this.withdraws.size) {
                 if (this.withdraws[i].date != this.withdraws[i + 1].date) {
-                    dates.add(Withdraw("777", "0", this.withdraws[i].intDate, 0))
+                    dates.add(Withdraw(DATE_ITEM_ID, "0", this.withdraws[i].intDate, 0))
                 }
             }
         } catch (e: IndexOutOfBoundsException) {
@@ -90,17 +90,11 @@ class WithdrawsAdapter(withdraws: MutableList<Withdraw>) :
     }
 
     override fun getItemViewType(position: Int): Int {
-        var type = TYPE_ITEM
-        try {
-            type = if (withdraws[position].source_id == "777") {
-                TYPE_DATE
-            } else {
-                TYPE_ITEM
-            }
-        } catch (e: ArrayIndexOutOfBoundsException) {
+        return if (withdraws[position].source_id == DATE_ITEM_ID) {
+            TYPE_DATE
+        } else {
+            TYPE_ITEM
         }
-
-        return type
     }
 
     class WithdrawsViewHolder(view: View) : RecyclerView.ViewHolder(view) {

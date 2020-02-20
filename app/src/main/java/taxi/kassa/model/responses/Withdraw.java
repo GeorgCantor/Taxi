@@ -1,5 +1,6 @@
 package taxi.kassa.model.responses;
 
+import java.text.DateFormatSymbols;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -39,10 +40,19 @@ public class Withdraw {
         return dd.format(df);
     }
 
+    private static DateFormatSymbols myDateFormatSymbols = new DateFormatSymbols() {
+
+        @Override
+        public String[] getMonths() {
+            return new String[]{"янв", "фев", "мар", "апр", "мая", "июн",
+                    "июл", "авг", "сен", "окт", "нояб", "дек"};
+        }
+    };
+
     public String getDate() {
         long dv = (long) this.date * 1000;
         Date df = new java.util.Date(dv);
-        SimpleDateFormat dd = new SimpleDateFormat("dd.MM.yy");
+        SimpleDateFormat dd = new SimpleDateFormat("dd MMMM yyyy", myDateFormatSymbols);
 
         return dd.format(df);
     }
