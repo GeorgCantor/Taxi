@@ -1,5 +1,4 @@
 <resources>
-
     <string name="app_name">Fast Kassa</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -21,7 +20,6 @@
     <string name="application_success_message">В ближайшее время наш менеджер связется с вами по телефону</string>
     <string name="ok">Хорошо</string>
     <string name="back">Назад</string>
-
     <!--    Profile-->
     <string name="exit">Выход</string>
     <string name="balance">Баланс</string>
@@ -46,5 +44,10 @@
     <string name="withdrawal_title">Выводится</string>
     <string name="commission_title">Комиссия</string>
     <string name="with_commission">с учетом комиссии</string>
-
+    <!--    Accounts-->
+    <string name="accounts_title">Счета и карты</string>
+    <string name="daily_withdrawal">Ежедневный вывод</string>
+    <string name="instant_withdrawal">Моментальный вывод</string>
+    <string name="add_account">Добавить счет</string>
+    <string name="add_card">Добавить карту</string>
 </resources>

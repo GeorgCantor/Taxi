@@ -70,6 +70,10 @@ class ProfileFragment : Fragment() {
             findNavController(this).navigate(R.id.action_profileFragment_to_withdrawsFragment)
         }
 
+        accounts_and_cards_view.setOnClickListener {
+            findNavController(this).navigate(R.id.action_profileFragment_to_accountsFragment)
+        }
+
         exit_tv.setOnClickListener {
             logout()
         }
