@@ -5,7 +5,7 @@
     <color name="colorAccent">#424242</color>
     <color name="colorStatusBar">#ffffff</color>
     <color name="colorBalanceTop">#f8f8f8</color>
-    <color name="mainBackground">#ffffff</color>
+    <color name="mainBackground">#FFFFFF</color>
     <color name="blackText">#000000</color>
     <color name="grayText">#646464</color>
     <color name="lightGray">#ddd</color>
@@ -28,4 +28,7 @@
 
     <color name="withdraws_gray">#949599</color>
     <color name="withdraws_yellow">#D3A956</color>
+
+    <color name="accounts_dialog_background">#4D000000</color>
+    <color name="accounts_dialog_gray">#B2FFFFFF</color>
 </resources>
