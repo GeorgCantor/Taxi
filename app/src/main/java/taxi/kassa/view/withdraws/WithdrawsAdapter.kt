@@ -15,7 +15,10 @@ import taxi.kassa.util.Constants.CANCELED
 import taxi.kassa.util.Constants.NEW
 import taxi.kassa.util.Constants.WRITTEN_OFF
 
-class WithdrawsAdapter(withdraws: MutableList<Withdraw>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class WithdrawsAdapter(
+    withdraws: MutableList<Withdraw>,
+    private val clickListener: (Withdraw) -> Unit
+) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     companion object {
         private const val TYPE_ITEM = 0
@@ -30,14 +33,14 @@ class WithdrawsAdapter(withdraws: MutableList<Withdraw>) : RecyclerView.Adapter<
         val dates = mutableSetOf<Withdraw>()
         try {
             for (i in 0..this.withdraws.size) {
-                if (this.withdraws[i].date != this.withdraws[i + 1].date) {
-                    dates.add(Withdraw(DATE_ITEM_ID, "0", this.withdraws[i].intDate, 0))
+                if (this.withdraws[i].getDate() != this.withdraws[i + 1].getDate()) {
+                    dates.add(Withdraw(DATE_ITEM_ID, "0", this.withdraws[i].date, 0))
                 }
             }
         } catch (e: IndexOutOfBoundsException) {
         }
         this.withdraws.addAll(dates)
-        this.withdraws.sortBy { it.intDate }
+        this.withdraws.sortBy { it.date }
         this.withdraws.reverse()
     }
 
@@ -75,9 +78,9 @@ class WithdrawsAdapter(withdraws: MutableList<Withdraw>) : RecyclerView.Adapter<
 
         when (holder) {
             is WithdrawsViewHolder -> {
-                val status = withdraw.status
+                val status = withdraw.getStatus()
 
-                holder.time.text = withdraw.hours.toString()
+                holder.time.text = withdraw.hours
                 holder.amount.text = withdraw.amount
                 holder.status.text = status
 
@@ -87,9 +90,11 @@ class WithdrawsAdapter(withdraws: MutableList<Withdraw>) : RecyclerView.Adapter<
                     WRITTEN_OFF -> holder.statusImage.setImageResource(R.drawable.ic_green_circle)
                     CANCELED -> holder.statusImage.setImageResource(R.drawable.ic_red_circle)
                 }
+
+                holder.itemView.setOnClickListener { clickListener(withdraw) }
             }
             is DateViewHolder -> {
-                holder.date.text = withdraw.date
+                holder.date.text = withdraw.getDate()
             }
         }
     }
