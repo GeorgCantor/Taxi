@@ -8,10 +8,11 @@ import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_withdraw.*
 import taxi.kassa.R
 import taxi.kassa.model.responses.Withdraw
+import taxi.kassa.util.Constants.WITHDRAWAL
 
 class WithdrawFragment : Fragment() {
 
-    private val withdraw: Withdraw by lazy { arguments?.get("withdrawal") as Withdraw }
+    private val withdraw: Withdraw by lazy { arguments?.get(WITHDRAWAL) as Withdraw }
 
     override fun onCreateView(
         inflater: LayoutInflater,
