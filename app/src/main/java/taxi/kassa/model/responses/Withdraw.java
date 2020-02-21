@@ -2,9 +2,12 @@ package taxi.kassa.model.responses;
 
 import java.text.DateFormatSymbols;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.TimeZone;
+
+import static taxi.kassa.util.Constants.APPROVED;
+import static taxi.kassa.util.Constants.CANCELED;
+import static taxi.kassa.util.Constants.NEW;
+import static taxi.kassa.util.Constants.WRITTEN_OFF;
 
 public class Withdraw {
 
@@ -65,20 +68,11 @@ public class Withdraw {
         int id = this.status;
         String result = "";
 
-        if (id == 0) result = "Новая";
-        else if (id == 1) result = "Одобрено";
-        else if (id == 2) result = "Списано";
-        else if (id == -1) result = "Оменено";
+        if (id == 0) result = NEW;
+        else if (id == 1) result = APPROVED;
+        else if (id == 2) result = WRITTEN_OFF;
+        else if (id == -1) result = CANCELED;
 
         return result;
-    }
-
-    public Integer getDay() {
-        long dv = (long) this.date * 1000;
-        Date df = new java.util.Date(dv);
-        Calendar cal = Calendar.getInstance(TimeZone.getDefault());
-        cal.setTime(df);
-
-        return cal.get(Calendar.DAY_OF_MONTH);
     }
 }

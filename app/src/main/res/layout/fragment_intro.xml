@@ -68,7 +68,7 @@
         android:background="@drawable/bg_registration_btn"
         android:text="@string/registration"
         android:textAllCaps="false"
-        android:textColor="@color/gray_code_text"
+        android:textColor="@color/white_code_text"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

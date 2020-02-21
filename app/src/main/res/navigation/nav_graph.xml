@@ -105,6 +105,19 @@
     <fragment
         android:id="@+id/withdrawsFragment"
         android:name="taxi.kassa.view.withdraws.WithdrawsFragment"
-        android:label="WithdrawsFragment" />
+        android:label="WithdrawsFragment">
+        <action
+            android:id="@+id/action_withdrawsFragment_to_withdrawFragment"
+            app:destination="@id/withdrawFragment"
+            app:enterAnim="@animator/slide_in_right"
+            app:exitAnim="@animator/slide_out_left"
+            app:popEnterAnim="@animator/slide_in_left"
+            app:popExitAnim="@animator/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/withdrawFragment"
+        android:name="taxi.kassa.view.withdraw.WithdrawFragment"
+        android:label="WithdrawFragment" />
 
 </navigation>

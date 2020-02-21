@@ -10,6 +10,10 @@ import kotlinx.android.synthetic.main.item_whithdraw_date.view.*
 import kotlinx.android.synthetic.main.item_withdrawal.view.*
 import taxi.kassa.R
 import taxi.kassa.model.responses.Withdraw
+import taxi.kassa.util.Constants.APPROVED
+import taxi.kassa.util.Constants.CANCELED
+import taxi.kassa.util.Constants.NEW
+import taxi.kassa.util.Constants.WRITTEN_OFF
 
 class WithdrawsAdapter(withdraws: MutableList<Withdraw>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -78,9 +82,10 @@ class WithdrawsAdapter(withdraws: MutableList<Withdraw>) : RecyclerView.Adapter<
                 holder.status.text = status
 
                 when (status) {
-                    "Одобрено" -> holder.statusImage.setImageResource(R.drawable.ic_yellow_circle)
-                    "Списано" -> holder.statusImage.setImageResource(R.drawable.ic_green_circle)
-                    "Оменено" -> holder.statusImage.setImageResource(R.drawable.ic_red_circle)
+                    NEW -> holder.statusImage.setImageResource(R.drawable.ic_yellow_circle)
+                    APPROVED -> holder.statusImage.setImageResource(R.drawable.ic_yellow_circle)
+                    WRITTEN_OFF -> holder.statusImage.setImageResource(R.drawable.ic_green_circle)
+                    CANCELED -> holder.statusImage.setImageResource(R.drawable.ic_red_circle)
                 }
             }
             is DateViewHolder -> {

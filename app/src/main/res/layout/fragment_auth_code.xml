@@ -42,7 +42,7 @@
             android:maxLines="1"
             android:orientation="horizontal"
             android:singleLine="true"
-            android:textColor="@color/gray_code_text"
+            android:textColor="@color/white_code_text"
             android:textSize="34sp"
             android:textStyle="bold"
             app:backgroundTint="@color/gray_application_text"
@@ -60,7 +60,7 @@
             android:maxLines="1"
             android:orientation="horizontal"
             android:singleLine="true"
-            android:textColor="@color/gray_code_text"
+            android:textColor="@color/white_code_text"
             android:textSize="34sp"
             android:textStyle="bold"
             app:backgroundTint="@color/gray_application_text" />
@@ -77,7 +77,7 @@
             android:maxLines="1"
             android:orientation="horizontal"
             android:singleLine="true"
-            android:textColor="@color/gray_code_text"
+            android:textColor="@color/white_code_text"
             android:textSize="34sp"
             android:textStyle="bold"
             app:backgroundTint="@color/gray_application_text" />
@@ -94,7 +94,7 @@
             android:maxLines="1"
             android:orientation="horizontal"
             android:singleLine="true"
-            android:textColor="@color/gray_code_text"
+            android:textColor="@color/white_code_text"
             android:textSize="34sp"
             android:textStyle="bold"
             app:backgroundTint="@color/gray_application_text" />

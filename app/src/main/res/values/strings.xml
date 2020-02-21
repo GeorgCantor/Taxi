@@ -20,6 +20,7 @@
     <string name="register_application_success">Заявка на подключение отправлена!</string>
     <string name="application_success_message">В ближайшее время наш менеджер связется с вами по телефону</string>
     <string name="ok">Хорошо</string>
+    <string name="back">Назад</string>
 
     <!--    Profile-->
     <string name="exit">Выход</string>
@@ -41,5 +42,9 @@
     <string name="fuel_title">Топливо</string>
     <!--    Withdraws-->
     <string name="withdraws_title">Заявки на вывод</string>
+    <string name="withdraw_title">Заявка на вывод</string>
+    <string name="withdrawal_title">Выводится</string>
+    <string name="commission_title">Комиссия</string>
+    <string name="with_commission">с учетом комиссии</string>
 
 </resources>
