@@ -31,14 +31,17 @@ class WithdrawsAdapter(
     init {
         this.withdraws.addAll(withdraws)
         val dates = mutableSetOf<Withdraw>()
-        try {
-            for (i in 0..this.withdraws.size) {
-                if (this.withdraws[i].getDate() != this.withdraws[i + 1].getDate()) {
-                    dates.add(Withdraw(DATE_ITEM_ID, "0", this.withdraws[i].date, 0))
-                }
+
+        var lastDate = this.withdraws[0].getDate()
+        dates.add(Withdraw(DATE_ITEM_ID, "0", this.withdraws[0].date, 0))
+
+        this.withdraws.map {
+            if (it.getDate() != lastDate) {
+                dates.add(Withdraw(DATE_ITEM_ID, "0", it.date, 0))
+                lastDate = it.getDate()
             }
-        } catch (e: IndexOutOfBoundsException) {
         }
+
         this.withdraws.addAll(dates)
         this.withdraws.sortBy { it.date }
         this.withdraws.reverse()
