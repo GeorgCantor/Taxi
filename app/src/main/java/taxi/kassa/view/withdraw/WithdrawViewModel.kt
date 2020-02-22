@@ -1,27 +1,25 @@
-package taxi.kassa.view.withdraws
+package taxi.kassa.view.withdraw
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import io.reactivex.Observable
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
-import taxi.kassa.model.responses.Withdraws
+import taxi.kassa.model.responses.AccountsList
 import taxi.kassa.repository.ApiRepository
 
-class WithdrawsViewModel(private val repository: ApiRepository) : ViewModel() {
+class WithdrawViewModel(private val repository: ApiRepository) : ViewModel() {
 
     private lateinit var disposable: Disposable
 
-    val progressIsVisible = MutableLiveData<Boolean>().apply { this.value = true }
-    val withdraws = MutableLiveData<Withdraws>()
+    val accounts = MutableLiveData<AccountsList>()
     val error = MutableLiveData<String>()
 
-    fun getWithdraws() {
+    fun getAccounts() {
         disposable = Observable.fromCallable {
-            repository.getWithdraws()
-                ?.doFinally { progressIsVisible.postValue(false) }
+            repository.getAccounts()
                 ?.subscribe({
-                    withdraws.postValue(it?.response)
+                    accounts.postValue(it?.response)
                     error.postValue(it?.errorMsg)
                 }, {
                 })

@@ -9,6 +9,7 @@
     <color name="blackText">#000000</color>
     <color name="grayText">#646464</color>
     <color name="lightGray">#ddd</color>
+    <color name="buttons_dark_background">#14141A</color>
 
     <color name="gray_intro_text">#CAD0D2</color>
     <color name="login_background">#101017</color>

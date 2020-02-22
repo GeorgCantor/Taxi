@@ -7,11 +7,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
+import androidx.core.content.ContextCompat.getColor
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.NavOptions
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment.findNavController
+import kotlinx.android.synthetic.main.fragment_intro.*
 import kotlinx.android.synthetic.main.fragment_profile.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
@@ -47,6 +49,10 @@ class ProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getUserInfo()
 
+        viewModel.progressIsVisible.observe(viewLifecycleOwner, Observer { visible ->
+            progress_bar.visibility = if (visible) View.VISIBLE else View.GONE
+        })
+
         viewModel.error.observe(viewLifecycleOwner, Observer {
             activity?.shortToast(it)
         })
@@ -81,7 +87,11 @@ class ProfileFragment : Fragment() {
 
     override fun onDetach() {
         super.onDetach()
-        if (!logoutPressed) activity?.finish()
+        if (!logoutPressed) {
+            requireActivity().root_layout?.setBackgroundColor(getColor(requireContext(), R.color.login_background))
+            requireActivity().intro_layout?.visibility = View.GONE
+            activity?.finish()
+        }
     }
 
     private fun logout() {
