@@ -140,7 +140,7 @@
         android:layout_width="18dp"
         android:layout_height="18dp"
         android:layout_margin="16dp"
-        android:src="@drawable/ic_alfa"
+        android:src="@drawable/ic_sberbank"
         app:layout_constraintEnd_toEndOf="@+id/background"
         app:layout_constraintTop_toTopOf="@+id/background" />
 
