@@ -12,12 +12,14 @@ class WithdrawsViewModel(private val repository: ApiRepository) : ViewModel() {
 
     private lateinit var disposable: Disposable
 
+    val progressIsVisible = MutableLiveData<Boolean>().apply { this.value = true }
     val withdraws = MutableLiveData<Withdraws>()
     val error = MutableLiveData<String>()
 
     fun getWithdraws() {
         disposable = Observable.fromCallable {
             repository.getWithdraws()
+                ?.doFinally { progressIsVisible.postValue(false) }
                 ?.subscribe({
                     withdraws.postValue(it?.response)
                     error.postValue(it?.errorMsg)

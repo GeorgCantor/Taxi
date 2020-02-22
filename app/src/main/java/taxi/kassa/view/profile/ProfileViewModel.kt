@@ -12,12 +12,14 @@ class ProfileViewModel(private val repository: ApiRepository) : ViewModel() {
 
     private lateinit var disposable: Disposable
 
+    val progressIsVisible = MutableLiveData<Boolean>().apply { this.value = true }
     val responseOwner = MutableLiveData<ResponseOwner>()
     val error = MutableLiveData<String>()
 
     fun getUserInfo() {
         disposable = Observable.fromCallable {
             repository.getOwner()
+                ?.doFinally { progressIsVisible.postValue(false) }
                 ?.subscribe({
                     responseOwner.postValue(it?.response)
                     error.postValue(it?.errorMsg)
