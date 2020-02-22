@@ -19,12 +19,7 @@
     <string name="register_application_success">Заявка на подключение отправлена!</string>
     <string name="application_success_message">В ближайшее время наш менеджер связется с вами по телефону</string>
     <string name="ok">Хорошо</string>
-    <string-array name="spinner_test">
-        <item>Test 1</item>
-        <item>Test 2</item>
-        <item>Test 3</item>
-    </string-array>
-
+    <string name="back">Назад</string>
     <!--    Profile-->
     <string name="exit">Выход</string>
     <string name="balance">Баланс</string>
@@ -32,6 +27,36 @@
     <string name="withdrawal_applications">Заявки на вывод</string>
     <string name="accounts_and_cards">Счета и карты</string>
     <string name="support_service">Служба поддержки</string>
+    <string name="profile_format">+%s</string>
     <!--    Balance-->
     <string name="all_partners_sum">Общая сумма по всем партнерам</string>
+    <string name="yandex_title">Яндекс Такси</string>
+    <string name="citymobil_title">Ситимобил</string>
+    <string name="gett_title">Gett taxi</string>
+    <string name="gazprom_title">Газпром-нефть</string>
+    <string name="withdraw">Вывести</string>
+    <string name="replenish">Пополнить</string>
+    <string name="balance_format">%s ₽</string>
+    <string name="fuel_title">Топливо</string>
+    <!--    Withdraws-->
+    <string name="withdraws_title">Заявки на вывод</string>
+    <string name="withdraw_title">Заявка на вывод</string>
+    <string name="withdrawal_title">Выводится</string>
+    <string name="commission_title">Комиссия</string>
+    <string name="with_commission">с учетом комиссии</string>
+    <!--    Accounts-->
+    <string name="accounts_title">Счета и карты</string>
+    <string name="daily_withdrawal">Ежедневный вывод</string>
+    <string name="instant_withdrawal">Моментальный вывод</string>
+    <string name="add_account">Добавить счет</string>
+    <string name="add_card">Добавить карту</string>
+    <string name="understand">Понятно</string>
+    <string name="order_format">Р/с %s</string>
+    <string name="daily_withdrawal_dialog_message">Вывод на любую карту. За вывод 1%. Перевод происходит один раз в день. Только в будни! В Субботу , воскресенье и официальные праздничные дни переводов нет!
+    Заявки на вывод, которые были оставлены в приложении до 12:00 дня, будут обработаны этим же днём. Поступление денежных средств происходит ближе к 18:00 вечера. В очень редких случаях до 20:00 вечера.
+    Напоминаем, что обязательный остаток в программе 500 рублей. Выводить средства можно от 1000 рублей.
+    </string>
+    <string name="instant_withdrawal_dialog_message">Выводить средства можно на любую банковскую карту. За вывод взимается 4 % с суммы вывода.
+    \n\nНапоминаем,что обязательный остаток в программе 500 рублей.Выводить средства можно  от 1000 рублей. Просим обратить внимание,что в день вы можете вывести не более 10.000 рублей.(это временная мера).
+    </string>
 </resources>

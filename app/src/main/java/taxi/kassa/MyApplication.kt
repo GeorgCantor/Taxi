@@ -17,5 +17,4 @@ class MyApplication : Application() {
             modules(arrayListOf(appModule, viewModelModule, repositoryModule))
         }
     }
-
 }
