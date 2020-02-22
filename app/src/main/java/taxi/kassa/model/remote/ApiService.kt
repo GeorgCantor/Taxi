@@ -9,7 +9,6 @@ import taxi.kassa.model.responses.*
 
 interface ApiService {
 
-    // auth
     @POST("auth")
     @FormUrlEncoded
     fun authSendPhone(@Field("phone") phone: String?): Observable<ResponseAPI<ResponseAuthSendPhone?>?>?
@@ -18,7 +17,6 @@ interface ApiService {
     @FormUrlEncoded
     fun getCode(@Field("phone") phone: String?, @Field("code") code: String?): Observable<ResponseAPI<ResponseAuthSendCode?>?>?
 
-    // requests
     @POST("requests")
     @FormUrlEncoded
     fun createRequest(
@@ -28,11 +26,9 @@ interface ApiService {
         @Field("key") key: String?
     ): Observable<ResponseAPI<ResponseCreateRequest?>?>?
 
-    // owner
     @GET("owner")
     fun getOwner(): Observable<ResponseAPI<ResponseOwner?>?>?
 
-    // withdrawal
     @GET("withdrawals")
     fun getWithdraws(): Observable<ResponseAPI<Withdraws?>?>?
 
@@ -44,7 +40,6 @@ interface ApiService {
         @Field("account_id") account_id: Int
     ): Observable<ResponseAPI<ResponseSimple?>?>?
 
-    // accounts
     @GET("accounts")
     fun getAccounts(): Observable<ResponseAPI<AccountsList?>?>?
 

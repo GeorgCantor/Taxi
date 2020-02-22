@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.fragment_balance.*
@@ -37,7 +38,49 @@ class BalanceFragment : Fragment() {
 
         viewModel.responseOwner.observe(viewLifecycleOwner, Observer { response ->
             response?.let {
-                balance_tv.text = "${it.balanceTotal} \u20BD"
+                balance_tv.text = getString(R.string.balance_format, it.balanceTotal)
+                yandex_amount.text = getString(R.string.balance_format, it.balanceYandex)
+                citymobil_amount.text = getString(R.string.balance_format, it.balanceCity)
+                gett_amount.text = getString(R.string.balance_format, it.balanceGett)
+
+                yandex_amount.setTextColor(
+                    ContextCompat.getColor(
+                        requireContext(),
+                        if (it.balanceYandex.toFloat() > 0.0F) R.color.balance_green else R.color.balance_red
+                    )
+                )
+                withdraw_yandex_tv.setTextColor(
+                    ContextCompat.getColor(
+                        requireContext(),
+                        if (it.balanceYandex.toFloat() > 0.0F) R.color.gray_intro_text else R.color.colorAccent
+                    )
+                )
+
+                citymobil_amount.setTextColor(
+                    ContextCompat.getColor(
+                        requireContext(),
+                        if (it.balanceYandex.toFloat() > 0.0F) R.color.balance_green else R.color.balance_red
+                    )
+                )
+                withdraw_citymobil_tv.setTextColor(
+                    ContextCompat.getColor(
+                        requireContext(),
+                        if (it.balanceYandex.toFloat() > 0.0F) R.color.gray_intro_text else R.color.colorAccent
+                    )
+                )
+
+                gett_amount.setTextColor(
+                    ContextCompat.getColor(
+                        requireContext(),
+                        if (it.balanceYandex.toFloat() > 0.0F) R.color.balance_green else R.color.balance_red
+                    )
+                )
+                withdraw_gett_tv.setTextColor(
+                    ContextCompat.getColor(
+                        requireContext(),
+                        if (it.balanceYandex.toFloat() > 0.0F) R.color.gray_intro_text else R.color.colorAccent
+                    )
+                )
             }
         })
 

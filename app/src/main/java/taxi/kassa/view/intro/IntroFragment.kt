@@ -21,11 +21,11 @@ class IntroFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         btn_login.setOnClickListener {
-            Navigation.findNavController(it).navigate(R.id.authPhoneFragment)
+            Navigation.findNavController(it).navigate(R.id.action_introFragment_to_authPhoneFragment)
         }
 
         btn_signup.setOnClickListener {
-            Navigation.findNavController(it).navigate(R.id.authSignUpFragment)
+            Navigation.findNavController(it).navigate(R.id.action_introFragment_to_authSignUpFragment)
         }
     }
 }

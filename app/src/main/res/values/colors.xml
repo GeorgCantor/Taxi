@@ -5,7 +5,7 @@
     <color name="colorAccent">#424242</color>
     <color name="colorStatusBar">#ffffff</color>
     <color name="colorBalanceTop">#f8f8f8</color>
-    <color name="mainBackground">#ffffff</color>
+    <color name="mainBackground">#FFFFFF</color>
     <color name="blackText">#000000</color>
     <color name="grayText">#646464</color>
     <color name="lightGray">#ddd</color>
@@ -15,8 +15,20 @@
     <color name="continue_color">#23252D</color>
     <color name="agreement_text_color">#C1C1C1</color>
     <color name="gray_application_text">#61636F</color>
-    <color name="gray_code_text">#EEEEEE</color>
+    <color name="white_code_text">#EEEEEE</color>
     <color name="gray_profile">#787A86</color>
     <color name="gray_light_profile">#D9DFE1</color>
     <color name="checkbox_color">#E0C7B0</color>
+
+    <color name="balance_gradient_light">#1D1D23</color>
+    <color name="balance_gradient_dark">#16161E</color>
+    <color name="balance_green">#1F924D</color>
+    <color name="balance_red">#BD3139</color>
+    <color name="balance_fuel_gray">#C1BFBC</color>
+
+    <color name="withdraws_gray">#949599</color>
+    <color name="withdraws_yellow">#D3A956</color>
+
+    <color name="accounts_dialog_background">#4D000000</color>
+    <color name="accounts_dialog_gray">#B2FFFFFF</color>
 </resources>
