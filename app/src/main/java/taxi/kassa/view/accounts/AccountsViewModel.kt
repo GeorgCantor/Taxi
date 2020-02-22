@@ -1,25 +1,25 @@
-package taxi.kassa.view.profile
+package taxi.kassa.view.accounts
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import io.reactivex.Observable
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
-import taxi.kassa.model.responses.ResponseOwner
+import taxi.kassa.model.responses.AccountsList
 import taxi.kassa.repository.ApiRepository
 
-class ProfileViewModel(private val repository: ApiRepository) : ViewModel() {
+class AccountsViewModel(private val repository: ApiRepository) : ViewModel() {
 
     private lateinit var disposable: Disposable
 
-    val responseOwner = MutableLiveData<ResponseOwner>()
+    val accounts = MutableLiveData<AccountsList>()
     val error = MutableLiveData<String>()
 
-    fun getUserInfo() {
+    fun getAccounts() {
         disposable = Observable.fromCallable {
-            repository.getOwner()
+            repository.getAccounts()
                 ?.subscribe({
-                    responseOwner.postValue(it?.response)
+                    accounts.postValue(it?.response)
                     error.postValue(it?.errorMsg)
                 }, {
                 })
