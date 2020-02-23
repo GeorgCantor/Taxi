@@ -20,11 +20,7 @@ class MainActivity : AppCompatActivity() {
         val inflater = navHostFragment.navController.navInflater
         val graph = inflater.inflate(R.navigation.nav_graph)
 
-        if (token.isEmpty()) {
-            graph.startDestination = R.id.introFragment
-        } else {
-            graph.startDestination = R.id.profileFragment
-        }
+        graph.startDestination = if (token.isEmpty()) R.id.introFragment else R.id.profileFragment
 
         navHostFragment.navController.graph = graph
     }

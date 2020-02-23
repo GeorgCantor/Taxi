@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.navigation.Navigation
+import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_auth_sign_up.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
@@ -99,10 +99,7 @@ class AuthSignUpFragment : Fragment() {
         }
 
         viewModel.isSignUp.observe(viewLifecycleOwner, Observer { success ->
-            try {
-                if (success) Navigation.findNavController(view).navigate(R.id.action_authSignUpFragment_to_successRequestFragment)
-            } catch (e: IllegalArgumentException) {
-            }
+            if (success) findNavController(this).navigate(R.id.action_authSignUpFragment_to_successRequestFragment)
         })
     }
 }
