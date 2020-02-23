@@ -3,6 +3,7 @@ package taxi.kassa.view.auth_code
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,6 +26,7 @@ class AuthCodeFragment : Fragment() {
 
     private lateinit var viewModel: AuthCodeViewModel
     private var phone = ""
+    private var inputCounter = 0
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -72,6 +74,52 @@ class AuthCodeFragment : Fragment() {
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             }
         })
+
+        // move the cursor to the previous input if the current input is empty and user click delete
+        input2.setOnKeyListener { _, intCode, _ ->
+            when (intCode) {
+                KeyEvent.KEYCODE_DEL -> {
+                    if (input2.text.isEmpty()) {
+                        inputCounter++
+                        if (inputCounter == 2) {
+                            input1.requestFocus()
+                            inputCounter = 0
+                        }
+                    }
+                }
+            }
+            return@setOnKeyListener false
+        }
+
+        input3.setOnKeyListener { _, intCode, _ ->
+            when (intCode) {
+                KeyEvent.KEYCODE_DEL -> {
+                    if (input3.text.isEmpty()) {
+                        inputCounter++
+                        if (inputCounter == 2) {
+                            input2.requestFocus()
+                            inputCounter = 0
+                        }
+                    }
+                }
+            }
+            return@setOnKeyListener false
+        }
+
+        input4.setOnKeyListener { _, intCode, _ ->
+            when (intCode) {
+                KeyEvent.KEYCODE_DEL -> {
+                    if (input4.text.isEmpty()) {
+                        inputCounter++
+                        if (inputCounter == 2) {
+                            input3.requestFocus()
+                            inputCounter = 0
+                        }
+                    }
+                }
+            }
+            return@setOnKeyListener false
+        }
     }
 
     override fun onDestroyView() {

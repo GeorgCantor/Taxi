@@ -12,11 +12,11 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/image_view"
             android:layout_width="76dp"
             android:layout_height="76dp"
             android:contentDescription="@string/app_name"
-            app:layout_constraintBottom_toTopOf="@+id/btn_login"
+            app:layout_constraintBottom_toTopOf="@+id/login_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -33,7 +33,7 @@
             android:textSize="32sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            app:layout_constraintTop_toBottomOf="@+id/image_view" />
 
         <TextView
             android:layout_width="280dp"
@@ -49,7 +49,7 @@
             app:layout_constraintTop_toBottomOf="@+id/app_name_title" />
 
         <Button
-            android:id="@+id/btn_login"
+            android:id="@+id/login_button"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginStart="@dimen/margin_x1_5"
@@ -60,12 +60,12 @@
             android:textAllCaps="false"
             android:textColor="@color/continue_color"
             android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/btn_signup"
+            app:layout_constraintBottom_toTopOf="@+id/signup_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
-            android:id="@+id/btn_signup"
+            android:id="@+id/signup_button"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginStart="@dimen/margin_x1_5"

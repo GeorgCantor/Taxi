@@ -80,7 +80,7 @@ class AuthPhoneFragment : Fragment() {
             }
         })
 
-        btn_login.setOnClickListener {
+        login_button.setOnClickListener {
             if (!loginIsReady) {
                 showError(context, tv_error, getString(R.string.accept_conditions_error), 5000, 0)
                 return@setOnClickListener

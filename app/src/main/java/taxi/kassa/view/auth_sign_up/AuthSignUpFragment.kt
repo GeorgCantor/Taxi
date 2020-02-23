@@ -77,7 +77,7 @@ class AuthSignUpFragment : Fragment() {
             }
         })
 
-        btn_signup.setOnClickListener {
+        signup_button.setOnClickListener {
             if (!loginIsReady) {
                 showError(context, tv_error, getString(R.string.accept_conditions_error), 5000, 0)
                 return@setOnClickListener
