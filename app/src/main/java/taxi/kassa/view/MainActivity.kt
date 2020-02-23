@@ -2,7 +2,8 @@ package taxi.kassa.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.Navigation
+import androidx.navigation.fragment.NavHostFragment
+import kotlinx.android.synthetic.main.activity_main.*
 import taxi.kassa.R
 import taxi.kassa.util.Constants.TOKEN
 import taxi.kassa.util.PreferenceManager
@@ -15,10 +16,16 @@ class MainActivity : AppCompatActivity() {
 
         val token = PreferenceManager(this).getString(TOKEN) ?: ""
 
+        val navHostFragment = navHostFragment as NavHostFragment
+        val inflater = navHostFragment.navController.navInflater
+        val graph = inflater.inflate(R.navigation.nav_graph)
+
         if (token.isEmpty()) {
-            Navigation.findNavController(this, R.id.navHostFragment).navigate(R.id.introFragment)
+            graph.startDestination = R.id.introFragment
         } else {
-            Navigation.findNavController(this, R.id.navHostFragment).navigate(R.id.profileFragment)
+            graph.startDestination = R.id.profileFragment
         }
+
+        navHostFragment.navController.graph = graph
     }
 }

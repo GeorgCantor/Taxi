@@ -1,5 +1,6 @@
 package taxi.kassa.view.profile
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.telephony.PhoneNumberUtils
@@ -7,13 +8,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
-import androidx.core.content.ContextCompat.getColor
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.navigation.NavOptions
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment.findNavController
-import kotlinx.android.synthetic.main.fragment_intro.*
 import kotlinx.android.synthetic.main.fragment_profile.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
@@ -23,13 +20,13 @@ import taxi.kassa.util.Constants.TOKEN
 import taxi.kassa.util.Constants.accessToken
 import taxi.kassa.util.PreferenceManager
 import taxi.kassa.util.shortToast
+import taxi.kassa.view.MainActivity
 import java.util.*
 
 class ProfileFragment : Fragment() {
 
     private lateinit var viewModel: ProfileViewModel
     private lateinit var prefManager: PreferenceManager
-    private var logoutPressed = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -85,21 +82,11 @@ class ProfileFragment : Fragment() {
         }
     }
 
-    override fun onDetach() {
-        super.onDetach()
-        if (!logoutPressed) {
-            requireActivity().root_layout?.setBackgroundColor(getColor(requireContext(), R.color.login_background))
-            requireActivity().intro_layout?.visibility = View.GONE
-            activity?.finish()
-        }
-    }
-
     private fun logout() {
-        logoutPressed = true
         prefManager.saveString(PHONE, "")
         prefManager.saveString(TOKEN, "")
 
-        val navOption = NavOptions.Builder().setPopUpTo(R.id.introFragment, true).build()
-        Navigation.findNavController(requireView()).navigate(R.id.introFragment, null, navOption)
+        activity?.finish()
+        startActivity(Intent(requireActivity(), MainActivity::class.java))
     }
 }
