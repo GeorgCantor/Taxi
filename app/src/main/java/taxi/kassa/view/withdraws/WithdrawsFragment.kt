@@ -42,7 +42,7 @@ class WithdrawsFragment : Fragment() {
         })
 
         viewModel.withdraws.observe(viewLifecycleOwner, Observer {
-            withdraws_recycler.adapter = WithdrawsAdapter(it.info) { withdraw ->
+            withdraws_recycler.adapter = WithdrawsAdapter(it.info?: mutableListOf()) { withdraw ->
                 val bundle = Bundle()
                 bundle.putParcelable(WITHDRAW, withdraw)
                 findNavController(this).navigate(R.id.action_withdrawsFragment_to_withdrawFragment, bundle)

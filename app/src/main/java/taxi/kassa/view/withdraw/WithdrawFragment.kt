@@ -40,7 +40,7 @@ class WithdrawFragment : Fragment() {
         })
 
         viewModel.accounts.observe(viewLifecycleOwner, Observer {
-            val account = it.info.first()
+            val account = it.info?.first()
             bank_name_tv.text = account?.bankName
             order_tv.text = getString(R.string.order_format, account?.accountNumber)
             name_tv.text = account?.driverName

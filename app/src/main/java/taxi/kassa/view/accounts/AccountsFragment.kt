@@ -40,13 +40,13 @@ class AccountsFragment : Fragment() {
         })
 
         viewModel.accounts.observe(viewLifecycleOwner, Observer {
-            if (it.info.isNotEmpty()) {
+            if (it.info?.isNotEmpty() == true) {
                 account_block.visibility = View.VISIBLE
                 no_account_block.visibility = View.INVISIBLE
                 val account = it.info.first()
-                bank_name_tv.text = account?.bankName
-                order_tv.text = getString(R.string.order_format, account?.accountNumber)
-                name_tv.text = account?.driverName
+                bank_name_tv.text = account.bankName
+                order_tv.text = getString(R.string.order_format, account.accountNumber)
+                name_tv.text = account.driverName
             } else {
                 account_block.visibility = View.INVISIBLE
                 no_account_block.visibility = View.VISIBLE

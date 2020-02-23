@@ -120,9 +120,6 @@
             app:exitAnim="@animator/slide_out_left"
             app:popEnterAnim="@animator/slide_in_left"
             app:popExitAnim="@animator/slide_out_right" />
-        <argument
-            android:name="withdraw"
-            app:argType="taxi.kassa.model.responses.Withdraw" />
     </fragment>
 
     <fragment

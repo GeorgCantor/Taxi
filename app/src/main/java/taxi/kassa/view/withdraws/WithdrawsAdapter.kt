@@ -32,19 +32,22 @@ class WithdrawsAdapter(
         this.withdraws.addAll(withdraws)
         val dates = mutableSetOf<Withdraw>()
 
-        var lastDate = this.withdraws[0].getDate()
-        dates.add(Withdraw(DATE_ITEM_ID, "0", this.withdraws[0].date, 0))
+        if (this.withdraws.isNotEmpty()) {
+            var lastDate = this.withdraws[0].getDate()
 
-        this.withdraws.map {
-            if (it.getDate() != lastDate) {
-                dates.add(Withdraw(DATE_ITEM_ID, "0", it.date, 0))
-                lastDate = it.getDate()
+            dates.add(Withdraw(DATE_ITEM_ID, "0", this.withdraws[0].date, 0))
+
+            this.withdraws.map {
+                if (it.getDate() != lastDate) {
+                    dates.add(Withdraw(DATE_ITEM_ID, "0", it.date, 0))
+                    lastDate = it.getDate()
+                }
             }
-        }
 
-        this.withdraws.addAll(dates)
-        this.withdraws.sortBy { it.date }
-        this.withdraws.reverse()
+            this.withdraws.addAll(dates)
+            this.withdraws.sortBy { it.date }
+            this.withdraws.reverse()
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
