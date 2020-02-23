@@ -120,6 +120,13 @@
             app:exitAnim="@animator/slide_out_left"
             app:popEnterAnim="@animator/slide_in_left"
             app:popExitAnim="@animator/slide_out_right" />
+        <action
+            android:id="@+id/action_withdrawsFragment_to_accountsFragment"
+            app:destination="@id/accountsFragment"
+            app:exitAnim="@animator/slide_out_left"
+            app:popEnterAnim="@animator/slide_in_left"
+            app:popExitAnim="@animator/slide_out_right"
+            app:popUpTo="@id/profileFragment" />
     </fragment>
 
     <fragment

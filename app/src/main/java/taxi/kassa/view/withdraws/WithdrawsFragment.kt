@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.NavHostFragment.findNavController
+import kotlinx.android.synthetic.main.empty_withdraws_screen.*
 import kotlinx.android.synthetic.main.fragment_withdraws.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
@@ -42,6 +43,8 @@ class WithdrawsFragment : Fragment() {
         })
 
         viewModel.withdraws.observe(viewLifecycleOwner, Observer {
+            empty_withdraws.visibility = if (it.count ?: 0 > 0) View.GONE else View.VISIBLE
+
             withdraws_recycler.adapter = WithdrawsAdapter(it.info?: mutableListOf()) { withdraw ->
                 val bundle = Bundle()
                 bundle.putParcelable(WITHDRAW, withdraw)
@@ -49,8 +52,14 @@ class WithdrawsFragment : Fragment() {
             }
         })
 
-        back_arrow.setOnClickListener {
-            activity?.onBackPressed()
+        back_arrow.setOnClickListener { activity?.onBackPressed() }
+
+        back_arrow_empty.setOnClickListener { activity?.onBackPressed() }
+
+        back_button.setOnClickListener { activity?.onBackPressed() }
+
+        add_account_button.setOnClickListener {
+            findNavController(this).navigate(R.id.action_withdrawsFragment_to_accountsFragment)
         }
     }
 }

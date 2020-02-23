@@ -44,6 +44,9 @@
     <string name="withdrawal_title">Выводится</string>
     <string name="commission_title">Комиссия</string>
     <string name="with_commission">с учетом комиссии</string>
+    <string name="connect_account">Подключить счёт</string>
+    <string name="no_withdrawal_requests">Нет заявок на вывод</string>
+    <string name="no_withdrawal_message">Чтобы выводить средства, подключите хотя бы один счет и создайте заявку</string>
     <!--    Accounts-->
     <string name="accounts_title">Счета и карты</string>
     <string name="daily_withdrawal">Ежедневный вывод</string>

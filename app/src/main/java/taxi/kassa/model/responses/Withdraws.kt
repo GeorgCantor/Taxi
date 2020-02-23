@@ -7,6 +7,6 @@ class Withdraws {
     @SerializedName("info")
     val info: MutableList<Withdraw>? = null
 
-    val count: Int
-        get() = info!!.size
+    val count: Int?
+        get() = info?.size
 }
