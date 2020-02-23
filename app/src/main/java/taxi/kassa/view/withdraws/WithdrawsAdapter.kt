@@ -6,8 +6,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.item_whithdraw_date.view.*
-import kotlinx.android.synthetic.main.item_withdrawal.view.*
+import kotlinx.android.synthetic.main.item_withdraw.view.*
+import kotlinx.android.synthetic.main.item_withdraw_date.view.*
 import taxi.kassa.R
 import taxi.kassa.model.responses.Withdraw
 import taxi.kassa.util.Constants.APPROVED
@@ -52,7 +52,7 @@ class WithdrawsAdapter(
             TYPE_ITEM -> {
                 WithdrawsViewHolder(
                     LayoutInflater.from(parent.context).inflate(
-                        R.layout.item_withdrawal,
+                        R.layout.item_withdraw,
                         null
                     )
                 )
@@ -60,14 +60,14 @@ class WithdrawsAdapter(
             TYPE_DATE -> {
                 DateViewHolder(
                     LayoutInflater.from(parent.context).inflate(
-                        R.layout.item_whithdraw_date,
+                        R.layout.item_withdraw_date,
                         null
                     )
                 )
             }
             else -> WithdrawsViewHolder(
                 LayoutInflater.from(parent.context).inflate(
-                    R.layout.item_withdrawal,
+                    R.layout.item_withdraw,
                     null
                 )
             )

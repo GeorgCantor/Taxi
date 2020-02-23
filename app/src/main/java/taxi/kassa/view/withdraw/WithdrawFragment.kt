@@ -11,14 +11,14 @@ import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.model.responses.Withdraw
-import taxi.kassa.util.Constants.WITHDRAWAL
+import taxi.kassa.util.Constants.WITHDRAW
 import taxi.kassa.util.shortToast
 
 class WithdrawFragment : Fragment() {
 
     private lateinit var viewModel: WithdrawViewModel
 
-    private val withdraw: Withdraw by lazy { arguments?.get(WITHDRAWAL) as Withdraw }
+    private val withdraw: Withdraw by lazy { arguments?.get(WITHDRAW) as Withdraw }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

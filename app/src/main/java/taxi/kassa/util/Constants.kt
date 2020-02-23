@@ -12,5 +12,5 @@ object Constants {
     const val APPROVED = "Одобрено"
     const val WRITTEN_OFF = "Списано"
     const val CANCELED = "Отменено"
-    const val WITHDRAWAL = "withdrawal"
+    const val WITHDRAW = "withdraw"
 }

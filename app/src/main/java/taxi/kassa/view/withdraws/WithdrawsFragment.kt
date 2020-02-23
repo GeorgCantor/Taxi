@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.fragment_withdraws.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
-import taxi.kassa.util.Constants.WITHDRAWAL
+import taxi.kassa.util.Constants.WITHDRAW
 import taxi.kassa.util.shortToast
 
 class WithdrawsFragment : Fragment() {
@@ -44,7 +44,7 @@ class WithdrawsFragment : Fragment() {
         viewModel.withdraws.observe(viewLifecycleOwner, Observer {
             withdraws_recycler.adapter = WithdrawsAdapter(it.info) { withdraw ->
                 val bundle = Bundle()
-                bundle.putParcelable(WITHDRAWAL, withdraw)
+                bundle.putParcelable(WITHDRAW, withdraw)
                 findNavController(this).navigate(R.id.action_withdrawsFragment_to_withdrawFragment, bundle)
             }
         })

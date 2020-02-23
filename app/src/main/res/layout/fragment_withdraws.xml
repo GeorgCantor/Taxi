@@ -48,7 +48,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/withdraws_title"
         tools:itemCount="8"
-        tools:listitem="@layout/item_withdrawal" />
+        tools:listitem="@layout/item_withdraw" />
 
     <ProgressBar
         android:id="@+id/progress_bar"
