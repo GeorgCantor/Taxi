@@ -75,51 +75,6 @@ class AuthCodeFragment : Fragment() {
             }
         })
 
-        // move the cursor to the previous input if the current input is empty and user click delete
-        input2.setOnKeyListener { _, intCode, _ ->
-            when (intCode) {
-                KeyEvent.KEYCODE_DEL -> {
-                    if (input2.text.isEmpty()) {
-                        inputCounter++
-                        if (inputCounter == 2) {
-                            input1.requestFocus()
-                            inputCounter = 0
-                        }
-                    }
-                }
-            }
-            return@setOnKeyListener false
-        }
-
-        input3.setOnKeyListener { _, intCode, _ ->
-            when (intCode) {
-                KeyEvent.KEYCODE_DEL -> {
-                    if (input3.text.isEmpty()) {
-                        inputCounter++
-                        if (inputCounter == 2) {
-                            input2.requestFocus()
-                            inputCounter = 0
-                        }
-                    }
-                }
-            }
-            return@setOnKeyListener false
-        }
-
-        input4.setOnKeyListener { _, intCode, _ ->
-            when (intCode) {
-                KeyEvent.KEYCODE_DEL -> {
-                    if (input4.text.isEmpty()) {
-                        inputCounter++
-                        if (inputCounter == 2) {
-                            input3.requestFocus()
-                            inputCounter = 0
-                        }
-                    }
-                }
-            }
-            return@setOnKeyListener false
-        }
     }
 
     override fun onDestroyView() {
@@ -136,6 +91,7 @@ class AuthCodeFragment : Fragment() {
 
         editTextPairs.map {
             setTextChangedListener(it.first, it.second)
+            setDeleteListener(it.second, it.first)
         }
     }
 
@@ -151,6 +107,24 @@ class AuthCodeFragment : Fragment() {
                 if (code.isNotEmpty()) second.requestFocus()
             }
         })
+    }
+
+    // move the cursor to the previous input if the current input is empty and user click delete
+    private fun setDeleteListener(current: EditText, previous: EditText) {
+        current.setOnKeyListener { _, intCode, _ ->
+            when (intCode) {
+                KeyEvent.KEYCODE_DEL -> {
+                    if (current.text.isEmpty()) {
+                        inputCounter++
+                        if (inputCounter == 2) {
+                            previous.requestFocus()
+                            inputCounter = 0
+                        }
+                    }
+                }
+            }
+            return@setOnKeyListener false
+        }
     }
 
     private fun login() {
