@@ -6,10 +6,10 @@
     android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/parent_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/margin_main">
 
         <ImageView
             android:id="@+id/back_arrow"
@@ -109,8 +109,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:visibility="invisible"
-            app:layout_constraintTop_toBottomOf="@+id/daily_withdrawal_tv"
-            tools:visibility="visible">
+            app:layout_constraintTop_toBottomOf="@+id/daily_withdrawal_tv">
 
             <ImageView
                 android:id="@+id/new_account_background"
@@ -164,6 +163,7 @@
                     android:id="@+id/name_edit_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="@color/gray_profile"
                     android:imeOptions="actionNext"
                     android:inputType="textCapSentences"
                     android:maxLines="1"
@@ -191,6 +191,7 @@
                     android:id="@+id/surname_edit_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="@color/gray_profile"
                     android:imeOptions="actionNext"
                     android:inputType="textCapSentences"
                     android:maxLines="1"
@@ -218,6 +219,7 @@
                     android:id="@+id/account_edit_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="@color/gray_profile"
                     android:imeOptions="actionNext"
                     android:inputType="number"
                     android:maxLines="1"
@@ -245,6 +247,7 @@
                     android:id="@+id/bik_edit_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="@color/gray_profile"
                     android:imeOptions="actionDone"
                     android:inputType="number"
                     android:maxLines="1"
@@ -391,11 +394,107 @@
                 android:id="@+id/add_card_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/margin_x1_5"
+                android:padding="24dp"
                 app:layout_constraintBottom_toBottomOf="@id/card_background"
                 app:layout_constraintEnd_toEndOf="@+id/card_background"
                 app:layout_constraintTop_toTopOf="@id/card_background"
                 app:srcCompat="@drawable/ic_plus" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--  =========  -->
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/new_card_block"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:visibility="invisible"
+            app:layout_constraintTop_toBottomOf="@+id/instant_withdrawal_tv">
+
+            <ImageView
+                android:id="@+id/new_card_background"
+                android:layout_width="match_parent"
+                android:layout_height="207dp"
+                android:layout_marginStart="@dimen/margin_x1_5"
+                android:layout_marginTop="@dimen/margin_x1_5"
+                android:layout_marginEnd="@dimen/margin_x1_5"
+                android:src="@drawable/bg_profile_gradient"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/new_add_card_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_x1_5"
+                android:layout_marginTop="22dp"
+                android:text="@string/add_card"
+                android:textColor="@color/withdraws_yellow"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@id/new_card_background"
+                app:layout_constraintTop_toTopOf="@+id/new_card_background" />
+
+            <ImageView
+                android:id="@+id/card_close_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="22dp"
+                app:layout_constraintBottom_toBottomOf="@+id/new_add_card_tv"
+                app:layout_constraintEnd_toEndOf="@+id/new_card_background"
+                app:layout_constraintTop_toTopOf="@id/new_add_card_tv"
+                app:srcCompat="@drawable/ic_close" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/card_input_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_x1_5"
+                android:hint="@string/enter_card_number"
+                android:textColorHint="@color/gray_profile"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="@+id/new_card_background"
+                app:layout_constraintStart_toStartOf="@+id/new_card_background"
+                app:layout_constraintTop_toBottomOf="@+id/new_add_card_tv">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/card_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/gray_profile"
+                    android:imeOptions="actionDone"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:textColor="@color/gray_intro_text"
+                    android:textColorHint="@color/gray_profile"
+                    android:textSize="16sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="312dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_x1_5"
+                android:text="@string/new_card_message"
+                android:textColor="@color/gray_profile"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="@id/new_card_background"
+                app:layout_constraintStart_toStartOf="@+id/new_card_background"
+                app:layout_constraintTop_toBottomOf="@+id/card_input_view" />
+
+            <Button
+                android:id="@+id/add_card_button"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_margin="@dimen/margin_x1_5"
+                android:background="@drawable/bg_intro_btn"
+                android:text="@string/add_button_text"
+                android:textAllCaps="false"
+                android:textColor="@color/continue_color"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/new_card_background" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

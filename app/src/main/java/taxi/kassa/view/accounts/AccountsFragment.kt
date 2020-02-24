@@ -3,6 +3,8 @@ package taxi.kassa.view.accounts
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.INVISIBLE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.EditText
 import androidx.constraintlayout.widget.ConstraintSet
@@ -50,15 +52,15 @@ class AccountsFragment : Fragment() {
 
         viewModel.accounts.observe(viewLifecycleOwner, Observer {
             if (it.info?.isNotEmpty() == true) {
-                account_block.visibility = View.VISIBLE
-                no_account_block.visibility = View.INVISIBLE
+                account_block.visibility = VISIBLE
+                no_account_block.visibility = INVISIBLE
                 val account = it.info.first()
                 bank_name_tv.text = account.bankName
                 order_tv.text = getString(R.string.order_format, account.accountNumber)
                 name_tv.text = account.driverName
             } else {
-                account_block.visibility = View.INVISIBLE
-                no_account_block.visibility = View.VISIBLE
+                account_block.visibility = INVISIBLE
+                no_account_block.visibility = VISIBLE
             }
         })
 
@@ -104,9 +106,9 @@ class AccountsFragment : Fragment() {
         }
 
         add_account_image.setOnClickListener {
-            no_account_block.visibility = View.INVISIBLE
-            account_block.visibility = View.INVISIBLE
-            new_account_block.visibility = View.VISIBLE
+            no_account_block.visibility = INVISIBLE
+            account_block.visibility = INVISIBLE
+            new_account_block.visibility = VISIBLE
 
             constraintSet.clone(parent_layout)
             constraintSet.connect(
@@ -119,9 +121,9 @@ class AccountsFragment : Fragment() {
         }
 
         close_image.setOnClickListener {
-            no_account_block.visibility = View.VISIBLE
-            account_block.visibility = View.INVISIBLE
-            new_account_block.visibility = View.INVISIBLE
+            no_account_block.visibility = VISIBLE
+            account_block.visibility = INVISIBLE
+            new_account_block.visibility = INVISIBLE
 
             constraintSet.clone(parent_layout)
             constraintSet.connect(
@@ -131,6 +133,16 @@ class AccountsFragment : Fragment() {
                 ConstraintSet.BOTTOM
             )
             constraintSet.applyTo(parent_layout)
+        }
+
+        add_card_image.setOnClickListener {
+            no_card_block.visibility = INVISIBLE
+            new_card_block.visibility = VISIBLE
+        }
+
+        card_close_image.setOnClickListener {
+            no_card_block.visibility = VISIBLE
+            new_card_block.visibility = INVISIBLE
         }
     }
 }
