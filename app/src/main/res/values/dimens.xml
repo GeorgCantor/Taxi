@@ -1,9 +1,9 @@
 <resources>
-    <dimen name="margin_x4">64dp</dimen>
-    <dimen name="margin_x3">48dp</dimen>
-    <dimen name="margin_x2">32dp</dimen>
-    <dimen name="margin_x1_5">24dp</dimen>
-    <dimen name="margin_main">16dp</dimen>
-    <dimen name="margin_half">8dp</dimen>
-    <dimen name="margin_quoter">4dp</dimen>
+    <dimen name="margin_64dp">64dp</dimen>
+    <dimen name="margin_48dp">48dp</dimen>
+    <dimen name="margin_32dp">32dp</dimen>
+    <dimen name="margin_24dp">24dp</dimen>
+    <dimen name="margin_16dp">16dp</dimen>
+    <dimen name="margin_8dp">8dp</dimen>
+    <dimen name="margin_4dp">4dp</dimen>
 </resources>
