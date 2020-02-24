@@ -25,4 +25,18 @@ class ApiRepository(private val apiService: ApiService) {
     fun getWithdraws(): Observable<ResponseAPI<Withdraws?>?>? = apiService.getWithdraws()
 
     fun getAccounts(): Observable<ResponseAPI<AccountsList?>?>? = apiService.getAccounts()
+
+    fun createAccount(
+        firstName: String,
+        lastName: String,
+        middleName: String,
+        accountNumber: String,
+        bankCode: String
+    ): Observable<ResponseAPI<ResponseSimple?>?>? = apiService.createAccount(
+        firstName,
+        lastName,
+        middleName,
+        accountNumber,
+        bankCode
+    )
 }

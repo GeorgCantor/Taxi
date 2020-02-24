@@ -53,10 +53,7 @@ class AuthCodeFragment : Fragment() {
         })
 
         viewModel.isLoggedIn.observe(viewLifecycleOwner, Observer { loggedIn ->
-            try {
-                if (loggedIn) Navigation.findNavController(view).navigate(R.id.action_authCodeFragment_to_profileFragment)
-            } catch (e: IllegalArgumentException) {
-            }
+            if (loggedIn) Navigation.findNavController(view).navigate(R.id.action_authCodeFragment_to_profileFragment)
         })
 
         login_button.setOnClickListener {
@@ -74,7 +71,6 @@ class AuthCodeFragment : Fragment() {
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             }
         })
-
     }
 
     override fun onDestroyView() {

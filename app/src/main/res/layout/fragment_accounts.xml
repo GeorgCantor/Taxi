@@ -64,8 +64,7 @@
             android:id="@+id/no_account_block"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintTop_toBottomOf="@+id/daily_withdrawal_tv"
-            tools:visibility="visible">
+            app:layout_constraintTop_toBottomOf="@+id/daily_withdrawal_tv">
 
             <ImageView
                 android:id="@+id/account_background"
@@ -147,6 +146,114 @@
                 app:layout_constraintTop_toTopOf="@id/new_add_account_tv"
                 app:srcCompat="@drawable/ic_close" />
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/name_input_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_x1_5"
+                android:layout_marginTop="@dimen/margin_x2"
+                android:layout_marginEnd="@dimen/margin_x1_5"
+                android:hint="@string/first_middle_name"
+                android:textColorHint="@color/gray_profile"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="@+id/new_account_background"
+                app:layout_constraintStart_toStartOf="@+id/new_account_background"
+                app:layout_constraintTop_toBottomOf="@+id/new_add_account_tv">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/name_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionNext"
+                    android:inputType="textCapSentences"
+                    android:maxLines="1"
+                    android:textColor="@color/gray_intro_text"
+                    android:textColorHint="@color/gray_profile"
+                    android:textSize="16sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/surname_input_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_x1_5"
+                android:layout_marginTop="@dimen/margin_x2"
+                android:layout_marginEnd="@dimen/margin_x1_5"
+                android:hint="@string/surname"
+                android:textColorHint="@color/gray_profile"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="@+id/new_account_background"
+                app:layout_constraintStart_toStartOf="@+id/new_account_background"
+                app:layout_constraintTop_toBottomOf="@+id/name_input_view">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/surname_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionNext"
+                    android:inputType="textCapSentences"
+                    android:maxLines="1"
+                    android:textColor="@color/gray_intro_text"
+                    android:textColorHint="@color/gray_profile"
+                    android:textSize="16sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/account_input_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_x1_5"
+                android:layout_marginTop="@dimen/margin_x2"
+                android:layout_marginEnd="@dimen/margin_x1_5"
+                android:hint="@string/payment_account"
+                android:textColorHint="@color/gray_profile"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="@+id/new_account_background"
+                app:layout_constraintStart_toStartOf="@+id/new_account_background"
+                app:layout_constraintTop_toBottomOf="@+id/surname_input_view">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/account_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:textColor="@color/gray_intro_text"
+                    android:textColorHint="@color/gray_profile"
+                    android:textSize="16sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/bik_input_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_x1_5"
+                android:layout_marginTop="@dimen/margin_x2"
+                android:layout_marginEnd="@dimen/margin_x1_5"
+                android:hint="@string/bik"
+                android:textColorHint="@color/gray_profile"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="@+id/new_account_background"
+                app:layout_constraintStart_toStartOf="@+id/new_account_background"
+                app:layout_constraintTop_toBottomOf="@+id/account_input_view">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/bik_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionDone"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:textColor="@color/gray_intro_text"
+                    android:textColorHint="@color/gray_profile"
+                    android:textSize="16sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
             <Button
                 android:id="@+id/add_account_button"
                 android:layout_width="0dp"
@@ -170,8 +277,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:visibility="invisible"
-            app:layout_constraintTop_toBottomOf="@+id/daily_withdrawal_tv"
-            tools:visibility="invisible">
+            app:layout_constraintTop_toBottomOf="@+id/daily_withdrawal_tv">
 
             <ImageView
                 android:id="@+id/background"
@@ -247,8 +353,7 @@
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/account_block"
-            tools:visibility="visible" />
+            app:layout_constraintTop_toBottomOf="@+id/account_block" />
 
         <!--  =========  -->
 
@@ -256,8 +361,7 @@
             android:id="@+id/no_card_block"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintTop_toBottomOf="@+id/instant_withdrawal_tv"
-            tools:visibility="invisible">
+            app:layout_constraintTop_toBottomOf="@+id/instant_withdrawal_tv">
 
             <ImageView
                 android:id="@+id/card_background"

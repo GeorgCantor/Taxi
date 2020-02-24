@@ -93,10 +93,7 @@ class AuthPhoneFragment : Fragment() {
         }
 
         viewModel.isLoggedIn.observe(viewLifecycleOwner, Observer { loggedIn ->
-            try {
-                if (loggedIn) Navigation.findNavController(view).navigate(R.id.action_authPhoneFragment_to_authCodeFragment)
-            } catch (e: IllegalArgumentException) {
-            }
+            if (loggedIn) Navigation.findNavController(view).navigate(R.id.action_authPhoneFragment_to_authCodeFragment)
         })
     }
 

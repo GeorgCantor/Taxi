@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -11,6 +12,7 @@ import kotlinx.android.synthetic.main.fragment_accounts.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
+import taxi.kassa.util.getStringAfterSpace
 import taxi.kassa.util.shortToast
 import taxi.kassa.util.showDialog
 
@@ -39,6 +41,13 @@ class AccountsFragment : Fragment() {
             activity?.shortToast(it)
         })
 
+        viewModel.creatingStatus.observe(viewLifecycleOwner, Observer { status ->
+            status?.let {
+                activity?.shortToast(it)
+                viewModel.getAccounts()
+            }
+        })
+
         viewModel.accounts.observe(viewLifecycleOwner, Observer {
             if (it.info?.isNotEmpty() == true) {
                 account_block.visibility = View.VISIBLE
@@ -52,6 +61,31 @@ class AccountsFragment : Fragment() {
                 no_account_block.visibility = View.VISIBLE
             }
         })
+
+        val editTexts = listOf<EditText>(
+            name_edit_text, surname_edit_text, account_edit_text, bik_edit_text
+        )
+
+        add_account_button.setOnClickListener {
+            editTexts.map {
+                if (it.text.isEmpty()) {
+                    activity?.shortToast(getString(R.string.fill_all_fields))
+                    return@setOnClickListener
+                }
+            }
+
+            val firstName = name_edit_text.text.toString().substringBefore(" ")
+            val middleName = name_edit_text.text.toString().getStringAfterSpace()
+
+            viewModel.createAccount(
+                firstName,
+                middleName,
+                surname_edit_text.text.toString(),
+                account_edit_text.text.toString(),
+                bik_edit_text.text.toString()
+            )
+            close_image.performClick()
+        }
 
         back_arrow.setOnClickListener { activity?.onBackPressed() }
 

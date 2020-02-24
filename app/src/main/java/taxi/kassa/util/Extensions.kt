@@ -35,3 +35,9 @@ fun Context.showDialog(
     alertDialog.message.text = message
     alertDialog.ok_button.setOnClickListener { alertDialog.dismiss() }
 }
+
+fun String.getStringAfterSpace(): String {
+    val index = this.indexOf(' ')
+
+    return if (index == -1) "Нет отчества" else this.substring(index + 1)
+}

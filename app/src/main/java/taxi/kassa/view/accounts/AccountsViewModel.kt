@@ -3,33 +3,57 @@ package taxi.kassa.view.accounts
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import io.reactivex.Observable
-import io.reactivex.disposables.Disposable
+import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import taxi.kassa.model.responses.AccountsList
 import taxi.kassa.repository.ApiRepository
 
 class AccountsViewModel(private val repository: ApiRepository) : ViewModel() {
 
-    private lateinit var disposable: Disposable
+    private val disposable = CompositeDisposable()
 
+    val creatingStatus = MutableLiveData<String>()
     val accounts = MutableLiveData<AccountsList>()
     val error = MutableLiveData<String>()
 
     fun getAccounts() {
-        disposable = Observable.fromCallable {
-            repository.getAccounts()
-                ?.subscribe({
-                    accounts.postValue(it?.response)
-                    error.postValue(it?.errorMsg)
-                }, {
-                })
-        }
-            .subscribeOn(Schedulers.io())
-            .subscribe()
+        disposable.add(
+            Observable.fromCallable {
+                repository.getAccounts()
+                    ?.subscribe({
+                        accounts.postValue(it?.response)
+                        error.postValue(it?.errorMsg)
+                    }, {
+                    })
+            }
+                .subscribeOn(Schedulers.io())
+                .subscribe()
+        )
+    }
+
+    fun createAccount(
+        firstName: String,
+        lastName: String,
+        middleName: String,
+        accountNumber: String,
+        bankCode: String
+    ) {
+        disposable.add(
+            Observable.fromCallable {
+                repository.createAccount(firstName, lastName, middleName, accountNumber, bankCode)
+                    ?.subscribe({
+                        creatingStatus.postValue(it?.response?.status)
+                        error.postValue(it?.errorMsg)
+                    }, {
+                    })
+            }
+                .subscribeOn(Schedulers.io())
+                .subscribe()
+        )
     }
 
     override fun onCleared() {
         super.onCleared()
-        if (::disposable.isInitialized) disposable.dispose()
+        disposable.dispose()
     }
 }
