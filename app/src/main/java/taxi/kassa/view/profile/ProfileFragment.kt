@@ -1,6 +1,10 @@
 package taxi.kassa.view.profile
 
+import android.Manifest
+import android.content.ActivityNotFoundException
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.telephony.PhoneNumberUtils
@@ -8,6 +12,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
+import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.NavHostFragment.findNavController
@@ -16,12 +21,15 @@ import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.util.Constants.PHONE
+import taxi.kassa.util.Constants.SUPPORT_PHONE_NUMBER
 import taxi.kassa.util.Constants.TOKEN
 import taxi.kassa.util.Constants.accessToken
 import taxi.kassa.util.PreferenceManager
 import taxi.kassa.util.shortToast
+import taxi.kassa.util.showTwoButtonsDialog
 import taxi.kassa.view.MainActivity
 import java.util.*
+
 
 class ProfileFragment : Fragment() {
 
@@ -77,8 +85,49 @@ class ProfileFragment : Fragment() {
             findNavController(this).navigate(R.id.action_profileFragment_to_accountsFragment)
         }
 
+        phone_image.setOnClickListener {
+            context?.showTwoButtonsDialog(
+                getString(R.string.support_service),
+                getString(R.string.support_service_message),
+                getString(R.string.cancel),
+                getString(R.string.call)
+            ) {
+                makeCall()
+            }
+        }
+
         exit_tv.setOnClickListener {
             logout()
+        }
+    }
+
+    private fun makeCall() {
+        val callIntent = Intent(Intent.ACTION_CALL)
+        callIntent.data = Uri.parse("tel:$SUPPORT_PHONE_NUMBER")
+        if (ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.CALL_PHONE)
+            != PackageManager.PERMISSION_GRANTED
+        ) {
+            requestPermissions(
+                arrayOf(Manifest.permission.CALL_PHONE),
+                10
+            )
+            return
+        } else {
+            try {
+                startActivity(callIntent)
+            } catch (ex: ActivityNotFoundException) {
+                requireActivity().shortToast("Not found")
+            }
+        }
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            makeCall()
         }
     }
 
