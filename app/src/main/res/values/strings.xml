@@ -55,6 +55,10 @@
     <string name="add_card">Добавить карту</string>
     <string name="add_button_text">Добавить</string>
     <string name="understand">Понятно</string>
+    <string name="delete_account">Удаление счета</string>
+    <string name="delete_account_message">Вы действительно хотите удалить этот счет?</string>
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
     <string name="first_middle_name">Имя и отчество</string>
     <string name="surname">Фамилия</string>
     <string name="payment_account">Расчетный счет</string>

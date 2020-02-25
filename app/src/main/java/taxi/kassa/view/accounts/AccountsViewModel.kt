@@ -13,6 +13,7 @@ class AccountsViewModel(private val repository: ApiRepository) : ViewModel() {
     private val disposable = CompositeDisposable()
 
     val creatingStatus = MutableLiveData<String>()
+    val deletionStatus = MutableLiveData<String>()
     val accounts = MutableLiveData<AccountsList>()
     val error = MutableLiveData<String>()
 
@@ -46,6 +47,23 @@ class AccountsViewModel(private val repository: ApiRepository) : ViewModel() {
                         error.postValue(it?.errorMsg)
                     }, {
                     })
+            }
+                .subscribeOn(Schedulers.io())
+                .subscribe()
+        )
+    }
+
+    fun deleteAccount() {
+        disposable.add(
+            Observable.fromCallable {
+                accounts.value?.info?.first()?.id?.let {
+                    repository.deleteAccount(it)
+                        ?.subscribe({
+                            deletionStatus.postValue(it?.response?.status)
+                            error.postValue(it?.errorMsg)
+                        }, {
+                        })
+                }
             }
                 .subscribeOn(Schedulers.io())
                 .subscribe()

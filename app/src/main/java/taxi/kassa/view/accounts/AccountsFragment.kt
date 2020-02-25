@@ -16,7 +16,8 @@ import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.util.getStringAfterSpace
 import taxi.kassa.util.shortToast
-import taxi.kassa.util.showDialog
+import taxi.kassa.util.showOneButtonDialog
+import taxi.kassa.util.showTwoButtonsDialog
 
 class AccountsFragment : Fragment() {
 
@@ -44,6 +45,13 @@ class AccountsFragment : Fragment() {
         })
 
         viewModel.creatingStatus.observe(viewLifecycleOwner, Observer { status ->
+            status?.let {
+                activity?.shortToast(it)
+                viewModel.getAccounts()
+            }
+        })
+
+        viewModel.deletionStatus.observe(viewLifecycleOwner, Observer { status ->
             status?.let {
                 activity?.shortToast(it)
                 viewModel.getAccounts()
@@ -92,14 +100,14 @@ class AccountsFragment : Fragment() {
         back_arrow.setOnClickListener { activity?.onBackPressed() }
 
         daily_withdrawal_tv.setOnClickListener {
-            context?.showDialog(
+            context?.showOneButtonDialog(
                 getString(R.string.daily_withdrawal),
                 getString(R.string.daily_withdrawal_dialog_message)
             )
         }
 
         instant_withdrawal_tv.setOnClickListener {
-            context?.showDialog(
+            context?.showOneButtonDialog(
                 getString(R.string.instant_withdrawal),
                 getString(R.string.instant_withdrawal_dialog_message)
             )
@@ -143,6 +151,17 @@ class AccountsFragment : Fragment() {
         card_close_image.setOnClickListener {
             no_card_block.visibility = VISIBLE
             new_card_block.visibility = INVISIBLE
+        }
+
+        delete_icon.setOnClickListener {
+            context?.showTwoButtonsDialog(
+                getString(R.string.delete_account),
+                getString(R.string.delete_account_message),
+                getString(R.string.no),
+                getString(R.string.yes)
+            ) {
+                viewModel.deleteAccount()
+            }
         }
     }
 }

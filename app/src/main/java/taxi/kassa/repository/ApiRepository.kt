@@ -1,30 +1,28 @@
 package taxi.kassa.repository
 
-import io.reactivex.Observable
 import taxi.kassa.model.remote.ApiService
-import taxi.kassa.model.responses.*
 
 class ApiRepository(private val apiService: ApiService) {
 
-    fun login(phone: String): Observable<ResponseAPI<ResponseAuthSendPhone?>?>? = apiService.authSendPhone(phone)
+    fun login(phone: String) = apiService.authSendPhone(phone)
 
     fun signUp(
         name: String,
         phone: String,
         source_id: Int,
         key: String
-    ): Observable<ResponseAPI<ResponseCreateRequest?>?>? = apiService.createRequest(name, phone, source_id, key)
+    ) = apiService.createRequest(name, phone, source_id, key)
 
     fun getCode(
         phone: String,
         code: String
-    ): Observable<ResponseAPI<ResponseAuthSendCode?>?>? = apiService.getCode(phone, code)
+    ) = apiService.getCode(phone, code)
 
-    fun getOwner(): Observable<ResponseAPI<ResponseOwner?>?>? = apiService.getOwner()
+    fun getOwner() = apiService.getOwner()
 
-    fun getWithdraws(): Observable<ResponseAPI<Withdraws?>?>? = apiService.getWithdraws()
+    fun getWithdraws() = apiService.getWithdraws()
 
-    fun getAccounts(): Observable<ResponseAPI<AccountsList?>?>? = apiService.getAccounts()
+    fun getAccounts() = apiService.getAccounts()
 
     fun createAccount(
         firstName: String,
@@ -32,11 +30,13 @@ class ApiRepository(private val apiService: ApiService) {
         middleName: String,
         accountNumber: String,
         bankCode: String
-    ): Observable<ResponseAPI<ResponseSimple?>?>? = apiService.createAccount(
+    ) = apiService.createAccount(
         firstName,
         lastName,
         middleName,
         accountNumber,
         bankCode
     )
+
+    fun deleteAccount(accountId: Int) = apiService.deleteAccount(accountId)
 }
