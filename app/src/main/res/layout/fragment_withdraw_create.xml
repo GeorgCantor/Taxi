@@ -46,11 +46,15 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/taxi_recycler"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_16dp"
             android:layout_marginTop="@dimen/margin_24dp"
+            android:layout_marginEnd="@dimen/margin_16dp"
             android:orientation="horizontal"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/withdraw_create_title"
             tools:itemCount="3"
             tools:listitem="@layout/item_taxi" />

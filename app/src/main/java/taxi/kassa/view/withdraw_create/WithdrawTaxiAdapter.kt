@@ -36,6 +36,11 @@ class WithdrawTaxiAdapter(
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onBindViewHolder(holder: WithdrawTaxiViewHolder, position: Int) {
         val taxi = taxis[position]
+//        val uncheckedItems = ArrayList<View>()
+//        taxis.map {
+//            if (it != taxi) uncheckedItems.add(it)
+//        }
+//
         holder.icon.background = holder.itemView.context.getDrawable(taxi.iconResource)
         holder.taxiName.text = taxi.taxiName
         holder.amount.text = taxi.amount

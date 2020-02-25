@@ -13,5 +13,9 @@ object Constants {
     const val WRITTEN_OFF = "Списано"
     const val CANCELED = "Отменено"
     const val WITHDRAW = "withdraw"
+    const val TAXI = "taxi"
+    const val YANDEX = "yandex"
+    const val GETT = "gett"
+    const val CITYMOBIL = "citymobil"
     const val SUPPORT_PHONE_NUMBER = "+74993505558"
 }

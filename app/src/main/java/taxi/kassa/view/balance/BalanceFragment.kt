@@ -12,6 +12,10 @@ import kotlinx.android.synthetic.main.fragment_balance.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
+import taxi.kassa.util.Constants.CITYMOBIL
+import taxi.kassa.util.Constants.GETT
+import taxi.kassa.util.Constants.TAXI
+import taxi.kassa.util.Constants.YANDEX
 import taxi.kassa.util.shortToast
 
 class BalanceFragment : Fragment() {
@@ -85,8 +89,21 @@ class BalanceFragment : Fragment() {
             }
         })
 
+        val bundle = Bundle()
+
         withdraw_yandex_tv.setOnClickListener {
-            findNavController(this).navigate(R.id.action_balanceFragment_to_withdrawCreateFragment)
+            bundle.putString(TAXI, YANDEX)
+            findNavController(this).navigate(R.id.action_balanceFragment_to_withdrawCreateFragment, bundle)
+        }
+
+        withdraw_citymobil_tv.setOnClickListener {
+            bundle.putString(TAXI, CITYMOBIL)
+            findNavController(this).navigate(R.id.action_balanceFragment_to_withdrawCreateFragment, bundle)
+        }
+
+        withdraw_gett_tv.setOnClickListener {
+            bundle.putString(TAXI, GETT)
+            findNavController(this).navigate(R.id.action_balanceFragment_to_withdrawCreateFragment, bundle)
         }
 
         back_arrow.setOnClickListener {
