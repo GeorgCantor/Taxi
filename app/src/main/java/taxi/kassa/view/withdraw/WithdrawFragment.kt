@@ -39,11 +39,15 @@ class WithdrawFragment : Fragment() {
             activity?.shortToast(it)
         })
 
-        viewModel.accounts.observe(viewLifecycleOwner, Observer {
-            val account = it.info?.first()
-            bank_name_tv.text = account?.bankName
-            order_tv.text = getString(R.string.order_format, account?.accountNumber)
-            name_tv.text = account?.driverName
+        viewModel.accounts.observe(viewLifecycleOwner, Observer { accounts ->
+            accounts?.let {
+                if (it.info?.isNotEmpty() == true) {
+                    val account = it.info.first()
+                    bank_name_tv.text = account.bankName
+                    order_tv.text = getString(R.string.order_format, account.accountNumber)
+                    name_tv.text = account.driverName
+                }
+            }
         })
 
         back_arrow.setOnClickListener { activity?.onBackPressed() }

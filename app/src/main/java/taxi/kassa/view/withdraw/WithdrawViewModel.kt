@@ -12,7 +12,7 @@ class WithdrawViewModel(private val repository: ApiRepository) : ViewModel() {
 
     private lateinit var disposable: Disposable
 
-    val accounts = MutableLiveData<AccountsList>()
+    val accounts = MutableLiveData<AccountsList?>()
     val error = MutableLiveData<String>()
 
     fun getAccounts() {
