@@ -98,7 +98,15 @@
     <fragment
         android:id="@+id/balanceFragment"
         android:name="taxi.kassa.view.balance.BalanceFragment"
-        android:label="BalanceFragment" />
+        android:label="BalanceFragment">
+        <action
+            android:id="@+id/action_balanceFragment_to_withdrawCreateFragment"
+            app:destination="@id/withdrawCreateFragment"
+            app:enterAnim="@animator/slide_in_right"
+            app:exitAnim="@animator/slide_out_left"
+            app:popEnterAnim="@animator/slide_in_left"
+            app:popExitAnim="@animator/slide_out_right" />
+    </fragment>
 
     <fragment
         android:id="@+id/withdrawsFragment"
@@ -129,5 +137,10 @@
         android:id="@+id/accountsFragment"
         android:name="taxi.kassa.view.accounts.AccountsFragment"
         android:label="AccountsFragment" />
+
+    <fragment
+        android:id="@+id/withdrawCreateFragment"
+        android:name="taxi.kassa.view.withdraw_create.WithdrawCreateFragment"
+        android:label="WithdrawCreateFragment" />
 
 </navigation>

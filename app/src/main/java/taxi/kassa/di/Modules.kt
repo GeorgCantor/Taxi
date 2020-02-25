@@ -11,6 +11,7 @@ import taxi.kassa.view.auth_sign_up.AuthSignUpViewModel
 import taxi.kassa.view.balance.BalanceViewModel
 import taxi.kassa.view.profile.ProfileViewModel
 import taxi.kassa.view.withdraw.WithdrawViewModel
+import taxi.kassa.view.withdraw_create.WithdrawCreateViewModel
 import taxi.kassa.view.withdraws.WithdrawsViewModel
 
 val repositoryModule = module {
@@ -41,6 +42,9 @@ val viewModelModule = module {
     }
     viewModel {
         AccountsViewModel(get())
+    }
+    viewModel {
+        WithdrawCreateViewModel(get())
     }
 }
 

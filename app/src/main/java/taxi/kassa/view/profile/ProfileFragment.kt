@@ -101,6 +101,16 @@ class ProfileFragment : Fragment() {
         }
     }
 
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            makeCall()
+        }
+    }
+
     private fun makeCall() {
         val callIntent = Intent(Intent.ACTION_CALL)
         callIntent.data = Uri.parse("tel:$SUPPORT_PHONE_NUMBER")
@@ -116,18 +126,8 @@ class ProfileFragment : Fragment() {
             try {
                 startActivity(callIntent)
             } catch (ex: ActivityNotFoundException) {
-                requireActivity().shortToast("Not found")
+                requireActivity().shortToast(getString(R.string.not_find_call_app))
             }
-        }
-    }
-
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            makeCall()
         }
     }
 

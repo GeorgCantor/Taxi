@@ -27,9 +27,10 @@
     <string name="withdrawal_applications">Заявки на вывод</string>
     <string name="accounts_and_cards">Счета и карты</string>
     <string name="support_service">Служба поддержки</string>
-    <string name="support_service_message">Звонок в службу поддержки бесплатный, нажмите кнопку согласия если вы столкнулисьс проблемой, которую необходимо решить.</string>
+    <string name="support_service_message">Звонок в службу поддержки бесплатный, нажмите кнопку согласия если вы столкнулись с проблемой, которую необходимо решить.</string>
     <string name="call">Вызов</string>
     <string name="cancel">Отмена</string>
+    <string name="not_find_call_app">Не найдено приложение для совершения звонков</string>
     <string name="profile_format">+%s</string>
     <!--    Balance-->
     <string name="all_partners_sum">Общая сумма по всем партнерам</string>
@@ -44,6 +45,7 @@
     <!--    Withdraws-->
     <string name="withdraws_title">Заявки на вывод</string>
     <string name="withdraw_title">Заявка на вывод</string>
+    <string name="withdraw_create_title">Вывод средств</string>
     <string name="withdrawal_title">Выводится</string>
     <string name="commission_title">Комиссия</string>
     <string name="with_commission">с учетом комиссии</string>
