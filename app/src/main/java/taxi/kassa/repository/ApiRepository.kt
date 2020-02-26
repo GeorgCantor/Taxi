@@ -39,4 +39,10 @@ class ApiRepository(private val apiService: ApiService) {
     )
 
     fun deleteAccount(accountId: Int) = apiService.deleteAccount(accountId)
+
+    fun createWithdraw(
+        sourceId: Int,
+        amount: String?,
+        accountId: Int
+    ) = apiService.createWithdraw(sourceId, amount, accountId)
 }

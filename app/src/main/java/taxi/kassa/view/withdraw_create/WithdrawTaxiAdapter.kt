@@ -14,7 +14,7 @@ import taxi.kassa.model.Taxi
 
 class WithdrawTaxiAdapter(
     taxis: MutableList<Taxi>,
-    private val clickListener: (View) -> Unit
+    private val clickListener: (View, Taxi) -> Unit
 ) : RecyclerView.Adapter<WithdrawTaxiAdapter.WithdrawTaxiViewHolder>() {
 
     private val taxis = mutableListOf<Taxi>()
@@ -36,16 +36,11 @@ class WithdrawTaxiAdapter(
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onBindViewHolder(holder: WithdrawTaxiViewHolder, position: Int) {
         val taxi = taxis[position]
-//        val uncheckedItems = ArrayList<View>()
-//        taxis.map {
-//            if (it != taxi) uncheckedItems.add(it)
-//        }
-//
         holder.icon.background = holder.itemView.context.getDrawable(taxi.iconResource)
         holder.taxiName.text = taxi.taxiName
         holder.amount.text = taxi.amount
 
-        holder.itemView.setOnClickListener { clickListener(holder.itemView) }
+        holder.itemView.setOnClickListener { clickListener(holder.itemView, taxi) }
     }
 
     class WithdrawTaxiViewHolder(view: View) : RecyclerView.ViewHolder(view) {

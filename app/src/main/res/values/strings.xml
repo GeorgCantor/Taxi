@@ -54,6 +54,7 @@
     <string name="enter_amount">Укажите сумму</string>
     <string name="send_request">Отправить заявку</string>
     <string name="no_withdrawal_requests">Нет заявок на вывод</string>
+    <string name="enter_sum_error">Введите сумму</string>
     <string name="no_withdrawal_message">Чтобы выводить средства, подключите хотя бы один счет и создайте заявку</string>
     <!--    Accounts-->
     <string name="accounts_title">Счета и карты</string>

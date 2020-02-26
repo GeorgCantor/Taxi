@@ -26,12 +26,12 @@ import taxi.kassa.util.Constants.YANDEX
 import taxi.kassa.util.shortToast
 import taxi.kassa.util.showOneButtonDialog
 
-
 class WithdrawCreateFragment : Fragment() {
 
     private lateinit var viewModel: WithdrawCreateViewModel
 
     private val taxiType: String by lazy { arguments?.get(TAXI) as String }
+    private var sourceId = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,11 +47,27 @@ class WithdrawCreateFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getUserInfo()
+        viewModel.getAccounts()
 
         val constraintSet = ConstraintSet()
 
         viewModel.error.observe(viewLifecycleOwner, Observer {
             activity?.shortToast(it)
+        })
+
+        viewModel.creatingStatus.observe(viewLifecycleOwner, Observer { status ->
+            status?.let {
+                activity?.shortToast(it)
+            }
+        })
+
+        viewModel.accounts.observe(viewLifecycleOwner, Observer {
+            if (it.info?.isNotEmpty() == true) {
+                val account = it.info.first()
+                bank_name_tv.text = account.bankName
+                order_tv.text = getString(R.string.order_format, account.accountNumber)
+                name_tv.text = account.driverName
+            }
         })
 
         viewModel.responseOwner.observe(viewLifecycleOwner, Observer { response ->
@@ -61,13 +77,20 @@ class WithdrawCreateFragment : Fragment() {
                 taxis.add(Taxi(R.drawable.ic_gett, getString(R.string.gett_title), it.balanceGett))
                 taxis.add(Taxi(R.drawable.ic_citymobil, getString(R.string.citymobil_title), it.balanceCity))
 
-                taxi_recycler.adapter = WithdrawTaxiAdapter(taxis) {
+                taxi_recycler.adapter = WithdrawTaxiAdapter(taxis) {itemView,taxiItem->
                     val items = mutableListOf(
                         taxi_recycler[0], taxi_recycler[1], taxi_recycler[2]
                     )
 
+                    sourceId = when (taxiItem.taxiName) {
+                        getString(R.string.yandex_title) -> 1
+                        getString(R.string.citymobil_title) -> 2
+                        getString(R.string.gett_title) -> 3
+                        else -> 1
+                    }
+
                     items.map { view ->
-                        if (view != it) {
+                        if (view != itemView) {
                             view.background = getDrawable(requireContext(), android.R.color.transparent)
                             view.check_image.visibility = INVISIBLE
                         } else {
@@ -98,7 +121,7 @@ class WithdrawCreateFragment : Fragment() {
                 constraintSet.connect(
                     R.id.sum_input_view,
                     ConstraintSet.BOTTOM,
-                    R.id.add_account_button,
+                    R.id.send_request_button,
                     ConstraintSet.TOP
                 )
                 constraintSet.applyTo(parent_layout)
@@ -149,6 +172,16 @@ class WithdrawCreateFragment : Fragment() {
                 getString(R.string.instant_withdrawal),
                 getString(R.string.instant_withdrawal_dialog_message)
             )
+        }
+
+        send_request_button.setOnClickListener {
+            val sum = sum_edit_text.text.toString()
+            if (sum.isEmpty()) {
+                sum_input_view.error = " "
+                return@setOnClickListener
+            }
+
+            viewModel.createWithdraw(sourceId, sum)
         }
 
         back_arrow.setOnClickListener { activity?.onBackPressed() }
