@@ -2,12 +2,14 @@ package taxi.kassa.view.withdraw_create
 
 import android.os.Bundle
 import android.os.Handler
+import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.INVISIBLE
-import android.view.View.VISIBLE
+import android.view.View.*
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
 import androidx.appcompat.content.res.AppCompatResources.getDrawable
+import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -22,6 +24,8 @@ import taxi.kassa.util.Constants.GETT
 import taxi.kassa.util.Constants.TAXI
 import taxi.kassa.util.Constants.YANDEX
 import taxi.kassa.util.shortToast
+import taxi.kassa.util.showOneButtonDialog
+
 
 class WithdrawCreateFragment : Fragment() {
 
@@ -43,6 +47,8 @@ class WithdrawCreateFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getUserInfo()
+
+        val constraintSet = ConstraintSet()
 
         viewModel.error.observe(viewLifecycleOwner, Observer {
             activity?.shortToast(it)
@@ -85,6 +91,65 @@ class WithdrawCreateFragment : Fragment() {
                 Handler().postDelayed(runnable, 500)
             }
         })
+
+        sum_edit_text.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus) {
+                constraintSet.clone(parent_layout)
+                constraintSet.connect(
+                    R.id.sum_input_view,
+                    ConstraintSet.BOTTOM,
+                    R.id.add_account_button,
+                    ConstraintSet.TOP
+                )
+                constraintSet.applyTo(parent_layout)
+            }
+        }
+
+        sum_edit_text.setOnEditorActionListener { _, actionId, event ->
+            if (event != null && event.keyCode == KeyEvent.KEYCODE_ENTER || actionId == EditorInfo.IME_ACTION_DONE) {
+                constraintSet.clear(R.id.sum_input_view, ConstraintSet.BOTTOM)
+                constraintSet.applyTo(parent_layout)
+            }
+            false
+        }
+
+        minus_image.setOnClickListener {
+            account_block.visibility = GONE
+            minus_image.visibility = GONE
+            plus_image.visibility = VISIBLE
+        }
+
+        plus_image.setOnClickListener {
+            account_block.visibility = VISIBLE
+            minus_image.visibility = VISIBLE
+            plus_image.visibility = GONE
+        }
+
+        minus_card_image.setOnClickListener {
+            add_card_block.visibility = GONE
+            minus_card_image.visibility = GONE
+            plus_card_image.visibility = VISIBLE
+        }
+
+        plus_card_image.setOnClickListener {
+            add_card_block.visibility = VISIBLE
+            minus_card_image.visibility = VISIBLE
+            plus_card_image.visibility = GONE
+        }
+
+        daily_withdrawal_tv.setOnClickListener {
+            context?.showOneButtonDialog(
+                getString(R.string.daily_withdrawal),
+                getString(R.string.daily_withdrawal_dialog_message)
+            )
+        }
+
+        instant_withdrawal_tv.setOnClickListener {
+            context?.showOneButtonDialog(
+                getString(R.string.instant_withdrawal),
+                getString(R.string.instant_withdrawal_dialog_message)
+            )
+        }
 
         back_arrow.setOnClickListener { activity?.onBackPressed() }
     }
