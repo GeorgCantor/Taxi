@@ -77,6 +77,10 @@ class ProfileFragment : Fragment() {
             findNavController(this).navigate(R.id.action_profileFragment_to_balanceFragment)
         }
 
+        orders_view.setOnClickListener {
+            findNavController(this).navigate(R.id.action_profileFragment_to_ordersFragment)
+        }
+
         withdrawal_applications_view.setOnClickListener {
             findNavController(this).navigate(R.id.action_profileFragment_to_withdrawsFragment)
         }
