@@ -64,28 +64,32 @@ class BalanceFragment : Fragment() {
                 citymobil_amount.setTextColor(
                     getColor(
                         requireContext(),
-                        if (it.balanceYandex.toFloat() > 0.0F) R.color.balance_green else R.color.balance_red
+                        if (it.balanceCity.toFloat() > 0.0F) R.color.balance_green else R.color.balance_red
                     )
                 )
                 withdraw_citymobil_tv.setTextColor(
                     getColor(
                         requireContext(),
-                        if (it.balanceYandex.toFloat() > 0.0F) R.color.gray_intro_text else R.color.colorAccent
+                        if (it.balanceCity.toFloat() > 0.0F) R.color.gray_intro_text else R.color.colorAccent
                     )
                 )
 
                 gett_amount.setTextColor(
                     getColor(
                         requireContext(),
-                        if (it.balanceYandex.toFloat() > 0.0F) R.color.balance_green else R.color.balance_red
+                        if (it.balanceGett.toFloat() > 0.0F) R.color.balance_green else R.color.balance_red
                     )
                 )
                 withdraw_gett_tv.setTextColor(
                     getColor(
                         requireContext(),
-                        if (it.balanceYandex.toFloat() > 0.0F) R.color.gray_intro_text else R.color.colorAccent
+                        if (it.balanceGett.toFloat() > 0.0F) R.color.gray_intro_text else R.color.colorAccent
                     )
                 )
+
+                withdraw_yandex_tv.isEnabled = it.balanceYandex.toFloat() > 0.0F
+                withdraw_citymobil_tv.isEnabled = it.balanceCity.toFloat() > 0.0F
+                withdraw_gett_tv.isEnabled = it.balanceGett.toFloat() > 0.0F
             }
         })
 

@@ -16,6 +16,7 @@ class WithdrawCreateViewModel(private val repository: ApiRepository) : ViewModel
 
     val accounts = MutableLiveData<AccountsList>()
     val creatingStatus = MutableLiveData<String>()
+    val deletionStatus = MutableLiveData<String>()
     val responseOwner = MutableLiveData<ResponseOwner>()
     val error = MutableLiveData<String>()
 
@@ -44,6 +45,23 @@ class WithdrawCreateViewModel(private val repository: ApiRepository) : ViewModel
                         error.postValue(it?.errorMsg)
                     }, {
                     })
+            }
+                .subscribeOn(Schedulers.io())
+                .subscribe()
+        )
+    }
+
+    fun deleteAccount() {
+        disposable.add(
+            Observable.fromCallable {
+                accounts.value?.info?.first()?.id?.let {
+                    repository.deleteAccount(it)
+                        ?.subscribe({
+                            deletionStatus.postValue(it?.response?.status)
+                            error.postValue(it?.errorMsg)
+                        }, {
+                        })
+                }
             }
                 .subscribeOn(Schedulers.io())
                 .subscribe()

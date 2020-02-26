@@ -25,6 +25,7 @@ import taxi.kassa.util.Constants.TAXI
 import taxi.kassa.util.Constants.YANDEX
 import taxi.kassa.util.shortToast
 import taxi.kassa.util.showOneButtonDialog
+import taxi.kassa.util.showTwoButtonsDialog
 
 class WithdrawCreateFragment : Fragment() {
 
@@ -56,6 +57,12 @@ class WithdrawCreateFragment : Fragment() {
         })
 
         viewModel.creatingStatus.observe(viewLifecycleOwner, Observer { status ->
+            status?.let {
+                activity?.shortToast(it)
+            }
+        })
+
+        viewModel.deletionStatus.observe(viewLifecycleOwner, Observer { status ->
             status?.let {
                 activity?.shortToast(it)
             }
@@ -172,6 +179,17 @@ class WithdrawCreateFragment : Fragment() {
                 getString(R.string.instant_withdrawal),
                 getString(R.string.instant_withdrawal_dialog_message)
             )
+        }
+
+        delete_icon.setOnClickListener {
+            context?.showTwoButtonsDialog(
+                getString(R.string.delete_account),
+                getString(R.string.delete_account_message),
+                getString(R.string.no),
+                getString(R.string.yes)
+            ) {
+                viewModel.deleteAccount()
+            }
         }
 
         send_request_button.setOnClickListener {
