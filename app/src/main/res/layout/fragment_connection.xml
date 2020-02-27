@@ -512,6 +512,7 @@
                     android:imeOptions="actionNext"
                     android:inputType="number"
                     android:maxLines="1"
+                    android:paddingBottom="18dp"
                     android:textColor="@color/gray_intro_text"
                     android:textColorHint="@color/gray_profile"
                     android:textSize="16sp" />
@@ -695,7 +696,6 @@
                     android:backgroundTint="@color/gray_profile"
                     android:drawableEnd="@drawable/ic_download"
                     android:focusable="false"
-                    android:imeOptions="actionDone"
                     android:inputType="number"
                     android:maxLines="1"
                     android:textColor="@color/gray_intro_text"

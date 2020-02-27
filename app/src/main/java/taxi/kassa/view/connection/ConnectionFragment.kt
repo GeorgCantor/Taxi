@@ -1,11 +1,14 @@
 package taxi.kassa.view.connection
 
 import android.os.Bundle
+import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
+import android.widget.EditText
 import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
@@ -28,6 +31,8 @@ class ConnectionFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        checkEditTextIsComplete()
+        clearFocusWhenDoneClicked()
 
         when (taxiType) {
             YANDEX -> {
@@ -74,6 +79,62 @@ class ConnectionFragment : Fragment() {
 
         city_submit_button.setOnClickListener {
             findNavController(this).navigate(R.id.action_connectionFragment_to_successRequestFragment)
+        }
+    }
+
+    private fun checkEditTextIsComplete() {
+        val editTexts = listOf<EditText>(
+            driver_license_edit_text,
+            passport_number_edit_text,
+            sts_edit_text,
+            license_edit_text,
+            phone_number_edit_text,
+            gett_driver_license_edit_text,
+            gett_sts_edit_text,
+            gett_license_edit_text,
+            gett_phone_edit_text,
+            id_edit_text,
+            city_driver_license_edit_text,
+            city_sts_edit_text,
+            city_license_edit_text,
+            city_phone_edit_text
+        )
+
+        editTexts.map {
+            it.setOnFocusChangeListener { _, _ ->
+                if (it.text?.isNotBlank() == true) {
+                    it.setCompoundDrawablesWithIntrinsicBounds(
+                        0,
+                        0,
+                        R.drawable.ic_check_green,
+                        0
+                    )
+                } else {
+                    it.setCompoundDrawablesWithIntrinsicBounds(
+                        0,
+                        0,
+                        0,
+                        0
+                    )
+                }
+            }
+        }
+    }
+
+    private fun clearFocusWhenDoneClicked() {
+        val editTexts = listOf<EditText>(
+            phone_number_edit_text,
+            id_edit_text,
+            city_phone_edit_text
+        )
+
+        editTexts.map {
+            it.setOnEditorActionListener { _, actionId, event ->
+                if (event != null && event.keyCode == KeyEvent.KEYCODE_ENTER || actionId == EditorInfo.IME_ACTION_DONE) {
+                    it.clearFocus()
+                }
+                false
+            }
         }
     }
 }
