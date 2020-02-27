@@ -17,7 +17,7 @@
     <string name="continue_hint">Далее</string>
     <string name="register_application">Заявка на подключение</string>
     <string name="register_application_success">Заявка на подключение отправлена!</string>
-    <string name="application_success_message">В ближайшее время наш менеджер связется с вами по телефону</string>
+    <string name="application_success_message">В ближайшее время наш менеджер свяжется с вами по телефону</string>
     <string name="ok">Хорошо</string>
     <string name="back">Назад</string>
     <!--    Profile-->
@@ -94,4 +94,15 @@
     <string name="prepare_this_documents">При выборе регистрации через загруженные документы приготовьте:</string>
     <string name="documents_list">1. Водительское удостоверение \n2. Паспорт (страница с фото и пропиской) \n3. СТС \n4. Лицензию</string>
     <string name="select_agregator">Выберите своего агрегатора для подключения</string>
+    <string name="connection">Подключение</string>
+    <string name="driver_license">Водительское удостоверение</string>
+    <string name="passport_number">Серия и номер паспорта</string>
+    <string name="sts">СТС</string>
+    <string name="license">Лицензия</string>
+    <string name="add_phone_number">Добавьте ваш номер телефона</string>
+    <string name="submit">Отправить</string>
+    <string name="passport_first_page">Паспорт (первый разворот)</string>
+    <string name="passport_registration_page">Паспорт (стр. прописки)</string>
+    <string name="make_selfie">Сделайте селфи</string>
+    <string name="input_id">Введите ваш ID</string>
 </resources>

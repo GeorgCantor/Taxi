@@ -47,7 +47,28 @@
     <fragment
         android:id="@+id/registrationSelectionFragment"
         android:name="taxi.kassa.view.registration.RegistrationSelectionFragment"
-        android:label="RegistrationSelectionFragment" />
+        android:label="RegistrationSelectionFragment">
+        <action
+            android:id="@+id/action_registrationSelectionFragment_to_connectionFragment"
+            app:destination="@id/connectionFragment"
+            app:enterAnim="@animator/slide_in_right"
+            app:exitAnim="@animator/slide_out_left"
+            app:popEnterAnim="@animator/slide_in_left"
+            app:popExitAnim="@animator/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/connectionFragment"
+        android:name="taxi.kassa.view.connection.ConnectionFragment"
+        android:label="ConnectionFragment">
+        <action
+            android:id="@+id/action_connectionFragment_to_successRequestFragment"
+            app:destination="@id/successRequestFragment"
+            app:exitAnim="@animator/slide_out_left"
+            app:popEnterAnim="@animator/slide_in_left"
+            app:popExitAnim="@animator/slide_out_right"
+            app:popUpTo="@id/introFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/authPhoneFragment"

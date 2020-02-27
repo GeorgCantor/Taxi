@@ -14,6 +14,7 @@ object Constants {
     const val CANCELED = "Отменено"
     const val WITHDRAW = "withdraw"
     const val TAXI = "taxi"
+    const val CONNECTION = "connection"
     const val YANDEX = "yandex"
     const val GETT = "gett"
     const val CITYMOBIL = "citymobil"
