@@ -47,7 +47,6 @@ class OrdersFragment : Fragment() {
                         item.space.background = getDrawable(requireContext(), R.color.withdraws_yellow)
                     }
                 }
-
             }
 
             val runnable = Runnable {

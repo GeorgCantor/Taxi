@@ -110,8 +110,6 @@ class BalanceFragment : Fragment() {
             findNavController(this).navigate(R.id.action_balanceFragment_to_withdrawCreateFragment, bundle)
         }
 
-        back_arrow.setOnClickListener {
-            activity?.onBackPressed()
-        }
+        back_arrow.setOnClickListener { activity?.onBackPressed() }
     }
 }

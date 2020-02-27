@@ -16,7 +16,20 @@
             app:popEnterAnim="@animator/slide_in_left"
             app:popExitAnim="@animator/slide_out_right" />
         <action
-            android:id="@+id/action_introFragment_to_authSignUpFragment"
+            android:id="@+id/action_introFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment"
+            app:enterAnim="@animator/slide_in_right"
+            app:exitAnim="@animator/slide_out_left"
+            app:popEnterAnim="@animator/slide_in_left"
+            app:popExitAnim="@animator/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/registrationFragment"
+        android:name="taxi.kassa.view.registration.RegistrationFragment"
+        android:label="RegistrationFragment">
+        <action
+            android:id="@+id/action_registrationFragment_to_authSignUpFragment"
             app:destination="@id/authSignUpFragment"
             app:enterAnim="@animator/slide_in_right"
             app:exitAnim="@animator/slide_out_left"

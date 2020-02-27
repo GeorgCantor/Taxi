@@ -86,4 +86,11 @@
     </string>
     <!--    Orders-->
     <string name="info_unavailable">Информация временно недоступна</string>
+    <!--    Registration-->
+    <string name="select_registration_variant">Выберете один из двух вариантов регистрации</string>
+    <string name="set_phone_number">Указать номер телефона</string>
+    <string name="download_documents">Загрузить документы</string>
+    <string name="or">Или</string>
+    <string name="prepare_this_documents">При выборе регистрации через загруженные документы приготовьте:</string>
+    <string name="documents_list">1. Водительское удостоверение \n2. Паспорт (страница с фото и пропиской) \n3. СТС \n4. Лицензию</string>
 </resources>

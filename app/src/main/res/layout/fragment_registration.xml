@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/login_background"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/back_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_4dp"
+            android:layout_marginTop="12dp"
+            android:padding="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_back" />
+
+        <TextView
+            android:id="@+id/registration_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="98dp"
+            android:text="@string/registration"
+            android:textColor="@color/gray_intro_text"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/registration_variants_tv"
+            android:layout_width="298dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_4dp"
+            android:gravity="center"
+            android:text="@string/select_registration_variant"
+            android:textColor="@color/gray_profile"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/registration_tv" />
+
+        <Button
+            android:id="@+id/set_phone_number_button"
+            android:layout_width="336dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="78dp"
+            android:background="@drawable/bg_intro_btn"
+            android:text="@string/set_phone_number"
+            android:textAllCaps="false"
+            android:textColor="@color/continue_color"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/registration_variants_tv" />
+
+        <TextView
+            android:id="@+id/or_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_16dp"
+            android:text="@string/or"
+            android:textColor="@color/agreement_text_color"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/set_phone_number_button" />
+
+        <Button
+            android:id="@+id/download_documents_button"
+            android:layout_width="336dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="@dimen/margin_16dp"
+            android:background="@drawable/bg_intro_btn"
+            android:text="@string/download_documents"
+            android:textAllCaps="false"
+            android:textColor="@color/continue_color"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/or_tv" />
+
+        <TextView
+            android:id="@+id/prepare_this_documents"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:gravity="center"
+            android:text="@string/prepare_this_documents"
+            android:textColor="@color/gray_intro_text"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/download_documents_button" />
+
+        <TextView
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="@string/documents_list"
+            android:textColor="@color/gray_profile"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/prepare_this_documents"
+            app:layout_constraintTop_toBottomOf="@+id/prepare_this_documents" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>
