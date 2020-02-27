@@ -22,6 +22,8 @@
     <color name="gray_light_profile">#D9DFE1</color>
     <color name="checkbox_color">#E0C7B0</color>
 
+    <color name="registration_white_color">#FDFEFF</color>
+
     <color name="balance_gradient_light">#1D1D23</color>
     <color name="balance_gradient_dark">#16161E</color>
     <color name="balance_green">#1F924D</color>

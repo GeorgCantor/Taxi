@@ -35,7 +35,19 @@
             app:exitAnim="@animator/slide_out_left"
             app:popEnterAnim="@animator/slide_in_left"
             app:popExitAnim="@animator/slide_out_right" />
+        <action
+            android:id="@+id/action_registrationFragment_to_registrationSelectionFragment"
+            app:destination="@id/registrationSelectionFragment"
+            app:enterAnim="@animator/slide_in_right"
+            app:exitAnim="@animator/slide_out_left"
+            app:popEnterAnim="@animator/slide_in_left"
+            app:popExitAnim="@animator/slide_out_right" />
     </fragment>
+
+    <fragment
+        android:id="@+id/registrationSelectionFragment"
+        android:name="taxi.kassa.view.registration.RegistrationSelectionFragment"
+        android:label="RegistrationSelectionFragment" />
 
     <fragment
         android:id="@+id/authPhoneFragment"

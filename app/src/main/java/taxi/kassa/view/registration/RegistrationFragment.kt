@@ -25,5 +25,9 @@ class RegistrationFragment : Fragment() {
         set_phone_number_button.setOnClickListener {
             findNavController(this).navigate(R.id.action_registrationFragment_to_authSignUpFragment)
         }
+
+        download_documents_button.setOnClickListener {
+            findNavController(this).navigate(R.id.action_registrationFragment_to_registrationSelectionFragment)
+        }
     }
 }
