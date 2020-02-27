@@ -62,6 +62,8 @@ class ConnectionFragment : Fragment() {
             }
         }
 
+        back_arrow.setOnClickListener { activity?.onBackPressed() }
+
         yandex_submit_button.setOnClickListener {
             findNavController(this).navigate(R.id.action_connectionFragment_to_successRequestFragment)
         }
@@ -73,7 +75,5 @@ class ConnectionFragment : Fragment() {
         city_submit_button.setOnClickListener {
             findNavController(this).navigate(R.id.action_connectionFragment_to_successRequestFragment)
         }
-
-        back_arrow.setOnClickListener { activity?.onBackPressed() }
     }
 }
