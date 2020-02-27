@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_registration_selection.*
 import taxi.kassa.R
+import taxi.kassa.util.Constants.CITYMOBIL
 import taxi.kassa.util.Constants.CONNECTION
 import taxi.kassa.util.Constants.GETT
 import taxi.kassa.util.Constants.YANDEX
@@ -36,6 +37,14 @@ class RegistrationSelectionFragment : Fragment() {
 
         gett_background.setOnClickListener {
             bundle.putString(CONNECTION, GETT)
+            findNavController(this).navigate(
+                R.id.action_registrationSelectionFragment_to_connectionFragment,
+                bundle
+            )
+        }
+
+        city_background.setOnClickListener {
+            bundle.putString(CONNECTION, CITYMOBIL)
             findNavController(this).navigate(
                 R.id.action_registrationSelectionFragment_to_connectionFragment,
                 bundle

@@ -35,6 +35,8 @@ class ConnectionFragment : Fragment() {
                 yandex_submit_button.visibility = VISIBLE
                 gett_block.visibility = GONE
                 gett_submit_button.visibility = GONE
+                city_block.visibility = GONE
+                city_submit_button.visibility = GONE
                 taxi_icon.background = getDrawable(requireContext(), R.drawable.ic_yandex)
                 taxi_name.text = getString(R.string.yandex_title)
             }
@@ -43,11 +45,20 @@ class ConnectionFragment : Fragment() {
                 yandex_submit_button.visibility = GONE
                 gett_block.visibility = VISIBLE
                 gett_submit_button.visibility = VISIBLE
+                city_block.visibility = GONE
+                city_submit_button.visibility = GONE
                 taxi_icon.background = getDrawable(requireContext(), R.drawable.ic_gett)
                 taxi_name.text = getString(R.string.gett_title)
             }
             CITYMOBIL -> {
-
+                yandex_block.visibility = GONE
+                yandex_submit_button.visibility = GONE
+                gett_block.visibility = GONE
+                gett_submit_button.visibility = GONE
+                city_block.visibility = VISIBLE
+                city_submit_button.visibility = VISIBLE
+                taxi_icon.background = getDrawable(requireContext(), R.drawable.ic_citymobil)
+                taxi_name.text = getString(R.string.citymobil_title)
             }
         }
 
@@ -56,6 +67,10 @@ class ConnectionFragment : Fragment() {
         }
 
         gett_submit_button.setOnClickListener {
+            findNavController(this).navigate(R.id.action_connectionFragment_to_successRequestFragment)
+        }
+
+        city_submit_button.setOnClickListener {
             findNavController(this).navigate(R.id.action_connectionFragment_to_successRequestFragment)
         }
 

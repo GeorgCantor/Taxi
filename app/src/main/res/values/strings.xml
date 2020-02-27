@@ -105,4 +105,10 @@
     <string name="passport_registration_page">Паспорт (стр. прописки)</string>
     <string name="make_selfie">Сделайте селфи</string>
     <string name="input_id">Введите ваш ID</string>
+    <string name="car_photo">Фото автомобиля</string>
+    <string name="driver_photo">Фото водителя</string>
+    <string name="front_side">Передняя сторона</string>
+    <string name="back_side">Задняя сторона</string>
+    <string name="left_side">Левая (фото под 45°)</string>
+    <string name="right_side">Правая (фото под 45°)</string>
 </resources>
