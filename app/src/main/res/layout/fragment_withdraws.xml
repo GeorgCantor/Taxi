@@ -22,6 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
+        android:fontFamily="sans-serif-medium"
         android:text="@string/withdraws_title"
         android:textColor="@color/gray_intro_text"
         android:textSize="20sp"
@@ -51,10 +52,10 @@
         tools:listitem="@layout/item_withdraw" />
 
     <include
-        app:layout_constraintTop_toBottomOf="@+id/withdraws_title"
         android:id="@+id/empty_withdraws"
         layout="@layout/empty_withdraws_screen"
-        android:visibility="gone" />
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@+id/withdraws_title" />
 
     <ProgressBar
         android:id="@+id/progress_bar"

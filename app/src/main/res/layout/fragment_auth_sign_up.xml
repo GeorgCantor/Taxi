@@ -23,6 +23,7 @@
             android:layout_height="0dp"
             android:layout_marginBottom="30dp"
             android:layout_weight="1"
+            android:fontFamily="sans-serif-medium"
             android:text="@string/register_application"
             android:textAlignment="center"
             android:textColor="@color/gray_intro_text"
@@ -46,7 +47,8 @@
             android:textColor="@color/gray_intro_text"
             android:textColorHint="@color/grayText"
             android:textCursorDrawable="@drawable/color_cursor"
-            android:textSize="36sp"
+            android:textSize="34sp"
+            android:textStyle="bold"
             android:theme="@style/CustomTheme"
             app:backgroundTint="@color/grayText" />
 
@@ -84,6 +86,7 @@
             android:buttonTint="@color/checkbox_color"
             android:checked="true"
             android:drawable="@drawable/checkbox_primary"
+            android:fontFamily="sans-serif"
             android:paddingStart="8dp"
             android:paddingTop="22dp"
             android:text="@string/login_agreement_title"
