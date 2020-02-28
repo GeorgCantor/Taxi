@@ -110,6 +110,10 @@ class BalanceFragment : Fragment() {
             findNavController(this).navigate(R.id.action_balanceFragment_to_withdrawCreateFragment, bundle)
         }
 
+        replenish_gazprom_tv.setOnClickListener {
+            findNavController(this).navigate(R.id.action_balanceFragment_to_fuelReplenishFragment)
+        }
+
         back_arrow.setOnClickListener { activity?.onBackPressed() }
     }
 }

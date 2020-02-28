@@ -159,7 +159,19 @@
             app:exitAnim="@animator/slide_out_left"
             app:popEnterAnim="@animator/slide_in_left"
             app:popExitAnim="@animator/slide_out_right" />
+        <action
+            android:id="@+id/action_balanceFragment_to_fuelReplenishFragment"
+            app:destination="@id/fuelReplenishFragment"
+            app:enterAnim="@animator/slide_in_right"
+            app:exitAnim="@animator/slide_out_left"
+            app:popEnterAnim="@animator/slide_in_left"
+            app:popExitAnim="@animator/slide_out_right" />
     </fragment>
+
+    <fragment
+        android:id="@+id/fuelReplenishFragment"
+        android:name="taxi.kassa.view.fuel.FuelReplenishFragment"
+        android:label="FuelReplenishFragment" />
 
     <fragment
         android:id="@+id/withdrawsFragment"

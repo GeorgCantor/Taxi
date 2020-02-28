@@ -38,7 +38,7 @@
             android:layout_width="354dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="38dp"
-            android:text="@string/select_agregator"
+            android:text="@string/select_aggregator"
             android:textColor="@color/gray_intro_text"
             android:textSize="24sp"
             android:textStyle="bold"

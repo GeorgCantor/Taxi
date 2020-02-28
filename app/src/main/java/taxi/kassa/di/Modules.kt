@@ -3,7 +3,6 @@ package taxi.kassa.di
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
-import taxi.kassa.MyApplication
 import taxi.kassa.model.remote.ApiClient
 import taxi.kassa.repository.ApiRepository
 import taxi.kassa.view.accounts.AccountsViewModel
@@ -11,6 +10,7 @@ import taxi.kassa.view.auth_code.AuthCodeViewModel
 import taxi.kassa.view.auth_phone.AuthPhoneViewModel
 import taxi.kassa.view.auth_sign_up.AuthSignUpViewModel
 import taxi.kassa.view.balance.BalanceViewModel
+import taxi.kassa.view.fuel.FuelReplenishViewModel
 import taxi.kassa.view.orders.OrdersViewModel
 import taxi.kassa.view.profile.ProfileViewModel
 import taxi.kassa.view.withdraw.WithdrawViewModel
@@ -52,9 +52,11 @@ val viewModelModule = module {
     viewModel {
         OrdersViewModel(get(), androidContext())
     }
+    viewModel {
+        FuelReplenishViewModel(get())
+    }
 }
 
 val appModule = module {
     single { ApiClient.create(get()) }
-    single { MyApplication() }
 }
