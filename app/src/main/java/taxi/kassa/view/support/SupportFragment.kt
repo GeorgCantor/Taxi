@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_support.*
 import taxi.kassa.R
 import taxi.kassa.util.Constants
@@ -29,6 +30,10 @@ class SupportFragment : Fragment() {
 
         back_arrow.setOnClickListener { activity?.onBackPressed() }
 
+        write_to_us_view.setOnClickListener {
+            findNavController(this).navigate(R.id.action_supportFragment_to_writeMessageFragment)
+        }
+
         call_button.setOnClickListener { makeCall() }
     }
 
@@ -45,13 +50,11 @@ class SupportFragment : Fragment() {
     private fun makeCall() {
         val callIntent = Intent(Intent.ACTION_CALL)
         callIntent.data = Uri.parse("tel:${Constants.SUPPORT_PHONE_NUMBER}")
+
         if (ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.CALL_PHONE)
             != PackageManager.PERMISSION_GRANTED
         ) {
-            requestPermissions(
-                arrayOf(Manifest.permission.CALL_PHONE),
-                10
-            )
+            requestPermissions(arrayOf(Manifest.permission.CALL_PHONE), 10)
             return
         } else {
             try {

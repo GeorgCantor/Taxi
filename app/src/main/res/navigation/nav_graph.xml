@@ -223,6 +223,32 @@
     <fragment
         android:id="@+id/supportFragment"
         android:name="taxi.kassa.view.support.SupportFragment"
-        android:label="SupportFragment" />
+        android:label="SupportFragment">
+        <action
+            android:id="@+id/action_supportFragment_to_writeMessageFragment"
+            app:destination="@id/writeMessageFragment"
+            app:enterAnim="@animator/slide_in_right"
+            app:exitAnim="@animator/slide_out_left"
+            app:popEnterAnim="@animator/slide_in_left"
+            app:popExitAnim="@animator/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/writeMessageFragment"
+        android:name="taxi.kassa.view.support.WriteMessageFragment"
+        android:label="WriteMessageFragment">
+        <action
+            android:id="@+id/action_writeMessageFragment_to_successFragment"
+            app:destination="@id/successFragment"
+            app:exitAnim="@animator/slide_out_left"
+            app:popEnterAnim="@animator/slide_in_left"
+            app:popExitAnim="@animator/slide_out_right"
+            app:popUpTo="@id/supportFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/successFragment"
+        android:name="taxi.kassa.view.support.SuccessFragment"
+        android:label="SuccessFragment" />
 
 </navigation>

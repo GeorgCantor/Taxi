@@ -118,4 +118,10 @@
     <string name="write_to_us">Напишите нам</string>
     <string name="call_history">История обращений</string>
     <string name="to_call">Позвонить</string>
+    <string name="write_message_title">Здравствуйте. Вам есть что сообщить нам?</string>
+    <string name="symbols_max_text">до 200 символов</string>
+    <string name="thanks_title">Спасибо!\n\nВаше сообщение отправлено</string>
+    <string name="success_message">Наш сотрудник свяжется с вами через некоторое время</string>
+    <string name="back_to_main_screen">Вернуться на главный экран</string>
+    <string name="input_message_error">Введите сообщение</string>
 </resources>

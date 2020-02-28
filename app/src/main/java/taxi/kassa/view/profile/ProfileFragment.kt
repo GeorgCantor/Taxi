@@ -30,7 +30,6 @@ import taxi.kassa.util.showTwoButtonsDialog
 import taxi.kassa.view.MainActivity
 import java.util.*
 
-
 class ProfileFragment : Fragment() {
 
     private lateinit var viewModel: ProfileViewModel
@@ -122,13 +121,11 @@ class ProfileFragment : Fragment() {
     private fun makeCall() {
         val callIntent = Intent(Intent.ACTION_CALL)
         callIntent.data = Uri.parse("tel:$SUPPORT_PHONE_NUMBER")
+
         if (ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.CALL_PHONE)
             != PackageManager.PERMISSION_GRANTED
         ) {
-            requestPermissions(
-                arrayOf(Manifest.permission.CALL_PHONE),
-                10
-            )
+            requestPermissions(arrayOf(Manifest.permission.CALL_PHONE), 10)
             return
         } else {
             try {
