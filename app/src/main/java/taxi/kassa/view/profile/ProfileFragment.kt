@@ -89,6 +89,10 @@ class ProfileFragment : Fragment() {
             findNavController(this).navigate(R.id.action_profileFragment_to_accountsFragment)
         }
 
+        support_service_view.setOnClickListener {
+            findNavController(this).navigate(R.id.action_profileFragment_to_supportFragment)
+        }
+
         phone_image.setOnClickListener {
             context?.showTwoButtonsDialog(
                 getString(R.string.support_service),

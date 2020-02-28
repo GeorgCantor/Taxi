@@ -146,6 +146,13 @@
             app:exitAnim="@animator/slide_out_left"
             app:popEnterAnim="@animator/slide_in_left"
             app:popExitAnim="@animator/slide_out_right" />
+        <action
+            android:id="@+id/action_profileFragment_to_supportFragment"
+            app:destination="@id/supportFragment"
+            app:enterAnim="@animator/slide_in_right"
+            app:exitAnim="@animator/slide_out_left"
+            app:popEnterAnim="@animator/slide_in_left"
+            app:popExitAnim="@animator/slide_out_right" />
     </fragment>
 
     <fragment
@@ -212,5 +219,10 @@
         android:id="@+id/ordersFragment"
         android:name="taxi.kassa.view.orders.OrdersFragment"
         android:label="OrdersFragment" />
+
+    <fragment
+        android:id="@+id/supportFragment"
+        android:name="taxi.kassa.view.support.SupportFragment"
+        android:label="SupportFragment" />
 
 </navigation>

@@ -114,4 +114,8 @@
     <string name="back_side">Задняя сторона</string>
     <string name="left_side">Левая (фото под 45°)</string>
     <string name="right_side">Правая (фото под 45°)</string>
+    <!--    Support-->
+    <string name="write_to_us">Напишите нам</string>
+    <string name="call_history">История обращений</string>
+    <string name="to_call">Позвонить</string>
 </resources>
