@@ -36,22 +36,23 @@ class AuthPhoneFragment : Fragment() {
         loginIsReady = true
 
         viewModel.error.observe(viewLifecycleOwner, Observer {
-            showError(context, tv_error, it, 5000, 0)
+            showError(context, error_tv, it, 5000, 0)
         })
 
         login_checkbox.setOnCheckedChangeListener { _, isChecked ->
             loginIsReady = isChecked
         }
 
-        input_login.addTextChangedListener(object : TextWatcher {
-            var length_before = 0
+        phone_edit_text.addTextChangedListener(object : TextWatcher {
+            var lengthBefore = 0
+
             override fun beforeTextChanged(
-                s: CharSequence,
+                sequence: CharSequence,
                 start: Int,
                 count: Int,
                 after: Int
             ) {
-                length_before = s.length
+                lengthBefore = sequence.length
             }
 
             override fun onTextChanged(
@@ -60,33 +61,26 @@ class AuthPhoneFragment : Fragment() {
                 before: Int,
                 count: Int
             ) {
-                if (input_login.length() <= 2) {
-                    input_login.setText("+7 ")
-                    input_login.setSelection(3)
+                if (phone_edit_text.length() <= 2) {
+                    phone_edit_text.setSelection(4)
                 }
             }
 
-            override fun afterTextChanged(s: Editable) {
-                if (length_before < s.length) {
-                    if (s.length == 6) s.append(" ")
-                    if (s.length == 10 || s.length == 13) s.append("-")
-                    if (s.length > 6) {
-                        if (Character.isDigit(s[6])) s.insert(6, "-")
-                    }
-                    if (s.length > 10) {
-                        if (Character.isDigit(s[10])) s.insert(10, "-")
-                    }
+            override fun afterTextChanged(editable: Editable) {
+                if (lengthBefore < editable.length) {
+                    if (editable.length == 7) editable.append(") ")
+                    if (editable.length == 12 || editable.length == 15) editable.append("-")
                 }
             }
         })
 
         login_button.setOnClickListener {
             if (!loginIsReady) {
-                showError(context, tv_error, getString(R.string.accept_conditions_error), 5000, 0)
+                showError(context, error_tv, getString(R.string.accept_conditions_error), 5000, 0)
                 return@setOnClickListener
             }
 
-            val phone: String = input_login.text.toString().replace("[^\\d]", "")
+            val phone: String = phone_edit_text.text.toString().replace("[^\\d]", "")
             PreferenceManager(requireActivity()).saveString(PHONE, phone)
 
             viewModel.login(phone)

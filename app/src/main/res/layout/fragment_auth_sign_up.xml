@@ -30,7 +30,7 @@
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/input_login"
+            android:id="@+id/phone_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="0dp"
@@ -40,10 +40,11 @@
             android:cursorVisible="true"
             android:digits="+() 1234567890-"
             android:ems="10"
+            android:imeOptions="actionDone"
             android:inputType="phone"
-            android:maxLength="16"
+            android:maxLength="18"
             android:maxLines="1"
-            android:text="+7 "
+            android:text="+7 ("
             android:textColor="@color/gray_intro_text"
             android:textColorHint="@color/grayText"
             android:textCursorDrawable="@drawable/color_cursor"
@@ -53,7 +54,7 @@
             app:backgroundTint="@color/grayText" />
 
         <TextView
-            android:id="@+id/tv_error"
+            android:id="@+id/error_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="5dp"
