@@ -67,7 +67,8 @@ class ProfileFragment : Fragment() {
                 number_tv.text = getString(
                     R.string.profile_format,
                     PhoneNumberUtils.formatNumber(it.phone, Locale.getDefault().country)
-                )
+                ).replaceFirst(" ", "(").replace(" ", ")")
+
                 balance_tv.text = getString(R.string.balance_format, it.balanceTotal)
             }
         })
