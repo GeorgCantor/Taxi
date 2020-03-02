@@ -30,6 +30,6 @@ class AuthSignUpViewModel(private val repository: ApiRepository) : ViewModel() {
 
     override fun onCleared() {
         super.onCleared()
-        disposable.dispose()
+        if (::disposable.isInitialized) disposable.dispose()
     }
 }

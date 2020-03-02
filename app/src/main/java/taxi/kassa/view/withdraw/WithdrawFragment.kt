@@ -11,14 +11,14 @@ import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.model.responses.Withdraw
-import taxi.kassa.util.Constants.WITHDRAWAL
+import taxi.kassa.util.Constants.WITHDRAW
 import taxi.kassa.util.shortToast
 
 class WithdrawFragment : Fragment() {
 
     private lateinit var viewModel: WithdrawViewModel
 
-    private val withdraw: Withdraw by lazy { arguments?.get(WITHDRAWAL) as Withdraw }
+    private val withdraw: Withdraw by lazy { arguments?.get(WITHDRAW) as Withdraw }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,11 +39,15 @@ class WithdrawFragment : Fragment() {
             activity?.shortToast(it)
         })
 
-        viewModel.accounts.observe(viewLifecycleOwner, Observer {
-            val account = it.info.first()
-            bank_name_tv.text = account?.bankName
-            order_tv.text = getString(R.string.order_format, account?.accountNumber)
-            name_tv.text = account?.driverName
+        viewModel.accounts.observe(viewLifecycleOwner, Observer { accounts ->
+            accounts?.let {
+                if (it.info?.isNotEmpty() == true) {
+                    val account = it.info.first()
+                    bank_name_tv.text = account.bankName
+                    order_tv.text = getString(R.string.order_format, account.accountNumber)
+                    name_tv.text = account.driverName
+                }
+            }
         })
 
         back_arrow.setOnClickListener { activity?.onBackPressed() }

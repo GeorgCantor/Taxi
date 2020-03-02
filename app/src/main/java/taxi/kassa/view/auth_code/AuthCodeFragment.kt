@@ -18,13 +18,13 @@ import taxi.kassa.util.Constants.PHONE
 import taxi.kassa.util.Constants.TOKEN
 import taxi.kassa.util.Constants.accessToken
 import taxi.kassa.util.PreferenceManager
-import taxi.kassa.util.hideKeyboard
 import taxi.kassa.util.showError
 
 class AuthCodeFragment : Fragment() {
 
     private lateinit var viewModel: AuthCodeViewModel
     private var phone = ""
+    private var inputCounter = 0
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -51,15 +51,10 @@ class AuthCodeFragment : Fragment() {
         })
 
         viewModel.isLoggedIn.observe(viewLifecycleOwner, Observer { loggedIn ->
-            try {
-                if (loggedIn) Navigation.findNavController(view).navigate(R.id.action_authCodeFragment_to_profileFragment)
-            } catch (e: IllegalArgumentException) {
-            }
+            if (loggedIn) Navigation.findNavController(view).navigate(R.id.action_authCodeFragment_to_profileFragment)
         })
 
-        login_button.setOnClickListener {
-            login()
-        }
+        login_button.setOnClickListener { login() }
 
         input4.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(p0: Editable?) {
@@ -72,11 +67,136 @@ class AuthCodeFragment : Fragment() {
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             }
         })
-    }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        hideKeyboard(requireView())
+        val editTexts = listOf(input1, input2, input3, input4)
+
+        val touchListener = View.OnTouchListener { _, _ ->
+            true
+        }
+
+        editTexts.map {
+            it.setOnTouchListener(touchListener)
+        }
+
+        num_0.setOnClickListener {
+            editTexts.map {
+                if (it.isFocused) {
+                    it.text.insert(it.selectionStart, getString(R.string.num0))
+                    return@setOnClickListener
+                }
+            }
+        }
+
+        num_1.setOnClickListener {
+            editTexts.map {
+                if (it.isFocused) {
+                    it.text.insert(it.selectionStart, getString(R.string.num1))
+                    return@setOnClickListener
+                }
+            }
+        }
+
+        num_2.setOnClickListener {
+            editTexts.map {
+                if (it.isFocused) {
+                    it.text.insert(it.selectionStart, getString(R.string.num2))
+                    return@setOnClickListener
+                }
+            }
+        }
+
+        num_3.setOnClickListener {
+            editTexts.map {
+                if (it.isFocused) {
+                    it.text.insert(it.selectionStart, getString(R.string.num3))
+                    return@setOnClickListener
+                }
+            }
+        }
+
+        num_4.setOnClickListener {
+            editTexts.map {
+                if (it.isFocused) {
+                    it.text.insert(it.selectionStart, getString(R.string.num4))
+                    return@setOnClickListener
+                }
+            }
+        }
+
+        num_5.setOnClickListener {
+            editTexts.map {
+                if (it.isFocused) {
+                    it.text.insert(it.selectionStart, getString(R.string.num5))
+                    return@setOnClickListener
+                }
+            }
+        }
+
+        num_6.setOnClickListener {
+            editTexts.map {
+                if (it.isFocused) {
+                    it.text.insert(it.selectionStart, getString(R.string.num6))
+                    return@setOnClickListener
+                }
+            }
+        }
+
+        num_7.setOnClickListener {
+            editTexts.map {
+                if (it.isFocused) {
+                    it.text.insert(it.selectionStart, getString(R.string.num7))
+                    return@setOnClickListener
+                }
+            }
+        }
+
+        num_8.setOnClickListener {
+            editTexts.map {
+                if (it.isFocused) {
+                    it.text.insert(it.selectionStart, getString(R.string.num8))
+                    return@setOnClickListener
+                }
+            }
+        }
+
+        num_9.setOnClickListener {
+            editTexts.map {
+                if (it.isFocused) {
+                    it.text.insert(it.selectionStart, getString(R.string.num9))
+                    return@setOnClickListener
+                }
+            }
+        }
+
+        erase_btn.setOnClickListener {
+            editTexts.map {
+                if (it.isFocused) {
+                    val cursorPosition = it.selectionStart
+                    if (cursorPosition > 0) {
+                        it.text = it.text.delete(cursorPosition - 1, cursorPosition)
+                        it.setSelection(cursorPosition - 1)
+                    }
+                    inputCounter++
+                    if (inputCounter == 2) {
+                        when (it) {
+                            input4 -> input3.requestFocus()
+                            input3 -> input2.requestFocus()
+                            input2 -> input1.requestFocus()
+                        }
+                        inputCounter = 0
+                    }
+                    return@setOnClickListener
+                }
+            }
+        }
+
+        editTexts.map { editText ->
+            editText.setOnClickListener { editText.requestFocus() }
+        }
+
+        input1.setOnClickListener { input1.requestFocus() }
+
+        apply_btn.setOnClickListener { login() }
     }
 
     private fun addChangingRequestFocus() {
@@ -100,6 +220,7 @@ class AuthCodeFragment : Fragment() {
             }
 
             override fun afterTextChanged(code: Editable) {
+                inputCounter = 0
                 if (code.isNotEmpty()) second.requestFocus()
             }
         })

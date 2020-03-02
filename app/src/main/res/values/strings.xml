@@ -17,9 +17,20 @@
     <string name="continue_hint">Далее</string>
     <string name="register_application">Заявка на подключение</string>
     <string name="register_application_success">Заявка на подключение отправлена!</string>
-    <string name="application_success_message">В ближайшее время наш менеджер связется с вами по телефону</string>
+    <string name="application_success_message">В ближайшее время наш менеджер свяжется с вами по телефону</string>
     <string name="ok">Хорошо</string>
     <string name="back">Назад</string>
+
+    <string name="num0">0</string>
+    <string name="num1">1</string>
+    <string name="num2">2</string>
+    <string name="num3">3</string>
+    <string name="num4">4</string>
+    <string name="num5">5</string>
+    <string name="num6">6</string>
+    <string name="num7">7</string>
+    <string name="num8">8</string>
+    <string name="num9">9</string>
     <!--    Profile-->
     <string name="exit">Выход</string>
     <string name="balance">Баланс</string>
@@ -27,6 +38,10 @@
     <string name="withdrawal_applications">Заявки на вывод</string>
     <string name="accounts_and_cards">Счета и карты</string>
     <string name="support_service">Служба поддержки</string>
+    <string name="support_service_message">Звонок в службу поддержки бесплатный, нажмите кнопку согласия если вы столкнулись с проблемой, которую необходимо решить.</string>
+    <string name="call">Вызов</string>
+    <string name="cancel">Отмена</string>
+    <string name="not_find_call_app">Не найдено приложение для совершения звонков</string>
     <string name="profile_format">+%s</string>
     <!--    Balance-->
     <string name="all_partners_sum">Общая сумма по всем партнерам</string>
@@ -38,20 +53,43 @@
     <string name="replenish">Пополнить</string>
     <string name="balance_format">%s ₽</string>
     <string name="fuel_title">Топливо</string>
+    <string name="fuel_replenish">Пополнение топлива</string>
+    <string name="choose_aggregator">Выберите агрегатор</string>
+    <string name="enter_charge_amount">Введите сумму списания</string>
     <!--    Withdraws-->
     <string name="withdraws_title">Заявки на вывод</string>
     <string name="withdraw_title">Заявка на вывод</string>
+    <string name="withdraw_create_title">Вывод средств</string>
     <string name="withdrawal_title">Выводится</string>
     <string name="commission_title">Комиссия</string>
     <string name="with_commission">с учетом комиссии</string>
+    <string name="connect_account">Подключить счёт</string>
+    <string name="sum">Сумма</string>
+    <string name="enter_amount">Укажите сумму</string>
+    <string name="send_request">Отправить заявку</string>
+    <string name="no_withdrawal_requests">Нет заявок на вывод</string>
+    <string name="enter_sum_error">Введите сумму</string>
+    <string name="no_withdrawal_message">Чтобы выводить средства, подключите хотя бы один счет и создайте заявку</string>
     <!--    Accounts-->
     <string name="accounts_title">Счета и карты</string>
     <string name="daily_withdrawal">Ежедневный вывод</string>
     <string name="instant_withdrawal">Моментальный вывод</string>
     <string name="add_account">Добавить счет</string>
     <string name="add_card">Добавить карту</string>
+    <string name="add_new_card">Добавить новую карту</string>
     <string name="add_button_text">Добавить</string>
     <string name="understand">Понятно</string>
+    <string name="delete_account">Удаление счета</string>
+    <string name="delete_account_message">Вы действительно хотите удалить этот счет?</string>
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
+    <string name="first_middle_name">Имя и отчество</string>
+    <string name="surname">Фамилия</string>
+    <string name="payment_account">Расчетный счет</string>
+    <string name="bik">БИК</string>
+    <string name="fill_all_fields">Заполните все поля</string>
+    <string name="enter_card_number">Введите номер карты</string>
+    <string name="new_card_message">Для перевода средств достаточно ввести только номер вашей карты</string>
     <string name="order_format">Р/с %s</string>
     <string name="daily_withdrawal_dialog_message">Вывод на любую карту. За вывод 1%. Перевод происходит один раз в день. Только в будни! В Субботу , воскресенье и официальные праздничные дни переводов нет!
     Заявки на вывод, которые были оставлены в приложении до 12:00 дня, будут обработаны этим же днём. Поступление денежных средств происходит ближе к 18:00 вечера. В очень редких случаях до 20:00 вечера.
@@ -60,4 +98,41 @@
     <string name="instant_withdrawal_dialog_message">Выводить средства можно на любую банковскую карту. За вывод взимается 4 % с суммы вывода.
     \n\nНапоминаем,что обязательный остаток в программе 500 рублей.Выводить средства можно  от 1000 рублей. Просим обратить внимание,что в день вы можете вывести не более 10.000 рублей.(это временная мера).
     </string>
+    <!--    Orders-->
+    <string name="info_unavailable">Информация временно недоступна</string>
+    <!--    Registration-->
+    <string name="select_registration_variant">Выберете один из двух вариантов регистрации</string>
+    <string name="set_phone_number">Указать номер телефона</string>
+    <string name="download_documents">Загрузить документы</string>
+    <string name="or">Или</string>
+    <string name="prepare_this_documents">При выборе регистрации через загруженные документы приготовьте:</string>
+    <string name="documents_list">1. Водительское удостоверение \n2. Паспорт (страница с фото и пропиской) \n3. СТС \n4. Лицензию</string>
+    <string name="select_aggregator">Выберите своего агрегатора для подключения</string>
+    <string name="connection">Подключение</string>
+    <string name="driver_license">Водительское удостоверение</string>
+    <string name="passport_number">Серия и номер паспорта</string>
+    <string name="sts">СТС</string>
+    <string name="license">Лицензия</string>
+    <string name="add_phone_number">Добавьте ваш номер телефона</string>
+    <string name="submit">Отправить</string>
+    <string name="passport_first_page">Паспорт (первый разворот)</string>
+    <string name="passport_registration_page">Паспорт (стр. прописки)</string>
+    <string name="make_selfie">Сделайте селфи</string>
+    <string name="input_id">Введите ваш ID</string>
+    <string name="car_photo">Фото автомобиля</string>
+    <string name="driver_photo">Фото водителя</string>
+    <string name="front_side">Передняя сторона</string>
+    <string name="back_side">Задняя сторона</string>
+    <string name="left_side">Левая (фото под 45°)</string>
+    <string name="right_side">Правая (фото под 45°)</string>
+    <!--    Support-->
+    <string name="write_to_us">Напишите нам</string>
+    <string name="call_history">История обращений</string>
+    <string name="to_call">Позвонить</string>
+    <string name="write_message_title">Здравствуйте. Вам есть что сообщить нам?</string>
+    <string name="symbols_max_text">до 200 символов</string>
+    <string name="thanks_title">Спасибо!\n\nВаше сообщение отправлено</string>
+    <string name="success_message">Наш сотрудник свяжется с вами через некоторое время</string>
+    <string name="back_to_main_screen">Вернуться на главный экран</string>
+    <string name="input_message_error">Введите сообщение</string>
 </resources>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/login_background">
+
+    <ImageView
+        android:id="@+id/back_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_4dp"
+        android:layout_marginTop="12dp"
+        android:padding="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_back" />
+
+    <TextView
+        android:id="@+id/support_service_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/support_service"
+        android:textColor="@color/gray_intro_text"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/back_arrow"
+        app:layout_constraintStart_toEndOf="@+id/back_arrow"
+        app:layout_constraintTop_toTopOf="@+id/back_arrow" />
+
+    <ImageView
+        android:id="@+id/notification_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_notification" />
+
+    <TextView
+        android:id="@+id/write_to_us_view"
+        android:layout_width="0dp"
+        android:layout_height="74dp"
+        android:layout_marginStart="@dimen/margin_16dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="@dimen/margin_16dp"
+        android:background="@drawable/bg_profile_gradient"
+        android:fontFamily="sans-serif-medium"
+        android:paddingStart="20dp"
+        android:paddingTop="24dp"
+        android:text="@string/write_to_us"
+        android:textColor="@color/gray_light_profile"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/support_service_title" />
+
+    <TextView
+        android:id="@+id/call_history_view"
+        android:layout_width="0dp"
+        android:layout_height="74dp"
+        android:layout_marginStart="@dimen/margin_16dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="@dimen/margin_16dp"
+        android:background="@drawable/bg_profile_gradient"
+        android:fontFamily="sans-serif-medium"
+        android:paddingStart="20dp"
+        android:paddingTop="24dp"
+        android:text="@string/call_history"
+        android:textColor="@color/gray_light_profile"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/write_to_us_view" />
+
+    <Button
+        android:id="@+id/call_button"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="@dimen/margin_24dp"
+        android:layout_marginEnd="@dimen/margin_24dp"
+        android:layout_marginBottom="@dimen/margin_48dp"
+        android:background="@drawable/bg_intro_btn"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/to_call"
+        android:textAllCaps="false"
+        android:textColor="@color/continue_color"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

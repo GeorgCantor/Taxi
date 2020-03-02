@@ -12,7 +12,7 @@ class WithdrawViewModel(private val repository: ApiRepository) : ViewModel() {
 
     private lateinit var disposable: Disposable
 
-    val accounts = MutableLiveData<AccountsList>()
+    val accounts = MutableLiveData<AccountsList?>()
     val error = MutableLiveData<String>()
 
     fun getAccounts() {
@@ -30,6 +30,6 @@ class WithdrawViewModel(private val repository: ApiRepository) : ViewModel() {
 
     override fun onCleared() {
         super.onCleared()
-        disposable.dispose()
+        if (::disposable.isInitialized) disposable.dispose()
     }
 }

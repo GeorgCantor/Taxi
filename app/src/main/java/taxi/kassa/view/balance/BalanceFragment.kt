@@ -7,10 +7,15 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat.getColor
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_balance.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
+import taxi.kassa.util.Constants.CITYMOBIL
+import taxi.kassa.util.Constants.GETT
+import taxi.kassa.util.Constants.TAXI
+import taxi.kassa.util.Constants.YANDEX
 import taxi.kassa.util.shortToast
 
 class BalanceFragment : Fragment() {
@@ -59,33 +64,56 @@ class BalanceFragment : Fragment() {
                 citymobil_amount.setTextColor(
                     getColor(
                         requireContext(),
-                        if (it.balanceYandex.toFloat() > 0.0F) R.color.balance_green else R.color.balance_red
+                        if (it.balanceCity.toFloat() > 0.0F) R.color.balance_green else R.color.balance_red
                     )
                 )
                 withdraw_citymobil_tv.setTextColor(
                     getColor(
                         requireContext(),
-                        if (it.balanceYandex.toFloat() > 0.0F) R.color.gray_intro_text else R.color.colorAccent
+                        if (it.balanceCity.toFloat() > 0.0F) R.color.gray_intro_text else R.color.colorAccent
                     )
                 )
 
                 gett_amount.setTextColor(
                     getColor(
                         requireContext(),
-                        if (it.balanceYandex.toFloat() > 0.0F) R.color.balance_green else R.color.balance_red
+                        if (it.balanceGett.toFloat() > 0.0F) R.color.balance_green else R.color.balance_red
                     )
                 )
                 withdraw_gett_tv.setTextColor(
                     getColor(
                         requireContext(),
-                        if (it.balanceYandex.toFloat() > 0.0F) R.color.gray_intro_text else R.color.colorAccent
+                        if (it.balanceGett.toFloat() > 0.0F) R.color.gray_intro_text else R.color.colorAccent
                     )
                 )
+
+                withdraw_yandex_tv.isEnabled = it.balanceYandex.toFloat() > 0.0F
+                withdraw_citymobil_tv.isEnabled = it.balanceCity.toFloat() > 0.0F
+                withdraw_gett_tv.isEnabled = it.balanceGett.toFloat() > 0.0F
             }
         })
 
-        back_arrow.setOnClickListener {
-            activity?.onBackPressed()
+        val bundle = Bundle()
+
+        withdraw_yandex_tv.setOnClickListener {
+            bundle.putString(TAXI, YANDEX)
+            findNavController(this).navigate(R.id.action_balanceFragment_to_withdrawCreateFragment, bundle)
         }
+
+        withdraw_citymobil_tv.setOnClickListener {
+            bundle.putString(TAXI, CITYMOBIL)
+            findNavController(this).navigate(R.id.action_balanceFragment_to_withdrawCreateFragment, bundle)
+        }
+
+        withdraw_gett_tv.setOnClickListener {
+            bundle.putString(TAXI, GETT)
+            findNavController(this).navigate(R.id.action_balanceFragment_to_withdrawCreateFragment, bundle)
+        }
+
+        replenish_gazprom_tv.setOnClickListener {
+            findNavController(this).navigate(R.id.action_balanceFragment_to_fuelReplenishFragment)
+        }
+
+        back_arrow.setOnClickListener { activity?.onBackPressed() }
     }
 }

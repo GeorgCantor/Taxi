@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <item>
+        <ripple android:color="@color/gray_profile" tools:targetApi="lollipop">
+            <item>
+                <shape android:shape="rectangle">
+
+                    <corners android:bottomLeftRadius="4dp" android:bottomRightRadius="4dp" android:topLeftRadius="4dp" android:topRightRadius="4dp" />
+
+                    <solid android:color="#D3A956" />
+
+                </shape>
+            </item>
+            <item android:bottom="8dp" android:drawable="@drawable/ic_load_text" android:gravity="center" android:left="16dp" android:right="16dp" android:top="10dp" />
+
+        </ripple>
+    </item>
+</selector>

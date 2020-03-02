@@ -10,7 +10,7 @@
         android:id="@+id/back_arrow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_quoter"
+        android:layout_marginStart="@dimen/margin_4dp"
         android:layout_marginTop="12dp"
         android:padding="16dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,6 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
+        android:fontFamily="sans-serif-medium"
         android:text="@string/withdraws_title"
         android:textColor="@color/gray_intro_text"
         android:textSize="20sp"
@@ -33,7 +34,7 @@
         android:id="@+id/notification_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_x1_5"
+        android:layout_margin="@dimen/margin_24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_notification" />
@@ -48,7 +49,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/withdraws_title"
         tools:itemCount="8"
-        tools:listitem="@layout/item_withdrawal" />
+        tools:listitem="@layout/item_withdraw" />
+
+    <include
+        android:id="@+id/empty_withdraws"
+        layout="@layout/empty_withdraws_screen"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@+id/withdraws_title" />
 
     <ProgressBar
         android:id="@+id/progress_bar"

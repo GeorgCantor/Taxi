@@ -13,7 +13,7 @@
         android:padding="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_back_arrow" />
+        app:srcCompat="@drawable/ic_back" />
 
     <ImageView
         android:id="@+id/success_image"
@@ -29,6 +29,7 @@
         android:id="@+id/success_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
         android:gravity="center"
         android:text="@string/register_application_success"
         android:textColor="@color/gray_intro_text"
@@ -46,6 +47,7 @@
         android:layout_marginStart="48dp"
         android:layout_marginTop="2dp"
         android:layout_marginEnd="48dp"
+        android:fontFamily="sans-serif"
         android:gravity="center"
         android:text="@string/application_success_message"
         android:textColor="@color/gray_application_text"
@@ -63,6 +65,7 @@
         android:layout_marginEnd="0dp"
         android:layout_marginBottom="30dp"
         android:background="@drawable/bg_intro_btn"
+        android:fontFamily="sans-serif-medium"
         android:text="@string/ok"
         android:textAllCaps="false"
         android:textColor="@color/continue_color"

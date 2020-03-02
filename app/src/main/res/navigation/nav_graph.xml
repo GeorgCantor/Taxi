@@ -16,12 +16,58 @@
             app:popEnterAnim="@animator/slide_in_left"
             app:popExitAnim="@animator/slide_out_right" />
         <action
-            android:id="@+id/action_introFragment_to_authSignUpFragment"
+            android:id="@+id/action_introFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment"
+            app:enterAnim="@animator/slide_in_right"
+            app:exitAnim="@animator/slide_out_left"
+            app:popEnterAnim="@animator/slide_in_left"
+            app:popExitAnim="@animator/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/registrationFragment"
+        android:name="taxi.kassa.view.registration.RegistrationFragment"
+        android:label="RegistrationFragment">
+        <action
+            android:id="@+id/action_registrationFragment_to_authSignUpFragment"
             app:destination="@id/authSignUpFragment"
             app:enterAnim="@animator/slide_in_right"
             app:exitAnim="@animator/slide_out_left"
             app:popEnterAnim="@animator/slide_in_left"
             app:popExitAnim="@animator/slide_out_right" />
+        <action
+            android:id="@+id/action_registrationFragment_to_registrationSelectionFragment"
+            app:destination="@id/registrationSelectionFragment"
+            app:enterAnim="@animator/slide_in_right"
+            app:exitAnim="@animator/slide_out_left"
+            app:popEnterAnim="@animator/slide_in_left"
+            app:popExitAnim="@animator/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/registrationSelectionFragment"
+        android:name="taxi.kassa.view.registration.RegistrationSelectionFragment"
+        android:label="RegistrationSelectionFragment">
+        <action
+            android:id="@+id/action_registrationSelectionFragment_to_connectionFragment"
+            app:destination="@id/connectionFragment"
+            app:enterAnim="@animator/slide_in_right"
+            app:exitAnim="@animator/slide_out_left"
+            app:popEnterAnim="@animator/slide_in_left"
+            app:popExitAnim="@animator/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/connectionFragment"
+        android:name="taxi.kassa.view.connection.ConnectionFragment"
+        android:label="ConnectionFragment">
+        <action
+            android:id="@+id/action_connectionFragment_to_successRequestFragment"
+            app:destination="@id/successRequestFragment"
+            app:exitAnim="@animator/slide_out_left"
+            app:popEnterAnim="@animator/slide_in_left"
+            app:popExitAnim="@animator/slide_out_right"
+            app:popUpTo="@id/introFragment" />
     </fragment>
 
     <fragment
@@ -31,10 +77,10 @@
         <action
             android:id="@+id/action_authPhoneFragment_to_authCodeFragment"
             app:destination="@id/authCodeFragment"
-            app:enterAnim="@animator/slide_in_right"
             app:exitAnim="@animator/slide_out_left"
             app:popEnterAnim="@animator/slide_in_left"
-            app:popExitAnim="@animator/slide_out_right" />
+            app:popExitAnim="@animator/slide_out_right"
+            app:popUpTo="@id/introFragment" />
     </fragment>
 
     <fragment
@@ -44,25 +90,16 @@
         <action
             android:id="@+id/action_authSignUpFragment_to_successRequestFragment"
             app:destination="@id/successRequestFragment"
-            app:enterAnim="@animator/slide_in_right"
-            app:exitAnim="@animator/slide_out_left"
-            app:popEnterAnim="@animator/slide_in_left"
-            app:popExitAnim="@animator/slide_out_right" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/successRequestFragment"
-        android:name="taxi.kassa.view.success_request.SuccessRequestFragment"
-        android:label="SuccessRequestFragment">
-        <action
-            android:id="@+id/action_successRequestFragment_to_introFragment"
-            app:destination="@id/introFragment"
-            app:enterAnim="@animator/slide_in_right"
             app:exitAnim="@animator/slide_out_left"
             app:popEnterAnim="@animator/slide_in_left"
             app:popExitAnim="@animator/slide_out_right"
             app:popUpTo="@id/introFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/successRequestFragment"
+        android:name="taxi.kassa.view.auth_sign_up.SuccessRequestFragment"
+        android:label="SuccessRequestFragment" />
 
     <fragment
         android:id="@+id/authCodeFragment"
@@ -71,10 +108,10 @@
         <action
             android:id="@+id/action_authCodeFragment_to_profileFragment"
             app:destination="@id/profileFragment"
-            app:enterAnim="@animator/slide_in_right"
             app:exitAnim="@animator/slide_out_left"
             app:popEnterAnim="@animator/slide_in_left"
-            app:popExitAnim="@animator/slide_out_right" />
+            app:popExitAnim="@animator/slide_out_right"
+            app:popUpTo="@id/nav_graph" />
     </fragment>
 
     <fragment
@@ -102,12 +139,46 @@
             app:exitAnim="@animator/slide_out_left"
             app:popEnterAnim="@animator/slide_in_left"
             app:popExitAnim="@animator/slide_out_right" />
+        <action
+            android:id="@+id/action_profileFragment_to_ordersFragment"
+            app:destination="@id/ordersFragment"
+            app:enterAnim="@animator/slide_in_right"
+            app:exitAnim="@animator/slide_out_left"
+            app:popEnterAnim="@animator/slide_in_left"
+            app:popExitAnim="@animator/slide_out_right" />
+        <action
+            android:id="@+id/action_profileFragment_to_supportFragment"
+            app:destination="@id/supportFragment"
+            app:enterAnim="@animator/slide_in_right"
+            app:exitAnim="@animator/slide_out_left"
+            app:popEnterAnim="@animator/slide_in_left"
+            app:popExitAnim="@animator/slide_out_right" />
     </fragment>
 
     <fragment
         android:id="@+id/balanceFragment"
         android:name="taxi.kassa.view.balance.BalanceFragment"
-        android:label="BalanceFragment" />
+        android:label="BalanceFragment">
+        <action
+            android:id="@+id/action_balanceFragment_to_withdrawCreateFragment"
+            app:destination="@id/withdrawCreateFragment"
+            app:enterAnim="@animator/slide_in_right"
+            app:exitAnim="@animator/slide_out_left"
+            app:popEnterAnim="@animator/slide_in_left"
+            app:popExitAnim="@animator/slide_out_right" />
+        <action
+            android:id="@+id/action_balanceFragment_to_fuelReplenishFragment"
+            app:destination="@id/fuelReplenishFragment"
+            app:enterAnim="@animator/slide_in_right"
+            app:exitAnim="@animator/slide_out_left"
+            app:popEnterAnim="@animator/slide_in_left"
+            app:popExitAnim="@animator/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fuelReplenishFragment"
+        android:name="taxi.kassa.view.fuel.FuelReplenishFragment"
+        android:label="FuelReplenishFragment" />
 
     <fragment
         android:id="@+id/withdrawsFragment"
@@ -120,9 +191,13 @@
             app:exitAnim="@animator/slide_out_left"
             app:popEnterAnim="@animator/slide_in_left"
             app:popExitAnim="@animator/slide_out_right" />
-        <argument
-            android:name="withdrawal"
-            app:argType="taxi.kassa.model.responses.Withdraw" />
+        <action
+            android:id="@+id/action_withdrawsFragment_to_accountsFragment"
+            app:destination="@id/accountsFragment"
+            app:exitAnim="@animator/slide_out_left"
+            app:popEnterAnim="@animator/slide_in_left"
+            app:popExitAnim="@animator/slide_out_right"
+            app:popUpTo="@id/profileFragment" />
     </fragment>
 
     <fragment
@@ -134,5 +209,46 @@
         android:id="@+id/accountsFragment"
         android:name="taxi.kassa.view.accounts.AccountsFragment"
         android:label="AccountsFragment" />
+
+    <fragment
+        android:id="@+id/withdrawCreateFragment"
+        android:name="taxi.kassa.view.withdraw_create.WithdrawCreateFragment"
+        android:label="WithdrawCreateFragment" />
+
+    <fragment
+        android:id="@+id/ordersFragment"
+        android:name="taxi.kassa.view.orders.OrdersFragment"
+        android:label="OrdersFragment" />
+
+    <fragment
+        android:id="@+id/supportFragment"
+        android:name="taxi.kassa.view.support.SupportFragment"
+        android:label="SupportFragment">
+        <action
+            android:id="@+id/action_supportFragment_to_writeMessageFragment"
+            app:destination="@id/writeMessageFragment"
+            app:enterAnim="@animator/slide_in_right"
+            app:exitAnim="@animator/slide_out_left"
+            app:popEnterAnim="@animator/slide_in_left"
+            app:popExitAnim="@animator/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/writeMessageFragment"
+        android:name="taxi.kassa.view.support.WriteMessageFragment"
+        android:label="WriteMessageFragment">
+        <action
+            android:id="@+id/action_writeMessageFragment_to_successFragment"
+            app:destination="@id/successFragment"
+            app:exitAnim="@animator/slide_out_left"
+            app:popEnterAnim="@animator/slide_in_left"
+            app:popExitAnim="@animator/slide_out_right"
+            app:popUpTo="@id/supportFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/successFragment"
+        android:name="taxi.kassa.view.support.SuccessFragment"
+        android:label="SuccessFragment" />
 
 </navigation>

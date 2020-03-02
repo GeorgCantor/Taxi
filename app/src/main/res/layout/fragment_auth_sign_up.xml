@@ -23,13 +23,14 @@
             android:layout_height="0dp"
             android:layout_marginBottom="30dp"
             android:layout_weight="1"
+            android:fontFamily="sans-serif-medium"
             android:text="@string/register_application"
             android:textAlignment="center"
             android:textColor="@color/gray_intro_text"
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/input_login"
+            android:id="@+id/phone_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="0dp"
@@ -39,19 +40,21 @@
             android:cursorVisible="true"
             android:digits="+() 1234567890-"
             android:ems="10"
+            android:imeOptions="actionDone"
             android:inputType="phone"
-            android:maxLength="16"
+            android:maxLength="18"
             android:maxLines="1"
-            android:text="+7 "
+            android:text="+7 ("
             android:textColor="@color/gray_intro_text"
             android:textColorHint="@color/grayText"
             android:textCursorDrawable="@drawable/color_cursor"
-            android:textSize="36sp"
+            android:textSize="34sp"
+            android:textStyle="bold"
             android:theme="@style/CustomTheme"
             app:backgroundTint="@color/grayText" />
 
         <TextView
-            android:id="@+id/tv_error"
+            android:id="@+id/error_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="5dp"
@@ -60,7 +63,7 @@
             android:textColor="#FF4A4A" />
 
         <Button
-            android:id="@+id/btn_signup"
+            android:id="@+id/signup_button"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:layout_marginStart="0dp"
@@ -81,9 +84,9 @@
             android:id="@+id/login_checkbox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:buttonTint="@color/checkbox_color"
+            android:button="@drawable/checkbox_selector"
             android:checked="true"
-            android:drawable="@drawable/checkbox_primary"
+            android:fontFamily="sans-serif"
             android:paddingStart="8dp"
             android:paddingTop="22dp"
             android:text="@string/login_agreement_title"

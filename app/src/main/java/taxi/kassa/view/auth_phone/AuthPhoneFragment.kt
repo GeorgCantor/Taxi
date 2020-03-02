@@ -5,6 +5,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.OnTouchListener
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -15,7 +16,6 @@ import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.util.Constants.PHONE
 import taxi.kassa.util.PreferenceManager
-import taxi.kassa.util.hideKeyboard
 import taxi.kassa.util.showError
 
 class AuthPhoneFragment : Fragment() {
@@ -33,25 +33,32 @@ class AuthPhoneFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel = getViewModel { parametersOf() }
 
+        val touchListener = OnTouchListener { _, _ ->
+            true
+        }
+
+        phone_edit_text.setOnTouchListener(touchListener)
+
         loginIsReady = true
 
         viewModel.error.observe(viewLifecycleOwner, Observer {
-            showError(context, tv_error, it, 5000, 0)
+            showError(context, error_tv, it, 5000, 0)
         })
 
         login_checkbox.setOnCheckedChangeListener { _, isChecked ->
             loginIsReady = isChecked
         }
 
-        input_login.addTextChangedListener(object : TextWatcher {
-            var length_before = 0
+        phone_edit_text.addTextChangedListener(object : TextWatcher {
+            var lengthBefore = 0
+
             override fun beforeTextChanged(
-                s: CharSequence,
+                sequence: CharSequence,
                 start: Int,
                 count: Int,
                 after: Int
             ) {
-                length_before = s.length
+                lengthBefore = sequence.length
             }
 
             override fun onTextChanged(
@@ -60,48 +67,68 @@ class AuthPhoneFragment : Fragment() {
                 before: Int,
                 count: Int
             ) {
-                if (input_login.length() <= 2) {
-                    input_login.setText("+7 ")
-                    input_login.setSelection(3)
+                try {
+                    if (phone_edit_text.length() <= 2) {
+                        phone_edit_text.setSelection(4)
+                    }
+                } catch (e: IndexOutOfBoundsException) {
                 }
             }
 
-            override fun afterTextChanged(s: Editable) {
-                if (length_before < s.length) {
-                    if (s.length == 6) s.append(" ")
-                    if (s.length == 10 || s.length == 13) s.append("-")
-                    if (s.length > 6) {
-                        if (Character.isDigit(s[6])) s.insert(6, "-")
-                    }
-                    if (s.length > 10) {
-                        if (Character.isDigit(s[10])) s.insert(10, "-")
-                    }
+            override fun afterTextChanged(editable: Editable) {
+                if (lengthBefore < editable.length) {
+                    if (editable.length == 7) editable.append(") ")
+                    if (editable.length == 12 || editable.length == 15) editable.append("-")
                 }
             }
         })
 
-        btn_login.setOnClickListener {
-            if (!loginIsReady) {
-                showError(context, tv_error, getString(R.string.accept_conditions_error), 5000, 0)
-                return@setOnClickListener
-            }
-
-            val phone: String = input_login.text.toString().replace("[^\\d]", "")
-            PreferenceManager(requireActivity()).saveString(PHONE, phone)
-
-            viewModel.login(phone)
-        }
+        login_button.setOnClickListener { apply() }
 
         viewModel.isLoggedIn.observe(viewLifecycleOwner, Observer { loggedIn ->
-            try {
-                if (loggedIn) Navigation.findNavController(view).navigate(R.id.action_authPhoneFragment_to_authCodeFragment)
-            } catch (e: IllegalArgumentException) {
-            }
+            if (loggedIn) Navigation.findNavController(view).navigate(R.id.action_authPhoneFragment_to_authCodeFragment)
         })
+
+        num_0.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, getString(R.string.num0)) }
+
+        num_1.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, getString(R.string.num1)) }
+
+        num_2.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, getString(R.string.num2)) }
+
+        num_3.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, getString(R.string.num3)) }
+
+        num_4.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, getString(R.string.num4)) }
+
+        num_5.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, getString(R.string.num5)) }
+
+        num_6.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, getString(R.string.num6)) }
+
+        num_7.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, getString(R.string.num7)) }
+
+        num_8.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, getString(R.string.num8)) }
+
+        num_9.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, getString(R.string.num9)) }
+
+        erase_btn.setOnClickListener {
+            val cursorPosition = phone_edit_text.selectionStart
+            if (cursorPosition > 0) {
+                phone_edit_text.text = phone_edit_text.text.delete(cursorPosition - 1, cursorPosition)
+                phone_edit_text.setSelection(cursorPosition - 1)
+            }
+        }
+
+        apply_btn.setOnClickListener { apply() }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        hideKeyboard(requireView())
+    private fun apply() {
+        if (!loginIsReady) {
+            showError(context, error_tv, getString(R.string.accept_conditions_error), 5000, 0)
+            return
+        }
+
+        val phone: String = phone_edit_text.text.toString().replace("[^\\d]", "")
+        PreferenceManager(requireActivity()).saveString(PHONE, phone)
+
+        viewModel.login(phone)
     }
 }

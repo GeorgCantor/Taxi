@@ -6,8 +6,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.item_whithdraw_date.view.*
-import kotlinx.android.synthetic.main.item_withdrawal.view.*
+import kotlinx.android.synthetic.main.item_withdraw.view.*
+import kotlinx.android.synthetic.main.item_withdraw_date.view.*
 import taxi.kassa.R
 import taxi.kassa.model.responses.Withdraw
 import taxi.kassa.util.Constants.APPROVED
@@ -31,17 +31,23 @@ class WithdrawsAdapter(
     init {
         this.withdraws.addAll(withdraws)
         val dates = mutableSetOf<Withdraw>()
-        try {
-            for (i in 0..this.withdraws.size) {
-                if (this.withdraws[i].getDate() != this.withdraws[i + 1].getDate()) {
-                    dates.add(Withdraw(DATE_ITEM_ID, "0", this.withdraws[i].date, 0))
+
+        if (this.withdraws.isNotEmpty()) {
+            var lastDate = this.withdraws[0].getDate()
+
+            dates.add(Withdraw(DATE_ITEM_ID, "0", this.withdraws[0].date, 0))
+
+            this.withdraws.map {
+                if (it.getDate() != lastDate) {
+                    dates.add(Withdraw(DATE_ITEM_ID, "0", it.date, 0))
+                    lastDate = it.getDate()
                 }
             }
-        } catch (e: IndexOutOfBoundsException) {
+
+            this.withdraws.addAll(dates)
+            this.withdraws.sortBy { it.date }
+            this.withdraws.reverse()
         }
-        this.withdraws.addAll(dates)
-        this.withdraws.sortBy { it.date }
-        this.withdraws.reverse()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -49,7 +55,7 @@ class WithdrawsAdapter(
             TYPE_ITEM -> {
                 WithdrawsViewHolder(
                     LayoutInflater.from(parent.context).inflate(
-                        R.layout.item_withdrawal,
+                        R.layout.item_withdraw,
                         null
                     )
                 )
@@ -57,14 +63,14 @@ class WithdrawsAdapter(
             TYPE_DATE -> {
                 DateViewHolder(
                     LayoutInflater.from(parent.context).inflate(
-                        R.layout.item_whithdraw_date,
+                        R.layout.item_withdraw_date,
                         null
                     )
                 )
             }
             else -> WithdrawsViewHolder(
                 LayoutInflater.from(parent.context).inflate(
-                    R.layout.item_withdrawal,
+                    R.layout.item_withdraw,
                     null
                 )
             )
