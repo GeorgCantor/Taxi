@@ -89,25 +89,25 @@ class AuthPhoneFragment : Fragment() {
             if (loggedIn) Navigation.findNavController(view).navigate(R.id.action_authPhoneFragment_to_authCodeFragment)
         })
 
-        num_0.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, "0") }
+        num_0.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, getString(R.string.num0)) }
 
-        num_1.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, "1") }
+        num_1.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, getString(R.string.num1)) }
 
-        num_2.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, "2") }
+        num_2.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, getString(R.string.num2)) }
 
-        num_3.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, "3") }
+        num_3.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, getString(R.string.num3)) }
 
-        num_4.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, "4") }
+        num_4.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, getString(R.string.num4)) }
 
-        num_5.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, "5") }
+        num_5.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, getString(R.string.num5)) }
 
-        num_6.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, "6") }
+        num_6.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, getString(R.string.num6)) }
 
-        num_7.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, "7") }
+        num_7.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, getString(R.string.num7)) }
 
-        num_8.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, "8") }
+        num_8.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, getString(R.string.num8)) }
 
-        num_9.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, "9") }
+        num_9.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, getString(R.string.num9)) }
 
         erase_btn.setOnClickListener {
             val cursorPosition = phone_edit_text.selectionStart
