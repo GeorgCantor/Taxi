@@ -5,6 +5,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.OnTouchListener
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -15,7 +16,6 @@ import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.util.Constants.PHONE
 import taxi.kassa.util.PreferenceManager
-import taxi.kassa.util.hideKeyboard
 import taxi.kassa.util.showError
 
 class AuthPhoneFragment : Fragment() {
@@ -32,6 +32,12 @@ class AuthPhoneFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = getViewModel { parametersOf() }
+
+        val touchListener = OnTouchListener { _, _ ->
+            true
+        }
+
+        phone_edit_text.setOnTouchListener(touchListener)
 
         loginIsReady = true
 
@@ -61,8 +67,11 @@ class AuthPhoneFragment : Fragment() {
                 before: Int,
                 count: Int
             ) {
-                if (phone_edit_text.length() <= 2) {
-                    phone_edit_text.setSelection(4)
+                try {
+                    if (phone_edit_text.length() <= 2) {
+                        phone_edit_text.setSelection(4)
+                    }
+                } catch (e: IndexOutOfBoundsException) {
                 }
             }
 
@@ -74,25 +83,52 @@ class AuthPhoneFragment : Fragment() {
             }
         })
 
-        login_button.setOnClickListener {
-            if (!loginIsReady) {
-                showError(context, error_tv, getString(R.string.accept_conditions_error), 5000, 0)
-                return@setOnClickListener
-            }
-
-            val phone: String = phone_edit_text.text.toString().replace("[^\\d]", "")
-            PreferenceManager(requireActivity()).saveString(PHONE, phone)
-
-            viewModel.login(phone)
-        }
+        login_button.setOnClickListener { apply() }
 
         viewModel.isLoggedIn.observe(viewLifecycleOwner, Observer { loggedIn ->
             if (loggedIn) Navigation.findNavController(view).navigate(R.id.action_authPhoneFragment_to_authCodeFragment)
         })
+
+        num_0.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, "0") }
+
+        num_1.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, "1") }
+
+        num_2.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, "2") }
+
+        num_3.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, "3") }
+
+        num_4.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, "4") }
+
+        num_5.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, "5") }
+
+        num_6.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, "6") }
+
+        num_7.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, "7") }
+
+        num_8.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, "8") }
+
+        num_9.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, "9") }
+
+        erase_btn.setOnClickListener {
+            val cursorPosition = phone_edit_text.selectionStart
+            if (cursorPosition > 0) {
+                phone_edit_text.text = phone_edit_text.text.delete(cursorPosition - 1, cursorPosition)
+                phone_edit_text.setSelection(cursorPosition - 1)
+            }
+        }
+
+        apply_btn.setOnClickListener { apply() }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        hideKeyboard(requireView())
+    private fun apply() {
+        if (!loginIsReady) {
+            showError(context, error_tv, getString(R.string.accept_conditions_error), 5000, 0)
+            return
+        }
+
+        val phone: String = phone_edit_text.text.toString().replace("[^\\d]", "")
+        PreferenceManager(requireActivity()).saveString(PHONE, phone)
+
+        viewModel.login(phone)
     }
 }
