@@ -12,6 +12,7 @@ import taxi.kassa.view.auth_sign_up.AuthSignUpViewModel
 import taxi.kassa.view.balance.BalanceViewModel
 import taxi.kassa.view.fuel.FuelReplenishViewModel
 import taxi.kassa.view.orders.OrdersViewModel
+import taxi.kassa.view.orders.list.OrdersListViewModel
 import taxi.kassa.view.profile.ProfileViewModel
 import taxi.kassa.view.withdraw.WithdrawViewModel
 import taxi.kassa.view.withdraw_create.WithdrawCreateViewModel
@@ -50,10 +51,13 @@ val viewModelModule = module {
         WithdrawCreateViewModel(get())
     }
     viewModel {
-        OrdersViewModel(androidApplication(), get())
+        OrdersViewModel(androidApplication())
     }
     viewModel {
         FuelReplenishViewModel(get())
+    }
+    viewModel {
+        OrdersListViewModel(get())
     }
 }
 

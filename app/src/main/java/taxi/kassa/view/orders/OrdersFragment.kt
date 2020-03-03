@@ -9,12 +9,15 @@ import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.viewpager.widget.ViewPager
 import kotlinx.android.synthetic.main.fragment_orders.*
 import kotlinx.android.synthetic.main.item_taxi_orders.view.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
-import taxi.kassa.util.shortToast
+import taxi.kassa.view.orders.adapter.OrdersPagerAdapter
+import taxi.kassa.view.orders.adapter.OrdersTaxiAdapter
+import taxi.kassa.view.orders.list.OrdersListFragment
 
 class OrdersFragment : Fragment() {
 
@@ -34,7 +37,33 @@ class OrdersFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getTaxis()
-        viewModel.getOrders()
+
+        val adapter = OrdersPagerAdapter(childFragmentManager)
+        adapter.addFragment(OrdersListFragment())
+        adapter.addFragment(OrdersListFragment())
+        adapter.addFragment(OrdersListFragment())
+
+        view_pager.adapter = adapter
+
+        view_pager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+            override fun onPageScrollStateChanged(state: Int) {
+            }
+
+            override fun onPageScrolled(
+                position: Int,
+                positionOffset: Float,
+                positionOffsetPixels: Int
+            ) {
+            }
+
+            override fun onPageSelected(position: Int) {
+                when (position) {
+                    0 -> taxi_recycler[0].performClick()
+                    1 -> taxi_recycler[1].performClick()
+                    2 -> taxi_recycler[2].performClick()
+                }
+            }
+        })
 
         viewModel.taxis.observe(viewLifecycleOwner, Observer {
             taxi_recycler.adapter = OrdersTaxiAdapter(it) { view, _ ->
@@ -50,16 +79,12 @@ class OrdersFragment : Fragment() {
                     }
                 }
             }
-
-            val runnable = Runnable {
-                taxi_recycler[0].performClick()
-            }
-            Handler().postDelayed(runnable, 500)
         })
 
-        viewModel.orders.observe(viewLifecycleOwner, Observer {
-            requireActivity().shortToast(it.orders?.get(0)?.addressFrom ?: "НННННН")
-        })
+        val runnable = Runnable {
+            taxi_recycler[0].performClick()
+        }
+        Handler().postDelayed(runnable, 500)
 
         back_arrow.setOnClickListener { activity?.onBackPressed() }
     }
