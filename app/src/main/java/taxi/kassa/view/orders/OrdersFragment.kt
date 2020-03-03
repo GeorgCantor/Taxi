@@ -39,9 +39,9 @@ class OrdersFragment : Fragment() {
         viewModel.getTaxis()
 
         val adapter = OrdersPagerAdapter(childFragmentManager)
-        adapter.addFragment(OrdersListFragment())
-        adapter.addFragment(OrdersListFragment())
-        adapter.addFragment(OrdersListFragment())
+        adapter.addFragment(OrdersListFragment.create(1))
+        adapter.addFragment(OrdersListFragment.create(4))
+        adapter.addFragment(OrdersListFragment.create(3))
 
         view_pager.adapter = adapter
 
@@ -58,15 +58,21 @@ class OrdersFragment : Fragment() {
 
             override fun onPageSelected(position: Int) {
                 when (position) {
-                    0 -> taxi_recycler[0].performClick()
+                    0 -> {
+                        taxi_recycler[0].performClick()
+                        taxi_recycler.scrollToPosition(0)
+                    }
                     1 -> taxi_recycler[1].performClick()
-                    2 -> taxi_recycler[2].performClick()
+                    2 -> {
+                        taxi_recycler[2].performClick()
+                        taxi_recycler.scrollToPosition(2)
+                    }
                 }
             }
         })
 
         viewModel.taxis.observe(viewLifecycleOwner, Observer {
-            taxi_recycler.adapter = OrdersTaxiAdapter(it) { view, _ ->
+            taxi_recycler.adapter = OrdersTaxiAdapter(it) { view, taxi ->
                 val items = mutableListOf(
                     taxi_recycler[0], taxi_recycler[1], taxi_recycler[2]
                 )
@@ -75,8 +81,15 @@ class OrdersFragment : Fragment() {
                     if (item != view) {
                         item.space.background = getDrawable(requireContext(), R.color.colorAccent)
                     } else {
-                        item.space.background = getDrawable(requireContext(), R.color.withdraws_yellow)
+                        item.space.background =
+                            getDrawable(requireContext(), R.color.withdraws_yellow)
                     }
+                }
+
+                when (taxi.taxiName) {
+                    getString(R.string.yandex_title) -> view_pager.currentItem = 0
+                    getString(R.string.gett_title) -> view_pager.currentItem = 1
+                    getString(R.string.citymobil_title) -> view_pager.currentItem = 2
                 }
             }
         })

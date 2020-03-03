@@ -113,14 +113,22 @@ class OrdersAdapter(
                 val status = order.status
 
                 holder.time.text = order.hours
-                holder.status.text = status
                 holder.addressFrom.text = order.addressFrom
                 holder.addressTo.text = order.addressTo
-                holder.totalAmount.text = order.amountTotal.toString()
+                holder.totalAmount.text = holder.itemView.context.getString(
+                    R.string.balance_format,
+                    order.amountTotal.toString()
+                )
 
                 when (status) {
-                    "0" -> holder.statusImage.setImageResource(R.drawable.ic_green_circle)
-                    "-1" -> holder.statusImage.setImageResource(R.drawable.ic_red_circle)
+                    "0" -> {
+                        holder.statusImage.setImageResource(R.drawable.ic_green_circle)
+                        holder.status.text = holder.itemView.context.getString(R.string.complete)
+                    }
+                    "-1" -> {
+                        holder.statusImage.setImageResource(R.drawable.ic_red_circle)
+                        holder.status.text = holder.itemView.context.getString(R.string.canceled)
+                    }
                 }
 
                 holder.itemView.setOnClickListener { clickListener(order) }

@@ -101,6 +101,8 @@
     <!--    Orders-->
     <string name="info_unavailable">Информация временно недоступна</string>
     <string name="total_with_commission">Итог с учетом комиссии:</string>
+    <string name="complete">Выполнено</string>
+    <string name="canceled">Отменено</string>
     <!--    Registration-->
     <string name="select_registration_variant">Выберете один из двух вариантов регистрации</string>
     <string name="set_phone_number">Указать номер телефона</string>
