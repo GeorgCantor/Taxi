@@ -14,6 +14,7 @@ import kotlinx.android.synthetic.main.item_taxi_orders.view.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
+import taxi.kassa.util.shortToast
 
 class OrdersFragment : Fragment() {
 
@@ -33,6 +34,7 @@ class OrdersFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getTaxis()
+        viewModel.getOrders()
 
         viewModel.taxis.observe(viewLifecycleOwner, Observer {
             taxi_recycler.adapter = OrdersTaxiAdapter(it) { view, _ ->
@@ -53,6 +55,10 @@ class OrdersFragment : Fragment() {
                 taxi_recycler[0].performClick()
             }
             Handler().postDelayed(runnable, 500)
+        })
+
+        viewModel.orders.observe(viewLifecycleOwner, Observer {
+            requireActivity().shortToast(it.orders?.get(0)?.addressFrom ?: "НННННН")
         })
 
         back_arrow.setOnClickListener { activity?.onBackPressed() }

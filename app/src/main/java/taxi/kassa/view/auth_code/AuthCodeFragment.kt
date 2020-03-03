@@ -190,12 +190,6 @@ class AuthCodeFragment : Fragment() {
             }
         }
 
-        editTexts.map { editText ->
-            editText.setOnClickListener { editText.requestFocus() }
-        }
-
-        input1.setOnClickListener { input1.requestFocus() }
-
         apply_btn.setOnClickListener { login() }
     }
 
