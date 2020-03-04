@@ -110,8 +110,6 @@ class OrdersAdapter(
 
         when (holder) {
             is OrdersViewHolder -> {
-                val status = order.status
-
                 holder.time.text = order.hours
                 holder.addressFrom.text = order.addressFrom
                 holder.addressTo.text = order.addressTo
@@ -120,7 +118,7 @@ class OrdersAdapter(
                     order.amountTotal.toString()
                 )
 
-                when (status) {
+                when (order.status) {
                     "0" -> {
                         holder.statusImage.setImageResource(R.drawable.ic_green_circle)
                         holder.status.text = holder.itemView.context.getString(R.string.complete)

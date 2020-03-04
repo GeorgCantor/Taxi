@@ -95,7 +95,7 @@ class OrdersFragment : Fragment() {
         })
 
         val runnable = Runnable {
-            taxi_recycler[0].performClick()
+            taxi_recycler[0]?.performClick()
         }
         Handler().postDelayed(runnable, 500)
 

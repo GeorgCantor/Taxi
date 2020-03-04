@@ -103,6 +103,15 @@
     <string name="total_with_commission">Итог с учетом комиссии:</string>
     <string name="complete">Выполнено</string>
     <string name="canceled">Отменено</string>
+    <string name="order">Заказ</string>
+    <string name="route">Маршрут</string>
+    <string name="received_from_customer">Получено от клиента</string>
+    <string name="tariff_for_drivers">Тариф для водителей</string>
+    <string name="tip">Чаевые</string>
+    <string name="aggregator_commission">Комиссия агрегаторов</string>
+    <string name="our_commission">Наша комиссия</string>
+    <string name="total">Итог</string>
+    <string name="order_balance_format">Итог: %s₽</string>
     <!--    Registration-->
     <string name="select_registration_variant">Выберете один из двух вариантов регистрации</string>
     <string name="set_phone_number">Указать номер телефона</string>

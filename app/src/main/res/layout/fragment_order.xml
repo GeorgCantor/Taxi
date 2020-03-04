@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/login_background"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/login_background">
+
+        <ImageView
+            android:id="@+id/back_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_4dp"
+            android:layout_marginTop="12dp"
+            android:padding="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_back" />
+
+        <TextView
+            android:id="@+id/order_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/order"
+            android:textColor="@color/gray_intro_text"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/back_arrow"
+            app:layout_constraintStart_toEndOf="@+id/back_arrow"
+            app:layout_constraintTop_toTopOf="@+id/back_arrow" />
+
+        <TextView
+            android:id="@+id/route_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="28dp"
+            android:text="@string/route"
+            android:textColor="@color/gray_intro_text"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/order_title" />
+
+        <ImageView
+            android:id="@+id/circle_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="@dimen/margin_8dp"
+            android:layout_marginEnd="12dp"
+            app:layout_constraintBottom_toBottomOf="@+id/route_tv"
+            app:layout_constraintEnd_toStartOf="@+id/status_tv"
+            app:layout_constraintTop_toTopOf="@+id/route_tv"
+            tools:srcCompat="@drawable/ic_green_circle" />
+
+        <TextView
+            android:id="@+id/status_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_24dp"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/withdraws_gray"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/circle_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/circle_image"
+            tools:text="Выполнено" />
+
+        <TextView
+            android:id="@+id/date_time_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/gray_profile"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/route_tv"
+            tools:text="14:20, 19 окт 2019" />
+
+        <ImageView
+            android:id="@+id/rectangle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/date_time_tv"
+            app:srcCompat="@drawable/ic_rectangle" />
+
+        <ImageView
+            android:id="@+id/line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@+id/rectangle"
+            app:layout_constraintStart_toStartOf="@+id/rectangle"
+            app:layout_constraintTop_toBottomOf="@id/rectangle"
+            app:srcCompat="@drawable/ic_line_40" />
+
+        <ImageView
+            android:id="@+id/polygon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@+id/rectangle"
+            app:layout_constraintStart_toStartOf="@+id/rectangle"
+            app:layout_constraintTop_toBottomOf="@id/line"
+            app:srcCompat="@drawable/ic_polygon" />
+
+        <TextView
+            android:id="@+id/address_from"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:maxLength="55"
+            android:textColor="@color/withdraws_gray"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/rectangle"
+            app:layout_constraintStart_toEndOf="@+id/rectangle"
+            app:layout_constraintTop_toTopOf="@+id/rectangle"
+            tools:text="Каширское шоссе, 150" />
+
+        <TextView
+            android:id="@+id/address_to"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:maxLength="55"
+            android:textColor="@color/withdraws_gray"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/polygon"
+            app:layout_constraintStart_toEndOf="@+id/polygon"
+            app:layout_constraintTop_toTopOf="@+id/polygon"
+            tools:text="Бирюлевсая ул., 12 корп" />
+
+        <TextView
+            android:id="@+id/received_from_customer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="52dp"
+            android:layout_marginTop="36dp"
+            android:text="@string/received_from_customer"
+            android:textColor="@color/withdraws_gray"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/address_to" />
+
+        <TextView
+            android:id="@+id/received_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="44dp"
+            android:textColor="@color/withdraws_gray"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/received_from_customer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/received_from_customer"
+            tools:text="101.00" />
+
+        <TextView
+            android:id="@+id/tariff_for_drivers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="52dp"
+            android:layout_marginTop="18dp"
+            android:text="@string/tariff_for_drivers"
+            android:textColor="@color/withdraws_gray"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/received_from_customer" />
+
+        <TextView
+            android:id="@+id/tariff_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="44dp"
+            android:textColor="@color/withdraws_gray"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tariff_for_drivers"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tariff_for_drivers"
+            tools:text="101.00" />
+
+        <TextView
+            android:id="@+id/tip_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="52dp"
+            android:layout_marginTop="18dp"
+            android:text="@string/tip"
+            android:textColor="@color/withdraws_gray"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tariff_for_drivers" />
+
+        <TextView
+            android:id="@+id/tip_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="44dp"
+            android:textColor="@color/withdraws_gray"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tip_tv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tip_tv"
+            tools:text="101.00" />
+
+        <TextView
+            android:id="@+id/aggregator_commission"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="52dp"
+            android:layout_marginTop="18dp"
+            android:text="@string/aggregator_commission"
+            android:textColor="@color/withdraws_gray"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tip_tv" />
+
+        <TextView
+            android:id="@+id/commission_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="44dp"
+            android:textColor="@color/withdraws_gray"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/aggregator_commission"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/aggregator_commission"
+            tools:text="101.00" />
+
+        <TextView
+            android:id="@+id/our_commission"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="52dp"
+            android:layout_marginTop="18dp"
+            android:text="@string/our_commission"
+            android:textColor="@color/withdraws_gray"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/aggregator_commission" />
+
+        <TextView
+            android:id="@+id/our_commission_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="44dp"
+            android:textColor="@color/withdraws_gray"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/our_commission"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/our_commission"
+            tools:text="101.00" />
+
+        <TextView
+            android:id="@+id/total_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="52dp"
+            android:layout_marginTop="18dp"
+            android:text="@string/total"
+            android:textColor="@color/withdraws_gray"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/our_commission" />
+
+        <TextView
+            android:id="@+id/total_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="44dp"
+            android:textColor="@color/withdraws_gray"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/total_tv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/total_tv"
+            tools:text="101.00" />
+
+        <View
+            android:id="@+id/space"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="36dp"
+            android:background="@color/colorAccent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/total_tv" />
+
+        <TextView
+            android:id="@+id/total_sum_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_24dp"
+            android:layout_marginEnd="44dp"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/withdraws_yellow"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/space"
+            tools:text="Итог: 1000.00₽" />
+
+        <TextView
+            android:id="@+id/with_commission"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_4dp"
+            android:layout_marginEnd="44dp"
+            android:text="@string/with_commission"
+            android:textColor="@color/gray_profile"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/total_sum_tv" />
+
+        <Button
+            android:id="@+id/back_button"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginStart="@dimen/margin_24dp"
+            android:layout_marginEnd="@dimen/margin_24dp"
+            android:layout_marginBottom="@dimen/margin_48dp"
+            android:background="@drawable/bg_registration_btn"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/back"
+            android:textAllCaps="false"
+            android:textColor="@color/white_code_text"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

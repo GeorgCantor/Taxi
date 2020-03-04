@@ -1,11 +1,14 @@
 package taxi.kassa.model.responses
 
+import android.os.Parcelable
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 import java.text.DateFormatSymbols
 import java.text.SimpleDateFormat
 import java.util.*
 
+@Parcelize
 data class Order(
     @SerializedName("id")
     @Expose
@@ -49,7 +52,7 @@ data class Order(
     @SerializedName("ant_tip")
     @Expose
     var antTip: String? = null
-) {
+) : Parcelable {
 
     val date: String
         get() {
@@ -73,6 +76,14 @@ data class Order(
         val dv = (created?.toInt()?.toLong() ?: 0) * 1000
         val df = Date(dv)
         val dd = SimpleDateFormat("dd MMMM yyyy", myDateFormatSymbols)
+
+        return dd.format(df)
+    }
+
+    fun getDateWithTime(): String {
+        val dv = (created?.toInt()?.toLong() ?: 0) * 1000
+        val df = Date(dv)
+        val dd = SimpleDateFormat("HH:mm, dd MMMM yyyy", myDateFormatSymbols)
 
         return dd.format(df)
     }
