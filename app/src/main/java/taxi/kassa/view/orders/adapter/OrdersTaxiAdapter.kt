@@ -1,4 +1,4 @@
-package taxi.kassa.view.orders
+package taxi.kassa.view.orders.adapter
 
 import android.os.Build
 import android.view.LayoutInflater

@@ -1,10 +1,7 @@
 package taxi.kassa.model.remote
 
 import io.reactivex.Observable
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.*
 import taxi.kassa.model.responses.*
 
 interface ApiService {
@@ -56,4 +53,7 @@ interface ApiService {
     @POST("account_delete")
     @FormUrlEncoded
     fun deleteAccount(@Field("account_id") account_id: Int): Observable<ResponseAPI<ResponseSimple?>?>?
+
+    @GET("orders")
+    fun getOrders(@Query("offset") offset: String?): Observable<ResponseAPI<Orders?>?>?
 }

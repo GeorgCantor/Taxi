@@ -1,16 +1,15 @@
 package taxi.kassa.view.orders
 
-import android.content.Context
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import taxi.kassa.MyApplication
 import taxi.kassa.R
 import taxi.kassa.model.Taxi
-import taxi.kassa.repository.ApiRepository
 
-class OrdersViewModel(
-    private val repository: ApiRepository,
-    private val context: Context
-) : ViewModel() {
+class OrdersViewModel(app: Application) : AndroidViewModel(app) {
+
+    private val context = getApplication<MyApplication>()
 
     val taxis = MutableLiveData<MutableList<Taxi>>()
 

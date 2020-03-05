@@ -52,17 +52,13 @@
         tools:itemCount="2"
         tools:listitem="@layout/item_taxi_orders" />
 
-    <TextView
-        android:layout_width="185dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/info_unavailable"
-        android:textColor="@color/gray_profile"
-        android:fontFamily="sans-serif"
-        android:textSize="16sp"
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/margin_16dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/taxi_recycler" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

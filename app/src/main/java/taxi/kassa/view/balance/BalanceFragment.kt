@@ -47,6 +47,7 @@ class BalanceFragment : Fragment() {
                 yandex_amount.text = getString(R.string.balance_format, it.balanceYandex)
                 citymobil_amount.text = getString(R.string.balance_format, it.balanceCity)
                 gett_amount.text = getString(R.string.balance_format, it.balanceGett)
+                rosneft_amount.text = getString(R.string.balance_format, it.balanceFuel)
 
                 yandex_amount.setTextColor(
                     getColor(
@@ -110,7 +111,7 @@ class BalanceFragment : Fragment() {
             findNavController(this).navigate(R.id.action_balanceFragment_to_withdrawCreateFragment, bundle)
         }
 
-        replenish_gazprom_tv.setOnClickListener {
+        replenish_rosneft_tv.setOnClickListener {
             findNavController(this).navigate(R.id.action_balanceFragment_to_fuelReplenishFragment)
         }
 

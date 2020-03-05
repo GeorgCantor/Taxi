@@ -66,7 +66,7 @@ class WithdrawFragment : Fragment() {
         date_time_tv.text = withdraw.getWithdrawalDate()
         withdrawal_amount.text = getString(R.string.balance_format, withdraw.amount)
         commission_amount.text = getString(R.string.balance_format, "13.00")
-        total_tv.text = getString(R.string.balance_format, "Итог: ${withdraw.amount}")
+        total_tv.text = getString(R.string.order_balance_format, withdraw.amount)
 
         back_button.setOnClickListener { activity?.onBackPressed() }
     }

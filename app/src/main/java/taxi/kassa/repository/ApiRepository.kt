@@ -45,4 +45,6 @@ class ApiRepository(private val apiService: ApiService) {
         amount: String?,
         accountId: Int
     ) = apiService.createWithdraw(sourceId, amount, accountId)
+
+    fun getOrders(offset: String) = apiService.getOrders(offset)
 }
