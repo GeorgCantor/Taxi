@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_orders_list.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
@@ -19,6 +20,7 @@ import taxi.kassa.util.shortToast
 import taxi.kassa.view.MainActivity
 import taxi.kassa.view.orders.adapter.OrdersAdapter
 import taxi.kassa.view.orders.order.OrderFragment
+
 
 class OrdersListFragment : Fragment() {
 
@@ -69,7 +71,7 @@ class OrdersListFragment : Fragment() {
                 adapter = OrdersAdapter(it.orders?.filter {
                     it.sourceId == arguments?.get(ARG_TAXI).toString()
                 } as MutableList<Order>) {
-                    openOrder(it)
+                    if (findNavController(this).currentDestination?.id == R.id.ordersFragment) openOrder(it)
                 }
                 orders_recycler.adapter = adapter
 

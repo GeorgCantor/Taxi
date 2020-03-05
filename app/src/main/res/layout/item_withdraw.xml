@@ -38,7 +38,7 @@
         android:layout_width="16dp"
         android:layout_height="16dp"
         android:layout_margin="10dp"
-        android:src="@drawable/ic_yandex"
+        android:src="@drawable/ic_yandex_mini"
         app:layout_constraintStart_toStartOf="@+id/background"
         app:layout_constraintTop_toTopOf="@+id/background" />
 

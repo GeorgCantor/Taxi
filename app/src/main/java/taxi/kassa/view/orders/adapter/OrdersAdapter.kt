@@ -124,24 +124,16 @@ class OrdersAdapter(
         return when (viewType) {
             TYPE_ITEM -> {
                 OrdersViewHolder(
-                    LayoutInflater.from(parent.context).inflate(
-                        R.layout.item_order,
-                        null
-                    )
+                    LayoutInflater.from(parent.context).inflate(R.layout.item_order, null)
                 )
             }
             TYPE_DATE -> {
                 DateViewHolder(
-                    LayoutInflater.from(parent.context).inflate(
-                        R.layout.item_withdraw_date,
-                        null
-                    )
+                    LayoutInflater.from(parent.context).inflate(R.layout.item_withdraw_date, null)
                 )
             }
             else -> OrdersViewHolder(
-                LayoutInflater.from(parent.context).inflate(
-                    R.layout.item_order,
-                    null
+                LayoutInflater.from(parent.context).inflate(R.layout.item_order, null
                 )
             )
         }

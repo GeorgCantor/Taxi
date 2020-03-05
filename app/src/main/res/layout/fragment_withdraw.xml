@@ -36,7 +36,7 @@
         android:layout_height="16dp"
         android:layout_marginStart="@dimen/margin_24dp"
         android:layout_marginTop="40dp"
-        android:src="@drawable/ic_yandex"
+        android:src="@drawable/ic_yandex_mini"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/back_arrow" />
 

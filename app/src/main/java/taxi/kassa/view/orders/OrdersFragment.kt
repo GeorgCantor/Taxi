@@ -82,8 +82,7 @@ class OrdersFragment : Fragment() {
                     if (item != view) {
                         item.space.background = getDrawable(requireContext(), R.color.colorAccent)
                     } else {
-                        item.space.background =
-                            getDrawable(requireContext(), R.color.withdraws_yellow)
+                        item.space.background = getDrawable(requireContext(), R.color.withdraws_yellow)
                     }
                 }
 
