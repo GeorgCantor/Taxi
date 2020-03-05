@@ -44,6 +44,7 @@ class OrdersFragment : Fragment() {
         adapter.addFragment(OrdersListFragment.create(3))
 
         view_pager.adapter = adapter
+        view_pager.offscreenPageLimit = 3
 
         view_pager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrollStateChanged(state: Int) {
@@ -95,7 +96,7 @@ class OrdersFragment : Fragment() {
         })
 
         val runnable = Runnable {
-            taxi_recycler[0]?.performClick()
+            taxi_recycler[0].performClick()
         }
         Handler().postDelayed(runnable, 500)
 

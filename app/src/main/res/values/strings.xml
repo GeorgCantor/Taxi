@@ -48,7 +48,7 @@
     <string name="yandex_title">Яндекс Такси</string>
     <string name="citymobil_title">Ситимобил</string>
     <string name="gett_title">Gett taxi</string>
-    <string name="gazprom_title">Газпром-нефть</string>
+    <string name="rosneft_title">Роснефть</string>
     <string name="withdraw">Вывести</string>
     <string name="replenish">Пополнить</string>
     <string name="balance_format">%s ₽</string>

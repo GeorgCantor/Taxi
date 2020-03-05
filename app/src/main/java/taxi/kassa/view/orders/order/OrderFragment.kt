@@ -68,8 +68,8 @@ class OrderFragment : Fragment() {
             else -> circle_image.setImageResource(R.drawable.ic_green_circle)
         }
 
-        back_arrow.setOnClickListener { back() }
-        back_button.setOnClickListener { back() }
+        back_arrow.setOnClickListener { activity?.onBackPressed() }
+        back_button.setOnClickListener { activity?.onBackPressed() }
     }
 
     private fun back() {

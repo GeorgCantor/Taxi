@@ -6,6 +6,7 @@ public class ResponseOwner {
     String balance_gett;
     String balance_yandex;
     String balance_total;
+    String balance_fuel;
     String first_name;
     String last_name;
     String phone;
@@ -24,6 +25,10 @@ public class ResponseOwner {
 
     public String getBalanceTotal() {
         return balance_total;
+    }
+
+    public String getBalanceFuel() {
+        return balance_fuel;
     }
 
     public String getFullName() {

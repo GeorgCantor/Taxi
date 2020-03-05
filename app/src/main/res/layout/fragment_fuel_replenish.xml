@@ -53,39 +53,39 @@
         app:layout_constraintTop_toBottomOf="@+id/balance_title" />
 
     <ImageView
-        android:id="@+id/gazprom_image"
+        android:id="@+id/rosneft_image"
         android:layout_width="42dp"
         android:layout_height="42dp"
         android:layout_marginStart="@dimen/margin_24dp"
         android:layout_marginTop="22dp"
-        android:src="@drawable/ic_gazprom"
+        android:src="@drawable/ic_rosneft"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fuel_replenish_tv" />
 
     <TextView
-        android:id="@+id/gazprom_amount"
+        android:id="@+id/rosneft_amount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_16dp"
         android:fontFamily="sans-serif-medium"
-        android:text="1000 ₽"
         android:textColor="@color/balance_green"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/gazprom_title"
-        app:layout_constraintStart_toEndOf="@+id/gazprom_image"
-        app:layout_constraintTop_toTopOf="@+id/gazprom_image" />
+        app:layout_constraintBottom_toTopOf="@+id/rosneft_title"
+        app:layout_constraintStart_toEndOf="@+id/rosneft_image"
+        app:layout_constraintTop_toTopOf="@+id/rosneft_image"
+        tools:text="1000 ₽" />
 
     <TextView
-        android:id="@+id/gazprom_title"
+        android:id="@+id/rosneft_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_16dp"
         android:fontFamily="sans-serif"
-        android:text="@string/gazprom_title"
+        android:text="@string/rosneft_title"
         android:textColor="@color/gray_profile"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/gazprom_image"
-        app:layout_constraintStart_toEndOf="@+id/gazprom_image" />
+        app:layout_constraintBottom_toBottomOf="@+id/rosneft_image"
+        app:layout_constraintStart_toEndOf="@+id/rosneft_image" />
 
     <ImageView
         android:id="@+id/background"
@@ -97,7 +97,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gazprom_title"
+        app:layout_constraintTop_toBottomOf="@+id/rosneft_title"
         app:layout_constraintVertical_bias="1.0" />
 
     <View

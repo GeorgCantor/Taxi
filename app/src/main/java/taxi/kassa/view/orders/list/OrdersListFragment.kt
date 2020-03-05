@@ -37,7 +37,7 @@ class OrdersListFragment : Fragment() {
     private lateinit var viewModel: OrdersListViewModel
     private lateinit var adapter: OrdersAdapter
     private var nextOffset = "1578624301_411517"
-    var firstLoad = true
+    private var firstLoad = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -77,7 +77,9 @@ class OrdersListFragment : Fragment() {
 
                 firstLoad = false
             } else {
-                adapter.updateList(it.orders)
+                adapter.updateList(it.orders?.filter {
+                    it.sourceId == arguments?.get(ARG_TAXI).toString()
+                } as MutableList<Order>)
             }
         })
 
