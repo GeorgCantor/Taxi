@@ -74,12 +74,6 @@ class OrderFragment : Fragment() {
 
     private fun back() {
         val transaction: FragmentTransaction = (context as MainActivity).supportFragmentManager.beginTransaction()
-        transaction.setCustomAnimations(
-            R.animator.slide_in_left,
-            R.animator.slide_out_right,
-            R.animator.slide_in_right,
-            R.animator.slide_out_left
-        )
         transaction.replace(R.id.navHostFragment, OrdersFragment())
         transaction.commit()
     }

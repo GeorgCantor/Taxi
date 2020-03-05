@@ -16,10 +16,10 @@ class OrdersListViewModel(private val repository: ApiRepository) : ViewModel() {
     val orders = MutableLiveData<Orders>()
     val error = MutableLiveData<String>()
 
-    fun getOrders() {
+    fun getOrders(offset:String) {
         disposable.add(
             Observable.fromCallable {
-                repository.getOrders(1)
+                repository.getOrders(offset)
                     ?.doFinally { progressIsVisible.postValue(false) }
                     ?.subscribe({
                         orders.postValue(it?.response)

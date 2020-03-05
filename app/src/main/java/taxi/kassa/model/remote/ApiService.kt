@@ -55,5 +55,5 @@ interface ApiService {
     fun deleteAccount(@Field("account_id") account_id: Int): Observable<ResponseAPI<ResponseSimple?>?>?
 
     @GET("orders")
-    fun getOrders(@Query("offset") offset: Int?): Observable<ResponseAPI<Orders?>?>?
+    fun getOrders(@Query("offset") offset: String?): Observable<ResponseAPI<Orders?>?>?
 }

@@ -23,13 +23,14 @@ class OrdersAdapter(
     }
 
     private val orders = mutableListOf<Order>()
+    private val dates = mutableSetOf<Order>()
+    private var lastDate = ""
 
     init {
         this.orders.addAll(orders)
-        val dates = mutableSetOf<Order>()
 
         if (this.orders.isNotEmpty()) {
-            var lastDate = this.orders[0].date
+            lastDate = this.orders[0].date
 
             dates.add(
                 Order(
@@ -74,6 +75,49 @@ class OrdersAdapter(
             this.orders.sortBy { it.created }
             this.orders.reverse()
         }
+    }
+
+    fun updateList(orders: MutableList<Order>) {
+        orders.map {
+            if (it.date != lastDate) {
+                dates.add(
+                    Order(
+                        DATE_ITEM_ID,
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        0F,
+                        it.created
+                    )
+                )
+                lastDate = it.date
+            }
+        }
+
+        this.orders.addAll(orders)
+        this.orders.addAll(dates)
+
+        try {
+            for (i in 0 until this.orders.size) {
+                if (this.orders[i].id == DATE_ITEM_ID) {
+                    if (this.orders[i].date == this.orders[i + 1].date) {
+                        this.orders.remove(this.orders[i])
+                    }
+                }
+            }
+        } catch (e: IndexOutOfBoundsException) {
+        }
+
+        this.orders.sortBy { it.created }
+        this.orders.reverse()
+
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
