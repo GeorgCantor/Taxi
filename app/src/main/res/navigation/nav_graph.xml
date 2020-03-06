@@ -135,7 +135,7 @@
 
     <fragment
         android:id="@+id/withdrawFragment"
-        android:name="taxi.kassa.view.withdraw.WithdrawFragment"
+        android:name="taxi.kassa.view.withdraws.withdraw.WithdrawFragment"
         android:label="WithdrawFragment" />
 
     <fragment
@@ -145,7 +145,7 @@
 
     <fragment
         android:id="@+id/withdrawCreateFragment"
-        android:name="taxi.kassa.view.withdraw_create.WithdrawCreateFragment"
+        android:name="taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment"
         android:label="WithdrawCreateFragment" />
 
     <fragment
@@ -160,17 +160,25 @@
         <action
             android:id="@+id/action_supportFragment_to_writeMessageFragment"
             app:destination="@id/writeMessageFragment" />
+        <action
+            android:id="@+id/action_supportFragment_to_chatHistoryFragment"
+            app:destination="@id/chatHistoryFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/writeMessageFragment"
-        android:name="taxi.kassa.view.support.WriteMessageFragment"
+        android:name="taxi.kassa.view.support.chat.WriteMessageFragment"
         android:label="WriteMessageFragment">
         <action
             android:id="@+id/action_writeMessageFragment_to_successFragment"
             app:destination="@id/successFragment"
             app:popUpTo="@id/supportFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/chatHistoryFragment"
+        android:name="taxi.kassa.view.support.chat.ChatHistoryFragment"
+        android:label="ChatHistoryFragment" />
 
     <fragment
         android:id="@+id/successFragment"

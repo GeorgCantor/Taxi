@@ -1,4 +1,4 @@
-package taxi.kassa.view.support
+package taxi.kassa.view.support.chat
 
 import android.os.Bundle
 import android.view.LayoutInflater

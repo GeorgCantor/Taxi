@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    tools:background="@color/login_background">
+    tools:background="@color/main_background">
 
     <ImageView
         android:id="@+id/taxi_icon"

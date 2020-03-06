@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/login_background">
+    android:background="@color/main_background">
 
     <ImageView
         android:id="@+id/back_arrow"
@@ -23,7 +23,7 @@
         android:layout_marginStart="20dp"
         android:fontFamily="sans-serif-medium"
         android:text="@string/support_service"
-        android:textColor="@color/gray_intro_text"
+        android:textColor="@color/balance_fuel_gray"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/back_arrow"
         app:layout_constraintStart_toEndOf="@+id/back_arrow"

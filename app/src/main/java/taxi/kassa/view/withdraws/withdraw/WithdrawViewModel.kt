@@ -1,4 +1,4 @@
-package taxi.kassa.view.withdraw
+package taxi.kassa.view.withdraws.withdraw
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

@@ -14,7 +14,7 @@
     <color name="error_red_color">#AE4C4C</color>
 
     <color name="gray_intro_text">#CAD0D2</color>
-    <color name="login_background">#101017</color>
+    <color name="main_background">#101017</color>
     <color name="continue_color">#23252D</color>
     <color name="agreement_text_color">#C1C1C1</color>
     <color name="gray_application_text">#61636F</color>

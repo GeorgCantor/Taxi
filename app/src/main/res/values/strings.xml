@@ -148,4 +148,6 @@
     <string name="success_message">Наш сотрудник свяжется с вами через некоторое время</string>
     <string name="back_to_main_screen">Вернуться на главный экран</string>
     <string name="input_message_error">Введите сообщение</string>
+    <string name="topic">Тема</string>
+    <string name="answer">Ответ</string>
 </resources>

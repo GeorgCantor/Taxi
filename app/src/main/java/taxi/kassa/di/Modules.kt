@@ -14,8 +14,8 @@ import taxi.kassa.view.fuel.FuelReplenishViewModel
 import taxi.kassa.view.orders.OrdersViewModel
 import taxi.kassa.view.orders.list.OrdersListViewModel
 import taxi.kassa.view.profile.ProfileViewModel
-import taxi.kassa.view.withdraw.WithdrawViewModel
-import taxi.kassa.view.withdraw_create.WithdrawCreateViewModel
+import taxi.kassa.view.withdraws.withdraw.WithdrawViewModel
+import taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateViewModel
 import taxi.kassa.view.withdraws.WithdrawsViewModel
 
 val repositoryModule = module {
