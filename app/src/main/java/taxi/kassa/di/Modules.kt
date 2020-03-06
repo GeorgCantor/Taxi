@@ -14,9 +14,10 @@ import taxi.kassa.view.fuel.FuelReplenishViewModel
 import taxi.kassa.view.orders.OrdersViewModel
 import taxi.kassa.view.orders.list.OrdersListViewModel
 import taxi.kassa.view.profile.ProfileViewModel
+import taxi.kassa.view.support.chat.ChatHistoryViewModel
+import taxi.kassa.view.withdraws.WithdrawsViewModel
 import taxi.kassa.view.withdraws.withdraw.WithdrawViewModel
 import taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateViewModel
-import taxi.kassa.view.withdraws.WithdrawsViewModel
 
 val repositoryModule = module {
     single { ApiRepository(get()) }
@@ -58,6 +59,9 @@ val viewModelModule = module {
     }
     viewModel {
         OrdersListViewModel(get())
+    }
+    viewModel {
+        ChatHistoryViewModel()
     }
 }
 

@@ -56,7 +56,8 @@ class WithdrawsAdapter(
                 WithdrawsViewHolder(
                     LayoutInflater.from(parent.context).inflate(
                         R.layout.item_withdraw,
-                        null
+                        parent,
+                        false
                     )
                 )
             }
@@ -64,14 +65,16 @@ class WithdrawsAdapter(
                 DateViewHolder(
                     LayoutInflater.from(parent.context).inflate(
                         R.layout.item_withdraw_date,
-                        null
+                        parent,
+                        false
                     )
                 )
             }
             else -> WithdrawsViewHolder(
                 LayoutInflater.from(parent.context).inflate(
                     R.layout.item_withdraw,
-                    null
+                    parent,
+                    false
                 )
             )
         }

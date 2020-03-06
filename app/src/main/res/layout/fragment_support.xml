@@ -57,7 +57,7 @@
         app:layout_constraintTop_toBottomOf="@+id/support_service_title" />
 
     <TextView
-        android:id="@+id/call_history_view"
+        android:id="@+id/chat_history_view"
         android:layout_width="0dp"
         android:layout_height="74dp"
         android:layout_marginStart="@dimen/margin_16dp"

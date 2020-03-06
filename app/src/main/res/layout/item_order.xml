@@ -10,7 +10,7 @@
         android:id="@+id/time_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_48dp"
+        android:layout_marginStart="@dimen/margin_16dp"
         android:layout_marginTop="@dimen/margin_24dp"
         android:textColor="@color/gray_profile"
         android:textSize="16sp"
@@ -30,7 +30,6 @@
         android:background="@drawable/bg_profile_gradient"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/time_tv"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView

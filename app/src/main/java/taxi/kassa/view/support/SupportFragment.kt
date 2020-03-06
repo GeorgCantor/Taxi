@@ -34,6 +34,10 @@ class SupportFragment : Fragment() {
             findNavController(this).navigate(R.id.action_supportFragment_to_writeMessageFragment)
         }
 
+        chat_history_view.setOnClickListener {
+            findNavController(this).navigate(R.id.action_supportFragment_to_chatHistoryFragment)
+        }
+
         call_button.setOnClickListener { makeCall() }
     }
 
