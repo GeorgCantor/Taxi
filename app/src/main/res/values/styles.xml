@@ -37,4 +37,8 @@
         <item name="android:paddingBottom">@dimen/margin_8dp</item>
     </style>
 
+    <style name="ErrorAppearance" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/error_red_color</item>
+    </style>
+
 </resources>

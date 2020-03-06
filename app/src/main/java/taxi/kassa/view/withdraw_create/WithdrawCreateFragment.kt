@@ -84,16 +84,23 @@ class WithdrawCreateFragment : Fragment() {
                 taxis.add(Taxi(R.drawable.ic_gett, getString(R.string.gett_title), it.balanceGett))
                 taxis.add(Taxi(R.drawable.ic_citymobil, getString(R.string.citymobil_title), it.balanceCity))
 
-                taxi_recycler.adapter = WithdrawTaxiAdapter(taxis) {itemView,taxiItem->
+                taxi_recycler.adapter = WithdrawTaxiAdapter(taxis) { itemView ->
                     val items = mutableListOf(
                         taxi_recycler[0], taxi_recycler[1], taxi_recycler[2]
                     )
 
-                    sourceId = when (taxiItem.taxiName) {
-                        getString(R.string.yandex_title) -> 1
-                        getString(R.string.citymobil_title) -> 2
-                        getString(R.string.gett_title) -> 3
-                        else -> 1
+                    when (itemView.taxi_name.text) {
+                        getString(R.string.yandex_title) -> {
+                            sourceId = 1
+                            taxi_recycler.scrollToPosition(0)
+                        }
+                        getString(R.string.citymobil_title) -> {
+                            sourceId = 2
+                            taxi_recycler.scrollToPosition(2)
+                        }
+                        getString(R.string.gett_title) -> {
+                            sourceId = 3
+                        }
                     }
 
                     items.map { view ->
@@ -195,7 +202,7 @@ class WithdrawCreateFragment : Fragment() {
         send_request_button.setOnClickListener {
             val sum = sum_edit_text.text.toString()
             if (sum.isEmpty()) {
-                sum_input_view.error = " "
+                sum_input_view.error = getString(R.string.input_error)
                 return@setOnClickListener
             }
 

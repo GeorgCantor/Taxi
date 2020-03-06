@@ -161,6 +161,7 @@
         android:hint="@string/enter_amount"
         android:textColorHint="@color/gray_profile"
         android:textSize="13sp"
+        app:errorTextAppearance="@style/ErrorAppearance"
         app:layout_constraintEnd_toEndOf="@+id/background"
         app:layout_constraintStart_toStartOf="@+id/background"
         app:layout_constraintTop_toBottomOf="@+id/enter_charge_amount_tv">

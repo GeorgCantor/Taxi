@@ -54,6 +54,11 @@ class FuelReplenishFragment : Fragment() {
                         taxi_recycler[0], taxi_recycler[1], taxi_recycler[2]
                     )
 
+                    when (itemView.taxi_name.text) {
+                        getString(R.string.yandex_title) -> taxi_recycler.scrollToPosition(0)
+                        getString(R.string.citymobil_title) -> taxi_recycler.scrollToPosition(2)
+                    }
+
                     items.map { view ->
                         if (view != itemView) {
                             view.background = AppCompatResources.getDrawable(requireContext(), android.R.color.transparent)
@@ -69,6 +74,14 @@ class FuelReplenishFragment : Fragment() {
                 Handler().postDelayed(runnable, 500)
             }
         })
+
+        replenish_button.setOnClickListener {
+            val amount = enter_amount_edit_text.text.toString()
+            if (amount.isEmpty()) {
+                enter_amount_input_view.error = getString(R.string.input_error)
+                return@setOnClickListener
+            }
+        }
 
         back_arrow.setOnClickListener { activity?.onBackPressed() }
     }

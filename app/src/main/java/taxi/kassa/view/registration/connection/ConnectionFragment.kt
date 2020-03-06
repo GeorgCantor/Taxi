@@ -1,4 +1,4 @@
-package taxi.kassa.view.connection
+package taxi.kassa.view.registration.connection
 
 import android.os.Bundle
 import android.view.KeyEvent

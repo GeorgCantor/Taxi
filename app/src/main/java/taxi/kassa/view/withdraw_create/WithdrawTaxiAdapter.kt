@@ -14,7 +14,7 @@ import taxi.kassa.model.Taxi
 
 class WithdrawTaxiAdapter(
     taxis: MutableList<Taxi>,
-    private val clickListener: (View, Taxi) -> Unit
+    private val clickListener: (View) -> Unit
 ) : RecyclerView.Adapter<WithdrawTaxiAdapter.WithdrawTaxiViewHolder>() {
 
     private val taxis = mutableListOf<Taxi>()
@@ -40,7 +40,7 @@ class WithdrawTaxiAdapter(
         holder.taxiName.text = taxi.taxiName
         holder.amount.text = taxi.amount
 
-        holder.itemView.setOnClickListener { clickListener(holder.itemView, taxi) }
+        holder.itemView.setOnClickListener { clickListener(holder.itemView) }
     }
 
     class WithdrawTaxiViewHolder(view: View) : RecyclerView.ViewHolder(view) {

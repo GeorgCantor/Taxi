@@ -39,7 +39,7 @@
 
     <fragment
         android:id="@+id/connectionFragment"
-        android:name="taxi.kassa.view.connection.ConnectionFragment"
+        android:name="taxi.kassa.view.registration.connection.ConnectionFragment"
         android:label="ConnectionFragment">
         <action
             android:id="@+id/action_connectionFragment_to_successRequestFragment"
