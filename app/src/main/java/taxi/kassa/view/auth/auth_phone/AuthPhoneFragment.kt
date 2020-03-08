@@ -5,7 +5,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.OnTouchListener
+import android.view.View.*
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -40,6 +40,10 @@ class AuthPhoneFragment : Fragment() {
         phone_edit_text.setOnTouchListener(touchListener)
 
         loginIsReady = true
+
+        viewModel.progressIsVisible.observe(viewLifecycleOwner, Observer { visible ->
+            progress_bar.visibility = if (visible) VISIBLE else GONE
+        })
 
         viewModel.error.observe(viewLifecycleOwner, Observer {
             showError(context, error_tv, it, 5000, 0)
@@ -79,8 +83,7 @@ class AuthPhoneFragment : Fragment() {
                 if (lengthBefore < editable.length) {
                     when (editable.length) {
                         7 -> editable.append(") ")
-                        12 -> editable.append("-")
-                        15 -> editable.append("-")
+                        12, 15 -> editable.append("-")
                     }
                 }
             }

@@ -146,7 +146,11 @@
     <fragment
         android:id="@+id/withdrawCreateFragment"
         android:name="taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment"
-        android:label="WithdrawCreateFragment" />
+        android:label="WithdrawCreateFragment" >
+        <action
+            android:id="@+id/action_withdrawCreateFragment_to_accountsFragment"
+            app:destination="@id/accountsFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/ordersFragment"

@@ -56,6 +56,7 @@ class BalanceFragment : Fragment() {
                 setTextColor(withdraw_citymobil_tv, it.balanceCity, R.color.gray_intro_text, R.color.colorAccent)
                 setTextColor(gett_amount, it.balanceGett, R.color.balance_green, R.color.balance_red)
                 setTextColor(withdraw_gett_tv, it.balanceGett, R.color.gray_intro_text, R.color.colorAccent)
+                setTextColor(rosneft_amount, it.balanceFuel, R.color.balance_green, R.color.balance_red)
 
                 withdraw_yandex_tv.isEnabled = it.balanceYandex.toFloat() > 0.0F
                 withdraw_citymobil_tv.isEnabled = it.balanceCity.toFloat() > 0.0F

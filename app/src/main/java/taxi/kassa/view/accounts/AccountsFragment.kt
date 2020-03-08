@@ -174,9 +174,7 @@ class AccountsFragment : Fragment() {
         card_edit_text.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(editable: Editable?) {
                 when (editable?.length) {
-                    4 -> editable.append(" ")
-                    9 -> editable.append(" ")
-                    14 -> editable.append(" ")
+                    4, 9, 14 -> editable.append(" ")
                 }
 
                 when (getCardType(editable?.toString()?.replace(" ", "") ?: "")) {

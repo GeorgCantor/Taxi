@@ -13,6 +13,7 @@ import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_withdraw_create.*
 import kotlinx.android.synthetic.main.item_taxi.view.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
@@ -197,6 +198,10 @@ class WithdrawCreateFragment : Fragment() {
             ) {
                 viewModel.deleteAccount()
             }
+        }
+
+        card_background.setOnClickListener {
+            findNavController(this).navigate(R.id.action_withdrawCreateFragment_to_accountsFragment)
         }
 
         send_request_button.setOnClickListener {
