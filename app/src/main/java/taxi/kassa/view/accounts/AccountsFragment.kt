@@ -1,6 +1,8 @@
 package taxi.kassa.view.accounts
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.INVISIBLE
@@ -20,6 +22,11 @@ import taxi.kassa.util.showOneButtonDialog
 import taxi.kassa.util.showTwoButtonsDialog
 
 class AccountsFragment : Fragment() {
+
+    companion object {
+        private const val MASTERCARD = "Mastercard"
+        private const val VISA = "Visa"
+    }
 
     private lateinit var viewModel: AccountsViewModel
 
@@ -162,6 +169,42 @@ class AccountsFragment : Fragment() {
             ) {
                 viewModel.deleteAccount()
             }
+        }
+
+        card_edit_text.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(editable: Editable?) {
+                when (editable?.length) {
+                    4 -> editable.append(" ")
+                    9 -> editable.append(" ")
+                    14 -> editable.append(" ")
+                }
+
+                when (getCardType(editable?.toString()?.replace(" ", "") ?: "")) {
+                    VISA -> {
+                        card_edit_text.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_visa, 0)
+                    }
+                    MASTERCARD -> {
+                        card_edit_text.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_mastercard, 0)
+                    }
+                }
+            }
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+        })
+    }
+
+    private fun getCardType(number: String): String {
+        val visa = Regex("^4[0-9]{12}(?:[0-9]{3})?$")
+        val mastercard = Regex("^5[1-5][0-9]{14}$")
+
+        return when {
+            visa.matches(number) -> VISA
+            mastercard.matches(number) -> MASTERCARD
+            else -> "Unknown"
         }
     }
 }

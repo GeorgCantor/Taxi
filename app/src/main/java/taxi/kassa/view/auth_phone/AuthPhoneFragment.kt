@@ -77,8 +77,11 @@ class AuthPhoneFragment : Fragment() {
 
             override fun afterTextChanged(editable: Editable) {
                 if (lengthBefore < editable.length) {
-                    if (editable.length == 7) editable.append(") ")
-                    if (editable.length == 12 || editable.length == 15) editable.append("-")
+                    when (editable.length) {
+                        7 -> editable.append(") ")
+                        12 -> editable.append("-")
+                        15 -> editable.append("-")
+                    }
                 }
             }
         })

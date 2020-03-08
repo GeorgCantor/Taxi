@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/main_background"
@@ -413,7 +414,8 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:visibility="invisible"
-            app:layout_constraintTop_toBottomOf="@+id/instant_withdrawal_tv">
+            app:layout_constraintTop_toBottomOf="@+id/instant_withdrawal_tv"
+            tools:visibility="visible">
 
             <ImageView
                 android:id="@+id/new_card_background"
@@ -468,23 +470,24 @@
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/gray_profile"
                     android:imeOptions="actionDone"
-                    android:inputType="number"
+                    android:inputType="phone"
+                    android:maxLength="19"
                     android:maxLines="1"
-                    android:textColor="@color/gray_intro_text"
+                    android:textColor="@color/agreement_text_color"
                     android:textColorHint="@color/gray_profile"
-                    android:textSize="16sp" />
+                    android:textSize="18sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
-                android:layout_width="312dp"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_4dp"
                 android:layout_marginTop="@dimen/margin_24dp"
                 android:text="@string/new_card_message"
                 android:textColor="@color/gray_profile"
                 android:textSize="13sp"
-                app:layout_constraintEnd_toEndOf="@id/new_card_background"
-                app:layout_constraintStart_toStartOf="@+id/new_card_background"
+                app:layout_constraintStart_toStartOf="@+id/card_input_view"
                 app:layout_constraintTop_toBottomOf="@+id/card_input_view" />
 
             <Button
