@@ -6,9 +6,9 @@ import org.koin.dsl.module
 import taxi.kassa.model.remote.ApiClient
 import taxi.kassa.repository.ApiRepository
 import taxi.kassa.view.accounts.AccountsViewModel
-import taxi.kassa.view.auth_code.AuthCodeViewModel
-import taxi.kassa.view.auth_phone.AuthPhoneViewModel
-import taxi.kassa.view.auth_sign_up.AuthSignUpViewModel
+import taxi.kassa.view.auth.auth_code.AuthCodeViewModel
+import taxi.kassa.view.auth.auth_phone.AuthPhoneViewModel
+import taxi.kassa.view.auth.auth_sign_up.AuthSignUpViewModel
 import taxi.kassa.view.balance.BalanceViewModel
 import taxi.kassa.view.fuel.FuelReplenishViewModel
 import taxi.kassa.view.orders.OrdersViewModel

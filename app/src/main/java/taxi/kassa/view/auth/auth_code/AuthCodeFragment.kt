@@ -1,4 +1,4 @@
-package taxi.kassa.view.auth_code
+package taxi.kassa.view.auth.auth_code
 
 import android.os.Bundle
 import android.text.Editable

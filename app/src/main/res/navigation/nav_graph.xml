@@ -49,7 +49,7 @@
 
     <fragment
         android:id="@+id/authPhoneFragment"
-        android:name="taxi.kassa.view.auth_phone.AuthPhoneFragment"
+        android:name="taxi.kassa.view.auth.auth_phone.AuthPhoneFragment"
         android:label="AuthPhoneFragment">
         <action
             android:id="@+id/action_authPhoneFragment_to_authCodeFragment"
@@ -59,7 +59,7 @@
 
     <fragment
         android:id="@+id/authSignUpFragment"
-        android:name="taxi.kassa.view.auth_sign_up.AuthSignUpFragment"
+        android:name="taxi.kassa.view.auth.auth_sign_up.AuthSignUpFragment"
         android:label="AuthSignUpFragment">
         <action
             android:id="@+id/action_authSignUpFragment_to_successRequestFragment"
@@ -69,12 +69,12 @@
 
     <fragment
         android:id="@+id/successRequestFragment"
-        android:name="taxi.kassa.view.auth_sign_up.SuccessRequestFragment"
+        android:name="taxi.kassa.view.auth.auth_sign_up.SuccessRequestFragment"
         android:label="SuccessRequestFragment" />
 
     <fragment
         android:id="@+id/authCodeFragment"
-        android:name="taxi.kassa.view.auth_code.AuthCodeFragment"
+        android:name="taxi.kassa.view.auth.auth_code.AuthCodeFragment"
         android:label="AuthCodeFragment">
         <action
             android:id="@+id/action_authCodeFragment_to_profileFragment"

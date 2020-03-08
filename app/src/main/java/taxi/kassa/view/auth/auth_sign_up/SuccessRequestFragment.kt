@@ -1,4 +1,4 @@
-package taxi.kassa.view.auth_sign_up
+package taxi.kassa.view.auth.auth_sign_up
 
 import android.os.Bundle
 import android.view.LayoutInflater

@@ -1,4 +1,4 @@
-package taxi.kassa.view.auth_phone
+package taxi.kassa.view.auth.auth_code
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -7,18 +7,20 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import taxi.kassa.repository.ApiRepository
 
-class AuthPhoneViewModel(private val repository: ApiRepository) : ViewModel() {
+class AuthCodeViewModel(private val repository: ApiRepository) : ViewModel() {
 
     private lateinit var disposable: Disposable
 
     val isLoggedIn = MutableLiveData<Boolean>()
+    val token = MutableLiveData<String>()
     val error = MutableLiveData<String>()
 
-    fun login(phone: String) {
+    fun login(phone: String, code: String) {
         disposable = Observable.fromCallable {
-            repository.login(phone)
+            repository.getCode(phone, code)
                 ?.subscribe({
                     isLoggedIn.postValue(it?.success)
+                    it?.response?.let { token.postValue(it.token) }
                     it?.errorMsg?.let { error.postValue(it) }
                 }, {
                 })

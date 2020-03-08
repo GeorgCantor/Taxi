@@ -1,4 +1,4 @@
-package taxi.kassa.view.auth_code
+package taxi.kassa.view.auth.auth_sign_up
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -6,21 +6,20 @@ import io.reactivex.Observable
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import taxi.kassa.repository.ApiRepository
+import taxi.kassa.util.Constants.KEY
 
-class AuthCodeViewModel(private val repository: ApiRepository) : ViewModel() {
+class AuthSignUpViewModel(private val repository: ApiRepository) : ViewModel() {
 
     private lateinit var disposable: Disposable
 
-    val isLoggedIn = MutableLiveData<Boolean>()
-    val token = MutableLiveData<String>()
+    val isSignUp = MutableLiveData<Boolean>()
     val error = MutableLiveData<String>()
 
-    fun login(phone: String, code: String) {
+    fun signUp(phone: String) {
         disposable = Observable.fromCallable {
-            repository.getCode(phone, code)
+            repository.signUp("", phone, 11, KEY)
                 ?.subscribe({
-                    isLoggedIn.postValue(it?.success)
-                    it?.response?.let { token.postValue(it.token) }
+                    isSignUp.postValue(it?.success)
                     it?.errorMsg?.let { error.postValue(it) }
                 }, {
                 })

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.core.content.ContextCompat.getColor
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -49,44 +50,12 @@ class BalanceFragment : Fragment() {
                 gett_amount.text = getString(R.string.balance_format, it.balanceGett)
                 rosneft_amount.text = getString(R.string.balance_format, it.balanceFuel)
 
-                yandex_amount.setTextColor(
-                    getColor(
-                        requireContext(),
-                        if (it.balanceYandex.toFloat() > 0.0F) R.color.balance_green else R.color.balance_red
-                    )
-                )
-                withdraw_yandex_tv.setTextColor(
-                    getColor(
-                        requireContext(),
-                        if (it.balanceYandex.toFloat() > 0.0F) R.color.gray_intro_text else R.color.colorAccent
-                    )
-                )
-
-                citymobil_amount.setTextColor(
-                    getColor(
-                        requireContext(),
-                        if (it.balanceCity.toFloat() > 0.0F) R.color.balance_green else R.color.balance_red
-                    )
-                )
-                withdraw_citymobil_tv.setTextColor(
-                    getColor(
-                        requireContext(),
-                        if (it.balanceCity.toFloat() > 0.0F) R.color.gray_intro_text else R.color.colorAccent
-                    )
-                )
-
-                gett_amount.setTextColor(
-                    getColor(
-                        requireContext(),
-                        if (it.balanceGett.toFloat() > 0.0F) R.color.balance_green else R.color.balance_red
-                    )
-                )
-                withdraw_gett_tv.setTextColor(
-                    getColor(
-                        requireContext(),
-                        if (it.balanceGett.toFloat() > 0.0F) R.color.gray_intro_text else R.color.colorAccent
-                    )
-                )
+                setTextColor(yandex_amount, it.balanceYandex, R.color.balance_green, R.color.balance_red)
+                setTextColor(withdraw_yandex_tv, it.balanceYandex, R.color.gray_intro_text, R.color.colorAccent)
+                setTextColor(citymobil_amount, it.balanceCity, R.color.balance_green, R.color.balance_red)
+                setTextColor(withdraw_citymobil_tv, it.balanceCity, R.color.gray_intro_text, R.color.colorAccent)
+                setTextColor(gett_amount, it.balanceGett, R.color.balance_green, R.color.balance_red)
+                setTextColor(withdraw_gett_tv, it.balanceGett, R.color.gray_intro_text, R.color.colorAccent)
 
                 withdraw_yandex_tv.isEnabled = it.balanceYandex.toFloat() > 0.0F
                 withdraw_citymobil_tv.isEnabled = it.balanceCity.toFloat() > 0.0F
@@ -116,5 +85,19 @@ class BalanceFragment : Fragment() {
         }
 
         back_arrow.setOnClickListener { activity?.onBackPressed() }
+    }
+
+    private fun setTextColor(
+        textView: TextView,
+        balance: String,
+        colorPositive: Int,
+        colorNegative: Int
+    ) {
+        textView.setTextColor(
+            getColor(
+                requireContext(),
+                if (balance.toFloat() > 0.0F) colorPositive else colorNegative
+            )
+        )
     }
 }
