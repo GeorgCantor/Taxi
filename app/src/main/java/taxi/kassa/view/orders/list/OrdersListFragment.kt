@@ -21,7 +21,6 @@ import taxi.kassa.view.MainActivity
 import taxi.kassa.view.orders.adapter.OrdersAdapter
 import taxi.kassa.view.orders.order.OrderFragment
 
-
 class OrdersListFragment : Fragment() {
 
     companion object {

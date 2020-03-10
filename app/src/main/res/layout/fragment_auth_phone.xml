@@ -10,20 +10,19 @@
         android:id="@+id/input_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="98dp"
         android:fontFamily="sans-serif-medium"
         android:text="@string/input_phone_number"
         android:textColor="@color/gray_intro_text"
         android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/phone_edit_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/phone_edit_text"
-        android:layout_width="343dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
         android:background="@drawable/edittext_primary"
         android:cursorVisible="true"
         android:digits="+() 1234567890-"
@@ -37,10 +36,11 @@
         android:textColor="@color/gray_intro_text"
         android:textColorHint="@color/grayText"
         android:textCursorDrawable="@drawable/color_cursor"
-        android:textSize="34sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         android:theme="@style/CustomTheme"
         app:backgroundTint="@color/grayText"
+        app:layout_constraintBottom_toTopOf="@+id/login_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/input_title" />
@@ -71,6 +71,7 @@
         android:textAllCaps="false"
         android:textColor="@color/continue_color"
         android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/login_checkbox"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/error_tv" />
@@ -80,7 +81,6 @@
         android:layout_width="340dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_24dp"
-        android:layout_marginTop="62dp"
         android:button="@drawable/checkbox_selector"
         android:checked="true"
         android:fontFamily="sans-serif"
@@ -89,6 +89,7 @@
         android:text="@string/login_agreement_title"
         android:textColor="@color/agreement_text_color"
         android:textSize="13sp"
+        app:layout_constraintBottom_toTopOf="@+id/keyboard"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_button" />
 

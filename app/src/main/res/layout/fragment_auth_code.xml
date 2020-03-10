@@ -42,9 +42,10 @@
             android:maxLength="1"
             android:maxLines="1"
             android:orientation="horizontal"
+            android:paddingBottom="20dp"
             android:singleLine="true"
             android:textColor="@color/white_code_text"
-            android:textSize="34sp"
+            android:textSize="30sp"
             android:textStyle="bold"
             app:backgroundTint="@color/gray_application_text"
             tools:text="4" />
@@ -60,11 +61,13 @@
             android:maxLength="1"
             android:maxLines="1"
             android:orientation="horizontal"
+            android:paddingBottom="20dp"
             android:singleLine="true"
             android:textColor="@color/white_code_text"
-            android:textSize="34sp"
+            android:textSize="30sp"
             android:textStyle="bold"
-            app:backgroundTint="@color/gray_application_text" />
+            app:backgroundTint="@color/gray_application_text"
+            tools:text="8" />
 
         <EditText
             android:id="@+id/input3"
@@ -77,11 +80,13 @@
             android:maxLength="1"
             android:maxLines="1"
             android:orientation="horizontal"
+            android:paddingBottom="20dp"
             android:singleLine="true"
             android:textColor="@color/white_code_text"
-            android:textSize="34sp"
+            android:textSize="30sp"
             android:textStyle="bold"
-            app:backgroundTint="@color/gray_application_text" />
+            app:backgroundTint="@color/gray_application_text"
+            tools:text="9" />
 
         <EditText
             android:id="@+id/input4"
@@ -94,11 +99,13 @@
             android:maxLength="1"
             android:maxLines="1"
             android:orientation="horizontal"
+            android:paddingBottom="20dp"
             android:singleLine="true"
             android:textColor="@color/white_code_text"
-            android:textSize="34sp"
+            android:textSize="30sp"
             android:textStyle="bold"
-            app:backgroundTint="@color/gray_application_text" />
+            app:backgroundTint="@color/gray_application_text"
+            tools:text="2" />
 
     </LinearLayout>
 
