@@ -130,6 +130,20 @@ class WithdrawCreateFragment : Fragment() {
             }
         })
 
+        viewModel.notifications.observe(viewLifecycleOwner, Observer {
+            when (it.size) {
+                0 -> {
+                    notification_count.visibility = INVISIBLE
+                    notification_image.visibility = VISIBLE
+                }
+                else -> {
+                    notification_count.text = it.size.toString()
+                    notification_count.visibility = VISIBLE
+                    notification_image.visibility = INVISIBLE
+                }
+            }
+        })
+
         sum_edit_text.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
                 constraintSet.clone(parent_layout)
@@ -212,6 +226,14 @@ class WithdrawCreateFragment : Fragment() {
             }
 
             viewModel.createWithdraw(sourceId, sum)
+        }
+
+        notification_image.setOnClickListener {
+            findNavController(this).navigate(R.id.action_withdrawCreateFragment_to_notificationsFragment)
+        }
+
+        notification_count.setOnClickListener {
+            findNavController(this).navigate(R.id.action_withdrawCreateFragment_to_notificationsFragment)
         }
 
         back_arrow.setOnClickListener { activity?.onBackPressed() }

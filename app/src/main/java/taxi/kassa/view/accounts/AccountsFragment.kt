@@ -82,6 +82,20 @@ class AccountsFragment : Fragment() {
             }
         })
 
+        viewModel.notifications.observe(viewLifecycleOwner, Observer {
+            when (it.size) {
+                0 -> {
+                    notification_count.visibility = INVISIBLE
+                    notification_image.visibility = VISIBLE
+                }
+                else -> {
+                    notification_count.text = it.size.toString()
+                    notification_count.visibility = VISIBLE
+                    notification_image.visibility = INVISIBLE
+                }
+            }
+        })
+
         val editTexts = listOf<EditText>(
             name_edit_text, surname_edit_text, account_edit_text, bik_edit_text
         )
@@ -108,6 +122,10 @@ class AccountsFragment : Fragment() {
         }
 
         notification_image.setOnClickListener {
+            findNavController(this).navigate(R.id.action_accountsFragment_to_notificationsFragment)
+        }
+
+        notification_count.setOnClickListener {
             findNavController(this).navigate(R.id.action_accountsFragment_to_notificationsFragment)
         }
 

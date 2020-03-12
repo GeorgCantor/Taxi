@@ -3,6 +3,8 @@ package taxi.kassa.view.balance
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.INVISIBLE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.content.ContextCompat.getColor
@@ -64,6 +66,20 @@ class BalanceFragment : Fragment() {
             }
         })
 
+        viewModel.notifications.observe(viewLifecycleOwner, Observer {
+            when (it.size) {
+                0 -> {
+                    notification_count.visibility = INVISIBLE
+                    notification_image.visibility = VISIBLE
+                }
+                else -> {
+                    notification_count.text = it.size.toString()
+                    notification_count.visibility = VISIBLE
+                    notification_image.visibility = INVISIBLE
+                }
+            }
+        })
+
         val bundle = Bundle()
 
         withdraw_yandex_tv.setOnClickListener {
@@ -86,6 +102,10 @@ class BalanceFragment : Fragment() {
         }
 
         notification_image.setOnClickListener {
+            findNavController(this).navigate(R.id.action_balanceFragment_to_notificationsFragment)
+        }
+
+        notification_count.setOnClickListener {
             findNavController(this).navigate(R.id.action_balanceFragment_to_notificationsFragment)
         }
 

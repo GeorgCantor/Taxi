@@ -15,6 +15,7 @@ import taxi.kassa.view.notifications.NotificationsViewModel
 import taxi.kassa.view.orders.OrdersViewModel
 import taxi.kassa.view.orders.list.OrdersListViewModel
 import taxi.kassa.view.profile.ProfileViewModel
+import taxi.kassa.view.support.SupportViewModel
 import taxi.kassa.view.support.chat.ChatHistoryViewModel
 import taxi.kassa.view.withdraws.WithdrawsViewModel
 import taxi.kassa.view.withdraws.withdraw.WithdrawViewModel
@@ -53,7 +54,7 @@ val viewModelModule = module {
         WithdrawCreateViewModel(get())
     }
     viewModel {
-        OrdersViewModel(androidApplication())
+        OrdersViewModel(androidApplication(), get())
     }
     viewModel {
         FuelReplenishViewModel(get())
@@ -66,6 +67,9 @@ val viewModelModule = module {
     }
     viewModel {
         NotificationsViewModel(get())
+    }
+    viewModel {
+        SupportViewModel(get())
     }
 }
 

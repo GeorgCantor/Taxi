@@ -4,11 +4,14 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.INVISIBLE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_fuel_replenish.*
 import kotlinx.android.synthetic.main.item_taxi.view.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
@@ -62,10 +65,10 @@ class FuelReplenishFragment : Fragment() {
                     items.map { view ->
                         if (view != itemView) {
                             view.background = AppCompatResources.getDrawable(requireContext(), android.R.color.transparent)
-                            view.check_image.visibility = View.INVISIBLE
+                            view.check_image.visibility = INVISIBLE
                         } else {
                             view.background = AppCompatResources.getDrawable(requireContext(), R.drawable.bg_outline_green)
-                            view.check_image.visibility = View.VISIBLE
+                            view.check_image.visibility = VISIBLE
                         }
                     }
                 }
@@ -75,12 +78,34 @@ class FuelReplenishFragment : Fragment() {
             }
         })
 
+        viewModel.notifications.observe(viewLifecycleOwner, Observer {
+            when (it.size) {
+                0 -> {
+                    notification_count.visibility = INVISIBLE
+                    notification_image.visibility = VISIBLE
+                }
+                else -> {
+                    notification_count.text = it.size.toString()
+                    notification_count.visibility = VISIBLE
+                    notification_image.visibility = INVISIBLE
+                }
+            }
+        })
+
         replenish_button.setOnClickListener {
             val amount = enter_amount_edit_text.text.toString()
             if (amount.isEmpty()) {
                 enter_amount_input_view.error = getString(R.string.input_error)
                 return@setOnClickListener
             }
+        }
+
+        notification_image.setOnClickListener {
+            findNavController(this).navigate(R.id.action_fuelReplenishFragment_to_notificationsFragment)
+        }
+
+        notification_count.setOnClickListener {
+            findNavController(this).navigate(R.id.action_fuelReplenishFragment_to_notificationsFragment)
         }
 
         back_arrow.setOnClickListener { activity?.onBackPressed() }

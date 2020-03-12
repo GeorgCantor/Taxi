@@ -128,7 +128,13 @@
     <fragment
         android:id="@+id/fuelReplenishFragment"
         android:name="taxi.kassa.view.fuel.FuelReplenishFragment"
-        android:label="FuelReplenishFragment" />
+        android:label="FuelReplenishFragment">
+        <action
+            android:id="@+id/action_fuelReplenishFragment_to_notificationsFragment"
+            app:destination="@id/notificationsFragment"
+            app:popEnterAnim="@animator/slide_in_top"
+            app:popExitAnim="@animator/slide_out_top" />
+    </fragment>
 
     <fragment
         android:id="@+id/withdrawsFragment"
@@ -171,6 +177,11 @@
         <action
             android:id="@+id/action_withdrawCreateFragment_to_accountsFragment"
             app:destination="@id/accountsFragment" />
+        <action
+            android:id="@+id/action_withdrawCreateFragment_to_notificationsFragment"
+            app:destination="@id/notificationsFragment"
+            app:popEnterAnim="@animator/slide_in_top"
+            app:popExitAnim="@animator/slide_out_top" />
     </fragment>
 
     <fragment

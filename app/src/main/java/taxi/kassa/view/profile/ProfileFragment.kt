@@ -56,7 +56,7 @@ class ProfileFragment : Fragment() {
         viewModel.getUserInfo()
 
         viewModel.progressIsVisible.observe(viewLifecycleOwner, Observer { visible ->
-            progress_bar.visibility = if (visible) View.VISIBLE else View.GONE
+            progress_bar.visibility = if (visible) VISIBLE else View.GONE
         })
 
         viewModel.error.observe(viewLifecycleOwner, Observer {

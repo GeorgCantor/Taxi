@@ -30,14 +30,30 @@
         app:layout_constraintStart_toEndOf="@+id/back_arrow"
         app:layout_constraintTop_toTopOf="@+id/back_arrow" />
 
+    <TextView
+        android:id="@+id/notification_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="@dimen/margin_24dp"
+        android:background="@drawable/ic_chip_notification"
+        android:paddingStart="9dp"
+        android:paddingTop="3dp"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="3" />
+
     <ImageView
         android:id="@+id/notification_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="@dimen/margin_24dp"
+        android:layout_margin="@dimen/margin_24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_notification" />
+        app:srcCompat="@drawable/ic_notification"
+        tools:visibility="invisible" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/withdraws_recycler"
