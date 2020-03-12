@@ -85,6 +85,10 @@ class BalanceFragment : Fragment() {
             findNavController(this).navigate(R.id.action_balanceFragment_to_fuelReplenishFragment)
         }
 
+        notification_image.setOnClickListener {
+            findNavController(this).navigate(R.id.action_balanceFragment_to_notificationsFragment)
+        }
+
         back_arrow.setOnClickListener { activity?.onBackPressed() }
     }
 

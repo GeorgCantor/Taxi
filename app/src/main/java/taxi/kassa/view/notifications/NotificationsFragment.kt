@@ -1,15 +1,23 @@
 package taxi.kassa.view.notifications
 
+import android.Manifest
+import android.content.ActivityNotFoundException
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.fragment_notifications.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
+import taxi.kassa.util.Constants
+import taxi.kassa.util.shortToast
 
 class NotificationsFragment : Fragment() {
 
@@ -34,6 +42,36 @@ class NotificationsFragment : Fragment() {
             notifications_recycler.adapter = NotificationsAdapter(it)
         })
 
+        phone_image.setOnClickListener { makeCall() }
+
         close_tv.setOnClickListener { activity?.onBackPressed() }
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            makeCall()
+        }
+    }
+
+    private fun makeCall() {
+        val callIntent = Intent(Intent.ACTION_CALL)
+        callIntent.data = Uri.parse("tel:${Constants.SUPPORT_PHONE_NUMBER}")
+
+        if (ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.CALL_PHONE)
+            != PackageManager.PERMISSION_GRANTED
+        ) {
+            requestPermissions(arrayOf(Manifest.permission.CALL_PHONE), 10)
+            return
+        } else {
+            try {
+                startActivity(callIntent)
+            } catch (ex: ActivityNotFoundException) {
+                requireActivity().shortToast(getString(R.string.not_find_call_app))
+            }
+        }
     }
 }

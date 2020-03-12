@@ -9,6 +9,8 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.empty_withdraws_screen.*
 import kotlinx.android.synthetic.main.fragment_withdraws.*
+import kotlinx.android.synthetic.main.fragment_withdraws.back_arrow
+import kotlinx.android.synthetic.main.fragment_withdraws.notification_image
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
@@ -57,6 +59,10 @@ class WithdrawsFragment : Fragment() {
         back_arrow_empty.setOnClickListener { activity?.onBackPressed() }
 
         back_button.setOnClickListener { activity?.onBackPressed() }
+
+        notification_image.setOnClickListener {
+            findNavController(this).navigate(R.id.action_withdrawsFragment_to_notificationsFragment)
+        }
 
         add_account_button.setOnClickListener {
             findNavController(this).navigate(R.id.action_withdrawsFragment_to_accountsFragment)

@@ -12,7 +12,10 @@ import android.widget.EditText
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_accounts.*
+import kotlinx.android.synthetic.main.fragment_accounts.back_arrow
+import kotlinx.android.synthetic.main.fragment_accounts.notification_image
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
@@ -102,6 +105,10 @@ class AccountsFragment : Fragment() {
                 bik_edit_text.text.toString()
             )
             close_image.performClick()
+        }
+
+        notification_image.setOnClickListener {
+            findNavController(this).navigate(R.id.action_accountsFragment_to_notificationsFragment)
         }
 
         back_arrow.setOnClickListener { activity?.onBackPressed() }

@@ -9,6 +9,7 @@ import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.NavHostFragment.findNavController
 import androidx.viewpager.widget.ViewPager
 import kotlinx.android.synthetic.main.fragment_orders.*
 import kotlinx.android.synthetic.main.item_taxi_orders.view.*
@@ -58,16 +59,19 @@ class OrdersFragment : Fragment() {
             }
 
             override fun onPageSelected(position: Int) {
-                when (position) {
-                    0 -> {
-                        taxi_recycler[0].performClick()
-                        taxi_recycler.scrollToPosition(0)
+                try {
+                    when (position) {
+                        0 -> {
+                            taxi_recycler[0].performClick()
+                            taxi_recycler.scrollToPosition(0)
+                        }
+                        1 -> taxi_recycler[1].performClick()
+                        2 -> {
+                            taxi_recycler[2].performClick()
+                            taxi_recycler.scrollToPosition(2)
+                        }
                     }
-                    1 -> taxi_recycler[1].performClick()
-                    2 -> {
-                        taxi_recycler[2].performClick()
-                        taxi_recycler.scrollToPosition(2)
-                    }
+                } catch (e: IndexOutOfBoundsException) {
                 }
             }
         })
@@ -98,6 +102,10 @@ class OrdersFragment : Fragment() {
             taxi_recycler[0].performClick()
         }
         Handler().postDelayed(runnable, 500)
+
+        notification_image.setOnClickListener {
+            findNavController(this).navigate(R.id.action_ordersFragment_to_notificationsFragment)
+        }
 
         back_arrow.setOnClickListener { activity?.onBackPressed() }
     }
