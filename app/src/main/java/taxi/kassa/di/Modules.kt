@@ -65,7 +65,7 @@ val viewModelModule = module {
         ChatHistoryViewModel()
     }
     viewModel {
-        NotificationsViewModel()
+        NotificationsViewModel(get())
     }
 }
 

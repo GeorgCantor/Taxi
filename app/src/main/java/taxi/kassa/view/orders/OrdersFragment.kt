@@ -78,22 +78,25 @@ class OrdersFragment : Fragment() {
 
         viewModel.taxis.observe(viewLifecycleOwner, Observer {
             taxi_recycler.adapter = OrdersTaxiAdapter(it) { view, taxi ->
-                val items = mutableListOf(
-                    taxi_recycler[0], taxi_recycler[1], taxi_recycler[2]
-                )
+                try {
+                    val items = mutableListOf(
+                        taxi_recycler[0], taxi_recycler[1], taxi_recycler[2]
+                    )
 
-                items.map { item ->
-                    if (item != view) {
-                        item.space.background = getDrawable(requireContext(), R.color.colorAccent)
-                    } else {
-                        item.space.background = getDrawable(requireContext(), R.color.withdraws_yellow)
+                    items.map { item ->
+                        if (item != view) {
+                            item.space.background = getDrawable(requireContext(), R.color.colorAccent)
+                        } else {
+                            item.space.background = getDrawable(requireContext(), R.color.withdraws_yellow)
+                        }
                     }
-                }
 
-                when (taxi.taxiName) {
-                    getString(R.string.yandex_title) -> view_pager.currentItem = 0
-                    getString(R.string.gett_title) -> view_pager.currentItem = 1
-                    getString(R.string.citymobil_title) -> view_pager.currentItem = 2
+                    when (taxi.taxiName) {
+                        getString(R.string.yandex_title) -> view_pager.currentItem = 0
+                        getString(R.string.gett_title) -> view_pager.currentItem = 1
+                        getString(R.string.citymobil_title) -> view_pager.currentItem = 2
+                    }
+                } catch (e: IndexOutOfBoundsException) {
                 }
             }
         })

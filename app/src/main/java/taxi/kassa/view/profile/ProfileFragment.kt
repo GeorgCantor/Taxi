@@ -10,6 +10,8 @@ import android.os.Bundle
 import android.telephony.PhoneNumberUtils
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.INVISIBLE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
@@ -73,6 +75,20 @@ class ProfileFragment : Fragment() {
             }
         })
 
+        viewModel.notifications.observe(viewLifecycleOwner, Observer {
+            when (it.size) {
+                0 -> {
+                    notification_count.visibility = INVISIBLE
+                    notification_image.visibility = VISIBLE
+                }
+                else -> {
+                    notification_count.text = it.size.toString()
+                    notification_count.visibility = VISIBLE
+                    notification_image.visibility = INVISIBLE
+                }
+            }
+        })
+
         balance_view.setOnClickListener {
             findNavController(this).navigate(R.id.action_profileFragment_to_balanceFragment)
         }
@@ -105,6 +121,10 @@ class ProfileFragment : Fragment() {
         }
 
         notification_image.setOnClickListener {
+            findNavController(this).navigate(R.id.action_profileFragment_to_notificationsFragment)
+        }
+
+        notification_count.setOnClickListener {
             findNavController(this).navigate(R.id.action_profileFragment_to_notificationsFragment)
         }
 

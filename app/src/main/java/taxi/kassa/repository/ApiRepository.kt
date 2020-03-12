@@ -1,5 +1,6 @@
 package taxi.kassa.repository
 
+import taxi.kassa.model.Notification
 import taxi.kassa.model.remote.ApiService
 
 class ApiRepository(private val apiService: ApiService) {
@@ -47,4 +48,29 @@ class ApiRepository(private val apiService: ApiService) {
     ) = apiService.createWithdraw(sourceId, amount, accountId)
 
     fun getOrders(offset: String) = apiService.getOrders(offset)
+
+    fun getNotifications(): MutableList<Notification> {
+        return mutableListOf(
+            Notification(
+                title = "Уважаемые водители!",
+                message = "С 16 октября водителям для доступа в сервис нужен будет рейтинг не менее 4,5",
+                date = "14:00, 10 окт."
+            ),
+            Notification(
+                title = "Уважаемые водители!",
+                message = "С 16 октября водителям для доступа в сервис нужен будет рейтинг не менее 4,5",
+                date = "14:00, 10 окт."
+            ),
+            Notification(
+                title = "Уважаемые водители!",
+                message = "С 16 октября водителям для доступа в сервис нужен будет рейтинг не менее 4,5",
+                date = "14:00, 10 окт."
+            ),
+            Notification(
+                title = "Уважаемые водители!",
+                message = "С 16 октября водителям для доступа в сервис нужен будет рейтинг не менее 4,5",
+                date = "14:00, 10 окт."
+            )
+        )
+    }
 }

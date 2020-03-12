@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import io.reactivex.Observable
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
+import taxi.kassa.model.Notification
 import taxi.kassa.model.responses.ResponseOwner
 import taxi.kassa.repository.ApiRepository
 
@@ -15,6 +16,7 @@ class ProfileViewModel(private val repository: ApiRepository) : ViewModel() {
     val progressIsVisible = MutableLiveData<Boolean>().apply { this.value = true }
     val responseOwner = MutableLiveData<ResponseOwner>()
     val error = MutableLiveData<String>()
+    val notifications = MutableLiveData<MutableList<Notification>>()
 
     fun getUserInfo() {
         disposable = Observable.fromCallable {
@@ -28,6 +30,8 @@ class ProfileViewModel(private val repository: ApiRepository) : ViewModel() {
         }
             .subscribeOn(Schedulers.io())
             .subscribe()
+
+        notifications.value = repository.getNotifications()
     }
 
     override fun onCleared() {
