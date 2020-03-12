@@ -101,6 +101,9 @@
         <action
             android:id="@+id/action_profileFragment_to_supportFragment"
             app:destination="@id/supportFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_notificationsFragment"
+            app:destination="@id/notificationsFragment" />
     </fragment>
 
     <fragment
@@ -146,7 +149,7 @@
     <fragment
         android:id="@+id/withdrawCreateFragment"
         android:name="taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment"
-        android:label="WithdrawCreateFragment" >
+        android:label="WithdrawCreateFragment">
         <action
             android:id="@+id/action_withdrawCreateFragment_to_accountsFragment"
             app:destination="@id/accountsFragment" />
@@ -168,6 +171,11 @@
             android:id="@+id/action_supportFragment_to_chatHistoryFragment"
             app:destination="@id/chatHistoryFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/notificationsFragment"
+        android:name="taxi.kassa.view.notifications.NotificationsFragment"
+        android:label="NotificationsFragment" />
 
     <fragment
         android:id="@+id/writeMessageFragment"

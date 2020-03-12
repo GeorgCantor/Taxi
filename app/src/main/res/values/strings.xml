@@ -20,6 +20,7 @@
     <string name="application_success_message">В ближайшее время наш менеджер свяжется с вами по телефону</string>
     <string name="ok">Хорошо</string>
     <string name="back">Назад</string>
+    <string name="close">Закрыть</string>
 
     <string name="num0">0</string>
     <string name="num1">1</string>

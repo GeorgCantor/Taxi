@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:background="@color/balance_gradient_light">
+
+    <ImageView
+        android:id="@+id/push_image"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_margin="@dimen/margin_16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_checked" />
+
+    <ImageView
+        android:id="@+id/status_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_16dp"
+        app:layout_constraintStart_toEndOf="@+id/push_image"
+        app:layout_constraintTop_toTopOf="@+id/push_image"
+        app:srcCompat="@drawable/ic_yellow_circle" />
+
+    <TextView
+        android:id="@+id/push_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="@color/gray_intro_text"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="@+id/status_image"
+        app:layout_constraintStart_toEndOf="@+id/status_image"
+        app:layout_constraintTop_toTopOf="@+id/status_image"
+        tools:text="Уважаемые водители!" />
+
+    <TextView
+        android:id="@+id/push_message"
+        android:layout_width="326dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_4dp"
+        android:textColor="@color/withdraws_gray"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/status_image"
+        app:layout_constraintTop_toBottomOf="@+id/push_title"
+        tools:text="С 16 октября водителям для доступа в сервис нужен будет рейтинг не менее 4,5" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_chevron_right" />
+
+    <TextView
+        android:id="@+id/date_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_4dp"
+        android:layout_marginBottom="@dimen/margin_8dp"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="@color/gray_profile"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/push_message"
+        app:layout_constraintTop_toBottomOf="@+id/push_message"
+        tools:text="14:00, 10 окт." />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

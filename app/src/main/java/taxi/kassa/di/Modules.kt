@@ -11,6 +11,7 @@ import taxi.kassa.view.auth.auth_phone.AuthPhoneViewModel
 import taxi.kassa.view.auth.auth_sign_up.AuthSignUpViewModel
 import taxi.kassa.view.balance.BalanceViewModel
 import taxi.kassa.view.fuel.FuelReplenishViewModel
+import taxi.kassa.view.notifications.NotificationsViewModel
 import taxi.kassa.view.orders.OrdersViewModel
 import taxi.kassa.view.orders.list.OrdersListViewModel
 import taxi.kassa.view.profile.ProfileViewModel
@@ -62,6 +63,9 @@ val viewModelModule = module {
     }
     viewModel {
         ChatHistoryViewModel()
+    }
+    viewModel {
+        NotificationsViewModel()
     }
 }
 

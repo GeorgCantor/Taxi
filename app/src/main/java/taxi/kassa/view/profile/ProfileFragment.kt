@@ -104,6 +104,10 @@ class ProfileFragment : Fragment() {
             }
         }
 
+        notification_image.setOnClickListener {
+            findNavController(this).navigate(R.id.action_profileFragment_to_notificationsFragment)
+        }
+
         exit_tv.setOnClickListener {
             logout()
         }
