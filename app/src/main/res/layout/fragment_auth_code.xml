@@ -156,21 +156,18 @@
                 android:id="@+id/num_1"
                 style="@style/KeyboardButtonStyle"
                 android:text="1"
-                android:textColor="@color/registration_white_color"
                 tools:ignore="HardcodedText" />
 
             <Button
                 android:id="@+id/num_2"
                 style="@style/KeyboardButtonStyle"
                 android:text="2"
-                android:textColor="@color/registration_white_color"
                 tools:ignore="HardcodedText" />
 
             <Button
                 android:id="@+id/num_3"
                 style="@style/KeyboardButtonStyle"
                 android:text="3"
-                android:textColor="@color/registration_white_color"
                 tools:ignore="HardcodedText" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
@@ -184,21 +181,18 @@
                 android:id="@+id/num_4"
                 style="@style/KeyboardButtonStyle"
                 android:text="4"
-                android:textColor="@color/registration_white_color"
                 tools:ignore="HardcodedText" />
 
             <Button
                 android:id="@+id/num_5"
                 style="@style/KeyboardButtonStyle"
                 android:text="5"
-                android:textColor="@color/registration_white_color"
                 tools:ignore="HardcodedText" />
 
             <Button
                 android:id="@+id/num_6"
                 style="@style/KeyboardButtonStyle"
                 android:text="6"
-                android:textColor="@color/registration_white_color"
                 tools:ignore="HardcodedText" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
@@ -212,21 +206,18 @@
                 android:id="@+id/num_7"
                 style="@style/KeyboardButtonStyle"
                 android:text="7"
-                android:textColor="@color/registration_white_color"
                 tools:ignore="HardcodedText" />
 
             <Button
                 android:id="@+id/num_8"
                 style="@style/KeyboardButtonStyle"
                 android:text="8"
-                android:textColor="@color/registration_white_color"
                 tools:ignore="HardcodedText" />
 
             <Button
                 android:id="@+id/num_9"
                 style="@style/KeyboardButtonStyle"
                 android:text="9"
-                android:textColor="@color/registration_white_color"
                 tools:ignore="HardcodedText" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -243,14 +234,12 @@
                 android:layout_weight="1"
                 android:background="@drawable/bg_keyboard_button"
                 android:scaleType="center"
-                android:textColor="@color/registration_white_color"
                 app:srcCompat="@drawable/ic_erase" />
 
             <Button
                 android:id="@+id/num_0"
                 style="@style/KeyboardButtonStyle"
                 android:text="0"
-                android:textColor="@color/registration_white_color"
                 tools:ignore="HardcodedText" />
 
             <ImageView
@@ -260,12 +249,12 @@
                 android:layout_weight="1"
                 android:background="@drawable/bg_keyboard_button"
                 android:scaleType="center"
-                android:textColor="@color/registration_white_color"
                 app:srcCompat="@drawable/ic_enter" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
+
 
     <ProgressBar
         android:id="@+id/progress_bar"

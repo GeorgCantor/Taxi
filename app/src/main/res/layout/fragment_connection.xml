@@ -16,6 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_4dp"
             android:layout_marginTop="12dp"
+            android:background="?attr/selectableItemBackground"
             android:padding="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -26,8 +27,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:text="@string/connection"
             android:fontFamily="sans-serif-medium"
+            android:text="@string/connection"
             android:textColor="@color/gray_profile"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@+id/back_arrow"
@@ -48,8 +49,8 @@
             android:id="@+id/taxi_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif"
             android:layout_marginStart="20dp"
+            android:fontFamily="sans-serif"
             android:text="@string/yandex_title"
             android:textColor="@color/registration_white_color"
             android:textSize="16sp"
@@ -68,7 +69,7 @@
             <ImageView
                 android:id="@+id/background"
                 android:layout_width="match_parent"
-                android:layout_height="440dp"
+                android:layout_height="460dp"
                 android:layout_marginStart="@dimen/margin_16dp"
                 android:layout_marginTop="@dimen/margin_24dp"
                 android:layout_marginEnd="@dimen/margin_16dp"
@@ -99,6 +100,7 @@
                     android:imeOptions="actionNext"
                     android:inputType="number"
                     android:maxLines="1"
+                    android:paddingBottom="@dimen/margin_16dp"
                     android:textColor="@color/gray_intro_text"
                     android:textColorHint="@color/gray_profile"
                     android:textSize="16sp" />
@@ -127,6 +129,7 @@
                     android:imeOptions="actionNext"
                     android:inputType="number"
                     android:maxLines="1"
+                    android:paddingBottom="@dimen/margin_16dp"
                     android:textColor="@color/gray_intro_text"
                     android:textColorHint="@color/gray_profile"
                     android:textSize="16sp" />
@@ -155,6 +158,7 @@
                     android:imeOptions="actionNext"
                     android:inputType="number"
                     android:maxLines="1"
+                    android:paddingBottom="@dimen/margin_16dp"
                     android:textColor="@color/gray_intro_text"
                     android:textColorHint="@color/gray_profile"
                     android:textSize="16sp" />
@@ -183,6 +187,7 @@
                     android:imeOptions="actionNext"
                     android:inputType="number"
                     android:maxLines="1"
+                    android:paddingBottom="@dimen/margin_16dp"
                     android:textColor="@color/gray_intro_text"
                     android:textColorHint="@color/gray_profile"
                     android:textSize="16sp" />
@@ -211,6 +216,7 @@
                     android:imeOptions="actionDone"
                     android:inputType="phone"
                     android:maxLines="1"
+                    android:paddingBottom="@dimen/margin_16dp"
                     android:textColor="@color/gray_intro_text"
                     android:textColorHint="@color/gray_profile"
                     android:textSize="16sp" />
@@ -231,7 +237,7 @@
             <ImageView
                 android:id="@+id/gett_background"
                 android:layout_width="match_parent"
-                android:layout_height="694dp"
+                android:layout_height="744dp"
                 android:layout_marginStart="@dimen/margin_16dp"
                 android:layout_marginTop="@dimen/margin_24dp"
                 android:layout_marginEnd="@dimen/margin_16dp"
@@ -262,6 +268,7 @@
                     android:imeOptions="actionNext"
                     android:inputType="number"
                     android:maxLines="1"
+                    android:paddingBottom="@dimen/margin_16dp"
                     android:textColor="@color/gray_intro_text"
                     android:textColorHint="@color/gray_profile"
                     android:textSize="16sp" />
@@ -292,6 +299,7 @@
                     android:imeOptions="actionNext"
                     android:inputType="number"
                     android:maxLines="1"
+                    android:paddingBottom="@dimen/margin_16dp"
                     android:textColor="@color/gray_intro_text"
                     android:textColorHint="@color/gray_profile"
                     android:textSize="16sp" />
@@ -322,6 +330,7 @@
                     android:imeOptions="actionNext"
                     android:inputType="number"
                     android:maxLines="1"
+                    android:paddingBottom="@dimen/margin_16dp"
                     android:textColor="@color/gray_intro_text"
                     android:textColorHint="@color/gray_profile"
                     android:textSize="16sp" />
@@ -350,6 +359,7 @@
                     android:imeOptions="actionNext"
                     android:inputType="number"
                     android:maxLines="1"
+                    android:paddingBottom="@dimen/margin_16dp"
                     android:textColor="@color/gray_intro_text"
                     android:textColorHint="@color/gray_profile"
                     android:textSize="16sp" />
@@ -378,6 +388,7 @@
                     android:imeOptions="actionNext"
                     android:inputType="number"
                     android:maxLines="1"
+                    android:paddingBottom="@dimen/margin_16dp"
                     android:textColor="@color/gray_intro_text"
                     android:textColorHint="@color/gray_profile"
                     android:textSize="16sp" />
@@ -408,6 +419,7 @@
                     android:imeOptions="actionDone"
                     android:inputType="phone"
                     android:maxLines="1"
+                    android:paddingBottom="@dimen/margin_16dp"
                     android:textColor="@color/gray_intro_text"
                     android:textColorHint="@color/gray_profile"
                     android:textSize="16sp" />
@@ -436,6 +448,7 @@
                     android:imeOptions="actionNext"
                     android:inputType="phone"
                     android:maxLines="1"
+                    android:paddingBottom="@dimen/margin_16dp"
                     android:textColor="@color/gray_intro_text"
                     android:textColorHint="@color/gray_profile"
                     android:textSize="16sp" />
@@ -464,6 +477,7 @@
                     android:imeOptions="actionDone"
                     android:inputType="number"
                     android:maxLines="1"
+                    android:paddingBottom="@dimen/margin_16dp"
                     android:textColor="@color/gray_intro_text"
                     android:textColorHint="@color/gray_profile"
                     android:textSize="16sp" />
@@ -483,7 +497,7 @@
             <ImageView
                 android:id="@+id/city_background"
                 android:layout_width="match_parent"
-                android:layout_height="1080dp"
+                android:layout_height="1144dp"
                 android:layout_marginStart="@dimen/margin_16dp"
                 android:layout_marginTop="@dimen/margin_24dp"
                 android:layout_marginEnd="@dimen/margin_16dp"
@@ -514,7 +528,7 @@
                     android:imeOptions="actionNext"
                     android:inputType="number"
                     android:maxLines="1"
-                    android:paddingBottom="18dp"
+                    android:paddingBottom="@dimen/margin_16dp"
                     android:textColor="@color/gray_intro_text"
                     android:textColorHint="@color/gray_profile"
                     android:textSize="16sp" />
@@ -545,6 +559,7 @@
                     android:imeOptions="actionNext"
                     android:inputType="number"
                     android:maxLines="1"
+                    android:paddingBottom="@dimen/margin_16dp"
                     android:textColor="@color/gray_intro_text"
                     android:textColorHint="@color/gray_profile"
                     android:textSize="16sp" />
@@ -575,6 +590,7 @@
                     android:imeOptions="actionNext"
                     android:inputType="number"
                     android:maxLines="1"
+                    android:paddingBottom="@dimen/margin_16dp"
                     android:textColor="@color/gray_intro_text"
                     android:textColorHint="@color/gray_profile"
                     android:textSize="16sp" />
@@ -603,6 +619,7 @@
                     android:imeOptions="actionNext"
                     android:inputType="number"
                     android:maxLines="1"
+                    android:paddingBottom="@dimen/margin_16dp"
                     android:textColor="@color/gray_intro_text"
                     android:textColorHint="@color/gray_profile"
                     android:textSize="16sp" />
@@ -631,6 +648,7 @@
                     android:imeOptions="actionNext"
                     android:inputType="number"
                     android:maxLines="1"
+                    android:paddingBottom="@dimen/margin_16dp"
                     android:textColor="@color/gray_intro_text"
                     android:textColorHint="@color/gray_profile"
                     android:textSize="16sp" />
@@ -659,6 +677,7 @@
                     android:imeOptions="actionDone"
                     android:inputType="phone"
                     android:maxLines="1"
+                    android:paddingBottom="@dimen/margin_16dp"
                     android:textColor="@color/gray_intro_text"
                     android:textColorHint="@color/gray_profile"
                     android:textSize="16sp" />
@@ -700,6 +719,7 @@
                     android:focusable="false"
                     android:inputType="number"
                     android:maxLines="1"
+                    android:paddingBottom="@dimen/margin_16dp"
                     android:textColor="@color/gray_intro_text"
                     android:textColorHint="@color/gray_profile"
                     android:textSize="16sp" />
@@ -730,6 +750,7 @@
                     android:imeOptions="actionDone"
                     android:inputType="number"
                     android:maxLines="1"
+                    android:paddingBottom="@dimen/margin_16dp"
                     android:textColor="@color/gray_intro_text"
                     android:textColorHint="@color/gray_profile"
                     android:textSize="16sp" />
@@ -760,6 +781,7 @@
                     android:imeOptions="actionDone"
                     android:inputType="number"
                     android:maxLines="1"
+                    android:paddingBottom="@dimen/margin_16dp"
                     android:textColor="@color/gray_intro_text"
                     android:textColorHint="@color/gray_profile"
                     android:textSize="16sp" />
@@ -790,6 +812,7 @@
                     android:imeOptions="actionDone"
                     android:inputType="number"
                     android:maxLines="1"
+                    android:paddingBottom="@dimen/margin_16dp"
                     android:textColor="@color/gray_intro_text"
                     android:textColorHint="@color/gray_profile"
                     android:textSize="16sp" />
@@ -832,6 +855,7 @@
                     android:imeOptions="actionDone"
                     android:inputType="number"
                     android:maxLines="1"
+                    android:paddingBottom="@dimen/margin_16dp"
                     android:textColor="@color/gray_intro_text"
                     android:textColorHint="@color/gray_profile"
                     android:textSize="16sp" />
