@@ -46,7 +46,7 @@ class AuthPhoneFragment : Fragment() {
         })
 
         viewModel.error.observe(viewLifecycleOwner, Observer {
-            showError(context, error_tv, it, 5000, 0)
+            showError(context, error_tv, it, 5000)
         })
 
         login_checkbox.setOnCheckedChangeListener { _, isChecked ->
@@ -82,9 +82,11 @@ class AuthPhoneFragment : Fragment() {
             override fun afterTextChanged(editable: Editable) {
                 if (lengthBefore < editable.length) {
                     when (editable.length) {
+                        1, 2, 3, 4 -> phone_edit_text.setText(getString(R.string.phone_start_symbols))
                         7 -> editable.append(") ")
                         12, 15 -> editable.append("-")
                     }
+                    phone_edit_text.setSelection(phone_edit_text.length())
                 }
             }
         })
@@ -128,7 +130,7 @@ class AuthPhoneFragment : Fragment() {
 
     private fun apply() {
         if (!loginIsReady) {
-            showError(context, error_tv, getString(R.string.accept_conditions_error), 5000, 0)
+            showError(context, error_tv, getString(R.string.accept_conditions_error), 5000)
             return
         }
 

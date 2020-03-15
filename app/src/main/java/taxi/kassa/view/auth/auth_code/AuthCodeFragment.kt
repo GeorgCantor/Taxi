@@ -48,7 +48,7 @@ class AuthCodeFragment : Fragment() {
         })
 
         viewModel.error.observe(viewLifecycleOwner, Observer {
-            showError(context, error_tv, it, 5000, 0)
+            showError(context, error_tv, it, 5000)
         })
 
         viewModel.token.observe(viewLifecycleOwner, Observer {
@@ -196,6 +196,10 @@ class AuthCodeFragment : Fragment() {
             }
         }
 
+        input4.setOnClickListener {
+            input4.requestFocus()
+        }
+
         apply_btn.setOnClickListener { login() }
     }
 
@@ -229,7 +233,7 @@ class AuthCodeFragment : Fragment() {
     private fun login() {
         val code = "${input1.text}${input2.text}${input3.text}${input4.text}"
         if (code.isEmpty()) {
-            showError(context, error_tv, getString(R.string.input_code), 5000, 0)
+            showError(context, error_tv, getString(R.string.input_code), 5000)
             return
         }
         viewModel.login(phone, code)

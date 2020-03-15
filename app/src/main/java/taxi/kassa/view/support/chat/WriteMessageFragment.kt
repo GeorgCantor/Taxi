@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_write_message.*
 import taxi.kassa.R
+import taxi.kassa.util.hideKeyboard
 import taxi.kassa.util.shortToast
 
 class WriteMessageFragment : Fragment() {
@@ -32,5 +33,10 @@ class WriteMessageFragment : Fragment() {
             }
             findNavController(this).navigate(R.id.action_writeMessageFragment_to_successFragment)
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        hideKeyboard(requireView())
     }
 }

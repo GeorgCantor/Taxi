@@ -73,19 +73,19 @@ class AuthSignUpFragment : Fragment() {
 
         signup_button.setOnClickListener {
             if (!loginIsReady) {
-                showError(context, error_tv, getString(R.string.accept_conditions_error), 5000, 0)
+                showError(context, error_tv, getString(R.string.accept_conditions_error), 5000)
                 return@setOnClickListener
             }
 
             val phone = phone_edit_text.text.toString().replace("[^\\d]".toRegex(), "")
 
             if (phone == "7") {
-                showError(context, error_tv, getString(R.string.input_field_error), 5000, 0)
+                showError(context, error_tv, getString(R.string.input_field_error), 5000)
                 return@setOnClickListener
             }
 
             if (phone.length != 11) {
-                showError(context, error_tv, getString(R.string.wrong_format_error), 5000, 0)
+                showError(context, error_tv, getString(R.string.wrong_format_error), 5000)
                 return@setOnClickListener
             }
 

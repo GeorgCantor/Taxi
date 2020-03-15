@@ -1,48 +1,41 @@
 package taxi.kassa.util
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Handler
 import android.view.View
 import android.view.animation.AnimationUtils
 import android.view.inputmethod.InputMethodManager
-import android.widget.ProgressBar
 import android.widget.TextView
 import taxi.kassa.R
 
+@SuppressLint("ResourceType")
 fun showError(
     context: Context?,
     textView: TextView,
     message: String?,
-    hide: Int,
-    gone: Int
+    hide: Int
 ) {
-    if (gone == 1) textView.visibility = ProgressBar.VISIBLE
     textView.text = message
-    val animation =
-        AnimationUtils.loadAnimation(context, R.animator.fade_in)
+
+    val animation = AnimationUtils.loadAnimation(context, R.animator.fade_in)
     animation.reset()
+
     textView.clearAnimation()
     textView.startAnimation(animation)
+
     if (hide > 0) {
         Handler().postDelayed(
             {
-                val a = AnimationUtils.loadAnimation(
-                    context,
-                    R.animator.fade_out
-                )
-                a.reset()
+                val anim = AnimationUtils.loadAnimation(context, R.animator.fade_out)
+                anim.reset()
                 textView.clearAnimation()
-                textView.startAnimation(a)
+                textView.startAnimation(anim)
             },
             3000
         )
-        Handler().postDelayed(
-            {
-                textView.text = ""
-                if (gone == 1) textView.visibility = ProgressBar.GONE
-            },
-            3350
-        )
+
+        Handler().postDelayed({ textView.text = "" }, 3350)
     }
 }
 
