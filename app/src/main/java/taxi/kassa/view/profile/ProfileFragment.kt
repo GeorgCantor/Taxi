@@ -10,8 +10,7 @@ import android.os.Bundle
 import android.telephony.PhoneNumberUtils
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.INVISIBLE
-import android.view.View.VISIBLE
+import android.view.View.*
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
@@ -89,6 +88,15 @@ class ProfileFragment : Fragment() {
             }
         })
 
+        viewModel.messages.observe(viewLifecycleOwner, Observer {
+            if (it.isNullOrEmpty()) {
+                message_counter.visibility = GONE
+            } else {
+                message_counter.visibility = VISIBLE
+                message_counter.text = getString(R.string.profile_format, it.size.toString())
+            }
+        })
+
         balance_view.setOnClickListener {
             findNavController(this).navigate(R.id.action_profileFragment_to_balanceFragment)
         }
@@ -129,7 +137,14 @@ class ProfileFragment : Fragment() {
         }
 
         exit_tv.setOnClickListener {
-            logout()
+            context?.showTwoButtonsDialog(
+                getString(R.string.exit),
+                getString(R.string.exit_message),
+                getString(R.string.no),
+                getString(R.string.yes)
+            ) {
+                logout()
+            }
         }
     }
 

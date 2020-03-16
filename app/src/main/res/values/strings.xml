@@ -41,6 +41,7 @@
     <string name="accounts_and_cards">Счета и карты</string>
     <string name="support_service">Служба поддержки</string>
     <string name="support_service_message">Звонок в службу поддержки бесплатный, нажмите кнопку согласия если вы столкнулись с проблемой, которую необходимо решить.</string>
+    <string name="exit_message">Вы действительно хотите выйти?</string>
     <string name="call">Вызов</string>
     <string name="cancel">Отмена</string>
     <string name="not_find_call_app">Не найдено приложение для совершения звонков</string>

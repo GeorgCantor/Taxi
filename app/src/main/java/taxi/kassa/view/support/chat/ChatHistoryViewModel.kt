@@ -3,61 +3,13 @@ package taxi.kassa.view.support.chat
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import taxi.kassa.model.Message
+import taxi.kassa.repository.ApiRepository
 
-class ChatHistoryViewModel : ViewModel() {
+class ChatHistoryViewModel(private val repository: ApiRepository) : ViewModel() {
 
     val messages = MutableLiveData<MutableList<Message>>()
 
     fun getChatHistory() {
-        messages.value = mutableListOf(
-            Message(
-                topic = "Проблема с выводом денег",
-                message = "День добрый, мне не дают вывести деньги! Дело в том что я зарегистрировался в БК винлайн хотел поставить ставку, но на все события максимум был от 200 до 500р . меня это не устроило и я поставил деньги на вывод, не выводили три дня я сразу написал в чате о своей проблеме, мне сказали обратиться в службу поддержки. ",
-                date = "14:00, 8 окт. 2019г.",
-                isIncoming = false
-            ),
-            Message(
-                topic = "Проблема с выводом денег",
-                message = "Обращение принятно и находится на рассмотрении, мы венрнемся с ответом в 17:00",
-                date = "14:00, 8 окт. 2019г.",
-                isIncoming = true
-            ),
-            Message(
-                topic = "Проблема с выводом денег",
-                message = "Меня это не устроило и я поставил деньги на вывод, не выводили три дня я сразу написал в чате о своей проблеме",
-                date = "14:00, 8 окт. 2019г.",
-                isIncoming = false
-            ),
-            Message(
-                topic = "Проблема с выводом денег",
-                message = "Обращение принятно и находится на рассмотрении, мы венрнемся с ответом в 17:00",
-                date = "14:00, 8 окт. 2019г.",
-                isIncoming = true
-            ),
-            Message(
-                topic = "Проблема с выводом денег",
-                message = "День добрый, мне не дают вывести деньги! Дело в том что я зарегистрировался в БК винлайн хотел поставить ставку, но на все события максимум был от 200 до 500р . меня это не устроило и я поставил деньги на вывод, не выводили три дня я сразу написал в чате о своей проблеме, мне сказали обратиться в службу поддержки. ",
-                date = "14:00, 8 окт. 2019г.",
-                isIncoming = false
-            ),
-            Message(
-                topic = "Проблема с выводом денег",
-                message = "Обращение принятно и находится на рассмотрении, мы венрнемся с ответом в 17:00",
-                date = "14:00, 8 окт. 2019г.",
-                isIncoming = true
-            ),
-            Message(
-                topic = "Проблема с выводом денег",
-                message = "Меня это не устроило и я поставил деньги на вывод, не выводили три дня я сразу написал в чате о своей проблеме",
-                date = "14:00, 8 окт. 2019г.",
-                isIncoming = false
-            ),
-            Message(
-                topic = "Проблема с выводом денег",
-                message = "Обращение принятно и находится на рассмотрении, мы венрнемся с ответом в 17:00",
-                date = "14:00, 8 окт. 2019г.",
-                isIncoming = true
-            )
-        )
+        messages.value = repository.getChatHistory()
     }
 }

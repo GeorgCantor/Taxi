@@ -63,7 +63,7 @@ val viewModelModule = module {
         OrdersListViewModel(get())
     }
     viewModel {
-        ChatHistoryViewModel()
+        ChatHistoryViewModel(get())
     }
     viewModel {
         NotificationsViewModel(get())
