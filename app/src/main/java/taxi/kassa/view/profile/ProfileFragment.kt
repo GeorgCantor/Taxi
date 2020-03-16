@@ -26,6 +26,7 @@ import taxi.kassa.util.Constants.SUPPORT_PHONE_NUMBER
 import taxi.kassa.util.Constants.TOKEN
 import taxi.kassa.util.Constants.accessToken
 import taxi.kassa.util.PreferenceManager
+import taxi.kassa.util.longToast
 import taxi.kassa.util.shortToast
 import taxi.kassa.util.showTwoButtonsDialog
 import taxi.kassa.view.MainActivity
@@ -53,6 +54,10 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getUserInfo()
+
+        viewModel.isNetworkAvailable.observe(viewLifecycleOwner, Observer { available ->
+            if (!available) activity?.longToast(getString(R.string.internet_unavailable))
+        })
 
         viewModel.progressIsVisible.observe(viewLifecycleOwner, Observer { visible ->
             progress_bar.visibility = if (visible) VISIBLE else View.GONE

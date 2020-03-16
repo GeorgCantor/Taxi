@@ -36,7 +36,7 @@ val viewModelModule = module {
         AuthCodeViewModel(get())
     }
     viewModel {
-        ProfileViewModel(get())
+        ProfileViewModel(androidApplication(), get())
     }
     viewModel {
         BalanceViewModel(get())

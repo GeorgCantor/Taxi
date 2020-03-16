@@ -1,20 +1,29 @@
 package taxi.kassa.view.profile
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import io.reactivex.Observable
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
+import taxi.kassa.MyApplication
 import taxi.kassa.model.Message
 import taxi.kassa.model.Notification
 import taxi.kassa.model.responses.ResponseOwner
 import taxi.kassa.repository.ApiRepository
+import taxi.kassa.util.isNetworkAvailable
 
-class ProfileViewModel(private val repository: ApiRepository) : ViewModel() {
+class ProfileViewModel(
+    app: Application,
+    private val repository: ApiRepository
+) : AndroidViewModel(app) {
+
+    private val context = getApplication<MyApplication>()
 
     private lateinit var disposable: Disposable
 
     val progressIsVisible = MutableLiveData<Boolean>().apply { this.value = true }
+    val isNetworkAvailable = MutableLiveData<Boolean>()
     val responseOwner = MutableLiveData<ResponseOwner>()
     val error = MutableLiveData<String>()
     val notifications = MutableLiveData<MutableList<Notification>>()
@@ -35,6 +44,8 @@ class ProfileViewModel(private val repository: ApiRepository) : ViewModel() {
 
         notifications.value = repository.getNotifications()
         messages.value = repository.getChatHistory().filter { it.isIncoming } as MutableList
+
+        isNetworkAvailable.value = context.isNetworkAvailable()
     }
 
     override fun onCleared() {

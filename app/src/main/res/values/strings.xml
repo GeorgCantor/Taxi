@@ -46,6 +46,7 @@
     <string name="cancel">Отмена</string>
     <string name="not_find_call_app">Не найдено приложение для совершения звонков</string>
     <string name="profile_format">+%s</string>
+    <string name="internet_unavailable">Интернет не доступен</string>
     <!--    Balance-->
     <string name="all_partners_sum">Общая сумма по всем партнерам</string>
     <string name="yandex_title">Яндекс Такси</string>

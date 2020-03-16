@@ -4,6 +4,8 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.view.LayoutInflater
 import android.widget.Toast
+import android.widget.Toast.LENGTH_LONG
+import android.widget.Toast.LENGTH_SHORT
 import androidx.appcompat.app.AlertDialog
 import kotlinx.android.synthetic.main.dialog_one_button.*
 import kotlinx.android.synthetic.main.dialog_one_button.message
@@ -24,7 +26,9 @@ fun Context.isNetworkAvailable(): Boolean {
     return false
 }
 
-fun Context.shortToast(message: CharSequence) = Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+fun Context.shortToast(message: String) = Toast.makeText(this, message, LENGTH_SHORT).show()
+
+fun Context.longToast(message: String) = Toast.makeText(this, message, LENGTH_LONG).show()
 
 fun Context.showOneButtonDialog(
     title: String,
