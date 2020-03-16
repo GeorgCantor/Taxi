@@ -46,6 +46,8 @@ class WithdrawFragment : Fragment() {
                     bank_name_tv.text = account.bankName
                     order_tv.text = getString(R.string.order_format, account.accountNumber)
                     name_tv.text = account.driverName
+
+                    setBankIcon(account.bankName)
                 }
             }
         })
@@ -69,5 +71,17 @@ class WithdrawFragment : Fragment() {
         total_tv.text = getString(R.string.order_balance_format, withdraw.amount)
 
         back_button.setOnClickListener { activity?.onBackPressed() }
+    }
+
+    private fun setBankIcon(bankName: String) {
+        bank_icon.setImageResource(
+            when {
+                bankName.contains("альфа", true) -> R.drawable.ic_alfa
+                bankName.contains("бинбанк", true) -> R.drawable.ic_binbank
+                bankName.contains("втб", true) -> R.drawable.ic_vtb
+                bankName.contains("сбербанк", true) -> R.drawable.ic_sberbank
+                else -> R.drawable.transparent
+            }
+        )
     }
 }

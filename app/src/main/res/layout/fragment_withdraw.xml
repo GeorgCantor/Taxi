@@ -145,9 +145,9 @@
         android:layout_width="18dp"
         android:layout_height="18dp"
         android:layout_margin="@dimen/margin_16dp"
-        android:src="@drawable/ic_sberbank"
         app:layout_constraintEnd_toEndOf="@+id/background"
-        app:layout_constraintTop_toTopOf="@+id/background" />
+        app:layout_constraintTop_toTopOf="@+id/background"
+        tools:src="@drawable/ic_sberbank" />
 
     <TextView
         android:id="@+id/withdrawal_tv"

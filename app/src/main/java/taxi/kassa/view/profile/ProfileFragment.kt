@@ -117,6 +117,10 @@ class ProfileFragment : Fragment() {
             findNavController(this).navigate(R.id.action_profileFragment_to_supportFragment)
         }
 
+        message_counter.setOnClickListener {
+            findNavController(this).navigate(R.id.action_profileFragment_to_chatHistoryFragment)
+        }
+
         phone_image.setOnClickListener {
             context?.showTwoButtonsDialog(
                 getString(R.string.support_service),

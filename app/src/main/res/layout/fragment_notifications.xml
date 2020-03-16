@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="@dimen/margin_24dp"
-            android:background="@drawable/ic_chip_notification"
+            android:background="@drawable/ic_chip_notification_yellow"
             android:paddingStart="9dp"
             android:paddingTop="3dp"
             android:textColor="@android:color/black"

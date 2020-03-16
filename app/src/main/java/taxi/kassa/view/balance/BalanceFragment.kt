@@ -40,6 +40,10 @@ class BalanceFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getUserInfo()
 
+        viewModel.progressIsVisible.observe(viewLifecycleOwner, Observer { visible ->
+            progress_bar.visibility = if (visible) VISIBLE else View.GONE
+        })
+
         viewModel.error.observe(viewLifecycleOwner, Observer {
             activity?.shortToast(it)
         })
