@@ -3,8 +3,13 @@ package taxi.kassa.repository
 import taxi.kassa.model.Message
 import taxi.kassa.model.Notification
 import taxi.kassa.model.remote.ApiService
+import taxi.kassa.util.Constants.NOTIFICATIONS
+import taxi.kassa.util.PreferenceManager
 
-class ApiRepository(private val apiService: ApiService) {
+class ApiRepository(
+    private val apiService: ApiService,
+    private val preferenceManager: PreferenceManager
+) {
 
     fun login(phone: String) = apiService.authSendPhone(phone)
 
@@ -51,28 +56,12 @@ class ApiRepository(private val apiService: ApiService) {
     fun getOrders(offset: String) = apiService.getOrders(offset)
 
     fun getNotifications(): MutableList<Notification> {
-        return mutableListOf(
-            Notification(
-                title = "Уважаемые водители!",
-                message = "С 16 октября водителям для доступа в сервис нужен будет рейтинг не менее 4,5",
-                date = "14:00, 10 окт."
-            ),
-            Notification(
-                title = "Уважаемые водители!",
-                message = "С 16 октября водителям для доступа в сервис нужен будет рейтинг не менее 4,5",
-                date = "14:00, 10 окт."
-            ),
-            Notification(
-                title = "Уважаемые водители!",
-                message = "С 16 октября водителям для доступа в сервис нужен будет рейтинг не менее 4,5",
-                date = "14:00, 10 окт."
-            ),
-            Notification(
-                title = "Уважаемые водители!",
-                message = "С 16 октября водителям для доступа в сервис нужен будет рейтинг не менее 4,5",
-                date = "14:00, 10 окт."
-            )
-        )
+        val notifications = preferenceManager.getNotifications(NOTIFICATIONS)
+        notifications?.let {
+            return it
+        }
+
+        return arrayListOf()
     }
 
     fun getChatHistory(): MutableList<Message> {

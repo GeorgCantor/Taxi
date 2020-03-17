@@ -5,6 +5,7 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import taxi.kassa.model.remote.ApiClient
 import taxi.kassa.repository.ApiRepository
+import taxi.kassa.util.PreferenceManager
 import taxi.kassa.view.accounts.AccountsViewModel
 import taxi.kassa.view.auth.auth_code.AuthCodeViewModel
 import taxi.kassa.view.auth.auth_phone.AuthPhoneViewModel
@@ -22,7 +23,7 @@ import taxi.kassa.view.withdraws.withdraw.WithdrawViewModel
 import taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateViewModel
 
 val repositoryModule = module {
-    single { ApiRepository(get()) }
+    single { ApiRepository(get(), PreferenceManager(androidApplication().applicationContext)) }
 }
 
 val viewModelModule = module {

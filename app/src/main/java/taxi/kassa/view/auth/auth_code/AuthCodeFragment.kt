@@ -38,7 +38,7 @@ class AuthCodeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         addChangingRequestFocus()
 
-        val prefManager = PreferenceManager(requireActivity())
+        val prefManager = PreferenceManager(requireContext())
         phone = prefManager.getString(PHONE) ?: ""
 
         viewModel = getViewModel { parametersOf() }

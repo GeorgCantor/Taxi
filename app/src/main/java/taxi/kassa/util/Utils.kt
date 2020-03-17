@@ -8,6 +8,8 @@ import android.view.animation.AnimationUtils
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import taxi.kassa.R
+import java.text.SimpleDateFormat
+import java.util.*
 
 @SuppressLint("ResourceType")
 fun showError(
@@ -43,4 +45,11 @@ fun hideKeyboard(view: View) {
     val inputManager =
         view.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
     inputManager.hideSoftInputFromWindow(view.windowToken, InputMethodManager.HIDE_NOT_ALWAYS)
+}
+
+fun convertLongToTime(time: Long, pattern: String): String {
+    val date = Date(time)
+    val dateFormat = SimpleDateFormat(pattern, Locale.getDefault())
+
+    return dateFormat.format(date)
 }

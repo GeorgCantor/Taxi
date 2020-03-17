@@ -19,4 +19,7 @@ object Constants {
     const val GETT = "gett"
     const val CITYMOBIL = "citymobil"
     const val SUPPORT_PHONE_NUMBER = "+74993505558"
+    const val NOTIFICATIONS = "notifications"
+    const val TITLE = "1"
+    const val MESSAGE = "2"
 }

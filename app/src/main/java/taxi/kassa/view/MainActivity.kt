@@ -5,14 +5,49 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import taxi.kassa.R
+import taxi.kassa.model.Notification
+import taxi.kassa.util.Constants.MESSAGE
+import taxi.kassa.util.Constants.NOTIFICATIONS
+import taxi.kassa.util.Constants.TITLE
 import taxi.kassa.util.Constants.TOKEN
 import taxi.kassa.util.PreferenceManager
+import java.text.SimpleDateFormat
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        intent?.extras?.let {
+            var title = ""
+            var message = ""
+
+            val dateFormat = SimpleDateFormat("HH:mm, dd.MM", Locale.getDefault())
+            val date: String = dateFormat.format(Date())
+
+            it.keySet().map { key ->
+                when (key) {
+                    TITLE -> title = intent.extras?.get(key) as String
+                    MESSAGE -> message = intent.extras?.get(key) as String
+                }
+            }.also {
+                if (message.isNotBlank()) {
+                    val manager = PreferenceManager(this)
+                    var notifications = manager.getNotifications(NOTIFICATIONS)
+                    val newNotification = Notification(title, message, date)
+
+                    if (notifications.isNullOrEmpty()) {
+                        notifications = arrayListOf(newNotification)
+                    } else {
+                        notifications.add(newNotification)
+                    }
+
+                    manager.saveNotifications(NOTIFICATIONS, notifications)
+                }
+            }
+        }
 
         val token = PreferenceManager(this).getString(TOKEN) ?: ""
 

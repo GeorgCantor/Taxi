@@ -40,7 +40,7 @@ class ProfileFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel = getViewModel { parametersOf() }
-        prefManager = PreferenceManager(requireActivity())
+        prefManager = PreferenceManager(requireContext())
         accessToken = prefManager.getString(TOKEN) ?: ""
     }
 

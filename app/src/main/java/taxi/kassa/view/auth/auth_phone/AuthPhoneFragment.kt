@@ -135,7 +135,7 @@ class AuthPhoneFragment : Fragment() {
         }
 
         val phone: String = phone_edit_text.text.toString().replace("[^\\d]", "")
-        PreferenceManager(requireActivity()).saveString(PHONE, phone)
+        PreferenceManager(requireContext()).saveString(PHONE, phone)
 
         viewModel.login(phone)
     }
