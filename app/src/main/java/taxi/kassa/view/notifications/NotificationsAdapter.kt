@@ -3,6 +3,7 @@ package taxi.kassa.view.notifications
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_notification.view.*
@@ -32,11 +33,19 @@ class NotificationsAdapter(notifications: MutableList<Notification>) :
         holder.title.text = notification.title
         holder.message.text = notification.message
         holder.date.text = notification.date
+
+        holder.statusImage.setImageResource(
+            when (notification.isNew) {
+                true -> R.drawable.ic_yellow_circle
+                false -> R.drawable.transparent
+            }
+        )
     }
 
     class NotificationsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val title: TextView = view.push_title
         val message: TextView = view.push_message
         val date: TextView = view.date_tv
+        val statusImage: ImageView = view.status_image
     }
 }

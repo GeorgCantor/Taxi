@@ -27,7 +27,8 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
             val newNotification = Notification(
                 remoteMessage.notification?.title ?: "",
                 remoteMessage.notification?.body ?: "",
-                convertLongToTime(remoteMessage.sentTime, PUSH_PATTERN)
+                convertLongToTime(remoteMessage.sentTime, PUSH_PATTERN),
+                true
             )
 
             if (notifications.isNullOrEmpty()) {

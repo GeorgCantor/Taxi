@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
                 if (message.isNotBlank()) {
                     val manager = PreferenceManager(this)
                     var notifications = manager.getNotifications(NOTIFICATIONS)
-                    val newNotification = Notification(title, message, date)
+                    val newNotification = Notification(title, message, date, true)
 
                     if (notifications.isNullOrEmpty()) {
                         notifications = arrayListOf(newNotification)

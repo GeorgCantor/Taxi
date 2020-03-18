@@ -17,6 +17,7 @@ import kotlinx.android.synthetic.main.fragment_notifications.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
+import taxi.kassa.model.Notification
 import taxi.kassa.util.Constants
 import taxi.kassa.util.Constants.PUSH_COUNTER
 import taxi.kassa.util.PreferenceManager
@@ -25,6 +26,8 @@ import taxi.kassa.util.shortToast
 class NotificationsFragment : Fragment() {
 
     private lateinit var viewModel: NotificationsViewModel
+    private lateinit var notifications: ArrayList<Notification>
+    private lateinit var manager: PreferenceManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,11 +45,13 @@ class NotificationsFragment : Fragment() {
         viewModel.getNotifications()
 
         viewModel.notifications.observe(viewLifecycleOwner, Observer {
+            notifications = it as ArrayList<Notification>
+
             notifications_recycler.adapter = NotificationsAdapter(it)
 
             empty_tv.visibility = if (it.isNullOrEmpty()) VISIBLE else GONE
 
-            val manager = PreferenceManager(requireContext())
+            manager = PreferenceManager(requireContext())
 
             val oldPushesSize = manager.getInt(PUSH_COUNTER)
             oldPushesSize?.let { oldSize ->
@@ -75,6 +80,18 @@ class NotificationsFragment : Fragment() {
     ) {
         if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             makeCall()
+        }
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        if (::notifications.isInitialized) {
+            notifications.map {
+                if (it.isNew) it.isNew = false
+            }.also {
+                notifications.sortBy { it.date }
+                manager.saveNotifications(Constants.NOTIFICATIONS, notifications)
+            }
         }
     }
 
