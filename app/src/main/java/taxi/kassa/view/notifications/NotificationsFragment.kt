@@ -44,21 +44,23 @@ class NotificationsFragment : Fragment() {
         viewModel.notifications.observe(viewLifecycleOwner, Observer {
             notifications_recycler.adapter = NotificationsAdapter(it)
 
-            when (it.size) {
-                0 -> {
-                    notification_count.visibility = INVISIBLE
-                    notification_image.visibility = VISIBLE
-                    empty_tv.visibility = VISIBLE
-                }
-                else -> {
-                    notification_count.text = it.size.toString()
+            empty_tv.visibility = if (it.isNullOrEmpty()) VISIBLE else GONE
+
+            val manager = PreferenceManager(requireContext())
+
+            val oldPushesSize = manager.getInt(PUSH_COUNTER)
+            oldPushesSize?.let { oldSize ->
+                if (it.size > oldSize) {
+                    notification_count.text = (it.size - oldSize).toString()
                     notification_count.visibility = VISIBLE
                     notification_image.visibility = INVISIBLE
-                    empty_tv.visibility = GONE
+                } else {
+                    notification_count.visibility = INVISIBLE
+                    notification_image.visibility = VISIBLE
                 }
             }
 
-            PreferenceManager(requireContext()).saveInt(PUSH_COUNTER, it.size)
+            manager.saveInt(PUSH_COUNTER, it.size)
         })
 
         phone_image.setOnClickListener { makeCall() }

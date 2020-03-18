@@ -22,7 +22,7 @@
         android:layout_marginStart="@dimen/margin_16dp"
         app:layout_constraintStart_toEndOf="@+id/push_image"
         app:layout_constraintTop_toTopOf="@+id/push_image"
-        app:srcCompat="@drawable/ic_yellow_circle" />
+        tools:srcCompat="@drawable/ic_yellow_circle" />
 
     <TextView
         android:id="@+id/push_title"
