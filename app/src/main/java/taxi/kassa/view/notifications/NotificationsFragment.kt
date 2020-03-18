@@ -18,6 +18,8 @@ import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.util.Constants
+import taxi.kassa.util.Constants.PUSH_COUNTER
+import taxi.kassa.util.PreferenceManager
 import taxi.kassa.util.shortToast
 
 class NotificationsFragment : Fragment() {
@@ -55,6 +57,8 @@ class NotificationsFragment : Fragment() {
                     empty_tv.visibility = GONE
                 }
             }
+
+            PreferenceManager(requireContext()).saveInt(PUSH_COUNTER, it.size)
         })
 
         phone_image.setOnClickListener { makeCall() }

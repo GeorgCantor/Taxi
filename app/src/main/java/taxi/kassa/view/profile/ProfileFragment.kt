@@ -22,6 +22,7 @@ import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.util.Constants.PHONE
+import taxi.kassa.util.Constants.PUSH_COUNTER
 import taxi.kassa.util.Constants.SUPPORT_PHONE_NUMBER
 import taxi.kassa.util.Constants.TOKEN
 import taxi.kassa.util.Constants.accessToken
@@ -80,15 +81,15 @@ class ProfileFragment : Fragment() {
         })
 
         viewModel.notifications.observe(viewLifecycleOwner, Observer {
-            when (it.size) {
-                0 -> {
-                    notification_count.visibility = INVISIBLE
-                    notification_image.visibility = VISIBLE
-                }
-                else -> {
-                    notification_count.text = it.size.toString()
+            val oldPushesSize = PreferenceManager(requireContext()).getInt(PUSH_COUNTER)
+            oldPushesSize?.let { oldSize ->
+                if (it.size > oldSize) {
+                    notification_count.text = (it.size - oldSize).toString()
                     notification_count.visibility = VISIBLE
                     notification_image.visibility = INVISIBLE
+                } else {
+                    notification_count.visibility = INVISIBLE
+                    notification_image.visibility = VISIBLE
                 }
             }
         })

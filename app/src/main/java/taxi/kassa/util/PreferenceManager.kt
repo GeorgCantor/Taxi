@@ -17,6 +17,10 @@ class PreferenceManager(context: Context) {
 
     fun getString(key: String): String? = prefs.getString(key, "")
 
+    fun saveInt(key: String, value: Int) = prefs.edit().putInt(key, value).apply()
+
+    fun getInt(key: String): Int? = prefs.getInt(key, 0)
+
     fun saveNotifications(key: String, notifications: ArrayList<Notification>) {
         val json = gson.toJson(notifications)
         prefs.edit().putString(key, json).apply()

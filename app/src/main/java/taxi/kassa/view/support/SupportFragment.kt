@@ -16,12 +16,12 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_support.*
-import kotlinx.android.synthetic.main.fragment_support.back_arrow
-import kotlinx.android.synthetic.main.fragment_support.notification_image
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.util.Constants
+import taxi.kassa.util.Constants.PUSH_COUNTER
+import taxi.kassa.util.PreferenceManager
 import taxi.kassa.util.shortToast
 
 class SupportFragment : Fragment() {
@@ -44,15 +44,15 @@ class SupportFragment : Fragment() {
         viewModel.getNotifications()
 
         viewModel.notifications.observe(viewLifecycleOwner, Observer {
-            when (it.size) {
-                0 -> {
-                    notification_count.visibility = INVISIBLE
-                    notification_image.visibility = VISIBLE
-                }
-                else -> {
-                    notification_count.text = it.size.toString()
+            val oldPushesSize = PreferenceManager(requireContext()).getInt(PUSH_COUNTER)
+            oldPushesSize?.let { oldSize ->
+                if (it.size > oldSize) {
+                    notification_count.text = (it.size - oldSize).toString()
                     notification_count.visibility = VISIBLE
                     notification_image.visibility = INVISIBLE
+                } else {
+                    notification_count.visibility = INVISIBLE
+                    notification_image.visibility = VISIBLE
                 }
             }
         })
