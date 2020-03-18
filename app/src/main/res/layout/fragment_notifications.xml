@@ -93,6 +93,21 @@
             tools:itemCount="5"
             tools:listitem="@layout/item_notification" />
 
+        <TextView
+            android:id="@+id/empty_tv"
+            android:layout_width="185dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="100dp"
+            android:gravity="center"
+            android:text="@string/no_notifications"
+            android:textColor="@color/gray_profile"
+            android:textSize="16sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/background" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.core.widget.NestedScrollView>

@@ -8,9 +8,11 @@ import taxi.kassa.R
 import taxi.kassa.model.Notification
 import taxi.kassa.util.Constants.MESSAGE
 import taxi.kassa.util.Constants.NOTIFICATIONS
+import taxi.kassa.util.Constants.PUSH_PATTERN
 import taxi.kassa.util.Constants.TITLE
 import taxi.kassa.util.Constants.TOKEN
 import taxi.kassa.util.PreferenceManager
+import taxi.kassa.util.myDateFormatSymbols
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -24,7 +26,7 @@ class MainActivity : AppCompatActivity() {
             var title = ""
             var message = ""
 
-            val dateFormat = SimpleDateFormat("HH:mm, dd.MM", Locale.getDefault())
+            val dateFormat = SimpleDateFormat(PUSH_PATTERN, myDateFormatSymbols)
             val date: String = dateFormat.format(Date())
 
             it.keySet().map { key ->

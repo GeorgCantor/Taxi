@@ -4,7 +4,10 @@ import android.os.Parcelable
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
-import java.text.DateFormatSymbols
+import taxi.kassa.util.Constants.DAY_YEAR_PATTERN
+import taxi.kassa.util.Constants.FULL_PATTERN
+import taxi.kassa.util.Constants.HOURS_PATTERN
+import taxi.kassa.util.myDateFormatSymbols
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -56,47 +59,35 @@ data class Order(
 
     val date: String
         get() {
-            val dv = (created?.toInt()?.toLong() ?: 0) * 1000
-            val df = Date(dv)
-            val dd = SimpleDateFormat("dd.MM.yy")
+            val longDate = (created?.toInt()?.toLong() ?: 0) * 1000
+            val date = Date(longDate)
+            val dateFormat = SimpleDateFormat("dd.MM.yy")
 
-            return dd.format(df)
+            return dateFormat.format(date)
         }
 
     val hours: String
         get() {
-            val dv = (created?.toInt()?.toLong() ?: 0) * 1000
-            val df = Date(dv)
-            val dd = SimpleDateFormat("HH:mm")
+            val longDate = (created?.toInt()?.toLong() ?: 0) * 1000
+            val date = Date(longDate)
+            val dateFormat = SimpleDateFormat(HOURS_PATTERN)
 
-            return dd.format(df)
+            return dateFormat.format(date)
         }
 
     fun getDateForTitle(): String {
-        val dv = (created?.toInt()?.toLong() ?: 0) * 1000
-        val df = Date(dv)
-        val dd = SimpleDateFormat("dd MMMM yyyy", myDateFormatSymbols)
+        val longDate = (created?.toInt()?.toLong() ?: 0) * 1000
+        val date = Date(longDate)
+        val dateFormat = SimpleDateFormat(DAY_YEAR_PATTERN, myDateFormatSymbols)
 
-        return dd.format(df)
+        return dateFormat.format(date)
     }
 
     fun getDateWithTime(): String {
-        val dv = (created?.toInt()?.toLong() ?: 0) * 1000
-        val df = Date(dv)
-        val dd = SimpleDateFormat("HH:mm, dd MMMM yyyy", myDateFormatSymbols)
+        val longDate = (created?.toInt()?.toLong() ?: 0) * 1000
+        val date = Date(longDate)
+        val dateFormat = SimpleDateFormat(FULL_PATTERN, myDateFormatSymbols)
 
-        return dd.format(df)
-    }
-
-    companion object {
-        private val myDateFormatSymbols: DateFormatSymbols =
-            object : DateFormatSymbols() {
-                override fun getMonths(): Array<String> {
-                    return arrayOf(
-                        "янв", "фев", "мар", "апр", "мая", "июн",
-                        "июл", "авг", "сен", "окт", "нояб", "дек"
-                    )
-                }
-            }
+        return dateFormat.format(date)
     }
 }

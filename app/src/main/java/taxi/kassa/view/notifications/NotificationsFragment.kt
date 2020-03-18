@@ -8,8 +8,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.INVISIBLE
-import android.view.View.VISIBLE
+import android.view.View.*
 import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
@@ -47,11 +46,13 @@ class NotificationsFragment : Fragment() {
                 0 -> {
                     notification_count.visibility = INVISIBLE
                     notification_image.visibility = VISIBLE
+                    empty_tv.visibility = VISIBLE
                 }
                 else -> {
                     notification_count.text = it.size.toString()
                     notification_count.visibility = VISIBLE
                     notification_image.visibility = INVISIBLE
+                    empty_tv.visibility = GONE
                 }
             }
         })

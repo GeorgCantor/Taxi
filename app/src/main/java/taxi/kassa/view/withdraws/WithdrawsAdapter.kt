@@ -90,7 +90,7 @@ class WithdrawsAdapter(
                 val status = withdraw.getStatus()
 
                 holder.time.text = withdraw.hours
-                holder.amount.text = withdraw.amount
+                holder.amount.text = holder.itemView.context.getString(R.string.withdraw_format, withdraw.amount)
                 holder.status.text = status
 
                 when (status) {

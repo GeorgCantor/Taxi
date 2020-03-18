@@ -6,6 +6,7 @@ import com.google.firebase.messaging.RemoteMessage
 import taxi.kassa.MyApplication
 import taxi.kassa.model.Notification
 import taxi.kassa.util.Constants.NOTIFICATIONS
+import taxi.kassa.util.Constants.PUSH_PATTERN
 import taxi.kassa.util.PreferenceManager
 import taxi.kassa.util.convertLongToTime
 
@@ -26,7 +27,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
             val newNotification = Notification(
                 remoteMessage.notification?.title ?: "",
                 remoteMessage.notification?.body ?: "",
-                convertLongToTime(remoteMessage.sentTime, "HH:mm, dd.MM")
+                convertLongToTime(remoteMessage.sentTime, PUSH_PATTERN)
             )
 
             if (notifications.isNullOrEmpty()) {

@@ -84,11 +84,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_24dp"
         android:layout_marginTop="10dp"
+        android:fontFamily="sans-serif-medium"
         android:textColor="@color/gray_profile"
         android:textSize="10sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/taxi_icon"
-        tools:text="14:20, 19 окт 2019" />
+        tools:text="14:20, 19 ОКТ 2019" />
 
     <ImageView
         android:id="@+id/background"

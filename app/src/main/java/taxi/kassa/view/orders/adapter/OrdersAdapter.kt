@@ -149,7 +149,7 @@ class OrdersAdapter(
                 holder.addressFrom.text = order.addressFrom
                 holder.addressTo.text = order.addressTo
                 holder.totalAmount.text = holder.itemView.context.getString(
-                    R.string.balance_format,
+                    R.string.withdraw_format,
                     order.amountTotal.toString()
                 )
 

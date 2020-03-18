@@ -4,9 +4,12 @@ import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 import taxi.kassa.util.Constants.APPROVED
 import taxi.kassa.util.Constants.CANCELED
+import taxi.kassa.util.Constants.DAY_YEAR_PATTERN
+import taxi.kassa.util.Constants.FULL_PATTERN
+import taxi.kassa.util.Constants.HOURS_PATTERN
 import taxi.kassa.util.Constants.NEW
 import taxi.kassa.util.Constants.WRITTEN_OFF
-import java.text.DateFormatSymbols
+import taxi.kassa.util.myDateFormatSymbols
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -20,19 +23,19 @@ class Withdraw(
 
     val hours: String
         get() {
-            val dv = date.toLong() * 1000
-            val df = Date(dv)
-            val dd = SimpleDateFormat("HH:mm")
+            val longDate = date.toLong() * 1000
+            val date = Date(longDate)
+            val dateFormat = SimpleDateFormat(HOURS_PATTERN)
 
-            return dd.format(df)
+            return dateFormat.format(date)
         }
 
     fun getDate(): String {
-        val dv = date.toLong() * 1000
-        val df = Date(dv)
-        val dd = SimpleDateFormat("dd MMMM yyyy", myDateFormatSymbols)
+        val longDate = date.toLong() * 1000
+        val date = Date(longDate)
+        val dateFormat = SimpleDateFormat(DAY_YEAR_PATTERN, myDateFormatSymbols)
 
-        return dd.format(df)
+        return dateFormat.format(date)
     }
 
     fun getStatus(): String {
@@ -49,22 +52,10 @@ class Withdraw(
     }
 
     fun getWithdrawalDate(): String {
-        val dv = date.toLong() * 1000
-        val df = Date(dv)
-        val dd = SimpleDateFormat("HH:mm, dd MMMM yyyy", myDateFormatSymbols)
+        val longDate = date.toLong() * 1000
+        val date = Date(longDate)
+        val dateFormat = SimpleDateFormat(FULL_PATTERN, myDateFormatSymbols)
 
-        return dd.format(df)
-    }
-
-    companion object {
-        private val myDateFormatSymbols: DateFormatSymbols =
-            object : DateFormatSymbols() {
-                override fun getMonths(): Array<String> {
-                    return arrayOf(
-                        "янв", "фев", "мар", "апр", "мая", "июн",
-                        "июл", "авг", "сен", "окт", "нояб", "дек"
-                    )
-                }
-            }
+        return dateFormat.format(date)
     }
 }

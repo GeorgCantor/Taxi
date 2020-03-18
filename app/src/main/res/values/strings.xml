@@ -19,6 +19,7 @@
     <string name="register_application">Заявка на подключение</string>
     <string name="register_application_success">Заявка на подключение отправлена!</string>
     <string name="application_success_message">В ближайшее время наш менеджер свяжется с вами по телефону</string>
+    <string name="no_notifications">Пока нет уведомлений</string>
     <string name="ok">Хорошо</string>
     <string name="back">Назад</string>
     <string name="close">Закрыть</string>
@@ -74,6 +75,7 @@
     <string name="no_withdrawal_requests">Нет заявок на вывод</string>
     <string name="enter_sum_error">Введите сумму</string>
     <string name="input_error">Ошибка ввода</string>
+    <string name="withdraw_format">%s₽</string>
     <string name="no_withdrawal_message">Чтобы выводить средства, подключите хотя бы один счет и создайте заявку</string>
     <!--    Accounts-->
     <string name="accounts_title">Счета и карты</string>

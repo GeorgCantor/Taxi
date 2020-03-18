@@ -20,6 +20,12 @@ object Constants {
     const val CITYMOBIL = "citymobil"
     const val SUPPORT_PHONE_NUMBER = "+74993505558"
     const val NOTIFICATIONS = "notifications"
+
     const val TITLE = "1"
     const val MESSAGE = "2"
+
+    const val HOURS_PATTERN = "HH:mm"
+    const val DAY_YEAR_PATTERN = "dd MMMM yyyy"
+    const val FULL_PATTERN = "HH:mm, dd MMMM yyyy"
+    const val PUSH_PATTERN = "HH:mm, dd MMMM"
 }
