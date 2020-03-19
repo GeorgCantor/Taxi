@@ -2,6 +2,8 @@ package taxi.kassa.view.withdraws.withdraw_create
 
 import android.os.Bundle
 import android.os.Handler
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
@@ -229,6 +231,18 @@ class WithdrawCreateFragment : Fragment() {
 
             viewModel.createWithdraw(sourceId, sum)
         }
+
+        sum_edit_text.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(editable: Editable?) {
+                sum_input_view.error = null
+            }
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+        })
 
         notification_image.setOnClickListener {
             findNavController(this).navigate(R.id.action_withdrawCreateFragment_to_notificationsFragment)

@@ -18,8 +18,9 @@ import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.model.Notification
-import taxi.kassa.util.Constants
+import taxi.kassa.util.Constants.NOTIFICATIONS
 import taxi.kassa.util.Constants.PUSH_COUNTER
+import taxi.kassa.util.Constants.SUPPORT_PHONE_NUMBER
 import taxi.kassa.util.PreferenceManager
 import taxi.kassa.util.shortToast
 
@@ -88,16 +89,15 @@ class NotificationsFragment : Fragment() {
         if (::notifications.isInitialized) {
             notifications.map {
                 if (it.isNew) it.isNew = false
-            }.also {
-                notifications.sortBy { it.date }
-                manager.saveNotifications(Constants.NOTIFICATIONS, notifications)
             }
+            notifications.reverse()
+            manager.saveNotifications(NOTIFICATIONS, notifications)
         }
     }
 
     private fun makeCall() {
         val callIntent = Intent(Intent.ACTION_CALL)
-        callIntent.data = Uri.parse("tel:${Constants.SUPPORT_PHONE_NUMBER}")
+        callIntent.data = Uri.parse("tel:${SUPPORT_PHONE_NUMBER}")
 
         if (ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.CALL_PHONE)
             != PackageManager.PERMISSION_GRANTED

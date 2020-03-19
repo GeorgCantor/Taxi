@@ -53,10 +53,10 @@ class BalanceFragment : Fragment() {
         viewModel.responseOwner.observe(viewLifecycleOwner, Observer { response ->
             response?.let {
                 balance_tv.text = getString(R.string.balance_format, it.balanceTotal)
-                yandex_amount.text = getString(R.string.balance_format, it.balanceYandex)
-                citymobil_amount.text = getString(R.string.balance_format, it.balanceCity)
-                gett_amount.text = getString(R.string.balance_format, it.balanceGett)
-                rosneft_amount.text = getString(R.string.balance_format, it.balanceFuel)
+                yandex_amount.text = getString(R.string.withdraw_format, it.balanceYandex)
+                citymobil_amount.text = getString(R.string.withdraw_format, it.balanceCity)
+                gett_amount.text = getString(R.string.withdraw_format, it.balanceGett)
+                rosneft_amount.text = getString(R.string.withdraw_format, it.balanceFuel)
 
                 setTextColor(yandex_amount, it.balanceYandex, R.color.balance_green, R.color.balance_red)
                 setTextColor(withdraw_yandex_tv, it.balanceYandex, R.color.gray_intro_text, R.color.colorAccent)

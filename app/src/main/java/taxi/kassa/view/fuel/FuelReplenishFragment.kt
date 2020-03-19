@@ -47,7 +47,7 @@ class FuelReplenishFragment : Fragment() {
 
         viewModel.responseOwner.observe(viewLifecycleOwner, Observer { response ->
             response?.let {
-                rosneft_amount.text = getString(R.string.balance_format, it.balanceFuel)
+                rosneft_amount.text = getString(R.string.withdraw_format, it.balanceFuel)
 
                 val taxis = mutableListOf<Taxi>()
                 taxis.add(Taxi(R.drawable.ic_yandex, getString(R.string.yandex_title), it.balanceYandex))
