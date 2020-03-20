@@ -19,6 +19,7 @@ class AuthSignUpFragment : Fragment() {
 
     private lateinit var viewModel: AuthSignUpViewModel
     private var loginIsReady = false
+    private var phone = ""
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -58,42 +59,83 @@ class AuthSignUpFragment : Fragment() {
                 before: Int,
                 count: Int
             ) {
-                if (phone_edit_text.length() <= 2) {
-                    phone_edit_text.setSelection(4)
+                try {
+                    if (phone_edit_text.length() <= 2) {
+                        phone_edit_text.setSelection(4)
+                    }
+                } catch (e: IndexOutOfBoundsException) {
                 }
             }
 
             override fun afterTextChanged(editable: Editable) {
                 if (lengthBefore < editable.length) {
-                    if (editable.length == 7) editable.append(") ")
-                    if (editable.length == 12 || editable.length == 15) editable.append("-")
+                    when (editable.length) {
+                        1, 2, 3, 4 -> phone_edit_text.setText(getString(R.string.phone_start_symbols))
+                        7 -> editable.append(") ")
+                        12, 15 -> editable.append("-")
+                    }
+                    phone_edit_text.setSelection(phone_edit_text.length())
                 }
             }
         })
 
         signup_button.setOnClickListener {
-            if (!loginIsReady) {
-                showError(context, error_tv, getString(R.string.accept_conditions_error), 5000)
-                return@setOnClickListener
-            }
-
-            val phone = phone_edit_text.text.toString().replace("[^\\d]".toRegex(), "")
-
-            if (phone == "7") {
-                showError(context, error_tv, getString(R.string.input_field_error), 5000)
-                return@setOnClickListener
-            }
-
-            if (phone.length != 11) {
-                showError(context, error_tv, getString(R.string.wrong_format_error), 5000)
-                return@setOnClickListener
-            }
-
-            viewModel.signUp(phone)
+            apply()
         }
 
         viewModel.isSignUp.observe(viewLifecycleOwner, Observer { success ->
             if (success) findNavController(this).navigate(R.id.action_authSignUpFragment_to_successRequestFragment)
         })
+
+        num_0.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, getString(R.string.num0)) }
+
+        num_1.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, getString(R.string.num1)) }
+
+        num_2.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, getString(R.string.num2)) }
+
+        num_3.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, getString(R.string.num3)) }
+
+        num_4.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, getString(R.string.num4)) }
+
+        num_5.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, getString(R.string.num5)) }
+
+        num_6.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, getString(R.string.num6)) }
+
+        num_7.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, getString(R.string.num7)) }
+
+        num_8.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, getString(R.string.num8)) }
+
+        num_9.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, getString(R.string.num9)) }
+
+        erase_btn.setOnClickListener {
+            val cursorPosition = phone_edit_text.selectionStart
+            if (cursorPosition > 0) {
+                phone_edit_text.text = phone_edit_text.text.delete(cursorPosition - 1, cursorPosition)
+                phone_edit_text.setSelection(cursorPosition - 1)
+            }
+        }
+
+        apply_btn.setOnClickListener { apply() }
+    }
+
+    private fun apply() {
+        if (!loginIsReady) {
+            showError(context, error_tv, getString(R.string.accept_conditions_error), 5000)
+            return
+        }
+
+        phone = phone_edit_text.text.toString().replace("[^\\d]".toRegex(), "")
+
+        if (phone == "7") {
+            showError(context, error_tv, getString(R.string.input_field_error), 5000)
+            return
+        }
+
+        if (phone.length != 11) {
+            showError(context, error_tv, getString(R.string.wrong_format_error), 5000)
+            return
+        }
+
+        viewModel.signUp(phone)
     }
 }

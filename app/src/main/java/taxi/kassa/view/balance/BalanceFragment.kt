@@ -22,6 +22,8 @@ import taxi.kassa.util.Constants.TAXI
 import taxi.kassa.util.Constants.YANDEX
 import taxi.kassa.util.PreferenceManager
 import taxi.kassa.util.shortToast
+import java.text.NumberFormat
+import java.util.*
 
 class BalanceFragment : Fragment() {
 
@@ -52,7 +54,12 @@ class BalanceFragment : Fragment() {
 
         viewModel.responseOwner.observe(viewLifecycleOwner, Observer { response ->
             response?.let {
-                balance_tv.text = getString(R.string.balance_format, it.balanceTotal)
+                val format = NumberFormat.getInstance(Locale("ru", "RU"))
+                balance_tv.text = getString(
+                    R.string.balance_format,
+                    format.format(it.balanceTotal.toDouble())
+                ).replace(',', '.')
+
                 yandex_amount.text = getString(R.string.withdraw_format, it.balanceYandex)
                 citymobil_amount.text = getString(R.string.withdraw_format, it.balanceCity)
                 gett_amount.text = getString(R.string.withdraw_format, it.balanceGett)

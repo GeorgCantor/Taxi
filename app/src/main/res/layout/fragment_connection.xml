@@ -870,6 +870,7 @@
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:layout_marginStart="38dp"
+            android:layout_marginTop="@dimen/margin_32dp"
             android:layout_marginEnd="38dp"
             android:layout_marginBottom="@dimen/margin_24dp"
             android:background="@drawable/bg_intro_btn"
@@ -880,7 +881,8 @@
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/yandex_block" />
 
         <Button
             android:id="@+id/gett_submit_button"
