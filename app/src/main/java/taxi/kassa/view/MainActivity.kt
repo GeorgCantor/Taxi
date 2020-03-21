@@ -22,6 +22,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val manager = PreferenceManager(this)
+
         intent?.extras?.let {
             var title = ""
             var message = ""
@@ -36,7 +38,6 @@ class MainActivity : AppCompatActivity() {
                 }
             }.also {
                 if (message.isNotBlank()) {
-                    val manager = PreferenceManager(this)
                     var notifications = manager.getNotifications(NOTIFICATIONS)
                     val newNotification = Notification(title, message, date, true)
 
@@ -51,7 +52,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        val token = PreferenceManager(this).getString(TOKEN) ?: ""
+        val token = manager.getString(TOKEN) ?: ""
 
         val navHostFragment = navHostFragment as NavHostFragment
         val inflater = navHostFragment.navController.navInflater
