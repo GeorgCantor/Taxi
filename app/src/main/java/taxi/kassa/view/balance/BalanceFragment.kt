@@ -21,7 +21,7 @@ import taxi.kassa.util.Constants.PUSH_COUNTER
 import taxi.kassa.util.Constants.TAXI
 import taxi.kassa.util.Constants.YANDEX
 import taxi.kassa.util.PreferenceManager
-import taxi.kassa.util.shortToast
+import taxi.kassa.util.longToast
 import java.text.NumberFormat
 import java.util.*
 
@@ -49,7 +49,7 @@ class BalanceFragment : Fragment() {
         })
 
         viewModel.error.observe(viewLifecycleOwner, Observer {
-            activity?.shortToast(it)
+            context?.longToast(it)
         })
 
         viewModel.responseOwner.observe(viewLifecycleOwner, Observer { response ->

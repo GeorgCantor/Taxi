@@ -12,10 +12,19 @@
         android:layout_height="wrap_content">
 
         <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/bg_profile"
+            app:layout_constraintBottom_toTopOf="@+id/orders_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
             android:id="@+id/phone_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_transparent_ripple"
+            android:background="?attr/selectableItemBackground"
             android:padding="24dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -52,7 +61,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_64dp"
-            android:textColor="@color/gray_intro_text"
+            android:textColor="@color/registration_white_color"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -66,7 +75,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_4dp"
             android:fontFamily="sans-serif-medium"
-            android:textColor="@color/gray_profile"
+            android:textColor="@color/gray_intro_text"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -78,7 +87,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_16dp"
-            android:textColor="@color/gray_intro_text"
+            android:textColor="@color/registration_white_color"
             android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -86,13 +95,24 @@
             app:layout_constraintTop_toBottomOf="@+id/number_tv"
             tools:text="14 500.00 ₽" />
 
+        <ImageView
+            android:id="@+id/background"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="36dp"
+            android:src="@drawable/bg_balance"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/balance_tv" />
+
         <TextView
             android:id="@+id/balance_view"
             android:layout_width="0dp"
             android:layout_height="74dp"
             android:layout_marginStart="@dimen/margin_16dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/bg_transparent_ripple"
+            android:layout_marginTop="@dimen/margin_16dp"
+            android:background="?attr/selectableItemBackground"
             android:fontFamily="sans-serif-medium"
             android:paddingStart="20dp"
             android:paddingTop="24dp"
@@ -101,14 +121,24 @@
             android:textColor="@color/gray_light_profile"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/balance_tv" />
+            app:layout_constraintTop_toTopOf="@+id/background" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="@dimen/margin_24dp"
+            android:layout_marginEnd="@dimen/margin_24dp"
+            android:background="@color/colorAccent"
+            app:layout_constraintBottom_toBottomOf="@+id/balance_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/orders_view"
             android:layout_width="0dp"
             android:layout_height="74dp"
             android:layout_marginStart="@dimen/margin_16dp"
-            android:background="@drawable/bg_transparent_ripple"
+            android:background="?attr/selectableItemBackground"
             android:fontFamily="sans-serif-medium"
             android:paddingStart="20dp"
             android:paddingTop="24dp"
@@ -119,12 +149,22 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/balance_view" />
 
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="@dimen/margin_24dp"
+            android:layout_marginEnd="@dimen/margin_24dp"
+            android:background="@color/colorAccent"
+            app:layout_constraintBottom_toBottomOf="@+id/orders_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
         <TextView
             android:id="@+id/withdrawal_applications_view"
             android:layout_width="0dp"
             android:layout_height="74dp"
             android:layout_marginStart="@dimen/margin_16dp"
-            android:background="@drawable/bg_transparent_ripple"
+            android:background="?attr/selectableItemBackground"
             android:fontFamily="sans-serif-medium"
             android:paddingStart="20dp"
             android:paddingTop="24dp"
@@ -135,12 +175,22 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/orders_view" />
 
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="@dimen/margin_24dp"
+            android:layout_marginEnd="@dimen/margin_24dp"
+            android:background="@color/colorAccent"
+            app:layout_constraintBottom_toBottomOf="@+id/withdrawal_applications_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
         <TextView
             android:id="@+id/accounts_and_cards_view"
             android:layout_width="wrap_content"
             android:layout_height="74dp"
             android:layout_marginStart="@dimen/margin_16dp"
-            android:background="@drawable/bg_transparent_ripple"
+            android:background="?attr/selectableItemBackground"
             android:fontFamily="sans-serif-medium"
             android:paddingStart="20dp"
             android:paddingTop="24dp"
@@ -151,12 +201,22 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/withdrawal_applications_view" />
 
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="@dimen/margin_24dp"
+            android:layout_marginEnd="@dimen/margin_24dp"
+            android:background="@color/colorAccent"
+            app:layout_constraintBottom_toBottomOf="@+id/accounts_and_cards_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
         <TextView
             android:id="@+id/support_service_view"
             android:layout_width="0dp"
             android:layout_height="74dp"
             android:layout_marginStart="@dimen/margin_16dp"
-            android:background="@drawable/bg_transparent_ripple"
+            android:background="?attr/selectableItemBackground"
             android:fontFamily="sans-serif-medium"
             android:paddingStart="20dp"
             android:paddingTop="24dp"
@@ -166,6 +226,16 @@
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/accounts_and_cards_view" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="@dimen/margin_24dp"
+            android:layout_marginEnd="@dimen/margin_24dp"
+            android:background="@color/colorAccent"
+            app:layout_constraintBottom_toBottomOf="@+id/support_service_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/message_counter"

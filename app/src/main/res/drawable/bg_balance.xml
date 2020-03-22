@@ -8,7 +8,7 @@
 
     <gradient
         android:angle="270"
-        android:endColor="@color/balance_gradient_dark"
-        android:startColor="@color/balance_gradient_light"
+        android:endColor="@color/profile_gradient_dark"
+        android:startColor="@color/profile_gradient_light"
         android:type="linear" />
 </shape>
