@@ -9,6 +9,7 @@ import android.view.View.*
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
+import android.widget.ImageView
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import androidx.fragment.app.Fragment
@@ -102,7 +103,14 @@ class ConnectionFragment : Fragment() {
             Pair(city_driver_license_back_edit_text, ImageType.D_LICENSE_BACK),
             Pair(city_passport_first_edit_text, ImageType.PASSPORT_FIRST),
             Pair(city_passport_registration_edit_text, ImageType.PASSPORT_REG),
-            Pair(front_side_edit_text, ImageType.AUTO_FRONT)
+            Pair(city_sts_edit_text, ImageType.STS),
+            Pair(city_license_front_edit_text, ImageType.LICENSE_FRONT),
+            Pair(city_license_back_edit_text, ImageType.LICENSE_BACK),
+            Pair(front_side_edit_text, ImageType.AUTO_FRONT),
+            Pair(back_side_edit_text, ImageType.AUTO_BACK),
+            Pair(left_side_edit_text, ImageType.AUTO_LEFT),
+            Pair(right_side_edit_text, ImageType.AUTO_RIGHT),
+            Pair(city_selfie_edit_text, ImageType.SELFIE)
         )
 
         imageTypePairs.map {
@@ -112,29 +120,18 @@ class ConnectionFragment : Fragment() {
         city_driver_license_front_edit_text.setHint(R.string.driver_license_front)
         city_driver_license_back_edit_text.setHint(R.string.driver_license_back)
 
-        city_driver_license_front_cancel.setOnClickListener {
-            val doc = docs.find { it.type == ImageType.D_LICENSE_FRONT }
-            val photoForDelete = images.find { it.id == doc?.id }
-            images.remove(photoForDelete)
-
-            city_driver_license_front_input_view.visibility = VISIBLE
-            city_driver_license_front_input_view2.visibility = INVISIBLE
-            city_driver_license_front_edit_text.visibility = VISIBLE
-            city_driver_license_front_edit_text2.visibility = INVISIBLE
-            city_driver_license_front_cancel.visibility = INVISIBLE
-        }
-
-        city_driver_license_back_cancel.setOnClickListener {
-            val doc = docs.find { it.type == ImageType.D_LICENSE_FRONT }
-            val photoForDelete = images.find { it.id == doc?.id }
-            images.remove(photoForDelete)
-
-            city_driver_license_back_input_view.visibility = VISIBLE
-            city_driver_license_back_input_view2.visibility = INVISIBLE
-            city_driver_license_back_edit_text.visibility = VISIBLE
-            city_driver_license_back_edit_text2.visibility = INVISIBLE
-            city_driver_license_back_cancel.visibility = INVISIBLE
-        }
+        city_driver_license_front_cancel.setOnClickListener { cancelLoadPhoto(it as ImageView) }
+        city_driver_license_back_cancel.setOnClickListener { cancelLoadPhoto(it as ImageView) }
+        city_passport_first_cancel.setOnClickListener { cancelLoadPhoto(it as ImageView) }
+        city_passport_registration_cancel.setOnClickListener { cancelLoadPhoto(it as ImageView) }
+        city_sts_cancel.setOnClickListener { cancelLoadPhoto(it as ImageView) }
+        city_license_front_cancel.setOnClickListener { cancelLoadPhoto(it as ImageView) }
+        city_license_back_cancel.setOnClickListener { cancelLoadPhoto(it as ImageView) }
+        front_side_cancel.setOnClickListener { cancelLoadPhoto(it as ImageView) }
+        back_side_cancel.setOnClickListener { cancelLoadPhoto(it as ImageView) }
+        left_side_cancel.setOnClickListener { cancelLoadPhoto(it as ImageView) }
+        right_side_cancel.setOnClickListener { cancelLoadPhoto(it as ImageView) }
+        city_selfie_cancel.setOnClickListener { cancelLoadPhoto(it as ImageView) }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -159,29 +156,70 @@ class ConnectionFragment : Fragment() {
                     city_passport_first_input_view2.visibility = VISIBLE
                     city_passport_first_edit_text.visibility = INVISIBLE
                     city_passport_first_edit_text2.visibility = VISIBLE
+                    city_passport_first_cancel.visibility = VISIBLE
                 }
                 ImageType.PASSPORT_REG -> {
                     city_passport_registration_input_view.visibility = INVISIBLE
                     city_passport_registration_input_view2.visibility = VISIBLE
                     city_passport_registration_edit_text.visibility = INVISIBLE
                     city_passport_registration_edit_text2.visibility = VISIBLE
+                    city_passport_registration_cancel.visibility = VISIBLE
                 }
                 ImageType.STS -> {
+                    city_sts_input_view.visibility = INVISIBLE
+                    city_sts_input_view2.visibility = VISIBLE
+                    city_sts_edit_text.visibility = INVISIBLE
+                    city_sts_edit_text2.visibility = VISIBLE
+                    city_sts_cancel.visibility = VISIBLE
                 }
                 ImageType.LICENSE_FRONT -> {
+                    city_license_front_input_view.visibility = INVISIBLE
+                    city_license_front_input_view2.visibility = VISIBLE
+                    city_license_front_edit_text.visibility = INVISIBLE
+                    city_license_front_edit_text2.visibility = VISIBLE
+                    city_license_front_cancel.visibility = VISIBLE
                 }
                 ImageType.LICENSE_BACK -> {
+                    city_license_back_input_view.visibility = INVISIBLE
+                    city_license_back_input_view2.visibility = VISIBLE
+                    city_license_back_edit_text.visibility = INVISIBLE
+                    city_license_back_edit_text2.visibility = VISIBLE
+                    city_license_back_cancel.visibility = VISIBLE
                 }
                 ImageType.AUTO_FRONT -> {
-
+                    front_side_input_view.visibility = INVISIBLE
+                    front_side_input_view2.visibility = VISIBLE
+                    front_side_edit_text.visibility = INVISIBLE
+                    front_side_edit_text2.visibility = VISIBLE
+                    front_side_cancel.visibility = VISIBLE
                 }
                 ImageType.AUTO_BACK -> {
+                    back_side_input_view.visibility = INVISIBLE
+                    back_side_input_view2.visibility = VISIBLE
+                    back_side_edit_text.visibility = INVISIBLE
+                    back_side_edit_text2.visibility = VISIBLE
+                    back_side_cancel.visibility = VISIBLE
                 }
                 ImageType.AUTO_LEFT -> {
+                    left_side_input_view.visibility = INVISIBLE
+                    left_side_input_view2.visibility = VISIBLE
+                    left_side_edit_text.visibility = INVISIBLE
+                    left_side_edit_text2.visibility = VISIBLE
+                    left_side_cancel.visibility = VISIBLE
                 }
                 ImageType.AUTO_RIGHT -> {
+                    right_side_input_view.visibility = INVISIBLE
+                    right_side_input_view2.visibility = VISIBLE
+                    right_side_edit_text.visibility = INVISIBLE
+                    right_side_edit_text2.visibility = VISIBLE
+                    right_side_cancel.visibility = VISIBLE
                 }
                 ImageType.SELFIE -> {
+                    city_selfie_input_view.visibility = INVISIBLE
+                    city_selfie_input_view2.visibility = VISIBLE
+                    city_selfie_edit_text.visibility = INVISIBLE
+                    city_selfie_edit_text2.visibility = VISIBLE
+                    city_selfie_cancel.visibility = VISIBLE
                 }
             }
         }
@@ -205,6 +243,76 @@ class ConnectionFragment : Fragment() {
                     city_driver_license_back_edit_text.visibility = VISIBLE
                     city_driver_license_back_edit_text2.visibility = INVISIBLE
                     city_driver_license_back_cancel.visibility = INVISIBLE
+                }
+                ImageType.PASSPORT_FIRST -> {
+                    city_passport_first_input_view.visibility = VISIBLE
+                    city_passport_first_input_view2.visibility = INVISIBLE
+                    city_passport_first_edit_text.visibility = VISIBLE
+                    city_passport_first_edit_text2.visibility = INVISIBLE
+                    city_passport_first_cancel.visibility = INVISIBLE
+                }
+                ImageType.PASSPORT_REG -> {
+                    city_passport_registration_input_view.visibility = VISIBLE
+                    city_passport_registration_input_view2.visibility = INVISIBLE
+                    city_passport_registration_edit_text.visibility = VISIBLE
+                    city_passport_registration_edit_text2.visibility = INVISIBLE
+                    city_passport_registration_cancel.visibility = INVISIBLE
+                }
+                ImageType.STS -> {
+                    city_sts_input_view.visibility = VISIBLE
+                    city_sts_input_view2.visibility = INVISIBLE
+                    city_sts_edit_text.visibility = VISIBLE
+                    city_sts_edit_text2.visibility = INVISIBLE
+                    city_sts_cancel.visibility = INVISIBLE
+                }
+                ImageType.LICENSE_FRONT -> {
+                    city_license_front_input_view.visibility = VISIBLE
+                    city_license_front_input_view2.visibility = INVISIBLE
+                    city_license_front_edit_text.visibility = VISIBLE
+                    city_license_front_edit_text2.visibility = INVISIBLE
+                    city_license_front_cancel.visibility = INVISIBLE
+                }
+                ImageType.LICENSE_BACK -> {
+                    city_license_back_input_view.visibility = VISIBLE
+                    city_license_back_input_view2.visibility = INVISIBLE
+                    city_license_back_edit_text.visibility = VISIBLE
+                    city_license_back_edit_text2.visibility = INVISIBLE
+                    city_license_back_cancel.visibility = INVISIBLE
+                }
+                ImageType.AUTO_FRONT -> {
+                    front_side_input_view.visibility = VISIBLE
+                    front_side_input_view2.visibility = INVISIBLE
+                    front_side_edit_text.visibility = VISIBLE
+                    front_side_edit_text2.visibility = INVISIBLE
+                    front_side_cancel.visibility = INVISIBLE
+                }
+                ImageType.AUTO_BACK -> {
+                    back_side_input_view.visibility = VISIBLE
+                    back_side_input_view2.visibility = INVISIBLE
+                    back_side_edit_text.visibility = VISIBLE
+                    back_side_edit_text2.visibility = INVISIBLE
+                    back_side_cancel.visibility = INVISIBLE
+                }
+                ImageType.AUTO_LEFT -> {
+                    left_side_input_view.visibility = VISIBLE
+                    left_side_input_view2.visibility = INVISIBLE
+                    left_side_edit_text.visibility = VISIBLE
+                    left_side_edit_text2.visibility = INVISIBLE
+                    left_side_cancel.visibility = INVISIBLE
+                }
+                ImageType.AUTO_RIGHT -> {
+                    right_side_input_view.visibility = VISIBLE
+                    right_side_input_view2.visibility = INVISIBLE
+                    right_side_edit_text.visibility = VISIBLE
+                    right_side_edit_text2.visibility = INVISIBLE
+                    right_side_cancel.visibility = INVISIBLE
+                }
+                ImageType.SELFIE -> {
+                    city_selfie_input_view.visibility = VISIBLE
+                    city_selfie_input_view2.visibility = INVISIBLE
+                    city_selfie_edit_text.visibility = VISIBLE
+                    city_selfie_edit_text2.visibility = INVISIBLE
+                    city_selfie_cancel.visibility = INVISIBLE
                 }
             }
         }
@@ -280,6 +388,107 @@ class ConnectionFragment : Fragment() {
                 .theme(R.style.AppTheme)
                 .start(0)
         }
+    }
+
+    private fun cancelLoadPhoto(imageView: ImageView) {
+        var imageType = ImageType.D_LICENSE_FRONT
+
+        when (imageView.id) {
+            R.id.city_driver_license_front_cancel -> {
+                imageType = ImageType.D_LICENSE_FRONT
+                city_driver_license_front_input_view.visibility = VISIBLE
+                city_driver_license_front_input_view2.visibility = INVISIBLE
+                city_driver_license_front_edit_text.visibility = VISIBLE
+                city_driver_license_front_edit_text2.visibility = INVISIBLE
+                city_driver_license_front_cancel.visibility = INVISIBLE
+            }
+            R.id.city_driver_license_back_cancel -> {
+                imageType = ImageType.D_LICENSE_BACK
+                city_driver_license_back_input_view.visibility = VISIBLE
+                city_driver_license_back_input_view2.visibility = INVISIBLE
+                city_driver_license_back_edit_text.visibility = VISIBLE
+                city_driver_license_back_edit_text2.visibility = INVISIBLE
+                city_driver_license_back_cancel.visibility = INVISIBLE
+            }
+            R.id.city_passport_first_cancel -> {
+                imageType = ImageType.PASSPORT_FIRST
+                city_passport_first_input_view.visibility = VISIBLE
+                city_passport_first_input_view2.visibility = INVISIBLE
+                city_passport_first_edit_text.visibility = VISIBLE
+                city_passport_first_edit_text2.visibility = INVISIBLE
+                city_passport_first_cancel.visibility = INVISIBLE
+            }
+            R.id.city_passport_registration_cancel -> {
+                imageType = ImageType.PASSPORT_REG
+                city_passport_registration_input_view.visibility = VISIBLE
+                city_passport_registration_input_view2.visibility = INVISIBLE
+                city_passport_registration_edit_text.visibility = VISIBLE
+                city_passport_registration_edit_text2.visibility = INVISIBLE
+                city_passport_registration_cancel.visibility = INVISIBLE
+            }
+            R.id.city_sts_cancel -> {
+                city_sts_input_view.visibility = VISIBLE
+                city_sts_input_view2.visibility = INVISIBLE
+                city_sts_edit_text.visibility = VISIBLE
+                city_sts_edit_text2.visibility = INVISIBLE
+                city_sts_cancel.visibility = INVISIBLE
+            }
+            R.id.city_license_front_cancel -> {
+                city_license_front_input_view.visibility = VISIBLE
+                city_license_front_input_view2.visibility = INVISIBLE
+                city_license_front_edit_text.visibility = VISIBLE
+                city_license_front_edit_text2.visibility = INVISIBLE
+                city_license_front_cancel.visibility = INVISIBLE
+            }
+            R.id.city_license_back_cancel -> {
+                city_license_back_input_view.visibility = VISIBLE
+                city_license_back_input_view2.visibility = INVISIBLE
+                city_license_back_edit_text.visibility = VISIBLE
+                city_license_back_edit_text2.visibility = INVISIBLE
+                city_license_back_cancel.visibility = INVISIBLE
+            }
+            R.id.front_side_cancel -> {
+                front_side_input_view.visibility = VISIBLE
+                front_side_input_view2.visibility = INVISIBLE
+                front_side_edit_text.visibility = VISIBLE
+                front_side_edit_text2.visibility = INVISIBLE
+                front_side_cancel.visibility = INVISIBLE
+            }
+            R.id.back_side_cancel -> {
+                back_side_input_view.visibility = VISIBLE
+                back_side_input_view2.visibility = INVISIBLE
+                back_side_edit_text.visibility = VISIBLE
+                back_side_edit_text2.visibility = INVISIBLE
+                back_side_cancel.visibility = INVISIBLE
+            }
+            R.id.left_side_cancel -> {
+                left_side_input_view.visibility = VISIBLE
+                left_side_input_view2.visibility = INVISIBLE
+                left_side_edit_text.visibility = VISIBLE
+                left_side_edit_text2.visibility = INVISIBLE
+                left_side_cancel.visibility = INVISIBLE
+            }
+            R.id.right_side_cancel -> {
+                right_side_input_view.visibility = VISIBLE
+                right_side_input_view2.visibility = INVISIBLE
+                right_side_edit_text.visibility = VISIBLE
+                right_side_edit_text2.visibility = INVISIBLE
+                right_side_cancel.visibility = INVISIBLE
+            }
+            R.id.city_selfie_cancel -> {
+                city_selfie_input_view.visibility = VISIBLE
+                city_selfie_input_view2.visibility = INVISIBLE
+                city_selfie_edit_text.visibility = VISIBLE
+                city_selfie_edit_text2.visibility = INVISIBLE
+                city_selfie_cancel.visibility = INVISIBLE
+            }
+        }
+
+        val doc = docs.find { it.type == imageType }
+        val photoForDelete = images.find { it.id == doc?.id }
+        images.remove(photoForDelete)
+
+        imageTypes.remove(imageType)
     }
 
     private fun back() {

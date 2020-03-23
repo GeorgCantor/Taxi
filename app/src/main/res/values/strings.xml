@@ -129,7 +129,9 @@
     <string name="select_aggregator">Выберите своего агрегатора для подключения</string>
     <string name="connection">Подключение</string>
     <string name="driver_license">Водительское удостоверение</string>
+    <string name="driver_license_front_side">Водит. удостоверение (лицевая сторона)</string>
     <string name="driver_license_front">Водит. удостоверение \n (лицевая сторона)</string>
+    <string name="driver_license_back_side">Водит. удостоверение (обратная сторона)</string>
     <string name="driver_license_back">Водит. удостоверение \n (обратная сторона)</string>
     <string name="passport_number">Серия и номер паспорта</string>
     <string name="sts">СТС</string>
