@@ -112,6 +112,7 @@
             android:layout_height="74dp"
             android:layout_marginStart="@dimen/margin_16dp"
             android:layout_marginTop="@dimen/margin_16dp"
+            android:layout_marginEnd="@dimen/margin_16dp"
             android:background="?attr/selectableItemBackground"
             android:fontFamily="sans-serif-medium"
             android:paddingStart="20dp"
@@ -120,6 +121,7 @@
             android:text="@string/balance"
             android:textColor="@color/gray_light_profile"
             android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/background" />
 
@@ -138,6 +140,7 @@
             android:layout_width="0dp"
             android:layout_height="74dp"
             android:layout_marginStart="@dimen/margin_16dp"
+            android:layout_marginEnd="@dimen/margin_16dp"
             android:background="?attr/selectableItemBackground"
             android:fontFamily="sans-serif-medium"
             android:paddingStart="20dp"
@@ -146,6 +149,7 @@
             android:text="@string/orders"
             android:textColor="@color/gray_light_profile"
             android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/balance_view" />
 
@@ -164,6 +168,7 @@
             android:layout_width="0dp"
             android:layout_height="74dp"
             android:layout_marginStart="@dimen/margin_16dp"
+            android:layout_marginEnd="@dimen/margin_16dp"
             android:background="?attr/selectableItemBackground"
             android:fontFamily="sans-serif-medium"
             android:paddingStart="20dp"
@@ -172,6 +177,7 @@
             android:text="@string/withdrawal_applications"
             android:textColor="@color/gray_light_profile"
             android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/orders_view" />
 
@@ -187,9 +193,10 @@
 
         <TextView
             android:id="@+id/accounts_and_cards_view"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="74dp"
             android:layout_marginStart="@dimen/margin_16dp"
+            android:layout_marginEnd="@dimen/margin_16dp"
             android:background="?attr/selectableItemBackground"
             android:fontFamily="sans-serif-medium"
             android:paddingStart="20dp"
@@ -198,6 +205,7 @@
             android:text="@string/accounts_and_cards"
             android:textColor="@color/gray_light_profile"
             android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/withdrawal_applications_view" />
 
@@ -216,6 +224,7 @@
             android:layout_width="0dp"
             android:layout_height="74dp"
             android:layout_marginStart="@dimen/margin_16dp"
+            android:layout_marginEnd="@dimen/margin_16dp"
             android:background="?attr/selectableItemBackground"
             android:fontFamily="sans-serif-medium"
             android:paddingStart="20dp"
@@ -224,6 +233,7 @@
             android:text="@string/support_service"
             android:textColor="@color/gray_light_profile"
             android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/accounts_and_cards_view" />
 
@@ -241,14 +251,15 @@
             android:id="@+id/message_counter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
+            android:layout_marginEnd="40dp"
             android:background="@drawable/bg_message_counter"
-            android:paddingStart="@dimen/margin_24dp"
-            android:paddingTop="@dimen/margin_8dp"
-            android:paddingEnd="@dimen/margin_24dp"
-            android:paddingBottom="@dimen/margin_8dp"
-            android:textColor="@color/agreement_text_color"
-            android:textSize="16sp"
+            android:fontFamily="sans-serif-medium"
+            android:paddingStart="@dimen/margin_8dp"
+            android:paddingTop="2dp"
+            android:paddingEnd="@dimen/margin_8dp"
+            android:paddingBottom="4dp"
+            android:textColor="@color/continue_color"
+            android:textSize="13sp"
             app:layout_constraintBottom_toBottomOf="@+id/support_service_view"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/support_service_view"

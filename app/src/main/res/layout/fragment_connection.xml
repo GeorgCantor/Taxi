@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/main_background"
     android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -506,14 +507,15 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <!--  +++++++++  -->
+
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/city_driver_license_input_view"
+                android:id="@+id/city_driver_license_front_input_view"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_24dp"
-                android:layout_marginTop="@dimen/margin_32dp"
+                android:layout_marginTop="@dimen/margin_16dp"
                 android:layout_marginEnd="@dimen/margin_24dp"
-                android:hint="@string/driver_license"
                 android:textColorHint="@color/gray_profile"
                 android:textSize="13sp"
                 app:layout_constraintEnd_toEndOf="@+id/city_background"
@@ -521,13 +523,12 @@
                 app:layout_constraintTop_toTopOf="@+id/city_background">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/city_driver_license_edit_text"
+                    android:id="@+id/city_driver_license_front_edit_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/gray_profile"
-                    android:imeOptions="actionNext"
-                    android:inputType="number"
-                    android:maxLines="1"
+                    android:drawableEnd="@drawable/ic_download"
+                    android:focusable="false"
                     android:paddingBottom="@dimen/margin_16dp"
                     android:textColor="@color/gray_intro_text"
                     android:textColorHint="@color/gray_profile"
@@ -536,18 +537,135 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/city_driver_license_front_input_view2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_24dp"
+                android:layout_marginTop="@dimen/margin_16dp"
+                android:layout_marginEnd="@dimen/margin_24dp"
+                android:textColorHint="@color/gray_profile"
+                android:textSize="13sp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="@+id/city_background"
+                app:layout_constraintStart_toStartOf="@+id/city_background"
+                app:layout_constraintTop_toTopOf="@+id/city_background">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/city_driver_license_front_edit_text2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/gray_profile"
+                    android:drawableEnd="@drawable/ic_download_green"
+                    android:focusable="false"
+                    android:paddingBottom="@dimen/margin_16dp"
+                    android:text="Фото 1"
+                    android:textColor="@color/gray_intro_text"
+                    android:textColorHint="@color/gray_profile"
+                    android:textSize="16sp"
+                    android:visibility="gone" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <ImageView
+                android:id="@+id/city_driver_license_front_cancel"
+                android:layout_width="wrap_content"
+                android:visibility="gone"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="62dp"
+                android:layout_marginTop="@dimen/margin_4dp"
+                android:padding="@dimen/margin_8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/city_driver_license_front_input_view2"
+                app:layout_constraintStart_toStartOf="@+id/city_driver_license_front_input_view2"
+                app:layout_constraintTop_toTopOf="@+id/city_driver_license_front_input_view2"
+                app:srcCompat="@drawable/ic_load_cancel" />
+
+            <!--  +++++++++  -->
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/city_driver_license_back_input_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_24dp"
+                android:layout_marginTop="@dimen/margin_8dp"
+                android:layout_marginEnd="@dimen/margin_24dp"
+                android:textColorHint="@color/gray_profile"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="@+id/city_background"
+                app:layout_constraintStart_toStartOf="@+id/city_background"
+                app:layout_constraintTop_toBottomOf="@+id/city_driver_license_front_input_view">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/city_driver_license_back_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/gray_profile"
+                    android:drawableEnd="@drawable/ic_download"
+                    android:focusable="false"
+                    android:paddingBottom="@dimen/margin_16dp"
+                    android:textColor="@color/gray_intro_text"
+                    android:textColorHint="@color/gray_profile"
+                    android:textSize="16sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/city_driver_license_back_input_view2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_24dp"
+                android:layout_marginTop="@dimen/margin_8dp"
+                android:layout_marginEnd="@dimen/margin_24dp"
+                android:textColorHint="@color/gray_profile"
+                android:textSize="13sp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="@+id/city_background"
+                app:layout_constraintStart_toStartOf="@+id/city_background"
+                app:layout_constraintTop_toBottomOf="@+id/city_driver_license_front_input_view">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/city_driver_license_back_edit_text2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/gray_profile"
+                    android:drawableEnd="@drawable/ic_download_green"
+                    android:focusable="false"
+                    android:text="Фото 2"
+                    android:paddingBottom="@dimen/margin_16dp"
+                    android:textColor="@color/gray_intro_text"
+                    android:textColorHint="@color/gray_profile"
+                    android:textSize="16sp"
+                    android:visibility="gone" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <ImageView
+                android:id="@+id/city_driver_license_back_cancel"
+                android:layout_width="wrap_content"
+                android:visibility="gone"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="62dp"
+                android:layout_marginTop="@dimen/margin_4dp"
+                android:padding="@dimen/margin_8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/city_driver_license_back_input_view2"
+                app:layout_constraintStart_toStartOf="@+id/city_driver_license_back_input_view2"
+                app:layout_constraintTop_toTopOf="@+id/city_driver_license_back_input_view2"
+                app:srcCompat="@drawable/ic_load_cancel" />
+
+            <!--  +++++++++  -->
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/city_passport_first_input_view"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_24dp"
-                android:layout_marginTop="@dimen/margin_24dp"
+                android:layout_marginTop="@dimen/margin_8dp"
                 android:layout_marginEnd="@dimen/margin_24dp"
                 android:hint="@string/passport_first_page"
                 android:textColorHint="@color/gray_profile"
                 android:textSize="13sp"
                 app:layout_constraintEnd_toEndOf="@+id/city_background"
                 app:layout_constraintStart_toStartOf="@+id/city_background"
-                app:layout_constraintTop_toBottomOf="@+id/city_driver_license_input_view">
+                app:layout_constraintTop_toBottomOf="@+id/city_driver_license_back_input_view">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/city_passport_first_edit_text"
@@ -556,9 +674,6 @@
                     android:backgroundTint="@color/gray_profile"
                     android:drawableEnd="@drawable/ic_download"
                     android:focusable="false"
-                    android:imeOptions="actionNext"
-                    android:inputType="number"
-                    android:maxLines="1"
                     android:paddingBottom="@dimen/margin_16dp"
                     android:textColor="@color/gray_intro_text"
                     android:textColorHint="@color/gray_profile"
@@ -567,11 +682,43 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/city_passport_first_input_view2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_24dp"
+                android:layout_marginTop="@dimen/margin_8dp"
+                android:layout_marginEnd="@dimen/margin_24dp"
+                android:hint="@string/passport_first_page"
+                android:textColorHint="@color/gray_profile"
+                android:textSize="13sp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="@+id/city_background"
+                app:layout_constraintStart_toStartOf="@+id/city_background"
+                app:layout_constraintTop_toBottomOf="@+id/city_driver_license_back_input_view">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/city_passport_first_edit_text2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/gray_profile"
+                    android:drawableEnd="@drawable/ic_download_green"
+                    android:focusable="false"
+                    android:paddingBottom="@dimen/margin_16dp"
+                    android:textColor="@color/gray_intro_text"
+                    android:textColorHint="@color/gray_profile"
+                    android:textSize="16sp"
+                    android:visibility="gone" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--  +++++++++  -->
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/city_passport_registration_input_view"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_24dp"
-                android:layout_marginTop="@dimen/margin_24dp"
+                android:layout_marginTop="@dimen/margin_8dp"
                 android:layout_marginEnd="@dimen/margin_24dp"
                 android:hint="@string/passport_registration_page"
                 android:textColorHint="@color/gray_profile"
@@ -587,9 +734,6 @@
                     android:backgroundTint="@color/gray_profile"
                     android:drawableEnd="@drawable/ic_download"
                     android:focusable="false"
-                    android:imeOptions="actionNext"
-                    android:inputType="number"
-                    android:maxLines="1"
                     android:paddingBottom="@dimen/margin_16dp"
                     android:textColor="@color/gray_intro_text"
                     android:textColorHint="@color/gray_profile"
@@ -598,11 +742,43 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/city_passport_registration_input_view2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_24dp"
+                android:layout_marginTop="@dimen/margin_8dp"
+                android:layout_marginEnd="@dimen/margin_24dp"
+                android:hint="@string/passport_registration_page"
+                android:textColorHint="@color/gray_profile"
+                android:textSize="13sp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="@+id/city_background"
+                app:layout_constraintStart_toStartOf="@+id/city_background"
+                app:layout_constraintTop_toBottomOf="@+id/city_passport_first_input_view">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/city_passport_registration_edit_text2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/gray_profile"
+                    android:drawableEnd="@drawable/ic_download_green"
+                    android:focusable="false"
+                    android:paddingBottom="@dimen/margin_16dp"
+                    android:textColor="@color/gray_intro_text"
+                    android:textColorHint="@color/gray_profile"
+                    android:textSize="16sp"
+                    android:visibility="gone" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--  +++++++++  -->
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/city_sts_input_view"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_24dp"
-                android:layout_marginTop="@dimen/margin_24dp"
+                android:layout_marginTop="@dimen/margin_8dp"
                 android:layout_marginEnd="@dimen/margin_24dp"
                 android:hint="@string/sts"
                 android:textColorHint="@color/gray_profile"
@@ -616,9 +792,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/gray_profile"
-                    android:imeOptions="actionNext"
-                    android:inputType="number"
-                    android:maxLines="1"
+                    android:drawableEnd="@drawable/ic_download"
+                    android:focusable="false"
                     android:paddingBottom="@dimen/margin_16dp"
                     android:textColor="@color/gray_intro_text"
                     android:textColorHint="@color/gray_profile"
@@ -627,13 +802,13 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/city_license_input_view"
+                android:id="@+id/city_license_front_input_view"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_24dp"
-                android:layout_marginTop="@dimen/margin_24dp"
+                android:layout_marginTop="@dimen/margin_8dp"
                 android:layout_marginEnd="@dimen/margin_24dp"
-                android:hint="@string/license"
+                android:hint="@string/license_front"
                 android:textColorHint="@color/gray_profile"
                 android:textSize="13sp"
                 app:layout_constraintEnd_toEndOf="@+id/city_background"
@@ -641,13 +816,40 @@
                 app:layout_constraintTop_toBottomOf="@+id/city_sts_input_view">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/city_license_edit_text"
+                    android:id="@+id/city_license_front_edit_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/gray_profile"
-                    android:imeOptions="actionNext"
-                    android:inputType="number"
-                    android:maxLines="1"
+                    android:drawableEnd="@drawable/ic_download"
+                    android:focusable="false"
+                    android:paddingBottom="@dimen/margin_16dp"
+                    android:textColor="@color/gray_intro_text"
+                    android:textColorHint="@color/gray_profile"
+                    android:textSize="16sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/city_license_back_input_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_24dp"
+                android:layout_marginTop="@dimen/margin_8dp"
+                android:layout_marginEnd="@dimen/margin_24dp"
+                android:hint="@string/license_back"
+                android:textColorHint="@color/gray_profile"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="@+id/city_background"
+                app:layout_constraintStart_toStartOf="@+id/city_background"
+                app:layout_constraintTop_toBottomOf="@+id/city_license_front_input_view">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/city_license_back_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/gray_profile"
+                    android:drawableEnd="@drawable/ic_download"
+                    android:focusable="false"
                     android:paddingBottom="@dimen/margin_16dp"
                     android:textColor="@color/gray_intro_text"
                     android:textColorHint="@color/gray_profile"
@@ -660,14 +862,14 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_24dp"
-                android:layout_marginTop="@dimen/margin_24dp"
+                android:layout_marginTop="@dimen/margin_8dp"
                 android:layout_marginEnd="@dimen/margin_24dp"
                 android:hint="@string/add_phone_number"
                 android:textColorHint="@color/gray_profile"
                 android:textSize="13sp"
                 app:layout_constraintEnd_toEndOf="@+id/city_background"
                 app:layout_constraintStart_toStartOf="@+id/city_background"
-                app:layout_constraintTop_toBottomOf="@+id/city_license_input_view">
+                app:layout_constraintTop_toBottomOf="@+id/city_license_back_input_view">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/city_phone_edit_text"
@@ -689,7 +891,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_24dp"
-                android:layout_marginTop="36dp"
+                android:layout_marginTop="30dp"
                 android:text="@string/car_photo"
                 android:textColor="@color/registration_white_color"
                 android:textSize="16sp"
@@ -701,7 +903,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_24dp"
-                android:layout_marginTop="@dimen/margin_16dp"
+                android:layout_marginTop="@dimen/margin_4dp"
                 android:layout_marginEnd="@dimen/margin_24dp"
                 android:hint="@string/front_side"
                 android:textColorHint="@color/gray_profile"
@@ -717,8 +919,6 @@
                     android:backgroundTint="@color/gray_profile"
                     android:drawableEnd="@drawable/ic_download"
                     android:focusable="false"
-                    android:inputType="number"
-                    android:maxLines="1"
                     android:paddingBottom="@dimen/margin_16dp"
                     android:textColor="@color/gray_intro_text"
                     android:textColorHint="@color/gray_profile"
@@ -731,7 +931,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_24dp"
-                android:layout_marginTop="@dimen/margin_24dp"
+                android:layout_marginTop="@dimen/margin_8dp"
                 android:layout_marginEnd="@dimen/margin_24dp"
                 android:hint="@string/back_side"
                 android:textColorHint="@color/gray_profile"
@@ -747,9 +947,6 @@
                     android:backgroundTint="@color/gray_profile"
                     android:drawableEnd="@drawable/ic_download"
                     android:focusable="false"
-                    android:imeOptions="actionDone"
-                    android:inputType="number"
-                    android:maxLines="1"
                     android:paddingBottom="@dimen/margin_16dp"
                     android:textColor="@color/gray_intro_text"
                     android:textColorHint="@color/gray_profile"
@@ -762,7 +959,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_24dp"
-                android:layout_marginTop="@dimen/margin_24dp"
+                android:layout_marginTop="@dimen/margin_8dp"
                 android:layout_marginEnd="@dimen/margin_24dp"
                 android:hint="@string/left_side"
                 android:textColorHint="@color/gray_profile"
@@ -778,9 +975,6 @@
                     android:backgroundTint="@color/gray_profile"
                     android:drawableEnd="@drawable/ic_download"
                     android:focusable="false"
-                    android:imeOptions="actionDone"
-                    android:inputType="number"
-                    android:maxLines="1"
                     android:paddingBottom="@dimen/margin_16dp"
                     android:textColor="@color/gray_intro_text"
                     android:textColorHint="@color/gray_profile"
@@ -793,7 +987,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_24dp"
-                android:layout_marginTop="@dimen/margin_24dp"
+                android:layout_marginTop="@dimen/margin_8dp"
                 android:layout_marginEnd="@dimen/margin_24dp"
                 android:hint="@string/right_side"
                 android:textColorHint="@color/gray_profile"
@@ -809,9 +1003,6 @@
                     android:backgroundTint="@color/gray_profile"
                     android:drawableEnd="@drawable/ic_download"
                     android:focusable="false"
-                    android:imeOptions="actionDone"
-                    android:inputType="number"
-                    android:maxLines="1"
                     android:paddingBottom="@dimen/margin_16dp"
                     android:textColor="@color/gray_intro_text"
                     android:textColorHint="@color/gray_profile"
@@ -824,7 +1015,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_24dp"
-                android:layout_marginTop="36dp"
+                android:layout_marginTop="30dp"
                 android:text="@string/driver_photo"
                 android:textColor="@color/registration_white_color"
                 android:textSize="16sp"
@@ -836,7 +1027,6 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_24dp"
-                android:layout_marginTop="@dimen/margin_16dp"
                 android:layout_marginEnd="@dimen/margin_24dp"
                 android:hint="@string/make_selfie"
                 android:textColorHint="@color/gray_profile"
@@ -852,9 +1042,6 @@
                     android:backgroundTint="@color/gray_profile"
                     android:drawableEnd="@drawable/ic_download"
                     android:focusable="false"
-                    android:imeOptions="actionDone"
-                    android:inputType="number"
-                    android:maxLines="1"
                     android:paddingBottom="@dimen/margin_16dp"
                     android:textColor="@color/gray_intro_text"
                     android:textColorHint="@color/gray_profile"

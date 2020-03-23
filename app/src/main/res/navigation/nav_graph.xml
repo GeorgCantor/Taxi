@@ -45,6 +45,10 @@
             android:id="@+id/action_connectionFragment_to_successRequestFragment"
             app:destination="@id/successRequestFragment"
             app:popUpTo="@id/introFragment" />
+        <action
+            android:id="@+id/action_connectionFragment_to_registrationSelectionFragment"
+            app:destination="@id/registrationSelectionFragment"
+            app:popUpTo="@id/registrationFragment" />
     </fragment>
 
     <fragment
@@ -106,9 +110,6 @@
             app:destination="@id/notificationsFragment"
             app:popEnterAnim="@animator/slide_in_top"
             app:popExitAnim="@animator/slide_out_top" />
-        <action
-            android:id="@+id/action_profileFragment_to_chatHistoryFragment"
-            app:destination="@id/chatHistoryFragment" />
     </fragment>
 
     <fragment

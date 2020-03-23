@@ -129,9 +129,13 @@
     <string name="select_aggregator">Выберите своего агрегатора для подключения</string>
     <string name="connection">Подключение</string>
     <string name="driver_license">Водительское удостоверение</string>
+    <string name="driver_license_front">Водит. удостоверение \n (лицевая сторона)</string>
+    <string name="driver_license_back">Водит. удостоверение \n (обратная сторона)</string>
     <string name="passport_number">Серия и номер паспорта</string>
     <string name="sts">СТС</string>
     <string name="license">Лицензия</string>
+    <string name="license_front">Лицензия (лицевая сторона)</string>
+    <string name="license_back">Лицензия (обратная сторона)</string>
     <string name="add_phone_number">Добавьте ваш номер телефона</string>
     <string name="submit">Отправить</string>
     <string name="passport_first_page">Паспорт (первый разворот)</string>
@@ -144,6 +148,7 @@
     <string name="back_side">Задняя сторона</string>
     <string name="left_side">Левая (фото под 45°)</string>
     <string name="right_side">Правая (фото под 45°)</string>
+    <string name="photo_loading">Загрузка фото</string>
     <!--    Support-->
     <string name="write_to_us">Напишите нам</string>
     <string name="call_history">История обращений</string>
