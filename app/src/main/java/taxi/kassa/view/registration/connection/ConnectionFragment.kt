@@ -99,6 +99,12 @@ class ConnectionFragment : Fragment() {
         }
 
         val imageTypePairs = mutableListOf<Pair<EditText, ImageType>>(
+            Pair(driver_license_edit_text, ImageType.YANDEX_D_LICENSE),
+            Pair(passport_first_edit_text, ImageType.YANDEX_PASSPORT_FIRST),
+            Pair(passport_reg_edit_text, ImageType.YANDEX_PASSPORT_REG),
+            Pair(sts_edit_text, ImageType.YANDEX_STS),
+            Pair(license_edit_text, ImageType.YANDEX_LICENSE),
+
             Pair(gett_driver_license_edit_text, ImageType.GETT_D_LICENSE),
             Pair(passport_first_number_edit_text, ImageType.GETT_PASSPORT),
             Pair(gett_sts_edit_text, ImageType.GETT_STS),
@@ -126,6 +132,12 @@ class ConnectionFragment : Fragment() {
         city_driver_license_front_edit_text.setHint(R.string.driver_license_front)
         city_driver_license_back_edit_text.setHint(R.string.driver_license_back)
 
+        driver_license_cancel.setOnClickListener { cancelLoadPhoto(it as ImageView) }
+        passport_first_cancel.setOnClickListener { cancelLoadPhoto(it as ImageView) }
+        passport_reg_cancel.setOnClickListener { cancelLoadPhoto(it as ImageView) }
+        sts_cancel.setOnClickListener { cancelLoadPhoto(it as ImageView) }
+        license_cancel.setOnClickListener { cancelLoadPhoto(it as ImageView) }
+
         gett_driver_license_cancel.setOnClickListener { cancelLoadPhoto(it as ImageView) }
         passport_first_number_cancel.setOnClickListener { cancelLoadPhoto(it as ImageView) }
         gett_sts_cancel.setOnClickListener { cancelLoadPhoto(it as ImageView) }
@@ -149,6 +161,42 @@ class ConnectionFragment : Fragment() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         imageTypes.map {
             when (it) {
+                ImageType.YANDEX_D_LICENSE -> {
+                    driver_license_input_view.visibility = INVISIBLE
+                    driver_license_input_view2.visibility = VISIBLE
+                    driver_license_edit_text.visibility = INVISIBLE
+                    driver_license_edit_text2.visibility = VISIBLE
+                    driver_license_cancel.visibility = VISIBLE
+                }
+                ImageType.YANDEX_PASSPORT_FIRST -> {
+                    passport_first_input_view.visibility = INVISIBLE
+                    passport_first_input_view2.visibility = VISIBLE
+                    passport_first_edit_text.visibility = INVISIBLE
+                    passport_first_edit_text2.visibility = VISIBLE
+                    passport_first_cancel.visibility = VISIBLE
+                }
+                ImageType.YANDEX_PASSPORT_REG -> {
+                    passport_reg_input_view.visibility = INVISIBLE
+                    passport_reg_input_view2.visibility = VISIBLE
+                    passport_reg_edit_text.visibility = INVISIBLE
+                    passport_reg_edit_text2.visibility = VISIBLE
+                    passport_reg_cancel.visibility = VISIBLE
+                }
+                ImageType.YANDEX_STS -> {
+                    sts_input_view.visibility = INVISIBLE
+                    sts_input_view2.visibility = VISIBLE
+                    sts_edit_text.visibility = INVISIBLE
+                    sts_edit_text2.visibility = VISIBLE
+                    sts_cancel.visibility = VISIBLE
+                }
+                ImageType.YANDEX_LICENSE -> {
+                    license_input_view.visibility = INVISIBLE
+                    license_input_view2.visibility = VISIBLE
+                    license_edit_text.visibility = INVISIBLE
+                    license_edit_text2.visibility = VISIBLE
+                    license_cancel.visibility = VISIBLE
+                }
+
                 ImageType.GETT_D_LICENSE -> {
                     gett_driver_license_input_view.visibility = INVISIBLE
                     gett_driver_license_input_view2.visibility = VISIBLE
@@ -278,6 +326,42 @@ class ConnectionFragment : Fragment() {
             docs.add(ImageDocument(image.id, image.name, image.path, selectedType))
         } catch (e: IllegalStateException) {
             when (selectedType) {
+                ImageType.YANDEX_D_LICENSE -> {
+                    driver_license_input_view.visibility = VISIBLE
+                    driver_license_input_view2.visibility = INVISIBLE
+                    driver_license_edit_text.visibility = VISIBLE
+                    driver_license_edit_text2.visibility = INVISIBLE
+                    driver_license_cancel.visibility = INVISIBLE
+                }
+                ImageType.YANDEX_PASSPORT_FIRST -> {
+                    passport_first_input_view.visibility = VISIBLE
+                    passport_first_input_view2.visibility = INVISIBLE
+                    passport_first_edit_text.visibility = VISIBLE
+                    passport_first_edit_text2.visibility = INVISIBLE
+                    passport_first_cancel.visibility = INVISIBLE
+                }
+                ImageType.YANDEX_PASSPORT_REG -> {
+                    passport_reg_input_view.visibility = VISIBLE
+                    passport_reg_input_view2.visibility = INVISIBLE
+                    passport_reg_edit_text.visibility = VISIBLE
+                    passport_reg_edit_text2.visibility = INVISIBLE
+                    passport_reg_cancel.visibility = INVISIBLE
+                }
+                ImageType.YANDEX_STS -> {
+                    sts_input_view.visibility = VISIBLE
+                    sts_input_view2.visibility = INVISIBLE
+                    sts_edit_text.visibility = VISIBLE
+                    sts_edit_text2.visibility = INVISIBLE
+                    sts_cancel.visibility = INVISIBLE
+                }
+                ImageType.YANDEX_LICENSE -> {
+                    license_input_view.visibility = VISIBLE
+                    license_input_view2.visibility = INVISIBLE
+                    license_edit_text.visibility = VISIBLE
+                    license_edit_text2.visibility = INVISIBLE
+                    license_cancel.visibility = INVISIBLE
+                }
+
                 ImageType.GETT_D_LICENSE -> {
                     gett_driver_license_input_view.visibility = VISIBLE
                     gett_driver_license_input_view2.visibility = INVISIBLE
@@ -406,17 +490,9 @@ class ConnectionFragment : Fragment() {
 
     private fun checkEditTextIsComplete() {
         val editTexts = listOf<EditText>(
-            driver_license_edit_text,
-            passport_number_edit_text,
-            sts_edit_text,
-            license_edit_text,
             phone_number_edit_text,
-            gett_driver_license_edit_text,
-            gett_sts_edit_text,
-            gett_license_edit_text,
             gett_phone_edit_text,
             id_edit_text,
-            city_sts_edit_text,
             city_phone_edit_text
         )
 
@@ -478,6 +554,42 @@ class ConnectionFragment : Fragment() {
         var imageType = ImageType.D_LICENSE_FRONT
 
         when (imageView.id) {
+            R.id.driver_license_cancel -> {
+                driver_license_input_view.visibility = VISIBLE
+                driver_license_input_view2.visibility = INVISIBLE
+                driver_license_edit_text.visibility = VISIBLE
+                driver_license_edit_text2.visibility = INVISIBLE
+                driver_license_cancel.visibility = INVISIBLE
+            }
+            R.id.passport_first_cancel -> {
+                passport_first_input_view.visibility = VISIBLE
+                passport_first_input_view2.visibility = INVISIBLE
+                passport_first_edit_text.visibility = VISIBLE
+                passport_first_edit_text2.visibility = INVISIBLE
+                passport_first_cancel.visibility = INVISIBLE
+            }
+            R.id.passport_reg_cancel -> {
+                passport_reg_input_view.visibility = VISIBLE
+                passport_reg_input_view2.visibility = INVISIBLE
+                passport_reg_edit_text.visibility = VISIBLE
+                passport_reg_edit_text2.visibility = INVISIBLE
+                passport_reg_cancel.visibility = INVISIBLE
+            }
+            R.id.sts_cancel -> {
+                sts_input_view.visibility = VISIBLE
+                sts_input_view2.visibility = INVISIBLE
+                sts_edit_text.visibility = VISIBLE
+                sts_edit_text2.visibility = INVISIBLE
+                sts_cancel.visibility = INVISIBLE
+            }
+            R.id.license_cancel -> {
+                license_input_view.visibility = VISIBLE
+                license_input_view2.visibility = INVISIBLE
+                license_edit_text.visibility = VISIBLE
+                license_edit_text2.visibility = INVISIBLE
+                license_cancel.visibility = INVISIBLE
+            }
+
             R.id.gett_driver_license_cancel -> {
                 imageType = ImageType.GETT_D_LICENSE
                 gett_driver_license_input_view.visibility = VISIBLE
