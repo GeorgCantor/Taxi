@@ -3,6 +3,9 @@ package taxi.kassa.util
 import android.content.Context
 import android.net.ConnectivityManager
 import android.view.LayoutInflater
+import android.view.View
+import android.view.View.INVISIBLE
+import android.view.View.VISIBLE
 import android.widget.Toast
 import android.widget.Toast.LENGTH_LONG
 import android.widget.Toast.LENGTH_SHORT
@@ -69,4 +72,20 @@ fun String.getStringAfterSpace(): String {
     val index = this.indexOf(' ')
 
     return if (index == -1) "Нет отчества" else this.substring(index + 1)
+}
+
+fun Array<View>.setNormalVisibility() {
+    this[0].visibility = VISIBLE
+    this[1].visibility = INVISIBLE
+    this[2].visibility = VISIBLE
+    this[3].visibility = INVISIBLE
+    this[4].visibility = INVISIBLE
+}
+
+fun Array<View>.setLoadPhotoVisibility() {
+    this[0].visibility = INVISIBLE
+    this[1].visibility = VISIBLE
+    this[2].visibility = INVISIBLE
+    this[3].visibility = VISIBLE
+    this[4].visibility = VISIBLE
 }

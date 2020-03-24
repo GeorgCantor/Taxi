@@ -23,6 +23,8 @@ import taxi.kassa.util.Constants.CITYMOBIL
 import taxi.kassa.util.Constants.CONNECTION
 import taxi.kassa.util.Constants.GETT
 import taxi.kassa.util.Constants.YANDEX
+import taxi.kassa.util.setLoadPhotoVisibility
+import taxi.kassa.util.setNormalVisibility
 
 class ConnectionFragment : Fragment() {
 
@@ -30,6 +32,31 @@ class ConnectionFragment : Fragment() {
     private val images = mutableListOf<com.esafirm.imagepicker.model.Image>()
     private val docs = mutableListOf<ImageDocument>()
     private val imageTypes = mutableListOf<ImageType>()
+
+    private var yandexDLicenseViews = arrayOf<View>()
+    private var yandexPasportFirstViews = arrayOf<View>()
+    private var yandexPasportRegViews = arrayOf<View>()
+    private var yandexStsViews = arrayOf<View>()
+    private var yandexLicenseViews = arrayOf<View>()
+
+    private var gettDLicenseViews = arrayOf<View>()
+    private var gettPassportViews = arrayOf<View>()
+    private var gettStsViews = arrayOf<View>()
+    private var gettLicenseViews = arrayOf<View>()
+    private var gettSelfieViews = arrayOf<View>()
+
+    private var cityDLicenseFrontViews = arrayOf<View>()
+    private var cityDLicenseBackViews = arrayOf<View>()
+    private var cityPassportFirstViews = arrayOf<View>()
+    private var cityPassportRegViews = arrayOf<View>()
+    private var cityStsViews = arrayOf<View>()
+    private var cityLicenseFrontViews = arrayOf<View>()
+    private var cityLicenseBackViews = arrayOf<View>()
+    private var cityFrontSideViews = arrayOf<View>()
+    private var cityBackSideViews = arrayOf<View>()
+    private var cityLeftSideViews = arrayOf<View>()
+    private var cityRightSideViews = arrayOf<View>()
+    private var citySelfieViews = arrayOf<View>()
 
     private lateinit var selectedType: ImageType
 
@@ -156,167 +183,192 @@ class ConnectionFragment : Fragment() {
         left_side_cancel.setOnClickListener { cancelLoadPhoto(it as ImageView) }
         right_side_cancel.setOnClickListener { cancelLoadPhoto(it as ImageView) }
         city_selfie_cancel.setOnClickListener { cancelLoadPhoto(it as ImageView) }
+
+        yandexDLicenseViews = arrayOf(
+            driver_license_input_view,
+            driver_license_input_view2,
+            driver_license_edit_text,
+            driver_license_edit_text2,
+            driver_license_cancel
+        )
+        yandexPasportFirstViews = arrayOf(
+            passport_first_input_view,
+            passport_first_input_view2,
+            passport_first_edit_text,
+            passport_first_edit_text2,
+            passport_first_cancel
+        )
+        yandexPasportRegViews = arrayOf(
+            passport_reg_input_view,
+            passport_reg_input_view2,
+            passport_reg_edit_text,
+            passport_reg_edit_text2,
+            passport_reg_cancel
+        )
+        yandexStsViews = arrayOf(
+            sts_input_view,
+            sts_input_view2,
+            sts_edit_text,
+            sts_edit_text2,
+            sts_cancel
+        )
+        yandexLicenseViews = arrayOf(
+            license_input_view,
+            license_input_view2,
+            license_edit_text,
+            license_edit_text2,
+            license_cancel
+        )
+
+        gettDLicenseViews = arrayOf(
+            gett_driver_license_input_view,
+            gett_driver_license_input_view2,
+            gett_driver_license_edit_text,
+            gett_driver_license_edit_text2,
+            gett_driver_license_cancel
+        )
+        gettPassportViews = arrayOf(
+            passport_first_number_input_view,
+            passport_first_number_input_view2,
+            passport_first_number_edit_text,
+            passport_first_number_edit_text2,
+            passport_first_number_cancel
+        )
+        gettStsViews = arrayOf(
+            gett_sts_input_view,
+            gett_sts_input_view2,
+            gett_sts_edit_text,
+            gett_sts_edit_text2,
+            gett_sts_cancel
+        )
+        gettLicenseViews = arrayOf(
+            gett_license_input_view,
+            gett_license_input_view2,
+            gett_license_edit_text,
+            gett_license_edit_text2,
+            gett_license_cancel
+        )
+        gettSelfieViews = arrayOf(
+            make_selfie_input_view,
+            make_selfie_input_view2,
+            make_selfie_edit_text,
+            make_selfie_edit_text2,
+            make_selfie_cancel
+        )
+
+        cityDLicenseFrontViews = arrayOf(
+            city_driver_license_front_input_view,
+            city_driver_license_front_input_view2,
+            city_driver_license_front_edit_text,
+            city_driver_license_front_edit_text2,
+            city_driver_license_front_cancel
+        )
+        cityDLicenseBackViews = arrayOf(
+            city_driver_license_back_input_view,
+            city_driver_license_back_input_view2,
+            city_driver_license_back_edit_text,
+            city_driver_license_back_edit_text2,
+            city_driver_license_back_cancel
+        )
+        cityPassportFirstViews = arrayOf(
+            city_passport_first_input_view,
+            city_passport_first_input_view2,
+            city_passport_first_edit_text,
+            city_passport_first_edit_text2,
+            city_passport_first_cancel
+        )
+        cityPassportRegViews = arrayOf(
+            city_passport_registration_input_view,
+            city_passport_registration_input_view2,
+            city_passport_registration_edit_text,
+            city_passport_registration_edit_text2,
+            city_passport_registration_cancel
+        )
+        cityStsViews = arrayOf(
+            city_sts_input_view,
+            city_sts_input_view2,
+            city_sts_edit_text,
+            city_sts_edit_text2,
+            city_sts_cancel
+        )
+        cityLicenseFrontViews = arrayOf(
+            city_license_front_input_view,
+            city_license_front_input_view2,
+            city_license_front_edit_text,
+            city_license_front_edit_text2,
+            city_license_front_cancel
+        )
+        cityLicenseBackViews = arrayOf(
+            city_license_back_input_view,
+            city_license_back_input_view2,
+            city_license_back_edit_text,
+            city_license_back_edit_text2,
+            city_license_back_cancel
+        )
+        cityFrontSideViews = arrayOf(
+            front_side_input_view,
+            front_side_input_view2,
+            front_side_edit_text,
+            front_side_edit_text2,
+            front_side_cancel
+        )
+        cityBackSideViews = arrayOf(
+            back_side_input_view,
+            back_side_input_view2,
+            back_side_edit_text,
+            back_side_edit_text2,
+            back_side_cancel
+        )
+        cityLeftSideViews = arrayOf(
+            left_side_input_view,
+            left_side_input_view2,
+            left_side_edit_text,
+            left_side_edit_text2,
+            left_side_cancel
+        )
+        cityRightSideViews = arrayOf(
+            right_side_input_view,
+            right_side_input_view2,
+            right_side_edit_text,
+            right_side_edit_text2,
+            right_side_cancel
+        )
+        citySelfieViews = arrayOf(
+            city_selfie_input_view,
+            city_selfie_input_view2,
+            city_selfie_edit_text,
+            city_selfie_edit_text2,
+            city_selfie_cancel
+        )
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         imageTypes.map {
             when (it) {
-                ImageType.YANDEX_D_LICENSE -> {
-                    driver_license_input_view.visibility = INVISIBLE
-                    driver_license_input_view2.visibility = VISIBLE
-                    driver_license_edit_text.visibility = INVISIBLE
-                    driver_license_edit_text2.visibility = VISIBLE
-                    driver_license_cancel.visibility = VISIBLE
-                }
-                ImageType.YANDEX_PASSPORT_FIRST -> {
-                    passport_first_input_view.visibility = INVISIBLE
-                    passport_first_input_view2.visibility = VISIBLE
-                    passport_first_edit_text.visibility = INVISIBLE
-                    passport_first_edit_text2.visibility = VISIBLE
-                    passport_first_cancel.visibility = VISIBLE
-                }
-                ImageType.YANDEX_PASSPORT_REG -> {
-                    passport_reg_input_view.visibility = INVISIBLE
-                    passport_reg_input_view2.visibility = VISIBLE
-                    passport_reg_edit_text.visibility = INVISIBLE
-                    passport_reg_edit_text2.visibility = VISIBLE
-                    passport_reg_cancel.visibility = VISIBLE
-                }
-                ImageType.YANDEX_STS -> {
-                    sts_input_view.visibility = INVISIBLE
-                    sts_input_view2.visibility = VISIBLE
-                    sts_edit_text.visibility = INVISIBLE
-                    sts_edit_text2.visibility = VISIBLE
-                    sts_cancel.visibility = VISIBLE
-                }
-                ImageType.YANDEX_LICENSE -> {
-                    license_input_view.visibility = INVISIBLE
-                    license_input_view2.visibility = VISIBLE
-                    license_edit_text.visibility = INVISIBLE
-                    license_edit_text2.visibility = VISIBLE
-                    license_cancel.visibility = VISIBLE
-                }
+                ImageType.YANDEX_D_LICENSE -> yandexDLicenseViews.setLoadPhotoVisibility()
+                ImageType.YANDEX_PASSPORT_FIRST -> yandexPasportFirstViews.setLoadPhotoVisibility()
+                ImageType.YANDEX_PASSPORT_REG -> yandexPasportRegViews.setLoadPhotoVisibility()
+                ImageType.YANDEX_STS -> yandexStsViews.setLoadPhotoVisibility()
+                ImageType.YANDEX_LICENSE -> yandexLicenseViews.setLoadPhotoVisibility()
 
-                ImageType.GETT_D_LICENSE -> {
-                    gett_driver_license_input_view.visibility = INVISIBLE
-                    gett_driver_license_input_view2.visibility = VISIBLE
-                    gett_driver_license_edit_text.visibility = INVISIBLE
-                    gett_driver_license_edit_text2.visibility = VISIBLE
-                    gett_driver_license_cancel.visibility = VISIBLE
-                }
-                ImageType.GETT_PASSPORT -> {
-                    passport_first_number_input_view.visibility = INVISIBLE
-                    passport_first_number_input_view2.visibility = VISIBLE
-                    passport_first_number_edit_text.visibility = INVISIBLE
-                    passport_first_number_edit_text2.visibility = VISIBLE
-                    passport_first_number_cancel.visibility = VISIBLE
-                }
-                ImageType.GETT_STS -> {
-                    gett_sts_input_view.visibility = INVISIBLE
-                    gett_sts_input_view2.visibility = VISIBLE
-                    gett_sts_edit_text.visibility = INVISIBLE
-                    gett_sts_edit_text2.visibility = VISIBLE
-                    gett_sts_cancel.visibility = VISIBLE
-                }
-                ImageType.GETT_LICENSE -> {
-                    gett_license_input_view.visibility = INVISIBLE
-                    gett_license_input_view2.visibility = VISIBLE
-                    gett_license_edit_text.visibility = INVISIBLE
-                    gett_license_edit_text2.visibility = VISIBLE
-                    gett_license_cancel.visibility = VISIBLE
-                }
-                ImageType.GETT_SELFIE -> {
-                    make_selfie_input_view.visibility = INVISIBLE
-                    make_selfie_input_view2.visibility = VISIBLE
-                    make_selfie_edit_text.visibility = INVISIBLE
-                    make_selfie_edit_text2.visibility = VISIBLE
-                    make_selfie_cancel.visibility = VISIBLE
-                }
+                ImageType.GETT_D_LICENSE -> gettDLicenseViews.setLoadPhotoVisibility()
+                ImageType.GETT_PASSPORT -> gettPassportViews.setLoadPhotoVisibility()
+                ImageType.GETT_STS -> gettStsViews.setLoadPhotoVisibility()
+                ImageType.GETT_LICENSE -> gettLicenseViews.setLoadPhotoVisibility()
+                ImageType.GETT_SELFIE -> gettSelfieViews.setLoadPhotoVisibility()
 
-                ImageType.D_LICENSE_FRONT -> {
-                    city_driver_license_front_input_view.visibility = INVISIBLE
-                    city_driver_license_front_input_view2.visibility = VISIBLE
-                    city_driver_license_front_edit_text.visibility = INVISIBLE
-                    city_driver_license_front_edit_text2.visibility = VISIBLE
-                    city_driver_license_front_cancel.visibility = VISIBLE
-                }
-                ImageType.D_LICENSE_BACK -> {
-                    city_driver_license_back_input_view.visibility = INVISIBLE
-                    city_driver_license_back_input_view2.visibility = VISIBLE
-                    city_driver_license_back_edit_text.visibility = INVISIBLE
-                    city_driver_license_back_edit_text2.visibility = VISIBLE
-                    city_driver_license_back_cancel.visibility = VISIBLE
-                }
-                ImageType.PASSPORT_FIRST -> {
-                    city_passport_first_input_view.visibility = INVISIBLE
-                    city_passport_first_input_view2.visibility = VISIBLE
-                    city_passport_first_edit_text.visibility = INVISIBLE
-                    city_passport_first_edit_text2.visibility = VISIBLE
-                    city_passport_first_cancel.visibility = VISIBLE
-                }
-                ImageType.PASSPORT_REG -> {
-                    city_passport_registration_input_view.visibility = INVISIBLE
-                    city_passport_registration_input_view2.visibility = VISIBLE
-                    city_passport_registration_edit_text.visibility = INVISIBLE
-                    city_passport_registration_edit_text2.visibility = VISIBLE
-                    city_passport_registration_cancel.visibility = VISIBLE
-                }
-                ImageType.STS -> {
-                    city_sts_input_view.visibility = INVISIBLE
-                    city_sts_input_view2.visibility = VISIBLE
-                    city_sts_edit_text.visibility = INVISIBLE
-                    city_sts_edit_text2.visibility = VISIBLE
-                    city_sts_cancel.visibility = VISIBLE
-                }
-                ImageType.LICENSE_FRONT -> {
-                    city_license_front_input_view.visibility = INVISIBLE
-                    city_license_front_input_view2.visibility = VISIBLE
-                    city_license_front_edit_text.visibility = INVISIBLE
-                    city_license_front_edit_text2.visibility = VISIBLE
-                    city_license_front_cancel.visibility = VISIBLE
-                }
-                ImageType.LICENSE_BACK -> {
-                    city_license_back_input_view.visibility = INVISIBLE
-                    city_license_back_input_view2.visibility = VISIBLE
-                    city_license_back_edit_text.visibility = INVISIBLE
-                    city_license_back_edit_text2.visibility = VISIBLE
-                    city_license_back_cancel.visibility = VISIBLE
-                }
-                ImageType.AUTO_FRONT -> {
-                    front_side_input_view.visibility = INVISIBLE
-                    front_side_input_view2.visibility = VISIBLE
-                    front_side_edit_text.visibility = INVISIBLE
-                    front_side_edit_text2.visibility = VISIBLE
-                    front_side_cancel.visibility = VISIBLE
-                }
-                ImageType.AUTO_BACK -> {
-                    back_side_input_view.visibility = INVISIBLE
-                    back_side_input_view2.visibility = VISIBLE
-                    back_side_edit_text.visibility = INVISIBLE
-                    back_side_edit_text2.visibility = VISIBLE
-                    back_side_cancel.visibility = VISIBLE
-                }
-                ImageType.AUTO_LEFT -> {
-                    left_side_input_view.visibility = INVISIBLE
-                    left_side_input_view2.visibility = VISIBLE
-                    left_side_edit_text.visibility = INVISIBLE
-                    left_side_edit_text2.visibility = VISIBLE
-                    left_side_cancel.visibility = VISIBLE
-                }
-                ImageType.AUTO_RIGHT -> {
-                    right_side_input_view.visibility = INVISIBLE
-                    right_side_input_view2.visibility = VISIBLE
-                    right_side_edit_text.visibility = INVISIBLE
-                    right_side_edit_text2.visibility = VISIBLE
-                    right_side_cancel.visibility = VISIBLE
-                }
-                ImageType.SELFIE -> {
-                    city_selfie_input_view.visibility = INVISIBLE
-                    city_selfie_input_view2.visibility = VISIBLE
-                    city_selfie_edit_text.visibility = INVISIBLE
-                    city_selfie_edit_text2.visibility = VISIBLE
-                    city_selfie_cancel.visibility = VISIBLE
-                }
+                ImageType.D_LICENSE_FRONT -> cityDLicenseFrontViews.setLoadPhotoVisibility()
+                ImageType.D_LICENSE_BACK -> cityDLicenseBackViews.setLoadPhotoVisibility()
+                ImageType.PASSPORT_FIRST -> cityPassportFirstViews.setLoadPhotoVisibility()
+                ImageType.PASSPORT_REG -> cityPassportRegViews.setLoadPhotoVisibility()
+                ImageType.STS -> cityStsViews.setLoadPhotoVisibility()
+                ImageType.LICENSE_FRONT -> cityLicenseFrontViews.setLoadPhotoVisibility()
+                ImageType.LICENSE_BACK -> cityLicenseBackViews.setLoadPhotoVisibility()
+                ImageType.AUTO_FRONT -> cityFrontSideViews.setLoadPhotoVisibility()
+                ImageType.AUTO_BACK -> cityBackSideViews.setLoadPhotoVisibility()
+                ImageType.AUTO_LEFT -> cityLeftSideViews.setLoadPhotoVisibility()
+                ImageType.AUTO_RIGHT -> cityRightSideViews.setLoadPhotoVisibility()
+                ImageType.SELFIE -> citySelfieViews.setLoadPhotoVisibility()
             }
         }
 
@@ -328,84 +380,44 @@ class ConnectionFragment : Fragment() {
             when (selectedType) {
                 ImageType.YANDEX_D_LICENSE -> {
                     imageTypes.remove(ImageType.YANDEX_D_LICENSE)
-                    driver_license_input_view.visibility = VISIBLE
-                    driver_license_input_view2.visibility = INVISIBLE
-                    driver_license_edit_text.visibility = VISIBLE
-                    driver_license_edit_text2.visibility = INVISIBLE
-                    driver_license_cancel.visibility = INVISIBLE
+                    yandexDLicenseViews.setNormalVisibility()
                 }
                 ImageType.YANDEX_PASSPORT_FIRST -> {
                     imageTypes.remove(ImageType.YANDEX_PASSPORT_FIRST)
-                    passport_first_input_view.visibility = VISIBLE
-                    passport_first_input_view2.visibility = INVISIBLE
-                    passport_first_edit_text.visibility = VISIBLE
-                    passport_first_edit_text2.visibility = INVISIBLE
-                    passport_first_cancel.visibility = INVISIBLE
+                    yandexPasportFirstViews.setNormalVisibility()
                 }
                 ImageType.YANDEX_PASSPORT_REG -> {
                     imageTypes.remove(ImageType.YANDEX_PASSPORT_REG)
-                    passport_reg_input_view.visibility = VISIBLE
-                    passport_reg_input_view2.visibility = INVISIBLE
-                    passport_reg_edit_text.visibility = VISIBLE
-                    passport_reg_edit_text2.visibility = INVISIBLE
-                    passport_reg_cancel.visibility = INVISIBLE
+                    yandexPasportRegViews.setNormalVisibility()
                 }
                 ImageType.YANDEX_STS -> {
                     imageTypes.remove(ImageType.YANDEX_STS)
-                    sts_input_view.visibility = VISIBLE
-                    sts_input_view2.visibility = INVISIBLE
-                    sts_edit_text.visibility = VISIBLE
-                    sts_edit_text2.visibility = INVISIBLE
-                    sts_cancel.visibility = INVISIBLE
+                    yandexStsViews.setNormalVisibility()
                 }
                 ImageType.YANDEX_LICENSE -> {
                     imageTypes.remove(ImageType.YANDEX_LICENSE)
-                    license_input_view.visibility = VISIBLE
-                    license_input_view2.visibility = INVISIBLE
-                    license_edit_text.visibility = VISIBLE
-                    license_edit_text2.visibility = INVISIBLE
-                    license_cancel.visibility = INVISIBLE
+                    yandexLicenseViews.setNormalVisibility()
                 }
 
                 ImageType.GETT_D_LICENSE -> {
                     imageTypes.remove(ImageType.GETT_D_LICENSE)
-                    gett_driver_license_input_view.visibility = VISIBLE
-                    gett_driver_license_input_view2.visibility = INVISIBLE
-                    gett_driver_license_edit_text.visibility = VISIBLE
-                    gett_driver_license_edit_text2.visibility = INVISIBLE
-                    gett_driver_license_cancel.visibility = INVISIBLE
+                    gettDLicenseViews.setNormalVisibility()
                 }
                 ImageType.GETT_PASSPORT -> {
                     imageTypes.remove(ImageType.GETT_PASSPORT)
-                    passport_first_number_input_view.visibility = VISIBLE
-                    passport_first_number_input_view2.visibility = INVISIBLE
-                    passport_first_number_edit_text.visibility = VISIBLE
-                    passport_first_number_edit_text2.visibility = INVISIBLE
-                    passport_first_number_cancel.visibility = INVISIBLE
+                    gettPassportViews.setNormalVisibility()
                 }
                 ImageType.GETT_STS -> {
                     imageTypes.remove(ImageType.GETT_STS)
-                    gett_sts_input_view.visibility = VISIBLE
-                    gett_sts_input_view2.visibility = INVISIBLE
-                    gett_sts_edit_text.visibility = VISIBLE
-                    gett_sts_edit_text2.visibility = INVISIBLE
-                    gett_sts_cancel.visibility = INVISIBLE
+                    gettStsViews.setNormalVisibility()
                 }
                 ImageType.GETT_LICENSE -> {
                     imageTypes.remove(ImageType.GETT_LICENSE)
-                    gett_license_input_view.visibility = VISIBLE
-                    gett_license_input_view2.visibility = INVISIBLE
-                    gett_license_edit_text.visibility = VISIBLE
-                    gett_license_edit_text2.visibility = INVISIBLE
-                    gett_license_cancel.visibility = INVISIBLE
+                    gettLicenseViews.setNormalVisibility()
                 }
                 ImageType.GETT_SELFIE -> {
                     imageTypes.remove(ImageType.GETT_SELFIE)
-                    make_selfie_input_view.visibility = VISIBLE
-                    make_selfie_input_view2.visibility = INVISIBLE
-                    make_selfie_edit_text.visibility = VISIBLE
-                    make_selfie_edit_text2.visibility = INVISIBLE
-                    make_selfie_cancel.visibility = INVISIBLE
+                    gettSelfieViews.setNormalVisibility()
                 }
 
                 ImageType.D_LICENSE_FRONT -> {
@@ -578,84 +590,44 @@ class ConnectionFragment : Fragment() {
         when (imageView.id) {
             R.id.driver_license_cancel -> {
                 imageType = ImageType.YANDEX_D_LICENSE
-                driver_license_input_view.visibility = VISIBLE
-                driver_license_input_view2.visibility = INVISIBLE
-                driver_license_edit_text.visibility = VISIBLE
-                driver_license_edit_text2.visibility = INVISIBLE
-                driver_license_cancel.visibility = INVISIBLE
+                yandexDLicenseViews.setNormalVisibility()
             }
             R.id.passport_first_cancel -> {
                 imageType = ImageType.YANDEX_PASSPORT_FIRST
-                passport_first_input_view.visibility = VISIBLE
-                passport_first_input_view2.visibility = INVISIBLE
-                passport_first_edit_text.visibility = VISIBLE
-                passport_first_edit_text2.visibility = INVISIBLE
-                passport_first_cancel.visibility = INVISIBLE
+                yandexPasportFirstViews.setNormalVisibility()
             }
             R.id.passport_reg_cancel -> {
                 imageType = ImageType.PASSPORT_REG
-                passport_reg_input_view.visibility = VISIBLE
-                passport_reg_input_view2.visibility = INVISIBLE
-                passport_reg_edit_text.visibility = VISIBLE
-                passport_reg_edit_text2.visibility = INVISIBLE
-                passport_reg_cancel.visibility = INVISIBLE
+                yandexPasportRegViews.setNormalVisibility()
             }
             R.id.sts_cancel -> {
                 imageType = ImageType.YANDEX_STS
-                sts_input_view.visibility = VISIBLE
-                sts_input_view2.visibility = INVISIBLE
-                sts_edit_text.visibility = VISIBLE
-                sts_edit_text2.visibility = INVISIBLE
-                sts_cancel.visibility = INVISIBLE
+                yandexStsViews.setNormalVisibility()
             }
             R.id.license_cancel -> {
                 imageType = ImageType.YANDEX_LICENSE
-                license_input_view.visibility = VISIBLE
-                license_input_view2.visibility = INVISIBLE
-                license_edit_text.visibility = VISIBLE
-                license_edit_text2.visibility = INVISIBLE
-                license_cancel.visibility = INVISIBLE
+                yandexLicenseViews.setNormalVisibility()
             }
 
             R.id.gett_driver_license_cancel -> {
                 imageType = ImageType.GETT_D_LICENSE
-                gett_driver_license_input_view.visibility = VISIBLE
-                gett_driver_license_input_view2.visibility = INVISIBLE
-                gett_driver_license_edit_text.visibility = VISIBLE
-                gett_driver_license_edit_text2.visibility = INVISIBLE
-                gett_driver_license_cancel.visibility = INVISIBLE
+                gettDLicenseViews.setNormalVisibility()
             }
             R.id.passport_first_number_cancel -> {
                 imageType = ImageType.GETT_PASSPORT
-                passport_first_number_input_view.visibility = VISIBLE
-                passport_first_number_input_view2.visibility = INVISIBLE
-                passport_first_number_edit_text.visibility = VISIBLE
-                passport_first_number_edit_text2.visibility = INVISIBLE
-                passport_first_number_cancel.visibility = INVISIBLE
+                gettPassportViews.setNormalVisibility()
             }
             R.id.gett_sts_cancel -> {
                 imageType = ImageType.GETT_STS
-                gett_sts_input_view.visibility = VISIBLE
-                gett_sts_input_view2.visibility = INVISIBLE
-                gett_sts_edit_text.visibility = VISIBLE
-                gett_sts_edit_text2.visibility = INVISIBLE
-                gett_sts_cancel.visibility = INVISIBLE
+                gettStsViews.setNormalVisibility()
             }
             R.id.gett_license_cancel -> {
                 imageType = ImageType.GETT_LICENSE
-                gett_license_input_view.visibility = VISIBLE
-                gett_license_input_view2.visibility = INVISIBLE
-                gett_license_edit_text.visibility = VISIBLE
-                gett_license_edit_text2.visibility = INVISIBLE
-                gett_license_cancel.visibility = INVISIBLE
+                gettLicenseViews.setNormalVisibility()
             }
             R.id.make_selfie_cancel -> {
                 imageType = ImageType.GETT_SELFIE
-                make_selfie_input_view.visibility = VISIBLE
-                make_selfie_input_view2.visibility = INVISIBLE
-                make_selfie_edit_text.visibility = VISIBLE
-                make_selfie_edit_text2.visibility = INVISIBLE
-                make_selfie_cancel.visibility = INVISIBLE
+                gettSelfieViews.setNormalVisibility()
             }
 
             R.id.city_driver_license_front_cancel -> {
