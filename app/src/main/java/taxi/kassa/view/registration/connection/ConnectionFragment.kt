@@ -327,6 +327,7 @@ class ConnectionFragment : Fragment() {
         } catch (e: IllegalStateException) {
             when (selectedType) {
                 ImageType.YANDEX_D_LICENSE -> {
+                    imageTypes.remove(ImageType.YANDEX_D_LICENSE)
                     driver_license_input_view.visibility = VISIBLE
                     driver_license_input_view2.visibility = INVISIBLE
                     driver_license_edit_text.visibility = VISIBLE
@@ -334,6 +335,7 @@ class ConnectionFragment : Fragment() {
                     driver_license_cancel.visibility = INVISIBLE
                 }
                 ImageType.YANDEX_PASSPORT_FIRST -> {
+                    imageTypes.remove(ImageType.YANDEX_PASSPORT_FIRST)
                     passport_first_input_view.visibility = VISIBLE
                     passport_first_input_view2.visibility = INVISIBLE
                     passport_first_edit_text.visibility = VISIBLE
@@ -341,6 +343,7 @@ class ConnectionFragment : Fragment() {
                     passport_first_cancel.visibility = INVISIBLE
                 }
                 ImageType.YANDEX_PASSPORT_REG -> {
+                    imageTypes.remove(ImageType.YANDEX_PASSPORT_REG)
                     passport_reg_input_view.visibility = VISIBLE
                     passport_reg_input_view2.visibility = INVISIBLE
                     passport_reg_edit_text.visibility = VISIBLE
@@ -348,6 +351,7 @@ class ConnectionFragment : Fragment() {
                     passport_reg_cancel.visibility = INVISIBLE
                 }
                 ImageType.YANDEX_STS -> {
+                    imageTypes.remove(ImageType.YANDEX_STS)
                     sts_input_view.visibility = VISIBLE
                     sts_input_view2.visibility = INVISIBLE
                     sts_edit_text.visibility = VISIBLE
@@ -355,6 +359,7 @@ class ConnectionFragment : Fragment() {
                     sts_cancel.visibility = INVISIBLE
                 }
                 ImageType.YANDEX_LICENSE -> {
+                    imageTypes.remove(ImageType.YANDEX_LICENSE)
                     license_input_view.visibility = VISIBLE
                     license_input_view2.visibility = INVISIBLE
                     license_edit_text.visibility = VISIBLE
@@ -363,6 +368,7 @@ class ConnectionFragment : Fragment() {
                 }
 
                 ImageType.GETT_D_LICENSE -> {
+                    imageTypes.remove(ImageType.GETT_D_LICENSE)
                     gett_driver_license_input_view.visibility = VISIBLE
                     gett_driver_license_input_view2.visibility = INVISIBLE
                     gett_driver_license_edit_text.visibility = VISIBLE
@@ -370,6 +376,7 @@ class ConnectionFragment : Fragment() {
                     gett_driver_license_cancel.visibility = INVISIBLE
                 }
                 ImageType.GETT_PASSPORT -> {
+                    imageTypes.remove(ImageType.GETT_PASSPORT)
                     passport_first_number_input_view.visibility = VISIBLE
                     passport_first_number_input_view2.visibility = INVISIBLE
                     passport_first_number_edit_text.visibility = VISIBLE
@@ -377,6 +384,7 @@ class ConnectionFragment : Fragment() {
                     passport_first_number_cancel.visibility = INVISIBLE
                 }
                 ImageType.GETT_STS -> {
+                    imageTypes.remove(ImageType.GETT_STS)
                     gett_sts_input_view.visibility = VISIBLE
                     gett_sts_input_view2.visibility = INVISIBLE
                     gett_sts_edit_text.visibility = VISIBLE
@@ -384,6 +392,7 @@ class ConnectionFragment : Fragment() {
                     gett_sts_cancel.visibility = INVISIBLE
                 }
                 ImageType.GETT_LICENSE -> {
+                    imageTypes.remove(ImageType.GETT_LICENSE)
                     gett_license_input_view.visibility = VISIBLE
                     gett_license_input_view2.visibility = INVISIBLE
                     gett_license_edit_text.visibility = VISIBLE
@@ -391,6 +400,7 @@ class ConnectionFragment : Fragment() {
                     gett_license_cancel.visibility = INVISIBLE
                 }
                 ImageType.GETT_SELFIE -> {
+                    imageTypes.remove(ImageType.GETT_SELFIE)
                     make_selfie_input_view.visibility = VISIBLE
                     make_selfie_input_view2.visibility = INVISIBLE
                     make_selfie_edit_text.visibility = VISIBLE
@@ -399,6 +409,7 @@ class ConnectionFragment : Fragment() {
                 }
 
                 ImageType.D_LICENSE_FRONT -> {
+                    imageTypes.remove(ImageType.D_LICENSE_FRONT)
                     city_driver_license_front_input_view.visibility = VISIBLE
                     city_driver_license_front_input_view2.visibility = INVISIBLE
                     city_driver_license_front_edit_text.visibility = VISIBLE
@@ -406,6 +417,7 @@ class ConnectionFragment : Fragment() {
                     city_driver_license_front_cancel.visibility = INVISIBLE
                 }
                 ImageType.D_LICENSE_BACK -> {
+                    imageTypes.remove(ImageType.D_LICENSE_BACK)
                     city_driver_license_back_input_view.visibility = VISIBLE
                     city_driver_license_back_input_view2.visibility = INVISIBLE
                     city_driver_license_back_edit_text.visibility = VISIBLE
@@ -413,6 +425,7 @@ class ConnectionFragment : Fragment() {
                     city_driver_license_back_cancel.visibility = INVISIBLE
                 }
                 ImageType.PASSPORT_FIRST -> {
+                    imageTypes.remove(ImageType.PASSPORT_FIRST)
                     city_passport_first_input_view.visibility = VISIBLE
                     city_passport_first_input_view2.visibility = INVISIBLE
                     city_passport_first_edit_text.visibility = VISIBLE
@@ -420,6 +433,7 @@ class ConnectionFragment : Fragment() {
                     city_passport_first_cancel.visibility = INVISIBLE
                 }
                 ImageType.PASSPORT_REG -> {
+                    imageTypes.remove(ImageType.PASSPORT_REG)
                     city_passport_registration_input_view.visibility = VISIBLE
                     city_passport_registration_input_view2.visibility = INVISIBLE
                     city_passport_registration_edit_text.visibility = VISIBLE
@@ -427,6 +441,7 @@ class ConnectionFragment : Fragment() {
                     city_passport_registration_cancel.visibility = INVISIBLE
                 }
                 ImageType.STS -> {
+                    imageTypes.remove(ImageType.STS)
                     city_sts_input_view.visibility = VISIBLE
                     city_sts_input_view2.visibility = INVISIBLE
                     city_sts_edit_text.visibility = VISIBLE
@@ -434,6 +449,7 @@ class ConnectionFragment : Fragment() {
                     city_sts_cancel.visibility = INVISIBLE
                 }
                 ImageType.LICENSE_FRONT -> {
+                    imageTypes.remove(ImageType.LICENSE_FRONT)
                     city_license_front_input_view.visibility = VISIBLE
                     city_license_front_input_view2.visibility = INVISIBLE
                     city_license_front_edit_text.visibility = VISIBLE
@@ -441,6 +457,7 @@ class ConnectionFragment : Fragment() {
                     city_license_front_cancel.visibility = INVISIBLE
                 }
                 ImageType.LICENSE_BACK -> {
+                    imageTypes.remove(ImageType.LICENSE_BACK)
                     city_license_back_input_view.visibility = VISIBLE
                     city_license_back_input_view2.visibility = INVISIBLE
                     city_license_back_edit_text.visibility = VISIBLE
@@ -448,6 +465,7 @@ class ConnectionFragment : Fragment() {
                     city_license_back_cancel.visibility = INVISIBLE
                 }
                 ImageType.AUTO_FRONT -> {
+                    imageTypes.remove(ImageType.AUTO_FRONT)
                     front_side_input_view.visibility = VISIBLE
                     front_side_input_view2.visibility = INVISIBLE
                     front_side_edit_text.visibility = VISIBLE
@@ -455,6 +473,7 @@ class ConnectionFragment : Fragment() {
                     front_side_cancel.visibility = INVISIBLE
                 }
                 ImageType.AUTO_BACK -> {
+                    imageTypes.remove(ImageType.AUTO_BACK)
                     back_side_input_view.visibility = VISIBLE
                     back_side_input_view2.visibility = INVISIBLE
                     back_side_edit_text.visibility = VISIBLE
@@ -462,6 +481,7 @@ class ConnectionFragment : Fragment() {
                     back_side_cancel.visibility = INVISIBLE
                 }
                 ImageType.AUTO_LEFT -> {
+                    imageTypes.remove(ImageType.AUTO_LEFT)
                     left_side_input_view.visibility = VISIBLE
                     left_side_input_view2.visibility = INVISIBLE
                     left_side_edit_text.visibility = VISIBLE
@@ -469,6 +489,7 @@ class ConnectionFragment : Fragment() {
                     left_side_cancel.visibility = INVISIBLE
                 }
                 ImageType.AUTO_RIGHT -> {
+                    imageTypes.remove(ImageType.AUTO_RIGHT)
                     right_side_input_view.visibility = VISIBLE
                     right_side_input_view2.visibility = INVISIBLE
                     right_side_edit_text.visibility = VISIBLE
@@ -476,6 +497,7 @@ class ConnectionFragment : Fragment() {
                     right_side_cancel.visibility = INVISIBLE
                 }
                 ImageType.SELFIE -> {
+                    imageTypes.remove(ImageType.SELFIE)
                     city_selfie_input_view.visibility = VISIBLE
                     city_selfie_input_view2.visibility = INVISIBLE
                     city_selfie_edit_text.visibility = VISIBLE
@@ -555,6 +577,7 @@ class ConnectionFragment : Fragment() {
 
         when (imageView.id) {
             R.id.driver_license_cancel -> {
+                imageType = ImageType.YANDEX_D_LICENSE
                 driver_license_input_view.visibility = VISIBLE
                 driver_license_input_view2.visibility = INVISIBLE
                 driver_license_edit_text.visibility = VISIBLE
@@ -562,6 +585,7 @@ class ConnectionFragment : Fragment() {
                 driver_license_cancel.visibility = INVISIBLE
             }
             R.id.passport_first_cancel -> {
+                imageType = ImageType.YANDEX_PASSPORT_FIRST
                 passport_first_input_view.visibility = VISIBLE
                 passport_first_input_view2.visibility = INVISIBLE
                 passport_first_edit_text.visibility = VISIBLE
@@ -569,6 +593,7 @@ class ConnectionFragment : Fragment() {
                 passport_first_cancel.visibility = INVISIBLE
             }
             R.id.passport_reg_cancel -> {
+                imageType = ImageType.PASSPORT_REG
                 passport_reg_input_view.visibility = VISIBLE
                 passport_reg_input_view2.visibility = INVISIBLE
                 passport_reg_edit_text.visibility = VISIBLE
@@ -576,6 +601,7 @@ class ConnectionFragment : Fragment() {
                 passport_reg_cancel.visibility = INVISIBLE
             }
             R.id.sts_cancel -> {
+                imageType = ImageType.YANDEX_STS
                 sts_input_view.visibility = VISIBLE
                 sts_input_view2.visibility = INVISIBLE
                 sts_edit_text.visibility = VISIBLE
@@ -583,6 +609,7 @@ class ConnectionFragment : Fragment() {
                 sts_cancel.visibility = INVISIBLE
             }
             R.id.license_cancel -> {
+                imageType = ImageType.YANDEX_LICENSE
                 license_input_view.visibility = VISIBLE
                 license_input_view2.visibility = INVISIBLE
                 license_edit_text.visibility = VISIBLE
@@ -599,6 +626,7 @@ class ConnectionFragment : Fragment() {
                 gett_driver_license_cancel.visibility = INVISIBLE
             }
             R.id.passport_first_number_cancel -> {
+                imageType = ImageType.GETT_PASSPORT
                 passport_first_number_input_view.visibility = VISIBLE
                 passport_first_number_input_view2.visibility = INVISIBLE
                 passport_first_number_edit_text.visibility = VISIBLE
@@ -606,6 +634,7 @@ class ConnectionFragment : Fragment() {
                 passport_first_number_cancel.visibility = INVISIBLE
             }
             R.id.gett_sts_cancel -> {
+                imageType = ImageType.GETT_STS
                 gett_sts_input_view.visibility = VISIBLE
                 gett_sts_input_view2.visibility = INVISIBLE
                 gett_sts_edit_text.visibility = VISIBLE
@@ -613,6 +642,7 @@ class ConnectionFragment : Fragment() {
                 gett_sts_cancel.visibility = INVISIBLE
             }
             R.id.gett_license_cancel -> {
+                imageType = ImageType.GETT_LICENSE
                 gett_license_input_view.visibility = VISIBLE
                 gett_license_input_view2.visibility = INVISIBLE
                 gett_license_edit_text.visibility = VISIBLE
@@ -620,6 +650,7 @@ class ConnectionFragment : Fragment() {
                 gett_license_cancel.visibility = INVISIBLE
             }
             R.id.make_selfie_cancel -> {
+                imageType = ImageType.GETT_SELFIE
                 make_selfie_input_view.visibility = VISIBLE
                 make_selfie_input_view2.visibility = INVISIBLE
                 make_selfie_edit_text.visibility = VISIBLE
@@ -660,6 +691,7 @@ class ConnectionFragment : Fragment() {
                 city_passport_registration_cancel.visibility = INVISIBLE
             }
             R.id.city_sts_cancel -> {
+                imageType = ImageType.STS
                 city_sts_input_view.visibility = VISIBLE
                 city_sts_input_view2.visibility = INVISIBLE
                 city_sts_edit_text.visibility = VISIBLE
@@ -667,6 +699,7 @@ class ConnectionFragment : Fragment() {
                 city_sts_cancel.visibility = INVISIBLE
             }
             R.id.city_license_front_cancel -> {
+                imageType = ImageType.LICENSE_FRONT
                 city_license_front_input_view.visibility = VISIBLE
                 city_license_front_input_view2.visibility = INVISIBLE
                 city_license_front_edit_text.visibility = VISIBLE
@@ -674,6 +707,7 @@ class ConnectionFragment : Fragment() {
                 city_license_front_cancel.visibility = INVISIBLE
             }
             R.id.city_license_back_cancel -> {
+                imageType = ImageType.LICENSE_BACK
                 city_license_back_input_view.visibility = VISIBLE
                 city_license_back_input_view2.visibility = INVISIBLE
                 city_license_back_edit_text.visibility = VISIBLE
@@ -681,6 +715,7 @@ class ConnectionFragment : Fragment() {
                 city_license_back_cancel.visibility = INVISIBLE
             }
             R.id.front_side_cancel -> {
+                imageType = ImageType.AUTO_FRONT
                 front_side_input_view.visibility = VISIBLE
                 front_side_input_view2.visibility = INVISIBLE
                 front_side_edit_text.visibility = VISIBLE
@@ -688,6 +723,7 @@ class ConnectionFragment : Fragment() {
                 front_side_cancel.visibility = INVISIBLE
             }
             R.id.back_side_cancel -> {
+                imageType = ImageType.AUTO_BACK
                 back_side_input_view.visibility = VISIBLE
                 back_side_input_view2.visibility = INVISIBLE
                 back_side_edit_text.visibility = VISIBLE
@@ -695,6 +731,7 @@ class ConnectionFragment : Fragment() {
                 back_side_cancel.visibility = INVISIBLE
             }
             R.id.left_side_cancel -> {
+                imageType = ImageType.AUTO_LEFT
                 left_side_input_view.visibility = VISIBLE
                 left_side_input_view2.visibility = INVISIBLE
                 left_side_edit_text.visibility = VISIBLE
@@ -702,6 +739,7 @@ class ConnectionFragment : Fragment() {
                 left_side_cancel.visibility = INVISIBLE
             }
             R.id.right_side_cancel -> {
+                imageType = ImageType.AUTO_RIGHT
                 right_side_input_view.visibility = VISIBLE
                 right_side_input_view2.visibility = INVISIBLE
                 right_side_edit_text.visibility = VISIBLE
@@ -709,6 +747,7 @@ class ConnectionFragment : Fragment() {
                 right_side_cancel.visibility = INVISIBLE
             }
             R.id.city_selfie_cancel -> {
+                imageType = ImageType.SELFIE
                 city_selfie_input_view.visibility = VISIBLE
                 city_selfie_input_view2.visibility = INVISIBLE
                 city_selfie_edit_text.visibility = VISIBLE
@@ -720,6 +759,7 @@ class ConnectionFragment : Fragment() {
         val doc = docs.find { it.type == imageType }
         val photoForDelete = images.find { it.id == doc?.id }
         images.remove(photoForDelete)
+        docs.remove(doc)
 
         imageTypes.remove(imageType)
     }
