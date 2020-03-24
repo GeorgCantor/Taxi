@@ -1,6 +1,12 @@
 package taxi.kassa.view.registration.connection
 
 enum class ImageType {
+    GETT_D_LICENSE,
+    GETT_PASSPORT,
+    GETT_STS,
+    GETT_LICENSE,
+    GETT_SELFIE,
+
     D_LICENSE_FRONT,
     D_LICENSE_BACK,
     PASSPORT_FIRST,

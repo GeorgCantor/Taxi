@@ -99,6 +99,12 @@ class ConnectionFragment : Fragment() {
         }
 
         val imageTypePairs = mutableListOf<Pair<EditText, ImageType>>(
+            Pair(gett_driver_license_edit_text, ImageType.GETT_D_LICENSE),
+            Pair(passport_first_number_edit_text, ImageType.GETT_PASSPORT),
+            Pair(gett_sts_edit_text, ImageType.GETT_STS),
+            Pair(gett_license_edit_text, ImageType.GETT_LICENSE),
+            Pair(make_selfie_edit_text, ImageType.GETT_SELFIE),
+
             Pair(city_driver_license_front_edit_text, ImageType.D_LICENSE_FRONT),
             Pair(city_driver_license_back_edit_text, ImageType.D_LICENSE_BACK),
             Pair(city_passport_first_edit_text, ImageType.PASSPORT_FIRST),
@@ -120,6 +126,12 @@ class ConnectionFragment : Fragment() {
         city_driver_license_front_edit_text.setHint(R.string.driver_license_front)
         city_driver_license_back_edit_text.setHint(R.string.driver_license_back)
 
+        gett_driver_license_cancel.setOnClickListener { cancelLoadPhoto(it as ImageView) }
+        passport_first_number_cancel.setOnClickListener { cancelLoadPhoto(it as ImageView) }
+        gett_sts_cancel.setOnClickListener { cancelLoadPhoto(it as ImageView) }
+        gett_license_cancel.setOnClickListener { cancelLoadPhoto(it as ImageView) }
+        make_selfie_cancel.setOnClickListener { cancelLoadPhoto(it as ImageView) }
+
         city_driver_license_front_cancel.setOnClickListener { cancelLoadPhoto(it as ImageView) }
         city_driver_license_back_cancel.setOnClickListener { cancelLoadPhoto(it as ImageView) }
         city_passport_first_cancel.setOnClickListener { cancelLoadPhoto(it as ImageView) }
@@ -137,6 +149,42 @@ class ConnectionFragment : Fragment() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         imageTypes.map {
             when (it) {
+                ImageType.GETT_D_LICENSE -> {
+                    gett_driver_license_input_view.visibility = INVISIBLE
+                    gett_driver_license_input_view2.visibility = VISIBLE
+                    gett_driver_license_edit_text.visibility = INVISIBLE
+                    gett_driver_license_edit_text2.visibility = VISIBLE
+                    gett_driver_license_cancel.visibility = VISIBLE
+                }
+                ImageType.GETT_PASSPORT -> {
+                    passport_first_number_input_view.visibility = INVISIBLE
+                    passport_first_number_input_view2.visibility = VISIBLE
+                    passport_first_number_edit_text.visibility = INVISIBLE
+                    passport_first_number_edit_text2.visibility = VISIBLE
+                    passport_first_number_cancel.visibility = VISIBLE
+                }
+                ImageType.GETT_STS -> {
+                    gett_sts_input_view.visibility = INVISIBLE
+                    gett_sts_input_view2.visibility = VISIBLE
+                    gett_sts_edit_text.visibility = INVISIBLE
+                    gett_sts_edit_text2.visibility = VISIBLE
+                    gett_sts_cancel.visibility = VISIBLE
+                }
+                ImageType.GETT_LICENSE -> {
+                    gett_license_input_view.visibility = INVISIBLE
+                    gett_license_input_view2.visibility = VISIBLE
+                    gett_license_edit_text.visibility = INVISIBLE
+                    gett_license_edit_text2.visibility = VISIBLE
+                    gett_license_cancel.visibility = VISIBLE
+                }
+                ImageType.GETT_SELFIE -> {
+                    make_selfie_input_view.visibility = INVISIBLE
+                    make_selfie_input_view2.visibility = VISIBLE
+                    make_selfie_edit_text.visibility = INVISIBLE
+                    make_selfie_edit_text2.visibility = VISIBLE
+                    make_selfie_cancel.visibility = VISIBLE
+                }
+
                 ImageType.D_LICENSE_FRONT -> {
                     city_driver_license_front_input_view.visibility = INVISIBLE
                     city_driver_license_front_input_view2.visibility = VISIBLE
@@ -230,6 +278,42 @@ class ConnectionFragment : Fragment() {
             docs.add(ImageDocument(image.id, image.name, image.path, selectedType))
         } catch (e: IllegalStateException) {
             when (selectedType) {
+                ImageType.GETT_D_LICENSE -> {
+                    gett_driver_license_input_view.visibility = VISIBLE
+                    gett_driver_license_input_view2.visibility = INVISIBLE
+                    gett_driver_license_edit_text.visibility = VISIBLE
+                    gett_driver_license_edit_text2.visibility = INVISIBLE
+                    gett_driver_license_cancel.visibility = INVISIBLE
+                }
+                ImageType.GETT_PASSPORT -> {
+                    passport_first_number_input_view.visibility = VISIBLE
+                    passport_first_number_input_view2.visibility = INVISIBLE
+                    passport_first_number_edit_text.visibility = VISIBLE
+                    passport_first_number_edit_text2.visibility = INVISIBLE
+                    passport_first_number_cancel.visibility = INVISIBLE
+                }
+                ImageType.GETT_STS -> {
+                    gett_sts_input_view.visibility = VISIBLE
+                    gett_sts_input_view2.visibility = INVISIBLE
+                    gett_sts_edit_text.visibility = VISIBLE
+                    gett_sts_edit_text2.visibility = INVISIBLE
+                    gett_sts_cancel.visibility = INVISIBLE
+                }
+                ImageType.GETT_LICENSE -> {
+                    gett_license_input_view.visibility = VISIBLE
+                    gett_license_input_view2.visibility = INVISIBLE
+                    gett_license_edit_text.visibility = VISIBLE
+                    gett_license_edit_text2.visibility = INVISIBLE
+                    gett_license_cancel.visibility = INVISIBLE
+                }
+                ImageType.GETT_SELFIE -> {
+                    make_selfie_input_view.visibility = VISIBLE
+                    make_selfie_input_view2.visibility = INVISIBLE
+                    make_selfie_edit_text.visibility = VISIBLE
+                    make_selfie_edit_text2.visibility = INVISIBLE
+                    make_selfie_cancel.visibility = INVISIBLE
+                }
+
                 ImageType.D_LICENSE_FRONT -> {
                     city_driver_license_front_input_view.visibility = VISIBLE
                     city_driver_license_front_input_view2.visibility = INVISIBLE
@@ -394,6 +478,43 @@ class ConnectionFragment : Fragment() {
         var imageType = ImageType.D_LICENSE_FRONT
 
         when (imageView.id) {
+            R.id.gett_driver_license_cancel -> {
+                imageType = ImageType.GETT_D_LICENSE
+                gett_driver_license_input_view.visibility = VISIBLE
+                gett_driver_license_input_view2.visibility = INVISIBLE
+                gett_driver_license_edit_text.visibility = VISIBLE
+                gett_driver_license_edit_text2.visibility = INVISIBLE
+                gett_driver_license_cancel.visibility = INVISIBLE
+            }
+            R.id.passport_first_number_cancel -> {
+                passport_first_number_input_view.visibility = VISIBLE
+                passport_first_number_input_view2.visibility = INVISIBLE
+                passport_first_number_edit_text.visibility = VISIBLE
+                passport_first_number_edit_text2.visibility = INVISIBLE
+                passport_first_number_cancel.visibility = INVISIBLE
+            }
+            R.id.gett_sts_cancel -> {
+                gett_sts_input_view.visibility = VISIBLE
+                gett_sts_input_view2.visibility = INVISIBLE
+                gett_sts_edit_text.visibility = VISIBLE
+                gett_sts_edit_text2.visibility = INVISIBLE
+                gett_sts_cancel.visibility = INVISIBLE
+            }
+            R.id.gett_license_cancel -> {
+                gett_license_input_view.visibility = VISIBLE
+                gett_license_input_view2.visibility = INVISIBLE
+                gett_license_edit_text.visibility = VISIBLE
+                gett_license_edit_text2.visibility = INVISIBLE
+                gett_license_cancel.visibility = INVISIBLE
+            }
+            R.id.make_selfie_cancel -> {
+                make_selfie_input_view.visibility = VISIBLE
+                make_selfie_input_view2.visibility = INVISIBLE
+                make_selfie_edit_text.visibility = VISIBLE
+                make_selfie_edit_text2.visibility = INVISIBLE
+                make_selfie_cancel.visibility = INVISIBLE
+            }
+
             R.id.city_driver_license_front_cancel -> {
                 imageType = ImageType.D_LICENSE_FRONT
                 city_driver_license_front_input_view.visibility = VISIBLE
