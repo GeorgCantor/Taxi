@@ -13,6 +13,7 @@
     <color name="buttons_dark_background">#14141A</color>
     <color name="error_red_color">#AE4C4C</color>
     <color name="yellow_color">#F1C46E</color>
+    <color name="green_color">#14763B</color>
 
     <color name="gray_intro_text">#CAD0D2</color>
     <color name="main_background">#101017</color>

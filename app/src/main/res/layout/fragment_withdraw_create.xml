@@ -63,27 +63,57 @@
             app:srcCompat="@drawable/ic_notification"
             tools:visibility="invisible" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/taxi_recycler"
-            android:layout_width="0dp"
+        <ImageView
+            android:id="@+id/taxi_icon"
+            android:layout_width="13dp"
+            android:layout_height="13dp"
+            android:layout_marginStart="@dimen/margin_24dp"
+            android:layout_marginTop="@dimen/margin_32dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/back_arrow"
+            tools:src="@drawable/ic_yandex_mini" />
+
+        <TextView
+            android:id="@+id/taxi_name"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_16dp"
-            android:layout_marginTop="@dimen/margin_24dp"
+            android:layout_marginStart="@dimen/margin_8dp"
+            android:textColor="@color/gray_profile"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/taxi_icon"
+            app:layout_constraintStart_toEndOf="@+id/taxi_icon"
+            app:layout_constraintTop_toTopOf="@+id/taxi_icon"
+            tools:text="@string/yandex_title" />
+
+        <TextView
+            android:id="@+id/balance_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/margin_16dp"
-            android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:textColor="@color/gray_intro_text"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/taxi_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/taxi_icon"
+            tools:text="Баланс: 1000₽" />
+
+        <ImageView
+            android:id="@+id/parent_background"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="22dp"
+            android:src="@drawable/bg_balance"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/withdraw_create_title"
-            tools:itemCount="3"
-            tools:listitem="@layout/item_taxi" />
+            app:layout_constraintTop_toBottomOf="@+id/taxi_icon" />
 
         <TextView
             android:id="@+id/daily_withdrawal_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="28dp"
-            android:layout_marginTop="46dp"
+            android:layout_marginTop="60dp"
             android:drawableEnd="@drawable/ic_question"
             android:drawablePadding="10dp"
             android:text="@string/daily_withdrawal"
@@ -91,7 +121,7 @@
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/taxi_recycler" />
+            app:layout_constraintTop_toBottomOf="@+id/taxi_icon" />
 
         <ImageView
             android:id="@+id/plus_image"
@@ -183,9 +213,9 @@
             android:id="@+id/space"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginStart="36dp"
+            android:layout_marginStart="@dimen/margin_24dp"
             android:layout_marginTop="22dp"
-            android:layout_marginEnd="36dp"
+            android:layout_marginEnd="@dimen/margin_24dp"
             android:background="@color/colorAccent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -227,50 +257,58 @@
             app:layout_constraintTop_toTopOf="@+id/instant_withdrawal_tv"
             app:srcCompat="@drawable/ic_minus_gray" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/add_card_block"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/cards_recycler"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toBottomOf="@+id/instant_withdrawal_tv">
+            android:layout_height="160dp"
+            android:layout_marginStart="@dimen/margin_8dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="@dimen/margin_8dp"
+            android:nestedScrollingEnabled="false"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/instant_withdrawal_tv"
+            tools:itemCount="2"
+            tools:listitem="@layout/item_card" />
 
-            <ImageView
-                android:id="@+id/card_background"
-                android:layout_width="match_parent"
-                android:layout_height="74dp"
-                android:layout_marginStart="@dimen/margin_24dp"
-                android:layout_marginTop="@dimen/margin_24dp"
-                android:layout_marginEnd="@dimen/margin_24dp"
-                android:src="@drawable/bg_profile_gradient"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/add_card_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_24dp"
+            android:background="?selectableItemBackground"
+            android:padding="@dimen/margin_16dp"
+            android:text="@string/add_new_card"
+            android:textColor="@color/gray_profile"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cards_recycler" />
 
-            <TextView
-                android:id="@+id/add_card_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_24dp"
-                android:text="@string/add_new_card"
-                android:textColor="@color/withdraws_yellow"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="@+id/card_background"
-                app:layout_constraintStart_toStartOf="@id/card_background"
-                app:layout_constraintTop_toTopOf="@+id/card_background" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <View
+            android:id="@+id/space2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="@dimen/margin_24dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="@dimen/margin_24dp"
+            android:background="@color/colorAccent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/add_card_tv" />
 
         <TextView
             android:id="@+id/sum_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_24dp"
-            android:layout_marginTop="42dp"
-            android:text="@string/sum"
+            android:layout_marginTop="@dimen/margin_24dp"
+            android:text="@string/transfer_amount"
             android:textColor="@color/gray_intro_text"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/add_card_block" />
+            app:layout_constraintTop_toBottomOf="@+id/space2" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/sum_input_view"
@@ -312,9 +350,9 @@
             android:textAllCaps="false"
             android:textColor="@color/continue_color"
             android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sum_input_view" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

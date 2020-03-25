@@ -10,18 +10,16 @@ import android.view.View
 import android.view.View.*
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
-import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_withdraw_create.*
-import kotlinx.android.synthetic.main.item_taxi.view.*
+import kotlinx.android.synthetic.main.item_card.view.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
-import taxi.kassa.model.Taxi
 import taxi.kassa.util.Constants.CITYMOBIL
 import taxi.kassa.util.Constants.GETT
 import taxi.kassa.util.Constants.PUSH_COUNTER
@@ -84,53 +82,23 @@ class WithdrawCreateFragment : Fragment() {
 
         viewModel.responseOwner.observe(viewLifecycleOwner, Observer { response ->
             response?.let {
-                val taxis = mutableListOf<Taxi>()
-                taxis.add(Taxi(R.drawable.ic_yandex, getString(R.string.yandex_title), it.balanceYandex))
-                taxis.add(Taxi(R.drawable.ic_gett, getString(R.string.gett_title), it.balanceGett))
-                taxis.add(Taxi(R.drawable.ic_citymobil, getString(R.string.citymobil_title), it.balanceCity))
-
-                taxi_recycler.adapter = WithdrawTaxiAdapter(taxis) { itemView ->
-                    val items = mutableListOf(
-                        taxi_recycler[0], taxi_recycler[1], taxi_recycler[2]
-                    )
-
-                    when (itemView.taxi_name.text) {
-                        getString(R.string.yandex_title) -> {
-                            sourceId = 1
-                            taxi_recycler.scrollToPosition(0)
-                        }
-                        getString(R.string.citymobil_title) -> {
-                            sourceId = 2
-                            taxi_recycler.scrollToPosition(2)
-                        }
-                        getString(R.string.gett_title) -> {
-                            sourceId = 3
-                        }
+                when (taxiType) {
+                    YANDEX -> {
+                        taxi_icon.setImageResource(R.drawable.ic_yandex_mini)
+                        taxi_name.text = getString(R.string.yandex_title)
+                        balance_tv.text = getString(R.string.withdraw_create_format, response.balanceYandex)
                     }
-
-                    items.map { view ->
-                        if (view != itemView) {
-                            view.background = getDrawable(requireContext(), android.R.color.transparent)
-                            view.check_image.visibility = INVISIBLE
-                        } else {
-                            view.background = getDrawable(requireContext(), R.drawable.bg_outline_green)
-                            view.check_image.visibility = VISIBLE
-                        }
+                    GETT -> {
+                        taxi_icon.setImageResource(R.drawable.ic_gett_mini)
+                        taxi_name.text = getString(R.string.gett_title)
+                        balance_tv.text = getString(R.string.withdraw_create_format, response.balanceGett)
+                    }
+                    CITYMOBIL -> {
+                        taxi_icon.setImageResource(R.drawable.ic_citymobil_mini)
+                        taxi_name.text = getString(R.string.citymobil_title)
+                        balance_tv.text = getString(R.string.withdraw_create_format, response.balanceCity)
                     }
                 }
-
-                val runnable = Runnable {
-                    when (taxiType) {
-                        YANDEX -> taxi_recycler[0].performClick()
-                        GETT -> taxi_recycler[1].performClick()
-                        CITYMOBIL -> {
-                            taxi_recycler.scrollToPosition(2)
-                            taxi_recycler[2].performClick()
-                        }
-                        else -> taxi_recycler[0].performClick()
-                    }
-                }
-                Handler().postDelayed(runnable, 500)
             }
         })
 
@@ -147,6 +115,29 @@ class WithdrawCreateFragment : Fragment() {
                 }
             }
         })
+
+        viewModel.cards.observe(viewLifecycleOwner, Observer { cards ->
+            cards_recycler.setHasFixedSize(true)
+            cards_recycler.adapter = WithdrawCardsAdapter(cards) { card ->
+                card.check_icon.visibility = VISIBLE
+                card.green_background.visibility = VISIBLE
+
+                cards_recycler.adapter?.itemCount?.let {
+                    if (it > 1) {
+                        for (i in 0 until it) {
+                            val item = cards_recycler[i]
+                            if (item != card) {
+                                item.check_icon.visibility = GONE
+                                item.green_background.visibility = GONE
+                            }
+                        }
+                    }
+                }
+            }
+        })
+
+        val runnable = Runnable { cards_recycler[0].performClick() }
+        Handler().postDelayed(runnable, 500)
 
         sum_edit_text.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
@@ -182,13 +173,15 @@ class WithdrawCreateFragment : Fragment() {
         }
 
         minus_card_image.setOnClickListener {
-            add_card_block.visibility = GONE
+            cards_recycler.visibility = GONE
+            add_card_tv.visibility = GONE
             minus_card_image.visibility = GONE
             plus_card_image.visibility = VISIBLE
         }
 
         plus_card_image.setOnClickListener {
-            add_card_block.visibility = VISIBLE
+            cards_recycler.visibility = VISIBLE
+            add_card_tv.visibility = VISIBLE
             minus_card_image.visibility = VISIBLE
             plus_card_image.visibility = GONE
         }
@@ -218,7 +211,7 @@ class WithdrawCreateFragment : Fragment() {
             }
         }
 
-        card_background.setOnClickListener {
+        add_card_tv.setOnClickListener {
             findNavController(this).navigate(R.id.action_withdrawCreateFragment_to_accountsFragment)
         }
 

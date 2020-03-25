@@ -69,13 +69,15 @@
     <string name="commission_title">Комиссия</string>
     <string name="with_commission">с учетом комиссии</string>
     <string name="connect_account">Подключить счёт</string>
-    <string name="sum">Сумма</string>
+    <string name="transfer_amount">Сумма перевода</string>
     <string name="enter_amount">Укажите сумму</string>
     <string name="send_request">Отправить заявку</string>
     <string name="no_withdrawal_requests">Нет заявок на вывод</string>
     <string name="enter_sum_error">Введите сумму</string>
     <string name="input_error">Ошибка ввода</string>
     <string name="withdraw_format">%s₽</string>
+    <string name="withdraw_create_format">Баланс: %s₽</string>
+    <string name="bank_card">Банковская карта</string>
     <string name="no_withdrawal_message">Чтобы выводить средства, подключите хотя бы один счет и создайте заявку</string>
     <!--    Accounts-->
     <string name="accounts_title">Счета и карты</string>
@@ -83,7 +85,7 @@
     <string name="instant_withdrawal">Моментальный вывод</string>
     <string name="add_account">Добавить счет</string>
     <string name="add_card">Добавить карту</string>
-    <string name="add_new_card">Добавить новую карту</string>
+    <string name="add_new_card">+ Добавить новую карту</string>
     <string name="add_button_text">Добавить</string>
     <string name="understand">Понятно</string>
     <string name="delete_account">Удаление счета</string>
