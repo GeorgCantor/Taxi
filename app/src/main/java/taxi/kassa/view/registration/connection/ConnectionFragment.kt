@@ -5,7 +5,8 @@ import android.os.Bundle
 import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.*
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
@@ -377,6 +378,7 @@ class ConnectionFragment : Fragment() {
             images.add(image)
             docs.add(ImageDocument(image.id, image.name, image.path, selectedType))
         } catch (e: IllegalStateException) {
+            // if the user returned without selecting a photo
             when (selectedType) {
                 ImageType.YANDEX_D_LICENSE -> {
                     imageTypes.remove(ImageType.YANDEX_D_LICENSE)
@@ -422,99 +424,51 @@ class ConnectionFragment : Fragment() {
 
                 ImageType.D_LICENSE_FRONT -> {
                     imageTypes.remove(ImageType.D_LICENSE_FRONT)
-                    city_driver_license_front_input_view.visibility = VISIBLE
-                    city_driver_license_front_input_view2.visibility = INVISIBLE
-                    city_driver_license_front_edit_text.visibility = VISIBLE
-                    city_driver_license_front_edit_text2.visibility = INVISIBLE
-                    city_driver_license_front_cancel.visibility = INVISIBLE
+                    cityDLicenseFrontViews.setNormalVisibility()
                 }
                 ImageType.D_LICENSE_BACK -> {
                     imageTypes.remove(ImageType.D_LICENSE_BACK)
-                    city_driver_license_back_input_view.visibility = VISIBLE
-                    city_driver_license_back_input_view2.visibility = INVISIBLE
-                    city_driver_license_back_edit_text.visibility = VISIBLE
-                    city_driver_license_back_edit_text2.visibility = INVISIBLE
-                    city_driver_license_back_cancel.visibility = INVISIBLE
+                    cityDLicenseBackViews.setNormalVisibility()
                 }
                 ImageType.PASSPORT_FIRST -> {
                     imageTypes.remove(ImageType.PASSPORT_FIRST)
-                    city_passport_first_input_view.visibility = VISIBLE
-                    city_passport_first_input_view2.visibility = INVISIBLE
-                    city_passport_first_edit_text.visibility = VISIBLE
-                    city_passport_first_edit_text2.visibility = INVISIBLE
-                    city_passport_first_cancel.visibility = INVISIBLE
+                    cityPassportFirstViews.setNormalVisibility()
                 }
                 ImageType.PASSPORT_REG -> {
                     imageTypes.remove(ImageType.PASSPORT_REG)
-                    city_passport_registration_input_view.visibility = VISIBLE
-                    city_passport_registration_input_view2.visibility = INVISIBLE
-                    city_passport_registration_edit_text.visibility = VISIBLE
-                    city_passport_registration_edit_text2.visibility = INVISIBLE
-                    city_passport_registration_cancel.visibility = INVISIBLE
+                    cityPassportRegViews.setNormalVisibility()
                 }
                 ImageType.STS -> {
                     imageTypes.remove(ImageType.STS)
-                    city_sts_input_view.visibility = VISIBLE
-                    city_sts_input_view2.visibility = INVISIBLE
-                    city_sts_edit_text.visibility = VISIBLE
-                    city_sts_edit_text2.visibility = INVISIBLE
-                    city_sts_cancel.visibility = INVISIBLE
+                    cityStsViews.setNormalVisibility()
                 }
                 ImageType.LICENSE_FRONT -> {
                     imageTypes.remove(ImageType.LICENSE_FRONT)
-                    city_license_front_input_view.visibility = VISIBLE
-                    city_license_front_input_view2.visibility = INVISIBLE
-                    city_license_front_edit_text.visibility = VISIBLE
-                    city_license_front_edit_text2.visibility = INVISIBLE
-                    city_license_front_cancel.visibility = INVISIBLE
+                    cityLicenseFrontViews.setNormalVisibility()
                 }
                 ImageType.LICENSE_BACK -> {
                     imageTypes.remove(ImageType.LICENSE_BACK)
-                    city_license_back_input_view.visibility = VISIBLE
-                    city_license_back_input_view2.visibility = INVISIBLE
-                    city_license_back_edit_text.visibility = VISIBLE
-                    city_license_back_edit_text2.visibility = INVISIBLE
-                    city_license_back_cancel.visibility = INVISIBLE
+                    cityLicenseBackViews.setNormalVisibility()
                 }
                 ImageType.AUTO_FRONT -> {
                     imageTypes.remove(ImageType.AUTO_FRONT)
-                    front_side_input_view.visibility = VISIBLE
-                    front_side_input_view2.visibility = INVISIBLE
-                    front_side_edit_text.visibility = VISIBLE
-                    front_side_edit_text2.visibility = INVISIBLE
-                    front_side_cancel.visibility = INVISIBLE
+                    cityFrontSideViews.setNormalVisibility()
                 }
                 ImageType.AUTO_BACK -> {
                     imageTypes.remove(ImageType.AUTO_BACK)
-                    back_side_input_view.visibility = VISIBLE
-                    back_side_input_view2.visibility = INVISIBLE
-                    back_side_edit_text.visibility = VISIBLE
-                    back_side_edit_text2.visibility = INVISIBLE
-                    back_side_cancel.visibility = INVISIBLE
+                    cityBackSideViews.setNormalVisibility()
                 }
                 ImageType.AUTO_LEFT -> {
                     imageTypes.remove(ImageType.AUTO_LEFT)
-                    left_side_input_view.visibility = VISIBLE
-                    left_side_input_view2.visibility = INVISIBLE
-                    left_side_edit_text.visibility = VISIBLE
-                    left_side_edit_text2.visibility = INVISIBLE
-                    left_side_cancel.visibility = INVISIBLE
+                    cityLeftSideViews.setNormalVisibility()
                 }
                 ImageType.AUTO_RIGHT -> {
                     imageTypes.remove(ImageType.AUTO_RIGHT)
-                    right_side_input_view.visibility = VISIBLE
-                    right_side_input_view2.visibility = INVISIBLE
-                    right_side_edit_text.visibility = VISIBLE
-                    right_side_edit_text2.visibility = INVISIBLE
-                    right_side_cancel.visibility = INVISIBLE
+                    cityRightSideViews.setNormalVisibility()
                 }
                 ImageType.SELFIE -> {
                     imageTypes.remove(ImageType.SELFIE)
-                    city_selfie_input_view.visibility = VISIBLE
-                    city_selfie_input_view2.visibility = INVISIBLE
-                    city_selfie_edit_text.visibility = VISIBLE
-                    city_selfie_edit_text2.visibility = INVISIBLE
-                    city_selfie_cancel.visibility = INVISIBLE
+                    citySelfieViews.setNormalVisibility()
                 }
             }
         }
@@ -632,99 +586,51 @@ class ConnectionFragment : Fragment() {
 
             R.id.city_driver_license_front_cancel -> {
                 imageType = ImageType.D_LICENSE_FRONT
-                city_driver_license_front_input_view.visibility = VISIBLE
-                city_driver_license_front_input_view2.visibility = INVISIBLE
-                city_driver_license_front_edit_text.visibility = VISIBLE
-                city_driver_license_front_edit_text2.visibility = INVISIBLE
-                city_driver_license_front_cancel.visibility = INVISIBLE
+                cityDLicenseFrontViews.setNormalVisibility()
             }
             R.id.city_driver_license_back_cancel -> {
                 imageType = ImageType.D_LICENSE_BACK
-                city_driver_license_back_input_view.visibility = VISIBLE
-                city_driver_license_back_input_view2.visibility = INVISIBLE
-                city_driver_license_back_edit_text.visibility = VISIBLE
-                city_driver_license_back_edit_text2.visibility = INVISIBLE
-                city_driver_license_back_cancel.visibility = INVISIBLE
+                cityDLicenseBackViews.setNormalVisibility()
             }
             R.id.city_passport_first_cancel -> {
                 imageType = ImageType.PASSPORT_FIRST
-                city_passport_first_input_view.visibility = VISIBLE
-                city_passport_first_input_view2.visibility = INVISIBLE
-                city_passport_first_edit_text.visibility = VISIBLE
-                city_passport_first_edit_text2.visibility = INVISIBLE
-                city_passport_first_cancel.visibility = INVISIBLE
+                cityPassportFirstViews.setNormalVisibility()
             }
             R.id.city_passport_registration_cancel -> {
                 imageType = ImageType.PASSPORT_REG
-                city_passport_registration_input_view.visibility = VISIBLE
-                city_passport_registration_input_view2.visibility = INVISIBLE
-                city_passport_registration_edit_text.visibility = VISIBLE
-                city_passport_registration_edit_text2.visibility = INVISIBLE
-                city_passport_registration_cancel.visibility = INVISIBLE
+                cityPassportRegViews.setNormalVisibility()
             }
             R.id.city_sts_cancel -> {
                 imageType = ImageType.STS
-                city_sts_input_view.visibility = VISIBLE
-                city_sts_input_view2.visibility = INVISIBLE
-                city_sts_edit_text.visibility = VISIBLE
-                city_sts_edit_text2.visibility = INVISIBLE
-                city_sts_cancel.visibility = INVISIBLE
+                cityStsViews.setNormalVisibility()
             }
             R.id.city_license_front_cancel -> {
                 imageType = ImageType.LICENSE_FRONT
-                city_license_front_input_view.visibility = VISIBLE
-                city_license_front_input_view2.visibility = INVISIBLE
-                city_license_front_edit_text.visibility = VISIBLE
-                city_license_front_edit_text2.visibility = INVISIBLE
-                city_license_front_cancel.visibility = INVISIBLE
+                cityLicenseFrontViews.setNormalVisibility()
             }
             R.id.city_license_back_cancel -> {
                 imageType = ImageType.LICENSE_BACK
-                city_license_back_input_view.visibility = VISIBLE
-                city_license_back_input_view2.visibility = INVISIBLE
-                city_license_back_edit_text.visibility = VISIBLE
-                city_license_back_edit_text2.visibility = INVISIBLE
-                city_license_back_cancel.visibility = INVISIBLE
+                cityLicenseBackViews.setNormalVisibility()
             }
             R.id.front_side_cancel -> {
                 imageType = ImageType.AUTO_FRONT
-                front_side_input_view.visibility = VISIBLE
-                front_side_input_view2.visibility = INVISIBLE
-                front_side_edit_text.visibility = VISIBLE
-                front_side_edit_text2.visibility = INVISIBLE
-                front_side_cancel.visibility = INVISIBLE
+                cityFrontSideViews.setNormalVisibility()
             }
             R.id.back_side_cancel -> {
                 imageType = ImageType.AUTO_BACK
-                back_side_input_view.visibility = VISIBLE
-                back_side_input_view2.visibility = INVISIBLE
-                back_side_edit_text.visibility = VISIBLE
-                back_side_edit_text2.visibility = INVISIBLE
-                back_side_cancel.visibility = INVISIBLE
+                cityBackSideViews.setNormalVisibility()
             }
             R.id.left_side_cancel -> {
                 imageType = ImageType.AUTO_LEFT
-                left_side_input_view.visibility = VISIBLE
-                left_side_input_view2.visibility = INVISIBLE
-                left_side_edit_text.visibility = VISIBLE
-                left_side_edit_text2.visibility = INVISIBLE
-                left_side_cancel.visibility = INVISIBLE
+                cityLeftSideViews.setNormalVisibility()
             }
             R.id.right_side_cancel -> {
                 imageType = ImageType.AUTO_RIGHT
-                right_side_input_view.visibility = VISIBLE
-                right_side_input_view2.visibility = INVISIBLE
-                right_side_edit_text.visibility = VISIBLE
-                right_side_edit_text2.visibility = INVISIBLE
-                right_side_cancel.visibility = INVISIBLE
+                cityRightSideViews.setNormalVisibility()
             }
             R.id.city_selfie_cancel -> {
                 imageType = ImageType.SELFIE
-                city_selfie_input_view.visibility = VISIBLE
-                city_selfie_input_view2.visibility = INVISIBLE
-                city_selfie_edit_text.visibility = VISIBLE
-                city_selfie_edit_text2.visibility = INVISIBLE
-                city_selfie_cancel.visibility = INVISIBLE
+                citySelfieViews.setNormalVisibility()
             }
         }
 
