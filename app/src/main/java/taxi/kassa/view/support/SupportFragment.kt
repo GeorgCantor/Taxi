@@ -8,8 +8,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.INVISIBLE
-import android.view.View.VISIBLE
+import android.view.View.*
 import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
@@ -54,6 +53,15 @@ class SupportFragment : Fragment() {
                     notification_count.visibility = INVISIBLE
                     notification_image.visibility = VISIBLE
                 }
+            }
+        })
+
+        viewModel.messages.observe(viewLifecycleOwner, Observer {
+            if (it.isNullOrEmpty()) {
+                message_counter.visibility = GONE
+            } else {
+                message_counter.visibility = VISIBLE
+                message_counter.text = getString(R.string.profile_format, it.size.toString())
             }
         })
 

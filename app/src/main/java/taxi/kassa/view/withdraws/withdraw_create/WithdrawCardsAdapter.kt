@@ -34,7 +34,8 @@ class WithdrawCardsAdapter(
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onBindViewHolder(holder: WithdrawCardViewHolder, position: Int) {
         val card = cards[position]
-        holder.cardNumber.text = card.number.toString()
+        val formattedNumber = "**** ${card.number.substring(12)}"
+        holder.cardNumber.text = formattedNumber
         holder.cardIcon.background = holder.itemView.context.getDrawable(card.iconResource)
 
         holder.itemView.setOnClickListener {

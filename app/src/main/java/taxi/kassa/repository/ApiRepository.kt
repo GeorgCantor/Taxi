@@ -123,13 +123,13 @@ class ApiRepository(
     fun getCards(): MutableList<Card> {
         return mutableListOf(
             Card(
-                number = 12339888,
+                number = "1233988888775566",
                 type = "mastercard",
                 amount = "1290.43",
                 iconResource = R.drawable.ic_mastrcard_bg
             ),
             Card(
-                number = 13223332,
+                number = "7774443388883342",
                 type = "mastercard",
                 amount = "6290.83",
                 iconResource = R.drawable.ic_mastrcard_bg
