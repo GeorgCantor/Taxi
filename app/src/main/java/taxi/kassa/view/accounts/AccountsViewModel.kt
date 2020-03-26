@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import io.reactivex.Observable
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
+import taxi.kassa.model.Card
 import taxi.kassa.model.Notification
 import taxi.kassa.model.responses.AccountsList
 import taxi.kassa.repository.ApiRepository
@@ -18,6 +19,7 @@ class AccountsViewModel(private val repository: ApiRepository) : ViewModel() {
     val accounts = MutableLiveData<AccountsList>()
     val error = MutableLiveData<String>()
     val notifications = MutableLiveData<MutableList<Notification>>()
+    val cards = MutableLiveData<MutableList<Card>>()
 
     fun getAccounts() {
         disposable.add(
@@ -34,6 +36,7 @@ class AccountsViewModel(private val repository: ApiRepository) : ViewModel() {
         )
 
         notifications.value = repository.getNotifications()
+        cards.value = repository.getCards()
     }
 
     fun createAccount(

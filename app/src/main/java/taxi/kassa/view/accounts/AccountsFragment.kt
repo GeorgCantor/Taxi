@@ -92,6 +92,11 @@ class AccountsFragment : Fragment() {
             }
         })
 
+        viewModel.cards.observe(viewLifecycleOwner, Observer {
+            cards_recycler.setHasFixedSize(true)
+            cards_recycler.adapter = AccountsCardsAdapter(it)
+        })
+
         val editTexts = listOf<EditText>(
             name_edit_text, surname_edit_text, account_edit_text, bik_edit_text
         )
