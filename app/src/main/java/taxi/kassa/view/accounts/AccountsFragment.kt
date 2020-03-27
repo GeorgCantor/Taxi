@@ -44,8 +44,6 @@ class AccountsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getAccounts()
 
-        val constraintSet = ConstraintSet()
-
         viewModel.error.observe(viewLifecycleOwner, Observer {
             activity?.shortToast(it)
         })
@@ -145,6 +143,8 @@ class AccountsFragment : Fragment() {
                 getString(R.string.instant_withdrawal_dialog_message)
             )
         }
+
+        val constraintSet = ConstraintSet()
 
         add_account_image.setOnClickListener {
             no_account_block.visibility = INVISIBLE

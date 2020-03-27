@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     android:background="@color/main_background">
 
+    <ImageView
+        android:id="@+id/back_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_4dp"
+        android:layout_marginTop="12dp"
+        android:background="?attr/selectableItemBackground"
+        android:padding="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_back" />
+
     <TextView
         android:id="@+id/input_code_title"
         android:layout_width="wrap_content"
@@ -116,9 +128,9 @@
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
         android:textAlignment="center"
-        tools:text="@string/wrong_format_error"
         android:textColor="@color/error_red_color"
-        app:layout_constraintTop_toBottomOf="@+id/code_inputs_layout" />
+        app:layout_constraintTop_toBottomOf="@+id/code_inputs_layout"
+        tools:text="@string/wrong_format_error" />
 
     <Button
         android:id="@+id/login_button"

@@ -486,21 +486,12 @@ class ConnectionFragment : Fragment() {
 
         editTexts.map {
             it.setOnFocusChangeListener { _, _ ->
-                if (it.text?.isNotBlank() == true) {
-                    it.setCompoundDrawablesWithIntrinsicBounds(
-                        0,
-                        0,
-                        R.drawable.ic_check_green,
-                        0
-                    )
-                } else {
-                    it.setCompoundDrawablesWithIntrinsicBounds(
-                        0,
-                        0,
-                        0,
-                        0
-                    )
-                }
+                it.setCompoundDrawablesWithIntrinsicBounds(
+                    0,
+                    0,
+                    if (it.text?.isNotBlank() == true) R.drawable.ic_check_green else 0,
+                    0
+                )
             }
         }
     }
@@ -640,6 +631,19 @@ class ConnectionFragment : Fragment() {
         docs.remove(doc)
 
         imageTypes.remove(imageType)
+
+        val cancels = mutableListOf<View>(
+            driver_license_cancel,
+            passport_first_cancel,
+            passport_reg_cancel,
+            sts_cancel,
+            license_cancel
+        )
+        var counter = 0
+        cancels.map {
+            if (it.visibility == VISIBLE) counter++
+        }
+        if (counter == 0) imageTypes.clear()
     }
 
     private fun back() {

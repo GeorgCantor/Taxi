@@ -201,6 +201,8 @@ class AuthCodeFragment : Fragment() {
         }
 
         apply_btn.setOnClickListener { login() }
+
+        back_arrow.setOnClickListener { activity?.onBackPressed() }
     }
 
     private fun addChangingRequestFocus() {

@@ -27,7 +27,7 @@ class ProfileViewModel(
     val responseOwner = MutableLiveData<ResponseOwner>()
     val error = MutableLiveData<String>()
     val notifications = MutableLiveData<MutableList<Notification>>()
-    val messages = MutableLiveData<MutableList<Message>>()
+    val incomingMessages = MutableLiveData<MutableList<Message>>()
 
     fun getUserInfo() {
         disposable = Observable.fromCallable {
@@ -43,7 +43,7 @@ class ProfileViewModel(
             .subscribe()
 
         notifications.value = repository.getNotifications()
-        messages.value = repository.getChatHistory().filter { it.isIncoming } as MutableList
+        incomingMessages.value = repository.getChatHistory().filter { it.isIncoming } as MutableList
 
         isNetworkAvailable.value = context.isNetworkAvailable()
     }

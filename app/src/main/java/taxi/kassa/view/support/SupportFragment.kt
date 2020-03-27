@@ -19,6 +19,7 @@ import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.util.Constants
+import taxi.kassa.util.Constants.MESSAGES_COUNTER
 import taxi.kassa.util.Constants.PUSH_COUNTER
 import taxi.kassa.util.PreferenceManager
 import taxi.kassa.util.shortToast
@@ -56,12 +57,15 @@ class SupportFragment : Fragment() {
             }
         })
 
-        viewModel.messages.observe(viewLifecycleOwner, Observer {
-            if (it.isNullOrEmpty()) {
-                message_counter.visibility = GONE
-            } else {
+        viewModel.incomingMessages.observe(viewLifecycleOwner, Observer {
+            val readMessages = PreferenceManager(requireContext()).getInt(MESSAGES_COUNTER)
+            val unreadMessages = it.size - (readMessages ?: 0)
+
+            if (unreadMessages > 0) {
                 message_counter.visibility = VISIBLE
-                message_counter.text = getString(R.string.profile_format, it.size.toString())
+                message_counter.text = getString(R.string.profile_format, unreadMessages.toString())
+            } else {
+                message_counter.visibility = GONE
             }
         })
 

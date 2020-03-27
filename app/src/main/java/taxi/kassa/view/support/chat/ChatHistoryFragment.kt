@@ -10,6 +10,8 @@ import kotlinx.android.synthetic.main.fragment_chat_history.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
+import taxi.kassa.util.Constants.MESSAGES_COUNTER
+import taxi.kassa.util.PreferenceManager
 
 class ChatHistoryFragment : Fragment() {
 
@@ -32,6 +34,10 @@ class ChatHistoryFragment : Fragment() {
 
         viewModel.messages.observe(viewLifecycleOwner, Observer {
             chat_recycler.adapter = ChatHistoryAdapter(it)
+        })
+
+        viewModel.incomingMessages.observe(viewLifecycleOwner, Observer {
+            PreferenceManager(requireContext()).saveInt(MESSAGES_COUNTER, it.size)
         })
 
         back_arrow.setOnClickListener { activity?.onBackPressed() }

@@ -126,6 +126,8 @@ class AuthPhoneFragment : Fragment() {
         }
 
         apply_btn.setOnClickListener { apply() }
+
+        back_arrow.setOnClickListener { activity?.onBackPressed() }
     }
 
     private fun apply() {

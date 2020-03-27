@@ -21,6 +21,7 @@ object Constants {
     const val SUPPORT_PHONE_NUMBER = "+74993505558"
     const val NOTIFICATIONS = "notifications"
     const val PUSH_COUNTER = "counter"
+    const val MESSAGES_COUNTER = "messages_counter"
 
     const val TITLE = "1"
     const val MESSAGE = "2"

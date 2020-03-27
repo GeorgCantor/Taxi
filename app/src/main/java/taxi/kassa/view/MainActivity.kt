@@ -36,19 +36,19 @@ class MainActivity : AppCompatActivity() {
                     TITLE -> title = intent.extras?.get(key) as String
                     MESSAGE -> message = intent.extras?.get(key) as String
                 }
-            }.also {
-                if (message.isNotBlank()) {
-                    var notifications = manager.getNotifications(NOTIFICATIONS)
-                    val newNotification = Notification(title, message, date, true)
+            }
 
-                    if (notifications.isNullOrEmpty()) {
-                        notifications = arrayListOf(newNotification)
-                    } else {
-                        notifications.add(newNotification)
-                    }
+            if (message.isNotBlank()) {
+                var notifications = manager.getNotifications(NOTIFICATIONS)
+                val newNotification = Notification(title, message, date, true)
 
-                    manager.saveNotifications(NOTIFICATIONS, notifications)
+                if (notifications.isNullOrEmpty()) {
+                    notifications = arrayListOf(newNotification)
+                } else {
+                    notifications.add(newNotification)
                 }
+
+                manager.saveNotifications(NOTIFICATIONS, notifications)
             }
         }
 
