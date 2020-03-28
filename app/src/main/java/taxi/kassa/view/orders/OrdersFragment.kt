@@ -20,6 +20,8 @@ import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.util.Constants.PUSH_COUNTER
 import taxi.kassa.util.PreferenceManager
+import taxi.kassa.util.invisible
+import taxi.kassa.util.visible
 import taxi.kassa.view.orders.adapter.OrdersPagerAdapter
 import taxi.kassa.view.orders.adapter.OrdersTaxiAdapter
 import taxi.kassa.view.orders.list.OrdersListFragment
@@ -110,11 +112,11 @@ class OrdersFragment : Fragment() {
             oldPushesSize?.let { oldSize ->
                 if (it.size > oldSize) {
                     notification_count.text = (it.size - oldSize).toString()
-                    notification_count.visibility = VISIBLE
-                    notification_image.visibility = INVISIBLE
+                    notification_count.visible()
+                    notification_image.invisible()
                 } else {
-                    notification_count.visibility = INVISIBLE
-                    notification_image.visibility = VISIBLE
+                    notification_count.invisible()
+                    notification_image.visible()
                 }
             }
         })

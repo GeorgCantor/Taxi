@@ -4,8 +4,7 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.INVISIBLE
-import android.view.View.VISIBLE
+import android.view.View.*
 import android.widget.Toast
 import android.widget.Toast.LENGTH_LONG
 import android.widget.Toast.LENGTH_SHORT
@@ -68,6 +67,12 @@ fun Context.showTwoButtonsDialog(
     }
 }
 
+fun View.visible() { visibility = VISIBLE }
+
+fun View.invisible() { visibility = INVISIBLE }
+
+fun View.gone() { visibility = GONE }
+
 fun String.getStringAfterSpace(): String {
     val index = this.indexOf(' ')
 
@@ -75,17 +80,17 @@ fun String.getStringAfterSpace(): String {
 }
 
 fun Array<View>.setNormalVisibility() {
-    this[0].visibility = VISIBLE
-    this[1].visibility = INVISIBLE
-    this[2].visibility = VISIBLE
-    this[3].visibility = INVISIBLE
-    this[4].visibility = INVISIBLE
+    this[0].visible()
+    this[1].invisible()
+    this[2].visible()
+    this[3].invisible()
+    this[4].invisible()
 }
 
 fun Array<View>.setLoadPhotoVisibility() {
-    this[0].visibility = INVISIBLE
-    this[1].visibility = VISIBLE
-    this[2].visibility = INVISIBLE
-    this[3].visibility = VISIBLE
-    this[4].visibility = VISIBLE
+    this[0].invisible()
+    this[1].visible()
+    this[2].invisible()
+    this[3].visible()
+    this[4].visible()
 }

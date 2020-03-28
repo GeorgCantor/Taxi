@@ -2,6 +2,8 @@ package taxi.kassa.view.fuel
 
 import android.os.Bundle
 import android.os.Handler
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.INVISIBLE
@@ -20,7 +22,9 @@ import taxi.kassa.R
 import taxi.kassa.model.Taxi
 import taxi.kassa.util.Constants.PUSH_COUNTER
 import taxi.kassa.util.PreferenceManager
+import taxi.kassa.util.invisible
 import taxi.kassa.util.shortToast
+import taxi.kassa.util.visible
 
 class FuelReplenishFragment : Fragment() {
 
@@ -67,10 +71,10 @@ class FuelReplenishFragment : Fragment() {
                     items.map { view ->
                         if (view != itemView) {
                             view.background = AppCompatResources.getDrawable(requireContext(), android.R.color.transparent)
-                            view.check_image.visibility = INVISIBLE
+                            view.check_image.invisible()
                         } else {
                             view.background = AppCompatResources.getDrawable(requireContext(), R.drawable.bg_outline_green)
-                            view.check_image.visibility = VISIBLE
+                            view.check_image.visible()
                         }
                     }
                 }
@@ -85,12 +89,24 @@ class FuelReplenishFragment : Fragment() {
             oldPushesSize?.let { oldSize ->
                 if (it.size > oldSize) {
                     notification_count.text = (it.size - oldSize).toString()
-                    notification_count.visibility = VISIBLE
-                    notification_image.visibility = INVISIBLE
+                    notification_count.visible()
+                    notification_image.invisible()
                 } else {
-                    notification_count.visibility = INVISIBLE
-                    notification_image.visibility = VISIBLE
+                    notification_count.invisible()
+                    notification_image.visible()
                 }
+            }
+        })
+
+        enter_amount_edit_text.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(editable: Editable?) {
+                enter_amount_input_view.error = null
+            }
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             }
         })
 

@@ -21,7 +21,9 @@ import taxi.kassa.util.Constants.PUSH_COUNTER
 import taxi.kassa.util.Constants.TAXI
 import taxi.kassa.util.Constants.YANDEX
 import taxi.kassa.util.PreferenceManager
+import taxi.kassa.util.invisible
 import taxi.kassa.util.longToast
+import taxi.kassa.util.visible
 import java.text.NumberFormat
 import java.util.*
 
@@ -84,11 +86,11 @@ class BalanceFragment : Fragment() {
             oldPushesSize?.let { oldSize ->
                 if (it.size > oldSize) {
                     notification_count.text = (it.size - oldSize).toString()
-                    notification_count.visibility = VISIBLE
-                    notification_image.visibility = INVISIBLE
+                    notification_count.visible()
+                    notification_image.invisible()
                 } else {
-                    notification_count.visibility = INVISIBLE
-                    notification_image.visibility = VISIBLE
+                    notification_count.invisible()
+                    notification_image.visible()
                 }
             }
         })

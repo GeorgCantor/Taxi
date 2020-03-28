@@ -21,5 +21,4 @@ class OfflineResponseCacheInterceptor(private val context: Context) : Intercepto
 
         return chain.proceed(request)
     }
-
 }

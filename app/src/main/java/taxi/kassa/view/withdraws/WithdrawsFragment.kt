@@ -16,7 +16,9 @@ import taxi.kassa.R
 import taxi.kassa.util.Constants.PUSH_COUNTER
 import taxi.kassa.util.Constants.WITHDRAW
 import taxi.kassa.util.PreferenceManager
+import taxi.kassa.util.invisible
 import taxi.kassa.util.shortToast
+import taxi.kassa.util.visible
 
 class WithdrawsFragment : Fragment() {
 
@@ -60,11 +62,11 @@ class WithdrawsFragment : Fragment() {
             oldPushesSize?.let { oldSize ->
                 if (it.size > oldSize) {
                     notification_count.text = (it.size - oldSize).toString()
-                    notification_count.visibility = VISIBLE
-                    notification_image.visibility = INVISIBLE
+                    notification_count.visible()
+                    notification_image.invisible()
                 } else {
-                    notification_count.visibility = INVISIBLE
-                    notification_image.visibility = VISIBLE
+                    notification_count.invisible()
+                    notification_image.visible()
                 }
             }
         })

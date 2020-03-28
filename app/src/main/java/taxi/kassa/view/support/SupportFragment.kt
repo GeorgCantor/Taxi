@@ -18,11 +18,9 @@ import kotlinx.android.synthetic.main.fragment_support.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
-import taxi.kassa.util.Constants
+import taxi.kassa.util.*
 import taxi.kassa.util.Constants.MESSAGES_COUNTER
 import taxi.kassa.util.Constants.PUSH_COUNTER
-import taxi.kassa.util.PreferenceManager
-import taxi.kassa.util.shortToast
 
 class SupportFragment : Fragment() {
 
@@ -48,11 +46,11 @@ class SupportFragment : Fragment() {
             oldPushesSize?.let { oldSize ->
                 if (it.size > oldSize) {
                     notification_count.text = (it.size - oldSize).toString()
-                    notification_count.visibility = VISIBLE
-                    notification_image.visibility = INVISIBLE
+                    notification_count.visible()
+                    notification_image.invisible()
                 } else {
-                    notification_count.visibility = INVISIBLE
-                    notification_image.visibility = VISIBLE
+                    notification_count.invisible()
+                    notification_image.visible()
                 }
             }
         })
@@ -62,10 +60,10 @@ class SupportFragment : Fragment() {
             val unreadMessages = it.size - (readMessages ?: 0)
 
             if (unreadMessages > 0) {
-                message_counter.visibility = VISIBLE
+                message_counter.visible()
                 message_counter.text = getString(R.string.profile_format, unreadMessages.toString())
             } else {
-                message_counter.visibility = GONE
+                message_counter.gone()
             }
         })
 

@@ -20,15 +20,12 @@ import kotlinx.android.synthetic.main.item_card.view.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
+import taxi.kassa.util.*
 import taxi.kassa.util.Constants.CITYMOBIL
 import taxi.kassa.util.Constants.GETT
 import taxi.kassa.util.Constants.PUSH_COUNTER
 import taxi.kassa.util.Constants.TAXI
 import taxi.kassa.util.Constants.YANDEX
-import taxi.kassa.util.PreferenceManager
-import taxi.kassa.util.shortToast
-import taxi.kassa.util.showOneButtonDialog
-import taxi.kassa.util.showTwoButtonsDialog
 
 class WithdrawCreateFragment : Fragment() {
 
@@ -60,15 +57,11 @@ class WithdrawCreateFragment : Fragment() {
         })
 
         viewModel.creatingStatus.observe(viewLifecycleOwner, Observer { status ->
-            status?.let {
-                activity?.shortToast(it)
-            }
+            status?.let { activity?.shortToast(it) }
         })
 
         viewModel.deletionStatus.observe(viewLifecycleOwner, Observer { status ->
-            status?.let {
-                activity?.shortToast(it)
-            }
+            status?.let { activity?.shortToast(it) }
         })
 
         viewModel.accounts.observe(viewLifecycleOwner, Observer {
@@ -107,11 +100,11 @@ class WithdrawCreateFragment : Fragment() {
             oldPushesSize?.let { oldSize ->
                 if (it.size > oldSize) {
                     notification_count.text = (it.size - oldSize).toString()
-                    notification_count.visibility = VISIBLE
-                    notification_image.visibility = INVISIBLE
+                    notification_count.visible()
+                    notification_image.invisible()
                 } else {
-                    notification_count.visibility = INVISIBLE
-                    notification_image.visibility = VISIBLE
+                    notification_count.invisible()
+                    notification_image.visible()
                 }
             }
         })
@@ -119,16 +112,16 @@ class WithdrawCreateFragment : Fragment() {
         viewModel.cards.observe(viewLifecycleOwner, Observer { cards ->
             cards_recycler.setHasFixedSize(true)
             cards_recycler.adapter = WithdrawCardsAdapter(cards) { card ->
-                card.check_icon.visibility = VISIBLE
-                card.green_background.visibility = VISIBLE
+                card.check_icon.visible()
+                card.green_background.visible()
 
                 cards_recycler.adapter?.itemCount?.let {
                     if (it > 1) {
                         for (i in 0 until it) {
                             val item = cards_recycler[i]
                             if (item != card) {
-                                item.check_icon.visibility = GONE
-                                item.green_background.visibility = GONE
+                                item.check_icon.gone()
+                                item.green_background.gone()
                             }
                         }
                     }
@@ -161,29 +154,29 @@ class WithdrawCreateFragment : Fragment() {
         }
 
         minus_image.setOnClickListener {
-            account_block.visibility = GONE
-            minus_image.visibility = GONE
-            plus_image.visibility = VISIBLE
+            account_block.gone()
+            minus_image.gone()
+            plus_image.visible()
         }
 
         plus_image.setOnClickListener {
-            account_block.visibility = VISIBLE
-            minus_image.visibility = VISIBLE
-            plus_image.visibility = GONE
+            account_block.visible()
+            minus_image.visible()
+            plus_image.gone()
         }
 
         minus_card_image.setOnClickListener {
-            cards_recycler.visibility = GONE
-            add_card_tv.visibility = GONE
-            minus_card_image.visibility = GONE
-            plus_card_image.visibility = VISIBLE
+            cards_recycler.gone()
+            add_card_tv.gone()
+            minus_card_image.gone()
+            plus_card_image.visible()
         }
 
         plus_card_image.setOnClickListener {
-            cards_recycler.visibility = VISIBLE
-            add_card_tv.visibility = VISIBLE
-            minus_card_image.visibility = VISIBLE
-            plus_card_image.visibility = GONE
+            cards_recycler.visible()
+            add_card_tv.visible()
+            minus_card_image.visible()
+            plus_card_image.gone()
         }
 
         daily_withdrawal_tv.setOnClickListener {

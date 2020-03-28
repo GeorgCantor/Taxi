@@ -24,8 +24,10 @@ import taxi.kassa.util.Constants.CITYMOBIL
 import taxi.kassa.util.Constants.CONNECTION
 import taxi.kassa.util.Constants.GETT
 import taxi.kassa.util.Constants.YANDEX
+import taxi.kassa.util.gone
 import taxi.kassa.util.setLoadPhotoVisibility
 import taxi.kassa.util.setNormalVisibility
+import taxi.kassa.util.visible
 
 class ConnectionFragment : Fragment() {
 
@@ -81,32 +83,32 @@ class ConnectionFragment : Fragment() {
 
         when (taxiType) {
             YANDEX -> {
-                yandex_block.visibility = VISIBLE
-                yandex_submit_button.visibility = VISIBLE
-                gett_block.visibility = GONE
-                gett_submit_button.visibility = GONE
-                city_block.visibility = GONE
-                city_submit_button.visibility = GONE
+                yandex_block.visible()
+                yandex_submit_button.visible()
+                gett_block.gone()
+                gett_submit_button.gone()
+                city_block.gone()
+                city_submit_button.gone()
                 taxi_icon.background = getDrawable(requireContext(), R.drawable.ic_yandex)
                 taxi_name.text = getString(R.string.yandex_title)
             }
             GETT -> {
-                yandex_block.visibility = GONE
-                yandex_submit_button.visibility = GONE
-                gett_block.visibility = VISIBLE
-                gett_submit_button.visibility = VISIBLE
-                city_block.visibility = GONE
-                city_submit_button.visibility = GONE
+                yandex_block.gone()
+                yandex_submit_button.gone()
+                gett_block.visible()
+                gett_submit_button.visible()
+                city_block.gone()
+                city_submit_button.gone()
                 taxi_icon.background = getDrawable(requireContext(), R.drawable.ic_gett)
                 taxi_name.text = getString(R.string.gett_title)
             }
             CITYMOBIL -> {
-                yandex_block.visibility = GONE
-                yandex_submit_button.visibility = GONE
-                gett_block.visibility = GONE
-                gett_submit_button.visibility = GONE
-                city_block.visibility = VISIBLE
-                city_submit_button.visibility = VISIBLE
+                yandex_block.gone()
+                yandex_submit_button.gone()
+                gett_block.gone()
+                gett_submit_button.gone()
+                city_block.visible()
+                city_submit_button.visible()
                 taxi_icon.background = getDrawable(requireContext(), R.drawable.ic_citymobil)
                 taxi_name.text = getString(R.string.citymobil_title)
             }
@@ -472,7 +474,6 @@ class ConnectionFragment : Fragment() {
                 }
             }
         }
-
         super.onActivityResult(requestCode, resultCode, data)
     }
 

@@ -12,7 +12,10 @@ interface ApiService {
 
     @POST("auth")
     @FormUrlEncoded
-    fun getCode(@Field("phone") phone: String?, @Field("code") code: String?): Observable<ResponseAPI<ResponseAuthSendCode?>?>?
+    fun getCode(
+        @Field("phone") phone: String?,
+        @Field("code") code: String?
+    ): Observable<ResponseAPI<ResponseAuthSendCode?>?>?
 
     @POST("requests")
     @FormUrlEncoded

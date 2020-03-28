@@ -5,8 +5,6 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.INVISIBLE
-import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.EditText
 import androidx.constraintlayout.widget.ConstraintSet
@@ -64,15 +62,15 @@ class AccountsFragment : Fragment() {
 
         viewModel.accounts.observe(viewLifecycleOwner, Observer {
             if (it.info?.isNotEmpty() == true) {
-                account_block.visibility = VISIBLE
-                no_account_block.visibility = INVISIBLE
+                account_block.visible()
+                no_account_block.invisible()
                 val account = it.info.first()
                 bank_name_tv.text = account.bankName
                 order_tv.text = getString(R.string.order_format, account.accountNumber)
                 name_tv.text = account.driverName
             } else {
-                account_block.visibility = INVISIBLE
-                no_account_block.visibility = VISIBLE
+                account_block.invisible()
+                no_account_block.visible()
             }
         })
 
@@ -81,11 +79,11 @@ class AccountsFragment : Fragment() {
             oldPushesSize?.let { oldSize ->
                 if (it.size > oldSize) {
                     notification_count.text = (it.size - oldSize).toString()
-                    notification_count.visibility = VISIBLE
-                    notification_image.visibility = INVISIBLE
+                    notification_count.visible()
+                    notification_image.invisible()
                 } else {
-                    notification_count.visibility = INVISIBLE
-                    notification_image.visibility = VISIBLE
+                    notification_count.invisible()
+                    notification_image.visible()
                 }
             }
         })
@@ -147,9 +145,9 @@ class AccountsFragment : Fragment() {
         val constraintSet = ConstraintSet()
 
         add_account_image.setOnClickListener {
-            no_account_block.visibility = INVISIBLE
-            account_block.visibility = INVISIBLE
-            new_account_block.visibility = VISIBLE
+            no_account_block.invisible()
+            account_block.invisible()
+            new_account_block.visible()
 
             constraintSet.clone(parent_layout)
             constraintSet.connect(
@@ -162,9 +160,9 @@ class AccountsFragment : Fragment() {
         }
 
         close_image.setOnClickListener {
-            no_account_block.visibility = VISIBLE
-            account_block.visibility = INVISIBLE
-            new_account_block.visibility = INVISIBLE
+            no_account_block.visible()
+            account_block.invisible()
+            new_account_block.invisible()
 
             constraintSet.clone(parent_layout)
             constraintSet.connect(
@@ -177,13 +175,13 @@ class AccountsFragment : Fragment() {
         }
 
         add_card_image.setOnClickListener {
-            no_card_block.visibility = INVISIBLE
-            new_card_block.visibility = VISIBLE
+            no_card_block.invisible()
+            new_card_block.visible()
         }
 
         card_close_image.setOnClickListener {
-            no_card_block.visibility = VISIBLE
-            new_card_block.visibility = INVISIBLE
+            no_card_block.visible()
+            new_card_block.invisible()
         }
 
         delete_icon.setOnClickListener {
