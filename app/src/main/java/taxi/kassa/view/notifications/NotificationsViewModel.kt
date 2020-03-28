@@ -9,7 +9,7 @@ class NotificationsViewModel(private val repository: ApiRepository) : ViewModel(
 
     val notifications = MutableLiveData<MutableList<Notification>>()
 
-    fun getNotifications() {
+    init {
         notifications.value = repository.getNotifications()
     }
 }

@@ -47,8 +47,6 @@ class WithdrawCreateFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getUserInfo()
-        viewModel.getAccounts()
 
         val constraintSet = ConstraintSet()
 
@@ -129,8 +127,7 @@ class WithdrawCreateFragment : Fragment() {
             }
         })
 
-        val runnable = Runnable { cards_recycler[0].performClick() }
-        Handler().postDelayed(runnable, 500)
+        Handler().postDelayed({ cards_recycler[0].performClick() }, 500)
 
         sum_edit_text.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {

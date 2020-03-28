@@ -43,7 +43,6 @@ class FuelReplenishFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getUserInfo()
 
         viewModel.error.observe(viewLifecycleOwner, Observer {
             activity?.shortToast(it)
@@ -79,8 +78,7 @@ class FuelReplenishFragment : Fragment() {
                     }
                 }
 
-                val runnable = Runnable { taxi_recycler[0].performClick() }
-                Handler().postDelayed(runnable, 500)
+                Handler().postDelayed({ taxi_recycler[0].performClick() }, 500)
             }
         })
 

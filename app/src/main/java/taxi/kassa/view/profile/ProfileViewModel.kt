@@ -20,7 +20,7 @@ class ProfileViewModel(
 
     private val context = getApplication<MyApplication>()
 
-    private lateinit var disposable: Disposable
+    private var disposable: Disposable
 
     val progressIsVisible = MutableLiveData<Boolean>().apply { this.value = true }
     val isNetworkAvailable = MutableLiveData<Boolean>()
@@ -29,7 +29,7 @@ class ProfileViewModel(
     val notifications = MutableLiveData<MutableList<Notification>>()
     val incomingMessages = MutableLiveData<MutableList<Message>>()
 
-    fun getUserInfo() {
+    init {
         disposable = Observable.fromCallable {
                 repository.getOwner()
                     ?.doFinally { progressIsVisible.postValue(false) }
@@ -50,6 +50,6 @@ class ProfileViewModel(
 
     override fun onCleared() {
         super.onCleared()
-        if (::disposable.isInitialized) disposable.dispose()
+        disposable.dispose()
     }
 }

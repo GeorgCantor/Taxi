@@ -30,7 +30,6 @@ class ChatHistoryFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getChatHistory()
 
         viewModel.messages.observe(viewLifecycleOwner, Observer {
             chat_recycler.adapter = ChatHistoryAdapter(it)

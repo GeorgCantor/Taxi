@@ -11,14 +11,14 @@ import taxi.kassa.repository.ApiRepository
 
 class BalanceViewModel(private val repository: ApiRepository) : ViewModel() {
 
-    private lateinit var disposable: Disposable
+    private var disposable: Disposable
 
     val progressIsVisible = MutableLiveData<Boolean>().apply { this.value = true }
     val responseOwner = MutableLiveData<ResponseOwner>()
     val error = MutableLiveData<String>()
     val notifications = MutableLiveData<MutableList<Notification>>()
 
-    fun getUserInfo() {
+    init {
         disposable = Observable.fromCallable {
                 repository.getOwner()
                     ?.doFinally { progressIsVisible.postValue(false) }
@@ -36,6 +36,6 @@ class BalanceViewModel(private val repository: ApiRepository) : ViewModel() {
 
     override fun onCleared() {
         super.onCleared()
-        if (::disposable.isInitialized) disposable.dispose()
+        disposable.dispose()
     }
 }

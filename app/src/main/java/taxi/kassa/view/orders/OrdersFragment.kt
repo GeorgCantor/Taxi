@@ -43,7 +43,6 @@ class OrdersFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getTaxis()
 
         val adapter = OrdersPagerAdapter(childFragmentManager)
         adapter.addFragment(OrdersListFragment.create(1))
@@ -90,11 +89,10 @@ class OrdersFragment : Fragment() {
                     )
 
                     items.map { item ->
-                        if (item != view) {
-                            item.space.background = getDrawable(requireContext(), R.color.colorAccent)
-                        } else {
-                            item.space.background = getDrawable(requireContext(), R.color.withdraws_yellow)
-                        }
+                        item.space.background = getDrawable(
+                            requireContext(),
+                            if (item != view) R.color.colorAccent else R.color.withdraws_yellow
+                        )
                     }
 
                     when (taxi.taxiName) {
@@ -121,10 +119,7 @@ class OrdersFragment : Fragment() {
             }
         })
 
-        val runnable = Runnable {
-            taxi_recycler[0].performClick()
-        }
-        Handler().postDelayed(runnable, 500)
+        Handler().postDelayed({ taxi_recycler[0].performClick() }, 500)
 
         notification_image.setOnClickListener {
             findNavController(this).navigate(R.id.action_ordersFragment_to_notificationsFragment)

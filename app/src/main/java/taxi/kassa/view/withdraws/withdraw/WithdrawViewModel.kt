@@ -10,12 +10,12 @@ import taxi.kassa.repository.ApiRepository
 
 class WithdrawViewModel(private val repository: ApiRepository) : ViewModel() {
 
-    private lateinit var disposable: Disposable
+    private var disposable: Disposable
 
     val accounts = MutableLiveData<AccountsList?>()
     val error = MutableLiveData<String>()
 
-    fun getAccounts() {
+    init {
         disposable = Observable.fromCallable {
             repository.getAccounts()
                 ?.subscribe({
@@ -30,6 +30,6 @@ class WithdrawViewModel(private val repository: ApiRepository) : ViewModel() {
 
     override fun onCleared() {
         super.onCleared()
-        if (::disposable.isInitialized) disposable.dispose()
+        disposable.dispose()
     }
 }

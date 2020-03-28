@@ -33,7 +33,6 @@ class WithdrawFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getAccounts()
 
         viewModel.error.observe(viewLifecycleOwner, Observer {
             activity?.shortToast(it)
@@ -56,8 +55,7 @@ class WithdrawFragment : Fragment() {
 
         circle_image.setImageResource(
             when (withdraw.status) {
-                0 -> R.drawable.ic_yellow_circle
-                1 -> R.drawable.ic_yellow_circle
+                0, 1 -> R.drawable.ic_yellow_circle
                 2 -> R.drawable.ic_green_circle
                 -1 -> R.drawable.ic_red_circle
                 else -> R.drawable.ic_yellow_circle

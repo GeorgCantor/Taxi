@@ -39,7 +39,6 @@ class SupportFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getNotifications()
 
         viewModel.notifications.observe(viewLifecycleOwner, Observer {
             val oldPushesSize = PreferenceManager(requireContext()).getInt(PUSH_COUNTER)

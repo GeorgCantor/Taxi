@@ -16,7 +16,7 @@ class OrdersListViewModel(private val repository: ApiRepository) : ViewModel() {
     val orders = MutableLiveData<Orders>()
     val error = MutableLiveData<String>()
 
-    fun getOrders(offset:String) {
+    fun getOrders(offset: String) {
         disposable.add(
             Observable.fromCallable {
                 repository.getOrders(offset)

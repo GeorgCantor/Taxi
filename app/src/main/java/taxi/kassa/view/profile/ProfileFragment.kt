@@ -53,7 +53,6 @@ class ProfileFragment : Fragment() {
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getUserInfo()
 
         viewModel.isNetworkAvailable.observe(viewLifecycleOwner, Observer { available ->
             if (!available) activity?.longToast(getString(R.string.internet_unavailable))

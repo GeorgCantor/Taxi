@@ -24,16 +24,24 @@ class WithdrawCreateViewModel(private val repository: ApiRepository) : ViewModel
     val notifications = MutableLiveData<MutableList<Notification>>()
     val cards = MutableLiveData<MutableList<Card>>()
 
-    fun getUserInfo() {
+    init {
         disposable.add(
             Observable.fromCallable {
-                    repository.getOwner()
-                        ?.subscribe({
-                            responseOwner.postValue(it?.response)
-                            error.postValue(it?.errorMsg)
-                        }, {
-                        })
-                }
+                repository.getOwner()
+                    ?.subscribe({
+                        responseOwner.postValue(it?.response)
+                        error.postValue(it?.errorMsg)
+                    }, {
+                    })
+
+                repository.getAccounts()
+                    ?.subscribe({
+                        accountId.postValue(it?.response?.info?.first()?.id)
+                        accounts.postValue(it?.response)
+                        error.postValue(it?.errorMsg)
+                    }, {
+                    })
+            }
                 .subscribeOn(Schedulers.io())
                 .subscribe()
         )
@@ -42,34 +50,18 @@ class WithdrawCreateViewModel(private val repository: ApiRepository) : ViewModel
         cards.value = repository.getCards()
     }
 
-    fun getAccounts() {
+    fun deleteAccount() {
         disposable.add(
             Observable.fromCallable {
-                    repository.getAccounts()
+                accounts.value?.info?.first()?.id?.let {
+                    repository.deleteAccount(it)
                         ?.subscribe({
-                            accountId.postValue(it?.response?.info?.first()?.id)
-                            accounts.postValue(it?.response)
+                            deletionStatus.postValue(it?.response?.status)
                             error.postValue(it?.errorMsg)
                         }, {
                         })
                 }
-                .subscribeOn(Schedulers.io())
-                .subscribe()
-        )
-    }
-
-    fun deleteAccount() {
-        disposable.add(
-            Observable.fromCallable {
-                    accounts.value?.info?.first()?.id?.let {
-                        repository.deleteAccount(it)
-                            ?.subscribe({
-                                deletionStatus.postValue(it?.response?.status)
-                                error.postValue(it?.errorMsg)
-                            }, {
-                            })
-                    }
-                }
+            }
                 .subscribeOn(Schedulers.io())
                 .subscribe()
         )
@@ -78,15 +70,15 @@ class WithdrawCreateViewModel(private val repository: ApiRepository) : ViewModel
     fun createWithdraw(sourceId: Int, amount: String?) {
         disposable.add(
             Observable.fromCallable {
-                    accountId.value?.let { id ->
-                        repository.createWithdraw(sourceId, amount, id)
-                            ?.subscribe({
-                                creatingStatus.postValue(it?.response?.status)
-                                error.postValue(it?.errorMsg)
-                            }, {
-                            })
-                    }
+                accountId.value?.let { id ->
+                    repository.createWithdraw(sourceId, amount, id)
+                        ?.subscribe({
+                            creatingStatus.postValue(it?.response?.status)
+                            error.postValue(it?.errorMsg)
+                        }, {
+                        })
                 }
+            }
                 .subscribeOn(Schedulers.io())
                 .subscribe()
         )

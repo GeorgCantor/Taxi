@@ -11,14 +11,14 @@ import taxi.kassa.repository.ApiRepository
 
 class WithdrawsViewModel(private val repository: ApiRepository) : ViewModel() {
 
-    private lateinit var disposable: Disposable
+    private var disposable: Disposable
 
     val progressIsVisible = MutableLiveData<Boolean>().apply { this.value = true }
     val withdraws = MutableLiveData<Withdraws>()
     val error = MutableLiveData<String>()
     val notifications = MutableLiveData<MutableList<Notification>>()
 
-    fun getWithdraws() {
+    init {
         disposable = Observable.fromCallable {
                 repository.getWithdraws()
                     ?.doFinally { progressIsVisible.postValue(false) }
@@ -36,6 +36,6 @@ class WithdrawsViewModel(private val repository: ApiRepository) : ViewModel() {
 
     override fun onCleared() {
         super.onCleared()
-        if (::disposable.isInitialized) disposable.dispose()
+        disposable.dispose()
     }
 }

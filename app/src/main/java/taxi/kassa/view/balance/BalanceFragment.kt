@@ -44,7 +44,6 @@ class BalanceFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getUserInfo()
 
         viewModel.progressIsVisible.observe(viewLifecycleOwner, Observer { visible ->
             progress_bar.visibility = if (visible) VISIBLE else View.GONE

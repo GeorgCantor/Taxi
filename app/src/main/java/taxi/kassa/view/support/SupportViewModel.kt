@@ -6,12 +6,12 @@ import taxi.kassa.model.Message
 import taxi.kassa.model.Notification
 import taxi.kassa.repository.ApiRepository
 
-class SupportViewModel(private val repository: ApiRepository) : ViewModel() {
+class SupportViewModel(repository: ApiRepository) : ViewModel() {
 
     val notifications = MutableLiveData<MutableList<Notification>>()
     val incomingMessages = MutableLiveData<MutableList<Message>>()
 
-    fun getNotifications() {
+    init {
         notifications.value = repository.getNotifications()
         incomingMessages.value = repository.getChatHistory().filter { it.isIncoming } as MutableList
     }

@@ -17,7 +17,7 @@ class FuelReplenishViewModel(private val repository: ApiRepository) : ViewModel(
     val error = MutableLiveData<String>()
     val notifications = MutableLiveData<MutableList<Notification>>()
 
-    fun getUserInfo() {
+    init {
         disposable.add(
             Observable.fromCallable {
                     repository.getOwner()
