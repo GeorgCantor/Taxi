@@ -11,7 +11,7 @@ import taxi.kassa.repository.ApiRepository
 
 class BalanceViewModel(private val repository: ApiRepository) : ViewModel() {
 
-    private var disposable: Disposable
+    private val disposable: Disposable
 
     val progressIsVisible = MutableLiveData<Boolean>().apply { this.value = true }
     val responseOwner = MutableLiveData<ResponseOwner>()

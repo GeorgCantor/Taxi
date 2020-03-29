@@ -8,6 +8,7 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -25,6 +26,8 @@ import taxi.kassa.util.showError
 class AuthCodeFragment : Fragment() {
 
     private lateinit var viewModel: AuthCodeViewModel
+    private lateinit var editTexts: List<EditText>
+
     private var phone = ""
     private var inputCounter = 0
 
@@ -74,7 +77,7 @@ class AuthCodeFragment : Fragment() {
             }
         })
 
-        val editTexts = listOf(input1, input2, input3, input4)
+        editTexts = listOf(input1, input2, input3, input4)
 
         val touchListener = View.OnTouchListener { _, _ ->
             true
@@ -84,94 +87,21 @@ class AuthCodeFragment : Fragment() {
             it.setOnTouchListener(touchListener)
         }
 
-        num_0.setOnClickListener {
-            editTexts.map {
-                if (it.isFocused) {
-                    it.text.insert(it.selectionStart, getString(R.string.num0))
-                    return@setOnClickListener
-                }
-            }
-        }
+        val keyboardPairs = mutableListOf<Pair<Button, Int>>(
+            Pair(num_0, R.string.num0),
+            Pair(num_1, R.string.num1),
+            Pair(num_2, R.string.num2),
+            Pair(num_3, R.string.num3),
+            Pair(num_4, R.string.num4),
+            Pair(num_5, R.string.num5),
+            Pair(num_6, R.string.num6),
+            Pair(num_7, R.string.num7),
+            Pair(num_8, R.string.num8),
+            Pair(num_9, R.string.num9)
+        )
 
-        num_1.setOnClickListener {
-            editTexts.map {
-                if (it.isFocused) {
-                    it.text.insert(it.selectionStart, getString(R.string.num1))
-                    return@setOnClickListener
-                }
-            }
-        }
-
-        num_2.setOnClickListener {
-            editTexts.map {
-                if (it.isFocused) {
-                    it.text.insert(it.selectionStart, getString(R.string.num2))
-                    return@setOnClickListener
-                }
-            }
-        }
-
-        num_3.setOnClickListener {
-            editTexts.map {
-                if (it.isFocused) {
-                    it.text.insert(it.selectionStart, getString(R.string.num3))
-                    return@setOnClickListener
-                }
-            }
-        }
-
-        num_4.setOnClickListener {
-            editTexts.map {
-                if (it.isFocused) {
-                    it.text.insert(it.selectionStart, getString(R.string.num4))
-                    return@setOnClickListener
-                }
-            }
-        }
-
-        num_5.setOnClickListener {
-            editTexts.map {
-                if (it.isFocused) {
-                    it.text.insert(it.selectionStart, getString(R.string.num5))
-                    return@setOnClickListener
-                }
-            }
-        }
-
-        num_6.setOnClickListener {
-            editTexts.map {
-                if (it.isFocused) {
-                    it.text.insert(it.selectionStart, getString(R.string.num6))
-                    return@setOnClickListener
-                }
-            }
-        }
-
-        num_7.setOnClickListener {
-            editTexts.map {
-                if (it.isFocused) {
-                    it.text.insert(it.selectionStart, getString(R.string.num7))
-                    return@setOnClickListener
-                }
-            }
-        }
-
-        num_8.setOnClickListener {
-            editTexts.map {
-                if (it.isFocused) {
-                    it.text.insert(it.selectionStart, getString(R.string.num8))
-                    return@setOnClickListener
-                }
-            }
-        }
-
-        num_9.setOnClickListener {
-            editTexts.map {
-                if (it.isFocused) {
-                    it.text.insert(it.selectionStart, getString(R.string.num9))
-                    return@setOnClickListener
-                }
-            }
+        keyboardPairs.map {
+            setNumberClickListener(it.first, it.second)
         }
 
         erase_btn.setOnClickListener {
@@ -194,10 +124,6 @@ class AuthCodeFragment : Fragment() {
                     return@setOnClickListener
                 }
             }
-        }
-
-        input4.setOnClickListener {
-            input4.requestFocus()
         }
 
         apply_btn.setOnClickListener { login() }
@@ -230,6 +156,17 @@ class AuthCodeFragment : Fragment() {
                 if (code.isNotEmpty()) second.requestFocus()
             }
         })
+    }
+
+    private fun setNumberClickListener(button: Button, resource: Int) {
+        button.setOnClickListener {
+            editTexts.map {
+                if (it.isFocused) {
+                    it.text.insert(it.selectionStart, getString(resource))
+                    return@setOnClickListener
+                }
+            }
+        }
     }
 
     private fun login() {

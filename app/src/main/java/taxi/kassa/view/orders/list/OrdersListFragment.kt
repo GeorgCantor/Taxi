@@ -37,7 +37,7 @@ class OrdersListFragment : Fragment() {
 
     private lateinit var viewModel: OrdersListViewModel
     private lateinit var adapter: OrdersAdapter
-    private var nextOffset = "1578624301_411517"
+    private var nextOffset = ""
     private var firstLoad = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
