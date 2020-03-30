@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:background="@color/balance_gradient_light">
@@ -19,6 +20,7 @@
         android:id="@+id/status_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingEnd="6dp"
         android:layout_marginStart="@dimen/margin_16dp"
         app:layout_constraintStart_toEndOf="@+id/push_image"
         app:layout_constraintTop_toTopOf="@+id/push_image"
@@ -28,7 +30,6 @@
         android:id="@+id/push_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
         android:fontFamily="sans-serif-medium"
         android:textColor="@color/gray_intro_text"
         android:textSize="18dp"
@@ -49,6 +50,7 @@
         tools:text="С 16 октября водителям для доступа в сервис нужен будет рейтинг не менее 4,5" />
 
     <ImageView
+        android:id="@+id/chevron_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/margin_24dp"
