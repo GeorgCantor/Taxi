@@ -7,7 +7,8 @@ import android.text.TextWatcher
 import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.*
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import androidx.constraintlayout.widget.ConstraintSet
@@ -48,7 +49,9 @@ class WithdrawCreateFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val constraintSet = ConstraintSet()
+        viewModel.progressIsVisible.observe(viewLifecycleOwner, Observer { visible ->
+            progress_bar.visibility = if (visible) VISIBLE else GONE
+        })
 
         viewModel.error.observe(viewLifecycleOwner, Observer {
             activity?.shortToast(it)
@@ -128,6 +131,8 @@ class WithdrawCreateFragment : Fragment() {
         })
 
         Handler().postDelayed({ cards_recycler[0].performClick() }, 500)
+
+        val constraintSet = ConstraintSet()
 
         sum_edit_text.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {

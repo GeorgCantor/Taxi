@@ -14,6 +14,7 @@ class AccountsViewModel(private val repository: ApiRepository) : ViewModel() {
 
     private val disposable = CompositeDisposable()
 
+    val progressIsVisible = MutableLiveData<Boolean>().apply { this.value = true }
     val creatingStatus = MutableLiveData<String>()
     val deletionStatus = MutableLiveData<String>()
     val accounts = MutableLiveData<AccountsList>()
@@ -25,6 +26,7 @@ class AccountsViewModel(private val repository: ApiRepository) : ViewModel() {
         disposable.add(
             Observable.fromCallable {
                 repository.getAccounts()
+                    ?.doFinally { progressIsVisible.postValue(false) }
                     ?.subscribe({
                         accounts.postValue(it?.response)
                         error.postValue(it?.errorMsg)
@@ -46,9 +48,12 @@ class AccountsViewModel(private val repository: ApiRepository) : ViewModel() {
         accountNumber: String,
         bankCode: String
     ) {
+        progressIsVisible.value = true
+
         disposable.add(
             Observable.fromCallable {
                 repository.createAccount(firstName, lastName, middleName, accountNumber, bankCode)
+                    ?.doFinally { progressIsVisible.postValue(false) }
                     ?.subscribe({
                         creatingStatus.postValue(it?.response?.status)
                         error.postValue(it?.errorMsg)
@@ -61,10 +66,13 @@ class AccountsViewModel(private val repository: ApiRepository) : ViewModel() {
     }
 
     fun deleteAccount() {
+        progressIsVisible.value = true
+
         disposable.add(
             Observable.fromCallable {
                 accounts.value?.info?.first()?.id?.let {
                     repository.deleteAccount(it)
+                        ?.doFinally { progressIsVisible.postValue(false) }
                         ?.subscribe({
                             deletionStatus.postValue(it?.response?.status)
                             error.postValue(it?.errorMsg)

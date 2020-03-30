@@ -5,6 +5,8 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.EditText
 import androidx.constraintlayout.widget.ConstraintSet
@@ -41,6 +43,10 @@ class AccountsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getAccounts()
+
+        viewModel.progressIsVisible.observe(viewLifecycleOwner, Observer { visible ->
+            progress_bar.visibility = if (visible) VISIBLE else GONE
+        })
 
         viewModel.error.observe(viewLifecycleOwner, Observer {
             activity?.shortToast(it)

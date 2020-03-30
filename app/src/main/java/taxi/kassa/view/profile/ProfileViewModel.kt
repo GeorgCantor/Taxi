@@ -31,14 +31,14 @@ class ProfileViewModel(
 
     init {
         disposable = Observable.fromCallable {
-                repository.getOwner()
-                    ?.doFinally { progressIsVisible.postValue(false) }
-                    ?.subscribe({
-                        responseOwner.postValue(it?.response)
-                        error.postValue(it?.errorMsg)
-                    }, {
-                    })
-            }
+            repository.getOwner()
+                ?.doFinally { progressIsVisible.postValue(false) }
+                ?.subscribe({
+                    responseOwner.postValue(it?.response)
+                    error.postValue(it?.errorMsg)
+                }, {
+                })
+        }
             .subscribeOn(Schedulers.io())
             .subscribe()
 

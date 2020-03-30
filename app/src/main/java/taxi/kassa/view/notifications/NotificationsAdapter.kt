@@ -38,18 +38,19 @@ class NotificationsAdapter(notifications: MutableList<Notification>) :
         holder.message.text = notification.message
         holder.date.text = notification.date
 
-        if (notification.isNew) {
-            holder.statusImage.setImageResource(R.drawable.ic_yellow_circle)
-        } else {
-            holder.statusImage.invisible()
-            constraintSet.clone(holder.parent)
-            constraintSet.connect(
-                R.id.push_title,
-                ConstraintSet.START,
-                R.id.push_message,
-                ConstraintSet.START
-            )
-            constraintSet.applyTo(holder.parent)
+        when (notification.isNew) {
+            true -> holder.statusImage.setImageResource(R.drawable.ic_yellow_circle)
+            false -> {
+                holder.statusImage.invisible()
+                constraintSet.clone(holder.parent)
+                constraintSet.connect(
+                    R.id.push_title,
+                    ConstraintSet.START,
+                    R.id.push_message,
+                    ConstraintSet.START
+                )
+                constraintSet.applyTo(holder.parent)
+            }
         }
     }
 

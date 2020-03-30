@@ -3,6 +3,8 @@ package taxi.kassa.view.withdraws.withdraw
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -15,6 +17,13 @@ import taxi.kassa.util.Constants.WITHDRAW
 import taxi.kassa.util.shortToast
 
 class WithdrawFragment : Fragment() {
+
+    companion object {
+        private const val ALFABANK = "альфа"
+        private const val BINBANK = "бинбанк"
+        private const val VTB_BANK = "втб"
+        private const val SBERBANK = "сбербанк"
+    }
 
     private lateinit var viewModel: WithdrawViewModel
 
@@ -33,6 +42,10 @@ class WithdrawFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        viewModel.progressIsVisible.observe(viewLifecycleOwner, Observer { visible ->
+            progress_bar.visibility = if (visible) VISIBLE else GONE
+        })
 
         viewModel.error.observe(viewLifecycleOwner, Observer {
             activity?.shortToast(it)
@@ -74,10 +87,10 @@ class WithdrawFragment : Fragment() {
     private fun setBankIcon(bankName: String) {
         bank_icon.setImageResource(
             when {
-                bankName.contains("альфа", true) -> R.drawable.ic_alfa
-                bankName.contains("бинбанк", true) -> R.drawable.ic_binbank
-                bankName.contains("втб", true) -> R.drawable.ic_vtb
-                bankName.contains("сбербанк", true) -> R.drawable.ic_sberbank
+                bankName.contains(ALFABANK, true) -> R.drawable.ic_alfa
+                bankName.contains(BINBANK, true) -> R.drawable.ic_binbank
+                bankName.contains(VTB_BANK, true) -> R.drawable.ic_vtb
+                bankName.contains(SBERBANK, true) -> R.drawable.ic_sberbank
                 else -> R.drawable.transparent
             }
         )
