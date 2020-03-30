@@ -33,7 +33,7 @@
             android:fontFamily="sans-serif-medium"
             android:text="@string/balance"
             android:textColor="@color/gray_intro_text"
-            android:textSize="20sp"
+            android:textSize="@dimen/text_20sp"
             app:layout_constraintBottom_toBottomOf="@+id/back_arrow"
             app:layout_constraintStart_toEndOf="@+id/back_arrow"
             app:layout_constraintTop_toTopOf="@+id/back_arrow" />
@@ -71,7 +71,7 @@
             android:layout_marginTop="28dp"
             android:text="@string/fuel_replenish"
             android:textColor="@color/gray_intro_text"
-            android:textSize="24sp"
+            android:textSize="@dimen/text_24sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/balance_title" />
@@ -93,7 +93,7 @@
             android:layout_marginStart="@dimen/margin_16dp"
             android:fontFamily="sans-serif-medium"
             android:textColor="@color/balance_green"
-            android:textSize="18sp"
+            android:textSize="@dimen/text_18sp"
             app:layout_constraintBottom_toTopOf="@+id/rosneft_title"
             app:layout_constraintStart_toEndOf="@+id/rosneft_image"
             app:layout_constraintTop_toTopOf="@+id/rosneft_image"
@@ -107,7 +107,7 @@
             android:fontFamily="sans-serif"
             android:text="@string/rosneft_title"
             android:textColor="@color/gray_profile"
-            android:textSize="16sp"
+            android:textSize="@dimen/text_16sp"
             app:layout_constraintBottom_toBottomOf="@+id/rosneft_image"
             app:layout_constraintStart_toEndOf="@+id/rosneft_image" />
 
@@ -143,7 +143,7 @@
             android:fontFamily="sans-serif"
             android:text="@string/choose_aggregator"
             android:textColor="@color/gray_intro_text"
-            android:textSize="14sp"
+            android:textSize="@dimen/text_14sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/background" />
 
@@ -171,7 +171,7 @@
             android:fontFamily="sans-serif"
             android:text="@string/enter_charge_amount"
             android:textColor="@color/gray_intro_text"
-            android:textSize="14sp"
+            android:textSize="@dimen/text_14sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/taxi_recycler" />
 
@@ -184,7 +184,7 @@
             android:layout_marginEnd="@dimen/margin_24dp"
             android:hint="@string/enter_amount"
             android:textColorHint="@color/gray_profile"
-            android:textSize="13sp"
+            android:textSize="@dimen/text_13sp"
             app:errorTextAppearance="@style/ErrorAppearance"
             app:layout_constraintEnd_toEndOf="@+id/background"
             app:layout_constraintStart_toStartOf="@+id/background"
@@ -200,7 +200,7 @@
                 android:maxLines="1"
                 android:textColor="@color/gray_intro_text"
                 android:textColorHint="@color/gray_profile"
-                android:textSize="16sp" />
+                android:textSize="@dimen/text_16sp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -216,7 +216,7 @@
             android:text="@string/replenish"
             android:textAllCaps="false"
             android:textColor="@color/continue_color"
-            android:textSize="20sp"
+            android:textSize="@dimen/text_20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

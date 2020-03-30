@@ -35,7 +35,7 @@
         android:fontFamily="sans-serif-medium"
         android:text="@string/balance"
         android:textColor="@color/gray_intro_text"
-        android:textSize="20sp"
+        android:textSize="@dimen/text_20sp"
         app:layout_constraintBottom_toBottomOf="@+id/back_arrow"
         app:layout_constraintStart_toEndOf="@+id/back_arrow"
         app:layout_constraintTop_toTopOf="@+id/back_arrow" />
@@ -72,7 +72,7 @@
         android:layout_marginTop="28dp"
         android:fontFamily="sans-serif-medium"
         android:textColor="@color/gray_intro_text"
-        android:textSize="30sp"
+        android:textSize="@dimen/text_30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -86,7 +86,7 @@
         android:layout_marginTop="12dp"
         android:text="@string/all_partners_sum"
         android:textColor="@color/gray_profile"
-        android:textSize="16sp"
+        android:textSize="@dimen/text_16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/balance_tv" />
@@ -118,7 +118,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_16dp"
         android:fontFamily="sans-serif-medium"
-        android:textSize="18sp"
+        android:textSize="@dimen/text_18sp"
         app:layout_constraintBottom_toTopOf="@+id/yandex_title"
         app:layout_constraintStart_toEndOf="@+id/yandex_image"
         app:layout_constraintTop_toTopOf="@+id/yandex_image"
@@ -133,7 +133,7 @@
         android:fontFamily="sans-serif"
         android:text="@string/yandex_title"
         android:textColor="@color/gray_profile"
-        android:textSize="16sp"
+        android:textSize="@dimen/text_16sp"
         app:layout_constraintBottom_toBottomOf="@+id/yandex_image"
         app:layout_constraintStart_toEndOf="@+id/yandex_image" />
 
@@ -149,7 +149,7 @@
         android:padding="8dp"
         android:text="@string/withdraw"
         android:textColor="@color/gray_intro_text"
-        android:textSize="16sp"
+        android:textSize="@dimen/text_16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/background" />
 
@@ -170,7 +170,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_16dp"
         android:fontFamily="sans-serif-medium"
-        android:textSize="18sp"
+        android:textSize="@dimen/text_18sp"
         app:layout_constraintBottom_toTopOf="@+id/citymobil_title"
         app:layout_constraintStart_toEndOf="@+id/citymobil_image"
         app:layout_constraintTop_toTopOf="@+id/citymobil_image"
@@ -185,7 +185,7 @@
         android:fontFamily="sans-serif"
         android:text="@string/citymobil_title"
         android:textColor="@color/gray_profile"
-        android:textSize="16sp"
+        android:textSize="@dimen/text_16sp"
         app:layout_constraintBottom_toBottomOf="@+id/citymobil_image"
         app:layout_constraintStart_toEndOf="@+id/citymobil_image" />
 
@@ -201,7 +201,7 @@
         android:padding="8dp"
         android:text="@string/withdraw"
         android:textColor="@color/gray_intro_text"
-        android:textSize="16sp"
+        android:textSize="@dimen/text_16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/withdraw_yandex_tv" />
 
@@ -222,7 +222,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_16dp"
         android:fontFamily="sans-serif-medium"
-        android:textSize="18sp"
+        android:textSize="@dimen/text_18sp"
         app:layout_constraintBottom_toTopOf="@+id/gett_title"
         app:layout_constraintStart_toEndOf="@+id/gett_image"
         app:layout_constraintTop_toTopOf="@+id/gett_image"
@@ -237,7 +237,7 @@
         android:fontFamily="sans-serif"
         android:text="@string/gett_title"
         android:textColor="@color/gray_profile"
-        android:textSize="16sp"
+        android:textSize="@dimen/text_16sp"
         app:layout_constraintBottom_toBottomOf="@+id/gett_image"
         app:layout_constraintStart_toEndOf="@+id/gett_image" />
 
@@ -253,7 +253,7 @@
         android:padding="8dp"
         android:text="@string/withdraw"
         android:textColor="@color/gray_intro_text"
-        android:textSize="16sp"
+        android:textSize="@dimen/text_16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/withdraw_citymobil_tv" />
 
@@ -267,7 +267,7 @@
         android:fontFamily="sans-serif-medium"
         android:text="@string/fuel_title"
         android:textColor="@color/balance_fuel_gray"
-        android:textSize="20sp"
+        android:textSize="@dimen/text_20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gett_image" />
 
@@ -288,7 +288,7 @@
         android:layout_marginStart="@dimen/margin_16dp"
         android:fontFamily="sans-serif-medium"
         android:textColor="@color/balance_green"
-        android:textSize="18sp"
+        android:textSize="@dimen/text_18sp"
         app:layout_constraintBottom_toTopOf="@+id/rosneft_title"
         app:layout_constraintStart_toEndOf="@+id/rosneft_image"
         app:layout_constraintTop_toTopOf="@+id/rosneft_image"
@@ -302,7 +302,7 @@
         android:fontFamily="sans-serif"
         android:text="@string/rosneft_title"
         android:textColor="@color/gray_profile"
-        android:textSize="16sp"
+        android:textSize="@dimen/text_16sp"
         app:layout_constraintBottom_toBottomOf="@+id/rosneft_image"
         app:layout_constraintStart_toEndOf="@+id/rosneft_image" />
 
@@ -317,7 +317,7 @@
         android:padding="8dp"
         android:text="@string/replenish"
         android:textColor="@color/gray_intro_text"
-        android:textSize="16sp"
+        android:textSize="@dimen/text_16sp"
         app:layout_constraintBottom_toBottomOf="@+id/rosneft_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/rosneft_image" />

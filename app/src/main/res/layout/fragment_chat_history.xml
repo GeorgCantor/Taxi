@@ -26,7 +26,7 @@
         android:fontFamily="sans-serif-medium"
         android:text="@string/call_history"
         android:textColor="@color/balance_fuel_gray"
-        android:textSize="20sp"
+        android:textSize="@dimen/text_20sp"
         app:layout_constraintBottom_toBottomOf="@+id/back_arrow"
         app:layout_constraintStart_toEndOf="@+id/back_arrow"
         app:layout_constraintTop_toTopOf="@+id/back_arrow" />

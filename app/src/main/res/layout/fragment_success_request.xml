@@ -34,7 +34,7 @@
         android:gravity="center"
         android:text="@string/register_application_success"
         android:textColor="@color/gray_intro_text"
-        android:textSize="20sp"
+        android:textSize="@dimen/text_20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,7 +52,7 @@
         android:gravity="center"
         android:text="@string/application_success_message"
         android:textColor="@color/gray_application_text"
-        android:textSize="16sp"
+        android:textSize="@dimen/text_16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/success_title" />
@@ -70,7 +70,7 @@
         android:text="@string/ok"
         android:textAllCaps="false"
         android:textColor="@color/continue_color"
-        android:textSize="20sp"
+        android:textSize="@dimen/text_20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

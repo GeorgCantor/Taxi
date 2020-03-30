@@ -36,7 +36,7 @@
         android:layout_marginTop="12dp"
         android:text="@string/answer"
         android:textColor="@color/balance_green"
-        android:textSize="13sp"
+        android:textSize="@dimen/text_13sp"
         app:layout_constraintStart_toStartOf="@+id/background"
         app:layout_constraintTop_toTopOf="@+id/background" />
 
@@ -48,7 +48,7 @@
         android:layout_marginTop="@dimen/margin_4dp"
         android:layout_marginEnd="@dimen/margin_16dp"
         android:textColor="@color/withdraws_gray"
-        android:textSize="16sp"
+        android:textSize="@dimen/text_16sp"
         app:layout_constraintEnd_toEndOf="@+id/background"
         app:layout_constraintStart_toStartOf="@+id/background"
         app:layout_constraintTop_toBottomOf="@+id/topic_tv"

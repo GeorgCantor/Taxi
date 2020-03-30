@@ -33,7 +33,7 @@
             android:fontFamily="sans-serif-medium"
             android:text="@string/withdraw_create_title"
             android:textColor="@color/gray_intro_text"
-            android:textSize="20sp"
+            android:textSize="@dimen/text_20sp"
             app:layout_constraintBottom_toBottomOf="@+id/back_arrow"
             app:layout_constraintStart_toEndOf="@+id/back_arrow"
             app:layout_constraintTop_toTopOf="@+id/back_arrow" />
@@ -79,7 +79,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_8dp"
             android:textColor="@color/gray_profile"
-            android:textSize="16sp"
+            android:textSize="@dimen/text_16sp"
             app:layout_constraintBottom_toBottomOf="@+id/taxi_icon"
             app:layout_constraintStart_toEndOf="@+id/taxi_icon"
             app:layout_constraintTop_toTopOf="@+id/taxi_icon"
@@ -91,7 +91,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/margin_16dp"
             android:textColor="@color/gray_intro_text"
-            android:textSize="16sp"
+            android:textSize="@dimen/text_16sp"
             app:layout_constraintBottom_toBottomOf="@+id/taxi_icon"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/taxi_icon"
@@ -118,7 +118,7 @@
             android:drawablePadding="10dp"
             android:text="@string/daily_withdrawal"
             android:textColor="@color/gray_intro_text"
-            android:textSize="24sp"
+            android:textSize="@dimen/text_24sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/taxi_icon" />
@@ -170,7 +170,7 @@
                 android:layout_marginTop="14dp"
                 android:text="ПАО “Сбербанк”"
                 android:textColor="@color/withdraws_gray"
-                android:textSize="16sp"
+                android:textSize="@dimen/text_16sp"
                 app:layout_constraintStart_toStartOf="@+id/background"
                 app:layout_constraintTop_toTopOf="@+id/background" />
 
@@ -182,7 +182,7 @@
                 android:layout_marginTop="6dp"
                 android:text="Р/с 408190009938888837"
                 android:textColor="@color/withdraws_gray"
-                android:textSize="16sp"
+                android:textSize="@dimen/text_16sp"
                 app:layout_constraintStart_toStartOf="@+id/background"
                 app:layout_constraintTop_toBottomOf="@+id/bank_name_tv" />
 
@@ -194,7 +194,7 @@
                 android:layout_marginTop="8dp"
                 android:text="Поликин Г. И"
                 android:textColor="@color/gray_profile"
-                android:textSize="13sp"
+                android:textSize="@dimen/text_13sp"
                 app:layout_constraintStart_toStartOf="@+id/background"
                 app:layout_constraintTop_toBottomOf="@+id/order_tv" />
 
@@ -231,7 +231,7 @@
             android:drawablePadding="10dp"
             android:text="@string/instant_withdrawal"
             android:textColor="@color/gray_intro_text"
-            android:textSize="24sp"
+            android:textSize="@dimen/text_24sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/space" />
@@ -281,7 +281,7 @@
             android:padding="@dimen/margin_16dp"
             android:text="@string/add_new_card"
             android:textColor="@color/gray_profile"
-            android:textSize="16sp"
+            android:textSize="@dimen/text_16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cards_recycler" />
 
@@ -305,7 +305,7 @@
             android:layout_marginTop="@dimen/margin_24dp"
             android:text="@string/transfer_amount"
             android:textColor="@color/gray_intro_text"
-            android:textSize="24sp"
+            android:textSize="@dimen/text_24sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/space2" />
@@ -319,7 +319,7 @@
             android:layout_marginEnd="@dimen/margin_24dp"
             android:hint="@string/enter_amount"
             android:textColorHint="@color/gray_profile"
-            android:textSize="13sp"
+            android:textSize="@dimen/text_13sp"
             app:errorTextAppearance="@style/ErrorAppearance"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -335,7 +335,7 @@
                 android:maxLines="1"
                 android:textColor="@color/gray_intro_text"
                 android:textColorHint="@color/gray_profile"
-                android:textSize="16sp" />
+                android:textSize="@dimen/text_16sp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -349,7 +349,7 @@
             android:text="@string/send_request"
             android:textAllCaps="false"
             android:textColor="@color/continue_color"
-            android:textSize="20sp"
+            android:textSize="@dimen/text_20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/sum_input_view" />

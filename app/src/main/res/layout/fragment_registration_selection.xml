@@ -30,7 +30,7 @@
             android:fontFamily="sans-serif-medium"
             android:text="@string/registration"
             android:textColor="@color/gray_profile"
-            android:textSize="16sp"
+            android:textSize="@dimen/text_16sp"
             app:layout_constraintBottom_toBottomOf="@+id/back_arrow"
             app:layout_constraintStart_toEndOf="@+id/back_arrow"
             app:layout_constraintTop_toTopOf="@+id/back_arrow" />
@@ -42,7 +42,7 @@
             android:layout_marginTop="38dp"
             android:text="@string/select_aggregator"
             android:textColor="@color/gray_intro_text"
-            android:textSize="24sp"
+            android:textSize="@dimen/text_24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -79,7 +79,7 @@
             android:fontFamily="sans-serif"
             android:text="@string/yandex_title"
             android:textColor="@color/registration_white_color"
-            android:textSize="16sp"
+            android:textSize="@dimen/text_16sp"
             app:layout_constraintBottom_toBottomOf="@+id/yandex_background"
             app:layout_constraintStart_toEndOf="@+id/yandex_image"
             app:layout_constraintTop_toTopOf="@+id/yandex_background" />
@@ -125,7 +125,7 @@
             android:fontFamily="sans-serif"
             android:text="@string/gett_title"
             android:textColor="@color/registration_white_color"
-            android:textSize="16sp"
+            android:textSize="@dimen/text_16sp"
             app:layout_constraintBottom_toBottomOf="@+id/gett_background"
             app:layout_constraintStart_toEndOf="@+id/gett_image"
             app:layout_constraintTop_toTopOf="@+id/gett_background" />
@@ -171,7 +171,7 @@
             android:fontFamily="sans-serif"
             android:text="@string/citymobil_title"
             android:textColor="@color/registration_white_color"
-            android:textSize="16sp"
+            android:textSize="@dimen/text_16sp"
             app:layout_constraintBottom_toBottomOf="@+id/city_background"
             app:layout_constraintStart_toEndOf="@+id/city_image"
             app:layout_constraintTop_toTopOf="@+id/city_background" />

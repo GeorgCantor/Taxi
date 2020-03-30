@@ -27,7 +27,7 @@
         android:gravity="center"
         android:text="@string/input_code"
         android:textColor="@color/gray_intro_text"
-        android:textSize="20sp"
+        android:textSize="@dimen/text_20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -57,7 +57,7 @@
             android:paddingBottom="20dp"
             android:singleLine="true"
             android:textColor="@color/white_code_text"
-            android:textSize="30sp"
+            android:textSize="@dimen/text_30sp"
             android:textStyle="bold"
             app:backgroundTint="@color/gray_application_text"
             tools:text="4" />
@@ -76,7 +76,7 @@
             android:paddingBottom="20dp"
             android:singleLine="true"
             android:textColor="@color/white_code_text"
-            android:textSize="30sp"
+            android:textSize="@dimen/text_30sp"
             android:textStyle="bold"
             app:backgroundTint="@color/gray_application_text"
             tools:text="8" />
@@ -95,7 +95,7 @@
             android:paddingBottom="20dp"
             android:singleLine="true"
             android:textColor="@color/white_code_text"
-            android:textSize="30sp"
+            android:textSize="@dimen/text_30sp"
             android:textStyle="bold"
             app:backgroundTint="@color/gray_application_text"
             tools:text="9" />
@@ -114,7 +114,7 @@
             android:paddingBottom="20dp"
             android:singleLine="true"
             android:textColor="@color/white_code_text"
-            android:textSize="30sp"
+            android:textSize="@dimen/text_30sp"
             android:textStyle="bold"
             app:backgroundTint="@color/gray_application_text"
             tools:text="2" />
@@ -144,7 +144,7 @@
         android:text="@string/login_btn"
         android:textAllCaps="false"
         android:textColor="@color/continue_color"
-        android:textSize="20sp"
+        android:textSize="@dimen/text_20sp"
         app:layout_constraintBottom_toTopOf="@+id/keyboard"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

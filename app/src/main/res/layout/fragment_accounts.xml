@@ -32,7 +32,7 @@
             android:fontFamily="sans-serif-medium"
             android:text="@string/accounts_title"
             android:textColor="@color/balance_fuel_gray"
-            android:textSize="20sp"
+            android:textSize="@dimen/text_20sp"
             app:layout_constraintBottom_toBottomOf="@+id/back_arrow"
             app:layout_constraintStart_toEndOf="@+id/back_arrow"
             app:layout_constraintTop_toTopOf="@+id/back_arrow" />
@@ -72,7 +72,7 @@
             android:drawablePadding="10dp"
             android:text="@string/daily_withdrawal"
             android:textColor="@color/gray_intro_text"
-            android:textSize="24sp"
+            android:textSize="@dimen/text_24sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/accounts_title" />
@@ -105,7 +105,7 @@
                 android:fontFamily="sans-serif"
                 android:text="@string/add_account"
                 android:textColor="@color/withdraws_yellow"
-                android:textSize="20sp"
+                android:textSize="@dimen/text_20sp"
                 app:layout_constraintBottom_toBottomOf="@+id/account_background"
                 app:layout_constraintStart_toStartOf="@id/account_background"
                 app:layout_constraintTop_toTopOf="@+id/account_background" />
@@ -152,7 +152,7 @@
                 android:fontFamily="sans-serif"
                 android:text="@string/add_account"
                 android:textColor="@color/withdraws_yellow"
-                android:textSize="20sp"
+                android:textSize="@dimen/text_20sp"
                 app:layout_constraintStart_toStartOf="@id/new_account_background"
                 app:layout_constraintTop_toTopOf="@+id/new_account_background" />
 
@@ -175,7 +175,7 @@
                 android:layout_marginEnd="@dimen/margin_24dp"
                 android:hint="@string/first_middle_name"
                 android:textColorHint="@color/gray_profile"
-                android:textSize="13sp"
+                android:textSize="@dimen/text_13sp"
                 app:layout_constraintEnd_toEndOf="@+id/new_account_background"
                 app:layout_constraintStart_toStartOf="@+id/new_account_background"
                 app:layout_constraintTop_toBottomOf="@+id/new_add_account_tv">
@@ -190,7 +190,7 @@
                     android:maxLines="1"
                     android:textColor="@color/gray_intro_text"
                     android:textColorHint="@color/gray_profile"
-                    android:textSize="16sp" />
+                    android:textSize="@dimen/text_16sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -203,7 +203,7 @@
                 android:layout_marginEnd="@dimen/margin_24dp"
                 android:hint="@string/surname"
                 android:textColorHint="@color/gray_profile"
-                android:textSize="13sp"
+                android:textSize="@dimen/text_13sp"
                 app:layout_constraintEnd_toEndOf="@+id/new_account_background"
                 app:layout_constraintStart_toStartOf="@+id/new_account_background"
                 app:layout_constraintTop_toBottomOf="@+id/name_input_view">
@@ -218,7 +218,7 @@
                     android:maxLines="1"
                     android:textColor="@color/gray_intro_text"
                     android:textColorHint="@color/gray_profile"
-                    android:textSize="16sp" />
+                    android:textSize="@dimen/text_16sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -231,7 +231,7 @@
                 android:layout_marginEnd="@dimen/margin_24dp"
                 android:hint="@string/payment_account"
                 android:textColorHint="@color/gray_profile"
-                android:textSize="13sp"
+                android:textSize="@dimen/text_13sp"
                 app:layout_constraintEnd_toEndOf="@+id/new_account_background"
                 app:layout_constraintStart_toStartOf="@+id/new_account_background"
                 app:layout_constraintTop_toBottomOf="@+id/surname_input_view">
@@ -246,7 +246,7 @@
                     android:maxLines="1"
                     android:textColor="@color/gray_intro_text"
                     android:textColorHint="@color/gray_profile"
-                    android:textSize="16sp" />
+                    android:textSize="@dimen/text_16sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -259,7 +259,7 @@
                 android:layout_marginEnd="@dimen/margin_24dp"
                 android:hint="@string/bik"
                 android:textColorHint="@color/gray_profile"
-                android:textSize="13sp"
+                android:textSize="@dimen/text_13sp"
                 app:layout_constraintEnd_toEndOf="@+id/new_account_background"
                 app:layout_constraintStart_toStartOf="@+id/new_account_background"
                 app:layout_constraintTop_toBottomOf="@+id/account_input_view">
@@ -274,7 +274,7 @@
                     android:maxLines="1"
                     android:textColor="@color/gray_intro_text"
                     android:textColorHint="@color/gray_profile"
-                    android:textSize="16sp" />
+                    android:textSize="@dimen/text_16sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -287,7 +287,7 @@
                 android:text="@string/add_button_text"
                 android:textAllCaps="false"
                 android:textColor="@color/continue_color"
-                android:textSize="20sp"
+                android:textSize="@dimen/text_20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/new_account_background" />
@@ -323,7 +323,7 @@
                 android:layout_marginTop="14dp"
                 android:text="ПАО “Сбербанк”"
                 android:textColor="@color/withdraws_gray"
-                android:textSize="16sp"
+                android:textSize="@dimen/text_16sp"
                 app:layout_constraintStart_toStartOf="@+id/background"
                 app:layout_constraintTop_toTopOf="@+id/background" />
 
@@ -335,7 +335,7 @@
                 android:layout_marginTop="6dp"
                 android:text="Р/с 408190009938888837"
                 android:textColor="@color/withdraws_gray"
-                android:textSize="16sp"
+                android:textSize="@dimen/text_16sp"
                 app:layout_constraintStart_toStartOf="@+id/background"
                 app:layout_constraintTop_toBottomOf="@+id/bank_name_tv" />
 
@@ -347,7 +347,7 @@
                 android:layout_marginTop="8dp"
                 android:text="Поликин Г. И"
                 android:textColor="@color/gray_profile"
-                android:textSize="13sp"
+                android:textSize="@dimen/text_13sp"
                 app:layout_constraintStart_toStartOf="@+id/background"
                 app:layout_constraintTop_toBottomOf="@+id/order_tv" />
 
@@ -374,7 +374,7 @@
             android:drawablePadding="10dp"
             android:text="@string/instant_withdrawal"
             android:textColor="@color/gray_intro_text"
-            android:textSize="24sp"
+            android:textSize="@dimen/text_24sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/account_block" />
@@ -422,7 +422,7 @@
                 android:fontFamily="sans-serif"
                 android:text="@string/add_card"
                 android:textColor="@color/withdraws_yellow"
-                android:textSize="20sp"
+                android:textSize="@dimen/text_20sp"
                 app:layout_constraintBottom_toBottomOf="@+id/card_background"
                 app:layout_constraintStart_toStartOf="@id/card_background"
                 app:layout_constraintTop_toTopOf="@+id/card_background" />
@@ -470,7 +470,7 @@
                 android:fontFamily="sans-serif"
                 android:text="@string/add_card"
                 android:textColor="@color/withdraws_yellow"
-                android:textSize="20sp"
+                android:textSize="@dimen/text_20sp"
                 app:layout_constraintStart_toStartOf="@id/new_card_background"
                 app:layout_constraintTop_toTopOf="@+id/new_card_background" />
 
@@ -491,7 +491,7 @@
                 android:layout_margin="@dimen/margin_24dp"
                 android:hint="@string/enter_card_number"
                 android:textColorHint="@color/gray_profile"
-                android:textSize="13sp"
+                android:textSize="@dimen/text_13sp"
                 app:layout_constraintEnd_toEndOf="@+id/new_card_background"
                 app:layout_constraintStart_toStartOf="@+id/new_card_background"
                 app:layout_constraintTop_toBottomOf="@+id/new_add_card_tv">
@@ -507,7 +507,7 @@
                     android:maxLines="1"
                     android:textColor="@color/agreement_text_color"
                     android:textColorHint="@color/gray_profile"
-                    android:textSize="18sp" />
+                    android:textSize="@dimen/text_18sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -518,7 +518,7 @@
                 android:layout_marginTop="@dimen/margin_24dp"
                 android:text="@string/new_card_message"
                 android:textColor="@color/gray_profile"
-                android:textSize="13sp"
+                android:textSize="@dimen/text_13sp"
                 app:layout_constraintStart_toStartOf="@+id/card_input_view"
                 app:layout_constraintTop_toBottomOf="@+id/card_input_view" />
 
@@ -532,7 +532,7 @@
                 android:text="@string/add_button_text"
                 android:textAllCaps="false"
                 android:textColor="@color/continue_color"
-                android:textSize="20sp"
+                android:textSize="@dimen/text_20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/new_card_background" />

@@ -26,7 +26,7 @@
         android:fontFamily="sans-serif-medium"
         android:text="@string/support_service"
         android:textColor="@color/balance_fuel_gray"
-        android:textSize="20sp"
+        android:textSize="@dimen/text_20sp"
         app:layout_constraintBottom_toBottomOf="@+id/back_arrow"
         app:layout_constraintStart_toEndOf="@+id/back_arrow"
         app:layout_constraintTop_toTopOf="@+id/back_arrow" />
@@ -69,7 +69,7 @@
         android:paddingTop="24dp"
         android:text="@string/write_to_us"
         android:textColor="@color/gray_light_profile"
-        android:textSize="20sp"
+        android:textSize="@dimen/text_20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/support_service_title" />
@@ -87,7 +87,7 @@
         android:paddingTop="24dp"
         android:text="@string/call_history"
         android:textColor="@color/gray_light_profile"
-        android:textSize="20sp"
+        android:textSize="@dimen/text_20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/write_to_us_view" />
@@ -104,7 +104,7 @@
         android:paddingEnd="@dimen/margin_8dp"
         android:paddingBottom="4dp"
         android:textColor="@color/continue_color"
-        android:textSize="13sp"
+        android:textSize="@dimen/text_13sp"
         app:layout_constraintBottom_toBottomOf="@+id/chat_history_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/chat_history_view"
@@ -122,7 +122,7 @@
         android:text="@string/to_call"
         android:textAllCaps="false"
         android:textColor="@color/continue_color"
-        android:textSize="20sp"
+        android:textSize="@dimen/text_20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

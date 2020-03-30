@@ -45,7 +45,7 @@
         android:fontFamily="sans-serif-medium"
         android:text="@string/no_withdrawal_requests"
         android:textColor="@color/gray_intro_text"
-        android:textSize="20sp"
+        android:textSize="@dimen/text_20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/add_image" />
@@ -58,7 +58,7 @@
         android:gravity="center"
         android:text="@string/no_withdrawal_message"
         android:textColor="@color/gray_profile"
-        android:textSize="16sp"
+        android:textSize="@dimen/text_16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/no_withdrawal_requests" />
@@ -75,7 +75,7 @@
         android:text="@string/connect_account"
         android:textAllCaps="false"
         android:textColor="@color/continue_color"
-        android:textSize="20sp"
+        android:textSize="@dimen/text_20sp"
         app:layout_constraintBottom_toTopOf="@+id/back_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -92,7 +92,7 @@
         android:text="@string/back"
         android:textAllCaps="false"
         android:textColor="@color/white_code_text"
-        android:textSize="20sp"
+        android:textSize="@dimen/text_20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
