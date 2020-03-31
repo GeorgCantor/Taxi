@@ -55,6 +55,7 @@ class OrdersListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         val callback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 back()

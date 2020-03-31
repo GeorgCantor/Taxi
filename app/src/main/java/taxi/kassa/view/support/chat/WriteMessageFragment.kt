@@ -36,6 +36,6 @@ class WriteMessageFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        hideKeyboard(requireView())
+        requireView().hideKeyboard()
     }
 }

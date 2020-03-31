@@ -1,14 +1,20 @@
 package taxi.kassa.util
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.net.ConnectivityManager
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.*
+import android.view.animation.AnimationUtils
+import android.view.inputmethod.InputMethodManager
+import android.widget.TextView
 import android.widget.Toast
 import android.widget.Toast.LENGTH_LONG
 import android.widget.Toast.LENGTH_SHORT
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat.getColor
 import kotlinx.android.synthetic.main.dialog_one_button.*
 import kotlinx.android.synthetic.main.dialog_one_button.message
 import kotlinx.android.synthetic.main.dialog_one_button.title
@@ -72,6 +78,37 @@ fun View.visible() { visibility = VISIBLE }
 fun View.invisible() { visibility = INVISIBLE }
 
 fun View.gone() { visibility = GONE }
+
+fun View.hideKeyboard() {
+    val manager = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+    manager.hideSoftInputFromWindow(windowToken, InputMethodManager.HIDE_NOT_ALWAYS)
+}
+
+fun TextView.setColor(
+    balance: String,
+    colorPositive: Int,
+    colorNegative: Int
+) = setTextColor(getColor(this.context, if (balance.toFloat() > 0.0F) colorPositive else colorNegative))
+
+@SuppressLint("ResourceType")
+fun TextView.showError(message: String) {
+    text = message
+
+    val animation = AnimationUtils.loadAnimation(context, R.animator.fade_in)
+    animation.reset()
+
+    clearAnimation()
+    startAnimation(animation)
+
+    Handler().postDelayed({
+        val anim = AnimationUtils.loadAnimation(context, R.animator.fade_out)
+        anim.reset()
+        clearAnimation()
+        startAnimation(anim)
+    }, 3000)
+
+    Handler().postDelayed({ text = "" }, 3350)
+}
 
 fun String.getStringAfterSpace(): String {
     val index = this.indexOf(' ')

@@ -20,11 +20,8 @@ import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.model.Taxi
+import taxi.kassa.util.*
 import taxi.kassa.util.Constants.PUSH_COUNTER
-import taxi.kassa.util.PreferenceManager
-import taxi.kassa.util.invisible
-import taxi.kassa.util.shortToast
-import taxi.kassa.util.visible
 
 class FuelReplenishFragment : Fragment() {
 
@@ -55,6 +52,7 @@ class FuelReplenishFragment : Fragment() {
         viewModel.responseOwner.observe(viewLifecycleOwner, Observer { response ->
             response?.let {
                 rosneft_amount.text = getString(R.string.withdraw_format, it.balanceFuel)
+                rosneft_amount.setColor(it.balanceFuel, R.color.balance_green, R.color.balance_red)
 
                 val taxis = mutableListOf<Taxi>()
                 taxis.add(Taxi(R.drawable.ic_yandex, getString(R.string.yandex_title), it.balanceYandex))
@@ -82,7 +80,7 @@ class FuelReplenishFragment : Fragment() {
                     }
                 }
 
-                Handler().postDelayed({ taxi_recycler[0].performClick() }, 500)
+                Handler().postDelayed({ taxi_recycler?.let { taxi_recycler[0].performClick() } }, 500)
             }
         })
 

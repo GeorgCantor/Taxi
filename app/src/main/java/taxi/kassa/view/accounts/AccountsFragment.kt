@@ -227,7 +227,7 @@ class AccountsFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        hideKeyboard(requireView())
+        requireView().hideKeyboard()
     }
 
     private fun getCardType(number: String): String {

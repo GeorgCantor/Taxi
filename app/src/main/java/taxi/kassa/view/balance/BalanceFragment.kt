@@ -5,8 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.View.VISIBLE
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.core.content.ContextCompat.getColor
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.NavHostFragment.findNavController
@@ -14,15 +12,12 @@ import kotlinx.android.synthetic.main.fragment_balance.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
+import taxi.kassa.util.*
 import taxi.kassa.util.Constants.CITYMOBIL
 import taxi.kassa.util.Constants.GETT
 import taxi.kassa.util.Constants.PUSH_COUNTER
 import taxi.kassa.util.Constants.TAXI
 import taxi.kassa.util.Constants.YANDEX
-import taxi.kassa.util.PreferenceManager
-import taxi.kassa.util.invisible
-import taxi.kassa.util.longToast
-import taxi.kassa.util.visible
 import java.text.NumberFormat
 import java.util.*
 
@@ -65,13 +60,13 @@ class BalanceFragment : Fragment() {
                 gett_amount.text = getString(R.string.withdraw_format, it.balanceGett)
                 rosneft_amount.text = getString(R.string.withdraw_format, it.balanceFuel)
 
-                setTextColor(yandex_amount, it.balanceYandex, R.color.balance_green, R.color.balance_red)
-                setTextColor(withdraw_yandex_tv, it.balanceYandex, R.color.gray_intro_text, R.color.colorAccent)
-                setTextColor(citymobil_amount, it.balanceCity, R.color.balance_green, R.color.balance_red)
-                setTextColor(withdraw_citymobil_tv, it.balanceCity, R.color.gray_intro_text, R.color.colorAccent)
-                setTextColor(gett_amount, it.balanceGett, R.color.balance_green, R.color.balance_red)
-                setTextColor(withdraw_gett_tv, it.balanceGett, R.color.gray_intro_text, R.color.colorAccent)
-                setTextColor(rosneft_amount, it.balanceFuel, R.color.balance_green, R.color.balance_red)
+                yandex_amount.setColor(it.balanceYandex, R.color.balance_green, R.color.balance_red)
+                withdraw_yandex_tv.setColor(it.balanceYandex, R.color.gray_intro_text, R.color.colorAccent)
+                citymobil_amount.setColor(it.balanceCity, R.color.balance_green, R.color.balance_red)
+                withdraw_citymobil_tv.setColor(it.balanceCity, R.color.gray_intro_text, R.color.colorAccent)
+                gett_amount.setColor(it.balanceGett, R.color.balance_green, R.color.balance_red)
+                withdraw_gett_tv.setColor(it.balanceGett, R.color.gray_intro_text, R.color.colorAccent)
+                rosneft_amount.setColor(it.balanceFuel, R.color.balance_green, R.color.balance_red)
 
                 withdraw_yandex_tv.isEnabled = it.balanceYandex.toFloat() > 0.0F
                 withdraw_citymobil_tv.isEnabled = it.balanceCity.toFloat() > 0.0F
@@ -123,19 +118,5 @@ class BalanceFragment : Fragment() {
         }
 
         back_arrow.setOnClickListener { activity?.onBackPressed() }
-    }
-
-    private fun setTextColor(
-        textView: TextView,
-        balance: String,
-        colorPositive: Int,
-        colorNegative: Int
-    ) {
-        textView.setTextColor(
-            getColor(
-                requireContext(),
-                if (balance.toFloat() > 0.0F) colorPositive else colorNegative
-            )
-        )
     }
 }

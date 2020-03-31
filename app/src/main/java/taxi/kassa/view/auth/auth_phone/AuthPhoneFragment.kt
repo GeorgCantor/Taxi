@@ -47,7 +47,7 @@ class AuthPhoneFragment : Fragment() {
         })
 
         viewModel.error.observe(viewLifecycleOwner, Observer {
-            showError(context, error_tv, it, 5000)
+            error_tv.showError(it)
         })
 
         login_checkbox.setOnCheckedChangeListener { _, isChecked ->
@@ -136,7 +136,7 @@ class AuthPhoneFragment : Fragment() {
 
     private fun apply() {
         if (!loginIsReady) {
-            showError(context, error_tv, getString(R.string.accept_conditions_error), 5000)
+            error_tv.showError(getString(R.string.accept_conditions_error))
             return
         }
 

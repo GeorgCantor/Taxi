@@ -120,19 +120,19 @@ class AuthSignUpFragment : Fragment() {
 
     private fun apply() {
         if (!loginIsReady) {
-            showError(context, error_tv, getString(R.string.accept_conditions_error), 5000)
+            error_tv.showError(getString(R.string.accept_conditions_error))
             return
         }
 
         phone = phone_edit_text.text.toString().replace("[^\\d]".toRegex(), "")
 
         if (phone == "7") {
-            showError(context, error_tv, getString(R.string.input_field_error), 5000)
+            error_tv.showError(getString(R.string.input_field_error))
             return
         }
 
         if (phone.length != 11) {
-            showError(context, error_tv, getString(R.string.wrong_format_error), 5000)
+            error_tv.showError(getString(R.string.wrong_format_error))
             return
         }
 
