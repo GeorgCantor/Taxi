@@ -1,7 +1,6 @@
 package taxi.kassa.util
 
 object Constants {
-
     var accessToken = ""
     const val API_VERSION = "1"
     const val KEY = "ZVc3THdVdzM5dDhXQVBoR1ZJNk80SmNxdjBGcEhGUzY4YkJIcmV"

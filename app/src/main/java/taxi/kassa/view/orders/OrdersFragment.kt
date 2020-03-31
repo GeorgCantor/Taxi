@@ -117,7 +117,7 @@ class OrdersFragment : Fragment() {
             }
         })
 
-        Handler().postDelayed({ taxi_recycler[0].performClick() }, 500)
+        Handler().postDelayed({ taxi_recycler?.let { taxi_recycler[0].performClick() } }, 500)
 
         notification_image.setOnClickListener {
             findNavController(this).navigate(R.id.action_ordersFragment_to_notificationsFragment)
