@@ -23,6 +23,8 @@ import kotlinx.android.synthetic.main.dialog_one_button.message
 import kotlinx.android.synthetic.main.dialog_one_button.title
 import kotlinx.android.synthetic.main.dialog_two_buttons.*
 import taxi.kassa.R
+import java.text.NumberFormat
+import java.util.*
 import kotlin.math.pow
 import kotlin.math.roundToInt
 import kotlin.math.sqrt
@@ -128,6 +130,17 @@ fun Context.getScreenSize(): Double {
     val y = hi.pow(2.0)
 
     return ((sqrt(x + y) * 10.0).roundToInt() / 10.0)
+}
+
+fun TextView.setFormattedText(
+    formatResource: Int,
+    value: Double
+) {
+    val format = NumberFormat.getInstance(Locale("ru", "RU"))
+    text = context.getString(
+        formatResource,
+        format.format(value)
+    ).replace(',', '.')
 }
 
 fun String.getStringAfterSpace(): String {

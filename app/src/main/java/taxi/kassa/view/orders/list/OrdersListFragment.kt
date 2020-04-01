@@ -17,10 +17,7 @@ import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.model.responses.Order
-import taxi.kassa.util.EndlessScrollListener
-import taxi.kassa.util.gone
-import taxi.kassa.util.shortToast
-import taxi.kassa.util.visible
+import taxi.kassa.util.*
 import taxi.kassa.view.orders.adapter.OrdersAdapter
 
 class OrdersListFragment : Fragment() {
@@ -113,7 +110,7 @@ class OrdersListFragment : Fragment() {
         requireActivity().commission_amount.text = order.amountFeeAgr
         requireActivity().our_commission_amount.text = order.amountFeeOur
         requireActivity().order_total_amount.text = order.amountTotal.toString()
-        requireActivity().total_sum_tv.text = getString(R.string.order_balance_format, order.amountTotal.toString())
+        requireActivity().total_sum_tv.setFormattedText(R.string.order_balance_format, order.amountTotal?.toDouble() ?: 0.0)
 
         when (order.status) {
             "0" -> {

@@ -18,8 +18,6 @@ import taxi.kassa.util.Constants.GETT
 import taxi.kassa.util.Constants.PUSH_COUNTER
 import taxi.kassa.util.Constants.TAXI
 import taxi.kassa.util.Constants.YANDEX
-import java.text.NumberFormat
-import java.util.*
 
 class BalanceFragment : Fragment() {
 
@@ -49,11 +47,7 @@ class BalanceFragment : Fragment() {
 
         viewModel.responseOwner.observe(viewLifecycleOwner, Observer { response ->
             response?.let {
-                val format = NumberFormat.getInstance(Locale("ru", "RU"))
-                balance_tv.text = getString(
-                    R.string.balance_format,
-                    format.format(it.balanceTotal.toDouble())
-                ).replace(',', '.')
+                balance_tv.setFormattedText(R.string.balance_format, it.balanceTotal.toDouble())
 
                 yandex_amount.text = getString(R.string.withdraw_format, it.balanceYandex)
                 citymobil_amount.text = getString(R.string.withdraw_format, it.balanceCity)

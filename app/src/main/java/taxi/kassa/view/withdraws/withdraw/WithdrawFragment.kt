@@ -14,6 +14,7 @@ import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.model.responses.Withdraw
 import taxi.kassa.util.Constants.WITHDRAW
+import taxi.kassa.util.setFormattedText
 import taxi.kassa.util.shortToast
 
 class WithdrawFragment : Fragment() {
@@ -77,9 +78,9 @@ class WithdrawFragment : Fragment() {
 
         status_tv.text = withdraw.getStatus()
         date_time_tv.text = withdraw.getWithdrawalDate()
-        withdrawal_amount.text = getString(R.string.balance_format, withdraw.amount)
+        withdrawal_amount.setFormattedText(R.string.balance_format, withdraw.amount.toDouble())
         commission_amount.text = getString(R.string.balance_format, "13.00")
-        total_tv.text = getString(R.string.order_balance_format, withdraw.amount)
+        total_tv.setFormattedText(R.string.order_balance_format, withdraw.amount.toDouble())
 
         back_button.setOnClickListener { activity?.onBackPressed() }
     }

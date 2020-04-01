@@ -31,7 +31,6 @@ import taxi.kassa.util.Constants.SUPPORT_PHONE_NUMBER
 import taxi.kassa.util.Constants.TOKEN
 import taxi.kassa.util.Constants.accessToken
 import taxi.kassa.view.MainActivity
-import java.text.NumberFormat
 import java.util.*
 
 class ProfileFragment : Fragment() {
@@ -77,11 +76,7 @@ class ProfileFragment : Fragment() {
                     formatNumber(it.phone, Locale.getDefault().country)
                 ).replaceFirst(" ", "(").replace(" ", ")")
 
-                val format = NumberFormat.getInstance(Locale("ru", "RU"))
-                balance_tv.text = getString(
-                    R.string.balance_format,
-                    format.format(it.balanceTotal.toDouble())
-                ).replace(',', '.')
+                balance_tv.setFormattedText(R.string.balance_format, it.balanceTotal.toDouble())
             }
         })
 
