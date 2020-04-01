@@ -49,7 +49,7 @@ class WithdrawCreateFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.progressIsVisible.observe(viewLifecycleOwner, Observer { visible ->
+        viewModel.isProgressVisible.observe(viewLifecycleOwner, Observer { visible ->
             progress_bar.visibility = if (visible) VISIBLE else GONE
         })
 

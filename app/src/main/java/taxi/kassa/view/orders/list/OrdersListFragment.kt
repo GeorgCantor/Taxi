@@ -65,7 +65,7 @@ class OrdersListFragment : Fragment() {
 
         viewModel.getOrders("")
 
-        viewModel.progressIsVisible.observe(viewLifecycleOwner, Observer { visible ->
+        viewModel.isProgressVisible.observe(viewLifecycleOwner, Observer { visible ->
             progress_bar.visibility = if (visible) VISIBLE else GONE
         })
 

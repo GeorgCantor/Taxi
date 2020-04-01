@@ -3,7 +3,8 @@ package taxi.kassa.view.withdraws
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.*
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -38,7 +39,7 @@ class WithdrawsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.progressIsVisible.observe(viewLifecycleOwner, Observer { visible ->
+        viewModel.isProgressVisible.observe(viewLifecycleOwner, Observer { visible ->
             progress_bar.visibility = if (visible) VISIBLE else GONE
         })
 

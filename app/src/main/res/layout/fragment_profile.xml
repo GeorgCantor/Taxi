@@ -8,10 +8,12 @@
     android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/parent_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <ImageView
+            android:id="@+id/top_background"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:background="@drawable/bg_profile"
@@ -126,6 +128,7 @@
             app:layout_constraintTop_toTopOf="@+id/background" />
 
         <View
+            android:id="@+id/line1"
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:layout_marginStart="@dimen/margin_24dp"
@@ -154,6 +157,7 @@
             app:layout_constraintTop_toBottomOf="@+id/balance_view" />
 
         <View
+            android:id="@+id/line2"
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:layout_marginStart="@dimen/margin_24dp"
@@ -182,6 +186,7 @@
             app:layout_constraintTop_toBottomOf="@+id/orders_view" />
 
         <View
+            android:id="@+id/line3"
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:layout_marginStart="@dimen/margin_24dp"
@@ -210,6 +215,7 @@
             app:layout_constraintTop_toBottomOf="@+id/withdrawal_applications_view" />
 
         <View
+            android:id="@+id/line4"
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:layout_marginStart="@dimen/margin_24dp"
@@ -238,6 +244,7 @@
             app:layout_constraintTop_toBottomOf="@+id/accounts_and_cards_view" />
 
         <View
+            android:id="@+id/bottom_line"
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:layout_marginStart="@dimen/margin_24dp"
@@ -270,6 +277,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="26dp"
+            android:layout_marginTop="@dimen/margin_16dp"
             android:layout_marginBottom="@dimen/margin_16dp"
             android:background="?attr/selectableItemBackground"
             android:drawableStart="@drawable/ic_logout"

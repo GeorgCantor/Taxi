@@ -44,7 +44,7 @@ class AccountsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getAccounts()
 
-        viewModel.progressIsVisible.observe(viewLifecycleOwner, Observer { visible ->
+        viewModel.isProgressVisible.observe(viewLifecycleOwner, Observer { visible ->
             progress_bar.visibility = if (visible) VISIBLE else GONE
         })
 

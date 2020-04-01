@@ -7,12 +7,14 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.telephony.PhoneNumberUtils
+import android.telephony.PhoneNumberUtils.formatNumber
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.*
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
+import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -53,12 +55,13 @@ class ProfileFragment : Fragment() {
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setLogoutButtonConstraint()
 
         viewModel.isNetworkAvailable.observe(viewLifecycleOwner, Observer { available ->
             if (!available) activity?.longToast(getString(R.string.internet_unavailable))
         })
 
-        viewModel.progressIsVisible.observe(viewLifecycleOwner, Observer { visible ->
+        viewModel.isProgressVisible.observe(viewLifecycleOwner, Observer { visible ->
             progress_bar.visibility = if (visible) VISIBLE else GONE
         })
 
@@ -71,7 +74,7 @@ class ProfileFragment : Fragment() {
                 name_tv.text = it.fullName
                 number_tv.text = getString(
                     R.string.profile_format,
-                    PhoneNumberUtils.formatNumber(it.phone, Locale.getDefault().country)
+                    formatNumber(it.phone, Locale.getDefault().country)
                 ).replaceFirst(" ", "(").replace(" ", ")")
 
                 val format = NumberFormat.getInstance(Locale("ru", "RU"))
@@ -193,5 +196,19 @@ class ProfileFragment : Fragment() {
 
         activity?.finish()
         startActivity(Intent(requireActivity(), MainActivity::class.java))
+    }
+
+    private fun setLogoutButtonConstraint() {
+        if (requireContext().getScreenSize() < 5.5) {
+            val constraintSet = ConstraintSet()
+            constraintSet.clone(parent_layout)
+            constraintSet.connect(
+                R.id.exit_tv,
+                ConstraintSet.TOP,
+                R.id.bottom_line,
+                ConstraintSet.BOTTOM
+            )
+            constraintSet.applyTo(parent_layout)
+        }
     }
 }

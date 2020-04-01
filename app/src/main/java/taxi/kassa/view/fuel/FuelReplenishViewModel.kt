@@ -13,7 +13,7 @@ class FuelReplenishViewModel(private val repository: ApiRepository) : ViewModel(
 
     private val disposable = CompositeDisposable()
 
-    val progressIsVisible = MutableLiveData<Boolean>().apply { this.value = true }
+    val isProgressVisible = MutableLiveData<Boolean>().apply { this.value = true }
     val responseOwner = MutableLiveData<ResponseOwner>()
     val error = MutableLiveData<String>()
     val notifications = MutableLiveData<MutableList<Notification>>()
@@ -22,7 +22,7 @@ class FuelReplenishViewModel(private val repository: ApiRepository) : ViewModel(
         disposable.add(
             Observable.fromCallable {
                 repository.getOwner()
-                    ?.doFinally { progressIsVisible.postValue(false) }
+                    ?.doFinally { isProgressVisible.postValue(false) }
                     ?.subscribe({
                         responseOwner.postValue(it?.response)
                         error.postValue(it?.errorMsg)

@@ -22,7 +22,7 @@ class ProfileViewModel(
 
     private var disposable: Disposable
 
-    val progressIsVisible = MutableLiveData<Boolean>().apply { this.value = true }
+    val isProgressVisible = MutableLiveData<Boolean>().apply { this.value = true }
     val isNetworkAvailable = MutableLiveData<Boolean>()
     val responseOwner = MutableLiveData<ResponseOwner>()
     val error = MutableLiveData<String>()
@@ -32,7 +32,7 @@ class ProfileViewModel(
     init {
         disposable = Observable.fromCallable {
             repository.getOwner()
-                ?.doFinally { progressIsVisible.postValue(false) }
+                ?.doFinally { isProgressVisible.postValue(false) }
                 ?.subscribe({
                     responseOwner.postValue(it?.response)
                     error.postValue(it?.errorMsg)

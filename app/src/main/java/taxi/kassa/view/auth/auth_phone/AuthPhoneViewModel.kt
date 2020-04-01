@@ -11,15 +11,15 @@ class AuthPhoneViewModel(private val repository: ApiRepository) : ViewModel() {
 
     private lateinit var disposable: Disposable
 
-    val progressIsVisible = MutableLiveData<Boolean>().apply { this.value = false }
+    val isProgressVisible = MutableLiveData<Boolean>().apply { this.value = false }
     val isLoggedIn = MutableLiveData<Boolean>()
     val error = MutableLiveData<String>()
 
     fun login(phone: String) {
         disposable = Observable.fromCallable {
             repository.login(phone)
-                ?.doOnSubscribe { progressIsVisible.postValue(true) }
-                ?.doFinally { progressIsVisible.postValue(false) }
+                ?.doOnSubscribe { isProgressVisible.postValue(true) }
+                ?.doFinally { isProgressVisible.postValue(false) }
                 ?.subscribe({
                     isLoggedIn.postValue(it?.success)
                     it?.errorMsg?.let { error.postValue(it) }

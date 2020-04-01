@@ -16,7 +16,7 @@ class WithdrawCreateViewModel(private val repository: ApiRepository) : ViewModel
     private val disposable = CompositeDisposable()
     private val accountId = MutableLiveData<Int>()
 
-    val progressIsVisible = MutableLiveData<Boolean>().apply { this.value = true }
+    val isProgressVisible = MutableLiveData<Boolean>().apply { this.value = true }
     val accounts = MutableLiveData<AccountsList>()
     val creatingStatus = MutableLiveData<String>()
     val deletionStatus = MutableLiveData<String>()
@@ -36,7 +36,7 @@ class WithdrawCreateViewModel(private val repository: ApiRepository) : ViewModel
                     })
 
                 repository.getAccounts()
-                    ?.doFinally { progressIsVisible.postValue(false) }
+                    ?.doFinally { isProgressVisible.postValue(false) }
                     ?.subscribe({
                         accountId.postValue(it?.response?.info?.first()?.id)
                         accounts.postValue(it?.response)

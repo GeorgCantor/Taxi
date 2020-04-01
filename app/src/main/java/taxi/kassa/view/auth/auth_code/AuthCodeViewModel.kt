@@ -11,7 +11,7 @@ class AuthCodeViewModel(private val repository: ApiRepository) : ViewModel() {
 
     private lateinit var disposable: Disposable
 
-    val progressIsVisible = MutableLiveData<Boolean>().apply { this.value = false }
+    val isProgressVisible = MutableLiveData<Boolean>().apply { this.value = false }
     val isLoggedIn = MutableLiveData<Boolean>()
     val token = MutableLiveData<String>()
     val error = MutableLiveData<String>()
@@ -19,8 +19,8 @@ class AuthCodeViewModel(private val repository: ApiRepository) : ViewModel() {
     fun login(phone: String, code: String) {
         disposable = Observable.fromCallable {
             repository.getCode(phone, code)
-                ?.doOnSubscribe { progressIsVisible.postValue(true) }
-                ?.doFinally { progressIsVisible.postValue(false) }
+                ?.doOnSubscribe { isProgressVisible.postValue(true) }
+                ?.doFinally { isProgressVisible.postValue(false) }
                 ?.subscribe({
                     isLoggedIn.postValue(it?.success)
                     it?.response?.let { token.postValue(it.token) }
