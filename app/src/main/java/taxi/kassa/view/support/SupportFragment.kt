@@ -8,7 +8,6 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.*
 import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
@@ -66,23 +65,17 @@ class SupportFragment : Fragment() {
             }
         })
 
+        with(findNavController(this)) {
+            write_to_us_view.setOnClickListener { navigate(R.id.action_supportFragment_to_writeMessageFragment) }
+
+            chat_history_view.setOnClickListener { navigate(R.id.action_supportFragment_to_chatHistoryFragment) }
+
+            notification_image.setOnClickListener { navigate(R.id.action_supportFragment_to_notificationsFragment) }
+
+            notification_count.setOnClickListener { navigate(R.id.action_supportFragment_to_notificationsFragment) }
+        }
+
         back_arrow.setOnClickListener { activity?.onBackPressed() }
-
-        write_to_us_view.setOnClickListener {
-            findNavController(this).navigate(R.id.action_supportFragment_to_writeMessageFragment)
-        }
-
-        chat_history_view.setOnClickListener {
-            findNavController(this).navigate(R.id.action_supportFragment_to_chatHistoryFragment)
-        }
-
-        notification_image.setOnClickListener {
-            findNavController(this).navigate(R.id.action_supportFragment_to_notificationsFragment)
-        }
-
-        notification_count.setOnClickListener {
-            findNavController(this).navigate(R.id.action_supportFragment_to_notificationsFragment)
-        }
 
         call_button.setOnClickListener { makeCall() }
     }

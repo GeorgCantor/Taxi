@@ -84,31 +84,33 @@ class BalanceFragment : Fragment() {
 
         val bundle = Bundle()
 
-        withdraw_yandex_tv.setOnClickListener {
-            bundle.putString(TAXI, YANDEX)
-            findNavController(this).navigate(R.id.action_balanceFragment_to_withdrawCreateFragment, bundle)
-        }
+        with(findNavController(this)) {
+            withdraw_yandex_tv.setOnClickListener {
+                bundle.putString(TAXI, YANDEX)
+                navigate(R.id.action_balanceFragment_to_withdrawCreateFragment, bundle)
+            }
 
-        withdraw_citymobil_tv.setOnClickListener {
-            bundle.putString(TAXI, CITYMOBIL)
-            findNavController(this).navigate(R.id.action_balanceFragment_to_withdrawCreateFragment, bundle)
-        }
+            withdraw_citymobil_tv.setOnClickListener {
+                bundle.putString(TAXI, CITYMOBIL)
+                navigate(R.id.action_balanceFragment_to_withdrawCreateFragment, bundle)
+            }
 
-        withdraw_gett_tv.setOnClickListener {
-            bundle.putString(TAXI, GETT)
-            findNavController(this).navigate(R.id.action_balanceFragment_to_withdrawCreateFragment, bundle)
-        }
+            withdraw_gett_tv.setOnClickListener {
+                bundle.putString(TAXI, GETT)
+                navigate(R.id.action_balanceFragment_to_withdrawCreateFragment, bundle)
+            }
 
-        replenish_rosneft_tv.setOnClickListener {
-            findNavController(this).navigate(R.id.action_balanceFragment_to_fuelReplenishFragment)
-        }
+            replenish_rosneft_tv.setOnClickListener {
+                navigate(R.id.action_balanceFragment_to_fuelReplenishFragment)
+            }
 
-        notification_image.setOnClickListener {
-            findNavController(this).navigate(R.id.action_balanceFragment_to_notificationsFragment)
-        }
+            notification_image.setOnClickListener {
+                navigate(R.id.action_balanceFragment_to_notificationsFragment)
+            }
 
-        notification_count.setOnClickListener {
-            findNavController(this).navigate(R.id.action_balanceFragment_to_notificationsFragment)
+            notification_count.setOnClickListener {
+                navigate(R.id.action_balanceFragment_to_notificationsFragment)
+            }
         }
 
         back_arrow.setOnClickListener { activity?.onBackPressed() }

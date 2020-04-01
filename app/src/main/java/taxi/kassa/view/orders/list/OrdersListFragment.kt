@@ -101,32 +101,34 @@ class OrdersListFragment : Fragment() {
     }
 
     private fun openOrderDetails(order: Order) {
-        requireActivity().date_time_tv.text = order.getDateWithTime()
-        requireActivity().order_address_from.text = order.addressFrom
-        requireActivity().order_address_to.text = order.addressTo
-        requireActivity().received_amount.text = order.amountClient
-        requireActivity().tariff_amount.text = order.amountDriver
-        requireActivity().tip_amount.text = order.amountTip
-        requireActivity().commission_amount.text = order.amountFeeAgr
-        requireActivity().our_commission_amount.text = order.amountFeeOur
-        requireActivity().order_total_amount.text = order.amountTotal.toString()
-        requireActivity().total_sum_tv.setFormattedText(R.string.order_balance_format, order.amountTotal?.toDouble() ?: 0.0)
+        with(requireActivity()) {
+            date_time_tv.text = order.getDateWithTime()
+            order_address_from.text = order.addressFrom
+            order_address_to.text = order.addressTo
+            received_amount.text = order.amountClient
+            tariff_amount.text = order.amountDriver
+            tip_amount.text = order.amountTip
+            commission_amount.text = order.amountFeeAgr
+            our_commission_amount.text = order.amountFeeOur
+            order_total_amount.text = order.amountTotal.toString()
+            total_sum_tv.setFormattedText(R.string.order_balance_format, order.amountTotal?.toDouble() ?: 0.0)
 
-        when (order.status) {
-            "0" -> {
-                requireActivity().order_circle_image.setImageResource(R.drawable.ic_green_circle)
-                requireActivity().order_status_tv.text = getString(R.string.complete)
+            when (order.status) {
+                "0" -> {
+                    order_circle_image.setImageResource(R.drawable.ic_green_circle)
+                    order_status_tv.text = getString(R.string.complete)
+                }
+                "-1" -> {
+                    order_circle_image.setImageResource(R.drawable.ic_red_circle)
+                    order_status_tv.text = getString(R.string.canceled)
+                }
+                else -> order_circle_image.setImageResource(R.drawable.ic_green_circle)
             }
-            "-1" -> {
-                requireActivity().order_circle_image.setImageResource(R.drawable.ic_red_circle)
-                requireActivity().order_status_tv.text = getString(R.string.canceled)
-            }
-            else -> requireActivity().order_circle_image.setImageResource(R.drawable.ic_green_circle)
+            order_layout.visible()
+
+            order_back_arrow.setOnClickListener { hideOrderDetails() }
+            back_button.setOnClickListener { hideOrderDetails() }
         }
-        requireActivity().order_layout.visible()
-
-        requireActivity().order_back_arrow.setOnClickListener { hideOrderDetails() }
-        requireActivity().back_button.setOnClickListener { hideOrderDetails() }
     }
 
     private fun hideOrderDetails() = requireActivity().order_layout.gone()

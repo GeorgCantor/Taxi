@@ -1,12 +1,11 @@
 package taxi.kassa.view.fuel
 
-import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.annotation.RequiresApi
+import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_taxi.view.*
 import taxi.kassa.R
@@ -33,19 +32,21 @@ class FuelTaxiAdapter(
 
     override fun getItemCount(): Int = taxis.size
 
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onBindViewHolder(holder: FuelTaxiViewHolder, position: Int) {
         val taxi = taxis[position]
-        holder.icon.background = holder.itemView.context.getDrawable(taxi.iconResource)
-        holder.taxiName.text = taxi.taxiName
-        holder.amount.text = taxi.amount
 
-        holder.itemView.setOnClickListener { clickListener(holder.itemView) }
+        with(holder) {
+            icon.background = getDrawable(itemView.context, taxi.iconResource)
+            taxiName.text = taxi.taxiName
+            amount.text = taxi.amount
+
+            itemView.setOnClickListener { clickListener(itemView) }
+        }
     }
 
     class FuelTaxiViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val icon: ImageView = view.taxi_icon
         val taxiName: TextView = view.taxi_name
-        val amount = view.amount_tv
+        val amount: TextView = view.amount_tv
     }
 }

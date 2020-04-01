@@ -54,9 +54,11 @@ fun Context.showOneButtonDialog(
     val builder = AlertDialog.Builder(this).setView(dialogView)
     val alertDialog = builder.show()
 
-    alertDialog.title.text = title
-    alertDialog.message.text = message
-    alertDialog.ok_button.setOnClickListener { alertDialog.dismiss() }
+    with(alertDialog) {
+        this.title.text = title
+        this.message.text = message
+        ok_button.setOnClickListener { dismiss() }
+    }
 }
 
 fun Context.showTwoButtonsDialog(
@@ -70,14 +72,16 @@ fun Context.showTwoButtonsDialog(
     val builder = AlertDialog.Builder(this).setView(dialogView)
     val alertDialog = builder.show()
 
-    alertDialog.title.text = title
-    alertDialog.message.text = message
-    alertDialog.cancel_btn.text = cancelText
-    alertDialog.cancel_btn.setOnClickListener { alertDialog.dismiss() }
-    alertDialog.ok_btn.text = okText
-    alertDialog.ok_btn.setOnClickListener {
-        alertDialog.dismiss()
-        function()
+    with(alertDialog) {
+        this.title.text = title
+        this.message.text = message
+        cancel_btn.text = cancelText
+        cancel_btn.setOnClickListener { dismiss() }
+        ok_btn.text = okText
+        ok_btn.setOnClickListener {
+            dismiss()
+            function()
+        }
     }
 }
 
@@ -96,7 +100,7 @@ fun TextView.setColor(
     balance: String,
     colorPositive: Int,
     colorNegative: Int
-) = setTextColor(getColor(this.context, if (balance.toFloat() > 0.0F) colorPositive else colorNegative))
+) = setTextColor(getColor(context, if (balance.toFloat() > 0.0F) colorPositive else colorNegative))
 
 @SuppressLint("ResourceType")
 fun TextView.showError(message: String) {
@@ -144,9 +148,9 @@ fun TextView.setFormattedText(
 }
 
 fun String.getStringAfterSpace(): String {
-    val index = this.indexOf(' ')
+    val index = indexOf(' ')
 
-    return if (index == -1) "Нет отчества" else this.substring(index + 1)
+    return if (index == -1) "Нет отчества" else substring(index + 1)
 }
 
 fun Array<View>.setNormalVisibility() {

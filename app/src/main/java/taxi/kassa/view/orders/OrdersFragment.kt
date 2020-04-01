@@ -43,9 +43,11 @@ class OrdersFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val adapter = OrdersPagerAdapter(childFragmentManager)
-        adapter.addFragment(OrdersListFragment.create(1))
-        adapter.addFragment(OrdersListFragment.create(4))
-        adapter.addFragment(OrdersListFragment.create(3))
+        with(adapter) {
+            addFragment(OrdersListFragment.create(1))
+            addFragment(OrdersListFragment.create(4))
+            addFragment(OrdersListFragment.create(3))
+        }
 
         view_pager.adapter = adapter
         view_pager.offscreenPageLimit = 3
