@@ -1,18 +1,18 @@
 package taxi.kassa.view.auth.auth_sign_up
 
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.NavHostFragment.findNavController
+import com.redmadrobot.inputmask.MaskedTextChangedListener
 import kotlinx.android.synthetic.main.fragment_auth_sign_up.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
+import taxi.kassa.util.Constants.PHONE_MASK
 import taxi.kassa.util.showError
 
 class AuthSignUpFragment : Fragment() {
@@ -41,47 +41,15 @@ class AuthSignUpFragment : Fragment() {
             loginIsReady = isChecked
         }
 
-        phone_edit_text.addTextChangedListener(object : TextWatcher {
-            var lengthBefore = 0
-
-            override fun beforeTextChanged(
-                sequence: CharSequence,
-                start: Int,
-                count: Int,
-                after: Int
-            ) {
-                lengthBefore = sequence.length
-            }
-
-            override fun onTextChanged(
-                s: CharSequence,
-                start: Int,
-                before: Int,
-                count: Int
-            ) {
-                try {
-                    if (phone_edit_text.length() <= 2) {
-                        phone_edit_text.setSelection(4)
-                    }
-                } catch (e: IndexOutOfBoundsException) {
-                }
-            }
-
-            override fun afterTextChanged(editable: Editable) {
-                if (lengthBefore < editable.length) {
-                    when (editable.length) {
-                        1, 2, 3, 4 -> phone_edit_text.setText(getString(R.string.phone_start_symbols))
-                        7 -> editable.append(") ")
-                        12, 15 -> editable.append("-")
-                    }
-                    phone_edit_text.setSelection(phone_edit_text.length())
-                }
-            }
-        })
-
-        signup_button.setOnClickListener {
-            apply()
+        val touchListener = View.OnTouchListener { _, _ ->
+            true
         }
+
+        phone_edit_text.setOnTouchListener(touchListener)
+
+        phone_edit_text.addTextChangedListener(PhoneMaskListener())
+
+        signup_button.setOnClickListener { apply() }
 
         viewModel.isSignUp.observe(viewLifecycleOwner, Observer { success ->
             if (success) findNavController(this).navigate(R.id.action_authSignUpFragment_to_successRequestFragment)
@@ -138,4 +106,9 @@ class AuthSignUpFragment : Fragment() {
 
         viewModel.signUp(phone)
     }
+
+    inner class PhoneMaskListener : MaskedTextChangedListener(PHONE_MASK, phone_edit_text, object : ValueListener {
+        override fun onTextChanged(maskFilled: Boolean, extractedValue: String, formattedValue: String) {
+        }
+    })
 }

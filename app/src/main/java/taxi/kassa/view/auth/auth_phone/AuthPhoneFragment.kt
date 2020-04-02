@@ -1,8 +1,6 @@
 package taxi.kassa.view.auth.auth_phone
 
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.*
@@ -11,11 +9,13 @@ import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
+import com.redmadrobot.inputmask.MaskedTextChangedListener
 import kotlinx.android.synthetic.main.fragment_auth_phone.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.util.Constants.PHONE
+import taxi.kassa.util.Constants.PHONE_MASK
 import taxi.kassa.util.PreferenceManager
 import taxi.kassa.util.showError
 
@@ -54,43 +54,7 @@ class AuthPhoneFragment : Fragment() {
             loginIsReady = isChecked
         }
 
-        phone_edit_text.addTextChangedListener(object : TextWatcher {
-            var lengthBefore = 0
-
-            override fun beforeTextChanged(
-                sequence: CharSequence,
-                start: Int,
-                count: Int,
-                after: Int
-            ) {
-                lengthBefore = sequence.length
-            }
-
-            override fun onTextChanged(
-                s: CharSequence,
-                start: Int,
-                before: Int,
-                count: Int
-            ) {
-                try {
-                    if (phone_edit_text.length() <= 2) {
-                        phone_edit_text.setSelection(4)
-                    }
-                } catch (e: IndexOutOfBoundsException) {
-                }
-            }
-
-            override fun afterTextChanged(editable: Editable) {
-                if (lengthBefore < editable.length) {
-                    when (editable.length) {
-                        1, 2, 3, 4 -> phone_edit_text.setText(getString(R.string.phone_start_symbols))
-                        7 -> editable.append(") ")
-                        12, 15 -> editable.append("-")
-                    }
-                    phone_edit_text.setSelection(phone_edit_text.length())
-                }
-            }
-        })
+        phone_edit_text.addTextChangedListener(PhoneMaskListener())
 
         login_button.setOnClickListener { apply() }
 
@@ -145,4 +109,9 @@ class AuthPhoneFragment : Fragment() {
 
         viewModel.login(phone)
     }
+
+    inner class PhoneMaskListener : MaskedTextChangedListener(PHONE_MASK, phone_edit_text, object : ValueListener {
+        override fun onTextChanged(maskFilled: Boolean, extractedValue: String, formattedValue: String) {
+        }
+    })
 }
