@@ -1,12 +1,11 @@
 package taxi.kassa.view.withdraws.withdraw_create
 
-import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.annotation.RequiresApi
+import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_card.view.*
 import taxi.kassa.R
@@ -31,12 +30,11 @@ class WithdrawCardsAdapter(
 
     override fun getItemCount(): Int = cards.size
 
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onBindViewHolder(holder: WithdrawCardViewHolder, position: Int) {
         val card = cards[position]
         val formattedNumber = "**** ${card.number.substring(12)}"
         holder.cardNumber.text = formattedNumber
-        holder.cardIcon.background = holder.itemView.context.getDrawable(card.iconResource)
+        holder.cardIcon.background = getDrawable(holder.itemView.context, card.iconResource)
 
         holder.itemView.setOnClickListener {
             clickListener(holder.itemView)

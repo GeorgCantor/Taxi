@@ -34,9 +34,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_8dp"
-        android:layout_marginEnd="12dp"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/amount_tv"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_check_green"
         tools:visibility="visible" />
