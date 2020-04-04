@@ -14,6 +14,7 @@ import taxi.kassa.util.Constants.APPROVED
 import taxi.kassa.util.Constants.CANCELED
 import taxi.kassa.util.Constants.NEW
 import taxi.kassa.util.Constants.WRITTEN_OFF
+import taxi.kassa.util.setFormattedText
 
 class WithdrawsAdapter(
     withdraws: MutableList<Withdraw>,
@@ -90,7 +91,7 @@ class WithdrawsAdapter(
                 val status = withdraw.getStatus()
 
                 holder.time.text = withdraw.hours
-                holder.amount.text = holder.itemView.context.getString(R.string.withdraw_format, withdraw.amount)
+                holder.amount.setFormattedText(R.string.balance_format, withdraw.amount.toDouble())
                 holder.status.text = status
 
                 when (status) {

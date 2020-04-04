@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.NavHostFragment.findNavController
@@ -55,25 +56,22 @@ class AuthSignUpFragment : Fragment() {
             if (success) findNavController(this).navigate(R.id.action_authSignUpFragment_to_successRequestFragment)
         })
 
-        num_0.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, getString(R.string.num0)) }
+        val keyboardPairs = mutableListOf<Pair<Button, Int>>(
+            Pair(num_0, R.string.num0),
+            Pair(num_1, R.string.num1),
+            Pair(num_2, R.string.num2),
+            Pair(num_3, R.string.num3),
+            Pair(num_4, R.string.num4),
+            Pair(num_5, R.string.num5),
+            Pair(num_6, R.string.num6),
+            Pair(num_7, R.string.num7),
+            Pair(num_8, R.string.num8),
+            Pair(num_9, R.string.num9)
+        )
 
-        num_1.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, getString(R.string.num1)) }
-
-        num_2.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, getString(R.string.num2)) }
-
-        num_3.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, getString(R.string.num3)) }
-
-        num_4.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, getString(R.string.num4)) }
-
-        num_5.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, getString(R.string.num5)) }
-
-        num_6.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, getString(R.string.num6)) }
-
-        num_7.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, getString(R.string.num7)) }
-
-        num_8.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, getString(R.string.num8)) }
-
-        num_9.setOnClickListener { phone_edit_text.text.insert(phone_edit_text.selectionStart, getString(R.string.num9)) }
+        keyboardPairs.map {
+            setNumberClickListener(it.first, it.second)
+        }
 
         erase_btn.setOnClickListener {
             val cursorPosition = phone_edit_text.selectionStart
@@ -84,6 +82,12 @@ class AuthSignUpFragment : Fragment() {
         }
 
         apply_btn.setOnClickListener { apply() }
+    }
+
+    private fun setNumberClickListener(button: Button, resource: Int) {
+        button.setOnClickListener {
+            phone_edit_text.text.insert(phone_edit_text.selectionStart, getString(resource))
+        }
     }
 
     private fun apply() {
