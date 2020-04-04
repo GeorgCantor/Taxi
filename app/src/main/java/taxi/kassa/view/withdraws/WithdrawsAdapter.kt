@@ -110,10 +110,9 @@ class WithdrawsAdapter(
     }
 
     override fun getItemViewType(position: Int): Int {
-        return if (withdraws[position].source_id == DATE_ITEM_ID) {
-            TYPE_DATE
-        } else {
-            TYPE_ITEM
+        return when (withdraws[position].source_id) {
+            DATE_ITEM_ID -> TYPE_DATE
+            else -> TYPE_ITEM
         }
     }
 

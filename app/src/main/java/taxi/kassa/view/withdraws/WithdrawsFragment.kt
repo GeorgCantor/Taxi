@@ -77,16 +77,18 @@ class WithdrawsFragment : Fragment() {
 
         back_button.setOnClickListener { activity?.onBackPressed() }
 
-        notification_image.setOnClickListener {
-            findNavController(this).navigate(R.id.action_withdrawsFragment_to_notificationsFragment)
-        }
+        with(findNavController(this)) {
+            notification_image.setOnClickListener {
+                navigate(R.id.action_withdrawsFragment_to_notificationsFragment)
+            }
 
-        notification_count.setOnClickListener {
-            findNavController(this).navigate(R.id.action_withdrawsFragment_to_notificationsFragment)
-        }
+            notification_count.setOnClickListener {
+                navigate(R.id.action_withdrawsFragment_to_notificationsFragment)
+            }
 
-        add_account_button.setOnClickListener {
-            findNavController(this).navigate(R.id.action_withdrawsFragment_to_accountsFragment)
+            add_account_button.setOnClickListener {
+                navigate(R.id.action_withdrawsFragment_to_accountsFragment)
+            }
         }
     }
 }

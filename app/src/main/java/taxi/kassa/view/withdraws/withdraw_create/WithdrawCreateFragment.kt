@@ -49,86 +49,88 @@ class WithdrawCreateFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.isProgressVisible.observe(viewLifecycleOwner, Observer { visible ->
-            progress_bar.visibility = if (visible) VISIBLE else GONE
-        })
+        with(viewModel) {
+            isProgressVisible.observe(viewLifecycleOwner, Observer { visible ->
+                progress_bar.visibility = if (visible) VISIBLE else GONE
+            })
 
-        viewModel.error.observe(viewLifecycleOwner, Observer {
-            activity?.shortToast(it)
-        })
+            error.observe(viewLifecycleOwner, Observer {
+                activity?.shortToast(it)
+            })
 
-        viewModel.creatingStatus.observe(viewLifecycleOwner, Observer { status ->
-            status?.let { activity?.shortToast(it) }
-        })
+            creatingStatus.observe(viewLifecycleOwner, Observer { status ->
+                status?.let { activity?.shortToast(it) }
+            })
 
-        viewModel.deletionStatus.observe(viewLifecycleOwner, Observer { status ->
-            status?.let { activity?.shortToast(it) }
-        })
+            deletionStatus.observe(viewLifecycleOwner, Observer { status ->
+                status?.let { activity?.shortToast(it) }
+            })
 
-        viewModel.accounts.observe(viewLifecycleOwner, Observer {
-            if (it.info?.isNotEmpty() == true) {
-                val account = it.info.first()
-                bank_name_tv.text = account.bankName
-                order_tv.text = getString(R.string.order_format, account.accountNumber)
-                name_tv.text = account.driverName
-            }
-        })
+            accounts.observe(viewLifecycleOwner, Observer {
+                if (it.info?.isNotEmpty() == true) {
+                    val account = it.info.first()
+                    bank_name_tv.text = account.bankName
+                    order_tv.text = getString(R.string.order_format, account.accountNumber)
+                    name_tv.text = account.driverName
+                }
+            })
 
-        viewModel.responseOwner.observe(viewLifecycleOwner, Observer { response ->
-            response?.let {
-                when (taxiType) {
-                    YANDEX -> {
-                        taxi_icon.setImageResource(R.drawable.ic_yandex_mini)
-                        taxi_name.text = getString(R.string.yandex_title)
-                        balance_tv.text = getString(R.string.withdraw_create_format, response.balanceYandex)
-                    }
-                    GETT -> {
-                        taxi_icon.setImageResource(R.drawable.ic_gett_mini)
-                        taxi_name.text = getString(R.string.gett_title)
-                        balance_tv.text = getString(R.string.withdraw_create_format, response.balanceGett)
-                    }
-                    CITYMOBIL -> {
-                        taxi_icon.setImageResource(R.drawable.ic_citymobil_mini)
-                        taxi_name.text = getString(R.string.citymobil_title)
-                        balance_tv.text = getString(R.string.withdraw_create_format, response.balanceCity)
+            responseOwner.observe(viewLifecycleOwner, Observer { response ->
+                response?.let {
+                    when (taxiType) {
+                        YANDEX -> {
+                            taxi_icon.setImageResource(R.drawable.ic_yandex_mini)
+                            taxi_name.text = getString(R.string.yandex_title)
+                            balance_tv.text = getString(R.string.withdraw_create_format, response.balanceYandex)
+                        }
+                        GETT -> {
+                            taxi_icon.setImageResource(R.drawable.ic_gett_mini)
+                            taxi_name.text = getString(R.string.gett_title)
+                            balance_tv.text = getString(R.string.withdraw_create_format, response.balanceGett)
+                        }
+                        CITYMOBIL -> {
+                            taxi_icon.setImageResource(R.drawable.ic_citymobil_mini)
+                            taxi_name.text = getString(R.string.citymobil_title)
+                            balance_tv.text = getString(R.string.withdraw_create_format, response.balanceCity)
+                        }
                     }
                 }
-            }
-        })
+            })
 
-        viewModel.notifications.observe(viewLifecycleOwner, Observer {
-            val oldPushesSize = PreferenceManager(requireContext()).getInt(PUSH_COUNTER)
-            oldPushesSize?.let { oldSize ->
-                if (it.size > oldSize) {
-                    notification_count.text = (it.size - oldSize).toString()
-                    notification_count.visible()
-                    notification_image.invisible()
-                } else {
-                    notification_count.invisible()
-                    notification_image.visible()
+            notifications.observe(viewLifecycleOwner, Observer {
+                val oldPushesSize = PreferenceManager(requireContext()).getInt(PUSH_COUNTER)
+                oldPushesSize?.let { oldSize ->
+                    if (it.size > oldSize) {
+                        notification_count.text = (it.size - oldSize).toString()
+                        notification_count.visible()
+                        notification_image.invisible()
+                    } else {
+                        notification_count.invisible()
+                        notification_image.visible()
+                    }
                 }
-            }
-        })
+            })
 
-        viewModel.cards.observe(viewLifecycleOwner, Observer { cards ->
-            cards_recycler.setHasFixedSize(true)
-            cards_recycler.adapter = WithdrawCardsAdapter(cards) { card ->
-                card.check_icon.visible()
-                card.green_background.visible()
+            cards.observe(viewLifecycleOwner, Observer { cards ->
+                cards_recycler.setHasFixedSize(true)
+                cards_recycler.adapter = WithdrawCardsAdapter(cards) { card ->
+                    card.check_icon.visible()
+                    card.green_background.visible()
 
-                cards_recycler.adapter?.itemCount?.let {
-                    if (it > 1) {
-                        for (i in 0 until it) {
-                            val item = cards_recycler[i]
-                            if (item != card) {
-                                item.check_icon.gone()
-                                item.green_background.gone()
+                    cards_recycler.adapter?.itemCount?.let {
+                        if (it > 1) {
+                            for (i in 0 until it) {
+                                val item = cards_recycler[i]
+                                if (item != card) {
+                                    item.check_icon.gone()
+                                    item.green_background.gone()
+                                }
                             }
                         }
                     }
                 }
-            }
-        })
+            })
+        }
 
         Handler().postDelayed({ cards_recycler[0].performClick() }, 500)
 
