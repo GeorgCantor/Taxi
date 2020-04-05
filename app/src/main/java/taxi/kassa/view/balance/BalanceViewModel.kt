@@ -3,7 +3,7 @@ package taxi.kassa.view.balance
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import io.reactivex.Observable
-import io.reactivex.disposables.Disposable
+import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import taxi.kassa.model.Notification
 import taxi.kassa.model.responses.ResponseOwner
@@ -11,7 +11,7 @@ import taxi.kassa.repository.ApiRepository
 
 class BalanceViewModel(private val repository: ApiRepository) : ViewModel() {
 
-    private val disposable: Disposable
+    private val disposable = CompositeDisposable()
 
     val isProgressVisible = MutableLiveData<Boolean>().apply { this.value = true }
     val responseOwner = MutableLiveData<ResponseOwner>()
@@ -19,7 +19,8 @@ class BalanceViewModel(private val repository: ApiRepository) : ViewModel() {
     val notifications = MutableLiveData<MutableList<Notification>>()
 
     init {
-        disposable = Observable.fromCallable {
+        disposable.add(
+            Observable.fromCallable {
                 repository.getOwner()
                     ?.doFinally { isProgressVisible.postValue(false) }
                     ?.subscribe({
@@ -28,8 +29,9 @@ class BalanceViewModel(private val repository: ApiRepository) : ViewModel() {
                     }, {
                     })
             }
-            .subscribeOn(Schedulers.io())
-            .subscribe()
+                .subscribeOn(Schedulers.io())
+                .subscribe()
+        )
 
         notifications.value = repository.getNotifications()
     }

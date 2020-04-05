@@ -9,7 +9,7 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
-import androidx.appcompat.content.res.AppCompatResources
+import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -41,62 +41,73 @@ class FuelReplenishFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.isProgressVisible.observe(viewLifecycleOwner, Observer { visible ->
-            progress_bar.visibility = if (visible) VISIBLE else GONE
-        })
+        with(viewModel) {
+            isProgressVisible.observe(viewLifecycleOwner, Observer { visible ->
+                progress_bar.visibility = if (visible) VISIBLE else GONE
+            })
 
-        viewModel.error.observe(viewLifecycleOwner, Observer {
-            activity?.shortToast(it)
-        })
+            error.observe(viewLifecycleOwner, Observer {
+                activity?.shortToast(it)
+            })
 
-        viewModel.responseOwner.observe(viewLifecycleOwner, Observer { response ->
-            response?.let {
-                rosneft_amount.text = getString(R.string.withdraw_format, it.balanceFuel)
-                rosneft_amount.setColor(it.balanceFuel, R.color.balance_green, R.color.balance_red)
-
-                val taxis = mutableListOf<Taxi>()
-                taxis.add(Taxi(R.drawable.ic_yandex, getString(R.string.yandex_title), it.balanceYandex))
-                taxis.add(Taxi(R.drawable.ic_gett, getString(R.string.gett_title), it.balanceGett))
-                taxis.add(Taxi(R.drawable.ic_citymobil, getString(R.string.citymobil_title), it.balanceCity))
-
-                taxi_recycler.adapter = FuelTaxiAdapter(taxis) { itemView ->
-                    val items = mutableListOf(
-                        taxi_recycler[0], taxi_recycler[1], taxi_recycler[2]
+            responseOwner.observe(viewLifecycleOwner, Observer { response ->
+                response?.let {
+                    rosneft_amount.text = getString(R.string.withdraw_format, it.balanceFuel)
+                    rosneft_amount.setColor(
+                        it.balanceFuel,
+                        R.color.balance_green,
+                        R.color.balance_red
                     )
 
-                    when (itemView.taxi_name.text) {
-                        getString(R.string.yandex_title) -> taxi_recycler.scrollToPosition(0)
-                        getString(R.string.citymobil_title) -> taxi_recycler.scrollToPosition(2)
+                    val taxis = mutableListOf<Taxi>()
+                    with(taxis){
+                        add(Taxi(R.drawable.ic_yandex, getString(R.string.yandex_title), it.balanceYandex))
+                        add(Taxi(R.drawable.ic_gett, getString(R.string.gett_title), it.balanceGett))
+                        add(Taxi(R.drawable.ic_citymobil, getString(R.string.citymobil_title), it.balanceCity))
                     }
 
-                    items.map { view ->
-                        if (view != itemView) {
-                            view.background = AppCompatResources.getDrawable(requireContext(), android.R.color.transparent)
-                            view.check_image.invisible()
-                        } else {
-                            view.background = AppCompatResources.getDrawable(requireContext(), R.drawable.bg_outline_green)
-                            view.check_image.visible()
+                    taxi_recycler.adapter = FuelTaxiAdapter(taxis) { itemView ->
+                        val items = mutableListOf(
+                            taxi_recycler[0], taxi_recycler[1], taxi_recycler[2]
+                        )
+
+                        when (itemView.taxi_name.text) {
+                            getString(R.string.yandex_title) -> taxi_recycler.scrollToPosition(0)
+                            getString(R.string.citymobil_title) -> taxi_recycler.scrollToPosition(2)
+                        }
+
+                        items.map { view ->
+                            when (view == itemView) {
+                                true -> {
+                                    view.background = getDrawable(requireContext(), R.drawable.bg_outline_green)
+                                    view.check_image.visible()
+                                }
+                                false -> {
+                                    view.background = getDrawable(requireContext(), android.R.color.transparent)
+                                    view.check_image.invisible()
+                                }
+                            }
                         }
                     }
-                }
 
-                Handler().postDelayed({ taxi_recycler?.let { taxi_recycler[0].performClick() } }, 500)
-            }
-        })
-
-        viewModel.notifications.observe(viewLifecycleOwner, Observer {
-            val oldPushesSize = PreferenceManager(requireContext()).getInt(PUSH_COUNTER)
-            oldPushesSize?.let { oldSize ->
-                if (it.size > oldSize) {
-                    notification_count.text = (it.size - oldSize).toString()
-                    notification_count.visible()
-                    notification_image.invisible()
-                } else {
-                    notification_count.invisible()
-                    notification_image.visible()
+                    Handler().postDelayed({ taxi_recycler?.let { taxi_recycler[0].performClick() } }, 500)
                 }
-            }
-        })
+            })
+
+            notifications.observe(viewLifecycleOwner, Observer {
+                val oldPushesSize = PreferenceManager(requireContext()).getInt(PUSH_COUNTER)
+                oldPushesSize?.let { oldSize ->
+                    if (it.size > oldSize) {
+                        notification_count.text = (it.size - oldSize).toString()
+                        notification_count.visible()
+                        notification_image.invisible()
+                    } else {
+                        notification_count.invisible()
+                        notification_image.visible()
+                    }
+                }
+            })
+        }
 
         enter_amount_edit_text.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(editable: Editable?) {

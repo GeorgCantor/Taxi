@@ -46,9 +46,10 @@ class AuthSignUpFragment : Fragment() {
             true
         }
 
-        phone_edit_text.setOnTouchListener(touchListener)
-
-        phone_edit_text.addTextChangedListener(PhoneMaskListener())
+        with(phone_edit_text) {
+            setOnTouchListener(touchListener)
+            addTextChangedListener(PhoneMaskListener())
+        }
 
         signup_button.setOnClickListener { apply() }
 

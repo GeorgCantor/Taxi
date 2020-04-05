@@ -37,50 +37,52 @@ class BalanceFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.isProgressVisible.observe(viewLifecycleOwner, Observer { visible ->
-            progress_bar.visibility = if (visible) VISIBLE else View.GONE
-        })
+        with(viewModel) {
+            isProgressVisible.observe(viewLifecycleOwner, Observer { visible ->
+                progress_bar.visibility = if (visible) VISIBLE else View.GONE
+            })
 
-        viewModel.error.observe(viewLifecycleOwner, Observer {
-            context?.longToast(it)
-        })
+            error.observe(viewLifecycleOwner, Observer {
+                context?.longToast(it)
+            })
 
-        viewModel.responseOwner.observe(viewLifecycleOwner, Observer { response ->
-            response?.let {
-                balance_tv.setFormattedText(R.string.balance_format, it.balanceTotal.toDouble())
+            responseOwner.observe(viewLifecycleOwner, Observer { response ->
+                response?.let {
+                    balance_tv.setFormattedText(R.string.balance_format, it.balanceTotal.toDouble())
 
-                yandex_amount.text = getString(R.string.withdraw_format, it.balanceYandex)
-                citymobil_amount.text = getString(R.string.withdraw_format, it.balanceCity)
-                gett_amount.text = getString(R.string.withdraw_format, it.balanceGett)
-                rosneft_amount.text = getString(R.string.withdraw_format, it.balanceFuel)
+                    yandex_amount.text = getString(R.string.withdraw_format, it.balanceYandex)
+                    citymobil_amount.text = getString(R.string.withdraw_format, it.balanceCity)
+                    gett_amount.text = getString(R.string.withdraw_format, it.balanceGett)
+                    rosneft_amount.text = getString(R.string.withdraw_format, it.balanceFuel)
 
-                yandex_amount.setColor(it.balanceYandex, R.color.balance_green, R.color.balance_red)
-                withdraw_yandex_tv.setColor(it.balanceYandex, R.color.gray_intro_text, R.color.colorAccent)
-                citymobil_amount.setColor(it.balanceCity, R.color.balance_green, R.color.balance_red)
-                withdraw_citymobil_tv.setColor(it.balanceCity, R.color.gray_intro_text, R.color.colorAccent)
-                gett_amount.setColor(it.balanceGett, R.color.balance_green, R.color.balance_red)
-                withdraw_gett_tv.setColor(it.balanceGett, R.color.gray_intro_text, R.color.colorAccent)
-                rosneft_amount.setColor(it.balanceFuel, R.color.balance_green, R.color.balance_red)
+                    yandex_amount.setColor(it.balanceYandex, R.color.balance_green, R.color.balance_red)
+                    withdraw_yandex_tv.setColor(it.balanceYandex, R.color.gray_intro_text, R.color.colorAccent)
+                    citymobil_amount.setColor(it.balanceCity, R.color.balance_green, R.color.balance_red)
+                    withdraw_citymobil_tv.setColor(it.balanceCity, R.color.gray_intro_text, R.color.colorAccent)
+                    gett_amount.setColor(it.balanceGett, R.color.balance_green, R.color.balance_red)
+                    withdraw_gett_tv.setColor(it.balanceGett, R.color.gray_intro_text, R.color.colorAccent)
+                    rosneft_amount.setColor(it.balanceFuel, R.color.balance_green, R.color.balance_red)
 
-                withdraw_yandex_tv.isEnabled = it.balanceYandex.toFloat() > 0.0F
-                withdraw_citymobil_tv.isEnabled = it.balanceCity.toFloat() > 0.0F
-                withdraw_gett_tv.isEnabled = it.balanceGett.toFloat() > 0.0F
-            }
-        })
-
-        viewModel.notifications.observe(viewLifecycleOwner, Observer {
-            val oldPushesSize = PreferenceManager(requireContext()).getInt(PUSH_COUNTER)
-            oldPushesSize?.let { oldSize ->
-                if (it.size > oldSize) {
-                    notification_count.text = (it.size - oldSize).toString()
-                    notification_count.visible()
-                    notification_image.invisible()
-                } else {
-                    notification_count.invisible()
-                    notification_image.visible()
+                    withdraw_yandex_tv.isEnabled = it.balanceYandex.toFloat() > 0.0F
+                    withdraw_citymobil_tv.isEnabled = it.balanceCity.toFloat() > 0.0F
+                    withdraw_gett_tv.isEnabled = it.balanceGett.toFloat() > 0.0F
                 }
-            }
-        })
+            })
+
+            notifications.observe(viewLifecycleOwner, Observer {
+                val oldPushesSize = PreferenceManager(requireContext()).getInt(PUSH_COUNTER)
+                oldPushesSize?.let { oldSize ->
+                    if (it.size > oldSize) {
+                        notification_count.text = (it.size - oldSize).toString()
+                        notification_count.visible()
+                        notification_image.invisible()
+                    } else {
+                        notification_count.invisible()
+                        notification_image.visible()
+                    }
+                }
+            })
+        }
 
         val bundle = Bundle()
 

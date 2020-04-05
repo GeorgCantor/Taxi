@@ -3,13 +3,13 @@ package taxi.kassa.view.auth.auth_code
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import io.reactivex.Observable
-import io.reactivex.disposables.Disposable
+import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import taxi.kassa.repository.ApiRepository
 
 class AuthCodeViewModel(private val repository: ApiRepository) : ViewModel() {
 
-    private lateinit var disposable: Disposable
+    private val disposable = CompositeDisposable()
 
     val isProgressVisible = MutableLiveData<Boolean>().apply { this.value = false }
     val isLoggedIn = MutableLiveData<Boolean>()
@@ -17,23 +17,25 @@ class AuthCodeViewModel(private val repository: ApiRepository) : ViewModel() {
     val error = MutableLiveData<String>()
 
     fun login(phone: String, code: String) {
-        disposable = Observable.fromCallable {
-            repository.getCode(phone, code)
-                ?.doOnSubscribe { isProgressVisible.postValue(true) }
-                ?.doFinally { isProgressVisible.postValue(false) }
-                ?.subscribe({
-                    isLoggedIn.postValue(it?.success)
-                    it?.response?.let { token.postValue(it.token) }
-                    it?.errorMsg?.let { error.postValue(it) }
-                }, {
-                })
-        }
-            .subscribeOn(Schedulers.io())
-            .subscribe()
+        disposable.add(
+            Observable.fromCallable {
+                repository.getCode(phone, code)
+                    ?.doOnSubscribe { isProgressVisible.postValue(true) }
+                    ?.doFinally { isProgressVisible.postValue(false) }
+                    ?.subscribe({
+                        isLoggedIn.postValue(it?.success)
+                        it?.response?.let { token.postValue(it.token) }
+                        it?.errorMsg?.let { error.postValue(it) }
+                    }, {
+                    })
+            }
+                .subscribeOn(Schedulers.io())
+                .subscribe()
+        )
     }
 
     override fun onCleared() {
         super.onCleared()
-        if (::disposable.isInitialized) disposable.dispose()
+        disposable.dispose()
     }
 }

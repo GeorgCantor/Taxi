@@ -132,7 +132,7 @@ class WithdrawCreateFragment : Fragment() {
             })
         }
 
-        Handler().postDelayed({ cards_recycler[0].performClick() }, 500)
+        Handler().postDelayed({ cards_recycler?.let { cards_recycler[0].performClick() } }, 500)
 
         val constraintSet = ConstraintSet()
 
