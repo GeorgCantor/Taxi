@@ -34,22 +34,24 @@ class NotificationsAdapter(notifications: MutableList<Notification>) :
         val notification = notifications[position]
         val constraintSet = ConstraintSet()
 
-        holder.title.text = notification.title
-        holder.message.text = notification.message
-        holder.date.text = notification.date
+        with(holder) {
+            title.text = notification.title
+            message.text = notification.message
+            date.text = notification.date
 
-        when (notification.isNew) {
-            true -> holder.statusImage.setImageResource(R.drawable.ic_yellow_circle)
-            false -> {
-                holder.statusImage.invisible()
-                constraintSet.clone(holder.parent)
-                constraintSet.connect(
-                    R.id.push_title,
-                    ConstraintSet.START,
-                    R.id.push_message,
-                    ConstraintSet.START
-                )
-                constraintSet.applyTo(holder.parent)
+            when (notification.isNew) {
+                true -> statusImage.setImageResource(R.drawable.ic_yellow_circle)
+                false -> {
+                    statusImage.invisible()
+                    constraintSet.clone(parent)
+                    constraintSet.connect(
+                        R.id.push_title,
+                        ConstraintSet.START,
+                        R.id.push_message,
+                        ConstraintSet.START
+                    )
+                    constraintSet.applyTo(parent)
+                }
             }
         }
     }

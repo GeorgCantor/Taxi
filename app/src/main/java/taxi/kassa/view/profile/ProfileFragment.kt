@@ -56,74 +56,87 @@ class ProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setLogoutButtonConstraint()
 
-        viewModel.isNetworkAvailable.observe(viewLifecycleOwner, Observer { available ->
-            if (!available) activity?.longToast(getString(R.string.internet_unavailable))
-        })
+        with(viewModel) {
+            isNetworkAvailable.observe(viewLifecycleOwner, Observer { available ->
+                if (!available) activity?.longToast(getString(R.string.internet_unavailable))
+            })
 
-        viewModel.isProgressVisible.observe(viewLifecycleOwner, Observer { visible ->
-            progress_bar.visibility = if (visible) VISIBLE else GONE
-        })
+            isProgressVisible.observe(viewLifecycleOwner, Observer { visible ->
+                progress_bar.visibility = if (visible) VISIBLE else GONE
+            })
 
-        viewModel.error.observe(viewLifecycleOwner, Observer {
-            activity?.shortToast(it)
-        })
+            error.observe(viewLifecycleOwner, Observer {
+                activity?.shortToast(it)
+            })
 
-        viewModel.responseOwner.observe(viewLifecycleOwner, Observer { response ->
-            response?.let {
-                name_tv.text = it.fullName
-                number_tv.text = getString(
-                    R.string.profile_format,
-                    formatNumber(it.phone, Locale.getDefault().country)
-                ).replaceFirst(" ", "(").replace(" ", ")")
+            responseOwner.observe(viewLifecycleOwner, Observer { response ->
+                response?.let {
+                    name_tv.text = it.fullName
+                    number_tv.text = getString(
+                        R.string.profile_format,
+                        formatNumber(it.phone, Locale.getDefault().country)
+                    ).replaceFirst(" ", "(").replace(" ", ")")
 
-                balance_tv.setFormattedText(R.string.balance_format, it.balanceTotal.toDouble())
-            }
-        })
-
-        viewModel.notifications.observe(viewLifecycleOwner, Observer {
-            val oldPushesSize = PreferenceManager(requireContext()).getInt(PUSH_COUNTER)
-            oldPushesSize?.let { oldSize ->
-                if (it.size > oldSize) {
-                    notification_count.text = (it.size - oldSize).toString()
-                    notification_count.visible()
-                    notification_image.invisible()
-                } else {
-                    notification_count.invisible()
-                    notification_image.visible()
+                    balance_tv.setFormattedText(R.string.balance_format, it.balanceTotal.toDouble())
                 }
+            })
+
+            notifications.observe(viewLifecycleOwner, Observer {
+                val oldPushesSize = PreferenceManager(requireContext()).getInt(PUSH_COUNTER)
+                oldPushesSize?.let { oldSize ->
+                    if (it.size > oldSize) {
+                        notification_count.text = (it.size - oldSize).toString()
+                        notification_count.visible()
+                        notification_image.invisible()
+                    } else {
+                        notification_count.invisible()
+                        notification_image.visible()
+                    }
+                }
+            })
+
+            incomingMessages.observe(viewLifecycleOwner, Observer {
+                val readMessages = PreferenceManager(requireContext()).getInt(MESSAGES_COUNTER)
+                val unreadMessages = it.size - (readMessages ?: 0)
+
+                if (unreadMessages > 0) {
+                    message_counter.visible()
+                    message_counter.text =
+                        getString(R.string.profile_format, unreadMessages.toString())
+                } else {
+                    message_counter.gone()
+                }
+            })
+        }
+
+        with(findNavController(this)) {
+            balance_view.setOnClickListener {
+                navigate(R.id.action_profileFragment_to_balanceFragment)
             }
-        })
 
-        viewModel.incomingMessages.observe(viewLifecycleOwner, Observer {
-            val readMessages = PreferenceManager(requireContext()).getInt(MESSAGES_COUNTER)
-            val unreadMessages = it.size - (readMessages ?: 0)
-
-            if (unreadMessages > 0) {
-                message_counter.visible()
-                message_counter.text = getString(R.string.profile_format, unreadMessages.toString())
-            } else {
-                message_counter.gone()
+            orders_view.setOnClickListener {
+                navigate(R.id.action_profileFragment_to_ordersFragment)
             }
-        })
 
-        balance_view.setOnClickListener {
-            findNavController(this).navigate(R.id.action_profileFragment_to_balanceFragment)
-        }
+            withdrawal_applications_view.setOnClickListener {
+                navigate(R.id.action_profileFragment_to_withdrawsFragment)
+            }
 
-        orders_view.setOnClickListener {
-            findNavController(this).navigate(R.id.action_profileFragment_to_ordersFragment)
-        }
+            accounts_and_cards_view.setOnClickListener {
+                navigate(R.id.action_profileFragment_to_accountsFragment)
+            }
 
-        withdrawal_applications_view.setOnClickListener {
-            findNavController(this).navigate(R.id.action_profileFragment_to_withdrawsFragment)
-        }
+            support_service_view.setOnClickListener {
+                navigate(R.id.action_profileFragment_to_supportFragment)
+            }
 
-        accounts_and_cards_view.setOnClickListener {
-            findNavController(this).navigate(R.id.action_profileFragment_to_accountsFragment)
-        }
+            notification_image.setOnClickListener {
+                navigate(R.id.action_profileFragment_to_notificationsFragment)
+            }
 
-        support_service_view.setOnClickListener {
-            findNavController(this).navigate(R.id.action_profileFragment_to_supportFragment)
+            notification_count.setOnClickListener {
+                navigate(R.id.action_profileFragment_to_notificationsFragment)
+            }
         }
 
         phone_image.setOnClickListener {
@@ -135,14 +148,6 @@ class ProfileFragment : Fragment() {
             ) {
                 makeCall()
             }
-        }
-
-        notification_image.setOnClickListener {
-            findNavController(this).navigate(R.id.action_profileFragment_to_notificationsFragment)
-        }
-
-        notification_count.setOnClickListener {
-            findNavController(this).navigate(R.id.action_profileFragment_to_notificationsFragment)
         }
 
         exit_tv.setOnClickListener {
@@ -196,14 +201,16 @@ class ProfileFragment : Fragment() {
     private fun setLogoutButtonConstraint() {
         if (requireContext().getScreenSize() < 5.5) {
             val constraintSet = ConstraintSet()
-            constraintSet.clone(parent_layout)
-            constraintSet.connect(
-                R.id.exit_tv,
-                ConstraintSet.TOP,
-                R.id.bottom_line,
-                ConstraintSet.BOTTOM
-            )
-            constraintSet.applyTo(parent_layout)
+            with(constraintSet) {
+                clone(parent_layout)
+                connect(
+                    R.id.exit_tv,
+                    ConstraintSet.TOP,
+                    R.id.bottom_line,
+                    ConstraintSet.BOTTOM
+                )
+                applyTo(parent_layout)
+            }
         }
     }
 }

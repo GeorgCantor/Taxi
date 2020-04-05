@@ -24,9 +24,7 @@ class FuelTaxiAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FuelTaxiViewHolder {
         return FuelTaxiViewHolder(
-            LayoutInflater.from(parent.context).inflate(
-                R.layout.item_taxi, null
-            )
+            LayoutInflater.from(parent.context).inflate(R.layout.item_taxi, null)
         )
     }
 

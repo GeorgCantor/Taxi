@@ -58,46 +58,51 @@ class OrdersListFragment : Fragment() {
                 back()
             }
         }
-        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
+        activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, callback)
 
-        viewModel.getOrders("")
+        with(viewModel) {
+            getOrders("")
 
-        viewModel.isProgressVisible.observe(viewLifecycleOwner, Observer { visible ->
-            progress_bar.visibility = if (visible) VISIBLE else GONE
-        })
+            isProgressVisible.observe(viewLifecycleOwner, Observer { visible ->
+                progress_bar.visibility = if (visible) VISIBLE else GONE
+            })
 
-        viewModel.error.observe(viewLifecycleOwner, Observer {
-            activity?.shortToast(it)
-        })
+            error.observe(viewLifecycleOwner, Observer {
+                activity?.shortToast(it)
+            })
 
-        viewModel.orders.observe(viewLifecycleOwner, Observer {
-            nextOffset = it.nextOffset
+            orders.observe(viewLifecycleOwner, Observer {
+                nextOffset = it.nextOffset
 
-            if (firstLoad) {
-                adapter = OrdersAdapter(it.orders?.filter {
-                    it.sourceId == arguments?.get(ARG_TAXI).toString()
-                } as MutableList<Order>) {
-                    openOrderDetails(it)
+                when (firstLoad) {
+                    true -> {
+                        adapter = OrdersAdapter(it.orders?.filter {
+                            it.sourceId == arguments?.get(ARG_TAXI).toString()
+                        } as MutableList<Order>) {
+                            openOrderDetails(it)
+                        }
+                        orders_recycler.adapter = adapter
+
+                        empty_tv.visibility = if (orders_recycler.adapter?.itemCount == 0) VISIBLE else GONE
+
+                        firstLoad = false
+                    }
+                    false -> {
+                        adapter.updateList(it.orders?.filter {
+                            it.sourceId == arguments?.get(ARG_TAXI).toString()
+                        } as MutableList<Order>)
+                    }
                 }
-                orders_recycler.adapter = adapter
+            })
 
-                empty_tv.visibility = if (orders_recycler.adapter?.itemCount == 0) VISIBLE else GONE
-
-                firstLoad = false
-            } else {
-                adapter.updateList(it.orders?.filter {
-                    it.sourceId == arguments?.get(ARG_TAXI).toString()
-                } as MutableList<Order>)
+            val scrollListener = object : EndlessScrollListener() {
+                override fun onLoadMore(page: Int, totalItemsCount: Int) {
+                    getOrders(nextOffset)
+                }
             }
-        })
 
-        val scrollListener = object : EndlessScrollListener() {
-            override fun onLoadMore(page: Int, totalItemsCount: Int) {
-                viewModel.getOrders(nextOffset)
-            }
+            orders_recycler.addOnScrollListener(scrollListener)
         }
-
-        orders_recycler.addOnScrollListener(scrollListener)
     }
 
     private fun openOrderDetails(order: Order) {

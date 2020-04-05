@@ -32,10 +32,12 @@ class OrdersTaxiAdapter(
 
     override fun onBindViewHolder(holder: OrdersTaxiViewHolder, position: Int) {
         val taxi = taxis[position]
-        holder.icon.background = getDrawable(holder.itemView.context, taxi.iconResource)
-        holder.taxiName.text = taxi.taxiName
+        with(holder) {
+            icon.background = getDrawable(itemView.context, taxi.iconResource)
+            taxiName.text = taxi.taxiName
 
-        holder.itemView.setOnClickListener { clickListener(holder.itemView, taxi) }
+            itemView.setOnClickListener { clickListener(itemView, taxi) }
+        }
     }
 
     class OrdersTaxiViewHolder(view: View) : RecyclerView.ViewHolder(view) {

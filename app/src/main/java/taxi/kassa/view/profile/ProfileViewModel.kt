@@ -4,7 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import io.reactivex.Observable
-import io.reactivex.disposables.Disposable
+import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import taxi.kassa.MyApplication
 import taxi.kassa.model.Message
@@ -18,9 +18,7 @@ class ProfileViewModel(
     private val repository: ApiRepository
 ) : AndroidViewModel(app) {
 
-    private val context = getApplication<MyApplication>()
-
-    private var disposable: Disposable
+    private val disposable = CompositeDisposable()
 
     val isProgressVisible = MutableLiveData<Boolean>().apply { this.value = true }
     val isNetworkAvailable = MutableLiveData<Boolean>()
@@ -30,22 +28,23 @@ class ProfileViewModel(
     val incomingMessages = MutableLiveData<MutableList<Message>>()
 
     init {
-        disposable = Observable.fromCallable {
-            repository.getOwner()
-                ?.doFinally { isProgressVisible.postValue(false) }
-                ?.subscribe({
-                    responseOwner.postValue(it?.response)
-                    error.postValue(it?.errorMsg)
-                }, {
-                })
-        }
-            .subscribeOn(Schedulers.io())
-            .subscribe()
+        disposable.add(
+            Observable.fromCallable {
+                repository.getOwner()
+                    ?.doFinally { isProgressVisible.postValue(false) }
+                    ?.subscribe({
+                        responseOwner.postValue(it?.response)
+                        error.postValue(it?.errorMsg)
+                    }, {
+                    })
+            }
+                .subscribeOn(Schedulers.io())
+                .subscribe()
+        )
 
         notifications.value = repository.getNotifications()
         incomingMessages.value = repository.getChatHistory().filter { it.isIncoming } as MutableList
-
-        isNetworkAvailable.value = context.isNetworkAvailable()
+        isNetworkAvailable.value = getApplication<MyApplication>().isNetworkAvailable()
     }
 
     override fun onCleared() {
