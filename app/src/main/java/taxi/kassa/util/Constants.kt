@@ -18,6 +18,7 @@ object Constants {
     const val NOTIFICATIONS = "notifications"
     const val PUSH_COUNTER = "counter"
     const val MESSAGES_COUNTER = "messages_counter"
+    const val TOTAL_BALANCE = "total_balance"
     const val PHONE_MASK = "+7 ([000]) [000]-[00]-[00]"
 
     const val YANDEX = "yandex"

@@ -10,6 +10,7 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.appcompat.content.res.AppCompatResources.getDrawable
+import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -40,6 +41,7 @@ class FuelReplenishFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setReplenishButtonConstraint()
 
         with(viewModel) {
             isProgressVisible.observe(viewLifecycleOwner, Observer { visible ->
@@ -138,5 +140,21 @@ class FuelReplenishFragment : Fragment() {
         }
 
         back_arrow.setOnClickListener { activity?.onBackPressed() }
+    }
+
+    private fun setReplenishButtonConstraint() {
+        if (requireContext().getScreenSize() < 6) {
+            val constraintSet = ConstraintSet()
+            with(constraintSet) {
+                clone(root_layout)
+                connect(
+                    R.id.replenish_button,
+                    ConstraintSet.TOP,
+                    R.id.enter_amount_input_view,
+                    ConstraintSet.BOTTOM
+                )
+                applyTo(root_layout)
+            }
+        }
     }
 }

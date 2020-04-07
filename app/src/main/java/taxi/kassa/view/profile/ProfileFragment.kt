@@ -29,6 +29,7 @@ import taxi.kassa.util.Constants.PHONE
 import taxi.kassa.util.Constants.PUSH_COUNTER
 import taxi.kassa.util.Constants.SUPPORT_PHONE_NUMBER
 import taxi.kassa.util.Constants.TOKEN
+import taxi.kassa.util.Constants.TOTAL_BALANCE
 import taxi.kassa.util.Constants.accessToken
 import taxi.kassa.view.MainActivity
 import java.util.*
@@ -78,6 +79,8 @@ class ProfileFragment : Fragment() {
                     ).replaceFirst(" ", "(").replace(" ", ")")
 
                     balance_tv.setFormattedText(R.string.balance_format, it.balanceTotal.toDouble())
+
+                    setBalanceChange(it.balanceTotal.toDouble().toInt())
                 }
             })
 
@@ -101,8 +104,7 @@ class ProfileFragment : Fragment() {
 
                 if (unreadMessages > 0) {
                     message_counter.visible()
-                    message_counter.text =
-                        getString(R.string.profile_format, unreadMessages.toString())
+                    message_counter.text = getString(R.string.profile_format, unreadMessages.toString())
                 } else {
                     message_counter.gone()
                 }
@@ -196,6 +198,20 @@ class ProfileFragment : Fragment() {
 
         activity?.finish()
         startActivity(Intent(requireActivity(), MainActivity::class.java))
+    }
+
+    private fun setBalanceChange(totalBalance: Int) {
+        val pastBalance = prefManager.getInt(TOTAL_BALANCE)
+        pastBalance?.let {
+            when (totalBalance > it) {
+                true -> {
+                    balance_counter.visible()
+                    balance_counter.text = getString(R.string.profile_format, (totalBalance - it).toString())
+                }
+                false -> balance_counter.gone()
+            }
+        }
+        prefManager.saveInt(TOTAL_BALANCE, totalBalance)
     }
 
     private fun setLogoutButtonConstraint() {
