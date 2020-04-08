@@ -1,7 +1,5 @@
 package taxi.kassa.repository
 
-import taxi.kassa.R
-import taxi.kassa.model.Card
 import taxi.kassa.model.Message
 import taxi.kassa.model.Notification
 import taxi.kassa.model.remote.ApiService
@@ -116,23 +114,6 @@ class ApiRepository(
                 message = "Обращение принятно и находится на рассмотрении, мы венрнемся с ответом в 17:00",
                 date = "14:00, 8 окт. 2019г.",
                 isIncoming = true
-            )
-        )
-    }
-
-    fun getCards(): MutableList<Card> {
-        return mutableListOf(
-            Card(
-                number = "1233988888775566",
-                type = "mastercard",
-                amount = "1290.43",
-                iconResource = R.drawable.ic_mastrcard_bg
-            ),
-            Card(
-                number = "7774443388883342",
-                type = "mastercard",
-                amount = "6290.83",
-                iconResource = R.drawable.ic_mastrcard_bg
             )
         )
     }

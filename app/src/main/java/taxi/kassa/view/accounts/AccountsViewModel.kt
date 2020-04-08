@@ -28,6 +28,12 @@ class AccountsViewModel(private val repository: ApiRepository) : ViewModel() {
                 repository.getAccounts()
                     ?.doFinally { isProgressVisible.postValue(false) }
                     ?.subscribe({
+                        val cardList = mutableListOf<Card>()
+                        it?.response?.info?.map {
+                            cardList.add(Card(it.cardNumber, it.cardDate))
+                        }
+                        cards.postValue(cardList)
+
                         accounts.postValue(it?.response)
                         error.postValue(it?.errorMsg)
                     }, {
@@ -38,7 +44,6 @@ class AccountsViewModel(private val repository: ApiRepository) : ViewModel() {
         )
 
         notifications.value = repository.getNotifications()
-        cards.value = repository.getCards()
     }
 
     fun createAccount(

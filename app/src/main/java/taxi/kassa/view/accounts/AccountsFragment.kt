@@ -18,14 +18,11 @@ import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.util.*
+import taxi.kassa.util.Constants.MASTERCARD
 import taxi.kassa.util.Constants.PUSH_COUNTER
+import taxi.kassa.util.Constants.VISA
 
 class AccountsFragment : Fragment() {
-
-    companion object {
-        private const val MASTERCARD = "Mastercard"
-        private const val VISA = "Visa"
-    }
 
     private lateinit var viewModel: AccountsViewModel
 
@@ -207,7 +204,7 @@ class AccountsFragment : Fragment() {
                     4, 9, 14 -> editable.append(" ")
                 }
 
-                when (getCardType(editable?.toString()?.replace(" ", "") ?: "")) {
+                when ((editable?.toString()?.replace(" ", "") ?: "").getCardType()) {
                     VISA -> {
                         card_edit_text.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_visa, 0)
                     }
@@ -228,16 +225,5 @@ class AccountsFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         requireView().hideKeyboard()
-    }
-
-    private fun getCardType(number: String): String {
-        val visa = Regex("^4[0-9]{12}(?:[0-9]{3})?$")
-        val mastercard = Regex("^5[1-5][0-9]{14}$")
-
-        return when {
-            visa.matches(number) -> VISA
-            mastercard.matches(number) -> MASTERCARD
-            else -> "Unknown"
-        }
     }
 }

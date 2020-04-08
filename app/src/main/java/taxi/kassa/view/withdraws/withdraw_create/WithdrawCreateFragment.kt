@@ -13,6 +13,7 @@ import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.view.get
+import androidx.core.view.isNotEmpty
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.NavHostFragment.findNavController
@@ -132,7 +133,9 @@ class WithdrawCreateFragment : Fragment() {
             })
         }
 
-        Handler().postDelayed({ cards_recycler?.let { cards_recycler[0].performClick() } }, 500)
+        Handler().postDelayed({
+            cards_recycler?.let { if (it.isNotEmpty()) cards_recycler[0].performClick() }
+        }, 500)
 
         val constraintSet = ConstraintSet()
 

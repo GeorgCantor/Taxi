@@ -72,7 +72,7 @@ class OrdersListFragment : Fragment() {
             })
 
             orders.observe(viewLifecycleOwner, Observer {
-                nextOffset = it.nextOffset
+                nextOffset = it.nextOffset ?: ""
 
                 when (firstLoad) {
                     true -> {

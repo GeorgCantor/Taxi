@@ -141,10 +141,12 @@
             android:paddingBottom="4dp"
             android:textColor="@color/continue_color"
             android:textSize="@dimen/text_13sp"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@+id/balance_view"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/balance_view"
-            tools:text="+200" />
+            tools:text="+200"
+            tools:visibility="visible" />
 
         <View
             android:id="@+id/line1"
@@ -286,10 +288,12 @@
             android:paddingBottom="4dp"
             android:textColor="@color/continue_color"
             android:textSize="@dimen/text_13sp"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@+id/support_service_view"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/support_service_view"
-            tools:text="+2" />
+            tools:text="+2"
+            tools:visibility="visible" />
 
         <TextView
             android:id="@+id/exit_tv"

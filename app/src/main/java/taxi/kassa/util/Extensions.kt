@@ -23,6 +23,8 @@ import kotlinx.android.synthetic.main.dialog_one_button.message
 import kotlinx.android.synthetic.main.dialog_one_button.title
 import kotlinx.android.synthetic.main.dialog_two_buttons.*
 import taxi.kassa.R
+import taxi.kassa.util.Constants.MASTERCARD
+import taxi.kassa.util.Constants.VISA
 import java.text.NumberFormat
 import java.util.*
 import kotlin.math.pow
@@ -145,6 +147,17 @@ fun TextView.setFormattedText(
         formatResource,
         format.format(value)
     ).replace(',', '.')
+}
+
+fun String.getCardType(): String {
+    val visa = Regex("^4[0-9]{12}(?:[0-9]{3})?$")
+    val mastercard = Regex("^5[1-5][0-9]{14}$")
+
+    return when {
+        visa.matches(this) -> VISA
+        mastercard.matches(this) -> MASTERCARD
+        else -> "Unknown"
+    }
 }
 
 fun String.getStringAfterSpace(): String {

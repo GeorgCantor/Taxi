@@ -2,6 +2,7 @@ package taxi.kassa.util
 
 object Constants {
     var accessToken = ""
+
     const val API_VERSION = "1"
     const val KEY = "ZVc3THdVdzM5dDhXQVBoR1ZJNk80SmNxdjBGcEhGUzY4YkJIcmV"
     const val MAIN_STORAGE = "MainStorage"
@@ -32,4 +33,7 @@ object Constants {
     const val DAY_YEAR_PATTERN = "dd MMMM yyyy"
     const val FULL_PATTERN = "HH:mm, dd MMMM yyyy"
     const val PUSH_PATTERN = "HH:mm, dd MMMM"
+
+    const val MASTERCARD = "Mastercard"
+    const val VISA = "Visa"
 }
