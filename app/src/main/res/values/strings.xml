@@ -6,7 +6,7 @@
     <string name="action_settings">Settings</string>
     <string name="login_agreement">Нажимая на кнопку, я даю согласие на обработку персональных данных, соглашаюсь с <a href="https://kassa.taxi/privacy">политикой конфиденциальности</a> и принимаю условия <a href="https://kassa.taxi/agreement">лицензионного соглашения</a>.</string>
     <string name="login_btn">Войти</string>
-    <string name="login_agreement_title">Подтверждаю свое согласие на обработку и хранение моих персональных данныхв соответствии с пользовательским соглашением</string>
+    <string name="login_agreement_title">Подтверждаю свое согласие на обработку и хранение моих персональных данных в соответствии с пользовательским соглашением</string>
     <string name="accept_conditions_error">Необходимо принять условия работы</string>
     <string name="input_field_error">Заполните поле</string>
     <string name="wrong_format_error">Неправильный формат</string>

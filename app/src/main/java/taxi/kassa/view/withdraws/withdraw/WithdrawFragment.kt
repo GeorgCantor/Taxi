@@ -67,6 +67,25 @@ class WithdrawFragment : Fragment() {
 
         back_arrow.setOnClickListener { activity?.onBackPressed() }
 
+        when (withdraw.source_id.toInt()) {
+            1 -> {
+                taxi_icon.setImageResource(R.drawable.ic_yandex_mini)
+                taxi_name.setText(R.string.yandex_title)
+            }
+            2 -> {
+                taxi_icon.setImageResource(R.drawable.ic_gett_mini)
+                taxi_name.setText(R.string.gett_title)
+            }
+            3 -> {
+                taxi_icon.setImageResource(R.drawable.ic_citymobil_mini)
+                taxi_name.setText(R.string.citymobil_title)
+            }
+            else -> {
+                taxi_icon.setImageResource(R.drawable.ic_yandex_mini)
+                taxi_name.setText(R.string.yandex_title)
+            }
+        }
+
         circle_image.setImageResource(
             when (withdraw.status) {
                 0, 1 -> R.drawable.ic_yellow_circle

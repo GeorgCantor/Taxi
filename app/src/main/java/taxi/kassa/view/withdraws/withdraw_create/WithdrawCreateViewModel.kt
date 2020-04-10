@@ -47,7 +47,6 @@ class WithdrawCreateViewModel(private val repository: ApiRepository) : ViewModel
                         accountId.postValue(it?.response?.info?.first()?.id)
                         accounts.postValue(it?.response)
                         error.postValue(it?.errorMsg)
-
                     }, {
                     })
             }

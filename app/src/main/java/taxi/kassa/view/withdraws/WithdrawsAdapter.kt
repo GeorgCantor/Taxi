@@ -89,6 +89,7 @@ class WithdrawsAdapter(
         when (holder) {
             is WithdrawsViewHolder -> {
                 val status = withdraw.getStatus()
+                val sourceId = withdraw.source_id
 
                 holder.time.text = withdraw.hours
                 holder.amount.setFormattedText(R.string.balance_format, withdraw.amount.toDouble())
@@ -99,6 +100,21 @@ class WithdrawsAdapter(
                     APPROVED -> holder.statusImage.setImageResource(R.drawable.ic_yellow_circle)
                     WRITTEN_OFF -> holder.statusImage.setImageResource(R.drawable.ic_green_circle)
                     CANCELED -> holder.statusImage.setImageResource(R.drawable.ic_red_circle)
+                }
+
+                when (sourceId.toInt()) {
+                    1 -> {
+                        holder.taxiIcon.setImageResource(R.drawable.ic_yandex_mini)
+                        holder.taxiName.setText(R.string.yandex_title)
+                    }
+                    2 -> {
+                        holder.taxiIcon.setImageResource(R.drawable.ic_gett_mini)
+                        holder.taxiName.setText(R.string.gett_title)
+                    }
+                    3 -> {
+                        holder.taxiIcon.setImageResource(R.drawable.ic_citymobil_mini)
+                        holder.taxiName.setText(R.string.citymobil_title)
+                    }
                 }
 
                 holder.itemView.setOnClickListener { clickListener(withdraw) }
@@ -118,6 +134,8 @@ class WithdrawsAdapter(
 
     class WithdrawsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val time: TextView = view.time_tv
+        val taxiIcon: ImageView = view.taxi_icon
+        val taxiName: TextView = view.taxi_name
         val amount: TextView = view.amount_tv
         val status: TextView = view.status_tv
         val statusImage: ImageView = view.circle_image

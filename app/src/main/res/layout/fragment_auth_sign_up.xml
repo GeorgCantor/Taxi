@@ -74,20 +74,27 @@
 
     <CheckBox
         android:id="@+id/login_checkbox"
-        android:layout_width="340dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_24dp"
         android:button="@drawable/checkbox_selector"
         android:checked="true"
-        android:fontFamily="sans-serif"
-        android:paddingStart="8dp"
-        android:paddingTop="22dp"
+        android:padding="@dimen/margin_8dp"
+        app:layout_constraintEnd_toStartOf="@+id/agreement_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/agreement_text" />
+
+    <TextView
+        android:id="@+id/agreement_text"
+        android:layout_width="324dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_16dp"
         android:text="@string/login_agreement_title"
         android:textColor="@color/agreement_text_color"
         android:textSize="@dimen/text_13sp"
         app:layout_constraintBottom_toTopOf="@+id/keyboard"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_button" />
+        app:layout_constraintStart_toEndOf="@+id/login_checkbox"
+        app:layout_constraintTop_toBottomOf="@+id/signup_button" />
 
     <requestFocus />
 
