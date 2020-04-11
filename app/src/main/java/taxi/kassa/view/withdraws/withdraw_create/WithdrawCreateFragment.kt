@@ -15,7 +15,6 @@ import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.view.get
 import androidx.core.view.isNotEmpty
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_withdraw_create.*
 import kotlinx.android.synthetic.main.item_card.view.*
@@ -51,32 +50,32 @@ class WithdrawCreateFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         with(viewModel) {
-            isProgressVisible.observe(viewLifecycleOwner, Observer { visible ->
+            isProgressVisible.observe(viewLifecycleOwner) { visible ->
                 progress_bar.visibility = if (visible) VISIBLE else GONE
-            })
+            }
 
-            error.observe(viewLifecycleOwner, Observer {
+            error.observe(viewLifecycleOwner) {
                 activity?.shortToast(it)
-            })
+            }
 
-            creatingStatus.observe(viewLifecycleOwner, Observer { status ->
+            creatingStatus.observe(viewLifecycleOwner) { status ->
                 status?.let { activity?.shortToast(it) }
-            })
+            }
 
-            deletionStatus.observe(viewLifecycleOwner, Observer { status ->
+            deletionStatus.observe(viewLifecycleOwner) { status ->
                 status?.let { activity?.shortToast(it) }
-            })
+            }
 
-            accounts.observe(viewLifecycleOwner, Observer {
+            accounts.observe(viewLifecycleOwner) {
                 if (it.info?.isNotEmpty() == true) {
                     val account = it.info.first()
                     bank_name_tv.text = account.bankName
                     order_tv.text = getString(R.string.order_format, account.accountNumber)
                     name_tv.text = account.driverName
                 }
-            })
+            }
 
-            responseOwner.observe(viewLifecycleOwner, Observer { response ->
+            responseOwner.observe(viewLifecycleOwner) { response ->
                 response?.let {
                     when (taxiType) {
                         YANDEX -> {
@@ -96,9 +95,9 @@ class WithdrawCreateFragment : Fragment() {
                         }
                     }
                 }
-            })
+            }
 
-            notifications.observe(viewLifecycleOwner, Observer {
+            notifications.observe(viewLifecycleOwner) {
                 val oldPushesSize = PreferenceManager(requireContext()).getInt(PUSH_COUNTER)
                 oldPushesSize?.let { oldSize ->
                     if (it.size > oldSize) {
@@ -110,9 +109,9 @@ class WithdrawCreateFragment : Fragment() {
                         notification_image.visible()
                     }
                 }
-            })
+            }
 
-            cards.observe(viewLifecycleOwner, Observer { cards ->
+            cards.observe(viewLifecycleOwner) { cards ->
                 cards_recycler.setHasFixedSize(true)
                 cards_recycler.adapter = WithdrawCardsAdapter(cards) { card ->
                     card.check_icon.visible()
@@ -130,7 +129,7 @@ class WithdrawCreateFragment : Fragment() {
                         }
                     }
                 }
-            })
+            }
         }
 
         Handler().postDelayed({

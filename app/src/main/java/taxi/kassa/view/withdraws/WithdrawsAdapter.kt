@@ -89,7 +89,6 @@ class WithdrawsAdapter(
         when (holder) {
             is WithdrawsViewHolder -> {
                 val status = withdraw.getStatus()
-                val sourceId = withdraw.source_id
 
                 holder.time.text = withdraw.hours
                 holder.amount.setFormattedText(R.string.balance_format, withdraw.amount.toDouble())
@@ -102,7 +101,7 @@ class WithdrawsAdapter(
                     CANCELED -> holder.statusImage.setImageResource(R.drawable.ic_red_circle)
                 }
 
-                when (sourceId.toInt()) {
+                when (withdraw.source_id.toInt()) {
                     1 -> {
                         holder.taxiIcon.setImageResource(R.drawable.ic_yandex_mini)
                         holder.taxiName.setText(R.string.yandex_title)

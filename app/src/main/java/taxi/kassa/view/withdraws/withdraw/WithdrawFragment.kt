@@ -81,8 +81,8 @@ class WithdrawFragment : Fragment() {
                 taxi_name.setText(R.string.citymobil_title)
             }
             else -> {
-                taxi_icon.setImageResource(R.drawable.ic_yandex_mini)
-                taxi_name.setText(R.string.yandex_title)
+                taxi_icon.setImageResource(R.drawable.transparent)
+                taxi_name.text = ""
             }
         }
 

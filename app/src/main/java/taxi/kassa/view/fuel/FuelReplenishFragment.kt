@@ -12,8 +12,8 @@ import android.view.ViewGroup
 import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.view.get
+import androidx.core.view.isNotEmpty
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_fuel_replenish.*
 import kotlinx.android.synthetic.main.item_taxi.view.*
@@ -44,15 +44,15 @@ class FuelReplenishFragment : Fragment() {
         setReplenishButtonConstraint()
 
         with(viewModel) {
-            isProgressVisible.observe(viewLifecycleOwner, Observer { visible ->
+            isProgressVisible.observe(viewLifecycleOwner) { visible ->
                 progress_bar.visibility = if (visible) VISIBLE else GONE
-            })
+            }
 
-            error.observe(viewLifecycleOwner, Observer {
+            error.observe(viewLifecycleOwner) {
                 activity?.shortToast(it)
-            })
+            }
 
-            responseOwner.observe(viewLifecycleOwner, Observer { response ->
+            responseOwner.observe(viewLifecycleOwner) { response ->
                 response?.let {
                     rosneft_amount.text = getString(R.string.withdraw_format, it.balanceFuel)
                     rosneft_amount.setColor(
@@ -92,11 +92,13 @@ class FuelReplenishFragment : Fragment() {
                         }
                     }
 
-                    Handler().postDelayed({ taxi_recycler?.let { taxi_recycler[0].performClick() } }, 500)
+                    Handler().postDelayed({
+                        taxi_recycler?.let { if (it.isNotEmpty()) taxi_recycler[0].performClick() }
+                    }, 500)
                 }
-            })
+            }
 
-            notifications.observe(viewLifecycleOwner, Observer {
+            notifications.observe(viewLifecycleOwner) {
                 val oldPushesSize = PreferenceManager(requireContext()).getInt(PUSH_COUNTER)
                 oldPushesSize?.let { oldSize ->
                     if (it.size > oldSize) {
@@ -108,7 +110,7 @@ class FuelReplenishFragment : Fragment() {
                         notification_image.visible()
                     }
                 }
-            })
+            }
         }
 
         enter_amount_edit_text.addTextChangedListener(object : TextWatcher {

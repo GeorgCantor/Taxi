@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import androidx.core.view.get
+import androidx.core.view.isNotEmpty
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.NavHostFragment.findNavController
@@ -119,7 +120,9 @@ class OrdersFragment : Fragment() {
             }
         })
 
-        Handler().postDelayed({ taxi_recycler?.let { taxi_recycler[0].performClick() } }, 500)
+        Handler().postDelayed({
+            taxi_recycler?.let { if (it.isNotEmpty()) taxi_recycler[0].performClick() }
+        }, 500)
 
         notification_image.setOnClickListener {
             findNavController(this).navigate(R.id.action_ordersFragment_to_notificationsFragment)

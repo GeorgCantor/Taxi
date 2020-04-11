@@ -17,7 +17,6 @@ import androidx.annotation.RequiresApi
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_profile.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
@@ -58,19 +57,19 @@ class ProfileFragment : Fragment() {
         setLogoutButtonConstraint()
 
         with(viewModel) {
-            isNetworkAvailable.observe(viewLifecycleOwner, Observer { available ->
+            isNetworkAvailable.observe(viewLifecycleOwner) { available ->
                 if (!available) activity?.longToast(getString(R.string.internet_unavailable))
-            })
+            }
 
-            isProgressVisible.observe(viewLifecycleOwner, Observer { visible ->
+            isProgressVisible.observe(viewLifecycleOwner) { visible ->
                 progress_bar.visibility = if (visible) VISIBLE else GONE
-            })
+            }
 
-            error.observe(viewLifecycleOwner, Observer {
+            error.observe(viewLifecycleOwner) {
                 activity?.shortToast(it)
-            })
+            }
 
-            responseOwner.observe(viewLifecycleOwner, Observer { response ->
+            responseOwner.observe(viewLifecycleOwner) { response ->
                 response?.let {
                     name_tv.text = it.fullName
                     number_tv.text = getString(
@@ -82,9 +81,9 @@ class ProfileFragment : Fragment() {
 
                     setBalanceChange(it.balanceTotal.toDouble().toInt())
                 }
-            })
+            }
 
-            notifications.observe(viewLifecycleOwner, Observer {
+            notifications.observe(viewLifecycleOwner) {
                 val oldPushesSize = PreferenceManager(requireContext()).getInt(PUSH_COUNTER)
                 oldPushesSize?.let { oldSize ->
                     if (it.size > oldSize) {
@@ -96,9 +95,9 @@ class ProfileFragment : Fragment() {
                         notification_image.visible()
                     }
                 }
-            })
+            }
 
-            incomingMessages.observe(viewLifecycleOwner, Observer {
+            incomingMessages.observe(viewLifecycleOwner) {
                 val readMessages = PreferenceManager(requireContext()).getInt(MESSAGES_COUNTER)
                 val unreadMessages = it.size - (readMessages ?: 0)
 
@@ -108,7 +107,7 @@ class ProfileFragment : Fragment() {
                 } else {
                     message_counter.gone()
                 }
-            })
+            }
         }
 
         with(findNavController(this)) {

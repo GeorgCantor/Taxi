@@ -11,7 +11,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_support.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
@@ -39,7 +38,7 @@ class SupportFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.notifications.observe(viewLifecycleOwner, Observer {
+        viewModel.notifications.observe(viewLifecycleOwner) {
             val oldPushesSize = PreferenceManager(requireContext()).getInt(PUSH_COUNTER)
             oldPushesSize?.let { oldSize ->
                 if (it.size > oldSize) {
@@ -51,9 +50,9 @@ class SupportFragment : Fragment() {
                     notification_image.visible()
                 }
             }
-        })
+        }
 
-        viewModel.incomingMessages.observe(viewLifecycleOwner, Observer {
+        viewModel.incomingMessages.observe(viewLifecycleOwner) {
             val readMessages = PreferenceManager(requireContext()).getInt(MESSAGES_COUNTER)
             val unreadMessages = it.size - (readMessages ?: 0)
 
@@ -63,7 +62,7 @@ class SupportFragment : Fragment() {
             } else {
                 message_counter.gone()
             }
-        })
+        }
 
         with(findNavController(this)) {
             write_to_us_view.setOnClickListener { navigate(R.id.action_supportFragment_to_writeMessageFragment) }

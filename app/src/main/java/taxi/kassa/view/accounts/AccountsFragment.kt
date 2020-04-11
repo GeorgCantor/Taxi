@@ -11,7 +11,6 @@ import android.view.ViewGroup
 import android.widget.EditText
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_accounts.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
@@ -41,29 +40,29 @@ class AccountsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getAccounts()
 
-        viewModel.isProgressVisible.observe(viewLifecycleOwner, Observer { visible ->
+        viewModel.isProgressVisible.observe(viewLifecycleOwner) { visible ->
             progress_bar.visibility = if (visible) VISIBLE else GONE
-        })
+        }
 
-        viewModel.error.observe(viewLifecycleOwner, Observer {
+        viewModel.error.observe(viewLifecycleOwner) {
             activity?.shortToast(it)
-        })
+        }
 
-        viewModel.creatingStatus.observe(viewLifecycleOwner, Observer { status ->
+        viewModel.creatingStatus.observe(viewLifecycleOwner) { status ->
             status?.let {
                 activity?.shortToast(it)
                 viewModel.getAccounts()
             }
-        })
+        }
 
-        viewModel.deletionStatus.observe(viewLifecycleOwner, Observer { status ->
+        viewModel.deletionStatus.observe(viewLifecycleOwner) { status ->
             status?.let {
                 activity?.shortToast(it)
                 viewModel.getAccounts()
             }
-        })
+        }
 
-        viewModel.accounts.observe(viewLifecycleOwner, Observer {
+        viewModel.accounts.observe(viewLifecycleOwner) {
             if (it.info?.isNotEmpty() == true) {
                 account_block.visible()
                 no_account_block.invisible()
@@ -75,9 +74,9 @@ class AccountsFragment : Fragment() {
                 account_block.invisible()
                 no_account_block.visible()
             }
-        })
+        }
 
-        viewModel.notifications.observe(viewLifecycleOwner, Observer {
+        viewModel.notifications.observe(viewLifecycleOwner) {
             val oldPushesSize = PreferenceManager(requireContext()).getInt(PUSH_COUNTER)
             oldPushesSize?.let { oldSize ->
                 if (it.size > oldSize) {
@@ -89,12 +88,12 @@ class AccountsFragment : Fragment() {
                     notification_image.visible()
                 }
             }
-        })
+        }
 
-        viewModel.cards.observe(viewLifecycleOwner, Observer {
+        viewModel.cards.observe(viewLifecycleOwner) {
             cards_recycler.setHasFixedSize(true)
             cards_recycler.adapter = AccountsCardsAdapter(it)
-        })
+        }
 
         val editTexts = listOf<EditText>(
             name_edit_text, surname_edit_text, account_edit_text, bik_edit_text

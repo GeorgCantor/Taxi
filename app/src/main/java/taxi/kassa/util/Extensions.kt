@@ -18,6 +18,9 @@ import android.widget.Toast.LENGTH_LONG
 import android.widget.Toast.LENGTH_SHORT
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat.getColor
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.dialog_one_button.*
 import kotlinx.android.synthetic.main.dialog_one_button.message
 import kotlinx.android.synthetic.main.dialog_one_button.title
@@ -180,4 +183,11 @@ fun Array<View>.setLoadPhotoVisibility() {
     this[2].invisible()
     this[3].visible()
     this[4].visible()
+}
+
+inline fun <T> LiveData<T>.observe(
+    owner: LifecycleOwner,
+    crossinline observer: (T) -> Unit
+) {
+    this.observe(owner, Observer { it?.apply(observer) })
 }

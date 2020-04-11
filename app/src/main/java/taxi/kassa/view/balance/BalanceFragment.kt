@@ -6,7 +6,6 @@ import android.view.View
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_balance.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
@@ -38,15 +37,15 @@ class BalanceFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         with(viewModel) {
-            isProgressVisible.observe(viewLifecycleOwner, Observer { visible ->
+            isProgressVisible.observe(viewLifecycleOwner) { visible ->
                 progress_bar.visibility = if (visible) VISIBLE else View.GONE
-            })
+            }
 
-            error.observe(viewLifecycleOwner, Observer {
+            error.observe(viewLifecycleOwner) {
                 context?.longToast(it)
-            })
+            }
 
-            responseOwner.observe(viewLifecycleOwner, Observer { response ->
+            responseOwner.observe(viewLifecycleOwner) { response ->
                 response?.let {
                     balance_tv.setFormattedText(R.string.balance_format, it.balanceTotal.toDouble())
 
@@ -67,9 +66,9 @@ class BalanceFragment : Fragment() {
                     withdraw_citymobil_tv.isEnabled = it.balanceCity.toFloat() > 0.0F
                     withdraw_gett_tv.isEnabled = it.balanceGett.toFloat() > 0.0F
                 }
-            })
+            }
 
-            notifications.observe(viewLifecycleOwner, Observer {
+            notifications.observe(viewLifecycleOwner) {
                 val oldPushesSize = PreferenceManager(requireContext()).getInt(PUSH_COUNTER)
                 oldPushesSize?.let { oldSize ->
                     if (it.size > oldSize) {
@@ -81,7 +80,7 @@ class BalanceFragment : Fragment() {
                         notification_image.visible()
                     }
                 }
-            })
+            }
         }
 
         val bundle = Bundle()

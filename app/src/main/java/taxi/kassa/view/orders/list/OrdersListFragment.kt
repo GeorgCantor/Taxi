@@ -8,7 +8,6 @@ import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_order.*
 import kotlinx.android.synthetic.main.fragment_orders.*
@@ -63,15 +62,15 @@ class OrdersListFragment : Fragment() {
         with(viewModel) {
             getOrders("")
 
-            isProgressVisible.observe(viewLifecycleOwner, Observer { visible ->
+            isProgressVisible.observe(viewLifecycleOwner) { visible ->
                 progress_bar.visibility = if (visible) VISIBLE else GONE
-            })
+            }
 
-            error.observe(viewLifecycleOwner, Observer {
+            error.observe(viewLifecycleOwner) {
                 activity?.shortToast(it)
-            })
+            }
 
-            orders.observe(viewLifecycleOwner, Observer {
+            orders.observe(viewLifecycleOwner) {
                 nextOffset = it.nextOffset ?: ""
 
                 when (firstLoad) {
@@ -93,7 +92,7 @@ class OrdersListFragment : Fragment() {
                         } as MutableList<Order>)
                     }
                 }
-            })
+            }
 
             val scrollListener = object : EndlessScrollListener() {
                 override fun onLoadMore(page: Int, totalItemsCount: Int) {
