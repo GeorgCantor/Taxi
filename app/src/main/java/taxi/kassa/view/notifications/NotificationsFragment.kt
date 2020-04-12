@@ -12,7 +12,6 @@ import android.view.View.*
 import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.fragment_notifications.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
@@ -23,6 +22,7 @@ import taxi.kassa.util.Constants.PUSH_COUNTER
 import taxi.kassa.util.Constants.SUPPORT_PHONE_NUMBER
 import taxi.kassa.util.PreferenceManager
 import taxi.kassa.util.invisible
+import taxi.kassa.util.observe
 import taxi.kassa.util.shortToast
 import taxi.kassa.util.visible
 
@@ -46,7 +46,7 @@ class NotificationsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.notifications.observe(viewLifecycleOwner, Observer {
+        viewModel.notifications.observe(viewLifecycleOwner) {
             notifications = it as ArrayList<Notification>
 
             notifications_recycler.adapter = NotificationsAdapter(it)
@@ -68,7 +68,7 @@ class NotificationsFragment : Fragment() {
             }
 
             manager.saveInt(PUSH_COUNTER, it.size)
-        })
+        }
 
         phone_image.setOnClickListener { makeCall() }
 

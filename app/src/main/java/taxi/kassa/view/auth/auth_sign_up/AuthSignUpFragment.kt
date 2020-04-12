@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import com.redmadrobot.inputmask.MaskedTextChangedListener
 import kotlinx.android.synthetic.main.fragment_auth_sign_up.*
@@ -14,6 +13,7 @@ import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.util.Constants.PHONE_MASK
+import taxi.kassa.util.observe
 import taxi.kassa.util.showError
 
 class AuthSignUpFragment : Fragment() {
@@ -34,9 +34,13 @@ class AuthSignUpFragment : Fragment() {
 
         loginIsReady = true
 
-        viewModel.error.observe(viewLifecycleOwner, Observer {
+        viewModel.error.observe(viewLifecycleOwner) {
             error_tv.text = it
-        })
+        }
+
+        viewModel.isSignUp.observe(viewLifecycleOwner) { success ->
+            if (success) findNavController(this).navigate(R.id.action_authSignUpFragment_to_successRequestFragment)
+        }
 
         login_checkbox.setOnCheckedChangeListener { _, isChecked ->
             loginIsReady = isChecked
@@ -52,10 +56,6 @@ class AuthSignUpFragment : Fragment() {
         }
 
         signup_button.setOnClickListener { apply() }
-
-        viewModel.isSignUp.observe(viewLifecycleOwner, Observer { success ->
-            if (success) findNavController(this).navigate(R.id.action_authSignUpFragment_to_successRequestFragment)
-        })
 
         val keyboardPairs = mutableListOf<Pair<Button, Int>>(
             Pair(num_0, R.string.num0),

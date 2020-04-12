@@ -7,7 +7,6 @@ import android.view.View.*
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
 import com.redmadrobot.inputmask.MaskedTextChangedListener
 import kotlinx.android.synthetic.main.fragment_auth_phone.*
@@ -17,6 +16,7 @@ import taxi.kassa.R
 import taxi.kassa.util.Constants.PHONE
 import taxi.kassa.util.Constants.PHONE_MASK
 import taxi.kassa.util.PreferenceManager
+import taxi.kassa.util.observe
 import taxi.kassa.util.showError
 
 class AuthPhoneFragment : Fragment() {
@@ -42,13 +42,17 @@ class AuthPhoneFragment : Fragment() {
 
         loginIsReady = true
 
-        viewModel.isProgressVisible.observe(viewLifecycleOwner, Observer { visible ->
+        viewModel.isProgressVisible.observe(viewLifecycleOwner) { visible ->
             progress_bar.visibility = if (visible) VISIBLE else GONE
-        })
+        }
 
-        viewModel.error.observe(viewLifecycleOwner, Observer {
+        viewModel.error.observe(viewLifecycleOwner) {
             error_tv.showError(it)
-        })
+        }
+
+        viewModel.isLoggedIn.observe(viewLifecycleOwner) { loggedIn ->
+            if (loggedIn) Navigation.findNavController(view).navigate(R.id.action_authPhoneFragment_to_authCodeFragment)
+        }
 
         login_checkbox.setOnCheckedChangeListener { _, isChecked ->
             loginIsReady = isChecked
@@ -57,10 +61,6 @@ class AuthPhoneFragment : Fragment() {
         phone_edit_text.addTextChangedListener(PhoneMaskListener())
 
         login_button.setOnClickListener { apply() }
-
-        viewModel.isLoggedIn.observe(viewLifecycleOwner, Observer { loggedIn ->
-            if (loggedIn) Navigation.findNavController(view).navigate(R.id.action_authPhoneFragment_to_authCodeFragment)
-        })
 
         val keyboardPairs = mutableListOf<Pair<Button, Int>>(
             Pair(num_0, R.string.num0),

@@ -7,13 +7,13 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.fragment_withdraw.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.model.responses.Withdraw
 import taxi.kassa.util.Constants.WITHDRAW
+import taxi.kassa.util.observe
 import taxi.kassa.util.setFormattedText
 import taxi.kassa.util.shortToast
 
@@ -44,15 +44,15 @@ class WithdrawFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.isProgressVisible.observe(viewLifecycleOwner, Observer { visible ->
+        viewModel.isProgressVisible.observe(viewLifecycleOwner) { visible ->
             progress_bar.visibility = if (visible) VISIBLE else GONE
-        })
+        }
 
-        viewModel.error.observe(viewLifecycleOwner, Observer {
+        viewModel.error.observe(viewLifecycleOwner) {
             activity?.shortToast(it)
-        })
+        }
 
-        viewModel.accounts.observe(viewLifecycleOwner, Observer { accounts ->
+        viewModel.accounts.observe(viewLifecycleOwner) { accounts ->
             accounts?.let {
                 if (it.info?.isNotEmpty() == true) {
                     val account = it.info.first()
@@ -63,7 +63,7 @@ class WithdrawFragment : Fragment() {
                     setBankIcon(account.bankName)
                 }
             }
-        })
+        }
 
         back_arrow.setOnClickListener { activity?.onBackPressed() }
 

@@ -9,7 +9,6 @@ import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import androidx.core.view.get
 import androidx.core.view.isNotEmpty
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import androidx.viewpager.widget.ViewPager
 import kotlinx.android.synthetic.main.fragment_orders.*
@@ -21,6 +20,7 @@ import taxi.kassa.util.Constants.PUSH_COUNTER
 import taxi.kassa.util.PreferenceManager
 import taxi.kassa.util.invisible
 import taxi.kassa.util.visible
+import taxi.kassa.util.observe
 import taxi.kassa.view.orders.adapter.OrdersPagerAdapter
 import taxi.kassa.view.orders.adapter.OrdersTaxiAdapter
 import taxi.kassa.view.orders.list.OrdersListFragment
@@ -82,7 +82,7 @@ class OrdersFragment : Fragment() {
             }
         })
 
-        viewModel.taxis.observe(viewLifecycleOwner, Observer {
+        viewModel.taxis.observe(viewLifecycleOwner) {
             taxi_recycler.adapter = OrdersTaxiAdapter(it) { view, taxi ->
                 try {
                     val items = mutableListOf(
@@ -104,9 +104,9 @@ class OrdersFragment : Fragment() {
                 } catch (e: IndexOutOfBoundsException) {
                 }
             }
-        })
+        }
 
-        viewModel.notifications.observe(viewLifecycleOwner, Observer {
+        viewModel.notifications.observe(viewLifecycleOwner) {
             val oldPushesSize = PreferenceManager(requireContext()).getInt(PUSH_COUNTER)
             oldPushesSize?.let { oldSize ->
                 if (it.size > oldSize) {
@@ -118,7 +118,7 @@ class OrdersFragment : Fragment() {
                     notification_image.visible()
                 }
             }
-        })
+        }
 
         Handler().postDelayed({
             taxi_recycler?.let { if (it.isNotEmpty()) taxi_recycler[0].performClick() }

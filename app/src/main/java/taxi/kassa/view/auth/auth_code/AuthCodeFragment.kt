@@ -11,7 +11,6 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
 import kotlinx.android.synthetic.main.fragment_auth_code.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
@@ -21,6 +20,7 @@ import taxi.kassa.util.Constants.PHONE
 import taxi.kassa.util.Constants.TOKEN
 import taxi.kassa.util.Constants.accessToken
 import taxi.kassa.util.PreferenceManager
+import taxi.kassa.util.observe
 import taxi.kassa.util.showError
 
 class AuthCodeFragment : Fragment() {
@@ -46,22 +46,24 @@ class AuthCodeFragment : Fragment() {
 
         viewModel = getViewModel { parametersOf() }
 
-        viewModel.isProgressVisible.observe(viewLifecycleOwner, Observer { visible ->
-            progress_bar.visibility = if (visible) VISIBLE else GONE
-        })
+        with(viewModel) {
+            isProgressVisible.observe(viewLifecycleOwner) { visible ->
+                progress_bar.visibility = if (visible) VISIBLE else GONE
+            }
 
-        viewModel.error.observe(viewLifecycleOwner, Observer {
-            error_tv.showError(it)
-        })
+            error.observe(viewLifecycleOwner) {
+                error_tv.showError(it)
+            }
 
-        viewModel.token.observe(viewLifecycleOwner, Observer {
-            prefManager.saveString(TOKEN, it)
-            accessToken = it
-        })
+            token.observe(viewLifecycleOwner) {
+                prefManager.saveString(TOKEN, it)
+                accessToken = it
+            }
 
-        viewModel.isLoggedIn.observe(viewLifecycleOwner, Observer { loggedIn ->
-            if (loggedIn) Navigation.findNavController(view).navigate(R.id.action_authCodeFragment_to_profileFragment)
-        })
+            isLoggedIn.observe(viewLifecycleOwner) { loggedIn ->
+                if (loggedIn) Navigation.findNavController(view).navigate(R.id.action_authCodeFragment_to_profileFragment)
+            }
+        }
 
         login_button.setOnClickListener { login() }
 
