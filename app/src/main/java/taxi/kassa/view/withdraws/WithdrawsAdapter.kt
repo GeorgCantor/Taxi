@@ -14,6 +14,7 @@ import taxi.kassa.util.Constants.APPROVED
 import taxi.kassa.util.Constants.CANCELED
 import taxi.kassa.util.Constants.NEW
 import taxi.kassa.util.Constants.WRITTEN_OFF
+import taxi.kassa.util.setFormattedText
 
 class WithdrawsAdapter(
     withdraws: MutableList<Withdraw>,
@@ -56,7 +57,8 @@ class WithdrawsAdapter(
                 WithdrawsViewHolder(
                     LayoutInflater.from(parent.context).inflate(
                         R.layout.item_withdraw,
-                        null
+                        parent,
+                        false
                     )
                 )
             }
@@ -64,14 +66,16 @@ class WithdrawsAdapter(
                 DateViewHolder(
                     LayoutInflater.from(parent.context).inflate(
                         R.layout.item_withdraw_date,
-                        null
+                        parent,
+                        false
                     )
                 )
             }
             else -> WithdrawsViewHolder(
                 LayoutInflater.from(parent.context).inflate(
                     R.layout.item_withdraw,
-                    null
+                    parent,
+                    false
                 )
             )
         }
@@ -87,7 +91,7 @@ class WithdrawsAdapter(
                 val status = withdraw.getStatus()
 
                 holder.time.text = withdraw.hours
-                holder.amount.text = withdraw.amount
+                holder.amount.setFormattedText(R.string.balance_format, withdraw.amount.toDouble())
                 holder.status.text = status
 
                 when (status) {
@@ -95,6 +99,21 @@ class WithdrawsAdapter(
                     APPROVED -> holder.statusImage.setImageResource(R.drawable.ic_yellow_circle)
                     WRITTEN_OFF -> holder.statusImage.setImageResource(R.drawable.ic_green_circle)
                     CANCELED -> holder.statusImage.setImageResource(R.drawable.ic_red_circle)
+                }
+
+                when (withdraw.source_id.toInt()) {
+                    1 -> {
+                        holder.taxiIcon.setImageResource(R.drawable.ic_yandex_mini)
+                        holder.taxiName.setText(R.string.yandex_title)
+                    }
+                    2 -> {
+                        holder.taxiIcon.setImageResource(R.drawable.ic_gett_mini)
+                        holder.taxiName.setText(R.string.gett_title)
+                    }
+                    3 -> {
+                        holder.taxiIcon.setImageResource(R.drawable.ic_citymobil_mini)
+                        holder.taxiName.setText(R.string.citymobil_title)
+                    }
                 }
 
                 holder.itemView.setOnClickListener { clickListener(withdraw) }
@@ -106,15 +125,16 @@ class WithdrawsAdapter(
     }
 
     override fun getItemViewType(position: Int): Int {
-        return if (withdraws[position].source_id == DATE_ITEM_ID) {
-            TYPE_DATE
-        } else {
-            TYPE_ITEM
+        return when (withdraws[position].source_id) {
+            DATE_ITEM_ID -> TYPE_DATE
+            else -> TYPE_ITEM
         }
     }
 
     class WithdrawsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val time: TextView = view.time_tv
+        val taxiIcon: ImageView = view.taxi_icon
+        val taxiName: TextView = view.taxi_name
         val amount: TextView = view.amount_tv
         val status: TextView = view.status_tv
         val statusImage: ImageView = view.circle_image

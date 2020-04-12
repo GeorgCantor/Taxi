@@ -4,20 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/login_background"
+    android:background="@color/main_background"
     android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/login_background">
+        android:background="@color/main_background">
 
         <ImageView
-            android:id="@+id/back_arrow"
+            android:id="@+id/order_back_arrow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_4dp"
             android:layout_marginTop="12dp"
+            android:background="?attr/selectableItemBackground"
             android:padding="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -31,10 +32,10 @@
             android:fontFamily="sans-serif-medium"
             android:text="@string/order"
             android:textColor="@color/gray_intro_text"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="@+id/back_arrow"
-            app:layout_constraintStart_toEndOf="@+id/back_arrow"
-            app:layout_constraintTop_toTopOf="@+id/back_arrow" />
+            android:textSize="@dimen/text_20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/order_back_arrow"
+            app:layout_constraintStart_toEndOf="@+id/order_back_arrow"
+            app:layout_constraintTop_toTopOf="@+id/order_back_arrow" />
 
         <TextView
             android:id="@+id/route_tv"
@@ -44,34 +45,34 @@
             android:layout_marginTop="28dp"
             android:text="@string/route"
             android:textColor="@color/gray_intro_text"
-            android:textSize="24sp"
+            android:textSize="@dimen/text_24sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/order_title" />
 
         <ImageView
-            android:id="@+id/circle_image"
+            android:id="@+id/order_circle_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="@dimen/margin_8dp"
             android:layout_marginEnd="12dp"
             app:layout_constraintBottom_toBottomOf="@+id/route_tv"
-            app:layout_constraintEnd_toStartOf="@+id/status_tv"
+            app:layout_constraintEnd_toStartOf="@+id/order_status_tv"
             app:layout_constraintTop_toTopOf="@+id/route_tv"
             tools:srcCompat="@drawable/ic_green_circle" />
 
         <TextView
-            android:id="@+id/status_tv"
+            android:id="@+id/order_status_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/margin_24dp"
             android:fontFamily="sans-serif"
             android:textColor="@color/withdraws_gray"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="@+id/circle_image"
+            android:textSize="@dimen/text_16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/order_circle_image"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/circle_image"
+            app:layout_constraintTop_toTopOf="@+id/order_circle_image"
             tools:text="Выполнено" />
 
         <TextView
@@ -82,7 +83,7 @@
             android:layout_marginTop="8dp"
             android:fontFamily="sans-serif-medium"
             android:textColor="@color/gray_profile"
-            android:textSize="10sp"
+            android:textSize="@dimen/text_10sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/route_tv"
             tools:text="14:20, 19 окт 2019" />
@@ -116,26 +117,26 @@
             app:srcCompat="@drawable/ic_polygon" />
 
         <TextView
-            android:id="@+id/address_from"
+            android:id="@+id/order_address_from"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_16dp"
-            android:maxLength="55"
+            android:maxLength="50"
             android:textColor="@color/withdraws_gray"
-            android:textSize="16sp"
+            android:textSize="@dimen/text_16sp"
             app:layout_constraintBottom_toBottomOf="@id/rectangle"
             app:layout_constraintStart_toEndOf="@+id/rectangle"
             app:layout_constraintTop_toTopOf="@+id/rectangle"
             tools:text="Каширское шоссе, 150" />
 
         <TextView
-            android:id="@+id/address_to"
+            android:id="@+id/order_address_to"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_16dp"
-            android:maxLength="55"
+            android:maxLength="50"
             android:textColor="@color/withdraws_gray"
-            android:textSize="16sp"
+            android:textSize="@dimen/text_16sp"
             app:layout_constraintBottom_toBottomOf="@id/polygon"
             app:layout_constraintStart_toEndOf="@+id/polygon"
             app:layout_constraintTop_toTopOf="@+id/polygon"
@@ -149,9 +150,9 @@
             android:layout_marginTop="36dp"
             android:text="@string/received_from_customer"
             android:textColor="@color/withdraws_gray"
-            android:textSize="16sp"
+            android:textSize="@dimen/text_16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/address_to" />
+            app:layout_constraintTop_toBottomOf="@+id/order_address_to" />
 
         <TextView
             android:id="@+id/received_amount"
@@ -159,7 +160,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="44dp"
             android:textColor="@color/withdraws_gray"
-            android:textSize="16sp"
+            android:textSize="@dimen/text_16sp"
             app:layout_constraintBottom_toBottomOf="@+id/received_from_customer"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/received_from_customer"
@@ -173,7 +174,7 @@
             android:layout_marginTop="18dp"
             android:text="@string/tariff_for_drivers"
             android:textColor="@color/withdraws_gray"
-            android:textSize="16sp"
+            android:textSize="@dimen/text_16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/received_from_customer" />
 
@@ -183,7 +184,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="44dp"
             android:textColor="@color/withdraws_gray"
-            android:textSize="16sp"
+            android:textSize="@dimen/text_16sp"
             app:layout_constraintBottom_toBottomOf="@+id/tariff_for_drivers"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/tariff_for_drivers"
@@ -197,7 +198,7 @@
             android:layout_marginTop="18dp"
             android:text="@string/tip"
             android:textColor="@color/withdraws_gray"
-            android:textSize="16sp"
+            android:textSize="@dimen/text_16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tariff_for_drivers" />
 
@@ -207,7 +208,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="44dp"
             android:textColor="@color/withdraws_gray"
-            android:textSize="16sp"
+            android:textSize="@dimen/text_16sp"
             app:layout_constraintBottom_toBottomOf="@+id/tip_tv"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/tip_tv"
@@ -221,7 +222,7 @@
             android:layout_marginTop="18dp"
             android:text="@string/aggregator_commission"
             android:textColor="@color/withdraws_gray"
-            android:textSize="16sp"
+            android:textSize="@dimen/text_16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tip_tv" />
 
@@ -231,7 +232,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="44dp"
             android:textColor="@color/withdraws_gray"
-            android:textSize="16sp"
+            android:textSize="@dimen/text_16sp"
             app:layout_constraintBottom_toBottomOf="@+id/aggregator_commission"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/aggregator_commission"
@@ -245,7 +246,7 @@
             android:layout_marginTop="18dp"
             android:text="@string/our_commission"
             android:textColor="@color/withdraws_gray"
-            android:textSize="16sp"
+            android:textSize="@dimen/text_16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/aggregator_commission" />
 
@@ -255,7 +256,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="44dp"
             android:textColor="@color/withdraws_gray"
-            android:textSize="16sp"
+            android:textSize="@dimen/text_16sp"
             app:layout_constraintBottom_toBottomOf="@+id/our_commission"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/our_commission"
@@ -269,17 +270,17 @@
             android:layout_marginTop="18dp"
             android:text="@string/total"
             android:textColor="@color/withdraws_gray"
-            android:textSize="16sp"
+            android:textSize="@dimen/text_16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/our_commission" />
 
         <TextView
-            android:id="@+id/total_amount"
+            android:id="@+id/order_total_amount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="44dp"
             android:textColor="@color/withdraws_gray"
-            android:textSize="16sp"
+            android:textSize="@dimen/text_16sp"
             app:layout_constraintBottom_toBottomOf="@+id/total_tv"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/total_tv"
@@ -305,7 +306,7 @@
             android:layout_marginEnd="44dp"
             android:fontFamily="sans-serif-medium"
             android:textColor="@color/withdraws_yellow"
-            android:textSize="20sp"
+            android:textSize="@dimen/text_20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/space"
             tools:text="Итог: 1000.00₽" />
@@ -318,7 +319,7 @@
             android:layout_marginEnd="44dp"
             android:text="@string/with_commission"
             android:textColor="@color/gray_profile"
-            android:textSize="12sp"
+            android:textSize="@dimen/text_12sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/total_sum_tv" />
 
@@ -334,7 +335,7 @@
             android:text="@string/back"
             android:textAllCaps="false"
             android:textColor="@color/white_code_text"
-            android:textSize="20sp"
+            android:textSize="@dimen/text_20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

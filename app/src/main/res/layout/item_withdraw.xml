@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/login_background">
+    android:background="@color/main_background">
 
     <TextView
         android:id="@+id/time_tv"
@@ -13,7 +13,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="28dp"
         android:textColor="@color/gray_profile"
-        android:textSize="16sp"
+        android:textSize="@dimen/text_16sp"
         app:layout_constraintEnd_toStartOf="@+id/background"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -25,12 +25,11 @@
         android:layout_height="74dp"
         android:layout_marginStart="@dimen/margin_16dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="@dimen/margin_24dp"
+        android:layout_marginEnd="@dimen/margin_16dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/bg_profile_gradient"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/time_tv"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
@@ -38,9 +37,9 @@
         android:layout_width="16dp"
         android:layout_height="16dp"
         android:layout_margin="10dp"
-        android:src="@drawable/ic_yandex"
         app:layout_constraintStart_toStartOf="@+id/background"
-        app:layout_constraintTop_toTopOf="@+id/background" />
+        app:layout_constraintTop_toTopOf="@+id/background"
+        tools:src="@drawable/ic_yandex_mini" />
 
     <TextView
         android:id="@+id/taxi_name"
@@ -48,12 +47,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:fontFamily="sans-serif-medium"
-        android:text="@string/yandex_title"
         android:textColor="@color/withdraws_gray"
-        android:textSize="18sp"
+        android:textSize="@dimen/text_18sp"
         app:layout_constraintBottom_toBottomOf="@+id/taxi_icon"
         app:layout_constraintStart_toEndOf="@+id/taxi_icon"
-        app:layout_constraintTop_toTopOf="@+id/taxi_icon" />
+        app:layout_constraintTop_toTopOf="@+id/taxi_icon"
+        tools:text="@string/yandex_title" />
 
     <TextView
         android:id="@+id/amount_tv"
@@ -61,7 +60,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:textColor="@color/withdraws_yellow"
-        android:textSize="16sp"
+        android:textSize="@dimen/text_16sp"
         app:layout_constraintBottom_toBottomOf="@+id/taxi_name"
         app:layout_constraintEnd_toStartOf="@+id/chevron_image"
         app:layout_constraintTop_toTopOf="@+id/taxi_name"
@@ -93,7 +92,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:textColor="@color/gray_profile"
-        android:textSize="14sp"
+        android:textSize="@dimen/text_14sp"
         app:layout_constraintBottom_toBottomOf="@+id/circle_image"
         app:layout_constraintStart_toEndOf="@+id/circle_image"
         app:layout_constraintTop_toTopOf="@+id/circle_image"
@@ -105,7 +104,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="38dp"
         android:textColor="@color/gray_profile"
-        android:textSize="14sp"
+        android:textSize="@dimen/text_14sp"
         app:layout_constraintBottom_toBottomOf="@+id/status_tv"
         app:layout_constraintEnd_toEndOf="@+id/background"
         app:layout_constraintTop_toTopOf="@+id/status_tv"

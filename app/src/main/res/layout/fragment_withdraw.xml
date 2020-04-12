@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/login_background">
+    android:background="@color/main_background">
 
     <ImageView
         android:id="@+id/back_arrow"
@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_4dp"
         android:layout_marginTop="12dp"
+        android:background="?attr/selectableItemBackground"
         android:padding="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -25,7 +26,7 @@
         android:fontFamily="sans-serif-medium"
         android:text="@string/withdraw_title"
         android:textColor="@color/gray_intro_text"
-        android:textSize="20sp"
+        android:textSize="@dimen/text_20sp"
         app:layout_constraintBottom_toBottomOf="@+id/back_arrow"
         app:layout_constraintStart_toEndOf="@+id/back_arrow"
         app:layout_constraintTop_toTopOf="@+id/back_arrow" />
@@ -36,22 +37,22 @@
         android:layout_height="16dp"
         android:layout_marginStart="@dimen/margin_24dp"
         android:layout_marginTop="40dp"
-        android:src="@drawable/ic_yandex"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/back_arrow" />
+        app:layout_constraintTop_toBottomOf="@+id/back_arrow"
+        tools:src="@drawable/ic_yandex_mini" />
 
     <TextView
         android:id="@+id/taxi_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="14dp"
-        android:text="@string/yandex_title"
         android:textColor="@color/gray_intro_text"
-        android:textSize="24sp"
+        android:textSize="@dimen/text_24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/taxi_icon"
         app:layout_constraintStart_toEndOf="@+id/taxi_icon"
-        app:layout_constraintTop_toTopOf="@+id/taxi_icon" />
+        app:layout_constraintTop_toTopOf="@+id/taxi_icon"
+        tools:text="@string/yandex_title" />
 
     <ImageView
         android:id="@+id/circle_image"
@@ -71,7 +72,7 @@
         android:layout_marginEnd="@dimen/margin_24dp"
         android:fontFamily="sans-serif"
         android:textColor="@color/withdraws_gray"
-        android:textSize="16sp"
+        android:textSize="@dimen/text_16sp"
         app:layout_constraintBottom_toBottomOf="@+id/circle_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/circle_image"
@@ -83,11 +84,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_24dp"
         android:layout_marginTop="10dp"
+        android:fontFamily="sans-serif-medium"
         android:textColor="@color/gray_profile"
-        android:textSize="10sp"
+        android:textSize="@dimen/text_10sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/taxi_icon"
-        tools:text="14:20, 19 окт 2019" />
+        tools:text="14:20, 19 ОКТ 2019" />
 
     <ImageView
         android:id="@+id/background"
@@ -110,7 +112,7 @@
         android:fontFamily="sans-serif"
         android:text="ПАО “Сбербанк”"
         android:textColor="@color/withdraws_gray"
-        android:textSize="16sp"
+        android:textSize="@dimen/text_16sp"
         app:layout_constraintStart_toStartOf="@+id/background"
         app:layout_constraintTop_toTopOf="@+id/background" />
 
@@ -122,7 +124,7 @@
         android:layout_marginTop="6dp"
         android:text="Р/с 408190009938888837"
         android:textColor="@color/withdraws_gray"
-        android:textSize="16sp"
+        android:textSize="@dimen/text_16sp"
         app:layout_constraintStart_toStartOf="@+id/background"
         app:layout_constraintTop_toBottomOf="@+id/bank_name_tv" />
 
@@ -135,7 +137,7 @@
         android:fontFamily="sans-serif"
         android:text="Поликин Г. И"
         android:textColor="@color/gray_profile"
-        android:textSize="13sp"
+        android:textSize="@dimen/text_13sp"
         app:layout_constraintStart_toStartOf="@+id/background"
         app:layout_constraintTop_toBottomOf="@+id/order_tv" />
 
@@ -144,9 +146,9 @@
         android:layout_width="18dp"
         android:layout_height="18dp"
         android:layout_margin="@dimen/margin_16dp"
-        android:src="@drawable/ic_sberbank"
         app:layout_constraintEnd_toEndOf="@+id/background"
-        app:layout_constraintTop_toTopOf="@+id/background" />
+        app:layout_constraintTop_toTopOf="@+id/background"
+        tools:src="@drawable/ic_sberbank" />
 
     <TextView
         android:id="@+id/withdrawal_tv"
@@ -156,7 +158,7 @@
         android:layout_marginTop="@dimen/margin_24dp"
         android:text="@string/withdrawal_title"
         android:textColor="@color/withdraws_gray"
-        android:textSize="16sp"
+        android:textSize="@dimen/text_16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/background" />
 
@@ -167,7 +169,7 @@
         android:layout_marginTop="@dimen/margin_24dp"
         android:layout_marginEnd="36dp"
         android:textColor="@color/withdraws_gray"
-        android:textSize="16sp"
+        android:textSize="@dimen/text_16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/background"
         tools:text="1013.00₽" />
@@ -180,7 +182,7 @@
         android:layout_marginTop="@dimen/margin_24dp"
         android:text="@string/commission_title"
         android:textColor="@color/withdraws_gray"
-        android:textSize="16sp"
+        android:textSize="@dimen/text_16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/withdrawal_tv" />
 
@@ -191,7 +193,7 @@
         android:layout_marginTop="@dimen/margin_24dp"
         android:layout_marginEnd="36dp"
         android:textColor="@color/withdraws_gray"
-        android:textSize="16sp"
+        android:textSize="@dimen/text_16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/withdrawal_amount"
         tools:text="13.00₽" />
@@ -216,7 +218,7 @@
         android:layout_marginEnd="44dp"
         android:fontFamily="sans-serif-medium"
         android:textColor="@color/withdraws_yellow"
-        android:textSize="20sp"
+        android:textSize="@dimen/text_20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/space"
         tools:text="Итог: 1000.00₽" />
@@ -229,7 +231,7 @@
         android:layout_marginEnd="44dp"
         android:text="@string/with_commission"
         android:textColor="@color/gray_profile"
-        android:textSize="12sp"
+        android:textSize="@dimen/text_12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/total_tv" />
 
@@ -245,9 +247,18 @@
         android:text="@string/back"
         android:textAllCaps="false"
         android:textColor="@color/white_code_text"
-        android:textSize="20sp"
+        android:textSize="@dimen/text_20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

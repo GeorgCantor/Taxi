@@ -22,12 +22,14 @@ class RegistrationFragment : Fragment() {
 
         back_arrow.setOnClickListener { activity?.onBackPressed() }
 
-        set_phone_number_button.setOnClickListener {
-            findNavController(this).navigate(R.id.action_registrationFragment_to_authSignUpFragment)
-        }
+        with(findNavController(this)) {
+            set_phone_number_button.setOnClickListener {
+                navigate(R.id.action_registrationFragment_to_authSignUpFragment)
+            }
 
-        download_documents_button.setOnClickListener {
-            findNavController(this).navigate(R.id.action_registrationFragment_to_registrationSelectionFragment)
+            download_documents_button.setOnClickListener {
+                navigate(R.id.action_registrationFragment_to_registrationSelectionFragment)
+            }
         }
     }
 }

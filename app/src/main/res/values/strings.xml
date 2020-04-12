@@ -6,20 +6,23 @@
     <string name="action_settings">Settings</string>
     <string name="login_agreement">Нажимая на кнопку, я даю согласие на обработку персональных данных, соглашаюсь с <a href="https://kassa.taxi/privacy">политикой конфиденциальности</a> и принимаю условия <a href="https://kassa.taxi/agreement">лицензионного соглашения</a>.</string>
     <string name="login_btn">Войти</string>
-    <string name="login_agreement_title">Подтверждаю свое согласие на обработку и хранение моих персональных данныхв соответствии с пользовательским соглашением</string>
-    <string name="accept_conditions_error">необходимо принять условия работы</string>
-    <string name="input_field_error">заполните поле</string>
-    <string name="wrong_format_error">неправильный формат</string>
+    <string name="login_agreement_title">Подтверждаю свое согласие на обработку и хранение моих персональных данных в соответствии с пользовательским соглашением</string>
+    <string name="accept_conditions_error">Необходимо принять условия работы</string>
+    <string name="input_field_error">Заполните поле</string>
+    <string name="wrong_format_error">Неправильный формат</string>
     <string name="intro_message">Удобные выплаты для водителей с баланса агрегаторов такси на личный счет</string>
     <string name="registration">Регистрация</string>
     <string name="input_phone_number">Введите номер телефона</string>
+    <string name="phone_start_symbols">+7 (</string>
     <string name="input_code">Введите код из СМС</string>
     <string name="continue_hint">Далее</string>
     <string name="register_application">Заявка на подключение</string>
     <string name="register_application_success">Заявка на подключение отправлена!</string>
     <string name="application_success_message">В ближайшее время наш менеджер свяжется с вами по телефону</string>
+    <string name="no_notifications">Пока нет уведомлений</string>
     <string name="ok">Хорошо</string>
     <string name="back">Назад</string>
+    <string name="close">Закрыть</string>
 
     <string name="num0">0</string>
     <string name="num1">1</string>
@@ -39,13 +42,15 @@
     <string name="accounts_and_cards">Счета и карты</string>
     <string name="support_service">Служба поддержки</string>
     <string name="support_service_message">Звонок в службу поддержки бесплатный, нажмите кнопку согласия если вы столкнулись с проблемой, которую необходимо решить.</string>
+    <string name="exit_message">Вы действительно хотите выйти?</string>
     <string name="call">Вызов</string>
     <string name="cancel">Отмена</string>
     <string name="not_find_call_app">Не найдено приложение для совершения звонков</string>
     <string name="profile_format">+%s</string>
+    <string name="internet_unavailable">Интернет недоступен</string>
     <!--    Balance-->
     <string name="all_partners_sum">Общая сумма по всем партнерам</string>
-    <string name="yandex_title">Яндекс Такси</string>
+    <string name="yandex_title">Яндекс.Такси</string>
     <string name="citymobil_title">Ситимобил</string>
     <string name="gett_title">Gett taxi</string>
     <string name="rosneft_title">Роснефть</string>
@@ -64,11 +69,15 @@
     <string name="commission_title">Комиссия</string>
     <string name="with_commission">с учетом комиссии</string>
     <string name="connect_account">Подключить счёт</string>
-    <string name="sum">Сумма</string>
+    <string name="transfer_amount">Сумма перевода</string>
     <string name="enter_amount">Укажите сумму</string>
     <string name="send_request">Отправить заявку</string>
     <string name="no_withdrawal_requests">Нет заявок на вывод</string>
     <string name="enter_sum_error">Введите сумму</string>
+    <string name="input_error">Ошибка ввода</string>
+    <string name="withdraw_format">%s₽</string>
+    <string name="withdraw_create_format">Баланс: %s₽</string>
+    <string name="bank_card">Банковская карта</string>
     <string name="no_withdrawal_message">Чтобы выводить средства, подключите хотя бы один счет и создайте заявку</string>
     <!--    Accounts-->
     <string name="accounts_title">Счета и карты</string>
@@ -76,7 +85,7 @@
     <string name="instant_withdrawal">Моментальный вывод</string>
     <string name="add_account">Добавить счет</string>
     <string name="add_card">Добавить карту</string>
-    <string name="add_new_card">Добавить новую карту</string>
+    <string name="add_new_card">+ Добавить новую карту</string>
     <string name="add_button_text">Добавить</string>
     <string name="understand">Понятно</string>
     <string name="delete_account">Удаление счета</string>
@@ -113,7 +122,7 @@
     <string name="total">Итог</string>
     <string name="order_balance_format">Итог: %s₽</string>
     <!--    Registration-->
-    <string name="select_registration_variant">Выберете один из двух вариантов регистрации</string>
+    <string name="select_registration_variant">Выберите один из двух вариантов регистрации</string>
     <string name="set_phone_number">Указать номер телефона</string>
     <string name="download_documents">Загрузить документы</string>
     <string name="or">Или</string>
@@ -122,9 +131,15 @@
     <string name="select_aggregator">Выберите своего агрегатора для подключения</string>
     <string name="connection">Подключение</string>
     <string name="driver_license">Водительское удостоверение</string>
+    <string name="driver_license_front_side">Водит. удостоверение (лицевая сторона)</string>
+    <string name="driver_license_front">Водит. удостоверение \n (лицевая сторона)</string>
+    <string name="driver_license_back_side">Водит. удостоверение (обратная сторона)</string>
+    <string name="driver_license_back">Водит. удостоверение \n (обратная сторона)</string>
     <string name="passport_number">Серия и номер паспорта</string>
     <string name="sts">СТС</string>
     <string name="license">Лицензия</string>
+    <string name="license_front">Лицензия (лицевая сторона)</string>
+    <string name="license_back">Лицензия (обратная сторона)</string>
     <string name="add_phone_number">Добавьте ваш номер телефона</string>
     <string name="submit">Отправить</string>
     <string name="passport_first_page">Паспорт (первый разворот)</string>
@@ -137,6 +152,7 @@
     <string name="back_side">Задняя сторона</string>
     <string name="left_side">Левая (фото под 45°)</string>
     <string name="right_side">Правая (фото под 45°)</string>
+    <string name="photo_loading">Загрузка фото</string>
     <!--    Support-->
     <string name="write_to_us">Напишите нам</string>
     <string name="call_history">История обращений</string>
@@ -147,4 +163,6 @@
     <string name="success_message">Наш сотрудник свяжется с вами через некоторое время</string>
     <string name="back_to_main_screen">Вернуться на главный экран</string>
     <string name="input_message_error">Введите сообщение</string>
+    <string name="topic">Тема</string>
+    <string name="answer">Ответ</string>
 </resources>

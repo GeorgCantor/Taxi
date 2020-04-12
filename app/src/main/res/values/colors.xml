@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#2e2d32</color>
-    <color name="colorPrimaryDark">#2e2d32</color>
-    <color name="colorAccent">#424242</color>
+    <color name="colorPrimary">#23252D</color>
+    <color name="colorPrimaryDark">#1C1D25</color>
+    <color name="colorAccent">#787A86</color>
     <color name="colorStatusBar">#ffffff</color>
     <color name="colorBalanceTop">#f8f8f8</color>
     <color name="mainBackground">#FFFFFF</color>
@@ -11,9 +11,14 @@
     <color name="lightGray">#ddd</color>
     <color name="transparentGray">#1EDDDDDD</color>
     <color name="buttons_dark_background">#14141A</color>
+    <color name="error_red_color">#AE4C4C</color>
+    <color name="yellow_color">#F1C46E</color>
+    <color name="green_color">#14763B</color>
 
     <color name="gray_intro_text">#CAD0D2</color>
-    <color name="login_background">#101017</color>
+    <color name="main_background">#101017</color>
+    <color name="profile_background">#151414</color>
+    <color name="keyboard_background">#201E1E</color>
     <color name="continue_color">#23252D</color>
     <color name="agreement_text_color">#C1C1C1</color>
     <color name="gray_application_text">#61636F</color>
@@ -24,8 +29,10 @@
 
     <color name="registration_white_color">#FDFEFF</color>
 
+    <color name="profile_gradient_light">#16161E</color>
+    <color name="profile_gradient_dark">#151518</color>
+
     <color name="balance_gradient_light">#1D1D23</color>
-    <color name="balance_gradient_dark">#16161E</color>
     <color name="balance_green">#1F924D</color>
     <color name="balance_red">#BD3139</color>
     <color name="balance_fuel_gray">#C1BFBC</color>

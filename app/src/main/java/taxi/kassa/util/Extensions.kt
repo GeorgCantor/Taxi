@@ -1,15 +1,38 @@
 package taxi.kassa.util
 
+import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.Point
 import android.net.ConnectivityManager
+import android.os.Handler
+import android.util.DisplayMetrics
 import android.view.LayoutInflater
+import android.view.View
+import android.view.View.*
+import android.view.WindowManager
+import android.view.animation.AnimationUtils
+import android.view.inputmethod.InputMethodManager
+import android.widget.TextView
 import android.widget.Toast
+import android.widget.Toast.LENGTH_LONG
+import android.widget.Toast.LENGTH_SHORT
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat.getColor
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.dialog_one_button.*
 import kotlinx.android.synthetic.main.dialog_one_button.message
 import kotlinx.android.synthetic.main.dialog_one_button.title
 import kotlinx.android.synthetic.main.dialog_two_buttons.*
 import taxi.kassa.R
+import taxi.kassa.util.Constants.MASTERCARD
+import taxi.kassa.util.Constants.VISA
+import java.text.NumberFormat
+import java.util.*
+import kotlin.math.pow
+import kotlin.math.roundToInt
+import kotlin.math.sqrt
 
 fun Context.isNetworkAvailable(): Boolean {
     val manager = this.getSystemService(Context.CONNECTIVITY_SERVICE) as? ConnectivityManager
@@ -24,7 +47,9 @@ fun Context.isNetworkAvailable(): Boolean {
     return false
 }
 
-fun Context.shortToast(message: CharSequence) = Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+fun Context.shortToast(message: String) = Toast.makeText(this, message, LENGTH_SHORT).show()
+
+fun Context.longToast(message: String) = Toast.makeText(this, message, LENGTH_LONG).show()
 
 fun Context.showOneButtonDialog(
     title: String,
@@ -34,9 +59,11 @@ fun Context.showOneButtonDialog(
     val builder = AlertDialog.Builder(this).setView(dialogView)
     val alertDialog = builder.show()
 
-    alertDialog.title.text = title
-    alertDialog.message.text = message
-    alertDialog.ok_button.setOnClickListener { alertDialog.dismiss() }
+    with(alertDialog) {
+        this.title.text = title
+        this.message.text = message
+        ok_button.setOnClickListener { dismiss() }
+    }
 }
 
 fun Context.showTwoButtonsDialog(
@@ -50,19 +77,117 @@ fun Context.showTwoButtonsDialog(
     val builder = AlertDialog.Builder(this).setView(dialogView)
     val alertDialog = builder.show()
 
-    alertDialog.title.text = title
-    alertDialog.message.text = message
-    alertDialog.cancel_btn.text = cancelText
-    alertDialog.cancel_btn.setOnClickListener { alertDialog.dismiss() }
-    alertDialog.ok_btn.text = okText
-    alertDialog.ok_btn.setOnClickListener {
-        alertDialog.dismiss()
-        function()
+    with(alertDialog) {
+        this.title.text = title
+        this.message.text = message
+        cancel_btn.text = cancelText
+        cancel_btn.setOnClickListener { dismiss() }
+        ok_btn.text = okText
+        ok_btn.setOnClickListener {
+            dismiss()
+            function()
+        }
+    }
+}
+
+fun View.visible() { visibility = VISIBLE }
+
+fun View.invisible() { visibility = INVISIBLE }
+
+fun View.gone() { visibility = GONE }
+
+fun View.hideKeyboard() {
+    val manager = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+    manager.hideSoftInputFromWindow(windowToken, InputMethodManager.HIDE_NOT_ALWAYS)
+}
+
+fun TextView.setColor(
+    balance: String,
+    colorPositive: Int,
+    colorNegative: Int
+) = setTextColor(getColor(context, if (balance.toFloat() > 0.0F) colorPositive else colorNegative))
+
+@SuppressLint("ResourceType")
+fun TextView.showError(message: String) {
+    text = message
+
+    val animation = AnimationUtils.loadAnimation(context, R.animator.fade_in)
+    animation.reset()
+
+    clearAnimation()
+    startAnimation(animation)
+
+    Handler().postDelayed({
+        val anim = AnimationUtils.loadAnimation(context, R.animator.fade_out)
+        anim.reset()
+        clearAnimation()
+        startAnimation(anim)
+    }, 3000)
+
+    Handler().postDelayed({ text = "" }, 3350)
+}
+
+fun Context.getScreenSize(): Double {
+    val point = Point()
+    (getSystemService(Context.WINDOW_SERVICE) as WindowManager).defaultDisplay.getRealSize(point)
+    val displayMetrics: DisplayMetrics = resources.displayMetrics
+    val width: Int = point.x
+    val height: Int = point.y
+    val wi = width.toDouble() / displayMetrics.xdpi.toDouble()
+    val hi = height.toDouble() / displayMetrics.ydpi.toDouble()
+    val x = wi.pow(2.0)
+    val y = hi.pow(2.0)
+
+    return ((sqrt(x + y) * 10.0).roundToInt() / 10.0)
+}
+
+fun TextView.setFormattedText(
+    formatResource: Int,
+    value: Double
+) {
+    val format = NumberFormat.getInstance(Locale("ru", "RU"))
+    text = context.getString(
+        formatResource,
+        format.format(value)
+    ).replace(',', '.')
+}
+
+fun String.getCardType(): String {
+    val visa = Regex("^4[0-9]{12}(?:[0-9]{3})?$")
+    val mastercard = Regex("^5[1-5][0-9]{14}$")
+
+    return when {
+        visa.matches(this) -> VISA
+        mastercard.matches(this) -> MASTERCARD
+        else -> "Unknown"
     }
 }
 
 fun String.getStringAfterSpace(): String {
-    val index = this.indexOf(' ')
+    val index = indexOf(' ')
 
-    return if (index == -1) "Нет отчества" else this.substring(index + 1)
+    return if (index == -1) "Нет отчества" else substring(index + 1)
+}
+
+fun Array<View>.setNormalVisibility() {
+    this[0].visible()
+    this[1].invisible()
+    this[2].visible()
+    this[3].invisible()
+    this[4].invisible()
+}
+
+fun Array<View>.setLoadPhotoVisibility() {
+    this[0].invisible()
+    this[1].visible()
+    this[2].invisible()
+    this[3].visible()
+    this[4].visible()
+}
+
+inline fun <T> LiveData<T>.observe(
+    owner: LifecycleOwner,
+    crossinline observer: (T) -> Unit
+) {
+    this.observe(owner, Observer { it?.apply(observer) })
 }

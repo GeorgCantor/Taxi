@@ -2,7 +2,7 @@
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/login_background"
+    android:background="@color/main_background"
     android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -16,6 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_4dp"
             android:layout_marginTop="12dp"
+            android:background="?attr/selectableItemBackground"
             android:padding="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -28,7 +29,7 @@
             android:layout_marginTop="98dp"
             android:text="@string/registration"
             android:textColor="@color/gray_intro_text"
-            android:textSize="24sp"
+            android:textSize="@dimen/text_24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -43,7 +44,7 @@
             android:gravity="center"
             android:text="@string/select_registration_variant"
             android:textColor="@color/gray_profile"
-            android:textSize="16sp"
+            android:textSize="@dimen/text_16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/registration_tv" />
@@ -58,7 +59,7 @@
             android:text="@string/set_phone_number"
             android:textAllCaps="false"
             android:textColor="@color/continue_color"
-            android:textSize="20sp"
+            android:textSize="@dimen/text_20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/registration_variants_tv" />
@@ -71,7 +72,7 @@
             android:fontFamily="sans-serif"
             android:text="@string/or"
             android:textColor="@color/agreement_text_color"
-            android:textSize="13sp"
+            android:textSize="@dimen/text_13sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/set_phone_number_button" />
@@ -86,7 +87,7 @@
             android:text="@string/download_documents"
             android:textAllCaps="false"
             android:textColor="@color/continue_color"
-            android:textSize="20sp"
+            android:textSize="@dimen/text_20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/or_tv" />
@@ -100,7 +101,7 @@
             android:gravity="center"
             android:text="@string/prepare_this_documents"
             android:textColor="@color/gray_intro_text"
-            android:textSize="16sp"
+            android:textSize="@dimen/text_16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/download_documents_button" />
@@ -112,7 +113,7 @@
             android:fontFamily="sans-serif"
             android:text="@string/documents_list"
             android:textColor="@color/gray_profile"
-            android:textSize="16sp"
+            android:textSize="@dimen/text_16sp"
             app:layout_constraintStart_toStartOf="@+id/prepare_this_documents"
             app:layout_constraintTop_toBottomOf="@+id/prepare_this_documents" />
 

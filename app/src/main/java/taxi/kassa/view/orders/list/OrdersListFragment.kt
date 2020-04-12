@@ -6,19 +6,18 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
-import androidx.lifecycle.Observer
+import androidx.navigation.fragment.NavHostFragment.findNavController
+import kotlinx.android.synthetic.main.fragment_order.*
+import kotlinx.android.synthetic.main.fragment_orders.*
 import kotlinx.android.synthetic.main.fragment_orders_list.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.model.responses.Order
-import taxi.kassa.util.EndlessScrollListener
-import taxi.kassa.util.shortToast
-import taxi.kassa.view.MainActivity
+import taxi.kassa.util.*
 import taxi.kassa.view.orders.adapter.OrdersAdapter
-import taxi.kassa.view.orders.order.OrderFragment
 
 class OrdersListFragment : Fragment() {
 
@@ -36,7 +35,7 @@ class OrdersListFragment : Fragment() {
 
     private lateinit var viewModel: OrdersListViewModel
     private lateinit var adapter: OrdersAdapter
-    private var nextOffset = "1578624301_411517"
+    private var nextOffset = ""
     private var firstLoad = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,49 +51,96 @@ class OrdersListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getOrders("")
 
-        viewModel.progressIsVisible.observe(viewLifecycleOwner, Observer { visible ->
-            progress_bar.visibility = if (visible) VISIBLE else GONE
-        })
-
-        viewModel.error.observe(viewLifecycleOwner, Observer {
-            activity?.shortToast(it)
-        })
-
-        viewModel.orders.observe(viewLifecycleOwner, Observer {
-            nextOffset = it.nextOffset
-
-            if (firstLoad) {
-                adapter = OrdersAdapter(it.orders?.filter {
-                    it.sourceId == arguments?.get(ARG_TAXI).toString()
-                } as MutableList<Order>) {
-                    openOrder(it)
-                }
-                orders_recycler.adapter = adapter
-
-                empty_tv.visibility = if (orders_recycler.adapter?.itemCount == 0) VISIBLE else GONE
-
-                firstLoad = false
-            } else {
-                adapter.updateList(it.orders?.filter {
-                    it.sourceId == arguments?.get(ARG_TAXI).toString()
-                } as MutableList<Order>)
-            }
-        })
-
-        val scrollListener = object : EndlessScrollListener() {
-            override fun onLoadMore(page: Int, totalItemsCount: Int) {
-                viewModel.getOrders(nextOffset)
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                back()
             }
         }
+        activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, callback)
 
-        orders_recycler.addOnScrollListener(scrollListener)
+        with(viewModel) {
+            getOrders("")
+
+            isProgressVisible.observe(viewLifecycleOwner) { visible ->
+                progress_bar.visibility = if (visible) VISIBLE else GONE
+            }
+
+            error.observe(viewLifecycleOwner) {
+                activity?.shortToast(it)
+            }
+
+            orders.observe(viewLifecycleOwner) {
+                nextOffset = it.nextOffset ?: ""
+
+                when (firstLoad) {
+                    true -> {
+                        adapter = OrdersAdapter(it.orders?.filter {
+                            it.sourceId == arguments?.get(ARG_TAXI).toString()
+                        } as MutableList<Order>) {
+                            openOrderDetails(it)
+                        }
+                        orders_recycler.adapter = adapter
+
+                        empty_tv.visibility = if (orders_recycler.adapter?.itemCount == 0) VISIBLE else GONE
+
+                        firstLoad = false
+                    }
+                    false -> {
+                        adapter.updateList(it.orders?.filter {
+                            it.sourceId == arguments?.get(ARG_TAXI).toString()
+                        } as MutableList<Order>)
+                    }
+                }
+            }
+
+            val scrollListener = object : EndlessScrollListener() {
+                override fun onLoadMore(page: Int, totalItemsCount: Int) {
+                    getOrders(nextOffset)
+                }
+            }
+
+            orders_recycler.addOnScrollListener(scrollListener)
+        }
     }
 
-    private fun openOrder(order: Order) {
-        val transaction: FragmentTransaction = (context as MainActivity).supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.navHostFragment, OrderFragment.create(order))
-        transaction.commit()
+    private fun openOrderDetails(order: Order) {
+        with(requireActivity()) {
+            date_time_tv.text = order.getDateWithTime()
+            order_address_from.text = order.addressFrom
+            order_address_to.text = order.addressTo
+            received_amount.text = order.amountClient
+            tariff_amount.text = order.amountDriver
+            tip_amount.text = order.amountTip
+            commission_amount.text = order.amountFeeAgr
+            our_commission_amount.text = order.amountFeeOur
+            order_total_amount.text = order.amountTotal.toString()
+            total_sum_tv.setFormattedText(R.string.order_balance_format, order.amountTotal?.toDouble() ?: 0.0)
+
+            when (order.status) {
+                "0" -> {
+                    order_circle_image.setImageResource(R.drawable.ic_green_circle)
+                    order_status_tv.text = getString(R.string.complete)
+                }
+                "-1" -> {
+                    order_circle_image.setImageResource(R.drawable.ic_red_circle)
+                    order_status_tv.text = getString(R.string.canceled)
+                }
+                else -> order_circle_image.setImageResource(R.drawable.ic_green_circle)
+            }
+            order_layout.visible()
+
+            order_back_arrow.setOnClickListener { hideOrderDetails() }
+            back_button.setOnClickListener { hideOrderDetails() }
+        }
+    }
+
+    private fun hideOrderDetails() = requireActivity().order_layout.gone()
+
+    private fun back() {
+        when (requireActivity().order_layout.visibility) {
+            VISIBLE -> hideOrderDetails()
+            GONE -> findNavController(this).popBackStack()
+        }
     }
 }

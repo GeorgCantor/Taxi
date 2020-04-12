@@ -1,23 +1,25 @@
 package taxi.kassa.view.accounts
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.INVISIBLE
+import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.EditText
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
+import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_accounts.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
-import taxi.kassa.util.getStringAfterSpace
-import taxi.kassa.util.shortToast
-import taxi.kassa.util.showOneButtonDialog
-import taxi.kassa.util.showTwoButtonsDialog
+import taxi.kassa.util.*
+import taxi.kassa.util.Constants.MASTERCARD
+import taxi.kassa.util.Constants.PUSH_COUNTER
+import taxi.kassa.util.Constants.VISA
 
 class AccountsFragment : Fragment() {
 
@@ -38,39 +40,60 @@ class AccountsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getAccounts()
 
-        val constraintSet = ConstraintSet()
+        viewModel.isProgressVisible.observe(viewLifecycleOwner) { visible ->
+            progress_bar.visibility = if (visible) VISIBLE else GONE
+        }
 
-        viewModel.error.observe(viewLifecycleOwner, Observer {
+        viewModel.error.observe(viewLifecycleOwner) {
             activity?.shortToast(it)
-        })
+        }
 
-        viewModel.creatingStatus.observe(viewLifecycleOwner, Observer { status ->
+        viewModel.creatingStatus.observe(viewLifecycleOwner) { status ->
             status?.let {
                 activity?.shortToast(it)
                 viewModel.getAccounts()
             }
-        })
+        }
 
-        viewModel.deletionStatus.observe(viewLifecycleOwner, Observer { status ->
+        viewModel.deletionStatus.observe(viewLifecycleOwner) { status ->
             status?.let {
                 activity?.shortToast(it)
                 viewModel.getAccounts()
             }
-        })
+        }
 
-        viewModel.accounts.observe(viewLifecycleOwner, Observer {
+        viewModel.accounts.observe(viewLifecycleOwner) {
             if (it.info?.isNotEmpty() == true) {
-                account_block.visibility = VISIBLE
-                no_account_block.visibility = INVISIBLE
+                account_block.visible()
+                no_account_block.invisible()
                 val account = it.info.first()
                 bank_name_tv.text = account.bankName
                 order_tv.text = getString(R.string.order_format, account.accountNumber)
                 name_tv.text = account.driverName
             } else {
-                account_block.visibility = INVISIBLE
-                no_account_block.visibility = VISIBLE
+                account_block.invisible()
+                no_account_block.visible()
             }
-        })
+        }
+
+        viewModel.notifications.observe(viewLifecycleOwner) {
+            val oldPushesSize = PreferenceManager(requireContext()).getInt(PUSH_COUNTER)
+            oldPushesSize?.let { oldSize ->
+                if (it.size > oldSize) {
+                    notification_count.text = (it.size - oldSize).toString()
+                    notification_count.visible()
+                    notification_image.invisible()
+                } else {
+                    notification_count.invisible()
+                    notification_image.visible()
+                }
+            }
+        }
+
+        viewModel.cards.observe(viewLifecycleOwner) {
+            cards_recycler.setHasFixedSize(true)
+            cards_recycler.adapter = AccountsCardsAdapter(it)
+        }
 
         val editTexts = listOf<EditText>(
             name_edit_text, surname_edit_text, account_edit_text, bik_edit_text
@@ -97,6 +120,14 @@ class AccountsFragment : Fragment() {
             close_image.performClick()
         }
 
+        notification_image.setOnClickListener {
+            findNavController(this).navigate(R.id.action_accountsFragment_to_notificationsFragment)
+        }
+
+        notification_count.setOnClickListener {
+            findNavController(this).navigate(R.id.action_accountsFragment_to_notificationsFragment)
+        }
+
         back_arrow.setOnClickListener { activity?.onBackPressed() }
 
         daily_withdrawal_tv.setOnClickListener {
@@ -113,10 +144,12 @@ class AccountsFragment : Fragment() {
             )
         }
 
+        val constraintSet = ConstraintSet()
+
         add_account_image.setOnClickListener {
-            no_account_block.visibility = INVISIBLE
-            account_block.visibility = INVISIBLE
-            new_account_block.visibility = VISIBLE
+            no_account_block.invisible()
+            account_block.invisible()
+            new_account_block.visible()
 
             constraintSet.clone(parent_layout)
             constraintSet.connect(
@@ -129,9 +162,9 @@ class AccountsFragment : Fragment() {
         }
 
         close_image.setOnClickListener {
-            no_account_block.visibility = VISIBLE
-            account_block.visibility = INVISIBLE
-            new_account_block.visibility = INVISIBLE
+            no_account_block.visible()
+            account_block.invisible()
+            new_account_block.invisible()
 
             constraintSet.clone(parent_layout)
             constraintSet.connect(
@@ -144,13 +177,13 @@ class AccountsFragment : Fragment() {
         }
 
         add_card_image.setOnClickListener {
-            no_card_block.visibility = INVISIBLE
-            new_card_block.visibility = VISIBLE
+            no_card_block.invisible()
+            new_card_block.visible()
         }
 
         card_close_image.setOnClickListener {
-            no_card_block.visibility = VISIBLE
-            new_card_block.visibility = INVISIBLE
+            no_card_block.visible()
+            new_card_block.invisible()
         }
 
         delete_icon.setOnClickListener {
@@ -163,5 +196,33 @@ class AccountsFragment : Fragment() {
                 viewModel.deleteAccount()
             }
         }
+
+        card_edit_text.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(editable: Editable?) {
+                when (editable?.length) {
+                    4, 9, 14 -> editable.append(" ")
+                }
+
+                when ((editable?.toString()?.replace(" ", "") ?: "").getCardType()) {
+                    VISA -> {
+                        card_edit_text.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_visa, 0)
+                    }
+                    MASTERCARD -> {
+                        card_edit_text.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_mastercard, 0)
+                    }
+                }
+            }
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+        })
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        requireView().hideKeyboard()
     }
 }

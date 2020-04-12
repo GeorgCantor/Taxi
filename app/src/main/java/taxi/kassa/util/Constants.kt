@@ -1,8 +1,8 @@
 package taxi.kassa.util
 
 object Constants {
-
     var accessToken = ""
+
     const val API_VERSION = "1"
     const val KEY = "ZVc3THdVdzM5dDhXQVBoR1ZJNk80SmNxdjBGcEhGUzY4YkJIcmV"
     const val MAIN_STORAGE = "MainStorage"
@@ -15,8 +15,25 @@ object Constants {
     const val WITHDRAW = "withdraw"
     const val TAXI = "taxi"
     const val CONNECTION = "connection"
+    const val SUPPORT_PHONE_NUMBER = "+74993505558"
+    const val NOTIFICATIONS = "notifications"
+    const val PUSH_COUNTER = "counter"
+    const val MESSAGES_COUNTER = "messages_counter"
+    const val TOTAL_BALANCE = "total_balance"
+    const val PHONE_MASK = "+7 ([000]) [000]-[00]-[00]"
+
     const val YANDEX = "yandex"
     const val GETT = "gett"
     const val CITYMOBIL = "citymobil"
-    const val SUPPORT_PHONE_NUMBER = "+74993505558"
+
+    const val TITLE = "1"
+    const val MESSAGE = "2"
+
+    const val HOURS_PATTERN = "HH:mm"
+    const val DAY_YEAR_PATTERN = "dd MMMM yyyy"
+    const val FULL_PATTERN = "HH:mm, dd MMMM yyyy"
+    const val PUSH_PATTERN = "HH:mm, dd MMMM"
+
+    const val MASTERCARD = "Mastercard"
+    const val VISA = "Visa"
 }

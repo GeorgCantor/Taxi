@@ -7,26 +7,29 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.telephony.PhoneNumberUtils
+import android.telephony.PhoneNumberUtils.formatNumber
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
+import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_profile.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
+import taxi.kassa.util.*
+import taxi.kassa.util.Constants.MESSAGES_COUNTER
 import taxi.kassa.util.Constants.PHONE
+import taxi.kassa.util.Constants.PUSH_COUNTER
 import taxi.kassa.util.Constants.SUPPORT_PHONE_NUMBER
 import taxi.kassa.util.Constants.TOKEN
+import taxi.kassa.util.Constants.TOTAL_BALANCE
 import taxi.kassa.util.Constants.accessToken
-import taxi.kassa.util.PreferenceManager
-import taxi.kassa.util.shortToast
-import taxi.kassa.util.showTwoButtonsDialog
 import taxi.kassa.view.MainActivity
 import java.util.*
 
@@ -38,7 +41,7 @@ class ProfileFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel = getViewModel { parametersOf() }
-        prefManager = PreferenceManager(requireActivity())
+        prefManager = PreferenceManager(requireContext())
         accessToken = prefManager.getString(TOKEN) ?: ""
     }
 
@@ -51,46 +54,90 @@ class ProfileFragment : Fragment() {
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getUserInfo()
+        setLogoutButtonConstraint()
 
-        viewModel.progressIsVisible.observe(viewLifecycleOwner, Observer { visible ->
-            progress_bar.visibility = if (visible) View.VISIBLE else View.GONE
-        })
-
-        viewModel.error.observe(viewLifecycleOwner, Observer {
-            activity?.shortToast(it)
-        })
-
-        viewModel.responseOwner.observe(viewLifecycleOwner, Observer { response ->
-            response?.let {
-                name_tv.text = it.fullName
-                number_tv.text = getString(
-                    R.string.profile_format,
-                    PhoneNumberUtils.formatNumber(it.phone, Locale.getDefault().country)
-                ).replaceFirst(" ", "(").replace(" ", ")")
-
-                balance_tv.text = getString(R.string.balance_format, it.balanceTotal)
+        with(viewModel) {
+            isNetworkAvailable.observe(viewLifecycleOwner) { available ->
+                if (!available) activity?.longToast(getString(R.string.internet_unavailable))
             }
-        })
 
-        balance_view.setOnClickListener {
-            findNavController(this).navigate(R.id.action_profileFragment_to_balanceFragment)
+            isProgressVisible.observe(viewLifecycleOwner) { visible ->
+                progress_bar.visibility = if (visible) VISIBLE else GONE
+            }
+
+            error.observe(viewLifecycleOwner) {
+                activity?.shortToast(it)
+            }
+
+            responseOwner.observe(viewLifecycleOwner) { response ->
+                response?.let {
+                    name_tv.text = it.fullName
+                    number_tv.text = getString(
+                        R.string.profile_format,
+                        formatNumber(it.phone, Locale.getDefault().country)
+                    ).replaceFirst(" ", "(").replace(" ", ")")
+
+                    balance_tv.setFormattedText(R.string.balance_format, it.balanceTotal.toDouble())
+
+                    setBalanceChange(it.balanceTotal.toDouble().toInt())
+                }
+            }
+
+            notifications.observe(viewLifecycleOwner) {
+                val oldPushesSize = PreferenceManager(requireContext()).getInt(PUSH_COUNTER)
+                oldPushesSize?.let { oldSize ->
+                    if (it.size > oldSize) {
+                        notification_count.text = (it.size - oldSize).toString()
+                        notification_count.visible()
+                        notification_image.invisible()
+                    } else {
+                        notification_count.invisible()
+                        notification_image.visible()
+                    }
+                }
+            }
+
+            incomingMessages.observe(viewLifecycleOwner) {
+                val readMessages = PreferenceManager(requireContext()).getInt(MESSAGES_COUNTER)
+                val unreadMessages = it.size - (readMessages ?: 0)
+
+                if (unreadMessages > 0) {
+                    message_counter.visible()
+                    message_counter.text = getString(R.string.profile_format, unreadMessages.toString())
+                } else {
+                    message_counter.gone()
+                }
+            }
         }
 
-        orders_view.setOnClickListener {
-            findNavController(this).navigate(R.id.action_profileFragment_to_ordersFragment)
-        }
+        with(findNavController(this)) {
+            balance_view.setOnClickListener {
+                navigate(R.id.action_profileFragment_to_balanceFragment)
+            }
 
-        withdrawal_applications_view.setOnClickListener {
-            findNavController(this).navigate(R.id.action_profileFragment_to_withdrawsFragment)
-        }
+            orders_view.setOnClickListener {
+                navigate(R.id.action_profileFragment_to_ordersFragment)
+            }
 
-        accounts_and_cards_view.setOnClickListener {
-            findNavController(this).navigate(R.id.action_profileFragment_to_accountsFragment)
-        }
+            withdrawal_applications_view.setOnClickListener {
+                navigate(R.id.action_profileFragment_to_withdrawsFragment)
+            }
 
-        support_service_view.setOnClickListener {
-            findNavController(this).navigate(R.id.action_profileFragment_to_supportFragment)
+            accounts_and_cards_view.setOnClickListener {
+                navigate(R.id.action_profileFragment_to_accountsFragment)
+            }
+
+            support_service_view.setOnClickListener {
+                navigate(R.id.action_profileFragment_to_supportFragment)
+            }
+
+            notification_image.setOnClickListener {
+                navigate(R.id.action_profileFragment_to_notificationsFragment)
+            }
+
+            notification_count.setOnClickListener {
+                navigate(R.id.action_profileFragment_to_notificationsFragment)
+            }
         }
 
         phone_image.setOnClickListener {
@@ -105,7 +152,14 @@ class ProfileFragment : Fragment() {
         }
 
         exit_tv.setOnClickListener {
-            logout()
+            context?.showTwoButtonsDialog(
+                getString(R.string.exit),
+                getString(R.string.exit_message),
+                getString(R.string.no),
+                getString(R.string.yes)
+            ) {
+                logout()
+            }
         }
     }
 
@@ -143,5 +197,35 @@ class ProfileFragment : Fragment() {
 
         activity?.finish()
         startActivity(Intent(requireActivity(), MainActivity::class.java))
+    }
+
+    private fun setBalanceChange(totalBalance: Int) {
+        val pastBalance = prefManager.getInt(TOTAL_BALANCE)
+        pastBalance?.let {
+            when (totalBalance > it) {
+                true -> {
+                    balance_counter.visible()
+                    balance_counter.text = getString(R.string.profile_format, (totalBalance - it).toString())
+                }
+                false -> balance_counter.gone()
+            }
+        }
+        prefManager.saveInt(TOTAL_BALANCE, totalBalance)
+    }
+
+    private fun setLogoutButtonConstraint() {
+        if (requireContext().getScreenSize() < 5.5) {
+            val constraintSet = ConstraintSet()
+            with(constraintSet) {
+                clone(parent_layout)
+                connect(
+                    R.id.exit_tv,
+                    ConstraintSet.TOP,
+                    R.id.bottom_line,
+                    ConstraintSet.BOTTOM
+                )
+                applyTo(parent_layout)
+            }
+        }
     }
 }

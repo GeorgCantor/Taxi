@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/login_background">
+    android:background="@color/main_background">
 
     <ImageView
         android:id="@+id/back_arrow"
@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_4dp"
         android:layout_marginTop="12dp"
+        android:background="?attr/selectableItemBackground"
         android:padding="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -24,8 +25,8 @@
         android:layout_marginStart="20dp"
         android:fontFamily="sans-serif-medium"
         android:text="@string/write_to_us"
-        android:textColor="@color/gray_intro_text"
-        android:textSize="20sp"
+        android:textColor="@color/balance_fuel_gray"
+        android:textSize="@dimen/text_20sp"
         app:layout_constraintBottom_toBottomOf="@+id/back_arrow"
         app:layout_constraintStart_toEndOf="@+id/back_arrow"
         app:layout_constraintTop_toTopOf="@+id/back_arrow" />
@@ -38,7 +39,7 @@
         android:layout_marginTop="28dp"
         android:text="@string/write_message_title"
         android:textColor="@color/gray_profile"
-        android:textSize="16sp"
+        android:textSize="@dimen/text_16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/write_to_us_title" />
 
@@ -54,7 +55,7 @@
         android:inputType="textMultiLine"
         android:maxLength="200"
         android:textColor="@color/gray_intro_text"
-        android:textSize="16sp"
+        android:textSize="@dimen/text_16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/write_message_title"
@@ -67,7 +68,7 @@
         android:layout_marginEnd="@dimen/margin_24dp"
         android:text="@string/symbols_max_text"
         android:textColor="@color/gray_profile"
-        android:textSize="14sp"
+        android:textSize="@dimen/text_14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/message_edit_text" />
 
@@ -83,7 +84,7 @@
         android:text="@string/submit"
         android:textAllCaps="false"
         android:textColor="@color/continue_color"
-        android:textSize="20sp"
+        android:textSize="@dimen/text_20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

@@ -5,21 +5,25 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import taxi.kassa.model.remote.ApiClient
 import taxi.kassa.repository.ApiRepository
+import taxi.kassa.util.PreferenceManager
 import taxi.kassa.view.accounts.AccountsViewModel
-import taxi.kassa.view.auth_code.AuthCodeViewModel
-import taxi.kassa.view.auth_phone.AuthPhoneViewModel
-import taxi.kassa.view.auth_sign_up.AuthSignUpViewModel
+import taxi.kassa.view.auth.auth_code.AuthCodeViewModel
+import taxi.kassa.view.auth.auth_phone.AuthPhoneViewModel
+import taxi.kassa.view.auth.auth_sign_up.AuthSignUpViewModel
 import taxi.kassa.view.balance.BalanceViewModel
 import taxi.kassa.view.fuel.FuelReplenishViewModel
+import taxi.kassa.view.notifications.NotificationsViewModel
 import taxi.kassa.view.orders.OrdersViewModel
 import taxi.kassa.view.orders.list.OrdersListViewModel
 import taxi.kassa.view.profile.ProfileViewModel
-import taxi.kassa.view.withdraw.WithdrawViewModel
-import taxi.kassa.view.withdraw_create.WithdrawCreateViewModel
+import taxi.kassa.view.support.SupportViewModel
+import taxi.kassa.view.support.chat.ChatHistoryViewModel
 import taxi.kassa.view.withdraws.WithdrawsViewModel
+import taxi.kassa.view.withdraws.withdraw.WithdrawViewModel
+import taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateViewModel
 
 val repositoryModule = module {
-    single { ApiRepository(get()) }
+    single { ApiRepository(get(), PreferenceManager(androidApplication().applicationContext)) }
 }
 
 val viewModelModule = module {
@@ -33,7 +37,7 @@ val viewModelModule = module {
         AuthCodeViewModel(get())
     }
     viewModel {
-        ProfileViewModel(get())
+        ProfileViewModel(androidApplication(), get())
     }
     viewModel {
         BalanceViewModel(get())
@@ -51,13 +55,22 @@ val viewModelModule = module {
         WithdrawCreateViewModel(get())
     }
     viewModel {
-        OrdersViewModel(androidApplication())
+        OrdersViewModel(androidApplication(), get())
     }
     viewModel {
         FuelReplenishViewModel(get())
     }
     viewModel {
         OrdersListViewModel(get())
+    }
+    viewModel {
+        ChatHistoryViewModel(get())
+    }
+    viewModel {
+        NotificationsViewModel(get())
+    }
+    viewModel {
+        SupportViewModel(get())
     }
 }
 

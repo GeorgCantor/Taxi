@@ -25,30 +25,23 @@ class RegistrationSelectionFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val bundle = Bundle()
 
+        with(findNavController(this)) {
+            yandex_background.setOnClickListener {
+                bundle.putString(CONNECTION, YANDEX)
+                navigate(R.id.action_registrationSelectionFragment_to_connectionFragment, bundle)
+            }
+
+            gett_background.setOnClickListener {
+                bundle.putString(CONNECTION, GETT)
+                navigate(R.id.action_registrationSelectionFragment_to_connectionFragment, bundle)
+            }
+
+            city_background.setOnClickListener {
+                bundle.putString(CONNECTION, CITYMOBIL)
+                navigate(R.id.action_registrationSelectionFragment_to_connectionFragment, bundle)
+            }
+        }
+
         back_arrow.setOnClickListener { activity?.onBackPressed() }
-
-        yandex_background.setOnClickListener {
-            bundle.putString(CONNECTION, YANDEX)
-            findNavController(this).navigate(
-                R.id.action_registrationSelectionFragment_to_connectionFragment,
-                bundle
-            )
-        }
-
-        gett_background.setOnClickListener {
-            bundle.putString(CONNECTION, GETT)
-            findNavController(this).navigate(
-                R.id.action_registrationSelectionFragment_to_connectionFragment,
-                bundle
-            )
-        }
-
-        city_background.setOnClickListener {
-            bundle.putString(CONNECTION, CITYMOBIL)
-            findNavController(this).navigate(
-                R.id.action_registrationSelectionFragment_to_connectionFragment,
-                bundle
-            )
-        }
     }
 }

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/login_background">
+    android:background="@color/main_background">
 
     <ImageView
         android:id="@+id/back_arrow"
@@ -11,6 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_4dp"
         android:layout_marginTop="12dp"
+        android:background="?attr/selectableItemBackground"
         android:padding="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -23,20 +25,38 @@
         android:layout_marginStart="20dp"
         android:fontFamily="sans-serif-medium"
         android:text="@string/support_service"
-        android:textColor="@color/gray_intro_text"
-        android:textSize="20sp"
+        android:textColor="@color/balance_fuel_gray"
+        android:textSize="@dimen/text_20sp"
         app:layout_constraintBottom_toBottomOf="@+id/back_arrow"
         app:layout_constraintStart_toEndOf="@+id/back_arrow"
         app:layout_constraintTop_toTopOf="@+id/back_arrow" />
+
+    <TextView
+        android:id="@+id/notification_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="@dimen/margin_24dp"
+        android:background="@drawable/ic_chip_notification"
+        android:paddingStart="9dp"
+        android:paddingTop="3dp"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="3" />
 
     <ImageView
         android:id="@+id/notification_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_24dp"
+        android:layout_margin="@dimen/margin_8dp"
+        android:background="?attr/selectableItemBackground"
+        android:padding="@dimen/margin_16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_notification" />
+        app:srcCompat="@drawable/ic_notification"
+        tools:visibility="invisible" />
 
     <TextView
         android:id="@+id/write_to_us_view"
@@ -51,13 +71,13 @@
         android:paddingTop="24dp"
         android:text="@string/write_to_us"
         android:textColor="@color/gray_light_profile"
-        android:textSize="20sp"
+        android:textSize="@dimen/text_20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/support_service_title" />
 
     <TextView
-        android:id="@+id/call_history_view"
+        android:id="@+id/chat_history_view"
         android:layout_width="0dp"
         android:layout_height="74dp"
         android:layout_marginStart="@dimen/margin_16dp"
@@ -69,10 +89,28 @@
         android:paddingTop="24dp"
         android:text="@string/call_history"
         android:textColor="@color/gray_light_profile"
-        android:textSize="20sp"
+        android:textSize="@dimen/text_20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/write_to_us_view" />
+
+    <TextView
+        android:id="@+id/message_counter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/bg_message_counter"
+        android:fontFamily="sans-serif-medium"
+        android:paddingStart="@dimen/margin_8dp"
+        android:paddingTop="2dp"
+        android:paddingEnd="@dimen/margin_8dp"
+        android:paddingBottom="4dp"
+        android:textColor="@color/continue_color"
+        android:textSize="@dimen/text_13sp"
+        app:layout_constraintBottom_toBottomOf="@+id/chat_history_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/chat_history_view"
+        tools:text="+2" />
 
     <Button
         android:id="@+id/call_button"
@@ -86,7 +124,7 @@
         android:text="@string/to_call"
         android:textAllCaps="false"
         android:textColor="@color/continue_color"
-        android:textSize="20sp"
+        android:textSize="@dimen/text_20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

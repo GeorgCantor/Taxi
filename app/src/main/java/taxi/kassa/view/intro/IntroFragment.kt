@@ -20,12 +20,14 @@ class IntroFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        login_button.setOnClickListener {
-            findNavController(this).navigate(R.id.action_introFragment_to_authPhoneFragment)
-        }
+        with(findNavController(this)) {
+            login_button.setOnClickListener {
+                navigate(R.id.action_introFragment_to_authPhoneFragment)
+            }
 
-        signup_button.setOnClickListener {
-            findNavController(this).navigate(R.id.action_introFragment_to_registrationFragment)
+            signup_button.setOnClickListener {
+                navigate(R.id.action_introFragment_to_registrationFragment)
+            }
         }
     }
 }

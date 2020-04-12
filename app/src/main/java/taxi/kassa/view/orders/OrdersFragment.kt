@@ -7,14 +7,20 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import androidx.core.view.get
+import androidx.core.view.isNotEmpty
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
+import androidx.navigation.fragment.NavHostFragment.findNavController
 import androidx.viewpager.widget.ViewPager
 import kotlinx.android.synthetic.main.fragment_orders.*
 import kotlinx.android.synthetic.main.item_taxi_orders.view.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
+import taxi.kassa.util.Constants.PUSH_COUNTER
+import taxi.kassa.util.PreferenceManager
+import taxi.kassa.util.invisible
+import taxi.kassa.util.visible
+import taxi.kassa.util.observe
 import taxi.kassa.view.orders.adapter.OrdersPagerAdapter
 import taxi.kassa.view.orders.adapter.OrdersTaxiAdapter
 import taxi.kassa.view.orders.list.OrdersListFragment
@@ -36,12 +42,13 @@ class OrdersFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getTaxis()
 
         val adapter = OrdersPagerAdapter(childFragmentManager)
-        adapter.addFragment(OrdersListFragment.create(1))
-        adapter.addFragment(OrdersListFragment.create(4))
-        adapter.addFragment(OrdersListFragment.create(3))
+        with(adapter) {
+            addFragment(OrdersListFragment.create(1))
+            addFragment(OrdersListFragment.create(4))
+            addFragment(OrdersListFragment.create(3))
+        }
 
         view_pager.adapter = adapter
         view_pager.offscreenPageLimit = 3
@@ -58,47 +65,72 @@ class OrdersFragment : Fragment() {
             }
 
             override fun onPageSelected(position: Int) {
-                when (position) {
-                    0 -> {
-                        taxi_recycler[0].performClick()
-                        taxi_recycler.scrollToPosition(0)
+                try {
+                    when (position) {
+                        0 -> {
+                            taxi_recycler[0].performClick()
+                            taxi_recycler.scrollToPosition(0)
+                        }
+                        1 -> taxi_recycler[1].performClick()
+                        2 -> {
+                            taxi_recycler[2].performClick()
+                            taxi_recycler.scrollToPosition(2)
+                        }
                     }
-                    1 -> taxi_recycler[1].performClick()
-                    2 -> {
-                        taxi_recycler[2].performClick()
-                        taxi_recycler.scrollToPosition(2)
-                    }
+                } catch (e: IndexOutOfBoundsException) {
                 }
             }
         })
 
-        viewModel.taxis.observe(viewLifecycleOwner, Observer {
+        viewModel.taxis.observe(viewLifecycleOwner) {
             taxi_recycler.adapter = OrdersTaxiAdapter(it) { view, taxi ->
-                val items = mutableListOf(
-                    taxi_recycler[0], taxi_recycler[1], taxi_recycler[2]
-                )
+                try {
+                    val items = mutableListOf(
+                        taxi_recycler[0], taxi_recycler[1], taxi_recycler[2]
+                    )
 
-                items.map { item ->
-                    if (item != view) {
-                        item.space.background = getDrawable(requireContext(), R.color.colorAccent)
-                    } else {
-                        item.space.background =
-                            getDrawable(requireContext(), R.color.withdraws_yellow)
+                    items.map { item ->
+                        item.space.background = getDrawable(
+                            requireContext(),
+                            if (item != view) R.color.colorAccent else R.color.withdraws_yellow
+                        )
                     }
-                }
 
-                when (taxi.taxiName) {
-                    getString(R.string.yandex_title) -> view_pager.currentItem = 0
-                    getString(R.string.gett_title) -> view_pager.currentItem = 1
-                    getString(R.string.citymobil_title) -> view_pager.currentItem = 2
+                    when (taxi.taxiName) {
+                        getString(R.string.yandex_title) -> view_pager.currentItem = 0
+                        getString(R.string.gett_title) -> view_pager.currentItem = 1
+                        getString(R.string.citymobil_title) -> view_pager.currentItem = 2
+                    }
+                } catch (e: IndexOutOfBoundsException) {
                 }
             }
-        })
-
-        val runnable = Runnable {
-            taxi_recycler[0].performClick()
         }
-        Handler().postDelayed(runnable, 500)
+
+        viewModel.notifications.observe(viewLifecycleOwner) {
+            val oldPushesSize = PreferenceManager(requireContext()).getInt(PUSH_COUNTER)
+            oldPushesSize?.let { oldSize ->
+                if (it.size > oldSize) {
+                    notification_count.text = (it.size - oldSize).toString()
+                    notification_count.visible()
+                    notification_image.invisible()
+                } else {
+                    notification_count.invisible()
+                    notification_image.visible()
+                }
+            }
+        }
+
+        Handler().postDelayed({
+            taxi_recycler?.let { if (it.isNotEmpty()) taxi_recycler[0].performClick() }
+        }, 500)
+
+        notification_image.setOnClickListener {
+            findNavController(this).navigate(R.id.action_ordersFragment_to_notificationsFragment)
+        }
+
+        notification_count.setOnClickListener {
+            findNavController(this).navigate(R.id.action_ordersFragment_to_notificationsFragment)
+        }
 
         back_arrow.setOnClickListener { activity?.onBackPressed() }
     }
