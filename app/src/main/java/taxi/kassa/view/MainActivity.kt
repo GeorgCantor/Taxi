@@ -11,8 +11,8 @@ import taxi.kassa.util.Constants.NOTIFICATIONS
 import taxi.kassa.util.Constants.PUSH_PATTERN
 import taxi.kassa.util.Constants.TITLE
 import taxi.kassa.util.Constants.TOKEN
+import taxi.kassa.util.Constants.myDateFormatSymbols
 import taxi.kassa.util.PreferenceManager
-import taxi.kassa.util.myDateFormatSymbols
 import java.text.SimpleDateFormat
 import java.util.*
 

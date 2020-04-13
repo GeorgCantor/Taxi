@@ -9,7 +9,7 @@ import taxi.kassa.util.Constants.FULL_PATTERN
 import taxi.kassa.util.Constants.HOURS_PATTERN
 import taxi.kassa.util.Constants.NEW
 import taxi.kassa.util.Constants.WRITTEN_OFF
-import taxi.kassa.util.myDateFormatSymbols
+import taxi.kassa.util.Constants.myDateFormatSymbols
 import java.text.SimpleDateFormat
 import java.util.*
 
