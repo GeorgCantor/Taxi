@@ -63,11 +63,16 @@ class WithdrawsFragment : Fragment() {
                 oldPushesSize?.let { oldSize ->
                     if (it.size > oldSize) {
                         notification_count.text = (it.size - oldSize).toString()
+                        notification_count_empty.text = (it.size - oldSize).toString()
                         notification_count.visible()
+                        notification_count_empty.visible()
                         notification_image.invisible()
+                        notification_image_empty.invisible()
                     } else {
                         notification_count.invisible()
+                        notification_count_empty.invisible()
                         notification_image.visible()
+                        notification_image_empty.visible()
                     }
                 }
             }
@@ -79,18 +84,19 @@ class WithdrawsFragment : Fragment() {
 
         back_button.setOnClickListener { activity?.onBackPressed() }
 
-        with(findNavController(this)) {
-            notification_image.setOnClickListener {
-                navigate(R.id.action_withdrawsFragment_to_notificationsFragment)
-            }
+        notification_image.setOnClickListener { goToNotifications() }
 
-            notification_count.setOnClickListener {
-                navigate(R.id.action_withdrawsFragment_to_notificationsFragment)
-            }
+        notification_count.setOnClickListener { goToNotifications() }
 
-            add_account_button.setOnClickListener {
-                navigate(R.id.action_withdrawsFragment_to_accountsFragment)
-            }
+        notification_image_empty.setOnClickListener { goToNotifications() }
+
+        notification_count_empty.setOnClickListener { goToNotifications() }
+
+        add_account_button.setOnClickListener {
+            findNavController(this).navigate(R.id.action_withdrawsFragment_to_accountsFragment)
         }
     }
+
+    private fun goToNotifications() =
+        findNavController(this).navigate(R.id.action_withdrawsFragment_to_notificationsFragment)
 }

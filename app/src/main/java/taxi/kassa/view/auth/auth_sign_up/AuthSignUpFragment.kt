@@ -114,6 +114,7 @@ class AuthSignUpFragment : Fragment() {
 
     inner class PhoneMaskListener : MaskedTextChangedListener(PHONE_MASK, phone_edit_text, object : ValueListener {
         override fun onTextChanged(maskFilled: Boolean, extractedValue: String, formattedValue: String) {
+            error_tv.text = ""
         }
     })
 }
