@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/taxitech-android-new.iml" filepath="$PROJECT_DIR$/.idea/taxitech-android-new.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="taxitech-android-new/app" />
+      <module fileurl="file://$PROJECT_DIR$/taxitech-android-new.iml" filepath="$PROJECT_DIR$/taxitech-android-new.iml" group="taxitech-android-new" />
     </modules>
   </component>
 </project>

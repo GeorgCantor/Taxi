@@ -140,18 +140,18 @@ class ConnectionFragment : Fragment() {
             Pair(gett_license_edit_text, ImageType.GETT_LICENSE),
             Pair(make_selfie_edit_text, ImageType.GETT_SELFIE),
 
-            Pair(city_driver_license_front_edit_text, ImageType.D_LICENSE_FRONT),
-            Pair(city_driver_license_back_edit_text, ImageType.D_LICENSE_BACK),
-            Pair(city_passport_first_edit_text, ImageType.PASSPORT_FIRST),
-            Pair(city_passport_registration_edit_text, ImageType.PASSPORT_REG),
-            Pair(city_sts_edit_text, ImageType.STS),
-            Pair(city_license_front_edit_text, ImageType.LICENSE_FRONT),
-            Pair(city_license_back_edit_text, ImageType.LICENSE_BACK),
-            Pair(front_side_edit_text, ImageType.AUTO_FRONT),
-            Pair(back_side_edit_text, ImageType.AUTO_BACK),
-            Pair(left_side_edit_text, ImageType.AUTO_LEFT),
-            Pair(right_side_edit_text, ImageType.AUTO_RIGHT),
-            Pair(city_selfie_edit_text, ImageType.SELFIE)
+            Pair(city_driver_license_front_edit_text, ImageType.CITY_D_LICENSE_FRONT),
+            Pair(city_driver_license_back_edit_text, ImageType.CITY_D_LICENSE_BACK),
+            Pair(city_passport_first_edit_text, ImageType.CITY_PASSPORT_FIRST),
+            Pair(city_passport_registration_edit_text, ImageType.CITY_PASSPORT_REG),
+            Pair(city_sts_edit_text, ImageType.CITY_STS),
+            Pair(city_license_front_edit_text, ImageType.CITY_LICENSE_FRONT),
+            Pair(city_license_back_edit_text, ImageType.CITY_LICENSE_BACK),
+            Pair(front_side_edit_text, ImageType.CITY_AUTO_FRONT),
+            Pair(back_side_edit_text, ImageType.CITY_AUTO_BACK),
+            Pair(left_side_edit_text, ImageType.CITY_AUTO_LEFT),
+            Pair(right_side_edit_text, ImageType.CITY_AUTO_RIGHT),
+            Pair(city_selfie_edit_text, ImageType.CITY_SELFIE)
         )
 
         imageTypePairs.map {
@@ -359,18 +359,18 @@ class ConnectionFragment : Fragment() {
                 ImageType.GETT_LICENSE -> gettLicenseViews.setLoadPhotoVisibility()
                 ImageType.GETT_SELFIE -> gettSelfieViews.setLoadPhotoVisibility()
 
-                ImageType.D_LICENSE_FRONT -> cityDLicenseFrontViews.setLoadPhotoVisibility()
-                ImageType.D_LICENSE_BACK -> cityDLicenseBackViews.setLoadPhotoVisibility()
-                ImageType.PASSPORT_FIRST -> cityPassportFirstViews.setLoadPhotoVisibility()
-                ImageType.PASSPORT_REG -> cityPassportRegViews.setLoadPhotoVisibility()
-                ImageType.STS -> cityStsViews.setLoadPhotoVisibility()
-                ImageType.LICENSE_FRONT -> cityLicenseFrontViews.setLoadPhotoVisibility()
-                ImageType.LICENSE_BACK -> cityLicenseBackViews.setLoadPhotoVisibility()
-                ImageType.AUTO_FRONT -> cityFrontSideViews.setLoadPhotoVisibility()
-                ImageType.AUTO_BACK -> cityBackSideViews.setLoadPhotoVisibility()
-                ImageType.AUTO_LEFT -> cityLeftSideViews.setLoadPhotoVisibility()
-                ImageType.AUTO_RIGHT -> cityRightSideViews.setLoadPhotoVisibility()
-                ImageType.SELFIE -> citySelfieViews.setLoadPhotoVisibility()
+                ImageType.CITY_D_LICENSE_FRONT -> cityDLicenseFrontViews.setLoadPhotoVisibility()
+                ImageType.CITY_D_LICENSE_BACK -> cityDLicenseBackViews.setLoadPhotoVisibility()
+                ImageType.CITY_PASSPORT_FIRST -> cityPassportFirstViews.setLoadPhotoVisibility()
+                ImageType.CITY_PASSPORT_REG -> cityPassportRegViews.setLoadPhotoVisibility()
+                ImageType.CITY_STS -> cityStsViews.setLoadPhotoVisibility()
+                ImageType.CITY_LICENSE_FRONT -> cityLicenseFrontViews.setLoadPhotoVisibility()
+                ImageType.CITY_LICENSE_BACK -> cityLicenseBackViews.setLoadPhotoVisibility()
+                ImageType.CITY_AUTO_FRONT -> cityFrontSideViews.setLoadPhotoVisibility()
+                ImageType.CITY_AUTO_BACK -> cityBackSideViews.setLoadPhotoVisibility()
+                ImageType.CITY_AUTO_LEFT -> cityLeftSideViews.setLoadPhotoVisibility()
+                ImageType.CITY_AUTO_RIGHT -> cityRightSideViews.setLoadPhotoVisibility()
+                ImageType.CITY_SELFIE -> citySelfieViews.setLoadPhotoVisibility()
             }
         }
 
@@ -423,52 +423,52 @@ class ConnectionFragment : Fragment() {
                     gettSelfieViews.setNormalVisibility()
                 }
 
-                ImageType.D_LICENSE_FRONT -> {
-                    imageTypes.remove(ImageType.D_LICENSE_FRONT)
+                ImageType.CITY_D_LICENSE_FRONT -> {
+                    imageTypes.remove(ImageType.CITY_D_LICENSE_FRONT)
                     cityDLicenseFrontViews.setNormalVisibility()
                 }
-                ImageType.D_LICENSE_BACK -> {
-                    imageTypes.remove(ImageType.D_LICENSE_BACK)
+                ImageType.CITY_D_LICENSE_BACK -> {
+                    imageTypes.remove(ImageType.CITY_D_LICENSE_BACK)
                     cityDLicenseBackViews.setNormalVisibility()
                 }
-                ImageType.PASSPORT_FIRST -> {
-                    imageTypes.remove(ImageType.PASSPORT_FIRST)
+                ImageType.CITY_PASSPORT_FIRST -> {
+                    imageTypes.remove(ImageType.CITY_PASSPORT_FIRST)
                     cityPassportFirstViews.setNormalVisibility()
                 }
-                ImageType.PASSPORT_REG -> {
-                    imageTypes.remove(ImageType.PASSPORT_REG)
+                ImageType.CITY_PASSPORT_REG -> {
+                    imageTypes.remove(ImageType.CITY_PASSPORT_REG)
                     cityPassportRegViews.setNormalVisibility()
                 }
-                ImageType.STS -> {
-                    imageTypes.remove(ImageType.STS)
+                ImageType.CITY_STS -> {
+                    imageTypes.remove(ImageType.CITY_STS)
                     cityStsViews.setNormalVisibility()
                 }
-                ImageType.LICENSE_FRONT -> {
-                    imageTypes.remove(ImageType.LICENSE_FRONT)
+                ImageType.CITY_LICENSE_FRONT -> {
+                    imageTypes.remove(ImageType.CITY_LICENSE_FRONT)
                     cityLicenseFrontViews.setNormalVisibility()
                 }
-                ImageType.LICENSE_BACK -> {
-                    imageTypes.remove(ImageType.LICENSE_BACK)
+                ImageType.CITY_LICENSE_BACK -> {
+                    imageTypes.remove(ImageType.CITY_LICENSE_BACK)
                     cityLicenseBackViews.setNormalVisibility()
                 }
-                ImageType.AUTO_FRONT -> {
-                    imageTypes.remove(ImageType.AUTO_FRONT)
+                ImageType.CITY_AUTO_FRONT -> {
+                    imageTypes.remove(ImageType.CITY_AUTO_FRONT)
                     cityFrontSideViews.setNormalVisibility()
                 }
-                ImageType.AUTO_BACK -> {
-                    imageTypes.remove(ImageType.AUTO_BACK)
+                ImageType.CITY_AUTO_BACK -> {
+                    imageTypes.remove(ImageType.CITY_AUTO_BACK)
                     cityBackSideViews.setNormalVisibility()
                 }
-                ImageType.AUTO_LEFT -> {
-                    imageTypes.remove(ImageType.AUTO_LEFT)
+                ImageType.CITY_AUTO_LEFT -> {
+                    imageTypes.remove(ImageType.CITY_AUTO_LEFT)
                     cityLeftSideViews.setNormalVisibility()
                 }
-                ImageType.AUTO_RIGHT -> {
-                    imageTypes.remove(ImageType.AUTO_RIGHT)
+                ImageType.CITY_AUTO_RIGHT -> {
+                    imageTypes.remove(ImageType.CITY_AUTO_RIGHT)
                     cityRightSideViews.setNormalVisibility()
                 }
-                ImageType.SELFIE -> {
-                    imageTypes.remove(ImageType.SELFIE)
+                ImageType.CITY_SELFIE -> {
+                    imageTypes.remove(ImageType.CITY_SELFIE)
                     citySelfieViews.setNormalVisibility()
                 }
             }
@@ -530,7 +530,7 @@ class ConnectionFragment : Fragment() {
     }
 
     private fun cancelLoadPhoto(imageView: ImageView) {
-        var imageType = ImageType.D_LICENSE_FRONT
+        var imageType = ImageType.CITY_D_LICENSE_FRONT
 
         when (imageView.id) {
             R.id.driver_license_cancel -> {
@@ -542,7 +542,7 @@ class ConnectionFragment : Fragment() {
                 yandexPasportFirstViews.setNormalVisibility()
             }
             R.id.passport_reg_cancel -> {
-                imageType = ImageType.PASSPORT_REG
+                imageType = ImageType.CITY_PASSPORT_REG
                 yandexPasportRegViews.setNormalVisibility()
             }
             R.id.sts_cancel -> {
@@ -576,51 +576,51 @@ class ConnectionFragment : Fragment() {
             }
 
             R.id.city_driver_license_front_cancel -> {
-                imageType = ImageType.D_LICENSE_FRONT
+                imageType = ImageType.CITY_D_LICENSE_FRONT
                 cityDLicenseFrontViews.setNormalVisibility()
             }
             R.id.city_driver_license_back_cancel -> {
-                imageType = ImageType.D_LICENSE_BACK
+                imageType = ImageType.CITY_D_LICENSE_BACK
                 cityDLicenseBackViews.setNormalVisibility()
             }
             R.id.city_passport_first_cancel -> {
-                imageType = ImageType.PASSPORT_FIRST
+                imageType = ImageType.CITY_PASSPORT_FIRST
                 cityPassportFirstViews.setNormalVisibility()
             }
             R.id.city_passport_registration_cancel -> {
-                imageType = ImageType.PASSPORT_REG
+                imageType = ImageType.CITY_PASSPORT_REG
                 cityPassportRegViews.setNormalVisibility()
             }
             R.id.city_sts_cancel -> {
-                imageType = ImageType.STS
+                imageType = ImageType.CITY_STS
                 cityStsViews.setNormalVisibility()
             }
             R.id.city_license_front_cancel -> {
-                imageType = ImageType.LICENSE_FRONT
+                imageType = ImageType.CITY_LICENSE_FRONT
                 cityLicenseFrontViews.setNormalVisibility()
             }
             R.id.city_license_back_cancel -> {
-                imageType = ImageType.LICENSE_BACK
+                imageType = ImageType.CITY_LICENSE_BACK
                 cityLicenseBackViews.setNormalVisibility()
             }
             R.id.front_side_cancel -> {
-                imageType = ImageType.AUTO_FRONT
+                imageType = ImageType.CITY_AUTO_FRONT
                 cityFrontSideViews.setNormalVisibility()
             }
             R.id.back_side_cancel -> {
-                imageType = ImageType.AUTO_BACK
+                imageType = ImageType.CITY_AUTO_BACK
                 cityBackSideViews.setNormalVisibility()
             }
             R.id.left_side_cancel -> {
-                imageType = ImageType.AUTO_LEFT
+                imageType = ImageType.CITY_AUTO_LEFT
                 cityLeftSideViews.setNormalVisibility()
             }
             R.id.right_side_cancel -> {
-                imageType = ImageType.AUTO_RIGHT
+                imageType = ImageType.CITY_AUTO_RIGHT
                 cityRightSideViews.setNormalVisibility()
             }
             R.id.city_selfie_cancel -> {
-                imageType = ImageType.SELFIE
+                imageType = ImageType.CITY_SELFIE
                 citySelfieViews.setNormalVisibility()
             }
         }
