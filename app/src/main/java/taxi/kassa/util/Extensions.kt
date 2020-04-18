@@ -28,7 +28,9 @@ import kotlinx.android.synthetic.main.dialog_two_buttons.*
 import taxi.kassa.R
 import taxi.kassa.util.Constants.MASTERCARD
 import taxi.kassa.util.Constants.VISA
+import taxi.kassa.util.Constants.myDateFormatSymbols
 import java.text.NumberFormat
+import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.math.pow
 import kotlin.math.roundToInt
@@ -183,6 +185,13 @@ fun Array<View>.setLoadPhotoVisibility() {
     this[2].invisible()
     this[3].visible()
     this[4].visible()
+}
+
+fun Long.convertToTime(pattern: String): String {
+    val date = Date(this)
+    val dateFormat = SimpleDateFormat(pattern, myDateFormatSymbols)
+
+    return dateFormat.format(date)
 }
 
 inline fun <T> LiveData<T>.observe(

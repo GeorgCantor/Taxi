@@ -92,30 +92,43 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/or_tv" />
 
-        <TextView
-            android:id="@+id/prepare_this_documents"
-            android:layout_width="340dp"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/documents_layout"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
-            android:fontFamily="sans-serif"
-            android:gravity="center"
-            android:text="@string/prepare_this_documents"
-            android:textColor="@color/gray_intro_text"
-            android:textSize="@dimen/text_16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/download_documents_button" />
+            app:layout_constraintTop_toBottomOf="@+id/download_documents_button">
 
-        <TextView
-            android:layout_width="340dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="18dp"
-            android:fontFamily="sans-serif"
-            android:text="@string/documents_list"
-            android:textColor="@color/gray_profile"
-            android:textSize="@dimen/text_16sp"
-            app:layout_constraintStart_toStartOf="@+id/prepare_this_documents"
-            app:layout_constraintTop_toBottomOf="@+id/prepare_this_documents" />
+            <TextView
+                android:id="@+id/prepare_this_documents"
+                android:layout_width="340dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:text="@string/prepare_this_documents"
+                android:textColor="@color/gray_intro_text"
+                android:textSize="@dimen/text_16sp"
+                app:layout_constraintBottom_toTopOf="@+id/documents_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/documents_text"
+                android:layout_width="340dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_24dp"
+                android:fontFamily="sans-serif"
+                android:text="@string/documents_list"
+                android:textColor="@color/gray_profile"
+                android:textSize="@dimen/text_16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/prepare_this_documents"
+                app:layout_constraintTop_toBottomOf="@+id/prepare_this_documents" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

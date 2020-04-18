@@ -7,7 +7,7 @@ import kotlinx.android.parcel.Parcelize
 import taxi.kassa.util.Constants.DAY_YEAR_PATTERN
 import taxi.kassa.util.Constants.FULL_PATTERN
 import taxi.kassa.util.Constants.HOURS_PATTERN
-import taxi.kassa.util.myDateFormatSymbols
+import taxi.kassa.util.Constants.myDateFormatSymbols
 import java.text.SimpleDateFormat
 import java.util.*
 

@@ -1,5 +1,7 @@
 package taxi.kassa.util
 
+import java.text.DateFormatSymbols
+
 object Constants {
     var accessToken = ""
 
@@ -36,4 +38,13 @@ object Constants {
 
     const val MASTERCARD = "Mastercard"
     const val VISA = "Visa"
+
+    val myDateFormatSymbols: DateFormatSymbols = object : DateFormatSymbols() {
+        override fun getMonths(): Array<String> {
+            return arrayOf(
+                "янв", "фев", "мар", "апр", "мая", "июн",
+                "июл", "авг", "сен", "окт", "нояб", "дек"
+            )
+        }
+    }
 }

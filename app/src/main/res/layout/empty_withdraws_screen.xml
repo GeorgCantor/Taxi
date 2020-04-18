@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/main_background">
 
     <ImageView
@@ -17,14 +18,32 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_back" />
 
+    <TextView
+        android:id="@+id/notification_count_empty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="@dimen/margin_24dp"
+        android:background="@drawable/ic_chip_notification"
+        android:paddingStart="9dp"
+        android:paddingTop="3dp"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="3" />
+
     <ImageView
         android:id="@+id/notification_image_empty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_24dp"
+        android:layout_margin="@dimen/margin_8dp"
+        android:background="?attr/selectableItemBackground"
+        android:padding="@dimen/margin_16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_notification" />
+        app:srcCompat="@drawable/ic_notification"
+        tools:visibility="invisible" />
 
     <ImageView
         android:id="@+id/add_image"
