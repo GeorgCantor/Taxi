@@ -153,6 +153,7 @@
     <string name="left_side">Левая (фото под 45°)</string>
     <string name="right_side">Правая (фото под 45°)</string>
     <string name="photo_loading">Загрузка фото</string>
+    <string name="load_all_photos">Загрузите все фотографии</string>
     <!--    Support-->
     <string name="write_to_us">Напишите нам</string>
     <string name="call_history">История обращений</string>

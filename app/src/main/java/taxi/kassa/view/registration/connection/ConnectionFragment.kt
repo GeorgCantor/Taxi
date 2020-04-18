@@ -12,6 +12,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.content.res.AppCompatResources.getDrawable
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import com.esafirm.imagepicker.features.ImagePicker
@@ -19,14 +20,11 @@ import com.esafirm.imagepicker.features.ReturnMode
 import kotlinx.android.synthetic.main.fragment_connection.*
 import taxi.kassa.R
 import taxi.kassa.model.ImageDocument
+import taxi.kassa.util.*
 import taxi.kassa.util.Constants.CITYMOBIL
 import taxi.kassa.util.Constants.CONNECTION
 import taxi.kassa.util.Constants.GETT
 import taxi.kassa.util.Constants.YANDEX
-import taxi.kassa.util.gone
-import taxi.kassa.util.setLoadPhotoVisibility
-import taxi.kassa.util.setNormalVisibility
-import taxi.kassa.util.visible
 
 class ConnectionFragment : Fragment() {
 
@@ -115,16 +113,53 @@ class ConnectionFragment : Fragment() {
 
         back_arrow.setOnClickListener { activity?.onBackPressed() }
 
+        val yandexCancelButtons = mutableListOf<ImageView>(
+            driver_license_cancel,
+            passport_first_cancel,
+            passport_reg_cancel,
+            sts_cancel,
+            license_cancel
+        )
+
+        val gettCancelButtons = mutableListOf<ImageView>(
+            gett_driver_license_cancel,
+            passport_first_number_cancel,
+            gett_sts_cancel,
+            gett_license_cancel,
+            make_selfie_cancel
+        )
+
+        val cityCancelButtons = mutableListOf<ImageView>(
+            city_driver_license_front_cancel,
+            city_driver_license_back_cancel,
+            city_passport_first_cancel,
+            city_passport_registration_cancel,
+            city_sts_cancel,
+            city_license_front_cancel,
+            city_license_back_cancel,
+            front_side_cancel,
+            back_side_cancel,
+            left_side_cancel,
+            right_side_cancel,
+            city_selfie_cancel
+        )
+
+        val allCancelButtons = yandexCancelButtons + gettCancelButtons + cityCancelButtons
+
+        allCancelButtons.map {
+            it.setOnClickListener { cancelLoadPhoto(it as ImageView) }
+        }
+
         yandex_submit_button.setOnClickListener {
-            findNavController(this).navigate(R.id.action_connectionFragment_to_successRequestFragment)
+            checkFieldsAndSubmit(yandexCancelButtons, mutableListOf(phone_number_edit_text))
         }
 
         gett_submit_button.setOnClickListener {
-            findNavController(this).navigate(R.id.action_connectionFragment_to_successRequestFragment)
+            checkFieldsAndSubmit(gettCancelButtons, mutableListOf(gett_phone_edit_text, id_edit_text))
         }
 
         city_submit_button.setOnClickListener {
-            findNavController(this).navigate(R.id.action_connectionFragment_to_successRequestFragment)
+            checkFieldsAndSubmit(cityCancelButtons, mutableListOf(city_phone_edit_text))
         }
 
         val imageTypePairs = mutableListOf<Pair<EditText, ImageType>>(
@@ -160,31 +195,6 @@ class ConnectionFragment : Fragment() {
 
         city_driver_license_front_edit_text.setHint(R.string.driver_license_front)
         city_driver_license_back_edit_text.setHint(R.string.driver_license_back)
-
-        driver_license_cancel.setOnClickListener { cancelLoadPhoto(it as ImageView) }
-        passport_first_cancel.setOnClickListener { cancelLoadPhoto(it as ImageView) }
-        passport_reg_cancel.setOnClickListener { cancelLoadPhoto(it as ImageView) }
-        sts_cancel.setOnClickListener { cancelLoadPhoto(it as ImageView) }
-        license_cancel.setOnClickListener { cancelLoadPhoto(it as ImageView) }
-
-        gett_driver_license_cancel.setOnClickListener { cancelLoadPhoto(it as ImageView) }
-        passport_first_number_cancel.setOnClickListener { cancelLoadPhoto(it as ImageView) }
-        gett_sts_cancel.setOnClickListener { cancelLoadPhoto(it as ImageView) }
-        gett_license_cancel.setOnClickListener { cancelLoadPhoto(it as ImageView) }
-        make_selfie_cancel.setOnClickListener { cancelLoadPhoto(it as ImageView) }
-
-        city_driver_license_front_cancel.setOnClickListener { cancelLoadPhoto(it as ImageView) }
-        city_driver_license_back_cancel.setOnClickListener { cancelLoadPhoto(it as ImageView) }
-        city_passport_first_cancel.setOnClickListener { cancelLoadPhoto(it as ImageView) }
-        city_passport_registration_cancel.setOnClickListener { cancelLoadPhoto(it as ImageView) }
-        city_sts_cancel.setOnClickListener { cancelLoadPhoto(it as ImageView) }
-        city_license_front_cancel.setOnClickListener { cancelLoadPhoto(it as ImageView) }
-        city_license_back_cancel.setOnClickListener { cancelLoadPhoto(it as ImageView) }
-        front_side_cancel.setOnClickListener { cancelLoadPhoto(it as ImageView) }
-        back_side_cancel.setOnClickListener { cancelLoadPhoto(it as ImageView) }
-        left_side_cancel.setOnClickListener { cancelLoadPhoto(it as ImageView) }
-        right_side_cancel.setOnClickListener { cancelLoadPhoto(it as ImageView) }
-        city_selfie_cancel.setOnClickListener { cancelLoadPhoto(it as ImageView) }
 
         yandexDLicenseViews = arrayOf(
             driver_license_input_view,
@@ -474,6 +484,27 @@ class ConnectionFragment : Fragment() {
             }
         }
         super.onActivityResult(requestCode, resultCode, data)
+    }
+
+    private fun checkFieldsAndSubmit(
+        cancelButtons: MutableList<ImageView>,
+        editTexts: MutableList<EditText>
+    ) {
+        cancelButtons.map {
+            if (!it.isVisible) {
+                context?.longToast(getString(R.string.load_all_photos))
+                return
+            }
+        }
+
+        editTexts.map {
+            if (it.text.isNullOrBlank()) {
+                context?.longToast(getString(R.string.fill_all_fields))
+                return
+            }
+        }
+
+        findNavController(this).navigate(R.id.action_connectionFragment_to_successRequestFragment)
     }
 
     private fun checkEditTextIsComplete() {
