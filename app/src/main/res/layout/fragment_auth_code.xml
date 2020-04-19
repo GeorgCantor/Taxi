@@ -149,123 +149,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <androidx.appcompat.widget.LinearLayoutCompat
+    <include
         android:id="@+id/keyboard"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_8dp"
-        android:orientation="vertical"
+        layout="@layout/keyboard"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/num_1"
-                style="@style/KeyboardButtonStyle"
-                android:text="1"
-                tools:ignore="HardcodedText" />
-
-            <Button
-                android:id="@+id/num_2"
-                style="@style/KeyboardButtonStyle"
-                android:text="2"
-                tools:ignore="HardcodedText" />
-
-            <Button
-                android:id="@+id/num_3"
-                style="@style/KeyboardButtonStyle"
-                android:text="3"
-                tools:ignore="HardcodedText" />
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/num_4"
-                style="@style/KeyboardButtonStyle"
-                android:text="4"
-                tools:ignore="HardcodedText" />
-
-            <Button
-                android:id="@+id/num_5"
-                style="@style/KeyboardButtonStyle"
-                android:text="5"
-                tools:ignore="HardcodedText" />
-
-            <Button
-                android:id="@+id/num_6"
-                style="@style/KeyboardButtonStyle"
-                android:text="6"
-                tools:ignore="HardcodedText" />
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/num_7"
-                style="@style/KeyboardButtonStyle"
-                android:text="7"
-                tools:ignore="HardcodedText" />
-
-            <Button
-                android:id="@+id/num_8"
-                style="@style/KeyboardButtonStyle"
-                android:text="8"
-                tools:ignore="HardcodedText" />
-
-            <Button
-                android:id="@+id/num_9"
-                style="@style/KeyboardButtonStyle"
-                android:text="9"
-                tools:ignore="HardcodedText" />
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:id="@+id/erase_btn"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/bg_keyboard_button"
-                android:scaleType="center"
-                app:srcCompat="@drawable/ic_erase" />
-
-            <Button
-                android:id="@+id/num_0"
-                style="@style/KeyboardButtonStyle"
-                android:text="0"
-                tools:ignore="HardcodedText" />
-
-            <ImageView
-                android:id="@+id/apply_btn"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/bg_keyboard_button"
-                android:scaleType="center"
-                app:srcCompat="@drawable/ic_enter" />
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
-    </androidx.appcompat.widget.LinearLayoutCompat>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ProgressBar
         android:id="@+id/progress_bar"
