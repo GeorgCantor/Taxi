@@ -1,23 +1,24 @@
 package taxi.kassa.view.withdraws.withdraw_create
 
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
-import android.view.inputmethod.EditorInfo
-import androidx.constraintlayout.widget.ConstraintSet
+import android.widget.Button
+import androidx.annotation.RequiresApi
 import androidx.core.view.get
 import androidx.core.view.isNotEmpty
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_withdraw_create.*
 import kotlinx.android.synthetic.main.item_card.view.*
+import kotlinx.android.synthetic.main.keyboard.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
@@ -46,6 +47,7 @@ class WithdrawCreateFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? = inflater.inflate(R.layout.fragment_withdraw_create, container, false)
 
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -136,28 +138,41 @@ class WithdrawCreateFragment : Fragment() {
             cards_recycler?.let { if (it.isNotEmpty()) cards_recycler[0].performClick() }
         }, 500)
 
-        val constraintSet = ConstraintSet()
+        sum_edit_text.showSoftInputOnFocus = false
 
         sum_edit_text.setOnFocusChangeListener { _, hasFocus ->
-            if (hasFocus) {
-                constraintSet.clone(parent_layout)
-                constraintSet.connect(
-                    R.id.sum_input_view,
-                    ConstraintSet.BOTTOM,
-                    R.id.send_request_button,
-                    ConstraintSet.TOP
-                )
-                constraintSet.applyTo(parent_layout)
+            when (hasFocus) {
+                true -> keyboard.visibility = VISIBLE
+                false -> keyboard.visibility = GONE
             }
         }
 
-        sum_edit_text.setOnEditorActionListener { _, actionId, event ->
-            if (event != null && event.keyCode == KeyEvent.KEYCODE_ENTER || actionId == EditorInfo.IME_ACTION_DONE) {
-                constraintSet.clear(R.id.sum_input_view, ConstraintSet.BOTTOM)
-                constraintSet.applyTo(parent_layout)
-            }
-            false
+        val keyboardPairs = mutableListOf<Pair<Button, Int>>(
+            Pair(num_0, R.string.num0),
+            Pair(num_1, R.string.num1),
+            Pair(num_2, R.string.num2),
+            Pair(num_3, R.string.num3),
+            Pair(num_4, R.string.num4),
+            Pair(num_5, R.string.num5),
+            Pair(num_6, R.string.num6),
+            Pair(num_7, R.string.num7),
+            Pair(num_8, R.string.num8),
+            Pair(num_9, R.string.num9)
+        )
+
+        keyboardPairs.map {
+            setNumberClickListener(it.first, it.second)
         }
+
+        erase_btn.setOnClickListener {
+            val cursorPosition = sum_edit_text.selectionStart
+            if (cursorPosition > 0) {
+                sum_edit_text.text = sum_edit_text.text?.delete(cursorPosition - 1, cursorPosition)
+                sum_edit_text.setSelection(cursorPosition - 1)
+            }
+        }
+
+        apply_btn.setOnClickListener { sendRequest() }
 
         minus_image.setOnClickListener {
             account_block.gone()
@@ -214,15 +229,7 @@ class WithdrawCreateFragment : Fragment() {
             findNavController(this).navigate(R.id.action_withdrawCreateFragment_to_accountsFragment)
         }
 
-        send_request_button.setOnClickListener {
-            val sum = sum_edit_text.text.toString()
-            if (sum.isEmpty()) {
-                sum_input_view.error = getString(R.string.input_error)
-                return@setOnClickListener
-            }
-
-            viewModel.createWithdraw(sourceId, sum)
-        }
+        send_request_button.setOnClickListener { sendRequest() }
 
         sum_edit_text.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(editable: Editable?) {
@@ -245,5 +252,21 @@ class WithdrawCreateFragment : Fragment() {
         }
 
         back_arrow.setOnClickListener { activity?.onBackPressed() }
+    }
+
+    private fun setNumberClickListener(button: Button, resource: Int) {
+        button.setOnClickListener {
+            sum_edit_text.text?.insert(sum_edit_text.selectionStart, getString(resource))
+        }
+    }
+
+    private fun sendRequest() {
+        val sum = sum_edit_text.text.toString()
+        if (sum.isEmpty()) {
+            sum_input_view.error = getString(R.string.input_error)
+            return
+        }
+
+        viewModel.createWithdraw(sourceId, sum)
     }
 }
