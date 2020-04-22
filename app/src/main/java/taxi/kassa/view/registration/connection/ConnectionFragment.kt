@@ -3,13 +3,11 @@ package taxi.kassa.view.registration.connection
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
-import android.view.inputmethod.EditorInfo
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
@@ -22,6 +20,7 @@ import androidx.navigation.fragment.NavHostFragment.findNavController
 import com.esafirm.imagepicker.features.ImagePicker
 import com.esafirm.imagepicker.features.ReturnMode
 import com.google.android.material.textfield.TextInputEditText
+import com.redmadrobot.inputmask.MaskedTextChangedListener
 import kotlinx.android.synthetic.main.fragment_connection.*
 import kotlinx.android.synthetic.main.keyboard.*
 import taxi.kassa.R
@@ -30,6 +29,7 @@ import taxi.kassa.util.*
 import taxi.kassa.util.Constants.CITYMOBIL
 import taxi.kassa.util.Constants.CONNECTION
 import taxi.kassa.util.Constants.GETT
+import taxi.kassa.util.Constants.PHONE_MASK
 import taxi.kassa.util.Constants.YANDEX
 
 class ConnectionFragment : Fragment() {
@@ -145,8 +145,16 @@ class ConnectionFragment : Fragment() {
             }
         }
 
+        val phoneEditTexts = listOf<EditText>(
+            phone_number_edit_text,
+            gett_phone_edit_text,
+            city_phone_edit_text
+        )
+        phoneEditTexts.map {
+            it.addTextChangedListener(PhoneMaskListener(it))
+        }
+
 //        checkEditTextIsComplete(editTexts)
-//        clearFocusWhenDoneClicked()
 
         when (taxiType) {
             YANDEX -> {
@@ -608,23 +616,6 @@ class ConnectionFragment : Fragment() {
         }
     }
 
-    private fun clearFocusWhenDoneClicked() {
-        val editTexts = listOf<EditText>(
-            phone_number_edit_text,
-            id_edit_text,
-            city_phone_edit_text
-        )
-
-        editTexts.map {
-            it.setOnEditorActionListener { _, actionId, event ->
-                if (event != null && event.keyCode == KeyEvent.KEYCODE_ENTER || actionId == EditorInfo.IME_ACTION_DONE) {
-                    it.clearFocus()
-                }
-                false
-            }
-        }
-    }
-
     private fun setImagePickerClickListener(editText: EditText, imageType: ImageType) {
         editText.setOnClickListener {
             if (keyboard.visibility == VISIBLE) keyboard.visibility = GONE
@@ -765,4 +756,9 @@ class ConnectionFragment : Fragment() {
             GONE -> findNavController(this).navigate(R.id.action_connectionFragment_to_registrationSelectionFragment)
         }
     }
+
+    inner class PhoneMaskListener(editText: EditText) : MaskedTextChangedListener(PHONE_MASK, editText, object : ValueListener {
+        override fun onTextChanged(maskFilled: Boolean, extractedValue: String, formattedValue: String) {
+        }
+    })
 }

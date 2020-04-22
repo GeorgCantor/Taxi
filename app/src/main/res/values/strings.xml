@@ -128,7 +128,6 @@
     <string name="or">Или</string>
     <string name="prepare_this_documents">При выборе регистрации через загруженные документы приготовьте:</string>
     <string name="documents_list">1. Водительское удостоверение \n2. Паспорт (страница с фото и пропиской) \n3. СТС \n4. Лицензию</string>
-    <string name="select_aggregator">Выберите своего агрегатора для подключения</string>
     <string name="connection">Подключение</string>
     <string name="driver_license">Водительское удостоверение</string>
     <string name="driver_license_front_side">Водит. удостоверение (лицевая сторона)</string>
