@@ -1,23 +1,29 @@
 package taxi.kassa.view.registration.connection
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
+import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import androidx.activity.OnBackPressedCallback
+import androidx.annotation.RequiresApi
 import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import com.esafirm.imagepicker.features.ImagePicker
 import com.esafirm.imagepicker.features.ReturnMode
+import com.google.android.material.textfield.TextInputEditText
 import kotlinx.android.synthetic.main.fragment_connection.*
+import kotlinx.android.synthetic.main.keyboard.*
 import taxi.kassa.R
 import taxi.kassa.model.ImageDocument
 import taxi.kassa.util.*
@@ -66,10 +72,9 @@ class ConnectionFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? = inflater.inflate(R.layout.fragment_connection, container, false)
 
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        checkEditTextIsComplete()
-        clearFocusWhenDoneClicked()
 
         val callback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
@@ -77,6 +82,71 @@ class ConnectionFragment : Fragment() {
             }
         }
         activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, callback)
+
+        val editTexts = listOf<TextInputEditText>(
+            phone_number_edit_text,
+            gett_phone_edit_text,
+            id_edit_text,
+            city_phone_edit_text
+        )
+
+        editTexts.map {
+            it.showSoftInputOnFocus = false
+
+            it.setOnFocusChangeListener { _, hasFocus ->
+                when (hasFocus) {
+                    true -> keyboard.visibility = VISIBLE
+                    false -> keyboard.visibility = GONE
+                }
+            }
+
+            it.setOnClickListener { if (keyboard.visibility == GONE) keyboard.visibility = VISIBLE }
+        }
+
+        val keyboardPairs = mutableListOf<Pair<Button, Int>>(
+            Pair(num_0, R.string.num0),
+            Pair(num_1, R.string.num1),
+            Pair(num_2, R.string.num2),
+            Pair(num_3, R.string.num3),
+            Pair(num_4, R.string.num4),
+            Pair(num_5, R.string.num5),
+            Pair(num_6, R.string.num6),
+            Pair(num_7, R.string.num7),
+            Pair(num_8, R.string.num8),
+            Pair(num_9, R.string.num9)
+        )
+
+        keyboardPairs.map {
+            setNumberClickListener(it.first, it.second)
+        }
+
+        erase_btn.setOnClickListener {
+            var focusedInput = phone_number_edit_text
+            editTexts.map {
+                if (it.isFocused) focusedInput = it
+            }
+
+            val cursorPosition = focusedInput.selectionStart
+            if (cursorPosition > 0) {
+                focusedInput.text = focusedInput.text?.delete(cursorPosition - 1, cursorPosition)
+                focusedInput.setSelection(cursorPosition - 1)
+            }
+        }
+
+        apply_btn.setOnClickListener {
+            var focusedInput = phone_number_edit_text
+            editTexts.map {
+                if (it.isFocused) focusedInput = it
+            }
+
+            when (focusedInput.id) {
+                R.id.phone_number_edit_text, R.id.id_edit_text, R.id.city_phone_edit_text -> keyboard.visibility = GONE
+                R.id.gett_phone_edit_text -> id_edit_text.requestFocus()
+            }
+        }
+
+//        checkEditTextIsComplete(editTexts)
+//        clearFocusWhenDoneClicked()
 
         when (taxiType) {
             YANDEX -> {
@@ -486,6 +556,24 @@ class ConnectionFragment : Fragment() {
         super.onActivityResult(requestCode, resultCode, data)
     }
 
+    private fun setNumberClickListener(button: Button, resource: Int) {
+        val editTexts = listOf<TextInputEditText>(
+            phone_number_edit_text,
+            gett_phone_edit_text,
+            id_edit_text,
+            city_phone_edit_text
+        )
+
+        button.setOnClickListener {
+            var focusedInput = phone_number_edit_text
+            editTexts.map {
+                if (it.isFocused) focusedInput = it
+            }
+
+            focusedInput.text?.insert(focusedInput.selectionStart, getString(resource))
+        }
+    }
+
     private fun checkFieldsAndSubmit(
         cancelButtons: MutableList<ImageView>,
         editTexts: MutableList<EditText>
@@ -507,14 +595,7 @@ class ConnectionFragment : Fragment() {
         findNavController(this).navigate(R.id.action_connectionFragment_to_successRequestFragment)
     }
 
-    private fun checkEditTextIsComplete() {
-        val editTexts = listOf<EditText>(
-            phone_number_edit_text,
-            gett_phone_edit_text,
-            id_edit_text,
-            city_phone_edit_text
-        )
-
+    private fun checkEditTextIsComplete(editTexts: List<EditText>) {
         editTexts.map {
             it.setOnFocusChangeListener { _, _ ->
                 it.setCompoundDrawablesWithIntrinsicBounds(
@@ -546,6 +627,7 @@ class ConnectionFragment : Fragment() {
 
     private fun setImagePickerClickListener(editText: EditText, imageType: ImageType) {
         editText.setOnClickListener {
+            if (keyboard.visibility == VISIBLE) keyboard.visibility = GONE
             imageTypes.add(imageType)
             selectedType = imageType
 
@@ -678,6 +760,9 @@ class ConnectionFragment : Fragment() {
     }
 
     private fun back() {
-        findNavController(this).navigate(R.id.action_connectionFragment_to_registrationSelectionFragment)
+        when (keyboard.visibility) {
+            VISIBLE -> keyboard.visibility = GONE
+            GONE -> findNavController(this).navigate(R.id.action_connectionFragment_to_registrationSelectionFragment)
+        }
     }
 }

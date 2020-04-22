@@ -108,8 +108,8 @@
         <action
             android:id="@+id/action_profileFragment_to_notificationsFragment"
             app:destination="@id/notificationsFragment"
-            app:popEnterAnim="@animator/slide_in_top"
-            app:popExitAnim="@animator/slide_out_top" />
+            app:popEnterAnim="@anim/slide_in_top"
+            app:popExitAnim="@anim/slide_out_top" />
     </fragment>
 
     <fragment
@@ -125,8 +125,8 @@
         <action
             android:id="@+id/action_balanceFragment_to_notificationsFragment"
             app:destination="@id/notificationsFragment"
-            app:popEnterAnim="@animator/slide_in_top"
-            app:popExitAnim="@animator/slide_out_top" />
+            app:popEnterAnim="@anim/slide_in_top"
+            app:popExitAnim="@anim/slide_out_top" />
     </fragment>
 
     <fragment
@@ -136,8 +136,8 @@
         <action
             android:id="@+id/action_fuelReplenishFragment_to_notificationsFragment"
             app:destination="@id/notificationsFragment"
-            app:popEnterAnim="@animator/slide_in_top"
-            app:popExitAnim="@animator/slide_out_top" />
+            app:popEnterAnim="@anim/slide_in_top"
+            app:popExitAnim="@anim/slide_out_top" />
     </fragment>
 
     <fragment
@@ -154,8 +154,8 @@
         <action
             android:id="@+id/action_withdrawsFragment_to_notificationsFragment"
             app:destination="@id/notificationsFragment"
-            app:popEnterAnim="@animator/slide_in_top"
-            app:popExitAnim="@animator/slide_out_top" />
+            app:popEnterAnim="@anim/slide_in_top"
+            app:popExitAnim="@anim/slide_out_top" />
     </fragment>
 
     <fragment
@@ -170,8 +170,8 @@
         <action
             android:id="@+id/action_accountsFragment_to_notificationsFragment"
             app:destination="@id/notificationsFragment"
-            app:popEnterAnim="@animator/slide_in_top"
-            app:popExitAnim="@animator/slide_out_top" />
+            app:popEnterAnim="@anim/slide_in_top"
+            app:popExitAnim="@anim/slide_out_top" />
     </fragment>
 
     <fragment
@@ -184,8 +184,8 @@
         <action
             android:id="@+id/action_withdrawCreateFragment_to_notificationsFragment"
             app:destination="@id/notificationsFragment"
-            app:popEnterAnim="@animator/slide_in_top"
-            app:popExitAnim="@animator/slide_out_top" />
+            app:popEnterAnim="@anim/slide_in_top"
+            app:popExitAnim="@anim/slide_out_top" />
     </fragment>
 
     <fragment
@@ -195,8 +195,8 @@
         <action
             android:id="@+id/action_ordersFragment_to_notificationsFragment"
             app:destination="@id/notificationsFragment"
-            app:popEnterAnim="@animator/slide_in_top"
-            app:popExitAnim="@animator/slide_out_top" />
+            app:popEnterAnim="@anim/slide_in_top"
+            app:popExitAnim="@anim/slide_out_top" />
     </fragment>
 
     <fragment
@@ -212,8 +212,8 @@
         <action
             android:id="@+id/action_supportFragment_to_notificationsFragment"
             app:destination="@id/notificationsFragment"
-            app:popEnterAnim="@animator/slide_in_top"
-            app:popExitAnim="@animator/slide_out_top" />
+            app:popEnterAnim="@anim/slide_in_top"
+            app:popExitAnim="@anim/slide_out_top" />
     </fragment>
 
     <fragment

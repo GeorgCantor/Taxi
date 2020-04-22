@@ -1,10 +1,12 @@
 package taxi.kassa.view.auth.auth_sign_up
 
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import com.redmadrobot.inputmask.MaskedTextChangedListener
@@ -29,6 +31,7 @@ class AuthSignUpFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? = inflater.inflate(R.layout.fragment_auth_sign_up, container, false)
 
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = getViewModel { parametersOf() }
@@ -47,12 +50,8 @@ class AuthSignUpFragment : Fragment() {
             loginIsReady = isChecked
         }
 
-        val touchListener = View.OnTouchListener { _, _ ->
-            true
-        }
-
         with(phone_edit_text) {
-            setOnTouchListener(touchListener)
+            showSoftInputOnFocus = false
             addTextChangedListener(PhoneMaskListener())
         }
 

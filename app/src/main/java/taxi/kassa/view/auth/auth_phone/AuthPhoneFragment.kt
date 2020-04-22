@@ -1,11 +1,14 @@
 package taxi.kassa.view.auth.auth_phone
 
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.*
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.redmadrobot.inputmask.MaskedTextChangedListener
@@ -31,15 +34,12 @@ class AuthPhoneFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? = inflater.inflate(R.layout.fragment_auth_phone, container, false)
 
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = getViewModel { parametersOf() }
 
-        val touchListener = OnTouchListener { _, _ ->
-            true
-        }
-
-        phone_edit_text.setOnTouchListener(touchListener)
+        phone_edit_text.showSoftInputOnFocus = false
 
         loginIsReady = true
 

@@ -113,14 +113,14 @@ fun TextView.setColor(
 fun TextView.showError(message: String) {
     text = message
 
-    val animation = AnimationUtils.loadAnimation(context, R.animator.fade_in)
+    val animation = AnimationUtils.loadAnimation(context, R.anim.fade_in)
     animation.reset()
 
     clearAnimation()
     startAnimation(animation)
 
     Handler().postDelayed({
-        val anim = AnimationUtils.loadAnimation(context, R.animator.fade_out)
+        val anim = AnimationUtils.loadAnimation(context, R.anim.fade_out)
         anim.reset()
         clearAnimation()
         startAnimation(anim)
