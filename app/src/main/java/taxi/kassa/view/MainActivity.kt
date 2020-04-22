@@ -24,10 +24,10 @@ class MainActivity : AppCompatActivity() {
 
         val manager = PreferenceManager(this)
 
-        intent?.extras?.let {
-            var title = ""
-            var message = ""
+        var title = ""
+        var message = ""
 
+        intent?.extras?.let {
             val dateFormat = SimpleDateFormat(PUSH_PATTERN, myDateFormatSymbols)
             val date: String = dateFormat.format(Date())
 
@@ -58,7 +58,12 @@ class MainActivity : AppCompatActivity() {
         val inflater = navHostFragment.navController.navInflater
         val graph = inflater.inflate(R.navigation.nav_graph)
 
-        graph.startDestination = if (token.isEmpty()) R.id.introFragment else R.id.profileFragment
+        when {
+            token.isNotEmpty() -> {
+                graph.startDestination = if (message.isEmpty()) R.id.profileFragment else R.id.notificationsFragment
+            }
+            else -> graph.startDestination = R.id.introFragment
+        }
 
         navHostFragment.navController.graph = graph
     }

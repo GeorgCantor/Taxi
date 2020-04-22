@@ -12,6 +12,7 @@ import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.util.*
+import taxi.kassa.util.Constants.ARG_NOTIF_OPEN
 import taxi.kassa.util.Constants.CITYMOBIL
 import taxi.kassa.util.Constants.GETT
 import taxi.kassa.util.Constants.PUSH_COUNTER
@@ -106,11 +107,15 @@ class BalanceFragment : Fragment() {
             }
 
             notification_image.setOnClickListener {
-                navigate(R.id.action_balanceFragment_to_notificationsFragment)
+                navigate(R.id.action_balanceFragment_to_notificationsFragment, Bundle().apply {
+                    putString(ARG_NOTIF_OPEN, ARG_NOTIF_OPEN)
+                })
             }
 
             notification_count.setOnClickListener {
-                navigate(R.id.action_balanceFragment_to_notificationsFragment)
+                navigate(R.id.action_balanceFragment_to_notificationsFragment, Bundle().apply {
+                    putString(ARG_NOTIF_OPEN, ARG_NOTIF_OPEN)
+                })
             }
         }
 

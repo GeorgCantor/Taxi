@@ -8,23 +8,23 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.*
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_notifications.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.model.Notification
+import taxi.kassa.util.*
+import taxi.kassa.util.Constants.ARG_NOTIF_OPEN
 import taxi.kassa.util.Constants.NOTIFICATIONS
 import taxi.kassa.util.Constants.PUSH_COUNTER
 import taxi.kassa.util.Constants.SUPPORT_PHONE_NUMBER
-import taxi.kassa.util.PreferenceManager
-import taxi.kassa.util.invisible
-import taxi.kassa.util.observe
-import taxi.kassa.util.shortToast
-import taxi.kassa.util.visible
 
 class NotificationsFragment : Fragment() {
 
@@ -45,6 +45,13 @@ class NotificationsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                back()
+            }
+        }
+        activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, callback)
 
         viewModel.notifications.observe(viewLifecycleOwner) {
             notifications = it as ArrayList<Notification>
@@ -111,6 +118,13 @@ class NotificationsFragment : Fragment() {
             } catch (ex: ActivityNotFoundException) {
                 requireActivity().shortToast(getString(R.string.not_find_call_app))
             }
+        }
+    }
+
+    private fun back() {
+        when (arguments?.get(ARG_NOTIF_OPEN)) {
+            ARG_NOTIF_OPEN -> findNavController(this).popBackStack()
+            else -> findNavController(this).navigate(R.id.action_notificationsFragment_to_profileFragment)
         }
     }
 }

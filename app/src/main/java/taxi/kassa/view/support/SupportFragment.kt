@@ -17,6 +17,7 @@ import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.util.*
+import taxi.kassa.util.Constants.ARG_NOTIF_OPEN
 import taxi.kassa.util.Constants.MESSAGES_COUNTER
 import taxi.kassa.util.Constants.PUSH_COUNTER
 
@@ -69,9 +70,17 @@ class SupportFragment : Fragment() {
 
             chat_history_view.setOnClickListener { navigate(R.id.action_supportFragment_to_chatHistoryFragment) }
 
-            notification_image.setOnClickListener { navigate(R.id.action_supportFragment_to_notificationsFragment) }
+            notification_image.setOnClickListener {
+                navigate(R.id.action_supportFragment_to_notificationsFragment, Bundle().apply {
+                    putString(ARG_NOTIF_OPEN, ARG_NOTIF_OPEN)
+                })
+            }
 
-            notification_count.setOnClickListener { navigate(R.id.action_supportFragment_to_notificationsFragment) }
+            notification_count.setOnClickListener {
+                navigate(R.id.action_supportFragment_to_notificationsFragment, Bundle().apply {
+                    putString(ARG_NOTIF_OPEN, ARG_NOTIF_OPEN)
+                })
+            }
         }
 
         back_arrow.setOnClickListener { activity?.onBackPressed() }

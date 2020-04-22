@@ -219,7 +219,12 @@
     <fragment
         android:id="@+id/notificationsFragment"
         android:name="taxi.kassa.view.notifications.NotificationsFragment"
-        android:label="NotificationsFragment" />
+        android:label="NotificationsFragment">
+        <action
+            android:id="@+id/action_notificationsFragment_to_profileFragment"
+            app:destination="@id/profileFragment"
+            app:popUpTo="@id/nav_graph" />
+    </fragment>
 
     <fragment
         android:id="@+id/writeMessageFragment"
