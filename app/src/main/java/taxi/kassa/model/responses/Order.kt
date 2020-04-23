@@ -62,6 +62,7 @@ data class Order(
             val longDate = (created?.toInt()?.toLong() ?: 0) * 1000
             val date = Date(longDate)
             val dateFormat = SimpleDateFormat("dd.MM.yy")
+            dateFormat.timeZone = TimeZone.getDefault()
 
             return dateFormat.format(date)
         }
@@ -71,6 +72,7 @@ data class Order(
             val longDate = (created?.toInt()?.toLong() ?: 0) * 1000
             val date = Date(longDate)
             val dateFormat = SimpleDateFormat(HOURS_PATTERN)
+            dateFormat.timeZone = TimeZone.getDefault()
 
             return dateFormat.format(date)
         }
@@ -79,6 +81,7 @@ data class Order(
         val longDate = (created?.toInt()?.toLong() ?: 0) * 1000
         val date = Date(longDate)
         val dateFormat = SimpleDateFormat(DAY_YEAR_PATTERN, myDateFormatSymbols)
+        dateFormat.timeZone = TimeZone.getDefault()
 
         return dateFormat.format(date)
     }
@@ -87,6 +90,7 @@ data class Order(
         val longDate = (created?.toInt()?.toLong() ?: 0) * 1000
         val date = Date(longDate)
         val dateFormat = SimpleDateFormat(FULL_PATTERN, myDateFormatSymbols)
+        dateFormat.timeZone = TimeZone.getDefault()
 
         return dateFormat.format(date)
     }

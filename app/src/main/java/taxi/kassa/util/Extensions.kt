@@ -5,7 +5,9 @@ import android.content.Context
 import android.graphics.Point
 import android.net.ConnectivityManager
 import android.os.Handler
+import android.text.Html
 import android.util.DisplayMetrics
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.*
@@ -55,7 +57,8 @@ fun Context.longToast(message: String) = Toast.makeText(this, message, LENGTH_LO
 
 fun Context.showOneButtonDialog(
     title: String,
-    message: String
+    message: String,
+    isRegistrationDialog: Boolean
 ) {
     val dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_one_button, null)
     val builder = AlertDialog.Builder(this).setView(dialogView)
@@ -65,6 +68,13 @@ fun Context.showOneButtonDialog(
         this.title.text = title
         this.message.text = message
         ok_button.setOnClickListener { dismiss() }
+
+        if (isRegistrationDialog) {
+            this.message.setText(Html.fromHtml(getString(R.string.terms_description)), TextView.BufferType.SPANNABLE)
+            this.message.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14F)
+            this.line.visibility = VISIBLE
+            this.extra_message.visibility = VISIBLE
+        }
     }
 }
 

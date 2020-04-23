@@ -204,14 +204,16 @@ class WithdrawCreateFragment : Fragment() {
         daily_withdrawal_tv.setOnClickListener {
             context?.showOneButtonDialog(
                 getString(R.string.daily_withdrawal),
-                getString(R.string.daily_withdrawal_dialog_message)
+                getString(R.string.daily_withdrawal_dialog_message),
+                false
             )
         }
 
         instant_withdrawal_tv.setOnClickListener {
             context?.showOneButtonDialog(
                 getString(R.string.instant_withdrawal),
-                getString(R.string.instant_withdrawal_dialog_message)
+                getString(R.string.instant_withdrawal_dialog_message),
+                false
             )
         }
 

@@ -22,6 +22,7 @@
     <color name="continue_color">#23252D</color>
     <color name="agreement_text_color">#C1C1C1</color>
     <color name="gray_application_text">#61636F</color>
+    <color name="gray_registration_line">#3C3D42</color>
     <color name="white_code_text">#EEEEEE</color>
     <color name="gray_profile">#787A86</color>
     <color name="gray_light_profile">#D9DFE1</color>
@@ -42,4 +43,5 @@
 
     <color name="accounts_dialog_background">#4D000000</color>
     <color name="accounts_dialog_gray">#B2FFFFFF</color>
+    <color name="registration_dialog_gray">#80FFFFFF</color>
 </resources>

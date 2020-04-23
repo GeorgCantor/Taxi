@@ -6,7 +6,6 @@
     android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -26,7 +25,7 @@
             android:id="@+id/registration_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="98dp"
+            android:layout_marginTop="90dp"
             android:text="@string/registration"
             android:textColor="@color/gray_intro_text"
             android:textSize="@dimen/text_24sp"
@@ -53,13 +52,12 @@
             android:id="@+id/set_phone_number_button"
             android:layout_width="336dp"
             android:layout_height="56dp"
-            android:layout_marginTop="78dp"
+            android:layout_marginTop="@dimen/margin_64dp"
             android:background="@drawable/bg_intro_btn"
-            android:fontFamily="sans-serif-medium"
             android:text="@string/set_phone_number"
             android:textAllCaps="false"
             android:textColor="@color/continue_color"
-            android:textSize="@dimen/text_20sp"
+            android:textSize="@dimen/text_16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/registration_variants_tv" />
@@ -69,7 +67,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_16dp"
-            android:fontFamily="sans-serif"
+            android:fontFamily="sans-serif-medium"
             android:text="@string/or"
             android:textColor="@color/agreement_text_color"
             android:textSize="@dimen/text_13sp"
@@ -83,52 +81,48 @@
             android:layout_height="56dp"
             android:layout_marginTop="@dimen/margin_16dp"
             android:background="@drawable/bg_intro_btn"
-            android:fontFamily="sans-serif-medium"
             android:text="@string/download_documents"
             android:textAllCaps="false"
             android:textColor="@color/continue_color"
-            android:textSize="@dimen/text_20sp"
+            android:textSize="@dimen/text_16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/or_tv" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/documents_layout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <View
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="@dimen/margin_24dp"
+            android:layout_marginTop="@dimen/margin_64dp"
+            android:layout_marginEnd="@dimen/margin_24dp"
+            android:background="@color/gray_registration_line"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/download_documents_button">
+            app:layout_constraintTop_toBottomOf="@+id/download_documents_button" />
 
-            <TextView
-                android:id="@+id/prepare_this_documents"
-                android:layout_width="340dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif"
-                android:gravity="center"
-                android:text="@string/prepare_this_documents"
-                android:textColor="@color/gray_intro_text"
-                android:textSize="@dimen/text_16sp"
-                app:layout_constraintBottom_toTopOf="@+id/documents_text"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/connection_conditions_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:text="@string/connection_conditions_title"
+            android:textColor="@color/registration_white_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/line" />
 
-            <TextView
-                android:id="@+id/documents_text"
-                android:layout_width="340dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_24dp"
-                android:fontFamily="sans-serif"
-                android:text="@string/documents_list"
-                android:textColor="@color/gray_profile"
-                android:textSize="@dimen/text_16sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/prepare_this_documents"
-                app:layout_constraintTop_toBottomOf="@+id/prepare_this_documents" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/view_terms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:padding="@dimen/margin_8dp"
+            android:text="@string/view_terms"
+            android:textColor="@color/yellow_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/connection_conditions_title" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
