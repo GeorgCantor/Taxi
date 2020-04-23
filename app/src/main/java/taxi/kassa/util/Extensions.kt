@@ -153,6 +153,12 @@ fun Context.getScreenSize(): Double {
     return ((sqrt(x + y) * 10.0).roundToInt() / 10.0)
 }
 
+fun Context.getScreenWidth(): Float {
+    val displayMetrics: DisplayMetrics = resources.displayMetrics
+
+    return displayMetrics.widthPixels / displayMetrics.density
+}
+
 fun TextView.setFormattedText(
     formatResource: Int,
     value: Double

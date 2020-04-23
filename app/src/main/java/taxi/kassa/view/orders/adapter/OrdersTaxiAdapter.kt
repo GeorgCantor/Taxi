@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_taxi_orders.view.*
 import taxi.kassa.R
 import taxi.kassa.model.Taxi
+import taxi.kassa.util.getScreenWidth
 
 class OrdersTaxiAdapter(
     taxis: MutableList<Taxi>,
@@ -35,6 +36,8 @@ class OrdersTaxiAdapter(
         with(holder) {
             icon.background = getDrawable(itemView.context, taxi.iconResource)
             taxiName.text = taxi.taxiName
+
+            if (itemView.context.getScreenWidth() < 400) taxiName.textSize = 18F
 
             itemView.setOnClickListener { clickListener(itemView, taxi) }
         }
