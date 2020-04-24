@@ -1,6 +1,8 @@
 package taxi.kassa.view.accounts
 
+import android.os.Build
 import android.os.Bundle
+import android.os.Handler
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
@@ -8,17 +10,22 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.EditText
+import androidx.activity.OnBackPressedCallback
+import androidx.annotation.RequiresApi
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
+import com.google.android.material.textfield.TextInputEditText
 import kotlinx.android.synthetic.main.fragment_accounts.*
+import kotlinx.android.synthetic.main.keyboard.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.util.*
-import taxi.kassa.util.Constants.NOT_FROM_PUSH
 import taxi.kassa.util.Constants.MASTERCARD
+import taxi.kassa.util.Constants.NOT_FROM_PUSH
 import taxi.kassa.util.Constants.PUSH_COUNTER
 import taxi.kassa.util.Constants.VISA
 
@@ -37,8 +44,17 @@ class AccountsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? = inflater.inflate(R.layout.fragment_accounts, container, false)
 
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                back()
+            }
+        }
+        activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, callback)
+
         viewModel.getAccounts()
 
         viewModel.isProgressVisible.observe(viewLifecycleOwner) { visible ->
@@ -94,6 +110,70 @@ class AccountsFragment : Fragment() {
             cards_recycler.adapter = AccountsCardsAdapter(it)
         }
 
+        val numberInputs = listOf<TextInputEditText>(
+            account_edit_text,
+            bik_edit_text,
+            card_edit_text
+        )
+
+        numberInputs.map {
+            it.showSoftInputOnFocus = false
+
+            it.setOnFocusChangeListener { _, hasFocus ->
+                when (hasFocus) {
+                    true -> {
+                        requireView().hideKeyboard()
+                        keyboard.visibility = VISIBLE
+                    }
+                    false -> keyboard.visibility = GONE
+                }
+            }
+
+            it.setOnClickListener { if (keyboard.visibility == GONE) keyboard.visibility = VISIBLE }
+        }
+
+        val keyboardPairs = mutableListOf<Pair<Button, Int>>(
+            Pair(num_0, R.string.num0),
+            Pair(num_1, R.string.num1),
+            Pair(num_2, R.string.num2),
+            Pair(num_3, R.string.num3),
+            Pair(num_4, R.string.num4),
+            Pair(num_5, R.string.num5),
+            Pair(num_6, R.string.num6),
+            Pair(num_7, R.string.num7),
+            Pair(num_8, R.string.num8),
+            Pair(num_9, R.string.num9)
+        )
+
+        keyboardPairs.map {
+            setNumberClickListener(it.first, it.second)
+        }
+
+        erase_btn.setOnClickListener {
+            var focusedInput = account_edit_text
+            numberInputs.map {
+                if (it.isFocused) focusedInput = it
+            }
+
+            val cursorPosition = focusedInput.selectionStart
+            if (cursorPosition > 0) {
+                focusedInput.text = focusedInput.text?.delete(cursorPosition - 1, cursorPosition)
+                focusedInput.setSelection(cursorPosition - 1)
+            }
+        }
+
+        apply_btn.setOnClickListener {
+            var focusedInput = account_edit_text
+            numberInputs.map {
+                if (it.isFocused) focusedInput = it
+            }
+
+            when (focusedInput.id) {
+                R.id.card_edit_text, R.id.bik_edit_text-> keyboard.visibility = GONE
+                R.id.account_edit_text -> bik_edit_text.requestFocus()
+            }
+        }
+
         val editTexts = listOf<EditText>(
             name_edit_text, surname_edit_text, account_edit_text, bik_edit_text
         )
@@ -133,7 +213,7 @@ class AccountsFragment : Fragment() {
             )
         }
 
-        back_arrow.setOnClickListener { activity?.onBackPressed() }
+        back_arrow.setOnClickListener { findNavController(this).popBackStack() }
 
         daily_withdrawal_tv.setOnClickListener {
             context?.showOneButtonDialog(
@@ -228,8 +308,38 @@ class AccountsFragment : Fragment() {
         })
     }
 
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+    override fun onResume() {
+        super.onResume()
+        Handler().postDelayed({requireView().hideKeyboard() }, 100)
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         requireView().hideKeyboard()
+    }
+
+    private fun setNumberClickListener(button: Button, resource: Int) {
+        val editTexts = listOf<TextInputEditText>(
+            account_edit_text,
+            bik_edit_text,
+            card_edit_text
+        )
+
+        button.setOnClickListener {
+            var focusedInput = account_edit_text
+            editTexts.map {
+                if (it.isFocused) focusedInput = it
+            }
+
+            focusedInput.text?.insert(focusedInput.selectionStart, getString(resource))
+        }
+    }
+
+    private fun back() {
+        when (keyboard.visibility) {
+            VISIBLE -> keyboard.visibility = GONE
+            GONE -> findNavController(this).popBackStack()
+        }
     }
 }

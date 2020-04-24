@@ -128,7 +128,10 @@ class FuelReplenishFragment : Fragment() {
         enter_amount_edit_text.setOnFocusChangeListener { _, hasFocus ->
             when (hasFocus) {
                 true -> keyboard.visibility = VISIBLE
-                false -> keyboard.visibility = GONE
+                false -> {
+                    keyboard.visibility = GONE
+                    enter_amount_input_view.error = null
+                }
             }
         }
 
@@ -158,7 +161,7 @@ class FuelReplenishFragment : Fragment() {
         )
 
         keyboardPairs.map {
-            setNumberClickListener(it.first, it.second)
+            enter_amount_edit_text.setNumberClickListener(it.first, it.second)
         }
 
         erase_btn.setOnClickListener {
@@ -190,10 +193,10 @@ class FuelReplenishFragment : Fragment() {
         back_arrow.setOnClickListener { findNavController(this).popBackStack() }
     }
 
-    private fun setNumberClickListener(button: Button, resource: Int) {
-        button.setOnClickListener {
-            enter_amount_edit_text.text?.insert(enter_amount_edit_text.selectionStart, getString(resource))
-        }
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+    override fun onResume() {
+        super.onResume()
+        Handler().postDelayed({requireView().hideKeyboard() }, 100)
     }
 
     private fun replenish() {

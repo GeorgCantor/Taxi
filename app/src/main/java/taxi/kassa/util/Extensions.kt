@@ -14,6 +14,8 @@ import android.view.View.*
 import android.view.WindowManager
 import android.view.animation.AnimationUtils
 import android.view.inputmethod.InputMethodManager
+import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import android.widget.Toast.LENGTH_LONG
@@ -215,4 +217,11 @@ inline fun <T> LiveData<T>.observe(
     crossinline observer: (T) -> Unit
 ) {
     this.observe(owner, Observer { it?.apply(observer) })
+}
+
+fun EditText.setNumberClickListener(button: Button, resource: Int) {
+    // handle clicking on the buttons of the custom keyboard
+    button.setOnClickListener {
+        text?.insert(selectionStart, context.getString(resource))
+    }
 }

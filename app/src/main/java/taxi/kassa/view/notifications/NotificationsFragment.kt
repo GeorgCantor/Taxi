@@ -122,7 +122,7 @@ class NotificationsFragment : Fragment() {
     }
 
     private fun back() {
-        //check if the app is running by clicking on the notification
+        // check if the app is running by clicking on the notification
         when (arguments?.get(NOT_FROM_PUSH)) {
             NOT_FROM_PUSH -> findNavController(this).popBackStack()
             else -> findNavController(this).navigate(R.id.action_notificationsFragment_to_profileFragment)

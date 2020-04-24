@@ -11,6 +11,7 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.activity.OnBackPressedCallback
 import androidx.annotation.RequiresApi
 import androidx.core.view.get
 import androidx.core.view.isNotEmpty
@@ -23,9 +24,9 @@ import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.util.*
-import taxi.kassa.util.Constants.NOT_FROM_PUSH
 import taxi.kassa.util.Constants.CITYMOBIL
 import taxi.kassa.util.Constants.GETT
+import taxi.kassa.util.Constants.NOT_FROM_PUSH
 import taxi.kassa.util.Constants.PUSH_COUNTER
 import taxi.kassa.util.Constants.TAXI
 import taxi.kassa.util.Constants.YANDEX
@@ -51,6 +52,13 @@ class WithdrawCreateFragment : Fragment() {
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                back()
+            }
+        }
+        activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, callback)
 
         with(viewModel) {
             isProgressVisible.observe(viewLifecycleOwner) { visible ->
@@ -138,6 +146,8 @@ class WithdrawCreateFragment : Fragment() {
         }, 500)
 
         sum_edit_text.showSoftInputOnFocus = false
+
+        sum_edit_text.setOnClickListener { keyboard.visibility = VISIBLE }
 
         sum_edit_text.setOnFocusChangeListener { _, hasFocus ->
             when (hasFocus) {
@@ -254,7 +264,13 @@ class WithdrawCreateFragment : Fragment() {
             )
         }
 
-        back_arrow.setOnClickListener { activity?.onBackPressed() }
+        back_arrow.setOnClickListener { findNavController(this).popBackStack() }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+    override fun onResume() {
+        super.onResume()
+        Handler().postDelayed({requireView().hideKeyboard() }, 100)
     }
 
     private fun setNumberClickListener(button: Button, resource: Int) {
@@ -271,5 +287,12 @@ class WithdrawCreateFragment : Fragment() {
         }
 
         viewModel.createWithdraw(sourceId, sum)
+    }
+
+    private fun back() {
+        when (keyboard.visibility) {
+            VISIBLE -> sum_edit_text.clearFocus()
+            GONE -> findNavController(this).popBackStack()
+        }
     }
 }
