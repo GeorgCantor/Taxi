@@ -189,7 +189,7 @@ class ConnectionFragment : Fragment() {
             }
         }
 
-        back_arrow.setOnClickListener { activity?.onBackPressed() }
+        back_arrow.setOnClickListener { backToRegScreen() }
 
         val yandexCancelButtons = mutableListOf<ImageView>(
             driver_license_cancel,
@@ -753,8 +753,12 @@ class ConnectionFragment : Fragment() {
     private fun back() {
         when (keyboard.visibility) {
             VISIBLE -> keyboard.visibility = GONE
-            GONE -> findNavController(this).navigate(R.id.action_connectionFragment_to_registrationSelectionFragment)
+            GONE -> backToRegScreen()
         }
+    }
+
+    private fun backToRegScreen() {
+        findNavController(this).navigate(R.id.action_connectionFragment_to_registrationSelectionFragment)
     }
 
     inner class PhoneMaskListener(editText: EditText) : MaskedTextChangedListener(PHONE_MASK, editText, object : ValueListener {

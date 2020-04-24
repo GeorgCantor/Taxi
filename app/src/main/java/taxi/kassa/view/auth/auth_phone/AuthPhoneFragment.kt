@@ -47,9 +47,7 @@ class AuthPhoneFragment : Fragment() {
             progress_bar.visibility = if (visible) VISIBLE else GONE
         }
 
-        viewModel.error.observe(viewLifecycleOwner) {
-            error_tv.showError(it)
-        }
+        viewModel.error.observe(viewLifecycleOwner) { error_tv.showError(it) }
 
         viewModel.isLoggedIn.observe(viewLifecycleOwner) { loggedIn ->
             if (loggedIn) Navigation.findNavController(view).navigate(R.id.action_authPhoneFragment_to_authCodeFragment)

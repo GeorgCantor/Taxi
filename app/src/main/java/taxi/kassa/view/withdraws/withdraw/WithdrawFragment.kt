@@ -48,9 +48,7 @@ class WithdrawFragment : Fragment() {
             progress_bar.visibility = if (visible) VISIBLE else GONE
         }
 
-        viewModel.error.observe(viewLifecycleOwner) {
-            activity?.shortToast(it)
-        }
+        viewModel.error.observe(viewLifecycleOwner) { context?.shortToast(it) }
 
         viewModel.accounts.observe(viewLifecycleOwner) { accounts ->
             accounts?.let {

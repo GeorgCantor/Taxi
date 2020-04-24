@@ -217,8 +217,9 @@
                 android:layout_width="0dp"
                 android:layout_height="56dp"
                 android:layout_marginStart="@dimen/margin_24dp"
+                android:layout_marginTop="@dimen/margin_16dp"
                 android:layout_marginEnd="@dimen/margin_24dp"
-                android:layout_marginBottom="@dimen/margin_48dp"
+                android:layout_marginBottom="@dimen/margin_24dp"
                 android:background="@drawable/bg_intro_btn"
                 android:fontFamily="sans-serif-medium"
                 android:text="@string/replenish"
@@ -227,7 +228,8 @@
                 android:textSize="@dimen/text_20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/enter_amount_input_view" />
 
             <ProgressBar
                 android:id="@+id/progress_bar"
@@ -248,6 +250,7 @@
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -55,9 +55,7 @@ class AuthCodeFragment : Fragment() {
                 progress_bar.visibility = if (visible) VISIBLE else GONE
             }
 
-            error.observe(viewLifecycleOwner) {
-                error_tv.showError(it)
-            }
+            error.observe(viewLifecycleOwner) { error_tv.showError(it) }
 
             token.observe(viewLifecycleOwner) {
                 prefManager.saveString(TOKEN, it)

@@ -59,16 +59,14 @@ class ProfileFragment : Fragment() {
 
         with(viewModel) {
             isNetworkAvailable.observe(viewLifecycleOwner) { available ->
-                if (!available) activity?.longToast(getString(R.string.internet_unavailable))
+                if (!available) context?.longToast(getString(R.string.internet_unavailable))
             }
 
             isProgressVisible.observe(viewLifecycleOwner) { visible ->
                 progress_bar.visibility = if (visible) VISIBLE else GONE
             }
 
-            error.observe(viewLifecycleOwner) {
-                activity?.shortToast(it)
-            }
+            error.observe(viewLifecycleOwner) { context?.shortToast(it) }
 
             responseOwner.observe(viewLifecycleOwner) { response ->
                 response?.let {

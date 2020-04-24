@@ -41,9 +41,7 @@ class WithdrawsFragment : Fragment() {
                 progress_bar.visibility = if (visible) VISIBLE else GONE
             }
 
-            error.observe(viewLifecycleOwner) {
-                activity?.shortToast(it)
-            }
+            error.observe(viewLifecycleOwner) { context?.shortToast(it) }
 
             withdraws.observe(viewLifecycleOwner) {
                 empty_withdraws.visibility = if (it.count ?: 0 > 0) GONE else VISIBLE

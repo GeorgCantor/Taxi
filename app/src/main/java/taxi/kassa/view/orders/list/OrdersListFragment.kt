@@ -66,9 +66,7 @@ class OrdersListFragment : Fragment() {
                 progress_bar.visibility = if (visible) VISIBLE else GONE
             }
 
-            error.observe(viewLifecycleOwner) {
-                activity?.shortToast(it)
-            }
+            error.observe(viewLifecycleOwner) { context?.shortToast(it) }
 
             orders.observe(viewLifecycleOwner) {
                 nextOffset = it.nextOffset ?: ""

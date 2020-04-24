@@ -45,20 +45,18 @@ class AccountsFragment : Fragment() {
             progress_bar.visibility = if (visible) VISIBLE else GONE
         }
 
-        viewModel.error.observe(viewLifecycleOwner) {
-            activity?.shortToast(it)
-        }
+        viewModel.error.observe(viewLifecycleOwner) { context?.shortToast(it) }
 
         viewModel.creatingStatus.observe(viewLifecycleOwner) { status ->
             status?.let {
-                activity?.shortToast(it)
+                context?.shortToast(it)
                 viewModel.getAccounts()
             }
         }
 
         viewModel.deletionStatus.observe(viewLifecycleOwner) { status ->
             status?.let {
-                activity?.shortToast(it)
+                context?.shortToast(it)
                 viewModel.getAccounts()
             }
         }
@@ -103,7 +101,7 @@ class AccountsFragment : Fragment() {
         add_account_button.setOnClickListener {
             editTexts.map {
                 if (it.text.isEmpty()) {
-                    activity?.shortToast(getString(R.string.fill_all_fields))
+                    context?.shortToast(getString(R.string.fill_all_fields))
                     return@setOnClickListener
                 }
             }

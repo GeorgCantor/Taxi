@@ -57,16 +57,14 @@ class WithdrawCreateFragment : Fragment() {
                 progress_bar.visibility = if (visible) VISIBLE else GONE
             }
 
-            error.observe(viewLifecycleOwner) {
-                activity?.shortToast(it)
-            }
+            error.observe(viewLifecycleOwner) { context?.shortToast(it) }
 
             creatingStatus.observe(viewLifecycleOwner) { status ->
-                status?.let { activity?.shortToast(it) }
+                status?.let { context?.shortToast(it) }
             }
 
             deletionStatus.observe(viewLifecycleOwner) { status ->
-                status?.let { activity?.shortToast(it) }
+                status?.let { context?.shortToast(it) }
             }
 
             accounts.observe(viewLifecycleOwner) {

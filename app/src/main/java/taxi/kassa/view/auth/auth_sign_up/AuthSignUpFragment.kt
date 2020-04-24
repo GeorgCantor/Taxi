@@ -38,9 +38,7 @@ class AuthSignUpFragment : Fragment() {
 
         loginIsReady = true
 
-        viewModel.error.observe(viewLifecycleOwner) {
-            error_tv.text = it
-        }
+        viewModel.error.observe(viewLifecycleOwner) { error_tv.text = it }
 
         viewModel.isSignUp.observe(viewLifecycleOwner) { success ->
             if (success) findNavController(this).navigate(R.id.action_authSignUpFragment_to_successRequestFragment)

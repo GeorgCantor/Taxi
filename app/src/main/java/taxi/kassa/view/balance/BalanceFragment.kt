@@ -42,9 +42,7 @@ class BalanceFragment : Fragment() {
                 progress_bar.visibility = if (visible) VISIBLE else View.GONE
             }
 
-            error.observe(viewLifecycleOwner) {
-                context?.longToast(it)
-            }
+            error.observe(viewLifecycleOwner) { context?.longToast(it) }
 
             responseOwner.observe(viewLifecycleOwner) { response ->
                 response?.let {

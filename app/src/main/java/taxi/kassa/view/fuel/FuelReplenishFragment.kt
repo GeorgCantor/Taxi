@@ -11,9 +11,9 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.activity.OnBackPressedCallback
 import androidx.annotation.RequiresApi
 import androidx.appcompat.content.res.AppCompatResources.getDrawable
-import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.view.get
 import androidx.core.view.isNotEmpty
 import androidx.fragment.app.Fragment
@@ -47,16 +47,20 @@ class FuelReplenishFragment : Fragment() {
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setReplenishButtonConstraint()
+
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                back()
+            }
+        }
+        activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, callback)
 
         with(viewModel) {
             isProgressVisible.observe(viewLifecycleOwner) { visible ->
                 progress_bar.visibility = if (visible) VISIBLE else GONE
             }
 
-            error.observe(viewLifecycleOwner) {
-                activity?.shortToast(it)
-            }
+            error.observe(viewLifecycleOwner) { context?.shortToast(it) }
 
             responseOwner.observe(viewLifecycleOwner) { response ->
                 response?.let {
@@ -183,7 +187,7 @@ class FuelReplenishFragment : Fragment() {
             )
         }
 
-        back_arrow.setOnClickListener { activity?.onBackPressed() }
+        back_arrow.setOnClickListener { findNavController(this).popBackStack() }
     }
 
     private fun setNumberClickListener(button: Button, resource: Int) {
@@ -200,19 +204,10 @@ class FuelReplenishFragment : Fragment() {
         }
     }
 
-    private fun setReplenishButtonConstraint() {
-        if (requireContext().getScreenSize() < 6) {
-            val constraintSet = ConstraintSet()
-            with(constraintSet) {
-                clone(root_layout)
-                connect(
-                    R.id.replenish_button,
-                    ConstraintSet.TOP,
-                    R.id.enter_amount_input_view,
-                    ConstraintSet.BOTTOM
-                )
-                applyTo(root_layout)
-            }
+    private fun back() {
+        when (keyboard.visibility) {
+            VISIBLE -> enter_amount_edit_text.clearFocus()
+            GONE -> findNavController(this).popBackStack()
         }
     }
 }
