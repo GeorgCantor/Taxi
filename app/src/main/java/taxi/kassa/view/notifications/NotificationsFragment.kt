@@ -21,8 +21,8 @@ import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.model.Notification
 import taxi.kassa.util.*
-import taxi.kassa.util.Constants.ARG_NOTIF_OPEN
 import taxi.kassa.util.Constants.NOTIFICATIONS
+import taxi.kassa.util.Constants.NOT_FROM_PUSH
 import taxi.kassa.util.Constants.PUSH_COUNTER
 import taxi.kassa.util.Constants.SUPPORT_PHONE_NUMBER
 
@@ -122,8 +122,9 @@ class NotificationsFragment : Fragment() {
     }
 
     private fun back() {
-        when (arguments?.get(ARG_NOTIF_OPEN)) {
-            ARG_NOTIF_OPEN -> findNavController(this).popBackStack()
+        //check if the app is running by clicking on the notification
+        when (arguments?.get(NOT_FROM_PUSH)) {
+            NOT_FROM_PUSH -> findNavController(this).popBackStack()
             else -> findNavController(this).navigate(R.id.action_notificationsFragment_to_profileFragment)
         }
     }

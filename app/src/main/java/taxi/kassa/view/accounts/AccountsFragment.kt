@@ -17,7 +17,7 @@ import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.util.*
-import taxi.kassa.util.Constants.ARG_NOTIF_OPEN
+import taxi.kassa.util.Constants.NOT_FROM_PUSH
 import taxi.kassa.util.Constants.MASTERCARD
 import taxi.kassa.util.Constants.PUSH_COUNTER
 import taxi.kassa.util.Constants.VISA
@@ -122,14 +122,14 @@ class AccountsFragment : Fragment() {
         notification_image.setOnClickListener {
             findNavController(this).navigate(
                 R.id.action_accountsFragment_to_notificationsFragment,
-                Bundle().apply { putString(ARG_NOTIF_OPEN, ARG_NOTIF_OPEN) }
+                Bundle().apply { putString(NOT_FROM_PUSH, NOT_FROM_PUSH) }
             )
         }
 
         notification_count.setOnClickListener {
             findNavController(this).navigate(
                 R.id.action_accountsFragment_to_notificationsFragment,
-                Bundle().apply { putString(ARG_NOTIF_OPEN, ARG_NOTIF_OPEN) }
+                Bundle().apply { putString(NOT_FROM_PUSH, NOT_FROM_PUSH) }
             )
         }
 

@@ -26,7 +26,7 @@ import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.model.Taxi
 import taxi.kassa.util.*
-import taxi.kassa.util.Constants.ARG_NOTIF_OPEN
+import taxi.kassa.util.Constants.NOT_FROM_PUSH
 import taxi.kassa.util.Constants.PUSH_COUNTER
 
 class FuelReplenishFragment : Fragment() {
@@ -176,14 +176,14 @@ class FuelReplenishFragment : Fragment() {
         notification_image.setOnClickListener {
             findNavController(this).navigate(
                 R.id.action_fuelReplenishFragment_to_notificationsFragment,
-                Bundle().apply { putString(ARG_NOTIF_OPEN, ARG_NOTIF_OPEN) }
+                Bundle().apply { putString(NOT_FROM_PUSH, NOT_FROM_PUSH) }
             )
         }
 
         notification_count.setOnClickListener {
             findNavController(this).navigate(
                 R.id.action_fuelReplenishFragment_to_notificationsFragment,
-                Bundle().apply { putString(ARG_NOTIF_OPEN, ARG_NOTIF_OPEN) }
+                Bundle().apply { putString(NOT_FROM_PUSH, NOT_FROM_PUSH) }
             )
         }
 

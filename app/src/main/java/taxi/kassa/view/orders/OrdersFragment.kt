@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.item_taxi_orders.view.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
-import taxi.kassa.util.Constants.ARG_NOTIF_OPEN
+import taxi.kassa.util.Constants.NOT_FROM_PUSH
 import taxi.kassa.util.Constants.PUSH_COUNTER
 import taxi.kassa.util.PreferenceManager
 import taxi.kassa.util.invisible
@@ -127,13 +127,13 @@ class OrdersFragment : Fragment() {
 
         notification_image.setOnClickListener {
             findNavController(this).navigate(R.id.action_ordersFragment_to_notificationsFragment,
-                Bundle().apply { putString(ARG_NOTIF_OPEN, ARG_NOTIF_OPEN) }
+                Bundle().apply { putString(NOT_FROM_PUSH, NOT_FROM_PUSH) }
             )
         }
 
         notification_count.setOnClickListener {
             findNavController(this).navigate(R.id.action_ordersFragment_to_notificationsFragment,
-                Bundle().apply { putString(ARG_NOTIF_OPEN, ARG_NOTIF_OPEN) }
+                Bundle().apply { putString(NOT_FROM_PUSH, NOT_FROM_PUSH) }
             )
         }
 

@@ -39,7 +39,7 @@ object Constants {
     const val MASTERCARD = "Mastercard"
     const val VISA = "Visa"
 
-    const val ARG_NOTIF_OPEN = "openNotification"
+    const val NOT_FROM_PUSH = "openNotFromPush"
 
     val myDateFormatSymbols: DateFormatSymbols = object : DateFormatSymbols() {
         override fun getMonths(): Array<String> {
