@@ -18,12 +18,14 @@ import androidx.constraintlayout.widget.ConstraintSet
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import com.google.android.material.textfield.TextInputEditText
+import com.redmadrobot.inputmask.MaskedTextChangedListener
 import kotlinx.android.synthetic.main.fragment_accounts.*
 import kotlinx.android.synthetic.main.keyboard.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.util.*
+import taxi.kassa.util.Constants.CARD_MASK
 import taxi.kassa.util.Constants.MASTERCARD
 import taxi.kassa.util.Constants.NOT_FROM_PUSH
 import taxi.kassa.util.Constants.PUSH_COUNTER
@@ -172,6 +174,7 @@ class AccountsFragment : Fragment() {
                 R.id.card_edit_text, R.id.bik_edit_text-> keyboard.visibility = GONE
                 R.id.account_edit_text -> bik_edit_text.requestFocus()
             }
+            openNewCard()
         }
 
         val editTexts = listOf<EditText>(
@@ -180,7 +183,7 @@ class AccountsFragment : Fragment() {
 
         add_account_button.setOnClickListener {
             editTexts.map {
-                if (it.text.isEmpty()) {
+                if (it.isEmpty()) {
                     context?.shortToast(getString(R.string.fill_all_fields))
                     return@setOnClickListener
                 }
@@ -286,10 +289,6 @@ class AccountsFragment : Fragment() {
 
         card_edit_text.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(editable: Editable?) {
-                when (editable?.length) {
-                    4, 9, 14 -> editable.append(" ")
-                }
-
                 when ((editable?.toString()?.replace(" ", "") ?: "").getCardType()) {
                     VISA -> {
                         card_edit_text.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_visa, 0)
@@ -306,6 +305,10 @@ class AccountsFragment : Fragment() {
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             }
         })
+
+        card_edit_text.addTextChangedListener(CardMaskListener())
+
+        add_card_button.setOnClickListener { openNewCard() }
     }
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
@@ -336,10 +339,20 @@ class AccountsFragment : Fragment() {
         }
     }
 
+    private fun openNewCard() {
+        if (card_edit_text.isEmpty()) card_input_view.error = getString(R.string.input_error)
+    }
+
     private fun back() {
         when (keyboard.visibility) {
             VISIBLE -> keyboard.visibility = GONE
             GONE -> findNavController(this).popBackStack()
         }
     }
+
+    inner class CardMaskListener : MaskedTextChangedListener(CARD_MASK, card_edit_text, object : ValueListener {
+        override fun onTextChanged(maskFilled: Boolean, extractedValue: String, formattedValue: String) {
+            card_input_view.error = null
+        }
+    })
 }

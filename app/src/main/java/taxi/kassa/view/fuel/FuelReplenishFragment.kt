@@ -203,11 +203,7 @@ class FuelReplenishFragment : Fragment() {
     }
 
     private fun replenish() {
-        val amount = enter_amount_edit_text.text.toString()
-        if (amount.isEmpty()) {
-            enter_amount_input_view.error = getString(R.string.input_error)
-            return
-        }
+        if (enter_amount_edit_text.isEmpty()) enter_amount_input_view.error = getString(R.string.input_error)
     }
 
     private fun back() {

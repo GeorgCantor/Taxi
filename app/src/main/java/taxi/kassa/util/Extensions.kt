@@ -225,3 +225,5 @@ fun EditText.setNumberClickListener(button: Button, resource: Int) {
         text?.insert(selectionStart, context.getString(resource))
     }
 }
+
+fun EditText.isEmpty(): Boolean = text.toString().isBlank()
