@@ -28,7 +28,7 @@ val repositoryModule = module {
 
 val viewModelModule = module {
     viewModel {
-        AuthPhoneViewModel(get())
+        AuthPhoneViewModel(androidApplication(), get())
     }
     viewModel {
         AuthSignUpViewModel(get())

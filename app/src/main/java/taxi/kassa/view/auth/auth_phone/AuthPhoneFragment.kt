@@ -20,6 +20,7 @@ import taxi.kassa.R
 import taxi.kassa.util.Constants.PHONE
 import taxi.kassa.util.Constants.PHONE_MASK
 import taxi.kassa.util.PreferenceManager
+import taxi.kassa.util.longToast
 import taxi.kassa.util.observe
 import taxi.kassa.util.showError
 
@@ -42,6 +43,10 @@ class AuthPhoneFragment : Fragment() {
         phone_edit_text.showSoftInputOnFocus = false
 
         loginIsReady = true
+
+        viewModel.isNetworkAvailable.observe(viewLifecycleOwner) { available ->
+            if (!available) context?.longToast(getString(R.string.internet_unavailable))
+        }
 
         viewModel.isProgressVisible.observe(viewLifecycleOwner) { visible ->
             progress_bar.visibility = if (visible) VISIBLE else GONE
