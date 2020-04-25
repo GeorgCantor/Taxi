@@ -311,7 +311,7 @@ class AccountsFragment : Fragment() {
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onResume() {
         super.onResume()
-        Handler().postDelayed({requireView().hideKeyboard() }, 100)
+        Handler().postDelayed({ requireView().hideKeyboard() }, 100)
     }
 
     override fun onDestroyView() {

@@ -127,7 +127,10 @@ class FuelReplenishFragment : Fragment() {
 
         enter_amount_edit_text.setOnFocusChangeListener { _, hasFocus ->
             when (hasFocus) {
-                true -> keyboard.visibility = VISIBLE
+                true -> {
+                    keyboard.visibility = VISIBLE
+                    Handler().postDelayed({ scroll_view.scrollTo(0, scroll_view.bottom) }, 100)
+                }
                 false -> {
                     keyboard.visibility = GONE
                     enter_amount_input_view.error = null
@@ -196,7 +199,7 @@ class FuelReplenishFragment : Fragment() {
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onResume() {
         super.onResume()
-        Handler().postDelayed({requireView().hideKeyboard() }, 100)
+        Handler().postDelayed({ requireView().hideKeyboard() }, 100)
     }
 
     private fun replenish() {
