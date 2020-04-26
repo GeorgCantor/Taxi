@@ -1,6 +1,9 @@
 package taxi.kassa.view
 
+import android.os.Build
 import android.os.Bundle
+import android.os.Handler
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import kotlinx.android.synthetic.main.activity_main.*
@@ -13,6 +16,7 @@ import taxi.kassa.util.Constants.TITLE
 import taxi.kassa.util.Constants.TOKEN
 import taxi.kassa.util.Constants.myDateFormatSymbols
 import taxi.kassa.util.PreferenceManager
+import taxi.kassa.util.hideKeyboard
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -66,5 +70,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         navHostFragment.navController.graph = graph
+    }
+
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+    override fun onResume() {
+        super.onResume()
+        Handler().postDelayed({ this.root_layout.hideKeyboard() }, 100)
     }
 }

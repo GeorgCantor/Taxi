@@ -2,7 +2,6 @@ package taxi.kassa.view.accounts
 
 import android.os.Build
 import android.os.Bundle
-import android.os.Handler
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
@@ -309,12 +308,6 @@ class AccountsFragment : Fragment() {
         card_edit_text.addTextChangedListener(CardMaskListener())
 
         add_card_button.setOnClickListener { openNewCard() }
-    }
-
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-    override fun onResume() {
-        super.onResume()
-        Handler().postDelayed({ requireView().hideKeyboard() }, 100)
     }
 
     override fun onDestroyView() {

@@ -196,12 +196,6 @@ class FuelReplenishFragment : Fragment() {
         back_arrow.setOnClickListener { findNavController(this).popBackStack() }
     }
 
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-    override fun onResume() {
-        super.onResume()
-        Handler().postDelayed({ requireView().hideKeyboard() }, 100)
-    }
-
     private fun replenish() {
         if (enter_amount_edit_text.isEmpty()) enter_amount_input_view.error = getString(R.string.input_error)
     }

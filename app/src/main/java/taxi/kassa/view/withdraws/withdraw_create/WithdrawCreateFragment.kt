@@ -270,12 +270,6 @@ class WithdrawCreateFragment : Fragment() {
         back_arrow.setOnClickListener { findNavController(this).popBackStack() }
     }
 
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-    override fun onResume() {
-        super.onResume()
-        Handler().postDelayed({ requireView().hideKeyboard() }, 100)
-    }
-
     private fun setNumberClickListener(button: Button, resource: Int) {
         button.setOnClickListener {
             sum_edit_text.text?.insert(sum_edit_text.selectionStart, getString(resource))
