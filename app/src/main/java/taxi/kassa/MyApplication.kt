@@ -13,17 +13,12 @@ class MyApplication : Application() {
     companion object {
         private var instance: MyApplication? = null
 
-        fun appContext() : Context? {
-            return instance?.applicationContext
-        }
-    }
-
-    init {
-        instance = this
+        fun appContext(): Context? = instance?.applicationContext
     }
 
     override fun onCreate() {
         super.onCreate()
+        instance = this
 
         startKoin {
             androidContext(this@MyApplication)
