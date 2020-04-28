@@ -31,7 +31,7 @@ val viewModelModule = module {
         AuthPhoneViewModel(androidApplication(), get())
     }
     viewModel {
-        AuthSignUpViewModel(get())
+        AuthSignUpViewModel(androidApplication(), get())
     }
     viewModel {
         AuthCodeViewModel(get())
@@ -40,7 +40,7 @@ val viewModelModule = module {
         ProfileViewModel(androidApplication(), get())
     }
     viewModel {
-        BalanceViewModel(get())
+        BalanceViewModel(androidApplication(), get())
     }
     viewModel {
         WithdrawsViewModel(get())
@@ -58,7 +58,7 @@ val viewModelModule = module {
         OrdersViewModel(androidApplication(), get())
     }
     viewModel {
-        FuelReplenishViewModel(get())
+        FuelReplenishViewModel(androidApplication(), get())
     }
     viewModel {
         OrdersListViewModel(get())

@@ -1,17 +1,25 @@
 package taxi.kassa.view.auth.auth_sign_up
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import io.reactivex.Observable
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
+import taxi.kassa.MyApplication
 import taxi.kassa.repository.ApiRepository
 import taxi.kassa.util.Constants.KEY
+import taxi.kassa.util.isNetworkAvailable
 
-class AuthSignUpViewModel(private val repository: ApiRepository) : ViewModel() {
+class AuthSignUpViewModel(
+    app: Application,
+    private val repository: ApiRepository
+) : AndroidViewModel(app) {
 
     private val disposable = CompositeDisposable()
 
+    val isProgressVisible = MutableLiveData<Boolean>().apply { this.value = false }
+    val isNetworkAvailable = MutableLiveData<Boolean>()
     val isSignUp = MutableLiveData<Boolean>()
     val error = MutableLiveData<String>()
 
@@ -19,6 +27,8 @@ class AuthSignUpViewModel(private val repository: ApiRepository) : ViewModel() {
         disposable.add(
             Observable.fromCallable {
                 repository.signUp("", phone, 11, KEY)
+                    ?.doOnSubscribe { isProgressVisible.postValue(true) }
+                    ?.doFinally { isProgressVisible.postValue(false) }
                     ?.subscribe({
                         isSignUp.postValue(it?.success)
                         it?.errorMsg?.let { error.postValue(it) }
@@ -28,6 +38,8 @@ class AuthSignUpViewModel(private val repository: ApiRepository) : ViewModel() {
                 .subscribeOn(Schedulers.io())
                 .subscribe()
         )
+
+        isNetworkAvailable.value = getApplication<MyApplication>().isNetworkAvailable()
     }
 
     override fun onCleared() {

@@ -56,6 +56,10 @@ class FuelReplenishFragment : Fragment() {
         activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, callback)
 
         with(viewModel) {
+            isNetworkAvailable.observe(viewLifecycleOwner) { available ->
+                if (!available) context?.longToast(getString(R.string.internet_unavailable))
+            }
+
             isProgressVisible.observe(viewLifecycleOwner) { visible ->
                 progress_bar.visibility = if (visible) VISIBLE else GONE
             }

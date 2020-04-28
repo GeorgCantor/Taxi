@@ -12,9 +12,9 @@ import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.util.*
-import taxi.kassa.util.Constants.NOT_FROM_PUSH
 import taxi.kassa.util.Constants.CITYMOBIL
 import taxi.kassa.util.Constants.GETT
+import taxi.kassa.util.Constants.NOT_FROM_PUSH
 import taxi.kassa.util.Constants.PUSH_COUNTER
 import taxi.kassa.util.Constants.TAXI
 import taxi.kassa.util.Constants.YANDEX
@@ -38,6 +38,10 @@ class BalanceFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         with(viewModel) {
+            isNetworkAvailable.observe(viewLifecycleOwner) { available ->
+                if (!available) context?.longToast(getString(R.string.internet_unavailable))
+            }
+
             isProgressVisible.observe(viewLifecycleOwner) { visible ->
                 progress_bar.visibility = if (visible) VISIBLE else View.GONE
             }

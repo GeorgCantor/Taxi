@@ -44,18 +44,20 @@ class AuthPhoneFragment : Fragment() {
 
         loginIsReady = true
 
-        viewModel.isNetworkAvailable.observe(viewLifecycleOwner) { available ->
-            if (!available) context?.longToast(getString(R.string.internet_unavailable))
-        }
+        with(viewModel) {
+            isNetworkAvailable.observe(viewLifecycleOwner) { available ->
+                if (!available) context?.longToast(getString(R.string.internet_unavailable))
+            }
 
-        viewModel.isProgressVisible.observe(viewLifecycleOwner) { visible ->
-            progress_bar.visibility = if (visible) VISIBLE else GONE
-        }
+            isProgressVisible.observe(viewLifecycleOwner) { visible ->
+                progress_bar.visibility = if (visible) VISIBLE else GONE
+            }
 
-        viewModel.error.observe(viewLifecycleOwner) { error_tv.showError(it) }
+            error.observe(viewLifecycleOwner) { error_tv.showError(it) }
 
-        viewModel.isLoggedIn.observe(viewLifecycleOwner) { loggedIn ->
-            if (loggedIn) Navigation.findNavController(view).navigate(R.id.action_authPhoneFragment_to_authCodeFragment)
+            isLoggedIn.observe(viewLifecycleOwner) { loggedIn ->
+                if (loggedIn) Navigation.findNavController(view).navigate(R.id.action_authPhoneFragment_to_authCodeFragment)
+            }
         }
 
         login_checkbox.setOnCheckedChangeListener { _, isChecked ->
