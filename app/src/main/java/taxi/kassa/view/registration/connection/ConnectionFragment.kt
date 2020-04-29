@@ -21,8 +21,14 @@ import com.esafirm.imagepicker.features.ImagePicker
 import com.esafirm.imagepicker.features.ReturnMode
 import com.google.android.material.textfield.TextInputEditText
 import com.redmadrobot.inputmask.MaskedTextChangedListener
+import kotlinx.android.synthetic.main.connection_city.*
 import kotlinx.android.synthetic.main.fragment_connection.*
+import kotlinx.android.synthetic.main.fragment_connection.city_block
+import kotlinx.android.synthetic.main.fragment_connection.gett_block
+import kotlinx.android.synthetic.main.fragment_connection.yandex_block
+import kotlinx.android.synthetic.main.connection_gett.*
 import kotlinx.android.synthetic.main.keyboard.*
+import kotlinx.android.synthetic.main.connection_yandex.*
 import taxi.kassa.R
 import taxi.kassa.model.ImageDocument
 import taxi.kassa.util.*
