@@ -46,6 +46,6 @@ class BalanceViewModel(
 
     override fun onCleared() {
         super.onCleared()
-        disposable.dispose()
+        disposable.clear()
     }
 }

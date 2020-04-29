@@ -92,6 +92,6 @@ class AccountsViewModel(private val repository: ApiRepository) : ViewModel() {
 
     override fun onCleared() {
         super.onCleared()
-        disposable.dispose()
+        disposable.clear()
     }
 }

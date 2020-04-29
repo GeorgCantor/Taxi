@@ -46,6 +46,6 @@ class FuelReplenishViewModel(
 
     override fun onCleared() {
         super.onCleared()
-        disposable.dispose()
+        disposable.clear()
     }
 }
