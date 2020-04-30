@@ -1,6 +1,5 @@
 package taxi.kassa.view.registration.connection
 
-import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -16,21 +15,21 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.NavHostFragment.findNavController
-import com.esafirm.imagepicker.features.ImagePicker
-import com.esafirm.imagepicker.features.ReturnMode
 import com.google.android.material.textfield.TextInputEditText
 import com.redmadrobot.inputmask.MaskedTextChangedListener
 import kotlinx.android.synthetic.main.connection_city.*
+import kotlinx.android.synthetic.main.connection_gett.*
+import kotlinx.android.synthetic.main.connection_yandex.*
 import kotlinx.android.synthetic.main.fragment_connection.*
 import kotlinx.android.synthetic.main.fragment_connection.city_block
 import kotlinx.android.synthetic.main.fragment_connection.gett_block
 import kotlinx.android.synthetic.main.fragment_connection.yandex_block
-import kotlinx.android.synthetic.main.connection_gett.*
 import kotlinx.android.synthetic.main.keyboard.*
-import kotlinx.android.synthetic.main.connection_yandex.*
+import org.koin.androidx.viewmodel.ext.android.getSharedViewModel
+import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
-import taxi.kassa.model.ImageDocument
 import taxi.kassa.util.*
 import taxi.kassa.util.Constants.CITYMOBIL
 import taxi.kassa.util.Constants.CONNECTION
@@ -41,9 +40,6 @@ import taxi.kassa.util.Constants.YANDEX
 class ConnectionFragment : Fragment() {
 
     private val taxiType: String by lazy { arguments?.get(CONNECTION) as String }
-    private val images = mutableListOf<com.esafirm.imagepicker.model.Image>()
-    private val docs = mutableListOf<ImageDocument>()
-    private val imageTypes = mutableListOf<ImageType>()
 
     private var yandexDLicenseViews = arrayOf<View>()
     private var yandexPasportFirstViews = arrayOf<View>()
@@ -71,6 +67,12 @@ class ConnectionFragment : Fragment() {
     private var citySelfieViews = arrayOf<View>()
 
     private lateinit var selectedType: ImageType
+    private lateinit var viewModel: ConnectionViewModel
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel = getSharedViewModel { parametersOf() }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -228,12 +230,6 @@ class ConnectionFragment : Fragment() {
             city_selfie_cancel
         )
 
-        val allCancelButtons = yandexCancelButtons + gettCancelButtons + cityCancelButtons
-
-        allCancelButtons.map {
-            it.setOnClickListener { cancelLoadPhoto(it as ImageView) }
-        }
-
         yandex_submit_button.setOnClickListener {
             checkFieldsAndSubmit(yandexCancelButtons, mutableListOf(phone_number_edit_text))
         }
@@ -244,37 +240,6 @@ class ConnectionFragment : Fragment() {
 
         city_submit_button.setOnClickListener {
             checkFieldsAndSubmit(cityCancelButtons, mutableListOf(city_phone_edit_text))
-        }
-
-        val imageTypePairs = mutableListOf<Pair<EditText, ImageType>>(
-            Pair(driver_license_edit_text, ImageType.YANDEX_D_LICENSE),
-            Pair(passport_first_edit_text, ImageType.YANDEX_PASSPORT_FIRST),
-            Pair(passport_reg_edit_text, ImageType.YANDEX_PASSPORT_REG),
-            Pair(sts_edit_text, ImageType.YANDEX_STS),
-            Pair(license_edit_text, ImageType.YANDEX_LICENSE),
-
-            Pair(gett_driver_license_edit_text, ImageType.GETT_D_LICENSE),
-            Pair(passport_first_number_edit_text, ImageType.GETT_PASSPORT),
-            Pair(gett_sts_edit_text, ImageType.GETT_STS),
-            Pair(gett_license_edit_text, ImageType.GETT_LICENSE),
-            Pair(make_selfie_edit_text, ImageType.GETT_SELFIE),
-
-            Pair(city_driver_license_front_edit_text, ImageType.CITY_D_LICENSE_FRONT),
-            Pair(city_driver_license_back_edit_text, ImageType.CITY_D_LICENSE_BACK),
-            Pair(city_passport_first_edit_text, ImageType.CITY_PASSPORT_FIRST),
-            Pair(city_passport_registration_edit_text, ImageType.CITY_PASSPORT_REG),
-            Pair(city_sts_edit_text, ImageType.CITY_STS),
-            Pair(city_license_front_edit_text, ImageType.CITY_LICENSE_FRONT),
-            Pair(city_license_back_edit_text, ImageType.CITY_LICENSE_BACK),
-            Pair(front_side_edit_text, ImageType.CITY_AUTO_FRONT),
-            Pair(back_side_edit_text, ImageType.CITY_AUTO_BACK),
-            Pair(left_side_edit_text, ImageType.CITY_AUTO_LEFT),
-            Pair(right_side_edit_text, ImageType.CITY_AUTO_RIGHT),
-            Pair(city_selfie_edit_text, ImageType.CITY_SELFIE)
-        )
-
-        imageTypePairs.map {
-            setImagePickerClickListener(it.first, it.second)
         }
 
         city_driver_license_front_edit_text.setHint(R.string.driver_license_front)
@@ -436,138 +401,101 @@ class ConnectionFragment : Fragment() {
             city_selfie_edit_text2,
             city_selfie_cancel
         )
-    }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        imageTypes.map {
-            when (it) {
-                ImageType.YANDEX_D_LICENSE -> yandexDLicenseViews.setLoadPhotoVisibility()
-                ImageType.YANDEX_PASSPORT_FIRST -> yandexPasportFirstViews.setLoadPhotoVisibility()
-                ImageType.YANDEX_PASSPORT_REG -> yandexPasportRegViews.setLoadPhotoVisibility()
-                ImageType.YANDEX_STS -> yandexStsViews.setLoadPhotoVisibility()
-                ImageType.YANDEX_LICENSE -> yandexLicenseViews.setLoadPhotoVisibility()
+        viewModel.loadedImages.observe(viewLifecycleOwner, Observer {
+            it.map {
+                if (it.isLoaded) {
+                    when (it.id) {
+                        1 -> yandexDLicenseViews.setLoadPhotoVisibility()
+                        2 -> yandexPasportFirstViews.setLoadPhotoVisibility()
+                        3 -> yandexPasportRegViews.setLoadPhotoVisibility()
+                        4 -> yandexStsViews.setLoadPhotoVisibility()
+                        5 -> yandexLicenseViews.setLoadPhotoVisibility()
+                        6 -> gettDLicenseViews.setLoadPhotoVisibility()
+                        7 -> gettPassportViews.setLoadPhotoVisibility()
+                        8 -> gettStsViews.setLoadPhotoVisibility()
+                        9 -> gettLicenseViews.setLoadPhotoVisibility()
+                        10 -> gettSelfieViews.setLoadPhotoVisibility()
+                    }
+                } else {
+                    when (it.id) {
+                        1 -> yandexDLicenseViews.setNormalVisibility()
+                        2 -> yandexPasportFirstViews.setNormalVisibility()
+                        3 -> yandexPasportRegViews.setNormalVisibility()
+                        4 -> yandexStsViews.setNormalVisibility()
+                        5 -> yandexLicenseViews.setNormalVisibility()
+                        6 -> gettDLicenseViews.setNormalVisibility()
+                        7 -> gettPassportViews.setNormalVisibility()
+                        8 -> gettStsViews.setNormalVisibility()
+                        9 -> gettLicenseViews.setNormalVisibility()
+                        10 -> gettSelfieViews.setNormalVisibility()
+                    }
+                }
+            }
+        })
 
-                ImageType.GETT_D_LICENSE -> gettDLicenseViews.setLoadPhotoVisibility()
-                ImageType.GETT_PASSPORT -> gettPassportViews.setLoadPhotoVisibility()
-                ImageType.GETT_STS -> gettStsViews.setLoadPhotoVisibility()
-                ImageType.GETT_LICENSE -> gettLicenseViews.setLoadPhotoVisibility()
-                ImageType.GETT_SELFIE -> gettSelfieViews.setLoadPhotoVisibility()
+        val inputs = listOf<EditText>(
+            driver_license_edit_text,
+            passport_first_edit_text,
+            passport_reg_edit_text,
+            sts_edit_text,
+            license_edit_text,
+            gett_driver_license_edit_text,
+            passport_first_number_edit_text,
+            gett_sts_edit_text,
+            gett_license_edit_text,
+            make_selfie_edit_text
+        )
 
-                ImageType.CITY_D_LICENSE_FRONT -> cityDLicenseFrontViews.setLoadPhotoVisibility()
-                ImageType.CITY_D_LICENSE_BACK -> cityDLicenseBackViews.setLoadPhotoVisibility()
-                ImageType.CITY_PASSPORT_FIRST -> cityPassportFirstViews.setLoadPhotoVisibility()
-                ImageType.CITY_PASSPORT_REG -> cityPassportRegViews.setLoadPhotoVisibility()
-                ImageType.CITY_STS -> cityStsViews.setLoadPhotoVisibility()
-                ImageType.CITY_LICENSE_FRONT -> cityLicenseFrontViews.setLoadPhotoVisibility()
-                ImageType.CITY_LICENSE_BACK -> cityLicenseBackViews.setLoadPhotoVisibility()
-                ImageType.CITY_AUTO_FRONT -> cityFrontSideViews.setLoadPhotoVisibility()
-                ImageType.CITY_AUTO_BACK -> cityBackSideViews.setLoadPhotoVisibility()
-                ImageType.CITY_AUTO_LEFT -> cityLeftSideViews.setLoadPhotoVisibility()
-                ImageType.CITY_AUTO_RIGHT -> cityRightSideViews.setLoadPhotoVisibility()
-                ImageType.CITY_SELFIE -> citySelfieViews.setLoadPhotoVisibility()
+        inputs.map { editText ->
+            editText.setOnClickListener {
+                when (editText.id) {
+                    R.id.driver_license_edit_text -> viewModel.setSelected(1)
+                    R.id.passport_first_edit_text -> viewModel.setSelected(2)
+                    R.id.passport_reg_edit_text -> viewModel.setSelected(3)
+                    R.id.sts_edit_text -> viewModel.setSelected(4)
+                    R.id.license_edit_text -> viewModel.setSelected(5)
+                    R.id.gett_driver_license_edit_text -> viewModel.setSelected(6)
+                    R.id.passport_first_number_edit_text -> viewModel.setSelected(7)
+                    R.id.gett_sts_edit_text -> viewModel.setSelected(8)
+                    R.id.gett_license_edit_text -> viewModel.setSelected(9)
+                    R.id.make_selfie_edit_text -> viewModel.setSelected(10)
+                }
+
+                findNavController(this).navigate(
+                    R.id.action_connectionFragment_to_photoFragment,
+                    Bundle().apply { putString(CONNECTION, taxiType) }
+                )
             }
         }
 
-        try {
-            val image: com.esafirm.imagepicker.model.Image = ImagePicker.getFirstImageOrNull(data)
-            images.add(image)
-            docs.add(ImageDocument(image.id, image.name, image.path, selectedType))
-        } catch (e: IllegalStateException) {
-            // if the user returned without selecting a photo
-            when (selectedType) {
-                ImageType.YANDEX_D_LICENSE -> {
-                    imageTypes.remove(ImageType.YANDEX_D_LICENSE)
-                    yandexDLicenseViews.setNormalVisibility()
-                }
-                ImageType.YANDEX_PASSPORT_FIRST -> {
-                    imageTypes.remove(ImageType.YANDEX_PASSPORT_FIRST)
-                    yandexPasportFirstViews.setNormalVisibility()
-                }
-                ImageType.YANDEX_PASSPORT_REG -> {
-                    imageTypes.remove(ImageType.YANDEX_PASSPORT_REG)
-                    yandexPasportRegViews.setNormalVisibility()
-                }
-                ImageType.YANDEX_STS -> {
-                    imageTypes.remove(ImageType.YANDEX_STS)
-                    yandexStsViews.setNormalVisibility()
-                }
-                ImageType.YANDEX_LICENSE -> {
-                    imageTypes.remove(ImageType.YANDEX_LICENSE)
-                    yandexLicenseViews.setNormalVisibility()
-                }
+        driver_license_edit_text.setOnClickListener {
+            viewModel.setSelected(1)
+            findNavController(this).navigate(R.id.action_connectionFragment_to_photoFragment)
+        }
 
-                ImageType.GETT_D_LICENSE -> {
-                    imageTypes.remove(ImageType.GETT_D_LICENSE)
-                    gettDLicenseViews.setNormalVisibility()
-                }
-                ImageType.GETT_PASSPORT -> {
-                    imageTypes.remove(ImageType.GETT_PASSPORT)
-                    gettPassportViews.setNormalVisibility()
-                }
-                ImageType.GETT_STS -> {
-                    imageTypes.remove(ImageType.GETT_STS)
-                    gettStsViews.setNormalVisibility()
-                }
-                ImageType.GETT_LICENSE -> {
-                    imageTypes.remove(ImageType.GETT_LICENSE)
-                    gettLicenseViews.setNormalVisibility()
-                }
-                ImageType.GETT_SELFIE -> {
-                    imageTypes.remove(ImageType.GETT_SELFIE)
-                    gettSelfieViews.setNormalVisibility()
-                }
+        val allCancelButtons = yandexCancelButtons + gettCancelButtons + cityCancelButtons
 
-                ImageType.CITY_D_LICENSE_FRONT -> {
-                    imageTypes.remove(ImageType.CITY_D_LICENSE_FRONT)
-                    cityDLicenseFrontViews.setNormalVisibility()
+        allCancelButtons.map { imageView ->
+            imageView.setOnClickListener {
+                when (imageView.id) {
+                    R.id.driver_license_cancel -> viewModel.removeLoadImage(1)
+                    R.id.passport_first_cancel -> viewModel.removeLoadImage(2)
+                    R.id.passport_reg_cancel -> viewModel.removeLoadImage(3)
+                    R.id.sts_cancel -> viewModel.removeLoadImage(4)
+                    R.id.license_cancel -> viewModel.removeLoadImage(5)
+                    R.id.gett_driver_license_cancel -> viewModel.removeLoadImage(6)
+                    R.id.passport_first_number_cancel -> viewModel.removeLoadImage(7)
+                    R.id.gett_sts_cancel -> viewModel.removeLoadImage(8)
+                    R.id.gett_license_cancel -> viewModel.removeLoadImage(9)
+                    R.id.make_selfie_cancel -> viewModel.removeLoadImage(10)
                 }
-                ImageType.CITY_D_LICENSE_BACK -> {
-                    imageTypes.remove(ImageType.CITY_D_LICENSE_BACK)
-                    cityDLicenseBackViews.setNormalVisibility()
-                }
-                ImageType.CITY_PASSPORT_FIRST -> {
-                    imageTypes.remove(ImageType.CITY_PASSPORT_FIRST)
-                    cityPassportFirstViews.setNormalVisibility()
-                }
-                ImageType.CITY_PASSPORT_REG -> {
-                    imageTypes.remove(ImageType.CITY_PASSPORT_REG)
-                    cityPassportRegViews.setNormalVisibility()
-                }
-                ImageType.CITY_STS -> {
-                    imageTypes.remove(ImageType.CITY_STS)
-                    cityStsViews.setNormalVisibility()
-                }
-                ImageType.CITY_LICENSE_FRONT -> {
-                    imageTypes.remove(ImageType.CITY_LICENSE_FRONT)
-                    cityLicenseFrontViews.setNormalVisibility()
-                }
-                ImageType.CITY_LICENSE_BACK -> {
-                    imageTypes.remove(ImageType.CITY_LICENSE_BACK)
-                    cityLicenseBackViews.setNormalVisibility()
-                }
-                ImageType.CITY_AUTO_FRONT -> {
-                    imageTypes.remove(ImageType.CITY_AUTO_FRONT)
-                    cityFrontSideViews.setNormalVisibility()
-                }
-                ImageType.CITY_AUTO_BACK -> {
-                    imageTypes.remove(ImageType.CITY_AUTO_BACK)
-                    cityBackSideViews.setNormalVisibility()
-                }
-                ImageType.CITY_AUTO_LEFT -> {
-                    imageTypes.remove(ImageType.CITY_AUTO_LEFT)
-                    cityLeftSideViews.setNormalVisibility()
-                }
-                ImageType.CITY_AUTO_RIGHT -> {
-                    imageTypes.remove(ImageType.CITY_AUTO_RIGHT)
-                    cityRightSideViews.setNormalVisibility()
-                }
-                ImageType.CITY_SELFIE -> {
-                    imageTypes.remove(ImageType.CITY_SELFIE)
-                    citySelfieViews.setNormalVisibility()
-                }
+                findNavController(this).navigate(
+                    R.id.action_connectionFragment_self,
+                    Bundle().apply { putString(CONNECTION, taxiType) }
+                )
             }
         }
-        super.onActivityResult(requestCode, resultCode, data)
     }
 
     private fun setNumberClickListener(button: Button, resource: Int) {
@@ -620,140 +548,6 @@ class ConnectionFragment : Fragment() {
                 )
             }
         }
-    }
-
-    private fun setImagePickerClickListener(editText: EditText, imageType: ImageType) {
-        editText.setOnClickListener {
-            if (keyboard.visibility == VISIBLE) keyboard.visibility = GONE
-            imageTypes.add(imageType)
-            selectedType = imageType
-
-            ImagePicker.create(this)
-                .returnMode(ReturnMode.GALLERY_ONLY)
-                .folderMode(true)
-                .single()
-                .toolbarFolderTitle(getString(R.string.photo_loading))
-                .toolbarImageTitle(getString(R.string.photo_loading))
-                .theme(R.style.AppTheme)
-                .start(0)
-        }
-    }
-
-    private fun cancelLoadPhoto(imageView: ImageView) {
-        var imageType = ImageType.CITY_D_LICENSE_FRONT
-
-        when (imageView.id) {
-            R.id.driver_license_cancel -> {
-                imageType = ImageType.YANDEX_D_LICENSE
-                yandexDLicenseViews.setNormalVisibility()
-            }
-            R.id.passport_first_cancel -> {
-                imageType = ImageType.YANDEX_PASSPORT_FIRST
-                yandexPasportFirstViews.setNormalVisibility()
-            }
-            R.id.passport_reg_cancel -> {
-                imageType = ImageType.CITY_PASSPORT_REG
-                yandexPasportRegViews.setNormalVisibility()
-            }
-            R.id.sts_cancel -> {
-                imageType = ImageType.YANDEX_STS
-                yandexStsViews.setNormalVisibility()
-            }
-            R.id.license_cancel -> {
-                imageType = ImageType.YANDEX_LICENSE
-                yandexLicenseViews.setNormalVisibility()
-            }
-
-            R.id.gett_driver_license_cancel -> {
-                imageType = ImageType.GETT_D_LICENSE
-                gettDLicenseViews.setNormalVisibility()
-            }
-            R.id.passport_first_number_cancel -> {
-                imageType = ImageType.GETT_PASSPORT
-                gettPassportViews.setNormalVisibility()
-            }
-            R.id.gett_sts_cancel -> {
-                imageType = ImageType.GETT_STS
-                gettStsViews.setNormalVisibility()
-            }
-            R.id.gett_license_cancel -> {
-                imageType = ImageType.GETT_LICENSE
-                gettLicenseViews.setNormalVisibility()
-            }
-            R.id.make_selfie_cancel -> {
-                imageType = ImageType.GETT_SELFIE
-                gettSelfieViews.setNormalVisibility()
-            }
-
-            R.id.city_driver_license_front_cancel -> {
-                imageType = ImageType.CITY_D_LICENSE_FRONT
-                cityDLicenseFrontViews.setNormalVisibility()
-            }
-            R.id.city_driver_license_back_cancel -> {
-                imageType = ImageType.CITY_D_LICENSE_BACK
-                cityDLicenseBackViews.setNormalVisibility()
-            }
-            R.id.city_passport_first_cancel -> {
-                imageType = ImageType.CITY_PASSPORT_FIRST
-                cityPassportFirstViews.setNormalVisibility()
-            }
-            R.id.city_passport_registration_cancel -> {
-                imageType = ImageType.CITY_PASSPORT_REG
-                cityPassportRegViews.setNormalVisibility()
-            }
-            R.id.city_sts_cancel -> {
-                imageType = ImageType.CITY_STS
-                cityStsViews.setNormalVisibility()
-            }
-            R.id.city_license_front_cancel -> {
-                imageType = ImageType.CITY_LICENSE_FRONT
-                cityLicenseFrontViews.setNormalVisibility()
-            }
-            R.id.city_license_back_cancel -> {
-                imageType = ImageType.CITY_LICENSE_BACK
-                cityLicenseBackViews.setNormalVisibility()
-            }
-            R.id.front_side_cancel -> {
-                imageType = ImageType.CITY_AUTO_FRONT
-                cityFrontSideViews.setNormalVisibility()
-            }
-            R.id.back_side_cancel -> {
-                imageType = ImageType.CITY_AUTO_BACK
-                cityBackSideViews.setNormalVisibility()
-            }
-            R.id.left_side_cancel -> {
-                imageType = ImageType.CITY_AUTO_LEFT
-                cityLeftSideViews.setNormalVisibility()
-            }
-            R.id.right_side_cancel -> {
-                imageType = ImageType.CITY_AUTO_RIGHT
-                cityRightSideViews.setNormalVisibility()
-            }
-            R.id.city_selfie_cancel -> {
-                imageType = ImageType.CITY_SELFIE
-                citySelfieViews.setNormalVisibility()
-            }
-        }
-
-        val doc = docs.find { it.type == imageType }
-        val photoForDelete = images.find { it.id == doc?.id }
-        images.remove(photoForDelete)
-        docs.remove(doc)
-
-        imageTypes.remove(imageType)
-
-        val cancels = mutableListOf<View>(
-            driver_license_cancel,
-            passport_first_cancel,
-            passport_reg_cancel,
-            sts_cancel,
-            license_cancel
-        )
-        var counter = 0
-        cancels.map {
-            if (it.visibility == VISIBLE) counter++
-        }
-        if (counter == 0) imageTypes.clear()
     }
 
     private fun back() {

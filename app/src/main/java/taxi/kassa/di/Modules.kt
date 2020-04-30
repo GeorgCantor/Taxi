@@ -16,6 +16,7 @@ import taxi.kassa.view.notifications.NotificationsViewModel
 import taxi.kassa.view.orders.OrdersViewModel
 import taxi.kassa.view.orders.list.OrdersListViewModel
 import taxi.kassa.view.profile.ProfileViewModel
+import taxi.kassa.view.registration.connection.ConnectionViewModel
 import taxi.kassa.view.support.SupportViewModel
 import taxi.kassa.view.support.chat.ChatHistoryViewModel
 import taxi.kassa.view.withdraws.WithdrawsViewModel
@@ -26,7 +27,7 @@ val repositoryModule = module {
     single { ApiRepository(get(), PreferenceManager(androidApplication().applicationContext)) }
 }
 
-val viewModelModule = module {
+val viewModelModule = module(override = true) {
     viewModel {
         AuthPhoneViewModel(androidApplication(), get())
     }
@@ -71,6 +72,12 @@ val viewModelModule = module {
     }
     viewModel {
         SupportViewModel(get())
+    }
+    viewModel {
+        SupportViewModel(get())
+    }
+    viewModel {
+        ConnectionViewModel()
     }
 }
 

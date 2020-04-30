@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/back_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:padding="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_back" />
+
+            <TextView
+                android:id="@+id/reshoot_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:padding="@dimen/margin_16dp"
+                android:text="@string/reshoot"
+                android:textColor="@color/gray_intro_text"
+                android:textSize="@dimen/text_20sp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/back_arrow"
+                app:layout_constraintEnd_toStartOf="@+id/reverse_camera"
+                app:layout_constraintTop_toTopOf="@+id/back_arrow"
+                tools:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/reverse_camera"
+                android:layout_width="50dp"
+                android:layout_height="0dp"
+                android:padding="@dimen/margin_16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_reverse_camera" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ImageView
+        android:id="@+id/takenImage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <TextureView
+        android:id="@+id/preview_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <TextView
+        android:id="@+id/folder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/margin_16dp"
+        android:text="@string/library"
+        android:textColor="@color/gray_intro_text"
+        android:textSize="@dimen/text_20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/take_photo_btn"
+        app:layout_constraintEnd_toStartOf="@+id/take_photo_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/take_photo_btn" />
+
+    <ImageView
+        android:id="@+id/take_photo_btn"
+        android:layout_width="78dp"
+        android:layout_height="78dp"
+        android:src="@drawable/ic_photo_btn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/margin_16dp"
+        android:text="@string/done"
+        android:textColor="@color/gray_intro_text"
+        android:textSize="@dimen/text_20sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/take_photo_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/take_photo_btn"
+        app:layout_constraintTop_toTopOf="@+id/take_photo_btn"
+        tools:visibility="visible" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

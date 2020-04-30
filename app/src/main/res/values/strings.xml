@@ -163,6 +163,9 @@
     <string name="right_side">Правая (фото под 45°)</string>
     <string name="photo_loading">Загрузка фото</string>
     <string name="load_all_photos">Загрузите все фотографии</string>
+    <string name="reshoot">Переснять</string>
+    <string name="library">Библиотека</string>
+    <string name="done">Готово</string>
     <!--    Support-->
     <string name="write_to_us">Напишите нам</string>
     <string name="call_history">История обращений</string>

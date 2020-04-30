@@ -49,6 +49,21 @@
             android:id="@+id/action_connectionFragment_to_registrationSelectionFragment"
             app:destination="@id/registrationSelectionFragment"
             app:popUpTo="@id/registrationFragment" />
+        <action
+            android:id="@+id/action_connectionFragment_to_photoFragment"
+            app:destination="@id/photoFragment" />
+        <action
+            android:id="@+id/action_connectionFragment_self"
+            app:destination="@id/connectionFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/photoFragment"
+        android:name="taxi.kassa.view.registration.photo.PhotoFragment"
+        android:label="PhotoFragment">
+        <action
+            android:id="@+id/action_photoFragment_to_connectionFragment"
+            app:destination="@id/connectionFragment" />
     </fragment>
 
     <fragment

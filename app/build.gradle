@@ -9,7 +9,7 @@ android {
     buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "taxi.kassa"
-        minSdkVersion 17
+        minSdkVersion 21
         targetSdkVersion 29
         versionCode 21
         versionName "1.21"
@@ -22,12 +22,6 @@ android {
         release {
             minifyEnabled true
             shrinkResources true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-        debug {
-            minifyEnabled true
-            shrinkResources true
-            debuggable false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -64,11 +58,12 @@ dependencies {
     implementation "com.google.code.gson:gson:2.8.6"
     implementation "com.squareup.okhttp3:logging-interceptor:4.3.1"
 
+    implementation "androidx.camera:camera-core:1.0.0-alpha03"
+    implementation "androidx.camera:camera-extensions:1.0.0-alpha03"
+
     implementation 'android.arch.navigation:navigation-fragment:1.0.0'
 
     implementation 'com.google.firebase:firebase-messaging:20.1.5'
 
     implementation "com.redmadrobot:input-mask-android:4.3.1"
-
-    implementation 'com.github.esafirm.android-image-picker:imagepicker:2.2.0'
 }
