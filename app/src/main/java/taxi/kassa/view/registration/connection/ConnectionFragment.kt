@@ -416,6 +416,18 @@ class ConnectionFragment : Fragment() {
                         8 -> gettStsViews.setLoadPhotoVisibility()
                         9 -> gettLicenseViews.setLoadPhotoVisibility()
                         10 -> gettSelfieViews.setLoadPhotoVisibility()
+                        11 -> cityDLicenseFrontViews.setLoadPhotoVisibility()
+                        12 -> cityDLicenseBackViews.setLoadPhotoVisibility()
+                        13 -> cityPassportFirstViews.setLoadPhotoVisibility()
+                        14 -> cityPassportRegViews.setLoadPhotoVisibility()
+                        15 -> cityStsViews.setLoadPhotoVisibility()
+                        16 -> cityLicenseFrontViews.setLoadPhotoVisibility()
+                        17 -> cityLicenseBackViews.setLoadPhotoVisibility()
+                        18 -> cityFrontSideViews.setLoadPhotoVisibility()
+                        19 -> cityBackSideViews.setLoadPhotoVisibility()
+                        20 -> cityLeftSideViews.setLoadPhotoVisibility()
+                        21 -> cityRightSideViews.setLoadPhotoVisibility()
+                        22 -> citySelfieViews.setLoadPhotoVisibility()
                     }
                 } else {
                     when (it.id) {
@@ -429,6 +441,18 @@ class ConnectionFragment : Fragment() {
                         8 -> gettStsViews.setNormalVisibility()
                         9 -> gettLicenseViews.setNormalVisibility()
                         10 -> gettSelfieViews.setNormalVisibility()
+                        11 -> cityDLicenseFrontViews.setNormalVisibility()
+                        12 -> cityDLicenseBackViews.setNormalVisibility()
+                        13 -> cityPassportFirstViews.setNormalVisibility()
+                        14 -> cityPassportRegViews.setNormalVisibility()
+                        15 -> cityStsViews.setNormalVisibility()
+                        16 -> cityLicenseFrontViews.setNormalVisibility()
+                        17 -> cityLicenseBackViews.setNormalVisibility()
+                        18 -> cityFrontSideViews.setNormalVisibility()
+                        19 -> cityBackSideViews.setNormalVisibility()
+                        20 -> cityLeftSideViews.setNormalVisibility()
+                        21 -> cityRightSideViews.setNormalVisibility()
+                        22 -> citySelfieViews.setNormalVisibility()
                     }
                 }
             }
@@ -444,7 +468,19 @@ class ConnectionFragment : Fragment() {
             passport_first_number_edit_text,
             gett_sts_edit_text,
             gett_license_edit_text,
-            make_selfie_edit_text
+            make_selfie_edit_text,
+            city_driver_license_front_edit_text,
+            city_driver_license_back_edit_text,
+            city_passport_first_edit_text,
+            city_passport_registration_edit_text,
+            city_sts_edit_text,
+            city_license_front_edit_text,
+            city_license_back_edit_text,
+            front_side_edit_text,
+            back_side_edit_text,
+            left_side_edit_text,
+            right_side_edit_text,
+            city_selfie_edit_text
         )
 
         inputs.map { editText ->
@@ -460,6 +496,18 @@ class ConnectionFragment : Fragment() {
                     R.id.gett_sts_edit_text -> viewModel.setSelected(8)
                     R.id.gett_license_edit_text -> viewModel.setSelected(9)
                     R.id.make_selfie_edit_text -> viewModel.setSelected(10)
+                    R.id.city_driver_license_front_edit_text -> viewModel.setSelected(11)
+                    R.id.city_driver_license_back_edit_text -> viewModel.setSelected(12)
+                    R.id.city_passport_first_edit_text -> viewModel.setSelected(13)
+                    R.id.city_passport_registration_edit_text -> viewModel.setSelected(14)
+                    R.id.city_sts_edit_text -> viewModel.setSelected(15)
+                    R.id.city_license_front_edit_text -> viewModel.setSelected(16)
+                    R.id.city_license_back_edit_text -> viewModel.setSelected(17)
+                    R.id.front_side_edit_text -> viewModel.setSelected(18)
+                    R.id.back_side_edit_text -> viewModel.setSelected(19)
+                    R.id.left_side_edit_text -> viewModel.setSelected(20)
+                    R.id.right_side_edit_text -> viewModel.setSelected(21)
+                    R.id.city_selfie_edit_text -> viewModel.setSelected(22)
                 }
 
                 findNavController(this).navigate(
@@ -489,6 +537,18 @@ class ConnectionFragment : Fragment() {
                     R.id.gett_sts_cancel -> viewModel.removeLoadImage(8)
                     R.id.gett_license_cancel -> viewModel.removeLoadImage(9)
                     R.id.make_selfie_cancel -> viewModel.removeLoadImage(10)
+                    R.id.city_driver_license_front_cancel -> viewModel.removeLoadImage(11)
+                    R.id.city_driver_license_back_cancel -> viewModel.removeLoadImage(12)
+                    R.id.city_passport_first_cancel -> viewModel.removeLoadImage(13)
+                    R.id.city_passport_registration_cancel -> viewModel.removeLoadImage(14)
+                    R.id.city_sts_cancel -> viewModel.removeLoadImage(15)
+                    R.id.city_license_front_cancel -> viewModel.removeLoadImage(16)
+                    R.id.city_license_back_cancel -> viewModel.removeLoadImage(17)
+                    R.id.front_side_cancel -> viewModel.removeLoadImage(18)
+                    R.id.back_side_cancel -> viewModel.removeLoadImage(19)
+                    R.id.left_side_cancel -> viewModel.removeLoadImage(20)
+                    R.id.right_side_cancel -> viewModel.removeLoadImage(21)
+                    R.id.city_selfie_cancel -> viewModel.removeLoadImage(22)
                 }
                 findNavController(this).navigate(
                     R.id.action_connectionFragment_self,

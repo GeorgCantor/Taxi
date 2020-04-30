@@ -125,7 +125,7 @@ class PhotoFragment : Fragment() {
 
     private fun disableActions() {
         preview_view.visibility = VISIBLE
-        takenImage.visibility = GONE
+        taken_image.visibility = GONE
         done.visibility = GONE
         reshoot_title.visibility = GONE
         reverse_camera.visibility = VISIBLE
@@ -134,7 +134,7 @@ class PhotoFragment : Fragment() {
 
     private fun enableActions() {
         preview_view.visibility = GONE
-        takenImage.visibility = VISIBLE
+        taken_image.visibility = VISIBLE
         done.visibility = VISIBLE
         reshoot_title.visibility = VISIBLE
         reverse_camera.visibility = GONE
@@ -248,7 +248,7 @@ class PhotoFragment : Fragment() {
                         photoBitmap = bitmap
 
                         requireActivity().runOnUiThread {
-                            takenImage.setImageBitmap(bitmap)
+                            taken_image.setImageBitmap(bitmap)
                             enableActions()
                         }
                     }
