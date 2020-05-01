@@ -1,6 +1,5 @@
 package taxi.kassa.view.withdraws.withdraw_create
 
-import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.text.Editable
@@ -12,7 +11,6 @@ import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.activity.OnBackPressedCallback
-import androidx.annotation.RequiresApi
 import androidx.core.view.get
 import androidx.core.view.isNotEmpty
 import androidx.fragment.app.Fragment
@@ -49,7 +47,6 @@ class WithdrawCreateFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? = inflater.inflate(R.layout.fragment_withdraw_create, container, false)
 
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

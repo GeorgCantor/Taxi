@@ -1,6 +1,5 @@
 package taxi.kassa.view.registration.connection
 
-import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +10,6 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import androidx.activity.OnBackPressedCallback
-import androidx.annotation.RequiresApi
 import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -30,6 +28,7 @@ import kotlinx.android.synthetic.main.keyboard.*
 import org.koin.androidx.viewmodel.ext.android.getSharedViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
+import taxi.kassa.model.LoadImage
 import taxi.kassa.util.*
 import taxi.kassa.util.Constants.CITYMOBIL
 import taxi.kassa.util.Constants.CONNECTION
@@ -40,31 +39,6 @@ import taxi.kassa.util.Constants.YANDEX
 class ConnectionFragment : Fragment() {
 
     private val taxiType: String by lazy { arguments?.get(CONNECTION) as String }
-
-    private var yandexDLicenseViews = arrayOf<View>()
-    private var yandexPasportFirstViews = arrayOf<View>()
-    private var yandexPasportRegViews = arrayOf<View>()
-    private var yandexStsViews = arrayOf<View>()
-    private var yandexLicenseViews = arrayOf<View>()
-
-    private var gettDLicenseViews = arrayOf<View>()
-    private var gettPassportViews = arrayOf<View>()
-    private var gettStsViews = arrayOf<View>()
-    private var gettLicenseViews = arrayOf<View>()
-    private var gettSelfieViews = arrayOf<View>()
-
-    private var cityDLicenseFrontViews = arrayOf<View>()
-    private var cityDLicenseBackViews = arrayOf<View>()
-    private var cityPassportFirstViews = arrayOf<View>()
-    private var cityPassportRegViews = arrayOf<View>()
-    private var cityStsViews = arrayOf<View>()
-    private var cityLicenseFrontViews = arrayOf<View>()
-    private var cityLicenseBackViews = arrayOf<View>()
-    private var cityFrontSideViews = arrayOf<View>()
-    private var cityBackSideViews = arrayOf<View>()
-    private var cityLeftSideViews = arrayOf<View>()
-    private var cityRightSideViews = arrayOf<View>()
-    private var citySelfieViews = arrayOf<View>()
 
     private lateinit var viewModel: ConnectionViewModel
 
@@ -79,7 +53,6 @@ class ConnectionFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? = inflater.inflate(R.layout.fragment_connection, container, false)
 
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -244,35 +217,35 @@ class ConnectionFragment : Fragment() {
         city_driver_license_front_edit_text.setHint(R.string.driver_license_front)
         city_driver_license_back_edit_text.setHint(R.string.driver_license_back)
 
-        yandexDLicenseViews = arrayOf(
+       val yandexDLicenseViews = arrayOf(
             driver_license_input_view,
             driver_license_input_view2,
             driver_license_edit_text,
             driver_license_edit_text2,
             driver_license_cancel
         )
-        yandexPasportFirstViews = arrayOf(
+        val yandexPasportFirstViews = arrayOf(
             passport_first_input_view,
             passport_first_input_view2,
             passport_first_edit_text,
             passport_first_edit_text2,
             passport_first_cancel
         )
-        yandexPasportRegViews = arrayOf(
+        val yandexPasportRegViews = arrayOf(
             passport_reg_input_view,
             passport_reg_input_view2,
             passport_reg_edit_text,
             passport_reg_edit_text2,
             passport_reg_cancel
         )
-        yandexStsViews = arrayOf(
+        val yandexStsViews = arrayOf(
             sts_input_view,
             sts_input_view2,
             sts_edit_text,
             sts_edit_text2,
             sts_cancel
         )
-        yandexLicenseViews = arrayOf(
+        val yandexLicenseViews = arrayOf(
             license_input_view,
             license_input_view2,
             license_edit_text,
@@ -280,35 +253,35 @@ class ConnectionFragment : Fragment() {
             license_cancel
         )
 
-        gettDLicenseViews = arrayOf(
+        val gettDLicenseViews = arrayOf(
             gett_driver_license_input_view,
             gett_driver_license_input_view2,
             gett_driver_license_edit_text,
             gett_driver_license_edit_text2,
             gett_driver_license_cancel
         )
-        gettPassportViews = arrayOf(
+        val gettPassportViews = arrayOf(
             passport_first_number_input_view,
             passport_first_number_input_view2,
             passport_first_number_edit_text,
             passport_first_number_edit_text2,
             passport_first_number_cancel
         )
-        gettStsViews = arrayOf(
+        val gettStsViews = arrayOf(
             gett_sts_input_view,
             gett_sts_input_view2,
             gett_sts_edit_text,
             gett_sts_edit_text2,
             gett_sts_cancel
         )
-        gettLicenseViews = arrayOf(
+        val gettLicenseViews = arrayOf(
             gett_license_input_view,
             gett_license_input_view2,
             gett_license_edit_text,
             gett_license_edit_text2,
             gett_license_cancel
         )
-        gettSelfieViews = arrayOf(
+        val gettSelfieViews = arrayOf(
             make_selfie_input_view,
             make_selfie_input_view2,
             make_selfie_edit_text,
@@ -316,115 +289,90 @@ class ConnectionFragment : Fragment() {
             make_selfie_cancel
         )
 
-        cityDLicenseFrontViews = arrayOf(
+        val cityDLicenseFrontViews = arrayOf(
             city_driver_license_front_input_view,
             city_driver_license_front_input_view2,
             city_driver_license_front_edit_text,
             city_driver_license_front_edit_text2,
             city_driver_license_front_cancel
         )
-        cityDLicenseBackViews = arrayOf(
+        val cityDLicenseBackViews = arrayOf(
             city_driver_license_back_input_view,
             city_driver_license_back_input_view2,
             city_driver_license_back_edit_text,
             city_driver_license_back_edit_text2,
             city_driver_license_back_cancel
         )
-        cityPassportFirstViews = arrayOf(
+        val cityPassportFirstViews = arrayOf(
             city_passport_first_input_view,
             city_passport_first_input_view2,
             city_passport_first_edit_text,
             city_passport_first_edit_text2,
             city_passport_first_cancel
         )
-        cityPassportRegViews = arrayOf(
+        val cityPassportRegViews = arrayOf(
             city_passport_registration_input_view,
             city_passport_registration_input_view2,
             city_passport_registration_edit_text,
             city_passport_registration_edit_text2,
             city_passport_registration_cancel
         )
-        cityStsViews = arrayOf(
+        val cityStsViews = arrayOf(
             city_sts_input_view,
             city_sts_input_view2,
             city_sts_edit_text,
             city_sts_edit_text2,
             city_sts_cancel
         )
-        cityLicenseFrontViews = arrayOf(
+        val cityLicenseFrontViews = arrayOf(
             city_license_front_input_view,
             city_license_front_input_view2,
             city_license_front_edit_text,
             city_license_front_edit_text2,
             city_license_front_cancel
         )
-        cityLicenseBackViews = arrayOf(
+        val cityLicenseBackViews = arrayOf(
             city_license_back_input_view,
             city_license_back_input_view2,
             city_license_back_edit_text,
             city_license_back_edit_text2,
             city_license_back_cancel
         )
-        cityFrontSideViews = arrayOf(
+        val cityFrontSideViews = arrayOf(
             front_side_input_view,
             front_side_input_view2,
             front_side_edit_text,
             front_side_edit_text2,
             front_side_cancel
         )
-        cityBackSideViews = arrayOf(
+        val cityBackSideViews = arrayOf(
             back_side_input_view,
             back_side_input_view2,
             back_side_edit_text,
             back_side_edit_text2,
             back_side_cancel
         )
-        cityLeftSideViews = arrayOf(
+        val cityLeftSideViews = arrayOf(
             left_side_input_view,
             left_side_input_view2,
             left_side_edit_text,
             left_side_edit_text2,
             left_side_cancel
         )
-        cityRightSideViews = arrayOf(
+        val cityRightSideViews = arrayOf(
             right_side_input_view,
             right_side_input_view2,
             right_side_edit_text,
             right_side_edit_text2,
             right_side_cancel
         )
-        citySelfieViews = arrayOf(
+        val citySelfieViews = arrayOf(
             city_selfie_input_view,
             city_selfie_input_view2,
             city_selfie_edit_text,
             city_selfie_edit_text2,
             city_selfie_cancel
         )
-
-        viewModel.loadedImages.observe(viewLifecycleOwner, Observer {
-            it?.find { it.id == 1 }.let { if (it != null) yandexDLicenseViews.setLoadPhotoVisibility() else yandexDLicenseViews.setNormalVisibility() }
-            it?.find { it.id == 2 }.let { if (it != null) yandexPasportFirstViews.setLoadPhotoVisibility() else yandexPasportFirstViews.setNormalVisibility() }
-            it?.find { it.id == 3 }.let { if (it != null) yandexPasportRegViews.setLoadPhotoVisibility() else yandexPasportRegViews.setNormalVisibility() }
-            it?.find { it.id == 4 }.let { if (it != null) yandexStsViews.setLoadPhotoVisibility() else yandexStsViews.setNormalVisibility() }
-            it?.find { it.id == 5 }.let { if (it != null) yandexLicenseViews.setLoadPhotoVisibility() else yandexLicenseViews.setNormalVisibility() }
-            it?.find { it.id == 6 }.let { if (it != null) gettDLicenseViews.setLoadPhotoVisibility() else gettDLicenseViews.setNormalVisibility() }
-            it?.find { it.id == 7 }.let { if (it != null) gettPassportViews.setLoadPhotoVisibility() else gettPassportViews.setNormalVisibility() }
-            it?.find { it.id == 8 }.let { if (it != null) gettStsViews.setLoadPhotoVisibility() else gettStsViews.setNormalVisibility() }
-            it?.find { it.id == 9 }.let { if (it != null) gettLicenseViews.setLoadPhotoVisibility() else gettLicenseViews.setNormalVisibility() }
-            it?.find { it.id == 10 }.let { if (it != null) gettSelfieViews.setLoadPhotoVisibility() else gettSelfieViews.setNormalVisibility() }
-            it?.find { it.id == 11 }.let { if (it != null) cityDLicenseFrontViews.setLoadPhotoVisibility() else cityDLicenseFrontViews.setNormalVisibility() }
-            it?.find { it.id == 12 }.let { if (it != null) cityDLicenseBackViews.setLoadPhotoVisibility() else cityDLicenseBackViews.setNormalVisibility() }
-            it?.find { it.id == 13 }.let { if (it != null) cityPassportFirstViews.setLoadPhotoVisibility() else cityPassportFirstViews.setNormalVisibility() }
-            it?.find { it.id == 14 }.let { if (it != null) cityPassportRegViews.setLoadPhotoVisibility() else cityPassportRegViews.setNormalVisibility() }
-            it?.find { it.id == 15 }.let { if (it != null) cityStsViews.setLoadPhotoVisibility() else cityStsViews.setNormalVisibility() }
-            it?.find { it.id == 16 }.let { if (it != null) cityLicenseFrontViews.setLoadPhotoVisibility() else cityLicenseFrontViews.setNormalVisibility() }
-            it?.find { it.id == 17 }.let { if (it != null) cityLicenseBackViews.setLoadPhotoVisibility() else cityLicenseBackViews.setNormalVisibility() }
-            it?.find { it.id == 18 }.let { if (it != null) cityFrontSideViews.setLoadPhotoVisibility() else cityFrontSideViews.setNormalVisibility() }
-            it?.find { it.id == 19 }.let { if (it != null) cityBackSideViews.setLoadPhotoVisibility() else cityBackSideViews.setNormalVisibility() }
-            it?.find { it.id == 20 }.let { if (it != null) cityLeftSideViews.setLoadPhotoVisibility() else cityLeftSideViews.setNormalVisibility() }
-            it?.find { it.id == 21 }.let { if (it != null) cityRightSideViews.setLoadPhotoVisibility() else cityRightSideViews.setNormalVisibility() }
-            it?.find { it.id == 22 }.let { if (it != null) citySelfieViews.setLoadPhotoVisibility() else citySelfieViews.setNormalVisibility() }
-        })
 
         val inputs = listOf<EditText>(
             driver_license_edit_text,
@@ -520,6 +468,45 @@ class ConnectionFragment : Fragment() {
                 }
             }
         }
+
+        val inputViews = mutableListOf<Array<View>>(
+            yandexDLicenseViews,
+            yandexPasportFirstViews,
+            yandexPasportRegViews,
+            yandexStsViews,
+            yandexLicenseViews,
+            gettDLicenseViews,
+            gettPassportViews,
+            gettStsViews,
+            gettLicenseViews,
+            gettSelfieViews,
+            cityDLicenseFrontViews,
+            cityDLicenseBackViews,
+            cityPassportFirstViews,
+            cityPassportRegViews,
+            cityStsViews,
+            cityLicenseFrontViews,
+            cityLicenseBackViews,
+            cityFrontSideViews,
+            cityBackSideViews,
+            cityLeftSideViews,
+            cityRightSideViews,
+            citySelfieViews
+        )
+
+        viewModel.loadedImages.observe(viewLifecycleOwner, Observer { loadImages ->
+            var id = 1
+            inputViews.map {
+                setInputViewsState(loadImages, id, it)
+                id++
+            }
+        })
+    }
+
+    // go through the downloaded images and set the editTexts visibility
+    private fun setInputViewsState(images: MutableList<LoadImage>, id: Int, inputs: Array<View>) {
+        images.find { it.id == id }
+            .let { if (it != null) inputs.setLoadPhotoVisibility() else inputs.setNormalVisibility() }
     }
 
     private fun setNumberClickListener(button: Button, resource: Int) {
