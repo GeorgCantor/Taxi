@@ -8,7 +8,6 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Matrix
 import android.media.Image
-import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.LayoutInflater
@@ -17,7 +16,6 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
-import androidx.annotation.RequiresApi
 import androidx.camera.core.*
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -36,12 +34,12 @@ class PhotoFragment : Fragment() {
 
     companion object {
         private const val REQUEST_CODE_PERMISSIONS = 10
-
-        private val REQUIRED_PERMISSIONS = arrayOf(
-            Manifest.permission.CAMERA,
-            Manifest.permission.WRITE_EXTERNAL_STORAGE
-        )
     }
+
+    private val permissions = arrayOf(
+        Manifest.permission.CAMERA,
+        Manifest.permission.WRITE_EXTERNAL_STORAGE
+    )
 
     private val taxiType: String by lazy { arguments?.get(CONNECTION) as String }
     private val executor: Executor by lazy { Executors.newSingleThreadExecutor() }
@@ -69,12 +67,8 @@ class PhotoFragment : Fragment() {
         requestPermissions()
 
         reverse_camera.setOnClickListener { toggleFrontBackCamera() }
-
         take_photo_btn.setOnClickListener { takePicture() }
-        reshoot_title.setOnClickListener {
-            disableActions()
-        }
-
+        reshoot_title.setOnClickListener { setVisibilityWhileShooting() }
         folder.setOnClickListener { openGallery() }
 
         done.setOnClickListener { activity?.onBackPressed() }
@@ -104,17 +98,17 @@ class PhotoFragment : Fragment() {
         if (allPermissionsGranted()) {
             preview_view.post { startCamera() }
         } else {
-            requestPermissions(REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS)
+            requestPermissions(permissions, REQUEST_CODE_PERMISSIONS)
         }
     }
 
     private fun rotateImage(source: Bitmap, angle: Float): Bitmap {
         val matrix = Matrix()
         matrix.postRotate(angle)
+
         return Bitmap.createBitmap(source, 0, 0, source.width, source.height, matrix, true)
     }
 
-    @RequiresApi(Build.VERSION_CODES.KITKAT)
     private fun imageToBitmap(image: Image): Bitmap {
         val buffer = image.planes[0].buffer
         val bytes = ByteArray(buffer.capacity())
@@ -123,7 +117,7 @@ class PhotoFragment : Fragment() {
         return BitmapFactory.decodeByteArray(bytes, 0, bytes.size, null)
     }
 
-    private fun disableActions() {
+    private fun setVisibilityWhileShooting() {
         preview_view.visibility = VISIBLE
         taken_image.visibility = GONE
         done.visibility = GONE
@@ -132,7 +126,7 @@ class PhotoFragment : Fragment() {
         take_photo_btn.isClickable = true
     }
 
-    private fun enableActions() {
+    private fun setVisibilityAfterShooting() {
         preview_view.visibility = GONE
         taken_image.visibility = VISIBLE
         done.visibility = VISIBLE
@@ -141,7 +135,7 @@ class PhotoFragment : Fragment() {
         take_photo_btn.isClickable = false
     }
 
-    private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all {
+    private fun allPermissionsGranted() = permissions.all {
         ContextCompat.checkSelfPermission(requireContext(), it) == PackageManager.PERMISSION_GRANTED
     }
 
@@ -149,7 +143,6 @@ class PhotoFragment : Fragment() {
         CameraX.unbindAll()
 
         val preview = createPreviewUseCase()
-
         preview.setOnPreviewOutputUpdateListener {
             val parent = preview_view.parent as ViewGroup
             parent.removeView(preview_view)
@@ -171,7 +164,7 @@ class PhotoFragment : Fragment() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (resultCode == Activity.RESULT_OK) {
             if (data != null) {
-                val inputStream = data.data?.let { requireActivity().contentResolver.openInputStream(it) }!!
+                val inputStream = data.data?.let { requireActivity().contentResolver.openInputStream(it) }
                 val bitmap = BitmapFactory.decodeStream(inputStream)
                 viewModel.setLoadImage(bitmap)
                 loadFromGallery = true
@@ -231,17 +224,16 @@ class PhotoFragment : Fragment() {
     }
 
     private fun takePicture() {
-        disableActions()
+        setVisibilityWhileShooting()
         savePictureToMemory()
     }
 
     private fun savePictureToMemory() {
         imageCapture?.takePicture(executor, object : ImageCapture.OnImageCapturedListener() {
                 override fun onError(error: ImageCapture.ImageCaptureError, message: String, exc: Throwable?) {
-                    context?.shortToast("Saving image failed")
+                    context?.shortToast(message)
                 }
 
-                @RequiresApi(Build.VERSION_CODES.KITKAT)
                 override fun onCaptureSuccess(imageProxy: ImageProxy?, rotationDegrees: Int) {
                     imageProxy?.image?.let {
                         val bitmap = rotateImage(imageToBitmap(it), rotationDegrees.toFloat())
@@ -249,7 +241,7 @@ class PhotoFragment : Fragment() {
 
                         requireActivity().runOnUiThread {
                             taken_image.setImageBitmap(bitmap)
-                            enableActions()
+                            setVisibilityAfterShooting()
                         }
                     }
                     super.onCaptureSuccess(imageProxy, rotationDegrees)
