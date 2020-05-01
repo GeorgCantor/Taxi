@@ -52,9 +52,6 @@
         <action
             android:id="@+id/action_connectionFragment_to_photoFragment"
             app:destination="@id/photoFragment" />
-        <action
-            android:id="@+id/action_connectionFragment_self"
-            app:destination="@id/connectionFragment" />
     </fragment>
 
     <fragment

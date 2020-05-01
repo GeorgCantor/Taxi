@@ -15,7 +15,7 @@ class ConnectionViewModel : ViewModel() {
 
     fun setLoadImage(bitmap: Bitmap) {
         Observable.fromCallable {
-            val image = LoadImage(selected, bitmap, true)
+            val image = LoadImage(selected, bitmap)
             images.add(image)
             loadedImages.postValue(images)
         }
@@ -28,11 +28,15 @@ class ConnectionViewModel : ViewModel() {
     }
 
     fun removeLoadImage(selectedNo: Int) {
-        var removed = LoadImage(0, null, false)
-        images.map {
-            if (selectedNo == it.id) removed = it
+        Observable.fromCallable {
+            var removed = LoadImage(0, null)
+            images.map {
+                if (selectedNo == it.id) removed = it
+            }
+            images.remove(removed)
+            loadedImages.postValue(images)
         }
-        images.remove(removed)
-        loadedImages.value = images
+            .subscribeOn(Schedulers.io())
+            .subscribe()
     }
 }

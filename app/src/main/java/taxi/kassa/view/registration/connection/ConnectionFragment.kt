@@ -66,7 +66,6 @@ class ConnectionFragment : Fragment() {
     private var cityRightSideViews = arrayOf<View>()
     private var citySelfieViews = arrayOf<View>()
 
-    private lateinit var selectedType: ImageType
     private lateinit var viewModel: ConnectionViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -403,59 +402,28 @@ class ConnectionFragment : Fragment() {
         )
 
         viewModel.loadedImages.observe(viewLifecycleOwner, Observer {
-            it.map {
-                if (it.isLoaded) {
-                    when (it.id) {
-                        1 -> yandexDLicenseViews.setLoadPhotoVisibility()
-                        2 -> yandexPasportFirstViews.setLoadPhotoVisibility()
-                        3 -> yandexPasportRegViews.setLoadPhotoVisibility()
-                        4 -> yandexStsViews.setLoadPhotoVisibility()
-                        5 -> yandexLicenseViews.setLoadPhotoVisibility()
-                        6 -> gettDLicenseViews.setLoadPhotoVisibility()
-                        7 -> gettPassportViews.setLoadPhotoVisibility()
-                        8 -> gettStsViews.setLoadPhotoVisibility()
-                        9 -> gettLicenseViews.setLoadPhotoVisibility()
-                        10 -> gettSelfieViews.setLoadPhotoVisibility()
-                        11 -> cityDLicenseFrontViews.setLoadPhotoVisibility()
-                        12 -> cityDLicenseBackViews.setLoadPhotoVisibility()
-                        13 -> cityPassportFirstViews.setLoadPhotoVisibility()
-                        14 -> cityPassportRegViews.setLoadPhotoVisibility()
-                        15 -> cityStsViews.setLoadPhotoVisibility()
-                        16 -> cityLicenseFrontViews.setLoadPhotoVisibility()
-                        17 -> cityLicenseBackViews.setLoadPhotoVisibility()
-                        18 -> cityFrontSideViews.setLoadPhotoVisibility()
-                        19 -> cityBackSideViews.setLoadPhotoVisibility()
-                        20 -> cityLeftSideViews.setLoadPhotoVisibility()
-                        21 -> cityRightSideViews.setLoadPhotoVisibility()
-                        22 -> citySelfieViews.setLoadPhotoVisibility()
-                    }
-                } else {
-                    when (it.id) {
-                        1 -> yandexDLicenseViews.setNormalVisibility()
-                        2 -> yandexPasportFirstViews.setNormalVisibility()
-                        3 -> yandexPasportRegViews.setNormalVisibility()
-                        4 -> yandexStsViews.setNormalVisibility()
-                        5 -> yandexLicenseViews.setNormalVisibility()
-                        6 -> gettDLicenseViews.setNormalVisibility()
-                        7 -> gettPassportViews.setNormalVisibility()
-                        8 -> gettStsViews.setNormalVisibility()
-                        9 -> gettLicenseViews.setNormalVisibility()
-                        10 -> gettSelfieViews.setNormalVisibility()
-                        11 -> cityDLicenseFrontViews.setNormalVisibility()
-                        12 -> cityDLicenseBackViews.setNormalVisibility()
-                        13 -> cityPassportFirstViews.setNormalVisibility()
-                        14 -> cityPassportRegViews.setNormalVisibility()
-                        15 -> cityStsViews.setNormalVisibility()
-                        16 -> cityLicenseFrontViews.setNormalVisibility()
-                        17 -> cityLicenseBackViews.setNormalVisibility()
-                        18 -> cityFrontSideViews.setNormalVisibility()
-                        19 -> cityBackSideViews.setNormalVisibility()
-                        20 -> cityLeftSideViews.setNormalVisibility()
-                        21 -> cityRightSideViews.setNormalVisibility()
-                        22 -> citySelfieViews.setNormalVisibility()
-                    }
-                }
-            }
+            it?.find { it.id == 1 }.let { if (it != null) yandexDLicenseViews.setLoadPhotoVisibility() else yandexDLicenseViews.setNormalVisibility() }
+            it?.find { it.id == 2 }.let { if (it != null) yandexPasportFirstViews.setLoadPhotoVisibility() else yandexPasportFirstViews.setNormalVisibility() }
+            it?.find { it.id == 3 }.let { if (it != null) yandexPasportRegViews.setLoadPhotoVisibility() else yandexPasportRegViews.setNormalVisibility() }
+            it?.find { it.id == 4 }.let { if (it != null) yandexStsViews.setLoadPhotoVisibility() else yandexStsViews.setNormalVisibility() }
+            it?.find { it.id == 5 }.let { if (it != null) yandexLicenseViews.setLoadPhotoVisibility() else yandexLicenseViews.setNormalVisibility() }
+            it?.find { it.id == 6 }.let { if (it != null) gettDLicenseViews.setLoadPhotoVisibility() else gettDLicenseViews.setNormalVisibility() }
+            it?.find { it.id == 7 }.let { if (it != null) gettPassportViews.setLoadPhotoVisibility() else gettPassportViews.setNormalVisibility() }
+            it?.find { it.id == 8 }.let { if (it != null) gettStsViews.setLoadPhotoVisibility() else gettStsViews.setNormalVisibility() }
+            it?.find { it.id == 9 }.let { if (it != null) gettLicenseViews.setLoadPhotoVisibility() else gettLicenseViews.setNormalVisibility() }
+            it?.find { it.id == 10 }.let { if (it != null) gettSelfieViews.setLoadPhotoVisibility() else gettSelfieViews.setNormalVisibility() }
+            it?.find { it.id == 11 }.let { if (it != null) cityDLicenseFrontViews.setLoadPhotoVisibility() else cityDLicenseFrontViews.setNormalVisibility() }
+            it?.find { it.id == 12 }.let { if (it != null) cityDLicenseBackViews.setLoadPhotoVisibility() else cityDLicenseBackViews.setNormalVisibility() }
+            it?.find { it.id == 13 }.let { if (it != null) cityPassportFirstViews.setLoadPhotoVisibility() else cityPassportFirstViews.setNormalVisibility() }
+            it?.find { it.id == 14 }.let { if (it != null) cityPassportRegViews.setLoadPhotoVisibility() else cityPassportRegViews.setNormalVisibility() }
+            it?.find { it.id == 15 }.let { if (it != null) cityStsViews.setLoadPhotoVisibility() else cityStsViews.setNormalVisibility() }
+            it?.find { it.id == 16 }.let { if (it != null) cityLicenseFrontViews.setLoadPhotoVisibility() else cityLicenseFrontViews.setNormalVisibility() }
+            it?.find { it.id == 17 }.let { if (it != null) cityLicenseBackViews.setLoadPhotoVisibility() else cityLicenseBackViews.setNormalVisibility() }
+            it?.find { it.id == 18 }.let { if (it != null) cityFrontSideViews.setLoadPhotoVisibility() else cityFrontSideViews.setNormalVisibility() }
+            it?.find { it.id == 19 }.let { if (it != null) cityBackSideViews.setLoadPhotoVisibility() else cityBackSideViews.setNormalVisibility() }
+            it?.find { it.id == 20 }.let { if (it != null) cityLeftSideViews.setLoadPhotoVisibility() else cityLeftSideViews.setNormalVisibility() }
+            it?.find { it.id == 21 }.let { if (it != null) cityRightSideViews.setLoadPhotoVisibility() else cityRightSideViews.setNormalVisibility() }
+            it?.find { it.id == 22 }.let { if (it != null) citySelfieViews.setLoadPhotoVisibility() else citySelfieViews.setNormalVisibility() }
         })
 
         val inputs = listOf<EditText>(
@@ -550,10 +518,6 @@ class ConnectionFragment : Fragment() {
                     R.id.right_side_cancel -> viewModel.removeLoadImage(21)
                     R.id.city_selfie_cancel -> viewModel.removeLoadImage(22)
                 }
-                findNavController(this).navigate(
-                    R.id.action_connectionFragment_self,
-                    Bundle().apply { putString(CONNECTION, taxiType) }
-                )
             }
         }
     }
