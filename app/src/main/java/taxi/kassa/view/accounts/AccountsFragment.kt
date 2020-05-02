@@ -53,59 +53,61 @@ class AccountsFragment : Fragment() {
         }
         activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, callback)
 
-        viewModel.getAccounts()
+        with(viewModel) {
+            getAccounts()
 
-        viewModel.isProgressVisible.observe(viewLifecycleOwner) { visible ->
-            progress_bar.visibility = if (visible) VISIBLE else GONE
-        }
-
-        viewModel.error.observe(viewLifecycleOwner) { context?.shortToast(it) }
-
-        viewModel.creatingStatus.observe(viewLifecycleOwner) { status ->
-            status?.let {
-                context?.shortToast(it)
-                viewModel.getAccounts()
+            isProgressVisible.observe(viewLifecycleOwner) { visible ->
+                progress_bar.visibility = if (visible) VISIBLE else GONE
             }
-        }
 
-        viewModel.deletionStatus.observe(viewLifecycleOwner) { status ->
-            status?.let {
-                context?.shortToast(it)
-                viewModel.getAccounts()
-            }
-        }
+            error.observe(viewLifecycleOwner) { context?.shortToast(it) }
 
-        viewModel.accounts.observe(viewLifecycleOwner) {
-            if (it.info?.isNotEmpty() == true) {
-                account_block.visible()
-                no_account_block.invisible()
-                val account = it.info.first()
-                bank_name_tv.text = account.bankName
-                order_tv.text = getString(R.string.order_format, account.accountNumber)
-                name_tv.text = account.driverName
-            } else {
-                account_block.invisible()
-                no_account_block.visible()
-            }
-        }
-
-        viewModel.notifications.observe(viewLifecycleOwner) {
-            val oldPushesSize = PreferenceManager(requireContext()).getInt(PUSH_COUNTER)
-            oldPushesSize?.let { oldSize ->
-                if (it.size > oldSize) {
-                    notification_count.text = (it.size - oldSize).toString()
-                    notification_count.visible()
-                    notification_image.invisible()
-                } else {
-                    notification_count.invisible()
-                    notification_image.visible()
+            creatingStatus.observe(viewLifecycleOwner) { status ->
+                status?.let {
+                    context?.shortToast(it)
+                    viewModel.getAccounts()
                 }
             }
-        }
 
-        viewModel.cards.observe(viewLifecycleOwner) {
-            cards_recycler.setHasFixedSize(true)
-            cards_recycler.adapter = AccountsCardsAdapter(it)
+            deletionStatus.observe(viewLifecycleOwner) { status ->
+                status?.let {
+                    context?.shortToast(it)
+                    viewModel.getAccounts()
+                }
+            }
+
+            accounts.observe(viewLifecycleOwner) {
+                if (it.info?.isNotEmpty() == true) {
+                    account_block.visible()
+                    no_account_block.invisible()
+                    val account = it.info.first()
+                    bank_name_tv.text = account.bankName
+                    order_tv.text = getString(R.string.order_format, account.accountNumber)
+                    name_tv.text = account.driverName
+                } else {
+                    account_block.invisible()
+                    no_account_block.visible()
+                }
+            }
+
+            notifications.observe(viewLifecycleOwner) {
+                val oldPushesSize = PreferenceManager(requireContext()).getInt(PUSH_COUNTER)
+                oldPushesSize?.let { oldSize ->
+                    if (it.size > oldSize) {
+                        notification_count.text = (it.size - oldSize).toString()
+                        notification_count.visible()
+                        notification_image.invisible()
+                    } else {
+                        notification_count.invisible()
+                        notification_image.visible()
+                    }
+                }
+            }
+
+            cards.observe(viewLifecycleOwner) {
+                cards_recycler.setHasFixedSize(true)
+                cards_recycler.adapter = AccountsCardsAdapter(it)
+            }
         }
 
         val numberInputs = listOf<TextInputEditText>(

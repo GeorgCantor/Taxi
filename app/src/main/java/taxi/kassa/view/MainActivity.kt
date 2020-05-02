@@ -56,7 +56,7 @@ class MainActivity : AppCompatActivity() {
 
         val token = manager.getString(TOKEN) ?: ""
 
-        val navHostFragment = navHostFragment as NavHostFragment
+        val navHostFragment = nav_host_fragment as NavHostFragment
         val inflater = navHostFragment.navController.navInflater
         val graph = inflater.inflate(R.navigation.nav_graph)
 
