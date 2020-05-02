@@ -25,35 +25,35 @@ class ApiRepository(
         code: String
     ) = apiService.getCode(phone, code)
 
-    fun getOwner() = apiService.getOwner()
+    suspend fun getOwner() = apiService.getOwnerAsync()?.await()
 
     fun getWithdraws() = apiService.getWithdraws()
 
-    fun getAccounts() = apiService.getAccounts()
+    suspend fun getAccounts() = apiService.getAccountsAsync()?.await()
 
-    fun createAccount(
+    suspend fun createAccount(
         firstName: String,
         lastName: String,
         middleName: String,
         accountNumber: String,
         bankCode: String
-    ) = apiService.createAccount(
+    ) = apiService.createAccountAsync(
         firstName,
         lastName,
         middleName,
         accountNumber,
         bankCode
-    )
+    )?.await()
 
-    fun deleteAccount(accountId: Int) = apiService.deleteAccount(accountId)
+    suspend fun deleteAccount(accountId: Int) = apiService.deleteAccountAsync(accountId)?.await()
 
-    fun createWithdraw(
+    suspend fun createWithdraw(
         sourceId: Int,
         amount: String?,
         accountId: Int
-    ) = apiService.createWithdraw(sourceId, amount, accountId)
+    ) = apiService.createWithdrawAsync(sourceId, amount, accountId)?.await()
 
-    fun getOrders(offset: String) = apiService.getOrders(offset)
+    suspend fun getOrders(offset: String) = apiService.getOrdersAsync(offset)?.await()
 
     fun getNotifications(): MutableList<Notification> {
         val notifications = preferenceManager.getNotifications(NOTIFICATIONS)

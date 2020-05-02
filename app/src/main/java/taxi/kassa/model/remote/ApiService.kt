@@ -1,6 +1,7 @@
 package taxi.kassa.model.remote
 
 import io.reactivex.Observable
+import kotlinx.coroutines.Deferred
 import retrofit2.http.*
 import taxi.kassa.model.responses.*
 
@@ -27,36 +28,36 @@ interface ApiService {
     ): Observable<ResponseAPI<ResponseCreateRequest?>?>?
 
     @GET("owner")
-    fun getOwner(): Observable<ResponseAPI<ResponseOwner?>?>?
+    fun getOwnerAsync(): Deferred<ResponseAPI<ResponseOwner?>?>?
 
     @GET("withdrawals")
     fun getWithdraws(): Observable<ResponseAPI<Withdraws?>?>?
 
     @POST("withdrawals")
     @FormUrlEncoded
-    fun createWithdraw(
+    fun createWithdrawAsync(
         @Field("source_id") source_id: Int,
         @Field("amount") amount: String?,
         @Field("account_id") account_id: Int
-    ): Observable<ResponseAPI<ResponseSimple?>?>?
+    ): Deferred<ResponseAPI<ResponseSimple?>?>?
 
     @GET("accounts")
-    fun getAccounts(): Observable<ResponseAPI<AccountsList?>?>?
+    fun getAccountsAsync(): Deferred<ResponseAPI<AccountsList?>?>?
 
     @POST("accounts")
     @FormUrlEncoded
-    fun createAccount(
+    fun createAccountAsync(
         @Field("first_name") first_name: String?,
         @Field("last_name") last_name: String?,
         @Field("middle_name") middle_name: String?,
         @Field("account_number") account_number: String?,
         @Field("bank_code") bank_code: String?
-    ): Observable<ResponseAPI<ResponseSimple?>?>?
+    ): Deferred<ResponseAPI<ResponseSimple?>?>?
 
     @POST("account_delete")
     @FormUrlEncoded
-    fun deleteAccount(@Field("account_id") account_id: Int): Observable<ResponseAPI<ResponseSimple?>?>?
+    fun deleteAccountAsync(@Field("account_id") account_id: Int): Deferred<ResponseAPI<ResponseSimple?>?>?
 
     @GET("orders")
-    fun getOrders(@Query("offset") offset: String?): Observable<ResponseAPI<Orders?>?>?
+    fun getOrdersAsync(@Query("offset") offset: String?): Deferred<ResponseAPI<Orders?>?>?
 }

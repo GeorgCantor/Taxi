@@ -11,7 +11,7 @@ import taxi.kassa.repository.ApiRepository
 
 class OrdersViewModel(
     app: Application,
-    private val repository: ApiRepository
+    repository: ApiRepository
 ) : AndroidViewModel(app) {
 
     private val context = getApplication<MyApplication>()

@@ -28,7 +28,6 @@ import taxi.kassa.util.Constants.PUSH_COUNTER
 import taxi.kassa.util.Constants.SUPPORT_PHONE_NUMBER
 import taxi.kassa.util.Constants.TOKEN
 import taxi.kassa.util.Constants.TOTAL_BALANCE
-import taxi.kassa.util.Constants.accessToken
 import taxi.kassa.view.MainActivity
 import java.util.*
 
@@ -41,7 +40,6 @@ class ProfileFragment : Fragment() {
         super.onCreate(savedInstanceState)
         viewModel = getViewModel { parametersOf() }
         prefManager = PreferenceManager(requireContext())
-        accessToken = prefManager.getString(TOKEN) ?: ""
     }
 
     override fun onCreateView(

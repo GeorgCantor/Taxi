@@ -12,6 +12,7 @@ import taxi.kassa.util.Constants.NOTIFICATIONS
 import taxi.kassa.util.Constants.PUSH_PATTERN
 import taxi.kassa.util.Constants.TITLE
 import taxi.kassa.util.Constants.TOKEN
+import taxi.kassa.util.Constants.accessToken
 import taxi.kassa.util.Constants.myDateFormatSymbols
 import taxi.kassa.util.PreferenceManager
 import taxi.kassa.util.hideKeyboard
@@ -55,6 +56,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         val token = manager.getString(TOKEN) ?: ""
+        accessToken = token
 
         val navHostFragment = nav_host_fragment as NavHostFragment
         val inflater = navHostFragment.navController.navInflater

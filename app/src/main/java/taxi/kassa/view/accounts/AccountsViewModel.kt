@@ -2,17 +2,14 @@ package taxi.kassa.view.accounts
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import io.reactivex.Observable
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.schedulers.Schedulers
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.launch
 import taxi.kassa.model.Card
 import taxi.kassa.model.Notification
 import taxi.kassa.model.responses.AccountsList
 import taxi.kassa.repository.ApiRepository
 
 class AccountsViewModel(private val repository: ApiRepository) : ViewModel() {
-
-    private val disposable = CompositeDisposable()
 
     val isProgressVisible = MutableLiveData<Boolean>().apply { this.value = true }
     val creatingStatus = MutableLiveData<String>()
@@ -23,25 +20,19 @@ class AccountsViewModel(private val repository: ApiRepository) : ViewModel() {
     val cards = MutableLiveData<MutableList<Card>>()
 
     fun getAccounts() {
-        disposable.add(
-            Observable.fromCallable {
-                repository.getAccounts()
-                    ?.doFinally { isProgressVisible.postValue(false) }
-                    ?.subscribe({
-                        val cardList = mutableListOf<Card>()
-                        it?.response?.info?.map {
-                            cardList.add(Card(it.cardNumber, it.cardDate))
-                        }
-                        cards.postValue(cardList)
+        viewModelScope.launch {
+            val response = repository.getAccounts()
 
-                        accounts.postValue(it?.response)
-                        error.postValue(it?.errorMsg)
-                    }, {
-                    })
+            val cardList = mutableListOf<Card>()
+            response?.response?.info?.map {
+                cardList.add(Card(it.cardNumber, it.cardDate))
             }
-                .subscribeOn(Schedulers.io())
-                .subscribe()
-        )
+            cards.postValue(cardList)
+
+            accounts.postValue(response?.response)
+            error.postValue(response?.errorMsg)
+            isProgressVisible.postValue(false)
+        }
 
         notifications.value = repository.getNotifications()
     }
@@ -55,43 +46,27 @@ class AccountsViewModel(private val repository: ApiRepository) : ViewModel() {
     ) {
         isProgressVisible.value = true
 
-        disposable.add(
-            Observable.fromCallable {
-                repository.createAccount(firstName, lastName, middleName, accountNumber, bankCode)
-                    ?.doFinally { isProgressVisible.postValue(false) }
-                    ?.subscribe({
-                        creatingStatus.postValue(it?.response?.status)
-                        error.postValue(it?.errorMsg)
-                    }, {
-                    })
-            }
-                .subscribeOn(Schedulers.io())
-                .subscribe()
-        )
+        viewModelScope.launch {
+            val response = repository.createAccount(
+                firstName, lastName, middleName, accountNumber, bankCode
+            )
+            creatingStatus.postValue(response?.response?.status)
+            error.postValue(response?.errorMsg)
+            isProgressVisible.postValue(false)
+        }
     }
 
     fun deleteAccount() {
         isProgressVisible.value = true
 
-        disposable.add(
-            Observable.fromCallable {
-                accounts.value?.info?.first()?.id?.let {
-                    repository.deleteAccount(it)
-                        ?.doFinally { isProgressVisible.postValue(false) }
-                        ?.subscribe({
-                            deletionStatus.postValue(it?.response?.status)
-                            error.postValue(it?.errorMsg)
-                        }, {
-                        })
-                }
-            }
-                .subscribeOn(Schedulers.io())
-                .subscribe()
-        )
-    }
+        viewModelScope.launch {
+            accounts.value?.info?.first()?.id?.let {
+                val response = repository.deleteAccount(it)
 
-    override fun onCleared() {
-        super.onCleared()
-        disposable.clear()
+                deletionStatus.postValue(response?.response?.status)
+                error.postValue(response?.errorMsg)
+                isProgressVisible.postValue(false)
+            }
+        }
     }
 }

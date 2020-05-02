@@ -2,9 +2,8 @@ package taxi.kassa.view.withdraws.withdraw_create
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import io.reactivex.Observable
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.schedulers.Schedulers
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.launch
 import taxi.kassa.model.Card
 import taxi.kassa.model.Notification
 import taxi.kassa.model.responses.AccountsList
@@ -13,7 +12,6 @@ import taxi.kassa.repository.ApiRepository
 
 class WithdrawCreateViewModel(private val repository: ApiRepository) : ViewModel() {
 
-    private val disposable = CompositeDisposable()
     private val accountId = MutableLiveData<Int>()
 
     val isProgressVisible = MutableLiveData<Boolean>().apply { this.value = true }
@@ -26,73 +24,56 @@ class WithdrawCreateViewModel(private val repository: ApiRepository) : ViewModel
     val cards = MutableLiveData<MutableList<Card>>()
 
     init {
-        disposable.add(
-            Observable.fromCallable {
-                repository.getOwner()
-                    ?.subscribe({
-                        responseOwner.postValue(it?.response)
-                        error.postValue(it?.errorMsg)
-                    }, {
-                    })
+        viewModelScope.launch {
+            val response = repository.getOwner()
+            responseOwner.postValue(response?.response)
+            error.postValue(response?.errorMsg)
+            isProgressVisible.postValue(false)
+        }
 
-                repository.getAccounts()
-                    ?.doFinally { isProgressVisible.postValue(false) }
-                    ?.subscribe({
-                        val cardList = mutableListOf<Card>()
-                        it?.response?.info?.map {
-                            cardList.add(Card(it.cardNumber, it.cardDate))
-                        }
-                        cards.postValue(cardList)
+        viewModelScope.launch {
+            val response = repository.getAccounts()
 
-                        accountId.postValue(it?.response?.info?.first()?.id)
-                        accounts.postValue(it?.response)
-                        error.postValue(it?.errorMsg)
-                    }, {
-                    })
+            val cardList = mutableListOf<Card>()
+            response?.response?.info?.map {
+                cardList.add(Card(it.cardNumber, it.cardDate))
             }
-                .subscribeOn(Schedulers.io())
-                .subscribe()
-        )
+            cards.postValue(cardList)
+
+            accountId.postValue(response?.response?.info?.first()?.id)
+            accounts.postValue(response?.response)
+            error.postValue(response?.errorMsg)
+            isProgressVisible.postValue(false)
+        }
 
         notifications.value = repository.getNotifications()
     }
 
     fun deleteAccount() {
-        disposable.add(
-            Observable.fromCallable {
-                accounts.value?.info?.first()?.id?.let {
-                    repository.deleteAccount(it)
-                        ?.subscribe({
-                            deletionStatus.postValue(it?.response?.status)
-                            error.postValue(it?.errorMsg)
-                        }, {
-                        })
-                }
+        isProgressVisible.value = true
+
+        viewModelScope.launch {
+            accounts.value?.info?.first()?.id?.let {
+                val response = repository.deleteAccount(it)
+
+                deletionStatus.postValue(response?.response?.status)
+                error.postValue(response?.errorMsg)
+                isProgressVisible.postValue(false)
             }
-                .subscribeOn(Schedulers.io())
-                .subscribe()
-        )
+        }
     }
 
     fun createWithdraw(sourceId: Int, amount: String?) {
-        disposable.add(
-            Observable.fromCallable {
-                accountId.value?.let { id ->
-                    repository.createWithdraw(sourceId, amount, id)
-                        ?.subscribe({
-                            creatingStatus.postValue(it?.response?.status)
-                            error.postValue(it?.errorMsg)
-                        }, {
-                        })
-                }
-            }
-                .subscribeOn(Schedulers.io())
-                .subscribe()
-        )
-    }
+        isProgressVisible.value = true
 
-    override fun onCleared() {
-        super.onCleared()
-        disposable.clear()
+        viewModelScope.launch {
+            accountId.value?.let { id ->
+                val response = repository.createWithdraw(sourceId, amount, id)
+
+                creatingStatus.postValue(response?.response?.status)
+                error.postValue(response?.errorMsg)
+                isProgressVisible.postValue(false)
+            }
+        }
     }
 }
