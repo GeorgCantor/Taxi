@@ -31,7 +31,7 @@ interface ApiService {
     fun getOwnerAsync(): Deferred<ResponseAPI<ResponseOwner?>?>?
 
     @GET("withdrawals")
-    fun getWithdraws(): Observable<ResponseAPI<Withdraws?>?>?
+    fun getWithdrawsAsync(): Deferred<ResponseAPI<Withdraws?>?>?
 
     @POST("withdrawals")
     @FormUrlEncoded

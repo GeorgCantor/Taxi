@@ -27,7 +27,7 @@ class ApiRepository(
 
     suspend fun getOwner() = apiService.getOwnerAsync()?.await()
 
-    fun getWithdraws() = apiService.getWithdraws()
+    suspend fun getWithdraws() = apiService.getWithdrawsAsync()?.await()
 
     suspend fun getAccounts() = apiService.getAccountsAsync()?.await()
 
