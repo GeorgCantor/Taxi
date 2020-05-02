@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/main_background">
+
+    <TextView
+        android:id="@+id/time_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="28dp"
+        android:textColor="@color/gray_profile"
+        android:textSize="@dimen/text_16sp"
+        app:layout_constraintEnd_toStartOf="@+id/background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="14:20" />
+
+    <ImageView
+        android:id="@+id/background"
+        android:layout_width="308dp"
+        android:layout_height="74dp"
+        android:layout_marginStart="@dimen/margin_16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="@dimen/margin_16dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/bg_profile_gradient"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/taxi_icon"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_margin="10dp"
+        app:layout_constraintStart_toStartOf="@+id/background"
+        app:layout_constraintTop_toTopOf="@+id/background"
+        tools:src="@drawable/ic_yandex_mini" />
+
+    <TextView
+        android:id="@+id/taxi_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="@color/withdraws_gray"
+        android:textSize="@dimen/text_18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/taxi_icon"
+        app:layout_constraintStart_toEndOf="@+id/taxi_icon"
+        app:layout_constraintTop_toTopOf="@+id/taxi_icon"
+        tools:text="@string/yandex_title" />
+
+    <TextView
+        android:id="@+id/amount_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:textColor="@color/withdraws_yellow"
+        android:textSize="@dimen/text_16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/taxi_name"
+        app:layout_constraintEnd_toStartOf="@+id/chevron_image"
+        app:layout_constraintTop_toTopOf="@+id/taxi_name"
+        tools:text="1 013.00₽" />
+
+    <ImageView
+        android:id="@+id/chevron_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/amount_tv"
+        app:layout_constraintEnd_toEndOf="@+id/background"
+        app:layout_constraintTop_toTopOf="@+id/amount_tv"
+        app:srcCompat="@drawable/ic_chevron_right" />
+
+    <ImageView
+        android:id="@+id/circle_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="@+id/background"
+        app:layout_constraintTop_toBottomOf="@+id/taxi_icon"
+        app:srcCompat="@drawable/ic_yellow_circle" />
+
+    <TextView
+        android:id="@+id/status_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/gray_profile"
+        android:textSize="@dimen/text_14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/circle_image"
+        app:layout_constraintStart_toEndOf="@+id/circle_image"
+        app:layout_constraintTop_toTopOf="@+id/circle_image"
+        tools:text="Одобрено" />
+
+    <TextView
+        android:id="@+id/commission_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="38dp"
+        android:textColor="@color/gray_profile"
+        android:textSize="@dimen/text_14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/status_tv"
+        app:layout_constraintEnd_toEndOf="@+id/background"
+        app:layout_constraintTop_toTopOf="@+id/status_tv"
+        tools:text="комиссия  13,00₽" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

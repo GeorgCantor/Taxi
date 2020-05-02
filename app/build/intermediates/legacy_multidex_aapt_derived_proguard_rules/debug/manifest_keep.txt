@@ -1,0 +1,4 @@
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:20
+-keep class androidx.core.app.CoreComponentFactory { <init>(); }
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:20
+-keep class taxi.kassa.MyApplication { <init>(); }

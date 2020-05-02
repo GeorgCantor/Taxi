@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/introFragment">
+
+    <fragment
+        android:id="@+id/introFragment"
+        android:name="taxi.kassa.view.intro.IntroFragment"
+        android:label="IntroFragment">
+        <action
+            android:id="@+id/action_introFragment_to_authPhoneFragment"
+            app:destination="@id/authPhoneFragment" />
+        <action
+            android:id="@+id/action_introFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/registrationFragment"
+        android:name="taxi.kassa.view.registration.RegistrationFragment"
+        android:label="RegistrationFragment">
+        <action
+            android:id="@+id/action_registrationFragment_to_authSignUpFragment"
+            app:destination="@id/authSignUpFragment" />
+        <action
+            android:id="@+id/action_registrationFragment_to_registrationSelectionFragment"
+            app:destination="@id/registrationSelectionFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/registrationSelectionFragment"
+        android:name="taxi.kassa.view.registration.RegistrationSelectionFragment"
+        android:label="RegistrationSelectionFragment">
+        <action
+            android:id="@+id/action_registrationSelectionFragment_to_connectionFragment"
+            app:destination="@id/connectionFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/connectionFragment"
+        android:name="taxi.kassa.view.registration.connection.ConnectionFragment"
+        android:label="ConnectionFragment">
+        <action
+            android:id="@+id/action_connectionFragment_to_successRequestFragment"
+            app:destination="@id/successRequestFragment"
+            app:popUpTo="@id/introFragment" />
+        <action
+            android:id="@+id/action_connectionFragment_to_registrationSelectionFragment"
+            app:destination="@id/registrationSelectionFragment"
+            app:popUpTo="@id/registrationFragment" />
+        <action
+            android:id="@+id/action_connectionFragment_to_photoFragment"
+            app:destination="@id/photoFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/photoFragment"
+        android:name="taxi.kassa.view.registration.photo.PhotoFragment"
+        android:label="PhotoFragment">
+        <action
+            android:id="@+id/action_photoFragment_to_connectionFragment"
+            app:destination="@id/connectionFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/authPhoneFragment"
+        android:name="taxi.kassa.view.auth.auth_phone.AuthPhoneFragment"
+        android:label="AuthPhoneFragment">
+        <action
+            android:id="@+id/action_authPhoneFragment_to_authCodeFragment"
+            app:destination="@id/authCodeFragment"
+            app:popUpTo="@id/introFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/authSignUpFragment"
+        android:name="taxi.kassa.view.auth.auth_sign_up.AuthSignUpFragment"
+        android:label="AuthSignUpFragment">
+        <action
+            android:id="@+id/action_authSignUpFragment_to_successRequestFragment"
+            app:destination="@id/successRequestFragment"
+            app:popUpTo="@id/introFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/successRequestFragment"
+        android:name="taxi.kassa.view.auth.auth_sign_up.SuccessRequestFragment"
+        android:label="SuccessRequestFragment" />
+
+    <fragment
+        android:id="@+id/authCodeFragment"
+        android:name="taxi.kassa.view.auth.auth_code.AuthCodeFragment"
+        android:label="AuthCodeFragment">
+        <action
+            android:id="@+id/action_authCodeFragment_to_profileFragment"
+            app:destination="@id/profileFragment"
+            app:popUpTo="@id/nav_graph" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="taxi.kassa.view.profile.ProfileFragment"
+        android:label="ProfileFragment">
+        <action
+            android:id="@+id/action_profileFragment_to_balanceFragment"
+            app:destination="@id/balanceFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_withdrawsFragment"
+            app:destination="@id/withdrawsFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_accountsFragment"
+            app:destination="@id/accountsFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_ordersFragment"
+            app:destination="@id/ordersFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_supportFragment"
+            app:destination="@id/supportFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_notificationsFragment"
+            app:destination="@id/notificationsFragment"
+            app:popEnterAnim="@anim/slide_in_top"
+            app:popExitAnim="@anim/slide_out_top" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/balanceFragment"
+        android:name="taxi.kassa.view.balance.BalanceFragment"
+        android:label="BalanceFragment">
+        <action
+            android:id="@+id/action_balanceFragment_to_withdrawCreateFragment"
+            app:destination="@id/withdrawCreateFragment" />
+        <action
+            android:id="@+id/action_balanceFragment_to_fuelReplenishFragment"
+            app:destination="@id/fuelReplenishFragment" />
+        <action
+            android:id="@+id/action_balanceFragment_to_notificationsFragment"
+            app:destination="@id/notificationsFragment"
+            app:popEnterAnim="@anim/slide_in_top"
+            app:popExitAnim="@anim/slide_out_top" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fuelReplenishFragment"
+        android:name="taxi.kassa.view.fuel.FuelReplenishFragment"
+        android:label="FuelReplenishFragment">
+        <action
+            android:id="@+id/action_fuelReplenishFragment_to_notificationsFragment"
+            app:destination="@id/notificationsFragment"
+            app:popEnterAnim="@anim/slide_in_top"
+            app:popExitAnim="@anim/slide_out_top" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/withdrawsFragment"
+        android:name="taxi.kassa.view.withdraws.WithdrawsFragment"
+        android:label="WithdrawsFragment">
+        <action
+            android:id="@+id/action_withdrawsFragment_to_withdrawFragment"
+            app:destination="@id/withdrawFragment" />
+        <action
+            android:id="@+id/action_withdrawsFragment_to_accountsFragment"
+            app:destination="@id/accountsFragment"
+            app:popUpTo="@id/profileFragment" />
+        <action
+            android:id="@+id/action_withdrawsFragment_to_notificationsFragment"
+            app:destination="@id/notificationsFragment"
+            app:popEnterAnim="@anim/slide_in_top"
+            app:popExitAnim="@anim/slide_out_top" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/withdrawFragment"
+        android:name="taxi.kassa.view.withdraws.withdraw.WithdrawFragment"
+        android:label="WithdrawFragment" />
+
+    <fragment
+        android:id="@+id/accountsFragment"
+        android:name="taxi.kassa.view.accounts.AccountsFragment"
+        android:label="AccountsFragment">
+        <action
+            android:id="@+id/action_accountsFragment_to_notificationsFragment"
+            app:destination="@id/notificationsFragment"
+            app:popEnterAnim="@anim/slide_in_top"
+            app:popExitAnim="@anim/slide_out_top" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/withdrawCreateFragment"
+        android:name="taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment"
+        android:label="WithdrawCreateFragment">
+        <action
+            android:id="@+id/action_withdrawCreateFragment_to_accountsFragment"
+            app:destination="@id/accountsFragment" />
+        <action
+            android:id="@+id/action_withdrawCreateFragment_to_notificationsFragment"
+            app:destination="@id/notificationsFragment"
+            app:popEnterAnim="@anim/slide_in_top"
+            app:popExitAnim="@anim/slide_out_top" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/ordersFragment"
+        android:name="taxi.kassa.view.orders.OrdersFragment"
+        android:label="OrdersFragment">
+        <action
+            android:id="@+id/action_ordersFragment_to_notificationsFragment"
+            app:destination="@id/notificationsFragment"
+            app:popEnterAnim="@anim/slide_in_top"
+            app:popExitAnim="@anim/slide_out_top" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/supportFragment"
+        android:name="taxi.kassa.view.support.SupportFragment"
+        android:label="SupportFragment">
+        <action
+            android:id="@+id/action_supportFragment_to_writeMessageFragment"
+            app:destination="@id/writeMessageFragment" />
+        <action
+            android:id="@+id/action_supportFragment_to_chatHistoryFragment"
+            app:destination="@id/chatHistoryFragment" />
+        <action
+            android:id="@+id/action_supportFragment_to_notificationsFragment"
+            app:destination="@id/notificationsFragment"
+            app:popEnterAnim="@anim/slide_in_top"
+            app:popExitAnim="@anim/slide_out_top" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/notificationsFragment"
+        android:name="taxi.kassa.view.notifications.NotificationsFragment"
+        android:label="NotificationsFragment">
+        <action
+            android:id="@+id/action_notificationsFragment_to_profileFragment"
+            app:destination="@id/profileFragment"
+            app:popUpTo="@id/nav_graph" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/writeMessageFragment"
+        android:name="taxi.kassa.view.support.chat.WriteMessageFragment"
+        android:label="WriteMessageFragment">
+        <action
+            android:id="@+id/action_writeMessageFragment_to_successFragment"
+            app:destination="@id/successFragment"
+            app:popUpTo="@id/supportFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/chatHistoryFragment"
+        android:name="taxi.kassa.view.support.chat.ChatHistoryFragment"
+        android:label="ChatHistoryFragment" />
+
+    <fragment
+        android:id="@+id/successFragment"
+        android:name="taxi.kassa.view.support.SuccessFragment"
+        android:label="SuccessFragment" />
+
+</navigation>

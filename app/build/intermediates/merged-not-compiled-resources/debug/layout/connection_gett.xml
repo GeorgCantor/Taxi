@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/gett_block"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:visibility="gone"
+    app:layout_constraintTop_toBottomOf="@+id/taxi_icon"
+    tools:visibility="visible">
+
+    <ImageView
+        android:id="@+id/gett_background"
+        android:layout_width="match_parent"
+        android:layout_height="630dp"
+        android:layout_marginStart="@dimen/margin_16dp"
+        android:layout_marginTop="@dimen/margin_24dp"
+        android:layout_marginEnd="@dimen/margin_16dp"
+        android:src="@drawable/bg_profile_gradient"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--  +++++++++  -->
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/gett_driver_license_input_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_24dp"
+        android:layout_marginTop="@dimen/margin_24dp"
+        android:layout_marginEnd="@dimen/margin_24dp"
+        android:hint="@string/driver_license"
+        android:textColorHint="@color/gray_profile"
+        android:textSize="@dimen/text_13sp"
+        app:layout_constraintEnd_toEndOf="@+id/gett_background"
+        app:layout_constraintStart_toStartOf="@+id/gett_background"
+        app:layout_constraintTop_toTopOf="@+id/gett_background">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/gett_driver_license_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/gray_profile"
+            android:drawableEnd="@drawable/ic_download"
+            android:focusable="false"
+            android:paddingBottom="@dimen/margin_16dp"
+            android:textColor="@color/gray_intro_text"
+            android:textColorHint="@color/gray_profile"
+            android:textSize="@dimen/text_16sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/gett_driver_license_input_view2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_24dp"
+        android:layout_marginTop="@dimen/margin_24dp"
+        android:layout_marginEnd="@dimen/margin_24dp"
+        android:hint="@string/driver_license"
+        android:textColorHint="@color/gray_profile"
+        android:textSize="@dimen/text_13sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/gett_background"
+        app:layout_constraintStart_toStartOf="@+id/gett_background"
+        app:layout_constraintTop_toTopOf="@+id/gett_background">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/gett_driver_license_edit_text2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/gray_profile"
+            android:drawableEnd="@drawable/ic_download_green"
+            android:focusable="false"
+            android:paddingBottom="@dimen/margin_16dp"
+            android:text="Фото 1"
+            android:textColor="@color/gray_intro_text"
+            android:textColorHint="@color/gray_profile"
+            android:textSize="@dimen/text_16sp"
+            android:visibility="gone" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/gett_driver_license_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="@dimen/margin_4dp"
+        android:background="?attr/selectableItemBackground"
+        android:padding="@dimen/margin_8dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/gett_driver_license_input_view2"
+        app:layout_constraintStart_toStartOf="@+id/gett_driver_license_input_view2"
+        app:layout_constraintTop_toTopOf="@+id/gett_driver_license_input_view2"
+        app:srcCompat="@drawable/ic_load_cancel" />
+
+    <!--  +++++++++  -->
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/passport_first_number_input_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_24dp"
+        android:layout_marginTop="@dimen/margin_16dp"
+        android:layout_marginEnd="@dimen/margin_24dp"
+        android:hint="@string/passport_first_page"
+        android:textColorHint="@color/gray_profile"
+        android:textSize="@dimen/text_13sp"
+        app:layout_constraintEnd_toEndOf="@+id/gett_background"
+        app:layout_constraintStart_toStartOf="@+id/gett_background"
+        app:layout_constraintTop_toBottomOf="@+id/gett_driver_license_input_view">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/passport_first_number_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/gray_profile"
+            android:drawableEnd="@drawable/ic_download"
+            android:focusable="false"
+            android:paddingBottom="@dimen/margin_16dp"
+            android:textColor="@color/gray_intro_text"
+            android:textColorHint="@color/gray_profile"
+            android:textSize="@dimen/text_16sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/passport_first_number_input_view2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_24dp"
+        android:layout_marginTop="@dimen/margin_16dp"
+        android:layout_marginEnd="@dimen/margin_24dp"
+        android:hint="@string/passport_first_page"
+        android:textColorHint="@color/gray_profile"
+        android:textSize="@dimen/text_13sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/gett_background"
+        app:layout_constraintStart_toStartOf="@+id/gett_background"
+        app:layout_constraintTop_toBottomOf="@+id/gett_driver_license_input_view">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/passport_first_number_edit_text2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/gray_profile"
+            android:drawableEnd="@drawable/ic_download_green"
+            android:focusable="false"
+            android:paddingBottom="@dimen/margin_16dp"
+            android:text="Фото 2"
+            android:textColor="@color/gray_intro_text"
+            android:textColorHint="@color/gray_profile"
+            android:textSize="@dimen/text_16sp"
+            android:visibility="gone" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/passport_first_number_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="@dimen/margin_4dp"
+        android:background="?attr/selectableItemBackground"
+        android:padding="@dimen/margin_8dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/passport_first_number_input_view2"
+        app:layout_constraintStart_toStartOf="@+id/passport_first_number_input_view2"
+        app:layout_constraintTop_toTopOf="@+id/passport_first_number_input_view2"
+        app:srcCompat="@drawable/ic_load_cancel" />
+
+    <!--  +++++++++  -->
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/gett_sts_input_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_24dp"
+        android:layout_marginTop="@dimen/margin_16dp"
+        android:layout_marginEnd="@dimen/margin_24dp"
+        android:hint="@string/sts"
+        android:textColorHint="@color/gray_profile"
+        android:textSize="@dimen/text_13sp"
+        app:layout_constraintEnd_toEndOf="@+id/gett_background"
+        app:layout_constraintStart_toStartOf="@+id/gett_background"
+        app:layout_constraintTop_toBottomOf="@+id/passport_first_number_input_view">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/gett_sts_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/gray_profile"
+            android:drawableEnd="@drawable/ic_download"
+            android:focusable="false"
+            android:paddingBottom="@dimen/margin_16dp"
+            android:textColor="@color/gray_intro_text"
+            android:textColorHint="@color/gray_profile"
+            android:textSize="@dimen/text_16sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/gett_sts_input_view2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_24dp"
+        android:layout_marginTop="@dimen/margin_16dp"
+        android:layout_marginEnd="@dimen/margin_24dp"
+        android:hint="@string/sts"
+        android:textColorHint="@color/gray_profile"
+        android:textSize="@dimen/text_13sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/gett_background"
+        app:layout_constraintStart_toStartOf="@+id/gett_background"
+        app:layout_constraintTop_toBottomOf="@+id/passport_first_number_input_view">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/gett_sts_edit_text2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/gray_profile"
+            android:drawableEnd="@drawable/ic_download_green"
+            android:focusable="false"
+            android:paddingBottom="@dimen/margin_16dp"
+            android:text="Фото 3"
+            android:textColor="@color/gray_intro_text"
+            android:textColorHint="@color/gray_profile"
+            android:textSize="@dimen/text_16sp"
+            android:visibility="gone" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/gett_sts_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="@dimen/margin_4dp"
+        android:background="?attr/selectableItemBackground"
+        android:padding="@dimen/margin_8dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/gett_sts_input_view2"
+        app:layout_constraintStart_toStartOf="@+id/gett_sts_input_view2"
+        app:layout_constraintTop_toTopOf="@+id/gett_sts_input_view2"
+        app:srcCompat="@drawable/ic_load_cancel" />
+
+    <!--  +++++++++  -->
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/gett_license_input_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_24dp"
+        android:layout_marginTop="@dimen/margin_16dp"
+        android:layout_marginEnd="@dimen/margin_24dp"
+        android:hint="@string/license"
+        android:textColorHint="@color/gray_profile"
+        android:textSize="@dimen/text_13sp"
+        app:layout_constraintEnd_toEndOf="@+id/gett_background"
+        app:layout_constraintStart_toStartOf="@+id/gett_background"
+        app:layout_constraintTop_toBottomOf="@+id/gett_sts_input_view">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/gett_license_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/gray_profile"
+            android:drawableEnd="@drawable/ic_download"
+            android:focusable="false"
+            android:paddingBottom="@dimen/margin_16dp"
+            android:textColor="@color/gray_intro_text"
+            android:textColorHint="@color/gray_profile"
+            android:textSize="@dimen/text_16sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/gett_license_input_view2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_24dp"
+        android:layout_marginTop="@dimen/margin_16dp"
+        android:layout_marginEnd="@dimen/margin_24dp"
+        android:hint="@string/license"
+        android:textColorHint="@color/gray_profile"
+        android:textSize="@dimen/text_13sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/gett_background"
+        app:layout_constraintStart_toStartOf="@+id/gett_background"
+        app:layout_constraintTop_toBottomOf="@+id/gett_sts_input_view">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/gett_license_edit_text2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/gray_profile"
+            android:drawableEnd="@drawable/ic_download_green"
+            android:focusable="false"
+            android:paddingBottom="@dimen/margin_16dp"
+            android:text="Фото 4"
+            android:textColor="@color/gray_intro_text"
+            android:textColorHint="@color/gray_profile"
+            android:textSize="@dimen/text_16sp"
+            android:visibility="gone" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/gett_license_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="@dimen/margin_4dp"
+        android:background="?attr/selectableItemBackground"
+        android:padding="@dimen/margin_8dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/gett_license_input_view2"
+        app:layout_constraintStart_toStartOf="@+id/gett_license_input_view2"
+        app:layout_constraintTop_toTopOf="@+id/gett_license_input_view2"
+        app:srcCompat="@drawable/ic_load_cancel" />
+
+    <!--  +++++++++  -->
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/make_selfie_input_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_24dp"
+        android:layout_marginTop="@dimen/margin_16dp"
+        android:layout_marginEnd="@dimen/margin_24dp"
+        android:hint="@string/make_selfie"
+        android:textColorHint="@color/gray_profile"
+        android:textSize="@dimen/text_13sp"
+        app:layout_constraintEnd_toEndOf="@+id/gett_background"
+        app:layout_constraintStart_toStartOf="@+id/gett_background"
+        app:layout_constraintTop_toBottomOf="@+id/gett_license_input_view">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/make_selfie_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/gray_profile"
+            android:drawableEnd="@drawable/ic_download"
+            android:focusable="false"
+            android:paddingBottom="@dimen/margin_16dp"
+            android:textColor="@color/gray_intro_text"
+            android:textColorHint="@color/gray_profile"
+            android:textSize="@dimen/text_16sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/make_selfie_input_view2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_24dp"
+        android:layout_marginTop="@dimen/margin_16dp"
+        android:layout_marginEnd="@dimen/margin_24dp"
+        android:hint="@string/make_selfie"
+        android:textColorHint="@color/gray_profile"
+        android:textSize="@dimen/text_13sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/gett_background"
+        app:layout_constraintStart_toStartOf="@+id/gett_background"
+        app:layout_constraintTop_toBottomOf="@+id/gett_license_input_view">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/make_selfie_edit_text2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/gray_profile"
+            android:drawableEnd="@drawable/ic_download_green"
+            android:focusable="false"
+            android:paddingBottom="@dimen/margin_16dp"
+            android:text="Фото 5"
+            android:textColor="@color/gray_intro_text"
+            android:textColorHint="@color/gray_profile"
+            android:textSize="@dimen/text_16sp"
+            android:visibility="gone" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/make_selfie_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="@dimen/margin_4dp"
+        android:background="?attr/selectableItemBackground"
+        android:padding="@dimen/margin_8dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/make_selfie_input_view2"
+        app:layout_constraintStart_toStartOf="@+id/make_selfie_input_view2"
+        app:layout_constraintTop_toTopOf="@+id/make_selfie_input_view2"
+        app:srcCompat="@drawable/ic_load_cancel" />
+
+    <!--  +++++++++  -->
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/gett_phone_input_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_24dp"
+        android:layout_marginTop="@dimen/margin_16dp"
+        android:layout_marginEnd="@dimen/margin_24dp"
+        android:hint="@string/add_phone_number"
+        android:textColorHint="@color/gray_profile"
+        android:textSize="@dimen/text_13sp"
+        app:layout_constraintEnd_toEndOf="@+id/gett_background"
+        app:layout_constraintStart_toStartOf="@+id/gett_background"
+        app:layout_constraintTop_toBottomOf="@+id/make_selfie_input_view">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/gett_phone_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/gray_profile"
+            android:imeOptions="actionNext"
+            android:inputType="phone"
+            android:maxLines="1"
+            android:paddingBottom="@dimen/margin_16dp"
+            android:textColor="@color/gray_intro_text"
+            android:textColorHint="@color/gray_profile"
+            android:textSize="@dimen/text_16sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!--  +++++++++  -->
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/id_input_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_24dp"
+        android:layout_marginTop="@dimen/margin_16dp"
+        android:layout_marginEnd="@dimen/margin_24dp"
+        android:hint="@string/input_id"
+        android:textColorHint="@color/gray_profile"
+        android:textSize="@dimen/text_13sp"
+        app:layout_constraintEnd_toEndOf="@+id/gett_background"
+        app:layout_constraintStart_toStartOf="@+id/gett_background"
+        app:layout_constraintTop_toBottomOf="@+id/gett_phone_input_view">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/id_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/gray_profile"
+            android:imeOptions="actionDone"
+            android:inputType="number"
+            android:maxLines="1"
+            android:paddingBottom="@dimen/margin_16dp"
+            android:textColor="@color/gray_intro_text"
+            android:textColorHint="@color/gray_profile"
+            android:textSize="@dimen/text_16sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

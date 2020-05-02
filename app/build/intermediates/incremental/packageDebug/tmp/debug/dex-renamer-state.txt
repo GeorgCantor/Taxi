@@ -1,0 +1,4 @@
+#Sat May 02 13:40:09 MSK 2020
+base.0=D\:\\AndroidProjects\\taxitech-android-new\\app\\build\\intermediates\\dex\\debug\\shrunkDex\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

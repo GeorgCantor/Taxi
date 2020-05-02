@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_background">
+
+    <ImageView
+        android:id="@+id/back_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_4dp"
+        android:layout_marginTop="12dp"
+        android:background="?attr/selectableItemBackground"
+        android:padding="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_back" />
+
+    <TextView
+        android:id="@+id/write_to_us_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/write_to_us"
+        android:textColor="@color/balance_fuel_gray"
+        android:textSize="@dimen/text_20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/back_arrow"
+        app:layout_constraintStart_toEndOf="@+id/back_arrow"
+        app:layout_constraintTop_toTopOf="@+id/back_arrow" />
+
+    <TextView
+        android:id="@+id/write_message_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_24dp"
+        android:layout_marginTop="28dp"
+        android:text="@string/write_message_title"
+        android:textColor="@color/gray_profile"
+        android:textSize="@dimen/text_16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/write_to_us_title" />
+
+    <EditText
+        android:id="@+id/message_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_24dp"
+        android:layout_marginTop="@dimen/margin_8dp"
+        android:layout_marginEnd="@dimen/margin_24dp"
+        android:backgroundTint="@android:color/transparent"
+        android:gravity="top"
+        android:inputType="textMultiLine"
+        android:maxLength="200"
+        android:textColor="@color/gray_intro_text"
+        android:textSize="@dimen/text_16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/write_message_title"
+        tools:text="День добрый, мне не дают вывести деньги! Дело в том что я зарегистрировался в БК винлайн хотел поставить ставку, но на все события максимум был от 200 до 500р . меня это не устроило и я поставил деньги на вывод, не выводили три дня я сразу написал в чате о своей проблеме, мне сказали обратиться в службу поддержки." />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_8dp"
+        android:layout_marginEnd="@dimen/margin_24dp"
+        android:text="@string/symbols_max_text"
+        android:textColor="@color/gray_profile"
+        android:textSize="@dimen/text_14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/message_edit_text" />
+
+    <Button
+        android:id="@+id/send_button"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="@dimen/margin_24dp"
+        android:layout_marginEnd="@dimen/margin_24dp"
+        android:layout_marginBottom="@dimen/margin_48dp"
+        android:background="@drawable/bg_intro_btn"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/submit"
+        android:textAllCaps="false"
+        android:textColor="@color/continue_color"
+        android:textSize="@dimen/text_20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

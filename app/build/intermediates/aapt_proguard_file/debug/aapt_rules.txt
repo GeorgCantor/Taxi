@@ -1,0 +1,311 @@
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:59
+-keep class androidx.camera.camera2.impl.Camera2Initializer { <init>(); }
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:19
+-keep class androidx.core.app.CoreComponentFactory { <init>(); }
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:118
+-keep class com.google.android.datatransport.runtime.backends.TransportBackendDiscovery { <init>(); }
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:131
+-keep class com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver { <init>(); }
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:125
+-keep class com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService { <init>(); }
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:109
+-keep class com.google.android.gms.common.api.GoogleApiActivity { <init>(); }
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:76
+-keep class com.google.firebase.components.ComponentDiscoveryService { <init>(); }
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:94
+-keep class com.google.firebase.iid.FirebaseInstanceIdReceiver { <init>(); }
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:69
+-keep class com.google.firebase.messaging.FirebaseMessagingService { <init>(); }
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:103
+-keep class com.google.firebase.provider.FirebaseInitProvider { <init>(); }
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:19
+-keep class taxi.kassa.MyApplication { <init>(); }
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:43
+-keep class taxi.kassa.model.remote.firebase.MyFirebaseMessagingService { <init>(); }
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:31
+-keep class taxi.kassa.view.MainActivity { <init>(); }
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\434a8ebd0bdb8e83cf7ce87b99116a31\appcompat-1.1.0\res\layout\abc_alert_dialog_button_bar_material.xml:43
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\434a8ebd0bdb8e83cf7ce87b99116a31\appcompat-1.1.0\res\layout\abc_alert_dialog_material.xml:52
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\434a8ebd0bdb8e83cf7ce87b99116a31\appcompat-1.1.0\res\layout\abc_alert_dialog_title_material.xml:57
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\79337e00db26de04b4b4c44cba60a9d4\material-1.1.0\res\layout\mtrl_alert_dialog.xml:51
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\79337e00db26de04b4b4c44cba60a9d4\material-1.1.0\res\layout\mtrl_alert_dialog_actions.xml:45
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\79337e00db26de04b4b4c44cba60a9d4\material-1.1.0\res\layout\mtrl_alert_dialog_title.xml:41
+-keep class android.widget.Space { <init>(...); }
+
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\434a8ebd0bdb8e83cf7ce87b99116a31\appcompat-1.1.0\res\layout\abc_select_dialog_material.xml:23
+-keep class androidx.appcompat.app.AlertController$RecycleListView { <init>(...); }
+
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\434a8ebd0bdb8e83cf7ce87b99116a31\appcompat-1.1.0\res\layout\abc_action_menu_item_layout.xml:17
+-keep class androidx.appcompat.view.menu.ActionMenuItemView { <init>(...); }
+
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\434a8ebd0bdb8e83cf7ce87b99116a31\appcompat-1.1.0\res\layout\abc_expanded_menu_layout.xml:17
+-keep class androidx.appcompat.view.menu.ExpandedMenuView { <init>(...); }
+
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\434a8ebd0bdb8e83cf7ce87b99116a31\appcompat-1.1.0\res\layout\abc_cascading_menu_item_layout.xml:20
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\434a8ebd0bdb8e83cf7ce87b99116a31\appcompat-1.1.0\res\layout\abc_list_menu_item_layout.xml:17
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\434a8ebd0bdb8e83cf7ce87b99116a31\appcompat-1.1.0\res\layout\abc_popup_menu_item_layout.xml:17
+-keep class androidx.appcompat.view.menu.ListMenuItemView { <init>(...); }
+
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\434a8ebd0bdb8e83cf7ce87b99116a31\appcompat-1.1.0\res\layout\abc_screen_toolbar.xml:27
+-keep class androidx.appcompat.widget.ActionBarContainer { <init>(...); }
+
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\434a8ebd0bdb8e83cf7ce87b99116a31\appcompat-1.1.0\res\layout\abc_action_mode_bar.xml:19
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\434a8ebd0bdb8e83cf7ce87b99116a31\appcompat-1.1.0\res\layout\abc_screen_toolbar.xml:43
+-keep class androidx.appcompat.widget.ActionBarContextView { <init>(...); }
+
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\434a8ebd0bdb8e83cf7ce87b99116a31\appcompat-1.1.0\res\layout\abc_screen_toolbar.xml:17
+-keep class androidx.appcompat.widget.ActionBarOverlayLayout { <init>(...); }
+
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\434a8ebd0bdb8e83cf7ce87b99116a31\appcompat-1.1.0\res\layout\abc_action_menu_layout.xml:17
+-keep class androidx.appcompat.widget.ActionMenuView { <init>(...); }
+
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\434a8ebd0bdb8e83cf7ce87b99116a31\appcompat-1.1.0\res\layout\abc_activity_chooser_view.xml:19
+-keep class androidx.appcompat.widget.ActivityChooserView$InnerLayout { <init>(...); }
+
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\434a8ebd0bdb8e83cf7ce87b99116a31\appcompat-1.1.0\res\layout\abc_alert_dialog_material.xml:18
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\79337e00db26de04b4b4c44cba60a9d4\material-1.1.0\res\layout\mtrl_alert_dialog.xml:17
+-keep class androidx.appcompat.widget.AlertDialogLayout { <init>(...); }
+
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\434a8ebd0bdb8e83cf7ce87b99116a31\appcompat-1.1.0\res\layout\abc_alert_dialog_button_bar_material.xml:26
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\79337e00db26de04b4b4c44cba60a9d4\material-1.1.0\res\layout\mtrl_alert_dialog_actions.xml:26
+-keep class androidx.appcompat.widget.ButtonBarLayout { <init>(...); }
+
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\434a8ebd0bdb8e83cf7ce87b99116a31\appcompat-1.1.0\res\layout\abc_screen_content_include.xml:19
+-keep class androidx.appcompat.widget.ContentFrameLayout { <init>(...); }
+
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\434a8ebd0bdb8e83cf7ce87b99116a31\appcompat-1.1.0\res\layout\abc_alert_dialog_title_material.xml:45
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\79337e00db26de04b4b4c44cba60a9d4\material-1.1.0\res\layout\mtrl_alert_dialog_title.xml:36
+-keep class androidx.appcompat.widget.DialogTitle { <init>(...); }
+
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\434a8ebd0bdb8e83cf7ce87b99116a31\appcompat-1.1.0\res\layout\abc_screen_simple_overlay_action_mode.xml:23
+-keep class androidx.appcompat.widget.FitWindowsFrameLayout { <init>(...); }
+
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\434a8ebd0bdb8e83cf7ce87b99116a31\appcompat-1.1.0\res\layout\abc_dialog_title_material.xml:22
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\434a8ebd0bdb8e83cf7ce87b99116a31\appcompat-1.1.0\res\layout\abc_screen_simple.xml:17
+-keep class androidx.appcompat.widget.FitWindowsLinearLayout { <init>(...); }
+
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\keyboard.xml:2
+-keep class androidx.appcompat.widget.LinearLayoutCompat { <init>(...); }
+
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\434a8ebd0bdb8e83cf7ce87b99116a31\appcompat-1.1.0\res\layout\abc_search_view.xml:75
+-keep class androidx.appcompat.widget.SearchView$SearchAutoComplete { <init>(...); }
+
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\434a8ebd0bdb8e83cf7ce87b99116a31\appcompat-1.1.0\res\layout\abc_screen_toolbar.xml:36
+-keep class androidx.appcompat.widget.Toolbar { <init>(...); }
+
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\434a8ebd0bdb8e83cf7ce87b99116a31\appcompat-1.1.0\res\layout\abc_screen_simple.xml:25
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\434a8ebd0bdb8e83cf7ce87b99116a31\appcompat-1.1.0\res\layout\abc_screen_simple_overlay_action_mode.xml:32
+-keep class androidx.appcompat.widget.ViewStubCompat { <init>(...); }
+
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\connection_city.xml:2
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\connection_gett.xml:2
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\connection_yandex.xml:2
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\dialog_one_button.xml:9
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\dialog_two_buttons.xml:2
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\empty_withdraws_screen.xml:2
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\fragment_accounts.xml:2
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\fragment_auth_code.xml:2
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\fragment_auth_phone.xml:2
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\fragment_auth_sign_up.xml:2
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\fragment_balance.xml:2
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\fragment_chat_history.xml:2
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\fragment_connection.xml:2
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\fragment_fuel_replenish.xml:2
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\fragment_intro.xml:2
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\fragment_notifications.xml:10
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\fragment_order.xml:10
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\fragment_orders.xml:2
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\fragment_orders_list.xml:2
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\fragment_photo.xml:2
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\fragment_profile.xml:10
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\fragment_registration.xml:8
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\fragment_registration_selection.xml:8
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\fragment_success.xml:2
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\fragment_success_request.xml:2
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\fragment_support.xml:2
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\fragment_withdraw.xml:2
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\fragment_withdraw_create.xml:2
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\fragment_withdraws.xml:2
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\fragment_write_message.xml:2
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\item_accounts_card.xml:2
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\item_card.xml:2
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\item_incoming_message.xml:2
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\item_notification.xml:2
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\item_order.xml:2
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\item_sent_message.xml:2
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\item_taxi.xml:2
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\item_taxi_orders.xml:2
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\item_withdraw.xml:2
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\item_withdraw_date.xml:2
+-keep class androidx.constraintlayout.widget.ConstraintLayout { <init>(...); }
+
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\79337e00db26de04b4b4c44cba60a9d4\material-1.1.0\res\layout\design_bottom_sheet_dialog.xml:26
+-keep class androidx.coordinatorlayout.widget.CoordinatorLayout { <init>(...); }
+
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\434a8ebd0bdb8e83cf7ce87b99116a31\appcompat-1.1.0\res\layout\abc_alert_dialog_material.xml:41
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\dialog_one_button.xml:2
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\fragment_accounts.xml:8
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\fragment_connection.xml:8
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\fragment_fuel_replenish.xml:8
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\fragment_notifications.xml:2
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\fragment_order.xml:2
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\fragment_profile.xml:2
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\fragment_registration.xml:2
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\fragment_registration_selection.xml:2
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\fragment_withdraw_create.xml:8
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\79337e00db26de04b4b4c44cba60a9d4\material-1.1.0\res\layout\mtrl_alert_dialog.xml:40
+-keep class androidx.core.widget.NestedScrollView { <init>(...); }
+
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\activity_main.xml:10
+-keep class androidx.navigation.fragment.NavHostFragment { <init>(...); }
+
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\fragment_accounts.xml:389
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\fragment_chat_history.xml:34
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\fragment_fuel_replenish.xml:159
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\fragment_notifications.xml:94
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\fragment_orders.xml:61
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\fragment_orders_list.xml:8
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\fragment_withdraw_create.xml:269
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\fragment_withdraws.xml:61
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\79337e00db26de04b4b4c44cba60a9d4\material-1.1.0\res\layout\mtrl_calendar_horizontal.xml:29
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\79337e00db26de04b4b4c44cba60a9d4\material-1.1.0\res\layout\mtrl_calendar_months.xml:18
+-keep class androidx.recyclerview.widget.RecyclerView { <init>(...); }
+
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\fragment_orders.xml:74
+-keep class androidx.viewpager.widget.ViewPager { <init>(...); }
+
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\79337e00db26de04b4b4c44cba60a9d4\material-1.1.0\res\layout\test_toolbar.xml:16
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\79337e00db26de04b4b4c44cba60a9d4\material-1.1.0\res\layout\test_toolbar_custom_background.xml:16
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\79337e00db26de04b4b4c44cba60a9d4\material-1.1.0\res\layout\test_toolbar_elevation.xml:16
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\79337e00db26de04b4b4c44cba60a9d4\material-1.1.0\res\layout\test_toolbar_surface.xml:16
+-keep class com.google.android.material.appbar.MaterialToolbar { <init>(...); }
+
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\79337e00db26de04b4b4c44cba60a9d4\material-1.1.0\res\layout\mtrl_calendar_month_navigation.xml:32
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\79337e00db26de04b4b4c44cba60a9d4\material-1.1.0\res\layout\mtrl_picker_header_fullscreen.xml:36
+-keep class com.google.android.material.button.MaterialButton { <init>(...); }
+
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\79337e00db26de04b4b4c44cba60a9d4\material-1.1.0\res\layout\test_action_chip.xml:17
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\79337e00db26de04b4b4c44cba60a9d4\material-1.1.0\res\layout\test_reflow_chipgroup.xml:25
+-keep class com.google.android.material.chip.Chip { <init>(...); }
+
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\79337e00db26de04b4b4c44cba60a9d4\material-1.1.0\res\layout\test_reflow_chipgroup.xml:19
+-keep class com.google.android.material.chip.ChipGroup { <init>(...); }
+
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\79337e00db26de04b4b4c44cba60a9d4\material-1.1.0\res\layout\mtrl_calendar_month.xml:18
+-keep class com.google.android.material.datepicker.MaterialCalendarGridView { <init>(...); }
+
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\79337e00db26de04b4b4c44cba60a9d4\material-1.1.0\res\layout\design_bottom_navigation_item.xml:27
+-keep class com.google.android.material.internal.BaselineLayout { <init>(...); }
+
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\79337e00db26de04b4b4c44cba60a9d4\material-1.1.0\res\layout\design_text_input_end_icon.xml:18
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\79337e00db26de04b4b4c44cba60a9d4\material-1.1.0\res\layout\design_text_input_start_icon.xml:18
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\79337e00db26de04b4b4c44cba60a9d4\material-1.1.0\res\layout\mtrl_picker_header_toggle.xml:18
+-keep class com.google.android.material.internal.CheckableImageButton { <init>(...); }
+
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\79337e00db26de04b4b4c44cba60a9d4\material-1.1.0\res\layout\design_navigation_item.xml:17
+-keep class com.google.android.material.internal.NavigationMenuItemView { <init>(...); }
+
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\79337e00db26de04b4b4c44cba60a9d4\material-1.1.0\res\layout\design_navigation_menu.xml:17
+-keep class com.google.android.material.internal.NavigationMenuView { <init>(...); }
+
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\79337e00db26de04b4b4c44cba60a9d4\material-1.1.0\res\layout\design_layout_snackbar.xml:18
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\79337e00db26de04b4b4c44cba60a9d4\material-1.1.0\res\layout\mtrl_layout_snackbar.xml:18
+-keep class com.google.android.material.snackbar.Snackbar$SnackbarLayout { <init>(...); }
+
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\79337e00db26de04b4b4c44cba60a9d4\material-1.1.0\res\layout\design_layout_snackbar_include.xml:18
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\79337e00db26de04b4b4c44cba60a9d4\material-1.1.0\res\layout\mtrl_layout_snackbar_include.xml:18
+-keep class com.google.android.material.snackbar.SnackbarContentLayout { <init>(...); }
+
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\connection_city.xml:37
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\connection_gett.xml:40
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\connection_yandex.xml:40
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\fragment_accounts.xml:190
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\fragment_fuel_replenish.xml:202
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\fragment_withdraw_create.xml:337
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\79337e00db26de04b4b4c44cba60a9d4\material-1.1.0\res\layout\mtrl_picker_text_input_date.xml:31
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\79337e00db26de04b4b4c44cba60a9d4\material-1.1.0\res\layout\mtrl_picker_text_input_date_range.xml:32
+-keep class com.google.android.material.textfield.TextInputEditText { <init>(...); }
+
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\connection_city.xml:24
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\connection_gett.xml:26
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\connection_yandex.xml:26
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\fragment_accounts.xml:176
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\fragment_fuel_replenish.xml:187
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\layout\fragment_withdraw_create.xml:322
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\79337e00db26de04b4b4c44cba60a9d4\material-1.1.0\res\layout\mtrl_picker_text_input_date.xml:26
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\79337e00db26de04b4b4c44cba60a9d4\material-1.1.0\res\layout\mtrl_picker_text_input_date_range.xml:26
+-keep class com.google.android.material.textfield.TextInputLayout { <init>(...); }
+
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\79337e00db26de04b4b4c44cba60a9d4\material-1.1.0\res\layout\text_view_with_line_height_from_appearance.xml:17
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\79337e00db26de04b4b4c44cba60a9d4\material-1.1.0\res\layout\text_view_with_line_height_from_layout.xml:17
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\79337e00db26de04b4b4c44cba60a9d4\material-1.1.0\res\layout\text_view_with_line_height_from_style.xml:17
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\79337e00db26de04b4b4c44cba60a9d4\material-1.1.0\res\layout\text_view_with_theme_line_height.xml:17
+# Referenced at C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\79337e00db26de04b4b4c44cba60a9d4\material-1.1.0\res\layout\text_view_without_line_height.xml:17
+-keep class com.google.android.material.textview.MaterialTextView { <init>(...); }
+
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\navigation\nav_graph.xml:178
+-keep class taxi.kassa.view.accounts.AccountsFragment { <init>(...); }
+
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\navigation\nav_graph.xml:91
+-keep class taxi.kassa.view.auth.auth_code.AuthCodeFragment { <init>(...); }
+
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\navigation\nav_graph.xml:66
+-keep class taxi.kassa.view.auth.auth_phone.AuthPhoneFragment { <init>(...); }
+
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\navigation\nav_graph.xml:76
+-keep class taxi.kassa.view.auth.auth_sign_up.AuthSignUpFragment { <init>(...); }
+
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\navigation\nav_graph.xml:86
+-keep class taxi.kassa.view.auth.auth_sign_up.SuccessRequestFragment { <init>(...); }
+
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\navigation\nav_graph.xml:127
+-keep class taxi.kassa.view.balance.BalanceFragment { <init>(...); }
+
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\navigation\nav_graph.xml:144
+-keep class taxi.kassa.view.fuel.FuelReplenishFragment { <init>(...); }
+
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\navigation\nav_graph.xml:7
+-keep class taxi.kassa.view.intro.IntroFragment { <init>(...); }
+
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\navigation\nav_graph.xml:231
+-keep class taxi.kassa.view.notifications.NotificationsFragment { <init>(...); }
+
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\navigation\nav_graph.xml:203
+-keep class taxi.kassa.view.orders.OrdersFragment { <init>(...); }
+
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\navigation\nav_graph.xml:101
+-keep class taxi.kassa.view.profile.ProfileFragment { <init>(...); }
+
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\navigation\nav_graph.xml:19
+-keep class taxi.kassa.view.registration.RegistrationFragment { <init>(...); }
+
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\navigation\nav_graph.xml:31
+-keep class taxi.kassa.view.registration.RegistrationSelectionFragment { <init>(...); }
+
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\navigation\nav_graph.xml:40
+-keep class taxi.kassa.view.registration.connection.ConnectionFragment { <init>(...); }
+
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\navigation\nav_graph.xml:57
+-keep class taxi.kassa.view.registration.photo.PhotoFragment { <init>(...); }
+
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\navigation\nav_graph.xml:256
+-keep class taxi.kassa.view.support.SuccessFragment { <init>(...); }
+
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\navigation\nav_graph.xml:214
+-keep class taxi.kassa.view.support.SupportFragment { <init>(...); }
+
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\navigation\nav_graph.xml:251
+-keep class taxi.kassa.view.support.chat.ChatHistoryFragment { <init>(...); }
+
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\navigation\nav_graph.xml:241
+-keep class taxi.kassa.view.support.chat.WriteMessageFragment { <init>(...); }
+
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\navigation\nav_graph.xml:155
+-keep class taxi.kassa.view.withdraws.WithdrawsFragment { <init>(...); }
+
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\navigation\nav_graph.xml:173
+-keep class taxi.kassa.view.withdraws.withdraw.WithdrawFragment { <init>(...); }
+
+# Referenced at D:\AndroidProjects\taxitech-android-new\app\src\main\res\navigation\nav_graph.xml:189
+-keep class taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment { <init>(...); }
+

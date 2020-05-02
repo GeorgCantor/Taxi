@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_background"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/back_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_4dp"
+            android:layout_marginTop="12dp"
+            android:background="?attr/selectableItemBackground"
+            android:padding="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_back" />
+
+        <TextView
+            android:id="@+id/registration_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/registration"
+            android:textColor="@color/gray_profile"
+            android:textSize="@dimen/text_16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/back_arrow"
+            app:layout_constraintStart_toEndOf="@+id/back_arrow"
+            app:layout_constraintTop_toTopOf="@+id/back_arrow" />
+
+        <TextView
+            android:id="@+id/registration_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_24dp"
+            android:layout_marginTop="38dp"
+            android:text="@string/choose_aggregator"
+            android:textColor="@color/gray_intro_text"
+            android:textSize="@dimen/text_24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/registration_title" />
+
+
+        <ImageView
+            android:id="@+id/yandex_background"
+            android:layout_width="match_parent"
+            android:layout_height="74dp"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:layout_marginTop="@dimen/margin_24dp"
+            android:layout_marginEnd="@dimen/margin_16dp"
+            android:src="@drawable/bg_profile_gradient"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/registration_tv" />
+
+        <ImageView
+            android:id="@+id/yandex_image"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="20dp"
+            android:src="@drawable/ic_yandex"
+            app:layout_constraintBottom_toBottomOf="@+id/yandex_background"
+            app:layout_constraintStart_toStartOf="@+id/yandex_background"
+            app:layout_constraintTop_toTopOf="@+id/yandex_background" />
+
+        <TextView
+            android:id="@+id/yandex_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:fontFamily="sans-serif"
+            android:text="@string/yandex_title"
+            android:textColor="@color/registration_white_color"
+            android:textSize="@dimen/text_16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/yandex_background"
+            app:layout_constraintStart_toEndOf="@+id/yandex_image"
+            app:layout_constraintTop_toTopOf="@+id/yandex_background" />
+
+        <ImageView
+            android:id="@+id/plus_yandex_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="24dp"
+            app:layout_constraintBottom_toBottomOf="@id/yandex_background"
+            app:layout_constraintEnd_toEndOf="@+id/yandex_background"
+            app:layout_constraintTop_toTopOf="@id/yandex_background"
+            app:srcCompat="@drawable/ic_plus" />
+
+
+        <ImageView
+            android:id="@+id/gett_background"
+            android:layout_width="match_parent"
+            android:layout_height="74dp"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:layout_marginTop="@dimen/margin_8dp"
+            android:layout_marginEnd="@dimen/margin_16dp"
+            android:src="@drawable/bg_profile_gradient"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/yandex_background" />
+
+        <ImageView
+            android:id="@+id/gett_image"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="20dp"
+            android:src="@drawable/ic_gett"
+            app:layout_constraintBottom_toBottomOf="@+id/gett_background"
+            app:layout_constraintStart_toStartOf="@+id/gett_background"
+            app:layout_constraintTop_toTopOf="@+id/gett_background" />
+
+        <TextView
+            android:id="@+id/gett_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:fontFamily="sans-serif"
+            android:text="@string/gett_title"
+            android:textColor="@color/registration_white_color"
+            android:textSize="@dimen/text_16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/gett_background"
+            app:layout_constraintStart_toEndOf="@+id/gett_image"
+            app:layout_constraintTop_toTopOf="@+id/gett_background" />
+
+        <ImageView
+            android:id="@+id/plus_gett_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="24dp"
+            app:layout_constraintBottom_toBottomOf="@id/gett_background"
+            app:layout_constraintEnd_toEndOf="@+id/gett_background"
+            app:layout_constraintTop_toTopOf="@id/gett_background"
+            app:srcCompat="@drawable/ic_plus" />
+
+
+        <ImageView
+            android:id="@+id/city_background"
+            android:layout_width="match_parent"
+            android:layout_height="74dp"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:layout_marginTop="@dimen/margin_8dp"
+            android:layout_marginEnd="@dimen/margin_16dp"
+            android:src="@drawable/bg_profile_gradient"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gett_background" />
+
+        <ImageView
+            android:id="@+id/city_image"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="20dp"
+            android:src="@drawable/ic_citymobil"
+            app:layout_constraintBottom_toBottomOf="@+id/city_background"
+            app:layout_constraintStart_toStartOf="@+id/city_background"
+            app:layout_constraintTop_toTopOf="@+id/city_background" />
+
+        <TextView
+            android:id="@+id/city_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:fontFamily="sans-serif"
+            android:text="@string/citymobil_title"
+            android:textColor="@color/registration_white_color"
+            android:textSize="@dimen/text_16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/city_background"
+            app:layout_constraintStart_toEndOf="@+id/city_image"
+            app:layout_constraintTop_toTopOf="@+id/city_background" />
+
+        <ImageView
+            android:id="@+id/plus_city_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="24dp"
+            app:layout_constraintBottom_toBottomOf="@id/city_background"
+            app:layout_constraintEnd_toEndOf="@+id/city_background"
+            app:layout_constraintTop_toTopOf="@id/city_background"
+            app:srcCompat="@drawable/ic_plus" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>
