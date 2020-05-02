@@ -1,6 +1,5 @@
 package taxi.kassa.model.remote
 
-import io.reactivex.Observable
 import kotlinx.coroutines.Deferred
 import retrofit2.http.*
 import taxi.kassa.model.responses.*
@@ -9,23 +8,23 @@ interface ApiService {
 
     @POST("auth")
     @FormUrlEncoded
-    fun authSendPhone(@Field("phone") phone: String?): Observable<ResponseAPI<ResponseAuthSendPhone?>?>?
+    fun authSendPhoneAsync(@Field("phone") phone: String?): Deferred<ResponseAPI<ResponseAuthSendPhone?>?>?
 
     @POST("auth")
     @FormUrlEncoded
-    fun getCode(
+    fun getCodeAsync(
         @Field("phone") phone: String?,
         @Field("code") code: String?
-    ): Observable<ResponseAPI<ResponseAuthSendCode?>?>?
+    ): Deferred<ResponseAPI<ResponseAuthSendCode?>?>?
 
     @POST("requests")
     @FormUrlEncoded
-    fun createRequest(
+    fun createRequestAsync(
         @Field("name") name: String?,
         @Field("phone") phone: String?,
         @Field("source_id") source_id: Int,
         @Field("key") key: String?
-    ): Observable<ResponseAPI<ResponseCreateRequest?>?>?
+    ): Deferred<ResponseAPI<ResponseCreateRequest?>?>?
 
     @GET("owner")
     fun getOwnerAsync(): Deferred<ResponseAPI<ResponseOwner?>?>?

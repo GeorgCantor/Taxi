@@ -11,19 +11,19 @@ class ApiRepository(
     private val preferenceManager: PreferenceManager
 ) {
 
-    fun login(phone: String) = apiService.authSendPhone(phone)
+    suspend fun login(phone: String) = apiService.authSendPhoneAsync(phone)?.await()
 
-    fun signUp(
+    suspend fun signUp(
         name: String,
         phone: String,
         source_id: Int,
         key: String
-    ) = apiService.createRequest(name, phone, source_id, key)
+    ) = apiService.createRequestAsync(name, phone, source_id, key)?.await()
 
-    fun getCode(
+    suspend fun getCode(
         phone: String,
         code: String
-    ) = apiService.getCode(phone, code)
+    ) = apiService.getCodeAsync(phone, code)?.await()
 
     suspend fun getOwner() = apiService.getOwnerAsync()?.await()
 

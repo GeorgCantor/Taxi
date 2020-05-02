@@ -14,7 +14,6 @@ MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\Alex\.gr
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\48dbc9468f96fe18b99e82a5430b6440\jetified-viewpager2-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\eaef7e5475288bdbfa42199c3ec7f169\recyclerview-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\dd82b419279286ba9ac69627795dcbc8\jetified-lifecycle-viewmodel-ktx-2.2.0\AndroidManifest.xml:17:1-24:12
-MERGED from [io.reactivex.rxjava2:rxandroid:2.1.1] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\476fa0b02b6d11ccf0971dc2f8d8d560\jetified-rxandroid-2.1.1\AndroidManifest.xml:15:1-20:12
 MERGED from [org.koin:koin-android:2.0.1] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\51648c8d6e6359a73e4e888b6738d004\jetified-koin-android-2.0.1\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.camera:camera-extensions:1.0.0-alpha03] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\2c52c50943d339554c837b2764f606ee\jetified-camera-extensions-1.0.0-alpha03\AndroidManifest.xml:17:1-30:12
 MERGED from [androidx.camera:camera-camera2:1.0.0-alpha06] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\f357f32c6376e2fa4e705d2d8de829d6\jetified-camera-camera2-1.0.0-alpha06\AndroidManifest.xml:17:1-33:12
@@ -252,8 +251,6 @@ MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\Alex\.gradle\cac
 MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\eaef7e5475288bdbfa42199c3ec7f169\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\dd82b419279286ba9ac69627795dcbc8\jetified-lifecycle-viewmodel-ktx-2.2.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\dd82b419279286ba9ac69627795dcbc8\jetified-lifecycle-viewmodel-ktx-2.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [io.reactivex.rxjava2:rxandroid:2.1.1] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\476fa0b02b6d11ccf0971dc2f8d8d560\jetified-rxandroid-2.1.1\AndroidManifest.xml:18:5-43
-MERGED from [io.reactivex.rxjava2:rxandroid:2.1.1] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\476fa0b02b6d11ccf0971dc2f8d8d560\jetified-rxandroid-2.1.1\AndroidManifest.xml:18:5-43
 MERGED from [org.koin:koin-android:2.0.1] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\51648c8d6e6359a73e4e888b6738d004\jetified-koin-android-2.0.1\AndroidManifest.xml:5:5-44
 MERGED from [org.koin:koin-android:2.0.1] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\51648c8d6e6359a73e4e888b6738d004\jetified-koin-android-2.0.1\AndroidManifest.xml:5:5-44
 MERGED from [androidx.camera:camera-extensions:1.0.0-alpha03] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\2c52c50943d339554c837b2764f606ee\jetified-camera-extensions-1.0.0-alpha03\AndroidManifest.xml:20:5-22:41

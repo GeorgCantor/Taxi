@@ -2,14 +2,11 @@ package taxi.kassa.view.auth.auth_code
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import io.reactivex.Observable
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.schedulers.Schedulers
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.launch
 import taxi.kassa.repository.ApiRepository
 
 class AuthCodeViewModel(private val repository: ApiRepository) : ViewModel() {
-
-    private val disposable = CompositeDisposable()
 
     val isProgressVisible = MutableLiveData<Boolean>().apply { this.value = false }
     val isLoggedIn = MutableLiveData<Boolean>()
@@ -17,25 +14,14 @@ class AuthCodeViewModel(private val repository: ApiRepository) : ViewModel() {
     val error = MutableLiveData<String>()
 
     fun login(phone: String, code: String) {
-        disposable.add(
-            Observable.fromCallable {
-                repository.getCode(phone, code)
-                    ?.doOnSubscribe { isProgressVisible.postValue(true) }
-                    ?.doFinally { isProgressVisible.postValue(false) }
-                    ?.subscribe({
-                        isLoggedIn.postValue(it?.success)
-                        it?.response?.let { token.postValue(it.token) }
-                        it?.errorMsg?.let { error.postValue(it) }
-                    }, {
-                    })
-            }
-                .subscribeOn(Schedulers.io())
-                .subscribe()
-        )
-    }
+        isProgressVisible.value = true
 
-    override fun onCleared() {
-        super.onCleared()
-        disposable.clear()
+        viewModelScope.launch {
+            val response = repository.getCode(phone, code)
+            isLoggedIn.postValue(response?.success)
+            response?.response?.let { token.postValue(it.token) }
+            response?.errorMsg?.let { error.postValue(it) }
+            isProgressVisible.postValue(false)
+        }
     }
 }

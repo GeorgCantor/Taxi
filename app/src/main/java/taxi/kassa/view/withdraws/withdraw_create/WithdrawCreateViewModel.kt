@@ -55,7 +55,6 @@ class WithdrawCreateViewModel(private val repository: ApiRepository) : ViewModel
         viewModelScope.launch {
             accounts.value?.info?.first()?.id?.let {
                 val response = repository.deleteAccount(it)
-
                 deletionStatus.postValue(response?.response?.status)
                 error.postValue(response?.errorMsg)
                 isProgressVisible.postValue(false)
@@ -69,7 +68,6 @@ class WithdrawCreateViewModel(private val repository: ApiRepository) : ViewModel
         viewModelScope.launch {
             accountId.value?.let { id ->
                 val response = repository.createWithdraw(sourceId, amount, id)
-
                 creatingStatus.postValue(response?.response?.status)
                 error.postValue(response?.errorMsg)
                 isProgressVisible.postValue(false)

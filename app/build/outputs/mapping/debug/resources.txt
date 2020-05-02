@@ -336,6 +336,7 @@ Referenced Strings:
   Accept
   Accessor
   AccountsCardViewHolder
+  AccountsViewModel.kt
   Active
   AddLastDesc
   Age
@@ -349,6 +350,9 @@ Referenced Strings:
   AsyncCall
   AuthAccountRequestCreator
   AuthAccountResultCreator
+  AuthCodeViewModel.kt
+  AuthPhoneViewModel.kt
+  AuthSignUpViewModel.kt
   AuthToken
   AuthenticatorNone
   Authorization
@@ -374,7 +378,6 @@ Referenced Strings:
   BOTTOM
   BROWSER_COMPATIBLE_DATE_FORMATS
   BROWSER_COMPATIBLE_DATE_FORMAT_STRINGS
-  BUFFER
   Backend
   BalanceViewModel.kt
   BanParcelableUsage
@@ -497,11 +500,9 @@ Referenced Strings:
   DISCONNECTED
   DISCONNECTING
   DISPLAY_NOTIFICATION
-  DISPOSED
   DORMANT
   DRIVE
   DRIVE_EXTERNAL_STORAGE_REQUIRED
-  DROP
   DUMMY
   DataHolderCreator
   Date
@@ -551,10 +552,7 @@ Referenced Strings:
   Editor
   Element
   Ellipsis
-  EmptyAction
-  EmptyConsumer
   EmptyCoroutineContext
-  EmptyRunnable
   EnhancedIntentService
   Entry
   Expect
@@ -601,7 +599,6 @@ Referenced Strings:
   FisError
   FixedLengthSource
   FloatingActionButton
-  Flowable
   FormatError
   FragmentManager
   FramingSink
@@ -682,7 +679,6 @@ Referenced Strings:
   INFO_SUPPORTED_HARDWARE_LEVEL_LEGACY
   INFO_SUPPORTED_HARDWARE_LEVEL_LIMITED
   INITIALIZED
-  INSTANCE
   INSTANCE_ID_RESET
   INTERNAL_ERROR
   INTERNAL_SERVER_ERROR
@@ -691,7 +687,6 @@ Referenced Strings:
   ISIZE
   IWLAN
   IayckHiZRO1EFl1aGoK
-  IdentityFunction
   ImageAnalysis:
   ImageButton
   ImageCapture:
@@ -714,7 +709,6 @@ Referenced Strings:
   KnownLengthSink
   KotlinExtensions.kt
   L
-  LATEST
   LAZY
   LEFT
   LICENSE_CHECK_FAILED
@@ -761,7 +755,6 @@ Referenced Strings:
   MESSAGE_DELIVERED
   METERING
   MIN_LATENCY
-  MISSING
   MISSING_INSTANCEID_SERVICE
   MMMEd
   MMMd
@@ -784,7 +777,6 @@ Referenced Strings:
   Mastercard
   MaterialButton
   MaterialCardView
-  Maybe
   Meizu
   MenuBuilder
   MessengerIpcClient
@@ -844,7 +836,6 @@ Referenced Strings:
   OP_SET_MAX_LIFECYCLE
   OTA
   OVERRIDE_THEME_RES_ID
-  Observable
   OkHttp
   OnImageAvailableHandlerThread
   OpenJSSE
@@ -978,14 +969,6 @@ Referenced Strings:
   Result
   ResultT:
   ReturnT:
-  RxCachedThreadScheduler
-  RxCachedThreadSchedulerShutdown
-  RxCachedWorkerPoolEvictor
-  RxComputationShutdown
-  RxComputationThreadPool
-  RxNewThreadScheduler
-  RxSchedulerPurge
-  RxSingleScheduler
   S
   S:
   S::
@@ -1089,7 +1072,6 @@ Referenced Strings:
   SupportLifecycleFragmentImpl
   SyntheticAccessor
   T
-  T2:
   T:
   TAXI
   TContinuationResult:
@@ -1312,7 +1294,9 @@ Referenced Strings:
   WebImageCreator
   WithdrawCardViewHolder
   WithdrawCreateViewModel.kt
+  WithdrawViewModel.kt
   WithdrawsViewHolder
+  WithdrawsViewModel.kt
   WorkSourceUtil
   Worker
   WorkerState
@@ -1701,7 +1685,7 @@ Referenced Strings:
   audio
   auth
   authClient
-  authSendPhone
+  authSendPhoneAsync
   authToken
   authTokenType
   authVersion
@@ -2293,6 +2277,7 @@ Referenced Strings:
   cre
   create
   createAccount
+  createAccountAsync
   createAddress
   createAndOpen
   createAsync
@@ -2311,7 +2296,7 @@ Referenced Strings:
   createPlainPool
   createPool
   createPreviewUseCase
-  createRequest
+  createRequestAsync
   createRequestBody
   createTask
   createTask$kotlinx_coroutines_core
@@ -2319,6 +2304,7 @@ Referenced Strings:
   createTunnelRequest
   createViewModelProvider
   createWithdraw
+  createWithdrawAsync
   createWorkChain
   created
   createdWorkers
@@ -2378,6 +2364,7 @@ Referenced Strings:
   delegate
   delete
   deleteAccount
+  deleteAccountAsync
   deleteContents
   deleted_messages
   deletionStatus
@@ -2411,7 +2398,6 @@ Referenced Strings:
   dispatcherWasUnconfined
   display
   displayName
-  disposable
   distinct
   distinctBy
   dns
@@ -2737,6 +2723,7 @@ Referenced Strings:
   getAccountCorr
   getAccountNumber
   getAccounts
+  getAccountsAsync
   getAcquiredWithTimeout
   getAddressFrom
   getAddressTo
@@ -2793,6 +2780,7 @@ Referenced Strings:
   getClient$okhttp
   getClosed$okhttp
   getCode
+  getCodeAsync
   getCodePackage
   getColorScheme
   getColumns
@@ -2909,7 +2897,6 @@ Referenced Strings:
   getListener
   getListener$okhttp
   getLoadPriority
-  getLoadedImages
   getLruEntries$okhttp
   getMajor
   getMatchResultNamedGroup
@@ -3089,6 +3076,7 @@ Referenced Strings:
   getWithdraw
   getWithdrawalDate
   getWithdraws
+  getWithdrawsAsync
   getWrappedConverter
   getWriteAbortCount$okhttp
   getWriteBytesMaximum
@@ -3659,7 +3647,6 @@ Referenced Strings:
   loadImages
   loadModulesAndScopes
   loadPriority
-  loadedImages
   loader
   loaderVersion
   local
@@ -3974,7 +3961,6 @@ Referenced Strings:
   onCancelling
   onCaptureSuccess
   onChanged
-  onCleared
   onClick
   onClose
   onCompletionInternal
@@ -4369,7 +4355,6 @@ Referenced Strings:
   removeFirstOrNull
   removeGhost
   removeItemAt
-  removeLoadImage
   removeMethod
   removeNode
   removeNode$kotlinx_coroutines_core
@@ -4557,7 +4542,6 @@ Referenced Strings:
   selectProtocol
   selected
   selectedAccount
-  selectedNo
   selector
   semanticAction
   sendConnectionPreface
@@ -4643,7 +4627,6 @@ Referenced Strings:
   setLevel
   setListBytes
   setListener
-  setLoadImage
   setLoadPhotoVisibility
   setLogoutButtonConstraint
   setMaxSize
@@ -4672,7 +4655,6 @@ Referenced Strings:
   setScheme$okhttp
   setScopeDefinition
   setSecondaryTypes
-  setSelected
   setSettings
   setSize$okio
   setSourceId
@@ -4879,10 +4861,19 @@ Referenced Strings:
   taskRunner
   taxi
   taxi.kassa.repository.ApiRepository
+  taxi.kassa.view.accounts.AccountsView...
+  taxi.kassa.view.accounts.AccountsView...
+  taxi.kassa.view.accounts.AccountsView...
+  taxi.kassa.view.auth.auth_code.AuthCo...
+  taxi.kassa.view.auth.auth_phone.AuthP...
+  taxi.kassa.view.auth.auth_sign_up.Aut...
   taxi.kassa.view.balance.BalanceViewMo...
   taxi.kassa.view.fuel.FuelReplenishVie...
   taxi.kassa.view.orders.list.OrdersLis...
   taxi.kassa.view.profile.ProfileViewMo...
+  taxi.kassa.view.withdraws.WithdrawsVi...
+  taxi.kassa.view.withdraws.withdraw.Wi...
+  taxi.kassa.view.withdraws.withdraw_cr...
   taxi.kassa.view.withdraws.withdraw_cr...
   taxi/kassa/model/remote/ApiClient$cre...
   taxi/kassa/util/ExtensionsKt$observe$1
@@ -5978,7 +5969,6 @@ Marking id:imagePopup:2131231074 used because its prefix matches string pool con
 Marking id:imagePopupRoot:2131231075 used because its prefix matches string pool constant image
 Marking id:image_view:2131231076 used because its prefix matches string pool constant image
 Marking layout:image_popup:2131427403 used because its prefix matches string pool constant image
-Marking xml:image_picker_provider_paths:-1 used because its prefix matches string pool constant image
 Marking attr:emptyVisibility:2130903296 used because its prefix matches string pool constant em
 Marking id:empty_tv:2131231001 used because its prefix matches string pool constant em
 Marking id:empty_withdraws:2131231002 used because its prefix matches string pool constant em
@@ -6286,7 +6276,6 @@ Marking string:to_call:2131624182 used because its prefix matches string pool co
 Marking string:topic:2131624183 used because its prefix matches string pool constant to
 Marking string:total:2131624184 used because its prefix matches string pool constant to
 Marking string:total_with_commission:2131624185 used because its prefix matches string pool constant to
-Marking id:toolbar:-1 used because its prefix matches string pool constant to
 Marking string:project_id:2131624155 used because its prefix matches string pool constant project_id
 Marking id:up:2131231417 used because its prefix matches string pool constant up
 Marking id:gett_sts_cancel:2131231050 used because its prefix matches string pool constant gett_sts_cancel
@@ -6637,8 +6626,6 @@ Marking string:action_settings:2131623966 used because its prefix matches string
 Marking string:google_api_key:2131624056 used because its prefix matches string pool constant google_api_key
 Marking drawable:notify_panel_notification_icon_bg:2131165416 used because its prefix matches string pool constant notify
 Marking attr:menu:2130903523 used because its prefix matches string pool constant menu
-Marking id:menu_camera:-1 used because its prefix matches string pool constant menu
-Marking id:menu_done:-1 used because its prefix matches string pool constant menu
 Marking id:selected:2131231310 used because its prefix matches string pool constant selected
 Marking attr:headerLayout:2130903354 used because its prefix matches string pool constant header
 Marking id:delete_icon:2131230981 used because its prefix matches string pool constant delete
@@ -6974,7 +6961,6 @@ Marking id:view_offset_helper:2131231419 used because its prefix matches string 
 Marking id:view_pager:2131231420 used because its prefix matches string pool constant view
 Marking id:view_terms:2131231421 used because its prefix matches string pool constant view
 Marking string:view_terms:2131624188 used because its prefix matches string pool constant view
-Marking id:view_alpha:-1 used because its prefix matches string pool constant view
 Marking id:card_input_view:2131230882 used because its prefix matches string pool constant card_input_view
 Marking id:name_edit_text:2131231156 used because its prefix matches string pool constant name
 Marking id:name_input_view:2131231157 used because its prefix matches string pool constant name
@@ -7454,7 +7440,6 @@ Marking id:filter_chip:2131231021 used because its prefix matches string pool co
 Marking id:license_cancel:2131231100 used because its prefix matches string pool constant license_cancel
 Marking id:cancel_btn:2131230875 used because its prefix matches string pool constant cancel_btn
 Marking attr:recyclerViewStyle:2130903566 used because its prefix matches string pool constant recyclerView
-Marking id:recyclerView:-1 used because its prefix matches string pool constant recyclerView
 Marking id:tag_accessibility_actions:2131231364 used because its prefix matches string pool constant tag
 Marking id:tag_accessibility_clickable_spans:2131231365 used because its prefix matches string pool constant tag
 Marking id:tag_accessibility_heading:2131231366 used because its prefix matches string pool constant tag
@@ -8465,13 +8450,6 @@ layout:text_view_with_line_height_from_appearance:2131427460 => [style:TestStyle
 layout:text_view_with_line_height_from_layout:2131427461 => [style:TestStyleWithLineHeight:2131689767, dimen:material_text_view_test_line_height_override:2131099811]
 layout:text_view_with_line_height_from_style:2131427462 => [style:TestStyleWithLineHeightAppearance:2131689768]
 layout:text_view_with_theme_line_height:2131427463 => [style:TestStyleWithThemeLineHeightAttribute:2131689769]
-layout:ef_activity_image_picker:-1 => [layout:ef_imagepicker_toolbar:-1, id:toolbar:-1]
-layout:ef_imagepicker_toolbar:-1 => [attr:colorPrimary:2130903215, dimen:ef_toolbar_elevation:-1, attr:actionBarSize:2130903044, style:ef_CustomToolbarTheme:-1]
-layout:ef_fragment_image_picker:-1 => [dimen:ef_spacing_double:-1, string:ef_msg_empty_images:-1, dimen:ef_font_medium:-1, color:ef_black_alpha_aa:-1, id:recyclerView:-1]
-layout:ef_imagepicker_item_folder:-1 => [drawable:ef_folder_placeholder:-1, string:ef_content_desc_folder:-1, color:ef_black_alpha_50:-1, dimen:ef_padding_small:-1, color:ef_white:-1, dimen:ef_font_small:-1, color:ef_grey:-1]
-layout:ef_imagepicker_item_image:-1 => [string:ef_content_desc_image:-1, color:ef_black_alpha_aa:-1, dimen:ef_spacing_half:-1, dimen:ef_spacing_double:-1, string:ef_gif:-1, color:ef_white:-1, dimen:ef_font_small:-1]
-layout:ef_imagepikcer_snackbar:-1 => [dimen:ef_height_snackbar:-1, id:ef_snackbar_btn_action:-1, color:ef_white:-1, attr:selectableItemBackground:2130903577, attr:colorAccent:2130903202]
-menu:ef_image_picker_menu_main:-1 => [drawable:ef_ic_camera_white:-1, string:ef_camera:-1, string:ef_done:-1]
 
 The root reachable resources are:
 string:fcm_fallback_notification_channel_label:2131624047,
@@ -11129,11 +11107,6 @@ string:fcm_fallback_notification_channel_label:2131624047,
    layout:text_view_without_line_height:2131427464,
    anim:fade_in:2130771996,
    anim:fade_out:2130771997,
-   id:toolbar:-1,
-   id:recyclerView:-1,
-   id:view_alpha:-1,
-   id:menu_camera:-1,
-   id:menu_done:-1,
    attr:android_textColorPrimary:-1,
    attr:android_textColorHint:-1,
    attr:android_textColorHighlight:-1,
@@ -11280,8 +11253,7 @@ string:fcm_fallback_notification_channel_label:2131624047,
    attr:android_hint:-1,
    attr:android_theme:-1,
    attr:android_inflatedId:-1,
-   attr:android_borderlessButtonStyle:-1,
-   xml:image_picker_provider_paths:-1
+   attr:android_borderlessButtonStyle:-1
 Skipped unused resource res/anim/abc_fade_in.xml: 388 bytes (replaced with small dummy file of size 104 bytes)
 Skipped unused resource res/anim/abc_fade_out.xml: 388 bytes (replaced with small dummy file of size 104 bytes)
 Skipped unused resource res/anim/abc_slide_in_bottom.xml: 396 bytes (replaced with small dummy file of size 104 bytes)
