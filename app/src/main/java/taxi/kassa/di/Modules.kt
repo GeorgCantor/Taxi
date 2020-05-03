@@ -23,8 +23,16 @@ import taxi.kassa.view.withdraws.WithdrawsViewModel
 import taxi.kassa.view.withdraws.withdraw.WithdrawViewModel
 import taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateViewModel
 
+val apiModule = module {
+    single { ApiClient.create(get()) }
+}
+
 val repositoryModule = module {
-    single { ApiRepository(get(), PreferenceManager(androidApplication().applicationContext)) }
+    single { ApiRepository(get(), get()) }
+}
+
+val preferenceModule = module {
+    single { PreferenceManager(androidApplication().applicationContext) }
 }
 
 val viewModelModule = module(override = true) {
@@ -38,7 +46,7 @@ val viewModelModule = module(override = true) {
         AuthCodeViewModel(androidApplication(), get())
     }
     viewModel {
-        ProfileViewModel(androidApplication(), get())
+        ProfileViewModel(androidApplication(), get(), get())
     }
     viewModel {
         BalanceViewModel(androidApplication(), get())
@@ -79,8 +87,4 @@ val viewModelModule = module(override = true) {
     viewModel {
         ConnectionViewModel()
     }
-}
-
-val appModule = module {
-    single { ApiClient.create(get()) }
 }

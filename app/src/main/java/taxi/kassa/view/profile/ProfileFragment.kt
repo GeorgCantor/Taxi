@@ -34,12 +34,10 @@ import java.util.*
 class ProfileFragment : Fragment() {
 
     private lateinit var viewModel: ProfileViewModel
-    private lateinit var prefManager: PreferenceManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel = getViewModel { parametersOf() }
-        prefManager = PreferenceManager(requireContext())
     }
 
     override fun onCreateView(
@@ -190,15 +188,15 @@ class ProfileFragment : Fragment() {
     }
 
     private fun logout() {
-        prefManager.saveString(PHONE, "")
-        prefManager.saveString(TOKEN, "")
+        viewModel.saveToPrefs(PHONE, "")
+        viewModel.saveToPrefs(TOKEN, "")
 
         activity?.finish()
         startActivity(Intent(requireActivity(), MainActivity::class.java))
     }
 
     private fun setBalanceChange(totalBalance: Int) {
-        val pastBalance = prefManager.getInt(TOTAL_BALANCE)
+        val pastBalance = viewModel.getFromPrefs(TOTAL_BALANCE)
         pastBalance?.let {
             when (totalBalance > it) {
                 true -> {
@@ -208,7 +206,7 @@ class ProfileFragment : Fragment() {
                 false -> balance_counter.gone()
             }
         }
-        prefManager.saveInt(TOTAL_BALANCE, totalBalance)
+        viewModel.saveToPrefs(TOTAL_BALANCE, totalBalance)
     }
 
     private fun setLogoutButtonConstraint() {

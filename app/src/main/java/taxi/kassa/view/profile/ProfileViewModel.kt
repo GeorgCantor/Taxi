@@ -12,10 +12,12 @@ import taxi.kassa.model.Message
 import taxi.kassa.model.Notification
 import taxi.kassa.model.responses.ResponseOwner
 import taxi.kassa.repository.ApiRepository
+import taxi.kassa.util.PreferenceManager
 import taxi.kassa.util.isNetworkAvailable
 
 class ProfileViewModel(
     app: Application,
+    private val preferenceManager: PreferenceManager,
     private val repository: ApiRepository
 ) : AndroidViewModel(app) {
 
@@ -44,5 +46,16 @@ class ProfileViewModel(
         notifications.value = repository.getNotifications()
         incomingMessages.value = repository.getChatHistory().filter { it.isIncoming } as MutableList
         isNetworkAvailable.value = context.isNetworkAvailable()
+    }
+
+    fun saveToPrefs(key: String, value: Any) {
+        when (value) {
+            is String -> preferenceManager.saveString(key, value)
+            is Int -> preferenceManager.saveInt(key, value)
+        }
+    }
+
+    fun getFromPrefs(key: String): Int? {
+        return preferenceManager.getInt(key)
     }
 }

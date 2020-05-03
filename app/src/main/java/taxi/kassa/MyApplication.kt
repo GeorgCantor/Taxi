@@ -4,7 +4,8 @@ import android.app.Application
 import android.content.Context
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
-import taxi.kassa.di.appModule
+import taxi.kassa.di.apiModule
+import taxi.kassa.di.preferenceModule
 import taxi.kassa.di.repositoryModule
 import taxi.kassa.di.viewModelModule
 
@@ -22,7 +23,7 @@ class MyApplication : Application() {
 
         startKoin {
             androidContext(this@MyApplication)
-            modules(arrayListOf(appModule, viewModelModule, repositoryModule))
+            modules(arrayListOf(apiModule, repositoryModule, preferenceModule, viewModelModule))
         }
     }
 }
