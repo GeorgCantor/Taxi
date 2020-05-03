@@ -9,9 +9,12 @@ import retrofit2.HttpException
 import taxi.kassa.MyApplication
 import taxi.kassa.R
 import taxi.kassa.repository.ApiRepository
+import taxi.kassa.util.Constants.TOKEN
+import taxi.kassa.util.PreferenceManager
 
 class AuthCodeViewModel(
     app: Application,
+    private val preferenceManager: PreferenceManager,
     private val repository: ApiRepository
 ) : AndroidViewModel(app) {
 
@@ -29,7 +32,10 @@ class AuthCodeViewModel(
             try {
                 val response = repository.getCode(phone, code)
                 isLoggedIn.postValue(response?.success)
-                response?.response?.let { token.postValue(it.token) }
+                response?.response?.let {
+                    token.postValue(it.token)
+                    saveToPrefs(it.token ?: "")
+                }
                 response?.errorMsg?.let { error.postValue(it) }
                 isProgressVisible.postValue(false)
             } catch (e: HttpException) {
@@ -37,5 +43,11 @@ class AuthCodeViewModel(
                 isProgressVisible.postValue(false)
             }
         }
+    }
+
+    private fun saveToPrefs(value: String) = preferenceManager.saveString(TOKEN, value)
+
+    fun getFromPrefs(key: String): String? {
+        return preferenceManager.getString(key)
     }
 }

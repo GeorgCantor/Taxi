@@ -43,7 +43,7 @@ val viewModelModule = module(override = true) {
         AuthSignUpViewModel(androidApplication(), get())
     }
     viewModel {
-        AuthCodeViewModel(androidApplication(), get())
+        AuthCodeViewModel(androidApplication(), get(), get())
     }
     viewModel {
         ProfileViewModel(androidApplication(), get(), get())

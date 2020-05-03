@@ -18,9 +18,7 @@ import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.util.Constants.PHONE
-import taxi.kassa.util.Constants.TOKEN
 import taxi.kassa.util.Constants.accessToken
-import taxi.kassa.util.PreferenceManager
 import taxi.kassa.util.observe
 import taxi.kassa.util.showError
 
@@ -32,6 +30,11 @@ class AuthCodeFragment : Fragment() {
     private var phone = ""
     private var inputCounter = 0
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel = getViewModel { parametersOf() }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -42,10 +45,7 @@ class AuthCodeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         addChangingRequestFocus()
 
-        val prefManager = PreferenceManager(requireContext())
-        phone = prefManager.getString(PHONE) ?: ""
-
-        viewModel = getViewModel { parametersOf() }
+        phone = viewModel.getFromPrefs(PHONE) ?: ""
 
         with(viewModel) {
             isProgressVisible.observe(viewLifecycleOwner) { visible ->
@@ -55,7 +55,6 @@ class AuthCodeFragment : Fragment() {
             error.observe(viewLifecycleOwner) { error_tv.showError(it) }
 
             token.observe(viewLifecycleOwner) {
-                prefManager.saveString(TOKEN, it)
                 accessToken = it
             }
 

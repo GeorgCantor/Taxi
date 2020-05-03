@@ -27,6 +27,11 @@ class AuthPhoneFragment : Fragment() {
     private lateinit var viewModel: AuthPhoneViewModel
     private var loginIsReady = false
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel = getViewModel { parametersOf() }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -35,7 +40,6 @@ class AuthPhoneFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = getViewModel { parametersOf() }
 
         phone_edit_text.showSoftInputOnFocus = false
 
