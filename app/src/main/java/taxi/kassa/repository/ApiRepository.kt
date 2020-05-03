@@ -11,25 +11,25 @@ class ApiRepository(
     private val preferenceManager: PreferenceManager
 ) {
 
-    suspend fun login(phone: String) = apiService.authSendPhoneAsync(phone)?.await()
+    suspend fun login(phone: String) = apiService.authSendPhone(phone)
 
     suspend fun signUp(
         name: String,
         phone: String,
         source_id: Int,
         key: String
-    ) = apiService.createRequestAsync(name, phone, source_id, key)?.await()
+    ) = apiService.createRequestAsync(name, phone, source_id, key)
 
     suspend fun getCode(
         phone: String,
         code: String
-    ) = apiService.getCodeAsync(phone, code)?.await()
+    ) = apiService.getCodeAsync(phone, code)
 
-    suspend fun getOwner() = apiService.getOwnerAsync()?.await()
+    suspend fun getOwner() = apiService.getOwnerAsync()
 
-    suspend fun getWithdraws() = apiService.getWithdrawsAsync()?.await()
+    suspend fun getWithdraws() = apiService.getWithdrawsAsync()
 
-    suspend fun getAccounts() = apiService.getAccountsAsync()?.await()
+    suspend fun getAccounts() = apiService.getAccountsAsync()
 
     suspend fun createAccount(
         firstName: String,
@@ -43,17 +43,17 @@ class ApiRepository(
         middleName,
         accountNumber,
         bankCode
-    )?.await()
+    )
 
-    suspend fun deleteAccount(accountId: Int) = apiService.deleteAccountAsync(accountId)?.await()
+    suspend fun deleteAccount(accountId: Int) = apiService.deleteAccountAsync(accountId)
 
     suspend fun createWithdraw(
         sourceId: Int,
         amount: String?,
         accountId: Int
-    ) = apiService.createWithdrawAsync(sourceId, amount, accountId)?.await()
+    ) = apiService.createWithdrawAsync(sourceId, amount, accountId)
 
-    suspend fun getOrders(offset: String) = apiService.getOrdersAsync(offset)?.await()
+    suspend fun getOrders(offset: String) = apiService.getOrdersAsync(offset)
 
     fun getNotifications(): MutableList<Notification> {
         val notifications = preferenceManager.getNotifications(NOTIFICATIONS)

@@ -1,7 +1,6 @@
 package taxi.kassa.model.remote
 
 import android.content.Context
-import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import okhttp3.Cache
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -53,7 +52,6 @@ object ApiClient {
         val retrofit = Retrofit.Builder()
             .baseUrl(BuildConfig.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
-            .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .client(okHttpClient)
             .build()
 

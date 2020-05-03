@@ -53,7 +53,7 @@ val viewModelModule = module(override = true) {
         AccountsViewModel(get())
     }
     viewModel {
-        WithdrawCreateViewModel(get())
+        WithdrawCreateViewModel(androidApplication(), get())
     }
     viewModel {
         OrdersViewModel(androidApplication(), get())

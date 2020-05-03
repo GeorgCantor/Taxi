@@ -5,6 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
+import retrofit2.HttpException
 import taxi.kassa.MyApplication
 import taxi.kassa.model.Message
 import taxi.kassa.model.Notification
@@ -26,10 +27,14 @@ class ProfileViewModel(
 
     init {
         viewModelScope.launch {
-            val response = repository.getOwner()
-            responseOwner.postValue(response?.response)
-            error.postValue(response?.errorMsg)
-            isProgressVisible.postValue(false)
+            try {
+                val response = repository.getOwner()
+                responseOwner.postValue(response?.response)
+                error.postValue(response?.errorMsg)
+                isProgressVisible.postValue(false)
+            } catch (e: HttpException) {
+                error.postValue(e.message())
+            }
         }
 
         notifications.value = repository.getNotifications()

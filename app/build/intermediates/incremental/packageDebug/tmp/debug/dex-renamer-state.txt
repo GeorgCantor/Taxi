@@ -1,4 +1,4 @@
-#Sat May 02 21:18:33 MSK 2020
+#Sun May 03 12:35:59 MSK 2020
 base.0=D\:\\AndroidProjects\\taxitech-android-new\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes.dex
 path.1=classes.dex
 renamed.1=classes2.dex

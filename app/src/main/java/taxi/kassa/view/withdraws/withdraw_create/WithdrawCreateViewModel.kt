@@ -1,17 +1,25 @@
 package taxi.kassa.view.withdraws.withdraw_create
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
+import retrofit2.HttpException
+import taxi.kassa.MyApplication
+import taxi.kassa.R
 import taxi.kassa.model.Card
 import taxi.kassa.model.Notification
 import taxi.kassa.model.responses.AccountsList
 import taxi.kassa.model.responses.ResponseOwner
 import taxi.kassa.repository.ApiRepository
 
-class WithdrawCreateViewModel(private val repository: ApiRepository) : ViewModel() {
+class WithdrawCreateViewModel(
+    app: Application,
+    private val repository: ApiRepository
+) : AndroidViewModel(app) {
 
+    private val context = getApplication<MyApplication>()
     private val accountId = MutableLiveData<Int>()
 
     val isProgressVisible = MutableLiveData<Boolean>().apply { this.value = true }
@@ -67,10 +75,15 @@ class WithdrawCreateViewModel(private val repository: ApiRepository) : ViewModel
 
         viewModelScope.launch {
             accountId.value?.let { id ->
-                val response = repository.createWithdraw(sourceId, amount, id)
-                creatingStatus.postValue(response?.response?.status)
-                error.postValue(response?.errorMsg)
-                isProgressVisible.postValue(false)
+                try {
+                    val response = repository.createWithdraw(sourceId, amount, id)
+                    creatingStatus.postValue(response?.response?.status)
+                    error.postValue(response?.errorMsg)
+                    isProgressVisible.postValue(false)
+                } catch (e: HttpException) {
+                    error.postValue(context.getString(R.string.internet_unavailable))
+                    isProgressVisible.postValue(false)
+                }
             }
         }
     }
