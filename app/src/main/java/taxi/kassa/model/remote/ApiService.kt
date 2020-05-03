@@ -11,14 +11,14 @@ interface ApiService {
 
     @POST("auth")
     @FormUrlEncoded
-    suspend fun getCodeAsync(
+    suspend fun getCode(
         @Field("phone") phone: String?,
         @Field("code") code: String?
     ): ResponseAPI<ResponseAuthSendCode?>?
 
     @POST("requests")
     @FormUrlEncoded
-    suspend fun createRequestAsync(
+    suspend fun createRequest(
         @Field("name") name: String?,
         @Field("phone") phone: String?,
         @Field("source_id") source_id: Int,
@@ -26,25 +26,25 @@ interface ApiService {
     ): ResponseAPI<ResponseCreateRequest?>?
 
     @GET("owner")
-    suspend fun getOwnerAsync(): ResponseAPI<ResponseOwner?>?
+    suspend fun getOwner(): ResponseAPI<ResponseOwner?>?
 
     @GET("withdrawals")
-    suspend fun getWithdrawsAsync(): ResponseAPI<Withdraws?>?
+    suspend fun getWithdraws(): ResponseAPI<Withdraws?>?
 
     @POST("withdrawals")
     @FormUrlEncoded
-    suspend fun createWithdrawAsync(
+    suspend fun createWithdraw(
         @Field("source_id") source_id: Int,
         @Field("amount") amount: String?,
         @Field("account_id") account_id: Int
     ): ResponseAPI<ResponseSimple?>?
 
     @GET("accounts")
-    suspend fun getAccountsAsync(): ResponseAPI<AccountsList?>?
+    suspend fun getAccounts(): ResponseAPI<AccountsList?>?
 
     @POST("accounts")
     @FormUrlEncoded
-    suspend fun createAccountAsync(
+    suspend fun createAccount(
         @Field("first_name") first_name: String?,
         @Field("last_name") last_name: String?,
         @Field("middle_name") middle_name: String?,
@@ -54,8 +54,8 @@ interface ApiService {
 
     @POST("account_delete")
     @FormUrlEncoded
-    suspend fun deleteAccountAsync(@Field("account_id") account_id: Int): ResponseAPI<ResponseSimple?>?
+    suspend fun deleteAccount(@Field("account_id") account_id: Int): ResponseAPI<ResponseSimple?>?
 
     @GET("orders")
-    suspend fun getOrdersAsync(@Query("offset") offset: String?): ResponseAPI<Orders?>?
+    suspend fun getOrders(@Query("offset") offset: String?): ResponseAPI<Orders?>?
 }

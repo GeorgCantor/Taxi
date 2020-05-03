@@ -35,7 +35,7 @@ val viewModelModule = module(override = true) {
         AuthSignUpViewModel(androidApplication(), get())
     }
     viewModel {
-        AuthCodeViewModel(get())
+        AuthCodeViewModel(androidApplication(), get())
     }
     viewModel {
         ProfileViewModel(androidApplication(), get())
@@ -44,13 +44,13 @@ val viewModelModule = module(override = true) {
         BalanceViewModel(androidApplication(), get())
     }
     viewModel {
-        WithdrawsViewModel(get())
+        WithdrawsViewModel(androidApplication(), get())
     }
     viewModel {
         WithdrawViewModel(get())
     }
     viewModel {
-        AccountsViewModel(get())
+        AccountsViewModel(androidApplication(), get())
     }
     viewModel {
         WithdrawCreateViewModel(androidApplication(), get())
@@ -62,7 +62,7 @@ val viewModelModule = module(override = true) {
         FuelReplenishViewModel(androidApplication(), get())
     }
     viewModel {
-        OrdersListViewModel(get())
+        OrdersListViewModel(androidApplication(), get())
     }
     viewModel {
         ChatHistoryViewModel(get())

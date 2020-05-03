@@ -74,10 +74,10 @@ class WithdrawCreateFragment : Fragment() {
 
             accounts.observe(viewLifecycleOwner) {
                 if (it.info?.isNotEmpty() == true) {
-                    val account = it.info.first()
-                    bank_name_tv.text = account.bankName
-                    order_tv.text = getString(R.string.order_format, account.accountNumber)
-                    name_tv.text = account.driverName
+                    val account = it.info.firstOrNull()
+                    bank_name_tv.text = account?.bankName
+                    order_tv.text = getString(R.string.order_format, account?.accountNumber)
+                    name_tv.text = account?.driverName
                 }
             }
 

@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import taxi.kassa.MyApplication
+import taxi.kassa.R
 import taxi.kassa.model.Message
 import taxi.kassa.model.Notification
 import taxi.kassa.model.responses.ResponseOwner
@@ -17,6 +18,8 @@ class ProfileViewModel(
     app: Application,
     private val repository: ApiRepository
 ) : AndroidViewModel(app) {
+
+    private val context = getApplication<MyApplication>()
 
     val isProgressVisible = MutableLiveData<Boolean>().apply { this.value = true }
     val isNetworkAvailable = MutableLiveData<Boolean>()
@@ -33,12 +36,13 @@ class ProfileViewModel(
                 error.postValue(response?.errorMsg)
                 isProgressVisible.postValue(false)
             } catch (e: HttpException) {
-                error.postValue(e.message())
+                error.postValue(context.getString(R.string.internet_unavailable))
+                isProgressVisible.postValue(false)
             }
         }
 
         notifications.value = repository.getNotifications()
         incomingMessages.value = repository.getChatHistory().filter { it.isIncoming } as MutableList
-        isNetworkAvailable.value = getApplication<MyApplication>().isNetworkAvailable()
+        isNetworkAvailable.value = context.isNetworkAvailable()
     }
 }

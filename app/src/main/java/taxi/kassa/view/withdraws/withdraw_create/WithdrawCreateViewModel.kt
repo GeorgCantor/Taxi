@@ -48,7 +48,7 @@ class WithdrawCreateViewModel(
             }
             cards.postValue(cardList)
 
-            accountId.postValue(response?.response?.info?.first()?.id)
+            accountId.postValue(response?.response?.info?.firstOrNull()?.id)
             accounts.postValue(response?.response)
             error.postValue(response?.errorMsg)
             isProgressVisible.postValue(false)
@@ -61,12 +61,12 @@ class WithdrawCreateViewModel(
         isProgressVisible.value = true
 
         viewModelScope.launch {
-            accounts.value?.info?.first()?.id?.let {
+            accounts.value?.info?.firstOrNull()?.id?.let {
                 val response = repository.deleteAccount(it)
                 deletionStatus.postValue(response?.response?.status)
                 error.postValue(response?.errorMsg)
-                isProgressVisible.postValue(false)
             }
+            isProgressVisible.postValue(false)
         }
     }
 

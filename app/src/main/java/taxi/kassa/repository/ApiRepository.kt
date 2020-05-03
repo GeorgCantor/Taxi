@@ -18,18 +18,18 @@ class ApiRepository(
         phone: String,
         source_id: Int,
         key: String
-    ) = apiService.createRequestAsync(name, phone, source_id, key)
+    ) = apiService.createRequest(name, phone, source_id, key)
 
     suspend fun getCode(
         phone: String,
         code: String
-    ) = apiService.getCodeAsync(phone, code)
+    ) = apiService.getCode(phone, code)
 
-    suspend fun getOwner() = apiService.getOwnerAsync()
+    suspend fun getOwner() = apiService.getOwner()
 
-    suspend fun getWithdraws() = apiService.getWithdrawsAsync()
+    suspend fun getWithdraws() = apiService.getWithdraws()
 
-    suspend fun getAccounts() = apiService.getAccountsAsync()
+    suspend fun getAccounts() = apiService.getAccounts()
 
     suspend fun createAccount(
         firstName: String,
@@ -37,7 +37,7 @@ class ApiRepository(
         middleName: String,
         accountNumber: String,
         bankCode: String
-    ) = apiService.createAccountAsync(
+    ) = apiService.createAccount(
         firstName,
         lastName,
         middleName,
@@ -45,15 +45,15 @@ class ApiRepository(
         bankCode
     )
 
-    suspend fun deleteAccount(accountId: Int) = apiService.deleteAccountAsync(accountId)
+    suspend fun deleteAccount(accountId: Int) = apiService.deleteAccount(accountId)
 
     suspend fun createWithdraw(
         sourceId: Int,
         amount: String?,
         accountId: Int
-    ) = apiService.createWithdrawAsync(sourceId, amount, accountId)
+    ) = apiService.createWithdraw(sourceId, amount, accountId)
 
-    suspend fun getOrders(offset: String) = apiService.getOrdersAsync(offset)
+    suspend fun getOrders(offset: String) = apiService.getOrders(offset)
 
     fun getNotifications(): MutableList<Notification> {
         val notifications = preferenceManager.getNotifications(NOTIFICATIONS)
