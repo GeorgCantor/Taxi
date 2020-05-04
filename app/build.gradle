@@ -15,7 +15,7 @@ android {
         versionName "1.21"
         multiDexEnabled true
         vectorDrawables.useSupportLibrary = true
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField("String", "BASE_URL", "\"https://kassa.taxi/api/\"")
     }
     buildTypes {
@@ -24,12 +24,12 @@ android {
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-//        debug {
-//            minifyEnabled true
-//            shrinkResources true
-//            debuggable false
-//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-//        }
+        debug {
+            minifyEnabled false
+            shrinkResources false
+            debuggable true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
     }
     compileOptions {
         sourceCompatibility 1.8
@@ -71,4 +71,16 @@ dependencies {
     implementation 'com.google.firebase:firebase-messaging:20.1.5'
 
     implementation "com.redmadrobot:input-mask-android:4.3.1"
+
+    // testing
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.3.3'
+    androidTestImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.3.3'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    androidTestImplementation "android.arch.core:core-testing:1.1.1"
+    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.2.0'
+    debugImplementation 'androidx.test:core:1.2.0'
+    debugImplementation group: 'androidx.fragment', name: 'fragment-testing', version: '1.2.4'
 }
