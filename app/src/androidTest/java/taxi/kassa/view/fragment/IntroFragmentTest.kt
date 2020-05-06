@@ -1,7 +1,6 @@
 package taxi.kassa.view.fragment
 
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
@@ -14,25 +13,22 @@ import taxi.kassa.base.BaseAndroidTest
 import taxi.kassa.view.MainActivity
 
 @RunWith(AndroidJUnit4ClassRunner::class)
-class OrdersFragmentTest : BaseAndroidTest() {
+class IntroFragmentTest : BaseAndroidTest() {
 
     @get: Rule
     val rule = ActivityScenarioRule(MainActivity::class.java)
 
     @Test
-    fun check_number_of_tabs() {
-        if (isUserLoggedIn()) {
-            onView(withId(R.id.orders_view)).perform(ViewActions.click())
-            onView(withId(R.id.taxi_recycler)).check(matches(hasChildCount(3)))
-        }
-    }
-
-    @Test
-    fun press_back_button() {
-        if (isUserLoggedIn()) {
-            onView(withId(R.id.orders_view)).perform(ViewActions.click())
-            onView(withId(R.id.back_arrow)).perform(ViewActions.click())
-            onView(withId(R.id.profile_root_layout)).check(matches(isDisplayed()))
+    fun is_intro_displayed() {
+        if (!isUserLoggedIn()) {
+            onView(withId(R.id.kassa_title))
+                .check(matches(isDisplayed()))
+                .check(matches(withText(R.string.kassa)))
+            onView(withId(R.id.taxi_title))
+                .check(matches(isDisplayed()))
+                .check(matches(withText(R.string.taxi)))
+            onView(withId(R.id.login_button)).check(matches(isDisplayed()))
+            onView(withId(R.id.signup_button)).check(matches(isDisplayed()))
         }
     }
 }

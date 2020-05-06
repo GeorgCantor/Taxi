@@ -11,9 +11,9 @@ import org.junit.runner.RunWith
 import org.koin.android.ext.android.get
 import org.mockito.Mock
 import taxi.kassa.MyApplication
+import taxi.kassa.base.BaseAndroidTest
 import taxi.kassa.model.remote.ApiClient
 import taxi.kassa.repository.ApiRepository
-import taxi.kassa.util.PreferenceManager
 import taxi.kassa.view.balance.BalanceViewModel
 
 @RunWith(androidx.test.ext.junit.runners.AndroidJUnit4::class)
@@ -30,7 +30,6 @@ class BalanceViewModelTest : BaseAndroidTest() {
 
     @Before
     fun setup() {
-        val preferenceManager = PreferenceManager(getContext())
         repository = ApiRepository(client.create(getContext()), preferenceManager)
         viewModel = BalanceViewModel(MyApplication().get(), repository)
     }
@@ -38,7 +37,7 @@ class BalanceViewModelTest : BaseAndroidTest() {
     @Test
     fun get_owner_data() = runBlocking {
         viewModel.responseOwner.observe(mockLifecycleOwner(), Observer {
-            assertNotNull(it)
+            if (isUserLoggedIn() && isNetworkAvailable()) assertNotNull(it)
         })
     }
 }

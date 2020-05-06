@@ -12,20 +12,23 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import taxi.kassa.R
+import taxi.kassa.base.BaseAndroidTest
 import taxi.kassa.view.MainActivity
 
 @RunWith(AndroidJUnit4ClassRunner::class)
-class WriteMessageFragmentTest {
+class WriteMessageFragmentTest : BaseAndroidTest() {
 
     @get: Rule
     val rule = ActivityScenarioRule(MainActivity::class.java)
 
     @Test
     fun input_text_and_submit() {
-        onView(withId(R.id.support_service_view)).perform(click())
-        onView(withId(R.id.write_to_us_view)).perform(click())
-        onView(withId(R.id.message_edit_text)).perform(click()).perform(typeText("sss"))
-        onView(withId(R.id.send_button)).perform(click())
-        onView(withId(R.id.success_root_layout)).check(matches(ViewMatchers.isDisplayed()))
+        if (isUserLoggedIn()) {
+            onView(withId(R.id.support_service_view)).perform(click())
+            onView(withId(R.id.write_to_us_view)).perform(click())
+            onView(withId(R.id.message_edit_text)).perform(click()).perform(typeText("sss"))
+            onView(withId(R.id.send_button)).perform(click())
+            onView(withId(R.id.success_root_layout)).check(matches(ViewMatchers.isDisplayed()))
+        }
     }
 }
