@@ -13,12 +13,11 @@ import org.mockito.Mock
 import taxi.kassa.MyApplication
 import taxi.kassa.model.remote.ApiClient
 import taxi.kassa.repository.ApiRepository
-import taxi.kassa.util.Constants.TOTAL_BALANCE
 import taxi.kassa.util.PreferenceManager
-import taxi.kassa.view.profile.ProfileViewModel
+import taxi.kassa.view.balance.BalanceViewModel
 
 @RunWith(androidx.test.ext.junit.runners.AndroidJUnit4::class)
-class ProfileViewModelTest : BaseAndroidTest() {
+class BalanceViewModelTest : BaseAndroidTest() {
 
     @get:Rule
     val instantTaskExecutorRule = InstantTaskExecutorRule()
@@ -26,14 +25,14 @@ class ProfileViewModelTest : BaseAndroidTest() {
     @Mock
     val client = ApiClient
 
-    private lateinit var viewModel: ProfileViewModel
+    private lateinit var viewModel: BalanceViewModel
     private lateinit var repository: ApiRepository
 
     @Before
     fun setup() {
         val preferenceManager = PreferenceManager(getContext())
         repository = ApiRepository(client.create(getContext()), preferenceManager)
-        viewModel = ProfileViewModel(MyApplication().get(), preferenceManager, repository)
+        viewModel = BalanceViewModel(MyApplication().get(), repository)
     }
 
     @Test
@@ -41,11 +40,5 @@ class ProfileViewModelTest : BaseAndroidTest() {
         viewModel.responseOwner.observe(mockLifecycleOwner(), Observer {
             assertNotNull(it)
         })
-    }
-
-    @Test
-    fun get_from_preferences() = runBlocking {
-        val balance = viewModel.getFromPrefs(TOTAL_BALANCE)
-        assertNotNull(balance)
     }
 }
