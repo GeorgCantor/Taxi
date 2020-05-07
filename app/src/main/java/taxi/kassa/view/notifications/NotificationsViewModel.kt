@@ -5,12 +5,12 @@ import androidx.lifecycle.ViewModel
 import taxi.kassa.model.Notification
 import taxi.kassa.repository.ApiRepository
 
-class NotificationsViewModel(repository: ApiRepository) : ViewModel() {
+class NotificationsViewModel(private val repository: ApiRepository) : ViewModel() {
 
     val notifications = MutableLiveData<MutableList<Notification>>()
     val selectedNotification = MutableLiveData<Notification>()
 
-    init {
+    fun getNotifications() {
         notifications.value = repository.getNotifications()
     }
 
