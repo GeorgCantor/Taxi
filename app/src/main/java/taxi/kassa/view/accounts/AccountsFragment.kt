@@ -187,12 +187,9 @@ class AccountsFragment : Fragment() {
                 }
             }
 
-            val firstName = name_edit_text.text.toString().substringBefore(" ")
-            val middleName = name_edit_text.text.toString().getStringAfterSpace()
-
             viewModel.createAccount(
-                firstName,
-                middleName,
+                name_edit_text.text.toString(),
+                middle_name_edit_text.text.toString(),
                 surname_edit_text.text.toString(),
                 account_edit_text.text.toString(),
                 bik_edit_text.text.toString()

@@ -97,7 +97,8 @@
     <string name="delete_account_message">Вы действительно хотите удалить этот счет?</string>
     <string name="yes">Да</string>
     <string name="no">Нет</string>
-    <string name="first_middle_name">Имя и отчество</string>
+    <string name="first_name">Имя</string>
+    <string name="middle_name">Отчество (если имеется)</string>
     <string name="surname">Фамилия</string>
     <string name="payment_account">Расчетный счет</string>
     <string name="bik">БИК</string>
@@ -151,6 +152,8 @@
     <string name="driver_license_back">Водит. удостоверение \n (обратная сторона)</string>
     <string name="passport_number">Серия и номер паспорта</string>
     <string name="sts">СТС</string>
+    <string name="sts_front">СТС (лицевая сторона)</string>
+    <string name="sts_back">СТС (обратная сторона)</string>
     <string name="license">Лицензия</string>
     <string name="license_front">Лицензия (лицевая сторона)</string>
     <string name="license_back">Лицензия (обратная сторона)</string>
@@ -171,6 +174,20 @@
     <string name="reshoot">Переснять</string>
     <string name="library">Библиотека</string>
     <string name="done">Готово</string>
+
+    <string name="photo1">Фото 1</string>
+    <string name="photo2">Фото 2</string>
+    <string name="photo3">Фото 3</string>
+    <string name="photo4">Фото 4</string>
+    <string name="photo5">Фото 5</string>
+    <string name="photo6">Фото 6</string>
+    <string name="photo7">Фото 7</string>
+    <string name="photo8">Фото 8</string>
+    <string name="photo9">Фото 9</string>
+    <string name="photo10">Фото 10</string>
+    <string name="photo11">Фото 11</string>
+    <string name="photo12">Фото 12</string>
+    <string name="photo13">Фото 13</string>
     <!--    Support-->
     <string name="write_to_us">Напишите нам</string>
     <string name="call_history">История обращений</string>

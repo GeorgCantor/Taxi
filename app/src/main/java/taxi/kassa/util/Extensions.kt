@@ -183,12 +183,6 @@ fun String.getCardType(): String {
     }
 }
 
-fun String.getStringAfterSpace(): String {
-    val index = indexOf(' ')
-
-    return if (index == -1) "Нет отчества" else substring(index + 1)
-}
-
 fun Array<View>.setNormalVisibility() {
     this[0].visible()
     this[1].invisible()
