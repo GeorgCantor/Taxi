@@ -13,8 +13,10 @@ import taxi.kassa.R
 import taxi.kassa.model.Notification
 import taxi.kassa.util.invisible
 
-class NotificationsAdapter(notifications: MutableList<Notification>) :
-    RecyclerView.Adapter<NotificationsAdapter.NotificationsViewHolder>() {
+class NotificationsAdapter(
+    notifications: MutableList<Notification>,
+    private val clickListener: (Notification) -> Unit
+) : RecyclerView.Adapter<NotificationsAdapter.NotificationsViewHolder>() {
 
     private val notifications = mutableListOf<Notification>()
 
@@ -53,6 +55,8 @@ class NotificationsAdapter(notifications: MutableList<Notification>) :
                     constraintSet.applyTo(parent)
                 }
             }
+
+            itemView.setOnClickListener { clickListener(notification) }
         }
     }
 

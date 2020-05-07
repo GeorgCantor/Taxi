@@ -36,6 +36,7 @@
 
         <service
             android:name=".model.remote.firebase.MyFirebaseMessagingService"
+            android:exported="false"
             android:stopWithTask="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />

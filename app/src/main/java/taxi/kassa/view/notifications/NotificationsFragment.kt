@@ -16,7 +16,7 @@ import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_notifications.*
-import org.koin.androidx.viewmodel.ext.android.getViewModel
+import org.koin.androidx.viewmodel.ext.android.getSharedViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.model.Notification
@@ -34,7 +34,7 @@ class NotificationsFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = getViewModel { parametersOf() }
+        viewModel = getSharedViewModel { parametersOf() }
     }
 
     override fun onCreateView(
@@ -56,7 +56,10 @@ class NotificationsFragment : Fragment() {
         viewModel.notifications.observe(viewLifecycleOwner) {
             notifications = it as ArrayList<Notification>
 
-            notifications_recycler.adapter = NotificationsAdapter(it)
+            notifications_recycler.adapter = NotificationsAdapter(it) { notification ->
+                viewModel.setSelectedNotification(notification)
+                findNavController(this).navigate(R.id.action_notificationsFragment_to_notificationFragment)
+            }
 
             empty_tv.visibility = if (it.isNullOrEmpty()) VISIBLE else GONE
 
@@ -98,7 +101,6 @@ class NotificationsFragment : Fragment() {
             notifications.map {
                 if (it.isNew) it.isNew = false
             }
-            notifications.reverse()
             manager.saveNotifications(NOTIFICATIONS, notifications)
         }
     }

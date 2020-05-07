@@ -58,7 +58,7 @@ class ApiRepository(
     fun getNotifications(): MutableList<Notification> {
         val notifications = preferenceManager.getNotifications(NOTIFICATIONS)
         notifications?.let {
-            it.reverse()
+            it.sortByDescending { it.date }
             return it
         }
 

@@ -23,6 +23,8 @@
     <string name="register_application_success">Заявка на подключение отправлена!</string>
     <string name="application_success_message">В ближайшее время наш менеджер свяжется с вами по телефону</string>
     <string name="no_notifications">Пока нет уведомлений</string>
+    <string name="notification">Уведомление</string>
+    <string name="clear">Ясно!</string>
     <string name="ok">Хорошо</string>
     <string name="back">Назад</string>
     <string name="close">Закрыть</string>
