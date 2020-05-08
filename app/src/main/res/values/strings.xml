@@ -129,6 +129,7 @@
     <string name="order_balance_format">Итог: %s₽</string>
     <!--    Registration-->
     <string name="select_registration_variant">Выберите один из двух вариантов регистрации</string>
+    <string name="intro_registration_message"><![CDATA[Вы впервые у нас? Пройдите, пожалуйста, <span style=color:#F1C46E>регистрацию.</span> Если вы уже работаете с нами, выполните вход, нажав кнопку <span style=color:#F1C46E>“Войти”</span>]]></string>
     <string name="set_phone_number">Указать номер телефона</string>
     <string name="download_documents">Загрузить документы</string>
     <string name="or">Или</string>
