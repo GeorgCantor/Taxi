@@ -28,7 +28,7 @@
     <string name="ok">Хорошо</string>
     <string name="back">Назад</string>
     <string name="close">Закрыть</string>
-
+    <!--    Keyboard-->
     <string name="num0">0</string>
     <string name="num1">1</string>
     <string name="num2">2</string>

@@ -1,6 +1,5 @@
 package taxi.kassa.util
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Point
 import android.net.ConnectivityManager
@@ -121,7 +120,6 @@ fun TextView.setColor(
     colorNegative: Int
 ) = setTextColor(getColor(context, if (balance.toFloat() > 0.0F) colorPositive else colorNegative))
 
-@SuppressLint("ResourceType")
 fun TextView.showError(message: String) {
     text = message
 

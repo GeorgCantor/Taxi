@@ -26,7 +26,9 @@ class WriteMessageFragmentTest : BaseAndroidTest() {
         if (isUserLoggedIn()) {
             onView(withId(R.id.support_service_view)).perform(click())
             onView(withId(R.id.write_to_us_view)).perform(click())
-            onView(withId(R.id.message_edit_text)).perform(click()).perform(typeText("sss"))
+            onView(withId(R.id.message_edit_text))
+                .perform(click())
+                .perform(typeText("text"))
             onView(withId(R.id.send_button)).perform(click())
             onView(withId(R.id.success_root_layout)).check(matches(ViewMatchers.isDisplayed()))
         }

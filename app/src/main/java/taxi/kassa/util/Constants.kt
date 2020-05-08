@@ -18,6 +18,7 @@ object Constants {
     const val TAXI = "taxi"
     const val CONNECTION = "connection"
     const val SUPPORT_PHONE_NUMBER = "+74993505558"
+    const val TEST_NUMBER = "3333333333"
     const val NOTIFICATIONS = "notifications"
     const val PUSH_COUNTER = "counter"
     const val MESSAGES_COUNTER = "messages_counter"
