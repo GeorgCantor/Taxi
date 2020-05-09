@@ -580,9 +580,7 @@ class ConnectionFragment : Fragment() {
         }
     }
 
-    private fun backToRegScreen() {
-        findNavController(this).navigate(R.id.action_connectionFragment_to_registrationSelectionFragment)
-    }
+    private fun backToRegScreen() = findNavController(this).popBackStack()
 
     inner class PhoneMaskListener(editText: EditText) : MaskedTextChangedListener(PHONE_MASK, editText, object : ValueListener {
         override fun onTextChanged(maskFilled: Boolean, extractedValue: String, formattedValue: String) {

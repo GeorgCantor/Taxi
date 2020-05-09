@@ -510,7 +510,7 @@
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="@+id/city_background"
         app:layout_constraintStart_toStartOf="@+id/city_background"
-        app:layout_constraintTop_toBottomOf="@+id/city_sts_input_view">
+        app:layout_constraintTop_toBottomOf="@+id/city_sts_back_input_view">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/city_license_front_edit_text2"
