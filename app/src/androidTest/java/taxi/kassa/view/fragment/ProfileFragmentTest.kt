@@ -67,4 +67,13 @@ class ProfileFragmentTest : BaseAndroidTest() {
                 .check(matches(isDisplayed()))
         }
     }
+
+    @Test
+    fun logout() {
+        if (isUserLoggedIn()) {
+            onView(withId(R.id.exit_tv)).perform(click())
+            onView(withId(R.id.ok_btn)).perform(click())
+            onView(withId(R.id.intro_root_layout)).check(matches(isDisplayed()))
+        }
+    }
 }
