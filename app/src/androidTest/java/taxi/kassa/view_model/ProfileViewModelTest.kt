@@ -2,6 +2,7 @@ package taxi.kassa.view_model
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
+import androidx.test.ext.junit.runners.AndroidJUnit4
 import junit.framework.Assert.assertNotNull
 import kotlinx.coroutines.runBlocking
 import org.junit.Before
@@ -17,7 +18,7 @@ import taxi.kassa.repository.ApiRepository
 import taxi.kassa.util.Constants.TOTAL_BALANCE
 import taxi.kassa.view.profile.ProfileViewModel
 
-@RunWith(androidx.test.ext.junit.runners.AndroidJUnit4::class)
+@RunWith(AndroidJUnit4::class)
 class ProfileViewModelTest : BaseAndroidTest() {
 
     @get:Rule

@@ -134,8 +134,6 @@ class ConnectionFragment : Fragment() {
             it.addTextChangedListener(PhoneMaskListener(it))
         }
 
-//        checkEditTextIsComplete(editTexts)
-
         when (taxiType) {
             YANDEX -> {
                 yandex_block.visible()
@@ -558,19 +556,6 @@ class ConnectionFragment : Fragment() {
         }
 
         findNavController(this).navigate(R.id.action_connectionFragment_to_successRequestFragment)
-    }
-
-    private fun checkEditTextIsComplete(editTexts: List<EditText>) {
-        editTexts.map {
-            it.setOnFocusChangeListener { _, _ ->
-                it.setCompoundDrawablesWithIntrinsicBounds(
-                    0,
-                    0,
-                    if (it.text?.isNotBlank() == true) R.drawable.ic_check_green else 0,
-                    0
-                )
-            }
-        }
     }
 
     private fun back() {

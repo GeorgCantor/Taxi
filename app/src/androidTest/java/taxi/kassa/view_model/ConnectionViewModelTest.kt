@@ -3,6 +3,7 @@ package taxi.kassa.view_model
 import android.graphics.BitmapFactory
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
+import androidx.test.ext.junit.runners.AndroidJUnit4
 import junit.framework.Assert.assertEquals
 import org.junit.Before
 import org.junit.Rule
@@ -12,7 +13,7 @@ import taxi.kassa.R
 import taxi.kassa.base.BaseAndroidTest
 import taxi.kassa.view.registration.connection.ConnectionViewModel
 
-@RunWith(androidx.test.ext.junit.runners.AndroidJUnit4::class)
+@RunWith(AndroidJUnit4::class)
 class ConnectionViewModelTest : BaseAndroidTest() {
 
     @get:Rule

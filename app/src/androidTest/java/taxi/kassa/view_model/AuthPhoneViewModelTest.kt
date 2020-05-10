@@ -2,6 +2,7 @@ package taxi.kassa.view_model
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
+import androidx.test.ext.junit.runners.AndroidJUnit4
 import kotlinx.coroutines.runBlocking
 import org.junit.Before
 import org.junit.Rule
@@ -16,7 +17,7 @@ import taxi.kassa.repository.ApiRepository
 import taxi.kassa.util.Constants.TEST_NUMBER
 import taxi.kassa.view.auth.auth_phone.AuthPhoneViewModel
 
-@RunWith(androidx.test.ext.junit.runners.AndroidJUnit4::class)
+@RunWith(AndroidJUnit4::class)
 class AuthPhoneViewModelTest : BaseAndroidTest() {
 
     @get:Rule

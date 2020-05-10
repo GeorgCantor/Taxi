@@ -60,7 +60,7 @@ class AccountsFragment : Fragment() {
                 progress_bar.visibility = if (visible) VISIBLE else GONE
             }
 
-            error.observe(viewLifecycleOwner) { context?.shortToast(it) }
+            error.observe(viewLifecycleOwner) { context?.longToast(it) }
 
             creatingStatus.observe(viewLifecycleOwner) { status ->
                 status?.let {
@@ -125,8 +125,17 @@ class AccountsFragment : Fragment() {
                         requireView().hideKeyboard()
                         keyboard.visibility = VISIBLE
                     }
-                    false -> keyboard.visibility = GONE
+                    false -> {
+                        keyboard.visibility = GONE
+                    }
                 }
+
+                it.setCompoundDrawablesWithIntrinsicBounds(
+                    0,
+                    0,
+                    if (it.text?.isNotBlank() == true) R.drawable.ic_check_green else 0,
+                    0
+                )
             }
 
             it.setOnClickListener { if (keyboard.visibility == GONE) keyboard.visibility = VISIBLE }
