@@ -71,7 +71,7 @@ fun Context.showOneButtonDialog(
         ok_button.setOnClickListener { dismiss() }
 
         if (isRegistrationDialog) {
-            this.message.setText(Html.fromHtml(getString(R.string.terms_description)), TextView.BufferType.SPANNABLE)
+            this.message.setMultiColoredText(R.string.terms_description)
             this.message.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14F)
             this.line.visibility = VISIBLE
             this.extra_message.visibility = VISIBLE
@@ -137,6 +137,10 @@ fun TextView.showError(message: String) {
     }, 3000)
 
     Handler().postDelayed({ text = "" }, 3350)
+}
+
+fun TextView.setMultiColoredText(resource: Int) {
+    setText(Html.fromHtml(context.getString(resource)), TextView.BufferType.SPANNABLE)
 }
 
 fun Context.getScreenSize(): Double {
