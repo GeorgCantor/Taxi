@@ -23,7 +23,7 @@
         android:id="@+id/phone_edit_text"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/edittext_primary"
+        android:background="@android:color/transparent"
         android:inputType="phone"
         android:maxLength="18"
         android:maxLines="1"
@@ -44,8 +44,6 @@
         android:id="@+id/error_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
         android:textColor="@color/error_red_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -112,6 +110,6 @@
         app:layout_constraintBottom_toTopOf="@+id/signup_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/error_tv" />
+        app:layout_constraintTop_toBottomOf="@+id/phone_edit_text" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
