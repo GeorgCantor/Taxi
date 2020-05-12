@@ -255,11 +255,15 @@ class WithdrawCreateFragment : Fragment() {
         })
 
         notification_image.setOnClickListener {
-            findNavController(this).navigate(R.id.action_withdrawCreateFragment_to_notificationsFragment)
+            findNavController(this).navigate(
+                R.id.action_withdrawCreateFragment_to_notificationsFragment,
+                Bundle().apply { putString(NOT_FROM_PUSH, NOT_FROM_PUSH) }
+            )
         }
 
         notification_count.setOnClickListener {
-            findNavController(this).navigate(R.id.action_withdrawCreateFragment_to_notificationsFragment,
+            findNavController(this).navigate(
+                R.id.action_withdrawCreateFragment_to_notificationsFragment,
                 Bundle().apply { putString(NOT_FROM_PUSH, NOT_FROM_PUSH) }
             )
         }
