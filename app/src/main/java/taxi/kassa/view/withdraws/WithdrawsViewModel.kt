@@ -11,6 +11,7 @@ import taxi.kassa.R
 import taxi.kassa.model.Notification
 import taxi.kassa.model.responses.Withdraws
 import taxi.kassa.repository.ApiRepository
+import taxi.kassa.util.Constants.ERROR_504
 
 class WithdrawsViewModel(
     app: Application,
@@ -24,8 +25,11 @@ class WithdrawsViewModel(
     val error = MutableLiveData<String>()
     val notifications = MutableLiveData<MutableList<Notification>>()
 
-    private val exceptionHandler = CoroutineExceptionHandler { _, _ ->
-        error.postValue(context.getString(R.string.internet_unavailable))
+    private val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
+        when (throwable.message) {
+            ERROR_504 -> error.postValue(context.getString(R.string.internet_unavailable))
+            else -> error.postValue(throwable.message)
+        }
         isProgressVisible.postValue(false)
     }
 

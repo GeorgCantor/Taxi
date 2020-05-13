@@ -55,7 +55,7 @@ val viewModelModule = module(override = true) {
         WithdrawsViewModel(androidApplication(), get())
     }
     viewModel {
-        WithdrawViewModel(get())
+        WithdrawViewModel(androidApplication(), get())
     }
     viewModel {
         AccountsViewModel(androidApplication(), get())

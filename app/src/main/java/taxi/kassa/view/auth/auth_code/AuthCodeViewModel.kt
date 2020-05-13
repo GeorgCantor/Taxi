@@ -9,6 +9,7 @@ import kotlinx.coroutines.launch
 import taxi.kassa.MyApplication
 import taxi.kassa.R
 import taxi.kassa.repository.ApiRepository
+import taxi.kassa.util.Constants.ERROR_504
 import taxi.kassa.util.Constants.TOKEN
 import taxi.kassa.util.PreferenceManager
 
@@ -25,8 +26,11 @@ class AuthCodeViewModel(
     val token = MutableLiveData<String>()
     val error = MutableLiveData<String>()
 
-    private val exceptionHandler = CoroutineExceptionHandler { _, _ ->
-        error.postValue(context.getString(R.string.internet_unavailable))
+    private val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
+        when (throwable.message) {
+            ERROR_504 -> error.postValue(context.getString(R.string.internet_unavailable))
+            else -> error.postValue(throwable.message)
+        }
         isProgressVisible.postValue(false)
     }
 

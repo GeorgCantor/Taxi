@@ -10,6 +10,7 @@ import taxi.kassa.MyApplication
 import taxi.kassa.R
 import taxi.kassa.model.responses.Orders
 import taxi.kassa.repository.ApiRepository
+import taxi.kassa.util.Constants.ERROR_504
 
 class OrdersListViewModel(
     app: Application,
@@ -22,8 +23,11 @@ class OrdersListViewModel(
     val orders = MutableLiveData<Orders>()
     val error = MutableLiveData<String>()
 
-    private val exceptionHandler = CoroutineExceptionHandler { _, _ ->
-        error.postValue(context.getString(R.string.internet_unavailable))
+    private val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
+        when (throwable.message) {
+            ERROR_504 -> error.postValue(context.getString(R.string.internet_unavailable))
+            else -> error.postValue(throwable.message)
+        }
         isProgressVisible.postValue(false)
     }
 

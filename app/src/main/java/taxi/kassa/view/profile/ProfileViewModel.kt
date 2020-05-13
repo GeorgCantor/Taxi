@@ -12,6 +12,7 @@ import taxi.kassa.model.Message
 import taxi.kassa.model.Notification
 import taxi.kassa.model.responses.ResponseOwner
 import taxi.kassa.repository.ApiRepository
+import taxi.kassa.util.Constants.ERROR_504
 import taxi.kassa.util.PreferenceManager
 import taxi.kassa.util.isNetworkAvailable
 
@@ -30,8 +31,11 @@ class ProfileViewModel(
     val notifications = MutableLiveData<MutableList<Notification>>()
     val incomingMessages = MutableLiveData<MutableList<Message>>()
 
-    private val exceptionHandler = CoroutineExceptionHandler { _, _ ->
-        error.postValue(context.getString(R.string.internet_unavailable))
+    private val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
+        when (throwable.message) {
+            ERROR_504 -> error.postValue(context.getString(R.string.internet_unavailable))
+            else -> error.postValue(throwable.message)
+        }
         isProgressVisible.postValue(false)
     }
 

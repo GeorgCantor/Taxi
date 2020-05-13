@@ -25,23 +25,19 @@ object Constants {
     const val TOTAL_BALANCE = "total_balance"
     const val PHONE_MASK = "+7 ([000]) [000]-[00]-[00]"
     const val CARD_MASK = "[0000] [0000] [0000] [0000]"
-
     const val YANDEX = "yandex"
     const val GETT = "gett"
     const val CITYMOBIL = "citymobil"
-
     const val TITLE = "1"
     const val MESSAGE = "2"
-
     const val HOURS_PATTERN = "HH:mm"
     const val DAY_YEAR_PATTERN = "dd MMMM yyyy"
     const val FULL_PATTERN = "HH:mm, dd MMMM yyyy"
     const val PUSH_PATTERN = "HH:mm, dd MMMM"
-
     const val MASTERCARD = "Mastercard"
     const val VISA = "Visa"
-
     const val NOT_FROM_PUSH = "openNotFromPush"
+    const val ERROR_504 = "HTTP 504 Unsatisfiable Request (only-if-cached)"
 
     val myDateFormatSymbols: DateFormatSymbols = object : DateFormatSymbols() {
         override fun getMonths(): Array<String> {
