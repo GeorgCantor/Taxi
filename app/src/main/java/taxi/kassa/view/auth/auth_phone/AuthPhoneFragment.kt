@@ -20,12 +20,11 @@ import taxi.kassa.util.Constants.PHONE_MASK
 import taxi.kassa.util.PreferenceManager
 import taxi.kassa.util.longToast
 import taxi.kassa.util.observe
-import taxi.kassa.util.showError
 
 class AuthPhoneFragment : Fragment() {
 
     private lateinit var viewModel: AuthPhoneViewModel
-    private var loginIsReady = false
+    private var agreementChecked = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,7 +42,7 @@ class AuthPhoneFragment : Fragment() {
 
         phone_edit_text.showSoftInputOnFocus = false
 
-        loginIsReady = true
+        agreementChecked = true
 
         with(viewModel) {
             isNetworkAvailable.observe(viewLifecycleOwner) { available ->
@@ -54,7 +53,7 @@ class AuthPhoneFragment : Fragment() {
                 progress_bar.visibility = if (visible) VISIBLE else GONE
             }
 
-            error.observe(viewLifecycleOwner) { error_tv.showError(it) }
+            error.observe(viewLifecycleOwner) { phone_input_view.error = it }
 
             isLoggedIn.observe(viewLifecycleOwner) { loggedIn ->
                 if (loggedIn) Navigation.findNavController(view).navigate(R.id.action_authPhoneFragment_to_authCodeFragment)
@@ -62,7 +61,8 @@ class AuthPhoneFragment : Fragment() {
         }
 
         login_checkbox.setOnCheckedChangeListener { _, isChecked ->
-            loginIsReady = isChecked
+            phone_input_view.error = null
+            agreementChecked = isChecked
         }
 
         phone_edit_text.addTextChangedListener(PhoneMaskListener())
@@ -89,7 +89,7 @@ class AuthPhoneFragment : Fragment() {
         erase_btn.setOnClickListener {
             val cursorPosition = phone_edit_text.selectionStart
             if (cursorPosition > 0) {
-                phone_edit_text.text = phone_edit_text.text.delete(cursorPosition - 1, cursorPosition)
+                phone_edit_text.text = phone_edit_text.text?.delete(cursorPosition - 1, cursorPosition)
                 phone_edit_text.setSelection(cursorPosition - 1)
             }
         }
@@ -101,13 +101,13 @@ class AuthPhoneFragment : Fragment() {
 
     private fun setNumberClickListener(button: Button, resource: Int) {
         button.setOnClickListener {
-            phone_edit_text.text.insert(phone_edit_text.selectionStart, getString(resource))
+            phone_edit_text.text?.insert(phone_edit_text.selectionStart, getString(resource))
         }
     }
 
     private fun apply() {
-        if (!loginIsReady) {
-            error_tv.showError(getString(R.string.accept_conditions_error))
+        if (!agreementChecked) {
+            phone_input_view.error = getString(R.string.accept_conditions_error)
             return
         }
 
@@ -119,7 +119,7 @@ class AuthPhoneFragment : Fragment() {
 
     inner class PhoneMaskListener : MaskedTextChangedListener(PHONE_MASK, phone_edit_text, object : ValueListener {
         override fun onTextChanged(maskFilled: Boolean, extractedValue: String, formattedValue: String) {
-            error_tv.text = ""
+            phone_input_view.error = null
         }
     })
 }
