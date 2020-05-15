@@ -20,7 +20,6 @@ import taxi.kassa.R
 import taxi.kassa.util.Constants.PHONE
 import taxi.kassa.util.Constants.accessToken
 import taxi.kassa.util.observe
-import taxi.kassa.util.showError
 
 class AuthCodeFragment : Fragment() {
 
@@ -52,7 +51,7 @@ class AuthCodeFragment : Fragment() {
                 progress_bar.visibility = if (visible) VISIBLE else GONE
             }
 
-            error.observe(viewLifecycleOwner) { error_tv.showError(it) }
+            error.observe(viewLifecycleOwner) { error_tv.text = it }
 
             token.observe(viewLifecycleOwner) {
                 accessToken = it
@@ -169,7 +168,7 @@ class AuthCodeFragment : Fragment() {
     private fun login() {
         val code = "${input1.text}${input2.text}${input3.text}${input4.text}"
         if (code.isEmpty()) {
-            error_tv.showError(getString(R.string.input_code))
+            error_tv.text = getString(R.string.input_code)
             return
         }
         viewModel.login(phone, code)

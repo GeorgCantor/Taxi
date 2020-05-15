@@ -3,15 +3,12 @@ package taxi.kassa.util
 import android.content.Context
 import android.graphics.Point
 import android.net.ConnectivityManager
-import android.os.Handler
-import android.text.Html
 import android.util.DisplayMetrics
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.*
 import android.view.WindowManager
-import android.view.animation.AnimationUtils
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
@@ -21,6 +18,7 @@ import android.widget.Toast.LENGTH_LONG
 import android.widget.Toast.LENGTH_SHORT
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat.getColor
+import androidx.core.text.HtmlCompat
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
@@ -120,27 +118,11 @@ fun TextView.setColor(
     colorNegative: Int
 ) = setTextColor(getColor(context, if (balance.toFloat() > 0.0F) colorPositive else colorNegative))
 
-fun TextView.showError(message: String) {
-    text = message
-
-    val animation = AnimationUtils.loadAnimation(context, R.anim.fade_in)
-    animation.reset()
-
-    clearAnimation()
-    startAnimation(animation)
-
-    Handler().postDelayed({
-        val anim = AnimationUtils.loadAnimation(context, R.anim.fade_out)
-        anim.reset()
-        clearAnimation()
-        startAnimation(anim)
-    }, 3000)
-
-    Handler().postDelayed({ text = "" }, 3350)
-}
-
 fun TextView.setMultiColoredText(resource: Int) {
-    setText(Html.fromHtml(context.getString(resource)), TextView.BufferType.SPANNABLE)
+    setText(
+        HtmlCompat.fromHtml(context.getString(resource), HtmlCompat.FROM_HTML_MODE_LEGACY),
+        TextView.BufferType.SPANNABLE
+    )
 }
 
 fun Context.getScreenSize(): Double {
