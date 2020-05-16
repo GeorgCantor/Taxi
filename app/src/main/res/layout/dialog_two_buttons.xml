@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/margin_24dp"
-    android:background="@color/continue_color">
+    android:background="@drawable/bg_dialog">
 
     <TextView
         android:id="@+id/title"

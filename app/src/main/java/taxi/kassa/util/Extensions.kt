@@ -1,7 +1,9 @@
 package taxi.kassa.util
 
 import android.content.Context
+import android.graphics.Color.TRANSPARENT
 import android.graphics.Point
+import android.graphics.drawable.ColorDrawable
 import android.net.ConnectivityManager
 import android.util.DisplayMetrics
 import android.util.TypedValue
@@ -64,6 +66,7 @@ fun Context.showOneButtonDialog(
     val alertDialog = builder.show()
 
     with(alertDialog) {
+        window?.setBackgroundDrawable(ColorDrawable(TRANSPARENT))
         this.title.text = title
         this.message.text = message
         ok_button.setOnClickListener { dismiss() }
@@ -89,6 +92,7 @@ fun Context.showTwoButtonsDialog(
     val alertDialog = builder.show()
 
     with(alertDialog) {
+        window?.setBackgroundDrawable(ColorDrawable(TRANSPARENT))
         this.title.text = title
         this.message.text = message
         cancel_btn.text = cancelText
