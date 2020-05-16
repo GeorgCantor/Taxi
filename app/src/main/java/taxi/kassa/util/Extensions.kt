@@ -118,12 +118,10 @@ fun TextView.setColor(
     colorNegative: Int
 ) = setTextColor(getColor(context, if (balance.toFloat() > 0.0F) colorPositive else colorNegative))
 
-fun TextView.setMultiColoredText(resource: Int) {
-    setText(
-        HtmlCompat.fromHtml(context.getString(resource), HtmlCompat.FROM_HTML_MODE_LEGACY),
-        TextView.BufferType.SPANNABLE
-    )
-}
+fun TextView.setMultiColoredText(resource: Int) = setText(
+    HtmlCompat.fromHtml(context.getString(resource), HtmlCompat.FROM_HTML_MODE_LEGACY),
+    TextView.BufferType.SPANNABLE
+)
 
 fun Context.getScreenSize(): Double {
     val point = Point()

@@ -129,16 +129,16 @@
     <string name="order_balance_format">Итог: %s₽</string>
     <!--    Registration-->
     <string name="select_registration_variant">Выберите один из двух вариантов регистрации</string>
-    <string name="intro_registration_message"><![CDATA[Вы впервые у нас? Пройдите, пожалуйста, <span style=color:#F1C46E>регистрацию.</span> Если вы уже работаете с нами, выполните вход, нажав кнопку <span style=color:#F1C46E>“Войти”</span>]]></string>
+    <string name="intro_registration_message"><![CDATA[Вы впервые у нас? Пройдите, пожалуйста, <font color=\"#F1C46E\">регистрацию.</font> Если вы уже работаете с нами, выполните вход, нажав кнопку <font color=\"#F1C46E\">“Войти”</font>]]></string>
     <string name="set_phone_number">Указать номер телефона</string>
     <string name="download_documents">Загрузить документы</string>
     <string name="or">Или</string>
     <string name="connection">Подключение</string>
     <string name="connection_terms">Условия подключения</string>
-    <string name="terms_description"><![CDATA[Мы подключаем к <span style=color:#F1C46E>"Яндекс.Такси, GetTaxi, Ситимобил</span>. Предлагаем вам на выбор 3 варианта условий подключения:
-        <br><br><b><span style=color:#FFFFFF>Первый</span></b> - это 3% с каждого заказа, помимо % агрегатора.
-        <br><b><span style=color:#FFFFFF>Второй</span></b> - это фиксированные  60₽ в день за подключение к любым двум агрегаторам.
-        <br><b><span style=color:#FFFFFF>Третий</span></b> - это фиксированные 70₽ в день за подключение к трём агрегаторам.
+    <string name="terms_description"><![CDATA[Мы подключаем к <font color=\"#F1C46E\">"Яндекс.Такси, GetTaxi, Ситимобил.</font> Предлагаем вам на выбор 3 варианта условий подключения:
+        <br><br><b><font color=\"#FFFFFF\">Первый</font></b> - это 3% с каждого заказа, помимо % агрегатора.
+        <br><b><font color=\"#FFFFFF\">Второй</font></b> - это фиксированные  60₽ в день за подключение к любым двум агрегаторам.
+        <br><b><font color=\"#FFFFFF\">Третий</font></b> - это фиксированные 70₽ в день за подключение к трём агрегаторам.
         <br><br>Варианты вывода денежных средств:
         <br>- Ежедневный вывод 1% с суммы вывода.
         <br>- Моментальный вывод 4% с суммы вывода.]]></string>
