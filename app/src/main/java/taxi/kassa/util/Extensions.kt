@@ -1,6 +1,7 @@
 package taxi.kassa.util
 
 import android.content.Context
+import android.content.Context.CONNECTIVITY_SERVICE
 import android.graphics.Color.TRANSPARENT
 import android.graphics.Point
 import android.graphics.drawable.ColorDrawable
@@ -40,16 +41,9 @@ import kotlin.math.roundToInt
 import kotlin.math.sqrt
 
 fun Context.isNetworkAvailable(): Boolean {
-    val manager = this.getSystemService(Context.CONNECTIVITY_SERVICE) as? ConnectivityManager
+    val manager = getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager?
 
-    manager?.let {
-        val networkInfo = it.activeNetworkInfo
-        networkInfo?.let { info ->
-            if (info.isConnected) return true
-        }
-    }
-
-    return false
+    return manager?.activeNetworkInfo?.isConnectedOrConnecting ?: false
 }
 
 fun Context.shortToast(message: String) = Toast.makeText(this, message, LENGTH_SHORT).show()
