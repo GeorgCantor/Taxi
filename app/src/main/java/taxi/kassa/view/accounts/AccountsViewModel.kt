@@ -50,9 +50,8 @@ class AccountsViewModel(
             accounts.postValue(response?.response)
             error.postValue(response?.errorMsg)
             isProgressVisible.postValue(false)
+            notifications.postValue(repository.getNotificationsAsync().await())
         }
-
-        notifications.value = repository.getNotifications()
     }
 
     fun createAccount(

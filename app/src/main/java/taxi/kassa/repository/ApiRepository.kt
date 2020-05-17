@@ -1,5 +1,8 @@
 package taxi.kassa.repository
 
+import kotlinx.coroutines.Deferred
+import kotlinx.coroutines.async
+import kotlinx.coroutines.coroutineScope
 import taxi.kassa.model.Message
 import taxi.kassa.model.Notification
 import taxi.kassa.model.remote.ApiService
@@ -55,14 +58,16 @@ class ApiRepository(
 
     suspend fun getOrders(offset: String) = apiService.getOrders(offset)
 
-    fun getNotifications(): MutableList<Notification> {
-        val notifications = preferenceManager.getNotifications(NOTIFICATIONS)
-        notifications?.let {
-            it.sortByDescending { it.date }
-            return it
-        }
+    suspend fun getNotificationsAsync(): Deferred<MutableList<Notification>> = coroutineScope {
+        async {
+            val notifications = preferenceManager.getNotifications(NOTIFICATIONS)
+            notifications?.let {
+                it.sortByDescending { it.date }
+                return@async it
+            }
 
-        return arrayListOf()
+            return@async mutableListOf<Notification>()
+        }
     }
 
     fun getChatHistory(): MutableList<Message> {

@@ -45,9 +45,9 @@ class ProfileViewModel(
             responseOwner.postValue(response?.response)
             error.postValue(response?.errorMsg)
             isProgressVisible.postValue(false)
+            notifications.postValue(repository.getNotificationsAsync().await())
         }
 
-        notifications.value = repository.getNotifications()
         incomingMessages.value = repository.getChatHistory().filter { it.isIncoming } as MutableList
         isNetworkAvailable.value = context.isNetworkAvailable()
     }

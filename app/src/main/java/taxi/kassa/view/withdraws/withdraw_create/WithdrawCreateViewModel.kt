@@ -46,6 +46,7 @@ class WithdrawCreateViewModel(
             responseOwner.postValue(response?.response)
             error.postValue(response?.errorMsg)
             isProgressVisible.postValue(false)
+            notifications.postValue(repository.getNotificationsAsync().await())
         }
 
         viewModelScope.launch(exceptionHandler) {
@@ -62,8 +63,6 @@ class WithdrawCreateViewModel(
             error.postValue(response?.errorMsg)
             isProgressVisible.postValue(false)
         }
-
-        notifications.value = repository.getNotifications()
     }
 
     fun deleteAccount() {

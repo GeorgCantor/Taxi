@@ -3,6 +3,8 @@ package taxi.kassa.view.orders
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.launch
 import taxi.kassa.MyApplication
 import taxi.kassa.R
 import taxi.kassa.model.Notification
@@ -20,12 +22,14 @@ class OrdersViewModel(
     val notifications = MutableLiveData<MutableList<Notification>>()
 
     init {
+        viewModelScope.launch {
+            notifications.postValue(repository.getNotificationsAsync().await())
+        }
+
         taxis.value = mutableListOf(
             Taxi(R.drawable.ic_yandex_mini, context.getString(R.string.yandex_title), "0"),
             Taxi(R.drawable.ic_gett_mini, context.getString(R.string.gett_title), "0"),
             Taxi(R.drawable.ic_citymobil_mini, context.getString(R.string.citymobil_title), "0")
         )
-
-        notifications.value = repository.getNotifications()
     }
 }

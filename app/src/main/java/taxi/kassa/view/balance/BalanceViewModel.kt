@@ -41,9 +41,9 @@ class BalanceViewModel(
             responseOwner.postValue(response?.response)
             error.postValue(response?.errorMsg)
             isProgressVisible.postValue(false)
+            notifications.postValue(repository.getNotificationsAsync().await())
         }
 
-        notifications.value = repository.getNotifications()
         isNetworkAvailable.value = context.isNetworkAvailable()
     }
 }
