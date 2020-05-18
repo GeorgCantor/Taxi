@@ -10,7 +10,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import taxi.kassa.BuildConfig
 import taxi.kassa.model.remote.interceptor.OfflineResponseCacheInterceptor
-import taxi.kassa.model.remote.interceptor.ResponseCacheInterceptor
 import taxi.kassa.util.Constants.API_VERSION
 import taxi.kassa.util.Constants.accessToken
 import java.io.File
@@ -39,7 +38,6 @@ object ApiClient {
         }
 
         val okHttpClient = OkHttpClient().newBuilder()
-            .addNetworkInterceptor(ResponseCacheInterceptor())
             .addInterceptor(OfflineResponseCacheInterceptor(context))
             .addInterceptor(loggingInterceptor)
             .addInterceptor(interceptor)
