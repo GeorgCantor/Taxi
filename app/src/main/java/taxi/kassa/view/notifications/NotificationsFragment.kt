@@ -29,7 +29,7 @@ import taxi.kassa.util.Constants.SUPPORT_PHONE_NUMBER
 class NotificationsFragment : Fragment() {
 
     private lateinit var viewModel: NotificationsViewModel
-    private lateinit var notifications: ArrayList<Notification>
+    private lateinit var notifications: MutableList<Notification>
     private lateinit var manager: PreferenceManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,7 +56,7 @@ class NotificationsFragment : Fragment() {
         activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, callback)
 
         viewModel.notifications.observe(viewLifecycleOwner) {
-            notifications = it as ArrayList<Notification>
+            notifications = it
 
             notifications_recycler.adapter = NotificationsAdapter(it) { notification ->
                 viewModel.setSelectedNotification(notification)

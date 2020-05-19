@@ -7,6 +7,7 @@ import taxi.kassa.model.Message
 import taxi.kassa.model.Notification
 import taxi.kassa.model.remote.ApiService
 import taxi.kassa.util.Constants.NOTIFICATIONS
+import taxi.kassa.util.Constants.TOKEN
 import taxi.kassa.util.PreferenceManager
 
 class ApiRepository(
@@ -67,6 +68,18 @@ class ApiRepository(
             }
 
             return@async mutableListOf<Notification>()
+        }
+    }
+
+    suspend fun saveNotificationsAsync(notifications: MutableList<Notification>) = coroutineScope {
+        async {
+            preferenceManager.saveNotifications(NOTIFICATIONS, notifications)
+        }
+    }
+
+    suspend fun getTokenAsync(): Deferred<String> = coroutineScope {
+        async {
+            return@async preferenceManager.getString(TOKEN) ?: ""
         }
     }
 

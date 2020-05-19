@@ -6,6 +6,7 @@ import org.koin.dsl.module
 import taxi.kassa.model.remote.ApiClient
 import taxi.kassa.repository.ApiRepository
 import taxi.kassa.util.PreferenceManager
+import taxi.kassa.view.MainViewModel
 import taxi.kassa.view.accounts.AccountsViewModel
 import taxi.kassa.view.auth.auth_code.AuthCodeViewModel
 import taxi.kassa.view.auth.auth_phone.AuthPhoneViewModel
@@ -36,6 +37,9 @@ val preferenceModule = module {
 }
 
 val viewModelModule = module(override = true) {
+    viewModel {
+        MainViewModel(get())
+    }
     viewModel {
         AuthPhoneViewModel(androidApplication(), get())
     }

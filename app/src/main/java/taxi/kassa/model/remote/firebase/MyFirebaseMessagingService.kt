@@ -32,7 +32,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
             )
 
             if (notifications.isNullOrEmpty()) {
-                notifications = arrayListOf(newNotification)
+                notifications = mutableListOf(newNotification)
             } else {
                 notifications.add(newNotification)
             }

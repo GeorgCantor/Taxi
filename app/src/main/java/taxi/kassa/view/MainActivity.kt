@@ -5,27 +5,29 @@ import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import kotlinx.android.synthetic.main.activity_main.*
+import org.koin.androidx.viewmodel.ext.android.getViewModel
+import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.model.Notification
 import taxi.kassa.util.Constants.MESSAGE
-import taxi.kassa.util.Constants.NOTIFICATIONS
 import taxi.kassa.util.Constants.PUSH_PATTERN
 import taxi.kassa.util.Constants.TITLE
-import taxi.kassa.util.Constants.TOKEN
 import taxi.kassa.util.Constants.accessToken
 import taxi.kassa.util.Constants.myDateFormatSymbols
-import taxi.kassa.util.PreferenceManager
 import taxi.kassa.util.hideKeyboard
+import taxi.kassa.util.observe
 import java.text.SimpleDateFormat
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var viewModel: MainViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val manager = PreferenceManager(this)
+        viewModel = getViewModel { parametersOf() }
 
         var title = ""
         var message = ""
@@ -42,34 +44,36 @@ class MainActivity : AppCompatActivity() {
             }
 
             if (message.isNotBlank()) {
-                var notifications = manager.getNotifications(NOTIFICATIONS)
-                val newNotification = Notification(title, message, date, true)
+                viewModel.notifications.observe(this) {
+                    var notifications = it
+                    val newNotification = Notification(title, message, date, true)
 
-                if (notifications.isNullOrEmpty()) {
-                    notifications = arrayListOf(newNotification)
-                } else {
-                    notifications.add(newNotification)
+                    when (notifications.isNullOrEmpty()) {
+                        true -> notifications = mutableListOf(newNotification)
+                        false -> notifications.add(newNotification)
+                    }
+
+                    viewModel.saveNotifications(notifications)
                 }
-
-                manager.saveNotifications(NOTIFICATIONS, notifications)
             }
         }
 
-        val token = manager.getString(TOKEN) ?: ""
-        accessToken = token
+        viewModel.token.observe(this) { token ->
+            accessToken = token
 
-        val navHostFragment = nav_host_fragment as NavHostFragment
-        val inflater = navHostFragment.navController.navInflater
-        val graph = inflater.inflate(R.navigation.nav_graph)
+            val navHostFragment = nav_host_fragment as NavHostFragment
+            val inflater = navHostFragment.navController.navInflater
+            val graph = inflater.inflate(R.navigation.nav_graph)
 
-        when {
-            token.isNotEmpty() -> {
-                graph.startDestination = if (message.isEmpty()) R.id.profileFragment else R.id.notificationsFragment
+            when {
+                token.isNotEmpty() -> {
+                    graph.startDestination = if (message.isEmpty()) R.id.profileFragment else R.id.notificationsFragment
+                }
+                else -> graph.startDestination = R.id.introFragment
             }
-            else -> graph.startDestination = R.id.introFragment
-        }
 
-        navHostFragment.navController.graph = graph
+            navHostFragment.navController.graph = graph
+        }
     }
 
     override fun onResume() {

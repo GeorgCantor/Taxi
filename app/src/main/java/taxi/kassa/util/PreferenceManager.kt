@@ -21,13 +21,13 @@ class PreferenceManager(context: Context) {
 
     fun getInt(key: String): Int? = prefs.getInt(key, 0)
 
-    fun saveNotifications(key: String, notifications: ArrayList<Notification>) {
+    fun saveNotifications(key: String, notifications: MutableList<Notification>) {
         val json = gson.toJson(notifications)
         prefs.edit().putString(key, json).apply()
     }
 
-    fun getNotifications(key: String): ArrayList<Notification>? {
-        val type = object : TypeToken<ArrayList<Notification>>() {}.type
+    fun getNotifications(key: String): MutableList<Notification>? {
+        val type = object : TypeToken<MutableList<Notification>>() {}.type
         val json = prefs.getString(key, "")
 
         return gson.fromJson(json, type)

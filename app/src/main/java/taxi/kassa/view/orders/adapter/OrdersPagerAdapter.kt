@@ -8,7 +8,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter
 class OrdersPagerAdapter(manager: FragmentManager) :
     FragmentStatePagerAdapter(manager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
-    private val fragments = ArrayList<Fragment>()
+    private val fragments = mutableListOf<Fragment>()
 
     override fun getItem(position: Int): Fragment = fragments[position]
 
