@@ -68,8 +68,8 @@ fun Context.showOneButtonDialog(
         if (isRegistrationDialog) {
             this.message.setMultiColoredText(R.string.terms_description)
             this.message.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14F)
-            this.line.visibility = VISIBLE
-            this.extra_message.visibility = VISIBLE
+            this.line.visible()
+            this.extra_message.visible()
         }
     }
 }

@@ -144,15 +144,15 @@ class WithdrawCreateFragment : Fragment() {
 
         sum_edit_text.showSoftInputOnFocus = false
 
-        sum_edit_text.setOnClickListener { keyboard.visibility = VISIBLE }
+        sum_edit_text.setOnClickListener { keyboard.visible() }
 
         sum_edit_text.setOnFocusChangeListener { _, hasFocus ->
             when (hasFocus) {
                 true -> {
-                    keyboard.visibility = VISIBLE
+                    keyboard.visible()
                     Handler().postDelayed({ scroll_view.scrollTo(0, scroll_view.bottom) }, 100)
                 }
-                false -> keyboard.visibility = GONE
+                false -> keyboard.gone()
             }
         }
 

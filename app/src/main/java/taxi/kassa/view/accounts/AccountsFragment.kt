@@ -123,10 +123,10 @@ class AccountsFragment : Fragment() {
                 when (hasFocus) {
                     true -> {
                         requireView().hideKeyboard()
-                        keyboard.visibility = VISIBLE
+                        keyboard.visible()
                     }
                     false -> {
-                        keyboard.visibility = GONE
+                        keyboard.gone()
                     }
                 }
 
@@ -138,7 +138,7 @@ class AccountsFragment : Fragment() {
                 )
             }
 
-            it.setOnClickListener { if (keyboard.visibility == GONE) keyboard.visibility = VISIBLE }
+            it.setOnClickListener { if (keyboard.visibility == GONE) keyboard.visible() }
         }
 
         val keyboardPairs = mutableListOf<Pair<Button, Int>>(
@@ -178,7 +178,7 @@ class AccountsFragment : Fragment() {
             }
 
             when (focusedInput.id) {
-                R.id.card_edit_text, R.id.bik_edit_text-> keyboard.visibility = GONE
+                R.id.card_edit_text, R.id.bik_edit_text-> keyboard.gone()
                 R.id.account_edit_text -> bik_edit_text.requestFocus()
             }
             openNewCard()
@@ -343,7 +343,7 @@ class AccountsFragment : Fragment() {
 
     private fun back() {
         when (keyboard.visibility) {
-            VISIBLE -> keyboard.visibility = GONE
+            VISIBLE -> keyboard.gone()
             GONE -> findNavController(this).popBackStack()
         }
     }

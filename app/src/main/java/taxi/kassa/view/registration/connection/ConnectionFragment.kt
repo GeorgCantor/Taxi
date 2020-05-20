@@ -75,12 +75,12 @@ class ConnectionFragment : Fragment() {
 
             it.setOnFocusChangeListener { _, hasFocus ->
                 when (hasFocus) {
-                    true -> keyboard.visibility = VISIBLE
-                    false -> keyboard.visibility = GONE
+                    true -> keyboard.visible()
+                    false -> keyboard.gone()
                 }
             }
 
-            it.setOnClickListener { if (keyboard.visibility == GONE) keyboard.visibility = VISIBLE }
+            it.setOnClickListener { if (keyboard.visibility == GONE) keyboard.visible() }
         }
 
         val keyboardPairs = mutableListOf<Pair<Button, Int>>(
@@ -120,7 +120,7 @@ class ConnectionFragment : Fragment() {
             }
 
             when (focusedInput.id) {
-                R.id.phone_number_edit_text, R.id.id_edit_text, R.id.city_phone_edit_text -> keyboard.visibility = GONE
+                R.id.phone_number_edit_text, R.id.id_edit_text, R.id.city_phone_edit_text -> keyboard.gone()
                 R.id.gett_phone_edit_text -> id_edit_text.requestFocus()
             }
         }
@@ -560,7 +560,7 @@ class ConnectionFragment : Fragment() {
 
     private fun back() {
         when (keyboard.visibility) {
-            VISIBLE -> keyboard.visibility = GONE
+            VISIBLE -> keyboard.gone()
             GONE -> backToRegScreen()
         }
     }

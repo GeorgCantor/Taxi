@@ -13,8 +13,6 @@ import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.Surface
 import android.view.View
-import android.view.View.GONE
-import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.camera.core.*
 import androidx.core.content.ContextCompat
@@ -25,7 +23,9 @@ import org.koin.androidx.viewmodel.ext.android.getSharedViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.util.Constants.CONNECTION
+import taxi.kassa.util.gone
 import taxi.kassa.util.shortToast
+import taxi.kassa.util.visible
 import taxi.kassa.view.registration.connection.ConnectionViewModel
 import java.util.concurrent.Executor
 import java.util.concurrent.Executors
@@ -118,20 +118,20 @@ class PhotoFragment : Fragment() {
     }
 
     private fun setVisibilityWhileShooting() {
-        preview_view.visibility = VISIBLE
-        taken_image.visibility = GONE
-        done.visibility = GONE
-        reshoot_title.visibility = GONE
-        reverse_camera.visibility = VISIBLE
+        preview_view.visible()
+        taken_image.gone()
+        done.gone()
+        reshoot_title.gone()
+        reverse_camera.visible()
         take_photo_btn.isClickable = true
     }
 
     private fun setVisibilityAfterShooting() {
-        preview_view.visibility = GONE
-        taken_image.visibility = VISIBLE
-        done.visibility = VISIBLE
-        reshoot_title.visibility = VISIBLE
-        reverse_camera.visibility = GONE
+        preview_view.gone()
+        taken_image.visible()
+        done.visible()
+        reshoot_title.visible()
+        reverse_camera.gone()
         take_photo_btn.isClickable = false
     }
 
