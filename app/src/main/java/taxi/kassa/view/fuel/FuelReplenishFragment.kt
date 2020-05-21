@@ -1,7 +1,6 @@
 package taxi.kassa.view.fuel
 
 import android.os.Bundle
-import android.os.Handler
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
@@ -12,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.content.res.AppCompatResources.getDrawable
+import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.view.get
 import androidx.core.view.isNotEmpty
 import androidx.fragment.app.Fragment
@@ -103,9 +103,7 @@ class FuelReplenishFragment : Fragment() {
                         }
                     }
 
-                    Handler().postDelayed({
-                        taxi_recycler?.let { if (it.isNotEmpty()) taxi_recycler[0].performClick() }
-                    }, 500)
+                    runDelayed(500) { taxi_recycler?.let { if (it.isNotEmpty()) it[0].performClick() } }
                 }
             }
 
@@ -130,11 +128,20 @@ class FuelReplenishFragment : Fragment() {
             when (hasFocus) {
                 true -> {
                     keyboard.visible()
-                    Handler().postDelayed({ scroll_view.scrollTo(0, scroll_view.bottom) }, 100)
+                    runDelayed(100) { scroll_view.scrollTo(0, scroll_view.bottom) }
+                    changeConstraint(
+                        root_layout,
+                        R.id.enter_amount_input_view,
+                        ConstraintSet.BOTTOM,
+                        R.id.replenish_button,
+                        ConstraintSet.TOP,
+                        40
+                    )
                 }
                 false -> {
                     keyboard.gone()
                     enter_amount_input_view.error = null
+                    removeConstraint(root_layout, R.id.enter_amount_input_view, ConstraintSet.BOTTOM)
                 }
             }
         }

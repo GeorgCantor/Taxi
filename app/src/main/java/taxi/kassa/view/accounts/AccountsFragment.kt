@@ -238,21 +238,19 @@ class AccountsFragment : Fragment() {
             )
         }
 
-        val constraintSet = ConstraintSet()
-
         add_account_image.setOnClickListener {
             no_account_block.invisible()
             account_block.invisible()
             new_account_block.visible()
 
-            constraintSet.clone(parent_layout)
-            constraintSet.connect(
+            changeConstraint(
+                parent_layout,
                 R.id.instant_withdrawal_tv,
                 ConstraintSet.TOP,
                 R.id.new_account_block,
-                ConstraintSet.BOTTOM
+                ConstraintSet.BOTTOM,
+                90
             )
-            constraintSet.applyTo(parent_layout)
         }
 
         close_image.setOnClickListener {
@@ -260,14 +258,14 @@ class AccountsFragment : Fragment() {
             account_block.invisible()
             new_account_block.invisible()
 
-            constraintSet.clone(parent_layout)
-            constraintSet.connect(
+            changeConstraint(
+                parent_layout,
                 R.id.instant_withdrawal_tv,
                 ConstraintSet.TOP,
                 R.id.account_block,
-                ConstraintSet.BOTTOM
+                ConstraintSet.BOTTOM,
+                90
             )
-            constraintSet.applyTo(parent_layout)
         }
 
         add_card_image.setOnClickListener {

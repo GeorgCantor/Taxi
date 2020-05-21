@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_notification.view.*
 import taxi.kassa.R
 import taxi.kassa.model.Notification
+import taxi.kassa.util.changeConstraint
 import taxi.kassa.util.invisible
 
 class NotificationsAdapter(
@@ -34,7 +35,6 @@ class NotificationsAdapter(
 
     override fun onBindViewHolder(holder: NotificationsViewHolder, position: Int) {
         val notification = notifications[position]
-        val constraintSet = ConstraintSet()
 
         with(holder) {
             title.text = notification.title
@@ -45,14 +45,14 @@ class NotificationsAdapter(
                 true -> statusImage.setImageResource(R.drawable.ic_yellow_circle)
                 false -> {
                     statusImage.invisible()
-                    constraintSet.clone(parent)
-                    constraintSet.connect(
+                    changeConstraint(
+                        parent,
                         R.id.push_title,
                         ConstraintSet.START,
                         R.id.push_message,
-                        ConstraintSet.START
+                        ConstraintSet.START,
+                        0
                     )
-                    constraintSet.applyTo(parent)
                 }
             }
 

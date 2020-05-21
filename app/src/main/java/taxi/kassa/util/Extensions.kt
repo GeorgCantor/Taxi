@@ -13,6 +13,7 @@ import android.graphics.drawable.ColorDrawable
 import android.net.ConnectivityManager
 import android.net.Uri
 import android.os.Build
+import android.os.Handler
 import android.util.DisplayMetrics
 import android.util.TypedValue
 import android.view.LayoutInflater
@@ -27,6 +28,8 @@ import android.widget.Toast
 import android.widget.Toast.LENGTH_LONG
 import android.widget.Toast.LENGTH_SHORT
 import androidx.appcompat.app.AlertDialog
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat.getColor
 import androidx.core.text.HtmlCompat
@@ -46,6 +49,7 @@ import taxi.kassa.util.Constants.myDateFormatSymbols
 import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.*
+import java.util.concurrent.TimeUnit
 import kotlin.math.pow
 import kotlin.math.roundToInt
 import kotlin.math.sqrt
@@ -225,5 +229,38 @@ fun Activity.makeCall(fragment: Fragment) {
         } catch (ex: ActivityNotFoundException) {
             shortToast(getString(R.string.not_find_call_app))
         }
+    }
+}
+
+fun runDelayed(delay: Long, action: () -> Unit) {
+    Handler().postDelayed(action, TimeUnit.MILLISECONDS.toMillis(delay))
+}
+
+fun changeConstraint(
+    rootId: ConstraintLayout,
+    startId: Int,
+    startSide: Int,
+    endId: Int,
+    endSide: Int,
+    margin: Int
+) {
+    val constraintSet = ConstraintSet()
+    with(constraintSet) {
+        clone(rootId)
+        connect(startId, startSide, endId, endSide, margin)
+        applyTo(rootId)
+    }
+}
+
+fun removeConstraint(
+    rootId: ConstraintLayout,
+    id: Int,
+    side: Int
+) {
+    val constraintSet = ConstraintSet()
+    with(constraintSet) {
+        clone(rootId)
+        clear(id, side)
+        applyTo(rootId)
     }
 }

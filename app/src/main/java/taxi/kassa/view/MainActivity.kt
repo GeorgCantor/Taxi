@@ -1,7 +1,6 @@
 package taxi.kassa.view
 
 import android.os.Bundle
-import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import kotlinx.android.synthetic.main.activity_main.*
@@ -16,6 +15,7 @@ import taxi.kassa.util.Constants.accessToken
 import taxi.kassa.util.Constants.myDateFormatSymbols
 import taxi.kassa.util.hideKeyboard
 import taxi.kassa.util.observe
+import taxi.kassa.util.runDelayed
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -78,6 +78,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        Handler().postDelayed({ this.root_layout.hideKeyboard() }, 100)
+        runDelayed(100) { this.root_layout.hideKeyboard() }
     }
 }

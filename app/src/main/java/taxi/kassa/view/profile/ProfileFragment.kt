@@ -188,17 +188,14 @@ class ProfileFragment : Fragment() {
 
     private fun setLogoutButtonConstraint() {
         if (requireContext().getScreenSize() < 5.5) {
-            val constraintSet = ConstraintSet()
-            with(constraintSet) {
-                clone(parent_layout)
-                connect(
-                    R.id.exit_tv,
-                    ConstraintSet.TOP,
-                    R.id.bottom_line,
-                    ConstraintSet.BOTTOM
-                )
-                applyTo(parent_layout)
-            }
+            changeConstraint(
+                parent_layout,
+                R.id.exit_tv,
+                ConstraintSet.TOP,
+                R.id.bottom_line,
+                ConstraintSet.BOTTOM,
+                40
+            )
         }
     }
 }
