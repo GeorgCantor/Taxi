@@ -1,11 +1,18 @@
 package taxi.kassa.util
 
+import android.Manifest.permission.CALL_PHONE
+import android.app.Activity
+import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Context.CONNECTIVITY_SERVICE
+import android.content.Intent
+import android.content.pm.PackageManager.PERMISSION_GRANTED
 import android.graphics.Color.TRANSPARENT
 import android.graphics.Point
 import android.graphics.drawable.ColorDrawable
 import android.net.ConnectivityManager
+import android.net.Uri
+import android.os.Build
 import android.util.DisplayMetrics
 import android.util.TypedValue
 import android.view.LayoutInflater
@@ -20,8 +27,10 @@ import android.widget.Toast
 import android.widget.Toast.LENGTH_LONG
 import android.widget.Toast.LENGTH_SHORT
 import androidx.appcompat.app.AlertDialog
+import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat.getColor
 import androidx.core.text.HtmlCompat
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
@@ -31,6 +40,7 @@ import kotlinx.android.synthetic.main.dialog_one_button.title
 import kotlinx.android.synthetic.main.dialog_two_buttons.*
 import taxi.kassa.R
 import taxi.kassa.util.Constants.MASTERCARD
+import taxi.kassa.util.Constants.SUPPORT_PHONE_NUMBER
 import taxi.kassa.util.Constants.VISA
 import taxi.kassa.util.Constants.myDateFormatSymbols
 import java.text.NumberFormat
@@ -201,3 +211,19 @@ fun EditText.setNumberClickListener(button: Button, resource: Int) {
 }
 
 fun EditText.isEmpty(): Boolean = text.toString().isBlank()
+
+fun Activity.makeCall(fragment: Fragment) {
+    val callIntent = Intent(Intent.ACTION_CALL)
+    callIntent.data = Uri.parse("tel:${SUPPORT_PHONE_NUMBER}")
+
+    if (ActivityCompat.checkSelfPermission(this, CALL_PHONE) != PERMISSION_GRANTED && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        fragment.requestPermissions(arrayOf(CALL_PHONE), 10)
+        return
+    } else {
+        try {
+            startActivity(callIntent)
+        } catch (ex: ActivityNotFoundException) {
+            shortToast(getString(R.string.not_find_call_app))
+        }
+    }
+}

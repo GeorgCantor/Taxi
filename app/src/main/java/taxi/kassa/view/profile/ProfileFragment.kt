@@ -1,10 +1,7 @@
 package taxi.kassa.view.profile
 
-import android.Manifest
-import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.net.Uri
 import android.os.Bundle
 import android.telephony.PhoneNumberUtils.formatNumber
 import android.view.LayoutInflater
@@ -13,7 +10,6 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.constraintlayout.widget.ConstraintSet
-import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_profile.*
@@ -25,7 +21,6 @@ import taxi.kassa.util.Constants.MESSAGES_COUNTER
 import taxi.kassa.util.Constants.NOT_FROM_PUSH
 import taxi.kassa.util.Constants.PHONE
 import taxi.kassa.util.Constants.PUSH_COUNTER
-import taxi.kassa.util.Constants.SUPPORT_PHONE_NUMBER
 import taxi.kassa.util.Constants.TOKEN
 import taxi.kassa.util.Constants.TOTAL_BALANCE
 import taxi.kassa.view.MainActivity
@@ -143,7 +138,7 @@ class ProfileFragment : Fragment() {
                 getString(R.string.cancel),
                 getString(R.string.call)
             ) {
-                makeCall()
+                requireActivity().makeCall(this)
             }
         }
 
@@ -165,25 +160,7 @@ class ProfileFragment : Fragment() {
         grantResults: IntArray
     ) {
         if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            makeCall()
-        }
-    }
-
-    private fun makeCall() {
-        val callIntent = Intent(Intent.ACTION_CALL)
-        callIntent.data = Uri.parse("tel:$SUPPORT_PHONE_NUMBER")
-
-        if (ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.CALL_PHONE)
-            != PackageManager.PERMISSION_GRANTED
-        ) {
-            requestPermissions(arrayOf(Manifest.permission.CALL_PHONE), 10)
-            return
-        } else {
-            try {
-                startActivity(callIntent)
-            } catch (ex: ActivityNotFoundException) {
-                requireActivity().shortToast(getString(R.string.not_find_call_app))
-            }
+            requireActivity().makeCall(this)
         }
     }
 

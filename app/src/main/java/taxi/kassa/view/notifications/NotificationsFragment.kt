@@ -1,10 +1,6 @@
 package taxi.kassa.view.notifications
 
-import android.Manifest
-import android.content.ActivityNotFoundException
-import android.content.Intent
 import android.content.pm.PackageManager
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,7 +8,6 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
-import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_notifications.*
@@ -24,7 +19,6 @@ import taxi.kassa.util.*
 import taxi.kassa.util.Constants.NOTIFICATIONS
 import taxi.kassa.util.Constants.NOT_FROM_PUSH
 import taxi.kassa.util.Constants.PUSH_COUNTER
-import taxi.kassa.util.Constants.SUPPORT_PHONE_NUMBER
 
 class NotificationsFragment : Fragment() {
 
@@ -82,7 +76,7 @@ class NotificationsFragment : Fragment() {
             manager.saveInt(PUSH_COUNTER, it.size)
         }
 
-        phone_image.setOnClickListener { makeCall() }
+        phone_image.setOnClickListener { requireActivity().makeCall(this) }
 
         close_tv.setOnClickListener { activity?.onBackPressed() }
     }
@@ -93,7 +87,7 @@ class NotificationsFragment : Fragment() {
         grantResults: IntArray
     ) {
         if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            makeCall()
+            requireActivity().makeCall(this)
         }
     }
 
@@ -104,24 +98,6 @@ class NotificationsFragment : Fragment() {
                 if (it.isNew) it.isNew = false
             }
             manager.saveNotifications(NOTIFICATIONS, notifications)
-        }
-    }
-
-    private fun makeCall() {
-        val callIntent = Intent(Intent.ACTION_CALL)
-        callIntent.data = Uri.parse("tel:${SUPPORT_PHONE_NUMBER}")
-
-        if (ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.CALL_PHONE)
-            != PackageManager.PERMISSION_GRANTED
-        ) {
-            requestPermissions(arrayOf(Manifest.permission.CALL_PHONE), 10)
-            return
-        } else {
-            try {
-                startActivity(callIntent)
-            } catch (ex: ActivityNotFoundException) {
-                requireActivity().shortToast(getString(R.string.not_find_call_app))
-            }
         }
     }
 

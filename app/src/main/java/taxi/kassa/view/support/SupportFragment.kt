@@ -1,15 +1,10 @@
 package taxi.kassa.view.support
 
-import android.Manifest
-import android.content.ActivityNotFoundException
-import android.content.Intent
 import android.content.pm.PackageManager
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_support.*
@@ -17,8 +12,8 @@ import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.util.*
-import taxi.kassa.util.Constants.NOT_FROM_PUSH
 import taxi.kassa.util.Constants.MESSAGES_COUNTER
+import taxi.kassa.util.Constants.NOT_FROM_PUSH
 import taxi.kassa.util.Constants.PUSH_COUNTER
 
 class SupportFragment : Fragment() {
@@ -85,7 +80,7 @@ class SupportFragment : Fragment() {
 
         back_arrow.setOnClickListener { activity?.onBackPressed() }
 
-        call_button.setOnClickListener { makeCall() }
+        call_button.setOnClickListener { requireActivity().makeCall(this) }
     }
 
     override fun onRequestPermissionsResult(
@@ -94,25 +89,7 @@ class SupportFragment : Fragment() {
         grantResults: IntArray
     ) {
         if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            makeCall()
-        }
-    }
-
-    private fun makeCall() {
-        val callIntent = Intent(Intent.ACTION_CALL)
-        callIntent.data = Uri.parse("tel:${Constants.SUPPORT_PHONE_NUMBER}")
-
-        if (ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.CALL_PHONE)
-            != PackageManager.PERMISSION_GRANTED
-        ) {
-            requestPermissions(arrayOf(Manifest.permission.CALL_PHONE), 10)
-            return
-        } else {
-            try {
-                startActivity(callIntent)
-            } catch (ex: ActivityNotFoundException) {
-                requireActivity().shortToast(getString(R.string.not_find_call_app))
-            }
+            requireActivity().makeCall(this)
         }
     }
 }
