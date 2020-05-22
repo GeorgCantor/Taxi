@@ -1,7 +1,6 @@
 package taxi.kassa.view.withdraws.withdraw_create
 
 import android.os.Bundle
-import android.os.Handler
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
@@ -138,9 +137,7 @@ class WithdrawCreateFragment : Fragment() {
             }
         }
 
-        Handler().postDelayed({
-            cards_recycler?.let { if (it.isNotEmpty()) cards_recycler[0].performClick() }
-        }, 500)
+        runDelayed(500) { cards_recycler?.let { if (it.isNotEmpty()) it[0].performClick() } }
 
         sum_edit_text.showSoftInputOnFocus = false
 
@@ -150,7 +147,7 @@ class WithdrawCreateFragment : Fragment() {
             when (hasFocus) {
                 true -> {
                     keyboard.visible()
-                    Handler().postDelayed({ scroll_view.scrollTo(0, scroll_view.bottom) }, 100)
+                    runDelayed(100) { scroll_view.scrollTo(0, scroll_view.bottom) }
                 }
                 false -> keyboard.gone()
             }

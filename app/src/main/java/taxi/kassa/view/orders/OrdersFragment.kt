@@ -1,7 +1,6 @@
 package taxi.kassa.view.orders
 
 import android.os.Bundle
-import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,12 +15,9 @@ import kotlinx.android.synthetic.main.item_taxi_orders.view.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
+import taxi.kassa.util.*
 import taxi.kassa.util.Constants.NOT_FROM_PUSH
 import taxi.kassa.util.Constants.PUSH_COUNTER
-import taxi.kassa.util.PreferenceManager
-import taxi.kassa.util.invisible
-import taxi.kassa.util.observe
-import taxi.kassa.util.visible
 import taxi.kassa.view.orders.adapter.OrdersPagerAdapter
 import taxi.kassa.view.orders.adapter.OrdersTaxiAdapter
 import taxi.kassa.view.orders.list.OrdersListFragment
@@ -121,9 +117,7 @@ class OrdersFragment : Fragment() {
             }
         }
 
-        Handler().postDelayed({
-            taxi_recycler?.let { if (it.isNotEmpty()) taxi_recycler[0].performClick() }
-        }, 500)
+        runDelayed(500) { taxi_recycler?.let { if (it.isNotEmpty()) it[0].performClick() } }
 
         notification_image.setOnClickListener {
             findNavController(this).navigate(R.id.action_ordersFragment_to_notificationsFragment,

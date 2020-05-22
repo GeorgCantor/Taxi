@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
             if (message.isNotBlank()) {
                 viewModel.notifications.observe(this) {
                     var notifications = it
-                    val newNotification = Notification(title, message, date, true)
+                    val newNotification = Notification(title, message, date, System.currentTimeMillis(), true)
 
                     when (notifications.isNullOrEmpty()) {
                         true -> notifications = mutableListOf(newNotification)

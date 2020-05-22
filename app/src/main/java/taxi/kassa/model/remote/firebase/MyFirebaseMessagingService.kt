@@ -28,6 +28,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
                 remoteMessage.notification?.title ?: "",
                 remoteMessage.notification?.body ?: "",
                 remoteMessage.sentTime.convertToTime(PUSH_PATTERN),
+                System.currentTimeMillis(),
                 true
             )
 

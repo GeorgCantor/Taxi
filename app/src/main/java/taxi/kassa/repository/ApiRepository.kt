@@ -63,7 +63,7 @@ class ApiRepository(
         async {
             val notifications = preferenceManager.getNotifications(NOTIFICATIONS)
             notifications?.let {
-                it.sortByDescending { it.date }
+                it.sortByDescending { it.longDate }
                 return@async it
             }
 
