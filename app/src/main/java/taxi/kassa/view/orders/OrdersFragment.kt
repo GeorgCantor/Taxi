@@ -120,13 +120,15 @@ class OrdersFragment : Fragment() {
         runDelayed(500) { taxi_recycler?.let { if (it.isNotEmpty()) it[0].performClick() } }
 
         notification_image.setOnClickListener {
-            findNavController(this).navigate(R.id.action_ordersFragment_to_notificationsFragment,
+            findNavController(this).navigate(
+                R.id.action_ordersFragment_to_notificationsFragment,
                 Bundle().apply { putString(NOT_FROM_PUSH, NOT_FROM_PUSH) }
             )
         }
 
         notification_count.setOnClickListener {
-            findNavController(this).navigate(R.id.action_ordersFragment_to_notificationsFragment,
+            findNavController(this).navigate(
+                R.id.action_ordersFragment_to_notificationsFragment,
                 Bundle().apply { putString(NOT_FROM_PUSH, NOT_FROM_PUSH) }
             )
         }

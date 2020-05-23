@@ -10,7 +10,7 @@
     <ImageView
         android:id="@+id/city_background"
         android:layout_width="match_parent"
-        android:layout_height="1160dp"
+        android:layout_height="1260dp"
         android:layout_marginStart="@dimen/margin_16dp"
         android:layout_marginTop="@dimen/margin_24dp"
         android:layout_marginEnd="@dimen/margin_16dp"
