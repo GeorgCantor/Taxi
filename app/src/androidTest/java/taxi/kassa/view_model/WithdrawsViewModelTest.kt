@@ -15,11 +15,10 @@ import taxi.kassa.MyApplication
 import taxi.kassa.base.BaseAndroidTest
 import taxi.kassa.model.remote.ApiClient
 import taxi.kassa.repository.ApiRepository
-import taxi.kassa.util.Constants.TOTAL_BALANCE
-import taxi.kassa.view.profile.ProfileViewModel
+import taxi.kassa.view.withdraws.WithdrawsViewModel
 
 @RunWith(AndroidJUnit4::class)
-class ProfileViewModelTest : BaseAndroidTest() {
+class WithdrawsViewModelTest : BaseAndroidTest() {
 
     @get:Rule
     val instantTaskExecutorRule = InstantTaskExecutorRule()
@@ -27,25 +26,19 @@ class ProfileViewModelTest : BaseAndroidTest() {
     @Mock
     val client = ApiClient
 
-    private lateinit var viewModel: ProfileViewModel
+    private lateinit var viewModel: WithdrawsViewModel
     private lateinit var repository: ApiRepository
 
     @Before
     fun setup() {
         repository = ApiRepository(client.create(getContext()), preferenceManager)
-        viewModel = ProfileViewModel(MyApplication().get(), preferenceManager, repository)
+        viewModel = WithdrawsViewModel(MyApplication().get(), repository)
     }
 
     @Test
-    fun get_owner_data() = runBlocking {
-        viewModel.responseOwner.observe(mockLifecycleOwner(), Observer {
+    fun get_withdraws() = runBlocking {
+        viewModel.withdraws.observe(mockLifecycleOwner(), Observer {
             if (isUserLoggedIn() && isNetworkAvailable()) assertNotNull(it)
         })
-    }
-
-    @Test
-    fun get_from_preferences() = runBlocking {
-        val balance = viewModel.getFromPrefs(TOTAL_BALANCE)
-        if (isUserLoggedIn() && isNetworkAvailable()) assertNotNull(balance)
     }
 }
