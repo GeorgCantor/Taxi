@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_success.*
 import taxi.kassa.R
+import taxi.kassa.util.inflate
 import taxi.kassa.view.MainActivity
 
 class SuccessFragment : Fragment() {
@@ -16,7 +17,7 @@ class SuccessFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = inflater.inflate(R.layout.fragment_success, container, false)
+    ): View? = container?.inflate(R.layout.fragment_success)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

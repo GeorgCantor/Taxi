@@ -9,6 +9,7 @@ import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_write_message.*
 import taxi.kassa.R
 import taxi.kassa.util.hideKeyboard
+import taxi.kassa.util.inflate
 
 class WriteMessageFragment : Fragment() {
 
@@ -16,7 +17,7 @@ class WriteMessageFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = inflater.inflate(R.layout.fragment_write_message, container, false)
+    ): View? = container?.inflate(R.layout.fragment_write_message)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

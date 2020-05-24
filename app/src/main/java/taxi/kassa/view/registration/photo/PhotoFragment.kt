@@ -24,6 +24,7 @@ import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.util.Constants.CONNECTION
 import taxi.kassa.util.gone
+import taxi.kassa.util.inflate
 import taxi.kassa.util.shortToast
 import taxi.kassa.util.visible
 import taxi.kassa.view.registration.connection.ConnectionViewModel
@@ -60,7 +61,7 @@ class PhotoFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = inflater.inflate(R.layout.fragment_photo, container, false)
+    ): View? = container?.inflate(R.layout.fragment_photo)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

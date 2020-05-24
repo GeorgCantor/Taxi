@@ -12,6 +12,7 @@ import taxi.kassa.util.Constants.CITYMOBIL
 import taxi.kassa.util.Constants.CONNECTION
 import taxi.kassa.util.Constants.GETT
 import taxi.kassa.util.Constants.YANDEX
+import taxi.kassa.util.inflate
 
 class RegistrationSelectionFragment : Fragment() {
 
@@ -19,7 +20,7 @@ class RegistrationSelectionFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = inflater.inflate(R.layout.fragment_registration_selection, container, false)
+    ): View? = container?.inflate(R.layout.fragment_registration_selection)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

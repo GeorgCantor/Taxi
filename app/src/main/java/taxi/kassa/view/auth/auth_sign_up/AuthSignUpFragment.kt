@@ -16,6 +16,7 @@ import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.util.Constants.PHONE_MASK
+import taxi.kassa.util.inflate
 import taxi.kassa.util.longToast
 import taxi.kassa.util.observe
 
@@ -34,7 +35,7 @@ class AuthSignUpFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = inflater.inflate(R.layout.fragment_auth_sign_up, container, false)
+    ): View? = container?.inflate(R.layout.fragment_auth_sign_up)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

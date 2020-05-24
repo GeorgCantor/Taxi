@@ -11,6 +11,7 @@ import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.util.Constants.MESSAGES_COUNTER
 import taxi.kassa.util.PreferenceManager
+import taxi.kassa.util.inflate
 import taxi.kassa.util.observe
 
 class ChatHistoryFragment : Fragment() {
@@ -26,7 +27,7 @@ class ChatHistoryFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = inflater.inflate(R.layout.fragment_chat_history, container, false)
+    ): View? = container?.inflate(R.layout.fragment_chat_history)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

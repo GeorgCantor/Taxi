@@ -40,7 +40,7 @@ class FuelReplenishFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = inflater.inflate(R.layout.fragment_fuel_replenish, container, false)
+    ): View? = container?.inflate(R.layout.fragment_fuel_replenish)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

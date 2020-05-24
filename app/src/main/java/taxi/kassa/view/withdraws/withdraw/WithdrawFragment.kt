@@ -13,6 +13,7 @@ import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.model.responses.Withdraw
 import taxi.kassa.util.Constants.WITHDRAW
+import taxi.kassa.util.inflate
 import taxi.kassa.util.observe
 import taxi.kassa.util.setFormattedText
 import taxi.kassa.util.shortToast
@@ -39,7 +40,7 @@ class WithdrawFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = inflater.inflate(R.layout.fragment_withdraw, container, false)
+    ): View? = container?.inflate(R.layout.fragment_withdraw)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

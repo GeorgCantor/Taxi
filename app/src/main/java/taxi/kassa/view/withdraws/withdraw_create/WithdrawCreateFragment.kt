@@ -44,7 +44,7 @@ class WithdrawCreateFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = inflater.inflate(R.layout.fragment_withdraw_create, container, false)
+    ): View? = container?.inflate(R.layout.fragment_withdraw_create)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

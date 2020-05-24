@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_registration.*
 import taxi.kassa.R
+import taxi.kassa.util.inflate
 import taxi.kassa.util.showOneButtonDialog
 
 class RegistrationFragment : Fragment() {
@@ -16,7 +17,7 @@ class RegistrationFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = inflater.inflate(R.layout.fragment_registration, container, false)
+    ): View? = container?.inflate(R.layout.fragment_registration)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
