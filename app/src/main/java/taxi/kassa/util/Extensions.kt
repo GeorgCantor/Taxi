@@ -217,7 +217,10 @@ fun EditText.setNumberClickListener(button: Button, resource: Int) {
     }
 }
 
-fun EditText.isEmpty(): Boolean = text.toString().isBlank()
+fun EditText.isEmpty(): Boolean = value.isBlank()
+
+val EditText.value
+    get() = text.toString()
 
 fun Activity.makeCall(fragment: Fragment) {
     val callIntent = Intent(Intent.ACTION_CALL)

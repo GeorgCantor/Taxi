@@ -19,6 +19,7 @@ import taxi.kassa.util.Constants.PHONE_MASK
 import taxi.kassa.util.inflate
 import taxi.kassa.util.longToast
 import taxi.kassa.util.observe
+import taxi.kassa.util.value
 
 class AuthSignUpFragment : Fragment() {
 
@@ -112,7 +113,7 @@ class AuthSignUpFragment : Fragment() {
             return
         }
 
-        phone = phone_edit_text.text.toString().replace("[^\\d]".toRegex(), "")
+        phone = phone_edit_text.value.replace("[^\\d]".toRegex(), "")
 
         if (phone == "7") {
             phone_input_view.error = getString(R.string.input_field_error)

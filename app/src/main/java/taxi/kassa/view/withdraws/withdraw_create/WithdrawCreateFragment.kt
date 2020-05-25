@@ -275,7 +275,7 @@ class WithdrawCreateFragment : Fragment() {
     }
 
     private fun sendRequest() {
-        val sum = sum_edit_text.text.toString()
+        val sum = sum_edit_text.value
         if (sum.isEmpty()) {
             sum_input_view.error = getString(R.string.input_error)
             return
