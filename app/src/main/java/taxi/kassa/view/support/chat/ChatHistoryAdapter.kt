@@ -8,7 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_incoming_message.view.*
 import kotlinx.android.synthetic.main.item_sent_message.view.*
 import taxi.kassa.R
-import taxi.kassa.model.Message
+import taxi.kassa.model.responses.Message
+import taxi.kassa.util.Constants.ADMIN
+import taxi.kassa.util.Constants.DRIVER
 
 class ChatHistoryAdapter(messages: MutableList<Message>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -61,21 +63,22 @@ class ChatHistoryAdapter(messages: MutableList<Message>) :
 
         when(holder) {
             is SentViewHolder -> {
-                holder.topic.text = message.topic
-                holder.sentMessage.text = message.message
-                holder.sentDate.text = message.date
+                holder.topic.text = message.text
+                holder.sentMessage.text = message.text
+                holder.sentDate.text = message.created
             }
             is IncomingViewHolder -> {
-                holder.message.text = message.message
-                holder.date.text = message.date
+                holder.message.text = message.text
+                holder.date.text = message.created
             }
         }
     }
 
     override fun getItemViewType(position: Int): Int {
-        return when (messages[position].isIncoming) {
-            true -> TYPE_INCOMING
-            false -> TYPE_SENT
+        return when (messages[position].side) {
+            ADMIN -> TYPE_INCOMING
+            DRIVER -> TYPE_SENT
+            else -> TYPE_INCOMING
         }
     }
 

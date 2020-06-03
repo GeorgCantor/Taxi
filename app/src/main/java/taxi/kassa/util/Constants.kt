@@ -38,6 +38,8 @@ object Constants {
     const val VISA = "Visa"
     const val NOT_FROM_PUSH = "openNotFromPush"
     const val ERROR_504 = "HTTP 504 Unsatisfiable Request (only-if-cached)"
+    const val DRIVER = "driver"
+    const val ADMIN = "admin"
 
     val myDateFormatSymbols: DateFormatSymbols = object : DateFormatSymbols() {
         override fun getMonths(): Array<String> {

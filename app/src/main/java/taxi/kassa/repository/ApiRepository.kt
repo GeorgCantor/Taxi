@@ -3,7 +3,6 @@ package taxi.kassa.repository
 import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
-import taxi.kassa.model.Message
 import taxi.kassa.model.Notification
 import taxi.kassa.model.remote.ApiService
 import taxi.kassa.util.Constants.NOTIFICATIONS
@@ -59,6 +58,8 @@ class ApiRepository(
 
     suspend fun getOrders(offset: String) = apiService.getOrders(offset)
 
+    suspend fun getChatHistory(offset: String) = apiService.getMessages(offset)
+
     suspend fun getNotificationsAsync(): Deferred<MutableList<Notification>> = coroutineScope {
         async {
             val notifications = preferenceManager.getNotifications(NOTIFICATIONS)
@@ -81,58 +82,5 @@ class ApiRepository(
         async {
             return@async preferenceManager.getString(TOKEN) ?: ""
         }
-    }
-
-    fun getChatHistory(): MutableList<Message> {
-        return mutableListOf(
-            Message(
-                topic = "Проблема с выводом денег",
-                message = "День добрый, мне не дают вывести деньги! Дело в том что я зарегистрировался в БК винлайн хотел поставить ставку, но на все события максимум был от 200 до 500р . меня это не устроило и я поставил деньги на вывод, не выводили три дня я сразу написал в чате о своей проблеме, мне сказали обратиться в службу поддержки. ",
-                date = "14:00, 8 окт. 2019г.",
-                isIncoming = false
-            ),
-            Message(
-                topic = "Проблема с выводом денег",
-                message = "Обращение принятно и находится на рассмотрении, мы венрнемся с ответом в 17:00",
-                date = "14:00, 8 окт. 2019г.",
-                isIncoming = true
-            ),
-            Message(
-                topic = "Проблема с выводом денег",
-                message = "Меня это не устроило и я поставил деньги на вывод, не выводили три дня я сразу написал в чате о своей проблеме",
-                date = "14:00, 8 окт. 2019г.",
-                isIncoming = false
-            ),
-            Message(
-                topic = "Проблема с выводом денег",
-                message = "Обращение принятно и находится на рассмотрении, мы венрнемся с ответом в 17:00",
-                date = "14:00, 8 окт. 2019г.",
-                isIncoming = true
-            ),
-            Message(
-                topic = "Проблема с выводом денег",
-                message = "День добрый, мне не дают вывести деньги! Дело в том что я зарегистрировался в БК винлайн хотел поставить ставку, но на все события максимум был от 200 до 500р . меня это не устроило и я поставил деньги на вывод, не выводили три дня я сразу написал в чате о своей проблеме, мне сказали обратиться в службу поддержки. ",
-                date = "14:00, 8 окт. 2019г.",
-                isIncoming = false
-            ),
-            Message(
-                topic = "Проблема с выводом денег",
-                message = "Обращение принятно и находится на рассмотрении, мы венрнемся с ответом в 17:00",
-                date = "14:00, 8 окт. 2019г.",
-                isIncoming = true
-            ),
-            Message(
-                topic = "Проблема с выводом денег",
-                message = "Меня это не устроило и я поставил деньги на вывод, не выводили три дня я сразу написал в чате о своей проблеме",
-                date = "14:00, 8 окт. 2019г.",
-                isIncoming = false
-            ),
-            Message(
-                topic = "Проблема с выводом денег",
-                message = "Обращение принятно и находится на рассмотрении, мы венрнемся с ответом в 17:00",
-                date = "14:00, 8 окт. 2019г.",
-                isIncoming = true
-            )
-        )
     }
 }

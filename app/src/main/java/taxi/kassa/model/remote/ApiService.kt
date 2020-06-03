@@ -58,4 +58,7 @@ interface ApiService {
 
     @GET("orders")
     suspend fun getOrders(@Query("offset") offset: String?): ResponseAPI<Orders?>?
+
+    @GET("messages")
+    suspend fun getMessages(@Query("offset") offset: String?): ResponseAPI<Messages?>?
 }

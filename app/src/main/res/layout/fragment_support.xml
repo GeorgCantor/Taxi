@@ -107,10 +107,12 @@
         android:paddingBottom="4dp"
         android:textColor="@color/continue_color"
         android:textSize="@dimen/text_13sp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/chat_history_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/chat_history_view"
-        tools:text="+2" />
+        tools:text="+2"
+        tools:visibility="visible" />
 
     <Button
         android:id="@+id/call_button"

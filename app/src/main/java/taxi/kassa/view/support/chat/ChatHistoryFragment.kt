@@ -9,7 +9,9 @@ import kotlinx.android.synthetic.main.fragment_chat_history.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
+import taxi.kassa.model.responses.Message
 import taxi.kassa.util.Constants.MESSAGES_COUNTER
+import taxi.kassa.util.EndlessScrollListener
 import taxi.kassa.util.PreferenceManager
 import taxi.kassa.util.inflate
 import taxi.kassa.util.observe
@@ -17,6 +19,7 @@ import taxi.kassa.util.observe
 class ChatHistoryFragment : Fragment() {
 
     private lateinit var viewModel: ChatHistoryViewModel
+    private var nextOffset = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,13 +35,27 @@ class ChatHistoryFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.messages.observe(viewLifecycleOwner) {
-            chat_recycler.adapter = ChatHistoryAdapter(it)
+        with(viewModel) {
+            getMessages("")
+
+            messages.observe(viewLifecycleOwner) {
+                nextOffset = it.nextOffset ?: ""
+                chat_recycler.adapter = ChatHistoryAdapter(it.messages as MutableList<Message>)
+            }
+
+            incomingMessages.observe(viewLifecycleOwner) {
+                PreferenceManager(requireContext()).saveInt(MESSAGES_COUNTER, it.size)
+            }
+
+            val scrollListener = object : EndlessScrollListener() {
+                override fun onLoadMore(page: Int, totalItemsCount: Int) {
+                    getMessages(nextOffset)
+                }
+            }
+
+            chat_recycler.addOnScrollListener(scrollListener)
         }
 
-        viewModel.incomingMessages.observe(viewLifecycleOwner) {
-            PreferenceManager(requireContext()).saveInt(MESSAGES_COUNTER, it.size)
-        }
 
         back_arrow.setOnClickListener { activity?.onBackPressed() }
     }

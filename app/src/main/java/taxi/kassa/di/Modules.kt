@@ -77,7 +77,7 @@ val viewModelModule = module(override = true) {
         OrdersListViewModel(androidApplication(), get())
     }
     viewModel {
-        ChatHistoryViewModel(get())
+        ChatHistoryViewModel(androidApplication(), get())
     }
     viewModel {
         NotificationsViewModel(get())
