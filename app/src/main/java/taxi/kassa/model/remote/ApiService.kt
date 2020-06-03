@@ -61,4 +61,8 @@ interface ApiService {
 
     @GET("messages")
     suspend fun getMessages(@Query("offset") offset: String?): ResponseAPI<Messages?>?
+
+    @POST("message_create")
+    @FormUrlEncoded
+    suspend fun sendMessage(@Field("text") text: String): ResponseAPI<ResponseMessageCreate?>?
 }

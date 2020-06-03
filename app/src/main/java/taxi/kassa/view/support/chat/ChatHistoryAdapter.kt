@@ -63,7 +63,7 @@ class ChatHistoryAdapter(messages: MutableList<Message>) :
 
         when(holder) {
             is SentViewHolder -> {
-                holder.topic.text = message.text
+//                holder.topic.text = message.text
                 holder.sentMessage.text = message.text
                 holder.sentDate.text = message.created
             }
@@ -83,7 +83,7 @@ class ChatHistoryAdapter(messages: MutableList<Message>) :
     }
 
     class SentViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val topic: TextView = view.topic_title
+//        val topic: TextView = view.topic_title
         val sentMessage: TextView = view.sent_message_tv
         val sentDate: TextView = view.sent_date_time_tv
     }

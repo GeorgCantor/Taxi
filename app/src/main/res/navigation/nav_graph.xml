@@ -349,7 +349,7 @@
 
     <fragment
         android:id="@+id/writeMessageFragment"
-        android:name="taxi.kassa.view.support.chat.WriteMessageFragment"
+        android:name="taxi.kassa.view.support.message.WriteMessageFragment"
         android:label="WriteMessageFragment">
         <action
             android:id="@+id/action_writeMessageFragment_to_successFragment"

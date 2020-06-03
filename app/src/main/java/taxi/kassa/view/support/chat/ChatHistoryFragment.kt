@@ -53,7 +53,7 @@ class ChatHistoryFragment : Fragment() {
                 }
             }
 
-            chat_recycler.addOnScrollListener(scrollListener)
+//            chat_recycler.addOnScrollListener(scrollListener)
         }
 
 

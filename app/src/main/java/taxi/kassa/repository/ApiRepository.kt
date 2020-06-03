@@ -60,6 +60,8 @@ class ApiRepository(
 
     suspend fun getChatHistory(offset: String) = apiService.getMessages(offset)
 
+    suspend fun sendMessage(message: String) = apiService.sendMessage(message)
+
     suspend fun getNotificationsAsync(): Deferred<MutableList<Notification>> = coroutineScope {
         async {
             val notifications = preferenceManager.getNotifications(NOTIFICATIONS)

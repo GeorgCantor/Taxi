@@ -20,6 +20,7 @@ import taxi.kassa.view.profile.ProfileViewModel
 import taxi.kassa.view.registration.connection.ConnectionViewModel
 import taxi.kassa.view.support.SupportViewModel
 import taxi.kassa.view.support.chat.ChatHistoryViewModel
+import taxi.kassa.view.support.message.WriteMessageViewModel
 import taxi.kassa.view.withdraws.WithdrawsViewModel
 import taxi.kassa.view.withdraws.withdraw.WithdrawViewModel
 import taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateViewModel
@@ -78,6 +79,9 @@ val viewModelModule = module(override = true) {
     }
     viewModel {
         ChatHistoryViewModel(androidApplication(), get())
+    }
+    viewModel {
+        WriteMessageViewModel(androidApplication(), get())
     }
     viewModel {
         NotificationsViewModel(get())
