@@ -14,8 +14,10 @@ import taxi.kassa.util.Constants.MASTERCARD
 import taxi.kassa.util.Constants.VISA
 import taxi.kassa.util.getCardType
 
-class AccountsCardsAdapter(cards: List<Card>) :
-    RecyclerView.Adapter<AccountsCardsAdapter.AccountsCardViewHolder>() {
+class AccountsCardsAdapter(
+    cards: List<Card>,
+    private val clickListener: (Card) -> Unit
+) : RecyclerView.Adapter<AccountsCardsAdapter.AccountsCardViewHolder>() {
 
     private val cards = mutableListOf<Card>()
 
@@ -34,11 +36,16 @@ class AccountsCardsAdapter(cards: List<Card>) :
     override fun onBindViewHolder(holder: AccountsCardViewHolder, position: Int) {
         val card = cards[position]
         val formattedNumber = "**** ${card.number?.substring(12)}"
-        holder.cardNumber.text = formattedNumber
 
-        when (card.number?.getCardType()) {
-            MASTERCARD -> holder.cardIcon.background = getDrawable(holder.itemView.context, R.drawable.ic_mastrcard_bg)
-            VISA -> holder.cardIcon.background = getDrawable(holder.itemView.context, R.drawable.ic_visa)
+        with(holder) {
+            cardNumber.text = formattedNumber
+
+            when (card.number?.getCardType()) {
+                MASTERCARD -> cardIcon.background = getDrawable(itemView.context, R.drawable.ic_mastrcard_bg)
+                VISA -> cardIcon.background = getDrawable(itemView.context, R.drawable.ic_visa)
+            }
+
+            itemView.setOnClickListener { clickListener(card) }
         }
     }
 

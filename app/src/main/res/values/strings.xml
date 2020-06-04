@@ -94,7 +94,9 @@
     <string name="add_button_text">Добавить</string>
     <string name="understand">Понятно</string>
     <string name="delete_account">Удаление счета</string>
+    <string name="delete_card">Удаление карты</string>
     <string name="delete_account_message">Вы действительно хотите удалить этот счет?</string>
+    <string name="delete_card_message">Вы действительно хотите удалить эту карту?</string>
     <string name="yes">Да</string>
     <string name="no">Нет</string>
     <string name="first_name">Имя</string>

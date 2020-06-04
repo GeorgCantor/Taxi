@@ -106,7 +106,14 @@ class AccountsFragment : Fragment() {
 
             cards.observe(viewLifecycleOwner) {
                 cards_recycler.setHasFixedSize(true)
-                cards_recycler.adapter = AccountsCardsAdapter(it)
+                cards_recycler.adapter = AccountsCardsAdapter(it) {
+                    context?.showTwoButtonsDialog(
+                        getString(R.string.delete_card),
+                        getString(R.string.delete_card_message),
+                        getString(R.string.no),
+                        getString(R.string.yes)
+                    ) { viewModel.deleteCard(it.id?.toInt() ?: 0) }
+                }
             }
 
             isCardAdded.observe(viewLifecycleOwner) { added ->

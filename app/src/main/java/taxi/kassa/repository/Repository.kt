@@ -54,6 +54,8 @@ class Repository(
 
     suspend fun addCard(cardNumber: String) = apiService.addCard(cardNumber)
 
+    suspend fun deleteCard(cardId: Int) = apiService.deleteCard(cardId)
+
     suspend fun createWithdraw(
         sourceId: Int,
         amount: String?,

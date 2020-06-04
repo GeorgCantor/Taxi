@@ -77,7 +77,6 @@ class AccountsViewModel(
         viewModelScope.launch(exceptionHandler) {
             accounts.value?.info?.firstOrNull()?.id?.let {
                 val response = repository.deleteAccount(it)
-
                 deletionStatus.postValue(response?.response?.status)
                 error.postValue(response?.errorMsg)
                 isProgressVisible.postValue(false)
@@ -91,6 +90,17 @@ class AccountsViewModel(
         viewModelScope.launch(exceptionHandler) {
             val response = repository.addCard(cardNumber)
             isCardAdded.postValue(response?.success)
+            error.postValue(response?.errorMsg)
+            isProgressVisible.postValue(false)
+        }
+    }
+
+    fun deleteCard(cardId: Int) {
+        isProgressVisible.value = true
+
+        viewModelScope.launch(exceptionHandler) {
+            val response = repository.deleteCard(cardId)
+            deletionStatus.postValue(response?.response?.status)
             error.postValue(response?.errorMsg)
             isProgressVisible.postValue(false)
         }
