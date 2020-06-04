@@ -3,6 +3,8 @@ package taxi.kassa.view.support.chat
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_chat_history.*
@@ -19,7 +21,9 @@ import taxi.kassa.util.observe
 class ChatHistoryFragment : Fragment() {
 
     private lateinit var viewModel: ChatHistoryViewModel
+    private lateinit var adapter: ChatHistoryAdapter
     private var nextOffset = ""
+    private var firstLoad = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +44,18 @@ class ChatHistoryFragment : Fragment() {
 
             messages.observe(viewLifecycleOwner) {
                 nextOffset = it.nextOffset ?: ""
-                chat_recycler.adapter = ChatHistoryAdapter(it.messages as MutableList<Message>)
+
+                when (firstLoad) {
+                    true -> {
+                        adapter = ChatHistoryAdapter(it.messages as MutableList<Message>)
+                        chat_recycler.adapter = adapter
+
+                        firstLoad = false
+                    }
+                    false -> adapter.updateList(it.messages as MutableList<Message>)
+                }
+
+                empty_tv.visibility = if (adapter.itemCount == 0) VISIBLE else GONE
             }
 
             incomingMessages.observe(viewLifecycleOwner) {
@@ -53,9 +68,8 @@ class ChatHistoryFragment : Fragment() {
                 }
             }
 
-//            chat_recycler.addOnScrollListener(scrollListener)
+            chat_recycler.addOnScrollListener(scrollListener)
         }
-
 
         back_arrow.setOnClickListener { activity?.onBackPressed() }
     }

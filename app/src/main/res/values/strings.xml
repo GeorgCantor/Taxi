@@ -201,4 +201,5 @@
     <string name="input_message_error">Введите сообщение</string>
     <string name="topic">Тема</string>
     <string name="answer">Ответ</string>
+    <string name="no_messages">Пока нет сообщений</string>
 </resources>

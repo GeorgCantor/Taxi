@@ -9,7 +9,7 @@ import kotlinx.coroutines.launch
 import taxi.kassa.MyApplication
 import taxi.kassa.R
 import taxi.kassa.repository.ApiRepository
-import taxi.kassa.util.Constants
+import taxi.kassa.util.Constants.ERROR_504
 import taxi.kassa.util.isNetworkAvailable
 
 class WriteMessageViewModel(
@@ -26,7 +26,7 @@ class WriteMessageViewModel(
 
     private val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
         when (throwable.message) {
-            Constants.ERROR_504 -> error.postValue(context.getString(R.string.internet_unavailable))
+            ERROR_504 -> error.postValue(context.getString(R.string.internet_unavailable))
             else -> error.postValue(throwable.message)
         }
         isProgressVisible.postValue(false)

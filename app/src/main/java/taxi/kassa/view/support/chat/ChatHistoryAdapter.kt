@@ -11,6 +11,8 @@ import taxi.kassa.R
 import taxi.kassa.model.responses.Message
 import taxi.kassa.util.Constants.ADMIN
 import taxi.kassa.util.Constants.DRIVER
+import taxi.kassa.util.Constants.FULL_PATTERN
+import taxi.kassa.util.convertToTime
 
 class ChatHistoryAdapter(messages: MutableList<Message>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -24,6 +26,11 @@ class ChatHistoryAdapter(messages: MutableList<Message>) :
 
     init {
         this.messages.addAll(messages)
+    }
+
+    fun updateList(messages: MutableList<Message>) {
+        this.messages.addAll(messages)
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -60,16 +67,17 @@ class ChatHistoryAdapter(messages: MutableList<Message>) :
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val message = messages[position]
+        val longDate = (message.created?.toInt()?.toLong() ?: 0) * 1000
 
-        when(holder) {
+        when (holder) {
             is SentViewHolder -> {
 //                holder.topic.text = message.text
                 holder.sentMessage.text = message.text
-                holder.sentDate.text = message.created
+                holder.sentDate.text = longDate.convertToTime(FULL_PATTERN)
             }
             is IncomingViewHolder -> {
                 holder.message.text = message.text
-                holder.date.text = message.created
+                holder.date.text = longDate.convertToTime(FULL_PATTERN)
             }
         }
     }
