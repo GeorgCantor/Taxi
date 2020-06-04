@@ -56,6 +56,13 @@ interface ApiService {
     @FormUrlEncoded
     suspend fun deleteAccount(@Field("account_id") account_id: Int): ResponseAPI<ResponseSimple?>?
 
+    @GET("cards")
+    suspend fun getCards(): ResponseAPI<Cards?>?
+
+    @POST("card_add")
+    @FormUrlEncoded
+    suspend fun addCard(@Field("card_number") card_number: String): ResponseAPI<ResponseAddCard?>?
+
     @GET("orders")
     suspend fun getOrders(@Query("offset") offset: String?): ResponseAPI<Orders?>?
 

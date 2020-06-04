@@ -9,7 +9,7 @@ import taxi.kassa.util.Constants.NOTIFICATIONS
 import taxi.kassa.util.Constants.TOKEN
 import taxi.kassa.util.PreferenceManager
 
-class ApiRepository(
+class Repository(
     private val apiService: ApiService,
     private val preferenceManager: PreferenceManager
 ) {
@@ -49,6 +49,10 @@ class ApiRepository(
     )
 
     suspend fun deleteAccount(accountId: Int) = apiService.deleteAccount(accountId)
+
+    suspend fun getCards() = apiService.getCards()
+
+    suspend fun addCard(cardNumber: String) = apiService.addCard(cardNumber)
 
     suspend fun createWithdraw(
         sourceId: Int,

@@ -9,12 +9,12 @@ import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_accounts_card.view.*
 import taxi.kassa.R
-import taxi.kassa.model.Card
+import taxi.kassa.model.responses.Card
 import taxi.kassa.util.Constants.MASTERCARD
 import taxi.kassa.util.Constants.VISA
 import taxi.kassa.util.getCardType
 
-class AccountsCardsAdapter(cards: MutableList<Card>) :
+class AccountsCardsAdapter(cards: List<Card>) :
     RecyclerView.Adapter<AccountsCardsAdapter.AccountsCardViewHolder>() {
 
     private val cards = mutableListOf<Card>()
@@ -33,10 +33,10 @@ class AccountsCardsAdapter(cards: MutableList<Card>) :
 
     override fun onBindViewHolder(holder: AccountsCardViewHolder, position: Int) {
         val card = cards[position]
-        val formattedNumber = "**** ${card.number.substring(12)}"
+        val formattedNumber = "**** ${card.number?.substring(12)}"
         holder.cardNumber.text = formattedNumber
 
-        when (card.number.getCardType()) {
+        when (card.number?.getCardType()) {
             MASTERCARD -> holder.cardIcon.background = getDrawable(holder.itemView.context, R.drawable.ic_mastrcard_bg)
             VISA -> holder.cardIcon.background = getDrawable(holder.itemView.context, R.drawable.ic_visa)
         }

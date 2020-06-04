@@ -8,13 +8,13 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 import taxi.kassa.MyApplication
 import taxi.kassa.R
-import taxi.kassa.repository.ApiRepository
+import taxi.kassa.repository.Repository
 import taxi.kassa.util.Constants.ERROR_504
 import taxi.kassa.util.isNetworkAvailable
 
 class WriteMessageViewModel(
     app: Application,
-    private val repository: ApiRepository
+    private val repository: Repository
 ) : AndroidViewModel(app) {
 
     private val context = getApplication<MyApplication>()

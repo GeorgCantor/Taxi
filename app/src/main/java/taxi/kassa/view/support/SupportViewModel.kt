@@ -6,9 +6,9 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import taxi.kassa.model.Notification
 import taxi.kassa.model.responses.Message
-import taxi.kassa.repository.ApiRepository
+import taxi.kassa.repository.Repository
 
-class SupportViewModel(repository: ApiRepository) : ViewModel() {
+class SupportViewModel(repository: Repository) : ViewModel() {
 
     val notifications = MutableLiveData<MutableList<Notification>>()
     val incomingMessages = MutableLiveData<List<Message>>()

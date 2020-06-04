@@ -12,12 +12,12 @@ import taxi.kassa.model.Card
 import taxi.kassa.model.Notification
 import taxi.kassa.model.responses.AccountsList
 import taxi.kassa.model.responses.ResponseOwner
-import taxi.kassa.repository.ApiRepository
+import taxi.kassa.repository.Repository
 import taxi.kassa.util.Constants.ERROR_504
 
 class WithdrawCreateViewModel(
     app: Application,
-    private val repository: ApiRepository
+    private val repository: Repository
 ) : AndroidViewModel(app) {
 
     private val context = getApplication<MyApplication>()

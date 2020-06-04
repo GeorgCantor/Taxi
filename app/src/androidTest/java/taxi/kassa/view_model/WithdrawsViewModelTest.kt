@@ -14,7 +14,7 @@ import org.mockito.Mock
 import taxi.kassa.MyApplication
 import taxi.kassa.base.BaseAndroidTest
 import taxi.kassa.model.remote.ApiClient
-import taxi.kassa.repository.ApiRepository
+import taxi.kassa.repository.Repository
 import taxi.kassa.view.withdraws.WithdrawsViewModel
 
 @RunWith(AndroidJUnit4::class)
@@ -27,11 +27,11 @@ class WithdrawsViewModelTest : BaseAndroidTest() {
     val client = ApiClient
 
     private lateinit var viewModel: WithdrawsViewModel
-    private lateinit var repository: ApiRepository
+    private lateinit var repository: Repository
 
     @Before
     fun setup() {
-        repository = ApiRepository(client.create(getContext()), preferenceManager)
+        repository = Repository(client.create(getContext()), preferenceManager)
         viewModel = WithdrawsViewModel(MyApplication().get(), repository)
     }
 

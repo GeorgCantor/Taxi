@@ -10,13 +10,13 @@ import taxi.kassa.MyApplication
 import taxi.kassa.R
 import taxi.kassa.model.responses.Message
 import taxi.kassa.model.responses.Messages
-import taxi.kassa.repository.ApiRepository
+import taxi.kassa.repository.Repository
 import taxi.kassa.util.Constants.ADMIN
 import taxi.kassa.util.Constants.ERROR_504
 
 class ChatHistoryViewModel(
     app: Application,
-    private val repository: ApiRepository
+    private val repository: Repository
 ) : AndroidViewModel(app) {
 
     private val context = getApplication<MyApplication>()

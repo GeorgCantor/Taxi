@@ -108,6 +108,13 @@ class AccountsFragment : Fragment() {
                 cards_recycler.setHasFixedSize(true)
                 cards_recycler.adapter = AccountsCardsAdapter(it)
             }
+
+            isCardAdded.observe(viewLifecycleOwner) { added ->
+                if (added) {
+                    context?.longToast(getString(R.string.card_added))
+                    requireView().hideKeyboard()
+                }
+            }
         }
 
         val numberInputs = listOf<TextInputEditText>(
@@ -181,7 +188,6 @@ class AccountsFragment : Fragment() {
                 R.id.card_edit_text, R.id.bik_edit_text-> keyboard.gone()
                 R.id.account_edit_text -> bik_edit_text.requestFocus()
             }
-            openNewCard()
         }
 
         val editTexts = listOf<EditText>(
@@ -310,7 +316,7 @@ class AccountsFragment : Fragment() {
 
         card_edit_text.addTextChangedListener(CardMaskListener())
 
-        add_card_button.setOnClickListener { openNewCard() }
+        add_card_button.setOnClickListener { addNewCard() }
     }
 
     override fun onDestroyView() {
@@ -335,8 +341,18 @@ class AccountsFragment : Fragment() {
         }
     }
 
-    private fun openNewCard() {
-        if (card_edit_text.isEmpty()) card_input_view.error = getString(R.string.input_error)
+    private fun addNewCard() {
+        if (card_edit_text.isEmpty()) {
+            card_input_view.error = getString(R.string.input_error)
+            return
+        }
+
+        if (card_edit_text.text?.trim()?.length ?: 0 < 16) {
+            card_input_view.error = getString(R.string.enter_full_card_number)
+            return
+        }
+
+        viewModel.addCard(card_edit_text.text?.trim().toString())
     }
 
     private fun back() {

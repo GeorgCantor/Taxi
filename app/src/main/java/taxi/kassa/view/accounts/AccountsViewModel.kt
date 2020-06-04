@@ -8,15 +8,15 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 import taxi.kassa.MyApplication
 import taxi.kassa.R
-import taxi.kassa.model.Card
 import taxi.kassa.model.Notification
 import taxi.kassa.model.responses.AccountsList
-import taxi.kassa.repository.ApiRepository
+import taxi.kassa.model.responses.Card
+import taxi.kassa.repository.Repository
 import taxi.kassa.util.Constants.ERROR_504
 
 class AccountsViewModel(
     app: Application,
-    private val repository: ApiRepository
+    private val repository: Repository
 ) : AndroidViewModel(app) {
 
     private val context = getApplication<MyApplication>()
@@ -27,7 +27,8 @@ class AccountsViewModel(
     val accounts = MutableLiveData<AccountsList>()
     val error = MutableLiveData<String>()
     val notifications = MutableLiveData<MutableList<Notification>>()
-    val cards = MutableLiveData<MutableList<Card>>()
+    val cards = MutableLiveData<List<Card>>()
+    val isCardAdded = MutableLiveData<Boolean>().apply { value = false }
 
     private val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
         when (throwable.message) {
@@ -40,15 +41,12 @@ class AccountsViewModel(
     fun getAccounts() {
         viewModelScope.launch(exceptionHandler) {
             val response = repository.getAccounts()
-
-            val cardList = mutableListOf<Card>()
-            response?.response?.info?.map {
-                cardList.add(Card(it.cardNumber, it.cardDate))
-            }
-            cards.postValue(cardList)
-
             accounts.postValue(response?.response)
             error.postValue(response?.errorMsg)
+
+            val cardsResponse = repository.getCards()
+            cards.postValue(cardsResponse?.response?.cards)
+
             isProgressVisible.postValue(false)
             notifications.postValue(repository.getNotificationsAsync().await())
         }
@@ -84,6 +82,17 @@ class AccountsViewModel(
                 error.postValue(response?.errorMsg)
                 isProgressVisible.postValue(false)
             }
+        }
+    }
+
+    fun addCard(cardNumber: String) {
+        isProgressVisible.value = true
+
+        viewModelScope.launch(exceptionHandler) {
+            val response = repository.addCard(cardNumber)
+            isCardAdded.postValue(response?.success)
+            error.postValue(response?.errorMsg)
+            isProgressVisible.postValue(false)
         }
     }
 }

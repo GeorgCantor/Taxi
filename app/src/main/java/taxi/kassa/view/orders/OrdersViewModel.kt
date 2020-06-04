@@ -9,11 +9,11 @@ import taxi.kassa.MyApplication
 import taxi.kassa.R
 import taxi.kassa.model.Notification
 import taxi.kassa.model.Taxi
-import taxi.kassa.repository.ApiRepository
+import taxi.kassa.repository.Repository
 
 class OrdersViewModel(
     app: Application,
-    repository: ApiRepository
+    repository: Repository
 ) : AndroidViewModel(app) {
 
     private val context = getApplication<MyApplication>()
