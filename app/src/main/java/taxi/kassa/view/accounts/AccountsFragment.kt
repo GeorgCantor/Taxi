@@ -119,7 +119,7 @@ class AccountsFragment : Fragment() {
             isCardAdded.observe(viewLifecycleOwner) { added ->
                 if (added) {
                     context?.longToast(getString(R.string.card_added))
-                    requireView().hideKeyboard()
+                    findNavController(this@AccountsFragment).navigate(R.id.action_accountsFragment_self)
                 }
             }
         }

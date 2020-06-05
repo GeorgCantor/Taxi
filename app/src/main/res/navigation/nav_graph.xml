@@ -269,6 +269,10 @@
             app:destination="@id/notificationsFragment"
             app:popEnterAnim="@anim/slide_in_top"
             app:popExitAnim="@anim/slide_out_top" />
+        <action
+            android:id="@+id/action_accountsFragment_self"
+            app:destination="@id/accountsFragment"
+            app:popUpTo="@id/profileFragment" />
     </fragment>
 
     <fragment

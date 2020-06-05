@@ -9,7 +9,6 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.Button
-import androidx.activity.OnBackPressedCallback
 import androidx.core.view.get
 import androidx.core.view.isNotEmpty
 import androidx.fragment.app.Fragment
@@ -48,13 +47,6 @@ class WithdrawCreateFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val callback = object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                back()
-            }
-        }
-        activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, callback)
 
         with(viewModel) {
             isProgressVisible.observe(viewLifecycleOwner) { visible ->
@@ -122,16 +114,19 @@ class WithdrawCreateFragment : Fragment() {
                     card.check_icon.visible()
                     card.green_background.visible()
 
-                    cards_recycler.adapter?.itemCount?.let {
-                        if (it > 1) {
-                            for (i in 0 until it) {
-                                val item = cards_recycler[i]
-                                if (item != card) {
-                                    item.check_icon.gone()
-                                    item.green_background.gone()
+                    try {
+                        cards_recycler.adapter?.itemCount?.let {
+                            if (it > 1) {
+                                for (i in 0 until it) {
+                                    val item = cards_recycler[i]
+                                    if (item != card) {
+                                        item.check_icon.gone()
+                                        item.green_background.gone()
+                                    }
                                 }
                             }
                         }
+                    } catch (e: IndexOutOfBoundsException) {
                     }
                 }
             }
@@ -139,19 +134,10 @@ class WithdrawCreateFragment : Fragment() {
 
         runDelayed(500) { cards_recycler?.let { if (it.isNotEmpty()) it[0].performClick() } }
 
+        runDelayed(100) { scroll_view.scrollTo(0, scroll_view.bottom) }
+
+        sum_edit_text.requestFocus()
         sum_edit_text.showSoftInputOnFocus = false
-
-        sum_edit_text.setOnClickListener { keyboard.visible() }
-
-        sum_edit_text.setOnFocusChangeListener { _, hasFocus ->
-            when (hasFocus) {
-                true -> {
-                    keyboard.visible()
-                    runDelayed(100) { scroll_view.scrollTo(0, scroll_view.bottom) }
-                }
-                false -> keyboard.gone()
-            }
-        }
 
         val keyboardPairs = mutableListOf<Pair<Button, Int>>(
             Pair(num_0, R.string.num0),
@@ -282,12 +268,5 @@ class WithdrawCreateFragment : Fragment() {
         }
 
         viewModel.createWithdraw(sourceId, sum)
-    }
-
-    private fun back() {
-        when (keyboard.visibility) {
-            VISIBLE -> sum_edit_text.clearFocus()
-            GONE -> findNavController(this).popBackStack()
-        }
     }
 }
