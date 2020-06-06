@@ -93,6 +93,6 @@ val viewModelModule = module(override = true) {
         SupportViewModel(get())
     }
     viewModel {
-        ConnectionViewModel()
+        ConnectionViewModel(androidApplication(), get())
     }
 }

@@ -3,6 +3,7 @@ package taxi.kassa.repository
 import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
+import okhttp3.MultipartBody
 import taxi.kassa.model.Notification
 import taxi.kassa.model.remote.ApiService
 import taxi.kassa.util.Constants.NOTIFICATIONS
@@ -15,13 +16,6 @@ class Repository(
 ) {
 
     suspend fun login(phone: String) = apiService.authSendPhone(phone)
-
-    suspend fun signUp(
-        name: String,
-        phone: String,
-        source_id: Int,
-        key: String
-    ) = apiService.createRequest(name, phone, source_id, key)
 
     suspend fun getCode(
         phone: String,
@@ -40,13 +34,7 @@ class Repository(
         middleName: String,
         accountNumber: String,
         bankCode: String
-    ) = apiService.createAccount(
-        firstName,
-        lastName,
-        middleName,
-        accountNumber,
-        bankCode
-    )
+    ) = apiService.createAccount(firstName, lastName, middleName, accountNumber, bankCode)
 
     suspend fun deleteAccount(accountId: Int) = apiService.deleteAccount(accountId)
 
@@ -67,6 +55,20 @@ class Repository(
     suspend fun getChatHistory(offset: String) = apiService.getMessages(offset)
 
     suspend fun sendMessage(message: String) = apiService.sendMessage(message)
+
+    suspend fun sendRegisterRequest(
+        sourceId: Int,
+        phone: String,
+        key: String,
+        requestUid: String,
+        gettId: String
+    ) = apiService.sendRegisterRequest(sourceId, phone, key, requestUid, gettId)
+
+    suspend fun sendPhoto(
+        file: MultipartBody.Part,
+        requestUid: String,
+        type: Int
+    ) = apiService.sendPhoto(file, requestUid, type)
 
     suspend fun getNotificationsAsync(): Deferred<MutableList<Notification>> = coroutineScope {
         async {

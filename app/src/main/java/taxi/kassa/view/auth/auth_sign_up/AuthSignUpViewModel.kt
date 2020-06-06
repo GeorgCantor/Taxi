@@ -11,6 +11,7 @@ import taxi.kassa.R
 import taxi.kassa.repository.Repository
 import taxi.kassa.util.Constants.ERROR_504
 import taxi.kassa.util.Constants.KEY
+import taxi.kassa.util.Constants.PHONE_REQUEST
 import taxi.kassa.util.isNetworkAvailable
 
 class AuthSignUpViewModel(
@@ -37,7 +38,13 @@ class AuthSignUpViewModel(
         isProgressVisible.value = true
 
         viewModelScope.launch(exceptionHandler) {
-            val response = repository.signUp("", phone, 11, KEY)
+            val response = repository.sendRegisterRequest(
+                PHONE_REQUEST,
+                phone,
+                KEY,
+                "",
+                ""
+            )
             isSignUp.postValue(response?.success)
             response?.errorMsg?.let { error.postValue(it) }
             isProgressVisible.postValue(false)

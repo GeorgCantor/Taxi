@@ -78,7 +78,7 @@ class PhotoFragment : Fragment() {
 
     override fun onDetach() {
         super.onDetach()
-        if (::photoBitmap.isInitialized && !loadFromGallery) viewModel.setLoadImage(photoBitmap)
+        if (::photoBitmap.isInitialized && !loadFromGallery) viewModel.sendPhoto(photoBitmap)
     }
 
     override fun onRequestPermissionsResult(
@@ -167,7 +167,7 @@ class PhotoFragment : Fragment() {
             if (data != null) {
                 val inputStream = data.data?.let { requireActivity().contentResolver.openInputStream(it) }
                 val bitmap = BitmapFactory.decodeStream(inputStream)
-                viewModel.setLoadImage(bitmap)
+                viewModel.sendPhoto(bitmap)
                 loadFromGallery = true
 
                 findNavController(this).navigate(
