@@ -7,6 +7,7 @@ import kotlinx.coroutines.launch
 import taxi.kassa.model.Notification
 import taxi.kassa.model.responses.Message
 import taxi.kassa.repository.Repository
+import taxi.kassa.util.Constants.UNREAD
 
 class SupportViewModel(repository: Repository) : ViewModel() {
 
@@ -16,7 +17,7 @@ class SupportViewModel(repository: Repository) : ViewModel() {
     init {
         viewModelScope.launch {
             notifications.postValue(repository.getNotificationsAsync().await())
-//            incomingMessages.postValue(repository.getChatHistory("")?.response?.messages?.filter { it.side == ADMIN })
+            incomingMessages.postValue(repository.getChatHistory("")?.response?.messages?.filter { it.status == UNREAD })
         }
     }
 }

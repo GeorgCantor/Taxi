@@ -30,6 +30,7 @@ object Constants {
     const val MASTERCARD = "Mastercard"
     const val VISA = "Visa"
     const val NOT_FROM_PUSH = "openNotFromPush"
+    const val UNREAD = "unread"
 
     // an error occurs when there is no Internet and no data in the cache
     const val ERROR_504 = "HTTP 504 Unsatisfiable Request (only-if-cached)"

@@ -13,6 +13,7 @@ import taxi.kassa.model.responses.Message
 import taxi.kassa.model.responses.ResponseOwner
 import taxi.kassa.repository.Repository
 import taxi.kassa.util.Constants.ERROR_504
+import taxi.kassa.util.Constants.UNREAD
 import taxi.kassa.util.PreferenceManager
 import taxi.kassa.util.isNetworkAvailable
 
@@ -47,7 +48,7 @@ class ProfileViewModel(
             isProgressVisible.postValue(false)
             notifications.postValue(repository.getNotificationsAsync().await())
 
-//            incomingMessages.postValue(repository.getChatHistory("")?.response?.messages?.filter { it.side == ADMIN })
+            incomingMessages.postValue(repository.getChatHistory("")?.response?.messages?.filter { it.status == UNREAD })
         }
 
         isNetworkAvailable.value = context.isNetworkAvailable()
