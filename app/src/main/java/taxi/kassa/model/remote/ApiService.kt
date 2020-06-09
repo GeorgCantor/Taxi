@@ -69,6 +69,9 @@ interface ApiService {
     @FormUrlEncoded
     suspend fun sendMessage(@Field("text") text: String): ResponseAPI<ResponseMessageCreate?>?
 
+    @POST("message_read")
+    suspend fun allMessagesRead(): ResponseAPI<ResponseSimple?>?
+
     @POST("requests")
     @FormUrlEncoded
     suspend fun sendRegisterRequest(

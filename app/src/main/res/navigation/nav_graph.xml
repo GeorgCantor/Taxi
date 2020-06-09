@@ -89,16 +89,7 @@
     <fragment
         android:id="@+id/photoFragment"
         android:name="taxi.kassa.view.registration.photo.PhotoFragment"
-        android:label="PhotoFragment">
-        <action
-            android:id="@+id/action_photoFragment_to_connectionFragment"
-            app:destination="@id/connectionFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"
-            app:popUpTo="@id/registrationSelectionFragment" />
-    </fragment>
+        android:label="PhotoFragment" />
 
     <fragment
         android:id="@+id/authPhoneFragment"

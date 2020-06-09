@@ -12,11 +12,8 @@ import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.model.responses.Message
+import taxi.kassa.util.*
 import taxi.kassa.util.Constants.MESSAGES_COUNTER
-import taxi.kassa.util.EndlessScrollListener
-import taxi.kassa.util.PreferenceManager
-import taxi.kassa.util.inflate
-import taxi.kassa.util.observe
 
 class ChatHistoryFragment : Fragment() {
 
@@ -41,6 +38,8 @@ class ChatHistoryFragment : Fragment() {
 
         with(viewModel) {
             getMessages("")
+
+            error.observe(viewLifecycleOwner) { context?.longToast(it) }
 
             messages.observe(viewLifecycleOwner) {
                 nextOffset = it.nextOffset ?: ""

@@ -34,10 +34,18 @@ class ChatHistoryViewModel(
         isProgressVisible.postValue(false)
     }
 
+    init {
+        viewModelScope.launch(exceptionHandler) {
+            val response = repository.allMessagesRead()
+            error.postValue(response?.errorMsg)
+        }
+    }
+
     fun getMessages(offset: String) {
         viewModelScope.launch(exceptionHandler) {
             val response = repository.getChatHistory(offset)
             messages.postValue(response?.response)
+            error.postValue(response?.errorMsg)
             incomingMessages.postValue(response?.response?.messages?.filter { it.side == ADMIN })
         }
     }

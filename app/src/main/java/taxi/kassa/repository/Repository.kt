@@ -56,6 +56,8 @@ class Repository(
 
     suspend fun sendMessage(message: String) = apiService.sendMessage(message)
 
+    suspend fun allMessagesRead() = apiService.allMessagesRead()
+
     suspend fun sendRegisterRequest(
         sourceId: Int,
         phone: String,
