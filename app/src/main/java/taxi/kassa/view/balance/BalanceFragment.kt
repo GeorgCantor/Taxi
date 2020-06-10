@@ -123,4 +123,9 @@ class BalanceFragment : Fragment() {
 
         back_arrow.setOnClickListener { activity?.onBackPressed() }
     }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.checkInternet()
+    }
 }

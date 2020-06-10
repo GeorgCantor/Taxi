@@ -36,8 +36,7 @@ class ChatHistoryViewModel(
 
     init {
         viewModelScope.launch(exceptionHandler) {
-            val response = repository.allMessagesRead()
-            error.postValue(response?.errorMsg)
+            repository.allMessagesRead()
         }
     }
 

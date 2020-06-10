@@ -529,6 +529,11 @@ class ConnectionFragment : Fragment() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.checkInternet()
+    }
+
     // go through the downloaded images and set the editTexts visibility
     private fun setInputViewsState(images: MutableList<LoadImage>, id: Int, inputs: Array<View>) {
         images.find { it.id == id }

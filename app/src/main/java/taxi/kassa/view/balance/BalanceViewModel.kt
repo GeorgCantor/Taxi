@@ -43,7 +43,9 @@ class BalanceViewModel(
             isProgressVisible.postValue(false)
             notifications.postValue(repository.getNotificationsAsync().await())
         }
+    }
 
+    fun checkInternet() {
         isNetworkAvailable.value = context.isNetworkAvailable()
     }
 }

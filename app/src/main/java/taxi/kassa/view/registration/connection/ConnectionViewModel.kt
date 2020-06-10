@@ -17,6 +17,7 @@ import taxi.kassa.repository.Repository
 import taxi.kassa.util.Constants.ERROR_504
 import taxi.kassa.util.Constants.KEY
 import taxi.kassa.util.getPhotoType
+import taxi.kassa.util.isNetworkAvailable
 import java.io.BufferedOutputStream
 import java.io.File
 import java.io.FileOutputStream
@@ -107,5 +108,10 @@ class ConnectionViewModel(
             response?.errorMsg?.let { error.postValue(it) }
             isProgressVisible.postValue(false)
         }
+    }
+
+    fun checkInternet() {
+        error.value = null
+        isNetworkAvailable.value = context.isNetworkAvailable()
     }
 }

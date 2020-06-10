@@ -50,7 +50,9 @@ class ProfileViewModel(
 
             incomingMessages.postValue(repository.getChatHistory("")?.response?.messages?.filter { it.status == UNREAD })
         }
+    }
 
+    fun checkInternet() {
         isNetworkAvailable.value = context.isNetworkAvailable()
     }
 
