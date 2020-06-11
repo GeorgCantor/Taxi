@@ -40,9 +40,10 @@ class AccountsViewModel(
 
     fun getAccounts() {
         viewModelScope.launch(exceptionHandler) {
-            val response = repository.getAccounts()
-            accounts.postValue(response?.response)
-            error.postValue(response?.errorMsg)
+            repository.getAccounts()?.apply {
+                accounts.postValue(response)
+                error.postValue(errorMsg)
+            }
 
             val cardsResponse = repository.getCards()
             cards.postValue(cardsResponse?.response?.cards)

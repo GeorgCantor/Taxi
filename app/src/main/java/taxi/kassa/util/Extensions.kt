@@ -25,9 +25,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
-import android.widget.Toast.LENGTH_LONG
-import android.widget.Toast.LENGTH_SHORT
+import android.widget.Toast.*
 import androidx.appcompat.app.AlertDialog
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
@@ -80,9 +78,9 @@ fun Context.isNetworkAvailable(): Boolean {
     return manager?.activeNetworkInfo?.isConnectedOrConnecting ?: false
 }
 
-fun Context.shortToast(message: String) = Toast.makeText(this, message, LENGTH_SHORT).show()
+fun Context.shortToast(message: String) = makeText(this, message, LENGTH_SHORT).show()
 
-fun Context.longToast(message: String) = Toast.makeText(this, message, LENGTH_LONG).show()
+fun Context.longToast(message: String) = makeText(this, message, LENGTH_LONG).show()
 
 fun Context.showOneButtonDialog(
     title: String,

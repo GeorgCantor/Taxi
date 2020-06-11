@@ -33,9 +33,10 @@ class OrdersListViewModel(
 
     fun getOrders(offset: String) {
         viewModelScope.launch(exceptionHandler) {
-            val response = repository.getOrders(offset)
-            orders.postValue(response?.response)
-            error.postValue(response?.errorMsg)
+            repository.getOrders(offset)?.apply {
+                orders.postValue(response)
+                error.postValue(errorMsg)
+            }
             isProgressVisible.postValue(false)
         }
     }

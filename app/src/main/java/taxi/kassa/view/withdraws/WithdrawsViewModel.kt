@@ -35,9 +35,10 @@ class WithdrawsViewModel(
 
     init {
         viewModelScope.launch(exceptionHandler) {
-            val response = repository.getWithdraws()
-            withdraws.postValue(response?.response)
-            error.postValue(response?.errorMsg)
+            repository.getWithdraws()?.apply {
+                withdraws.postValue(response)
+                error.postValue(errorMsg)
+            }
             isProgressVisible.postValue(false)
             notifications.postValue(repository.getNotificationsAsync().await())
         }

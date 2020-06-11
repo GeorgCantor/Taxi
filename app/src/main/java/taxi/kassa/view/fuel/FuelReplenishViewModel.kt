@@ -37,9 +37,10 @@ class FuelReplenishViewModel(
 
     init {
         viewModelScope.launch(exceptionHandler) {
-            val response = repository.getOwner()
-            responseOwner.postValue(response?.response)
-            error.postValue(response?.errorMsg)
+            repository.getOwner()?.apply {
+                responseOwner.postValue(response)
+                error.postValue(errorMsg)
+            }
             isProgressVisible.postValue(false)
             notifications.postValue(repository.getNotificationsAsync().await())
         }
