@@ -8,18 +8,19 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 import taxi.kassa.MyApplication
 import taxi.kassa.R
-import taxi.kassa.model.Message
 import taxi.kassa.model.Notification
+import taxi.kassa.model.responses.Message
 import taxi.kassa.model.responses.ResponseOwner
-import taxi.kassa.repository.ApiRepository
+import taxi.kassa.repository.Repository
 import taxi.kassa.util.Constants.ERROR_504
+import taxi.kassa.util.Constants.UNREAD
 import taxi.kassa.util.PreferenceManager
 import taxi.kassa.util.isNetworkAvailable
 
 class ProfileViewModel(
     app: Application,
     private val preferenceManager: PreferenceManager,
-    private val repository: ApiRepository
+    private val repository: Repository
 ) : AndroidViewModel(app) {
 
     private val context = getApplication<MyApplication>()
@@ -29,7 +30,7 @@ class ProfileViewModel(
     val responseOwner = MutableLiveData<ResponseOwner>()
     val error = MutableLiveData<String>()
     val notifications = MutableLiveData<MutableList<Notification>>()
-    val incomingMessages = MutableLiveData<MutableList<Message>>()
+    val incomingMessages = MutableLiveData<List<Message>>()
 
     private val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
         when (throwable.message) {
@@ -41,14 +42,18 @@ class ProfileViewModel(
 
     init {
         viewModelScope.launch(exceptionHandler) {
-            val response = repository.getOwner()
-            responseOwner.postValue(response?.response)
-            error.postValue(response?.errorMsg)
+            repository.getOwner()?.apply {
+                responseOwner.postValue(response)
+                error.postValue(errorMsg)
+            }
             isProgressVisible.postValue(false)
             notifications.postValue(repository.getNotificationsAsync().await())
-        }
 
-        incomingMessages.value = repository.getChatHistory().filter { it.isIncoming } as MutableList
+            incomingMessages.postValue(repository.getChatHistory("")?.response?.messages?.filter { it.status == UNREAD })
+        }
+    }
+
+    fun checkInternet() {
         isNetworkAvailable.value = context.isNetworkAvailable()
     }
 

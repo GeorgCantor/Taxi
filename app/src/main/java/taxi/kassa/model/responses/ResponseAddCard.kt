@@ -1,5 +1,5 @@
 package taxi.kassa.model.responses
 
-class ResponseCreateRequest {
+class ResponseAddCard {
     var status: String? = null
 }

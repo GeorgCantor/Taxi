@@ -25,9 +25,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
-import android.widget.Toast.LENGTH_LONG
-import android.widget.Toast.LENGTH_SHORT
+import android.widget.Toast.*
 import androidx.appcompat.app.AlertDialog
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
@@ -43,9 +41,28 @@ import kotlinx.android.synthetic.main.dialog_one_button.message
 import kotlinx.android.synthetic.main.dialog_one_button.title
 import kotlinx.android.synthetic.main.dialog_two_buttons.*
 import taxi.kassa.R
+import taxi.kassa.util.Constants.CAR_BACK
+import taxi.kassa.util.Constants.CAR_FRONT
+import taxi.kassa.util.Constants.CAR_LEFT
+import taxi.kassa.util.Constants.CAR_RIGHT
+import taxi.kassa.util.Constants.CITYMOBIL
+import taxi.kassa.util.Constants.CITY_REQUEST
+import taxi.kassa.util.Constants.DRIVER_LICENCE_BACK
+import taxi.kassa.util.Constants.DRIVER_LICENCE_FRONT
+import taxi.kassa.util.Constants.GETT
+import taxi.kassa.util.Constants.GETT_REQUEST
+import taxi.kassa.util.Constants.LICENCE_BACK
+import taxi.kassa.util.Constants.LICENCE_FRONT
 import taxi.kassa.util.Constants.MASTERCARD
+import taxi.kassa.util.Constants.PASSPORT_FIRST
+import taxi.kassa.util.Constants.PASSPORT_REGISTRATION
+import taxi.kassa.util.Constants.SELFIE
+import taxi.kassa.util.Constants.STS_BACK
+import taxi.kassa.util.Constants.STS_FRONT
 import taxi.kassa.util.Constants.SUPPORT_PHONE_NUMBER
 import taxi.kassa.util.Constants.VISA
+import taxi.kassa.util.Constants.YANDEX
+import taxi.kassa.util.Constants.YANDEX_REQUEST
 import taxi.kassa.util.Constants.myDateFormatSymbols
 import java.text.NumberFormat
 import java.text.SimpleDateFormat
@@ -58,9 +75,9 @@ import kotlin.math.sqrt
 fun Context.isNetworkAvailable() = (getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager?)
     ?.activeNetworkInfo?.isConnectedOrConnecting ?: false
 
-fun Context.shortToast(message: String) = Toast.makeText(this, message, LENGTH_SHORT).show()
+fun Context.shortToast(message: String) = makeText(this, message, LENGTH_SHORT).show()
 
-fun Context.longToast(message: String) = Toast.makeText(this, message, LENGTH_LONG).show()
+fun Context.longToast(message: String) = makeText(this, message, LENGTH_LONG).show()
 
 fun Context.showOneButtonDialog(
     title: String,
@@ -111,6 +128,26 @@ fun Context.showTwoButtonsDialog(
     }
 }
 
+fun Context.getScreenSize(): Double {
+    val point = Point()
+    (getSystemService(Context.WINDOW_SERVICE) as WindowManager).defaultDisplay.getRealSize(point)
+    val displayMetrics: DisplayMetrics = resources.displayMetrics
+    val width: Int = point.x
+    val height: Int = point.y
+    val wi = width.toDouble() / displayMetrics.xdpi.toDouble()
+    val hi = height.toDouble() / displayMetrics.ydpi.toDouble()
+    val x = wi.pow(2.0)
+    val y = hi.pow(2.0)
+
+    return ((sqrt(x + y) * 10.0).roundToInt() / 10.0)
+}
+
+fun Context.getScreenWidth(): Float {
+    val displayMetrics: DisplayMetrics = resources.displayMetrics
+
+    return displayMetrics.widthPixels / displayMetrics.density
+}
+
 fun ViewGroup.inflate(layoutRes: Int): View = LayoutInflater.from(context).inflate(layoutRes, this, false)
 
 fun View.visible() { visibility = VISIBLE }
@@ -135,26 +172,6 @@ fun TextView.setMultiColoredText(resource: Int) = setText(
     TextView.BufferType.SPANNABLE
 )
 
-fun Context.getScreenSize(): Double {
-    val point = Point()
-    (getSystemService(Context.WINDOW_SERVICE) as WindowManager).defaultDisplay.getRealSize(point)
-    val displayMetrics: DisplayMetrics = resources.displayMetrics
-    val width: Int = point.x
-    val height: Int = point.y
-    val wi = width.toDouble() / displayMetrics.xdpi.toDouble()
-    val hi = height.toDouble() / displayMetrics.ydpi.toDouble()
-    val x = wi.pow(2.0)
-    val y = hi.pow(2.0)
-
-    return ((sqrt(x + y) * 10.0).roundToInt() / 10.0)
-}
-
-fun Context.getScreenWidth(): Float {
-    val displayMetrics: DisplayMetrics = resources.displayMetrics
-
-    return displayMetrics.widthPixels / displayMetrics.density
-}
-
 fun TextView.setFormattedText(
     formatResource: Int,
     value: Double
@@ -175,6 +192,13 @@ fun String.getCardType(): String {
         mastercard.matches(this) -> MASTERCARD
         else -> "Unknown"
     }
+}
+
+fun String.getTaxiId() = when (this) {
+    YANDEX -> YANDEX_REQUEST
+    GETT -> GETT_REQUEST
+    CITYMOBIL -> CITY_REQUEST
+    else -> 0
 }
 
 fun Array<View>.setNormalVisibility() {
@@ -198,6 +222,23 @@ fun Long.convertToTime(pattern: String): String {
     val dateFormat = SimpleDateFormat(pattern, myDateFormatSymbols)
 
     return dateFormat.format(date)
+}
+
+fun Int.getPhotoType() = when (this) {
+    1, 6, 11 -> DRIVER_LICENCE_FRONT
+    12 -> DRIVER_LICENCE_BACK
+    2, 7, 13 -> PASSPORT_FIRST
+    3, 14 -> PASSPORT_REGISTRATION
+    4, 8, 15 -> STS_FRONT
+    16 -> STS_BACK
+    5, 9, 17 -> LICENCE_FRONT
+    18 -> LICENCE_BACK
+    10, 23 -> SELFIE
+    19 -> CAR_FRONT
+    20 -> CAR_BACK
+    21 -> CAR_LEFT
+    22 -> CAR_RIGHT
+    else -> this
 }
 
 inline fun <T> LiveData<T>.observe(

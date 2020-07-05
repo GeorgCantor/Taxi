@@ -10,13 +10,13 @@ import taxi.kassa.MyApplication
 import taxi.kassa.R
 import taxi.kassa.model.Notification
 import taxi.kassa.model.responses.ResponseOwner
-import taxi.kassa.repository.ApiRepository
+import taxi.kassa.repository.Repository
 import taxi.kassa.util.Constants.ERROR_504
 import taxi.kassa.util.isNetworkAvailable
 
 class FuelReplenishViewModel(
     app: Application,
-    private val repository: ApiRepository
+    private val repository: Repository
 ) : AndroidViewModel(app) {
 
     private val context = getApplication<MyApplication>()
@@ -37,9 +37,10 @@ class FuelReplenishViewModel(
 
     init {
         viewModelScope.launch(exceptionHandler) {
-            val response = repository.getOwner()
-            responseOwner.postValue(response?.response)
-            error.postValue(response?.errorMsg)
+            repository.getOwner()?.apply {
+                responseOwner.postValue(response)
+                error.postValue(errorMsg)
+            }
             isProgressVisible.postValue(false)
             notifications.postValue(repository.getNotificationsAsync().await())
         }

@@ -4,7 +4,7 @@ import org.koin.android.ext.koin.androidApplication
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import taxi.kassa.model.remote.ApiClient
-import taxi.kassa.repository.ApiRepository
+import taxi.kassa.repository.Repository
 import taxi.kassa.util.PreferenceManager
 import taxi.kassa.view.MainViewModel
 import taxi.kassa.view.accounts.AccountsViewModel
@@ -20,6 +20,7 @@ import taxi.kassa.view.profile.ProfileViewModel
 import taxi.kassa.view.registration.connection.ConnectionViewModel
 import taxi.kassa.view.support.SupportViewModel
 import taxi.kassa.view.support.chat.ChatHistoryViewModel
+import taxi.kassa.view.support.message.WriteMessageViewModel
 import taxi.kassa.view.withdraws.WithdrawsViewModel
 import taxi.kassa.view.withdraws.withdraw.WithdrawViewModel
 import taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateViewModel
@@ -29,7 +30,7 @@ val apiModule = module {
 }
 
 val repositoryModule = module {
-    single { ApiRepository(get(), get()) }
+    single { Repository(get(), get()) }
 }
 
 val preferenceModule = module {
@@ -77,7 +78,10 @@ val viewModelModule = module(override = true) {
         OrdersListViewModel(androidApplication(), get())
     }
     viewModel {
-        ChatHistoryViewModel(get())
+        ChatHistoryViewModel(androidApplication(), get())
+    }
+    viewModel {
+        WriteMessageViewModel(androidApplication(), get())
     }
     viewModel {
         NotificationsViewModel(get())
@@ -89,6 +93,6 @@ val viewModelModule = module(override = true) {
         SupportViewModel(get())
     }
     viewModel {
-        ConnectionViewModel()
+        ConnectionViewModel(androidApplication(), get())
     }
 }

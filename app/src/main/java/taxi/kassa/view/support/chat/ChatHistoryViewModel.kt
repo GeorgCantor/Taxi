@@ -1,17 +1,51 @@
 package taxi.kassa.view.support.chat
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import taxi.kassa.model.Message
-import taxi.kassa.repository.ApiRepository
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.launch
+import taxi.kassa.MyApplication
+import taxi.kassa.R
+import taxi.kassa.model.responses.Message
+import taxi.kassa.model.responses.Messages
+import taxi.kassa.repository.Repository
+import taxi.kassa.util.Constants.ADMIN
+import taxi.kassa.util.Constants.ERROR_504
 
-class ChatHistoryViewModel(repository: ApiRepository) : ViewModel() {
+class ChatHistoryViewModel(
+    app: Application,
+    private val repository: Repository
+) : AndroidViewModel(app) {
 
-    val messages = MutableLiveData<MutableList<Message>>()
-    val incomingMessages = MutableLiveData<MutableList<Message>>()
+    private val context = getApplication<MyApplication>()
+
+    val isProgressVisible = MutableLiveData<Boolean>().apply { this.value = true }
+    val error = MutableLiveData<String>()
+    val messages = MutableLiveData<Messages>()
+    val incomingMessages = MutableLiveData<List<Message>>()
+
+    private val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
+        when (throwable.message) {
+            ERROR_504 -> error.postValue(context.getString(R.string.internet_unavailable))
+            else -> error.postValue(throwable.message)
+        }
+        isProgressVisible.postValue(false)
+    }
 
     init {
-        messages.value = repository.getChatHistory()
-        incomingMessages.value = repository.getChatHistory().filter { it.isIncoming } as MutableList
+        viewModelScope.launch(exceptionHandler) {
+            repository.allMessagesRead()
+        }
+    }
+
+    fun getMessages(offset: String) {
+        viewModelScope.launch(exceptionHandler) {
+            val response = repository.getChatHistory(offset)
+            messages.postValue(response?.response)
+            error.postValue(response?.errorMsg)
+            incomingMessages.postValue(response?.response?.messages?.filter { it.side == ADMIN })
+        }
     }
 }

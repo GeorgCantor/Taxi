@@ -1,5 +1,6 @@
 package taxi.kassa.model.remote
 
+import okhttp3.MultipartBody
 import retrofit2.http.*
 import taxi.kassa.model.responses.*
 
@@ -15,15 +16,6 @@ interface ApiService {
         @Field("phone") phone: String?,
         @Field("code") code: String?
     ): ResponseAPI<ResponseAuthSendCode?>?
-
-    @POST("requests")
-    @FormUrlEncoded
-    suspend fun createRequest(
-        @Field("name") name: String?,
-        @Field("phone") phone: String?,
-        @Field("source_id") source_id: Int,
-        @Field("key") key: String?
-    ): ResponseAPI<ResponseCreateRequest?>?
 
     @GET("owner")
     suspend fun getOwner(): ResponseAPI<ResponseOwner?>?
@@ -56,6 +48,45 @@ interface ApiService {
     @FormUrlEncoded
     suspend fun deleteAccount(@Field("account_id") account_id: Int): ResponseAPI<ResponseSimple?>?
 
+    @GET("cards")
+    suspend fun getCards(): ResponseAPI<Cards?>?
+
+    @POST("card_add")
+    @FormUrlEncoded
+    suspend fun addCard(@Field("card_number") card_number: String): ResponseAPI<ResponseAddCard?>?
+
+    @POST("card_delete")
+    @FormUrlEncoded
+    suspend fun deleteCard(@Field("card_id") card_id: Int): ResponseAPI<ResponseSimple?>?
+
     @GET("orders")
     suspend fun getOrders(@Query("offset") offset: String?): ResponseAPI<Orders?>?
+
+    @GET("messages")
+    suspend fun getMessages(@Query("offset") offset: String?): ResponseAPI<Messages?>?
+
+    @POST("message_create")
+    @FormUrlEncoded
+    suspend fun sendMessage(@Field("text") text: String): ResponseAPI<ResponseMessageCreate?>?
+
+    @POST("message_read")
+    suspend fun allMessagesRead(): ResponseAPI<ResponseSimple?>?
+
+    @POST("requests")
+    @FormUrlEncoded
+    suspend fun sendRegisterRequest(
+        @Field("source_id") source_id: Int,
+        @Field("phone") phone: String,
+        @Field("key") key: String,
+        @Field("request_uid") request_uid: String,
+        @Field("gett_id") gett_id: String
+    ): ResponseAPI<ResponseRegisterRequest?>?
+
+    @Multipart
+    @POST("request_file")
+    suspend fun sendPhoto(
+        @Part file: MultipartBody.Part,
+        @Part("request_uid") request_uid: String,
+        @Part("type") type: Int
+    ): ResponseAPI<ResponseSimple?>?
 }

@@ -44,4 +44,18 @@
         app:layout_constraintTop_toBottomOf="@+id/call_history_title"
         tools:listitem="@layout/item_sent_message" />
 
+    <TextView
+        android:id="@+id/empty_tv"
+        android:layout_width="185dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/no_messages"
+        android:textColor="@color/gray_profile"
+        android:textSize="@dimen/text_16sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

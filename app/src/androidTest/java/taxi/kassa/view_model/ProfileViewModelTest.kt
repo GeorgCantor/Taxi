@@ -14,7 +14,7 @@ import org.mockito.Mock
 import taxi.kassa.MyApplication
 import taxi.kassa.base.BaseAndroidTest
 import taxi.kassa.model.remote.ApiClient
-import taxi.kassa.repository.ApiRepository
+import taxi.kassa.repository.Repository
 import taxi.kassa.util.Constants.TOTAL_BALANCE
 import taxi.kassa.view.profile.ProfileViewModel
 
@@ -28,11 +28,11 @@ class ProfileViewModelTest : BaseAndroidTest() {
     val client = ApiClient
 
     private lateinit var viewModel: ProfileViewModel
-    private lateinit var repository: ApiRepository
+    private lateinit var repository: Repository
 
     @Before
     fun setup() {
-        repository = ApiRepository(client.create(getContext()), preferenceManager)
+        repository = Repository(client.create(getContext()), preferenceManager)
         viewModel = ProfileViewModel(MyApplication().get(), preferenceManager, repository)
     }
 

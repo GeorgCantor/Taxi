@@ -35,6 +35,7 @@ import taxi.kassa.util.Constants.CONNECTION
 import taxi.kassa.util.Constants.GETT
 import taxi.kassa.util.Constants.PHONE_MASK
 import taxi.kassa.util.Constants.YANDEX
+import java.util.*
 
 class ConnectionFragment : Fragment() {
 
@@ -45,6 +46,7 @@ class ConnectionFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel = getSharedViewModel { parametersOf() }
+        viewModel.requestUid.value = UUID.randomUUID().toString()
     }
 
     override fun onCreateView(
@@ -62,6 +64,8 @@ class ConnectionFragment : Fragment() {
             }
         }
         activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, callback)
+
+        viewModel.taxiId.value = taxiType.getTaxiId()
 
         val editTexts = listOf<TextInputEditText>(
             phone_number_edit_text,
@@ -504,13 +508,30 @@ class ConnectionFragment : Fragment() {
             citySelfieViews
         )
 
-        viewModel.loadedImages.observe(viewLifecycleOwner, Observer { loadImages ->
-            var id = 1
-            inputViews.map {
-                setInputViewsState(loadImages, id, it)
-                id++
+        with(viewModel) {
+            isProgressVisible.observe(viewLifecycleOwner) { visible ->
+                progress_bar.visibility = if (visible) VISIBLE else GONE
             }
-        })
+
+            error.observe(viewLifecycleOwner) { context?.longToast(it) }
+
+            loadedImages.observe(viewLifecycleOwner, Observer { loadImages ->
+                var id = 1
+                inputViews.map {
+                    setInputViewsState(loadImages, id, it)
+                    id++
+                }
+            })
+
+            isRegistered.observe(viewLifecycleOwner) { registered ->
+                if (registered) findNavController(this@ConnectionFragment).navigate(R.id.action_connectionFragment_to_successRequestFragment)
+            }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.checkInternet()
     }
 
     // go through the downloaded images and set the editTexts visibility
@@ -553,9 +574,13 @@ class ConnectionFragment : Fragment() {
                 context?.longToast(getString(R.string.fill_all_fields))
                 return
             }
+
+            viewModel.phone.value = it.value
         }
 
-        findNavController(this).navigate(R.id.action_connectionFragment_to_successRequestFragment)
+        if (!id_edit_text.isEmpty()) viewModel.gettId.value = id_edit_text.value
+
+        viewModel.sendRegisterRequest()
     }
 
     private fun back() {

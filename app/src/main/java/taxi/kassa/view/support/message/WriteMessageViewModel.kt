@@ -1,4 +1,4 @@
-package taxi.kassa.view.withdraws
+package taxi.kassa.view.support.message
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
@@ -8,22 +8,21 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 import taxi.kassa.MyApplication
 import taxi.kassa.R
-import taxi.kassa.model.Notification
-import taxi.kassa.model.responses.Withdraws
 import taxi.kassa.repository.Repository
 import taxi.kassa.util.Constants.ERROR_504
+import taxi.kassa.util.isNetworkAvailable
 
-class WithdrawsViewModel(
+class WriteMessageViewModel(
     app: Application,
     private val repository: Repository
 ) : AndroidViewModel(app) {
 
     private val context = getApplication<MyApplication>()
 
-    val isProgressVisible = MutableLiveData<Boolean>().apply { this.value = true }
-    val withdraws = MutableLiveData<Withdraws>()
+    val isProgressVisible = MutableLiveData<Boolean>().apply { value = false }
+    val isNetworkAvailable = MutableLiveData<Boolean>()
     val error = MutableLiveData<String>()
-    val notifications = MutableLiveData<MutableList<Notification>>()
+    val isMessageSent = MutableLiveData<Boolean>().apply { value = false }
 
     private val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
         when (throwable.message) {
@@ -33,14 +32,15 @@ class WithdrawsViewModel(
         isProgressVisible.postValue(false)
     }
 
-    init {
+    fun sendMessage(message: String) {
+        isProgressVisible.value = true
+
         viewModelScope.launch(exceptionHandler) {
-            repository.getWithdraws()?.apply {
-                withdraws.postValue(response)
-                error.postValue(errorMsg)
-            }
+            val response = repository.sendMessage(message)
+            isMessageSent.postValue(response?.success)
+            error.postValue(response?.errorMsg)
             isProgressVisible.postValue(false)
-            notifications.postValue(repository.getNotificationsAsync().await())
         }
+        isNetworkAvailable.value = context.isNetworkAvailable()
     }
 }

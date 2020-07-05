@@ -14,7 +14,7 @@ import org.mockito.Mock
 import taxi.kassa.MyApplication
 import taxi.kassa.base.BaseAndroidTest
 import taxi.kassa.model.remote.ApiClient
-import taxi.kassa.repository.ApiRepository
+import taxi.kassa.repository.Repository
 import taxi.kassa.view.balance.BalanceViewModel
 
 @RunWith(AndroidJUnit4::class)
@@ -27,11 +27,11 @@ class BalanceViewModelTest : BaseAndroidTest() {
     val client = ApiClient
 
     private lateinit var viewModel: BalanceViewModel
-    private lateinit var repository: ApiRepository
+    private lateinit var repository: Repository
 
     @Before
     fun setup() {
-        repository = ApiRepository(client.create(getContext()), preferenceManager)
+        repository = Repository(client.create(getContext()), preferenceManager)
         viewModel = BalanceViewModel(MyApplication().get(), repository)
     }
 

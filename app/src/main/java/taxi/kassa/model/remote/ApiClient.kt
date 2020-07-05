@@ -8,7 +8,8 @@ import okhttp3.Response
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import taxi.kassa.BuildConfig
+import taxi.kassa.BuildConfig.BASE_URL
+import taxi.kassa.BuildConfig.DEBUG
 import taxi.kassa.model.remote.interceptor.OfflineResponseCacheInterceptor
 import taxi.kassa.util.Constants.API_VERSION
 import taxi.kassa.util.Constants.accessToken
@@ -20,8 +21,7 @@ object ApiClient {
 
     fun create(context: Context): ApiService {
         val loggingInterceptor = HttpLoggingInterceptor()
-        loggingInterceptor.level =
-            if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
+        loggingInterceptor.level = if (DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
 
         val interceptor: Interceptor = object : Interceptor {
             @Throws(IOException::class)
@@ -33,6 +33,7 @@ object ApiClient {
                     .addHeader("v", API_VERSION)
                     .addHeader("token", accessToken)
                     .build()
+
                 return chain.proceed(request)
             }
         }
@@ -48,7 +49,7 @@ object ApiClient {
             .build()
 
         val retrofit = Retrofit.Builder()
-            .baseUrl(BuildConfig.BASE_URL)
+            .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(okHttpClient)
             .build()

@@ -9,12 +9,12 @@ import kotlinx.coroutines.launch
 import taxi.kassa.MyApplication
 import taxi.kassa.R
 import taxi.kassa.model.responses.Orders
-import taxi.kassa.repository.ApiRepository
+import taxi.kassa.repository.Repository
 import taxi.kassa.util.Constants.ERROR_504
 
 class OrdersListViewModel(
     app: Application,
-    private val repository: ApiRepository
+    private val repository: Repository
 ) : AndroidViewModel(app) {
 
     private val context = getApplication<MyApplication>()
@@ -33,9 +33,10 @@ class OrdersListViewModel(
 
     fun getOrders(offset: String) {
         viewModelScope.launch(exceptionHandler) {
-            val response = repository.getOrders(offset)
-            orders.postValue(response?.response)
-            error.postValue(response?.errorMsg)
+            repository.getOrders(offset)?.apply {
+                orders.postValue(response)
+                error.postValue(errorMsg)
+            }
             isProgressVisible.postValue(false)
         }
     }

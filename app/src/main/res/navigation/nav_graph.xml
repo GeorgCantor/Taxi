@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/introFragment">
 
     <fragment
         android:id="@+id/introFragment"
         android:name="taxi.kassa.view.intro.IntroFragment"
-        android:label="IntroFragment">
+        android:label="IntroFragment"
+        tools:layout="@layout/fragment_intro">
         <action
             android:id="@+id/action_introFragment_to_authPhoneFragment"
             app:destination="@id/authPhoneFragment"
@@ -27,7 +29,8 @@
     <fragment
         android:id="@+id/registrationFragment"
         android:name="taxi.kassa.view.registration.RegistrationFragment"
-        android:label="RegistrationFragment">
+        android:label="RegistrationFragment"
+        tools:layout="@layout/fragment_registration">
         <action
             android:id="@+id/action_registrationFragment_to_authSignUpFragment"
             app:destination="@id/authSignUpFragment"
@@ -47,7 +50,8 @@
     <fragment
         android:id="@+id/registrationSelectionFragment"
         android:name="taxi.kassa.view.registration.RegistrationSelectionFragment"
-        android:label="RegistrationSelectionFragment">
+        android:label="RegistrationSelectionFragment"
+        tools:layout="@layout/fragment_registration_selection">
         <action
             android:id="@+id/action_registrationSelectionFragment_to_connectionFragment"
             app:destination="@id/connectionFragment"
@@ -60,7 +64,8 @@
     <fragment
         android:id="@+id/connectionFragment"
         android:name="taxi.kassa.view.registration.connection.ConnectionFragment"
-        android:label="ConnectionFragment">
+        android:label="ConnectionFragment"
+        tools:layout="@layout/fragment_connection">
         <action
             android:id="@+id/action_connectionFragment_to_successRequestFragment"
             app:destination="@id/successRequestFragment"
@@ -89,21 +94,14 @@
     <fragment
         android:id="@+id/photoFragment"
         android:name="taxi.kassa.view.registration.photo.PhotoFragment"
-        android:label="PhotoFragment">
-        <action
-            android:id="@+id/action_photoFragment_to_connectionFragment"
-            app:destination="@id/connectionFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"
-            app:popUpTo="@id/registrationSelectionFragment" />
-    </fragment>
+        android:label="PhotoFragment"
+        tools:layout="@layout/fragment_photo" />
 
     <fragment
         android:id="@+id/authPhoneFragment"
         android:name="taxi.kassa.view.auth.auth_phone.AuthPhoneFragment"
-        android:label="AuthPhoneFragment">
+        android:label="AuthPhoneFragment"
+        tools:layout="@layout/fragment_auth_phone">
         <action
             android:id="@+id/action_authPhoneFragment_to_authCodeFragment"
             app:destination="@id/authCodeFragment"
@@ -117,7 +115,8 @@
     <fragment
         android:id="@+id/authSignUpFragment"
         android:name="taxi.kassa.view.auth.auth_sign_up.AuthSignUpFragment"
-        android:label="AuthSignUpFragment">
+        android:label="AuthSignUpFragment"
+        tools:layout="@layout/fragment_auth_sign_up">
         <action
             android:id="@+id/action_authSignUpFragment_to_successRequestFragment"
             app:destination="@id/successRequestFragment"
@@ -131,12 +130,14 @@
     <fragment
         android:id="@+id/successRequestFragment"
         android:name="taxi.kassa.view.auth.auth_sign_up.SuccessRequestFragment"
-        android:label="SuccessRequestFragment" />
+        android:label="SuccessRequestFragment"
+        tools:layout="@layout/fragment_success_request" />
 
     <fragment
         android:id="@+id/authCodeFragment"
         android:name="taxi.kassa.view.auth.auth_code.AuthCodeFragment"
-        android:label="AuthCodeFragment">
+        android:label="AuthCodeFragment"
+        tools:layout="@layout/fragment_auth_code">
         <action
             android:id="@+id/action_authCodeFragment_to_profileFragment"
             app:destination="@id/profileFragment"
@@ -150,7 +151,8 @@
     <fragment
         android:id="@+id/profileFragment"
         android:name="taxi.kassa.view.profile.ProfileFragment"
-        android:label="ProfileFragment">
+        android:label="ProfileFragment"
+        tools:layout="@layout/fragment_profile">
         <action
             android:id="@+id/action_profileFragment_to_balanceFragment"
             app:destination="@id/balanceFragment"
@@ -196,7 +198,8 @@
     <fragment
         android:id="@+id/balanceFragment"
         android:name="taxi.kassa.view.balance.BalanceFragment"
-        android:label="BalanceFragment">
+        android:label="BalanceFragment"
+        tools:layout="@layout/fragment_balance">
         <action
             android:id="@+id/action_balanceFragment_to_withdrawCreateFragment"
             app:destination="@id/withdrawCreateFragment"
@@ -221,7 +224,8 @@
     <fragment
         android:id="@+id/fuelReplenishFragment"
         android:name="taxi.kassa.view.fuel.FuelReplenishFragment"
-        android:label="FuelReplenishFragment">
+        android:label="FuelReplenishFragment"
+        tools:layout="@layout/fragment_fuel_replenish">
         <action
             android:id="@+id/action_fuelReplenishFragment_to_notificationsFragment"
             app:destination="@id/notificationsFragment"
@@ -232,7 +236,8 @@
     <fragment
         android:id="@+id/withdrawsFragment"
         android:name="taxi.kassa.view.withdraws.WithdrawsFragment"
-        android:label="WithdrawsFragment">
+        android:label="WithdrawsFragment"
+        tools:layout="@layout/fragment_withdraws">
         <action
             android:id="@+id/action_withdrawsFragment_to_withdrawFragment"
             app:destination="@id/withdrawFragment"
@@ -258,23 +263,30 @@
     <fragment
         android:id="@+id/withdrawFragment"
         android:name="taxi.kassa.view.withdraws.withdraw.WithdrawFragment"
-        android:label="WithdrawFragment" />
+        android:label="WithdrawFragment"
+        tools:layout="@layout/fragment_withdraw" />
 
     <fragment
         android:id="@+id/accountsFragment"
         android:name="taxi.kassa.view.accounts.AccountsFragment"
-        android:label="AccountsFragment">
+        android:label="AccountsFragment"
+        tools:layout="@layout/fragment_accounts">
         <action
             android:id="@+id/action_accountsFragment_to_notificationsFragment"
             app:destination="@id/notificationsFragment"
             app:popEnterAnim="@anim/slide_in_top"
             app:popExitAnim="@anim/slide_out_top" />
+        <action
+            android:id="@+id/action_accountsFragment_self"
+            app:destination="@id/accountsFragment"
+            app:popUpTo="@id/profileFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/withdrawCreateFragment"
         android:name="taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment"
-        android:label="WithdrawCreateFragment">
+        android:label="WithdrawCreateFragment"
+        tools:layout="@layout/fragment_withdraw_create">
         <action
             android:id="@+id/action_withdrawCreateFragment_to_accountsFragment"
             app:destination="@id/accountsFragment"
@@ -292,7 +304,8 @@
     <fragment
         android:id="@+id/ordersFragment"
         android:name="taxi.kassa.view.orders.OrdersFragment"
-        android:label="OrdersFragment">
+        android:label="OrdersFragment"
+        tools:layout="@layout/fragment_orders">
         <action
             android:id="@+id/action_ordersFragment_to_notificationsFragment"
             app:destination="@id/notificationsFragment"
@@ -303,7 +316,8 @@
     <fragment
         android:id="@+id/supportFragment"
         android:name="taxi.kassa.view.support.SupportFragment"
-        android:label="SupportFragment">
+        android:label="SupportFragment"
+        tools:layout="@layout/fragment_support">
         <action
             android:id="@+id/action_supportFragment_to_writeMessageFragment"
             app:destination="@id/writeMessageFragment"
@@ -328,7 +342,8 @@
     <fragment
         android:id="@+id/notificationsFragment"
         android:name="taxi.kassa.view.notifications.NotificationsFragment"
-        android:label="NotificationsFragment">
+        android:label="NotificationsFragment"
+        tools:layout="@layout/fragment_notifications">
         <action
             android:id="@+id/action_notificationsFragment_to_profileFragment"
             app:destination="@id/profileFragment"
@@ -345,12 +360,14 @@
     <fragment
         android:id="@+id/notificationFragment"
         android:name="taxi.kassa.view.notifications.NotificationFragment"
-        android:label="NotificationFragment" />
+        android:label="NotificationFragment"
+        tools:layout="@layout/fragment_notification" />
 
     <fragment
         android:id="@+id/writeMessageFragment"
-        android:name="taxi.kassa.view.support.chat.WriteMessageFragment"
-        android:label="WriteMessageFragment">
+        android:name="taxi.kassa.view.support.message.WriteMessageFragment"
+        android:label="WriteMessageFragment"
+        tools:layout="@layout/fragment_write_message">
         <action
             android:id="@+id/action_writeMessageFragment_to_successFragment"
             app:destination="@id/successFragment"
@@ -364,11 +381,13 @@
     <fragment
         android:id="@+id/chatHistoryFragment"
         android:name="taxi.kassa.view.support.chat.ChatHistoryFragment"
-        android:label="ChatHistoryFragment" />
+        android:label="ChatHistoryFragment"
+        tools:layout="@layout/fragment_chat_history" />
 
     <fragment
         android:id="@+id/successFragment"
         android:name="taxi.kassa.view.support.SuccessFragment"
-        android:label="SuccessFragment" />
+        android:label="SuccessFragment"
+        tools:layout="@layout/fragment_success" />
 
 </navigation>

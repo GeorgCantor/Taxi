@@ -13,7 +13,7 @@ import org.mockito.Mock
 import taxi.kassa.MyApplication
 import taxi.kassa.base.BaseAndroidTest
 import taxi.kassa.model.remote.ApiClient
-import taxi.kassa.repository.ApiRepository
+import taxi.kassa.repository.Repository
 import taxi.kassa.util.Constants.NEW
 import taxi.kassa.util.Constants.TEST_NUMBER
 import taxi.kassa.view.accounts.AccountsViewModel
@@ -28,11 +28,11 @@ class AccountsViewModelTest : BaseAndroidTest() {
     val client = ApiClient
 
     private lateinit var viewModel: AccountsViewModel
-    private lateinit var repository: ApiRepository
+    private lateinit var repository: Repository
 
     @Before
     fun setup() {
-        repository = ApiRepository(client.create(getContext()), preferenceManager)
+        repository = Repository(client.create(getContext()), preferenceManager)
         viewModel = AccountsViewModel(MyApplication().get(), repository)
     }
 

@@ -17,16 +17,12 @@ import android.view.ViewGroup
 import androidx.camera.core.*
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_photo.*
 import org.koin.androidx.viewmodel.ext.android.getSharedViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
+import taxi.kassa.util.*
 import taxi.kassa.util.Constants.CONNECTION
-import taxi.kassa.util.gone
-import taxi.kassa.util.inflate
-import taxi.kassa.util.shortToast
-import taxi.kassa.util.visible
 import taxi.kassa.view.registration.connection.ConnectionViewModel
 import java.util.concurrent.Executor
 import java.util.concurrent.Executors
@@ -78,7 +74,7 @@ class PhotoFragment : Fragment() {
 
     override fun onDetach() {
         super.onDetach()
-        if (::photoBitmap.isInitialized && !loadFromGallery) viewModel.setLoadImage(photoBitmap)
+        if (::photoBitmap.isInitialized && !loadFromGallery) viewModel.sendPhoto(photoBitmap)
     }
 
     override fun onRequestPermissionsResult(
@@ -167,13 +163,10 @@ class PhotoFragment : Fragment() {
             if (data != null) {
                 val inputStream = data.data?.let { requireActivity().contentResolver.openInputStream(it) }
                 val bitmap = BitmapFactory.decodeStream(inputStream)
-                viewModel.setLoadImage(bitmap)
+                viewModel.sendPhoto(bitmap)
                 loadFromGallery = true
 
-                findNavController(this).navigate(
-                    R.id.action_photoFragment_to_connectionFragment,
-                    Bundle().apply { putString(CONNECTION, taxiType) }
-                )
+                runDelayed(200) { activity?.onBackPressed() }
             }
         }
     }

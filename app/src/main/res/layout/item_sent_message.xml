@@ -49,6 +49,7 @@
         android:fontFamily="sans-serif-medium"
         android:textColor="@color/gray_intro_text"
         android:textSize="@dimen/text_20sp"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="@+id/background"
         app:layout_constraintTop_toBottomOf="@+id/topic_tv"
         tools:text="Проблема с выводом денег" />

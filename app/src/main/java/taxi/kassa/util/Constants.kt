@@ -25,19 +25,47 @@ object Constants {
     const val TOTAL_BALANCE = "total_balance"
     const val PHONE_MASK = "+7 ([000]) [000]-[00]-[00]"
     const val CARD_MASK = "[0000] [0000] [0000] [0000]"
+    const val TITLE = "1"
+    const val MESSAGE = "2"
+    const val MASTERCARD = "Mastercard"
+    const val VISA = "Visa"
+    const val NOT_FROM_PUSH = "openNotFromPush"
+    const val UNREAD = "unread"
+
+    // an error occurs when there is no Internet and no data in the cache
+    const val ERROR_504 = "HTTP 504 Unsatisfiable Request (only-if-cached)"
+
     const val YANDEX = "yandex"
     const val GETT = "gett"
     const val CITYMOBIL = "citymobil"
-    const val TITLE = "1"
-    const val MESSAGE = "2"
+
+    const val DRIVER = "driver"
+    const val ADMIN = "admin"
+
     const val HOURS_PATTERN = "HH:mm"
     const val DAY_YEAR_PATTERN = "dd MMMM yyyy"
     const val FULL_PATTERN = "HH:mm, dd MMMM yyyy"
     const val PUSH_PATTERN = "HH:mm, dd MMMM"
-    const val MASTERCARD = "Mastercard"
-    const val VISA = "Visa"
-    const val NOT_FROM_PUSH = "openNotFromPush"
-    const val ERROR_504 = "HTTP 504 Unsatisfiable Request (only-if-cached)"
+
+    const val PHONE_REQUEST = 11
+    const val YANDEX_REQUEST = 15
+    const val GETT_REQUEST = 16
+    const val CITY_REQUEST = 17
+
+    // types of photos sent to the server
+    const val DRIVER_LICENCE_FRONT = 1
+    const val DRIVER_LICENCE_BACK = 2
+    const val PASSPORT_FIRST = 3
+    const val PASSPORT_REGISTRATION = 4
+    const val STS_FRONT = 5
+    const val STS_BACK = 6
+    const val LICENCE_FRONT = 7
+    const val LICENCE_BACK = 8
+    const val SELFIE = 9
+    const val CAR_FRONT = 10
+    const val CAR_BACK = 11
+    const val CAR_LEFT = 12
+    const val CAR_RIGHT = 13
 
     val myDateFormatSymbols: DateFormatSymbols = object : DateFormatSymbols() {
         override fun getMonths(): Array<String> {
