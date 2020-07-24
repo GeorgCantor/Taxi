@@ -105,14 +105,17 @@
             android:text="0"
             tools:ignore="HardcodedText" />
 
-        <ImageView
+        <TextView
             android:id="@+id/apply_btn"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/bg_keyboard_button"
-            android:scaleType="center"
-            app:srcCompat="@drawable/ic_enter" />
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:text="@string/ok_keyboard"
+            android:textColor="@color/balance_fuel_gray"
+            android:textSize="@dimen/text_18sp" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
