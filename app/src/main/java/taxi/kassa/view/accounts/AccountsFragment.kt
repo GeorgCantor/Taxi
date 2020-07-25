@@ -258,7 +258,15 @@ class AccountsFragment : Fragment() {
 
             changeConstraint(
                 parent_layout,
-                R.id.instant_withdrawal_tv,
+                R.id.no_card_daily_block,
+                ConstraintSet.TOP,
+                R.id.new_account_block,
+                ConstraintSet.BOTTOM,
+                90
+            )
+            changeConstraint(
+                parent_layout,
+                R.id.new_card_daily_block,
                 ConstraintSet.TOP,
                 R.id.new_account_block,
                 ConstraintSet.BOTTOM,
@@ -273,9 +281,43 @@ class AccountsFragment : Fragment() {
 
             changeConstraint(
                 parent_layout,
-                R.id.instant_withdrawal_tv,
+                R.id.no_card_daily_block,
                 ConstraintSet.TOP,
                 R.id.account_block,
+                ConstraintSet.BOTTOM,
+                90
+            )
+            changeConstraint(
+                parent_layout,
+                R.id.new_card_daily_block,
+                ConstraintSet.TOP,
+                R.id.account_block,
+                ConstraintSet.BOTTOM,
+                90
+            )
+        }
+
+        add_card_daily_image.setOnClickListener {
+            no_card_daily_block.gone()
+            new_card_daily_block.visible()
+            changeConstraint(
+                parent_layout,
+                R.id.instant_withdrawal_tv,
+                ConstraintSet.TOP,
+                R.id.new_card_daily_block,
+                ConstraintSet.BOTTOM,
+                90
+            )
+        }
+
+        card_daily_close_image.setOnClickListener {
+            no_card_daily_block.visible()
+            new_card_daily_block.gone()
+            changeConstraint(
+                parent_layout,
+                R.id.instant_withdrawal_tv,
+                ConstraintSet.TOP,
+                R.id.no_card_daily_block,
                 ConstraintSet.BOTTOM,
                 90
             )
