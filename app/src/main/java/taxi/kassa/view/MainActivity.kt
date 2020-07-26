@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
-import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.model.Notification
 import taxi.kassa.util.Constants.MESSAGE
@@ -27,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        viewModel = getViewModel { parametersOf() }
+        viewModel = getViewModel()
 
         var title = ""
         var message = ""

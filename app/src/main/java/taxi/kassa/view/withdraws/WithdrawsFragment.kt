@@ -24,7 +24,7 @@ class WithdrawsFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = getViewModel { parametersOf() }
+        viewModel = getViewModel()
     }
 
     override fun onCreateView(

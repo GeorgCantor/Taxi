@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_balance.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
-import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.util.*
 import taxi.kassa.util.Constants.CITYMOBIL
@@ -25,7 +24,7 @@ class BalanceFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = getViewModel { parametersOf() }
+        viewModel = getViewModel()
     }
 
     override fun onCreateView(
