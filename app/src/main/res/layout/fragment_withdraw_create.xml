@@ -154,11 +154,39 @@
                 app:layout_constraintTop_toTopOf="@+id/daily_withdrawal_tv"
                 app:srcCompat="@drawable/ic_minus_gray" />
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/cards_daily_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_8dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="@dimen/margin_8dp"
+                android:nestedScrollingEnabled="false"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/daily_withdrawal_tv"
+                tools:itemCount="2"
+                tools:listitem="@layout/item_card" />
+
+            <TextView
+                android:id="@+id/add_card_daily_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_24dp"
+                android:background="?selectableItemBackground"
+                android:padding="@dimen/margin_16dp"
+                android:text="@string/add_new_card"
+                android:textColor="@color/gray_profile"
+                android:textSize="@dimen/text_16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cards_daily_recycler" />
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/account_block"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                app:layout_constraintTop_toBottomOf="@+id/daily_withdrawal_tv">
+                app:layout_constraintTop_toBottomOf="@+id/add_card_daily_tv">
 
                 <ImageView
                     android:id="@+id/background"
@@ -282,19 +310,6 @@
                 tools:itemCount="2"
                 tools:listitem="@layout/item_card" />
 
-            <TextView
-                android:id="@+id/add_card_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_24dp"
-                android:background="?selectableItemBackground"
-                android:padding="@dimen/margin_16dp"
-                android:text="@string/add_new_card"
-                android:textColor="@color/gray_profile"
-                android:textSize="@dimen/text_16sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cards_recycler" />
-
             <View
                 android:id="@+id/space2"
                 android:layout_width="match_parent"
@@ -305,7 +320,7 @@
                 android:background="@color/colorAccent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/add_card_tv" />
+                app:layout_constraintTop_toBottomOf="@+id/cards_recycler" />
 
             <TextView
                 android:id="@+id/sum_tv"
@@ -380,6 +395,7 @@
     <include
         android:id="@+id/keyboard"
         layout="@layout/keyboard"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

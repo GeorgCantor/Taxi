@@ -9,6 +9,7 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.activity.OnBackPressedCallback
 import androidx.core.view.get
 import androidx.core.view.isNotEmpty
 import androidx.fragment.app.Fragment
@@ -47,6 +48,19 @@ class WithdrawCreateFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                when (keyboard.visibility == VISIBLE) {
+                    true -> {
+                        keyboard.gone()
+                        sum_edit_text.clearFocus()
+                    }
+                    false -> findNavController(this@WithdrawCreateFragment).popBackStack()
+                }
+            }
+        }
+        activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, callback)
 
         with(viewModel) {
             isProgressVisible.observe(viewLifecycleOwner) { visible ->
@@ -109,6 +123,28 @@ class WithdrawCreateFragment : Fragment() {
             }
 
             cards.observe(viewLifecycleOwner) { cards ->
+                cards_daily_recycler.setHasFixedSize(true)
+                cards_daily_recycler.adapter = WithdrawCardsAdapter(cards) { card ->
+                    card.check_icon.visible()
+                    card.green_background.visible()
+
+                    try {
+                        cards_daily_recycler.adapter?.itemCount?.let {
+                            if (it > 1) {
+                                for (i in 0 until it) {
+                                    val item = cards_daily_recycler[i]
+                                    if (item != card) {
+                                        item.check_icon.gone()
+                                        item.green_background.gone()
+                                    }
+                                }
+                            }
+                        }
+                    } catch (e: IndexOutOfBoundsException) {
+                    }
+                }
+                cards_daily_recycler.layoutParams.height = cards.size * 250
+
                 cards_recycler.setHasFixedSize(true)
                 cards_recycler.adapter = WithdrawCardsAdapter(cards) { card ->
                     card.check_icon.visible()
@@ -129,6 +165,7 @@ class WithdrawCreateFragment : Fragment() {
                     } catch (e: IndexOutOfBoundsException) {
                     }
                 }
+                cards_recycler.layoutParams.height = cards.size * 250
             }
         }
 
@@ -136,8 +173,11 @@ class WithdrawCreateFragment : Fragment() {
 
         runDelayed(100) { scroll_view.scrollTo(0, scroll_view.bottom) }
 
-        sum_edit_text.requestFocus()
         sum_edit_text.showSoftInputOnFocus = false
+
+        sum_edit_text.setOnFocusChangeListener { _, hasFocus ->
+            keyboard.visibility = if (hasFocus) VISIBLE else GONE
+        }
 
         val keyboardPairs = mutableListOf<Pair<Button, Int>>(
             Pair(num_0, R.string.num0),
@@ -169,25 +209,27 @@ class WithdrawCreateFragment : Fragment() {
         minus_image.setOnClickListener {
             account_block.gone()
             minus_image.gone()
+            cards_daily_recycler.gone()
+            add_card_daily_tv.gone()
             plus_image.visible()
         }
 
         plus_image.setOnClickListener {
             account_block.visible()
             minus_image.visible()
+            cards_daily_recycler.visible()
+            add_card_daily_tv.visible()
             plus_image.gone()
         }
 
         minus_card_image.setOnClickListener {
             cards_recycler.gone()
-            add_card_tv.gone()
             minus_card_image.gone()
             plus_card_image.visible()
         }
 
         plus_card_image.setOnClickListener {
             cards_recycler.visible()
-            add_card_tv.visible()
             minus_card_image.visible()
             plus_card_image.gone()
         }
@@ -219,7 +261,7 @@ class WithdrawCreateFragment : Fragment() {
             }
         }
 
-        add_card_tv.setOnClickListener {
+        add_card_daily_tv.setOnClickListener {
             findNavController(this).navigate(R.id.action_withdrawCreateFragment_to_accountsFragment)
         }
 

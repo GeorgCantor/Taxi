@@ -105,6 +105,17 @@ class AccountsFragment : Fragment() {
             }
 
             cards.observe(viewLifecycleOwner) {
+                cards_daily_recycler.setHasFixedSize(true)
+                cards_daily_recycler.adapter = AccountsCardsAdapter(it) {
+                    context?.showTwoButtonsDialog(
+                        getString(R.string.delete_card),
+                        getString(R.string.delete_card_message),
+                        getString(R.string.no),
+                        getString(R.string.yes)
+                    ) { viewModel.deleteCard(it.id?.toInt() ?: 0) }
+                }
+                cards_daily_recycler.layoutParams.height = it.size * 250
+
                 cards_recycler.setHasFixedSize(true)
                 cards_recycler.adapter = AccountsCardsAdapter(it) {
                     context?.showTwoButtonsDialog(
@@ -114,6 +125,7 @@ class AccountsFragment : Fragment() {
                         getString(R.string.yes)
                     ) { viewModel.deleteCard(it.id?.toInt() ?: 0) }
                 }
+                cards_recycler.layoutParams.height = it.size * 250
             }
 
             isCardAdded.observe(viewLifecycleOwner) { added ->
@@ -127,7 +139,7 @@ class AccountsFragment : Fragment() {
         val numberInputs = listOf<TextInputEditText>(
             account_edit_text,
             bik_edit_text,
-            card_edit_text
+            card_daily_edit_text
         )
 
         numberInputs.map {
@@ -192,7 +204,7 @@ class AccountsFragment : Fragment() {
             }
 
             when (focusedInput.id) {
-                R.id.card_edit_text, R.id.bik_edit_text-> keyboard.gone()
+                R.id.bik_edit_text-> keyboard.gone()
                 R.id.account_edit_text -> bik_edit_text.requestFocus()
             }
         }
@@ -323,16 +335,6 @@ class AccountsFragment : Fragment() {
             )
         }
 
-        add_card_image.setOnClickListener {
-            no_card_block.invisible()
-            new_card_block.visible()
-        }
-
-        card_close_image.setOnClickListener {
-            no_card_block.visible()
-            new_card_block.invisible()
-        }
-
         delete_icon.setOnClickListener {
             context?.showTwoButtonsDialog(
                 getString(R.string.delete_account),
@@ -344,14 +346,14 @@ class AccountsFragment : Fragment() {
             }
         }
 
-        card_edit_text.addTextChangedListener(object : TextWatcher {
+        card_daily_edit_text.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(editable: Editable?) {
                 when ((editable?.toString()?.replace(" ", "") ?: "").getCardType()) {
                     VISA -> {
-                        card_edit_text.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_visa, 0)
+                        card_daily_edit_text.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_visa, 0)
                     }
                     MASTERCARD -> {
-                        card_edit_text.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_mastercard, 0)
+                        card_daily_edit_text.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_mastercard, 0)
                     }
                 }
             }
@@ -363,9 +365,9 @@ class AccountsFragment : Fragment() {
             }
         })
 
-        card_edit_text.addTextChangedListener(CardMaskListener())
+        card_daily_edit_text.addTextChangedListener(CardDailyMaskListener())
 
-        add_card_button.setOnClickListener { addNewCard() }
+        add_card_daily_button.setOnClickListener { addNewDailyCard() }
     }
 
     override fun onDestroyView() {
@@ -377,7 +379,7 @@ class AccountsFragment : Fragment() {
         val editTexts = listOf<TextInputEditText>(
             account_edit_text,
             bik_edit_text,
-            card_edit_text
+            card_daily_edit_text
         )
 
         button.setOnClickListener {
@@ -390,18 +392,18 @@ class AccountsFragment : Fragment() {
         }
     }
 
-    private fun addNewCard() {
-        if (card_edit_text.isEmpty()) {
-            card_input_view.error = getString(R.string.input_error)
+    private fun addNewDailyCard() {
+        if (card_daily_edit_text.isEmpty()) {
+            card_daily_input_view.error = getString(R.string.input_error)
             return
         }
 
-        if (card_edit_text.text?.trim()?.length ?: 0 < 16) {
-            card_input_view.error = getString(R.string.enter_full_card_number)
+        if (card_daily_edit_text.text?.trim()?.length ?: 0 < 16) {
+            card_daily_input_view.error = getString(R.string.enter_full_card_number)
             return
         }
 
-        viewModel.addCard(card_edit_text.text?.trim().toString())
+        viewModel.addCard(card_daily_edit_text.text?.trim().toString())
     }
 
     private fun back() {
@@ -411,9 +413,9 @@ class AccountsFragment : Fragment() {
         }
     }
 
-    inner class CardMaskListener : MaskedTextChangedListener(CARD_MASK, card_edit_text, object : ValueListener {
+    inner class CardDailyMaskListener : MaskedTextChangedListener(CARD_MASK, card_daily_edit_text, object : ValueListener {
         override fun onTextChanged(maskFilled: Boolean, extractedValue: String, formattedValue: String) {
-            card_input_view.error = null
+            card_daily_input_view.error = null
         }
     })
 }
