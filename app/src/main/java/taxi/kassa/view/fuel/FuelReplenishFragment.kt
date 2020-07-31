@@ -221,7 +221,9 @@ class FuelReplenishFragment : Fragment() {
 
     private fun replenish() {
         if (enter_amount_edit_text.isEmpty()) enter_amount_input_view.error = getString(R.string.input_error)
-        viewModel.refillFuelBalance(enter_amount_edit_text.value.toFloat())
+        enter_amount_edit_text.value.apply {
+            if (this.isNotBlank()) viewModel.refillFuelBalance(toFloat())
+        }
         enter_amount_edit_text.setText("")
         enter_amount_edit_text.clearFocus()
     }
