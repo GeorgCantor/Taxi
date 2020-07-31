@@ -23,7 +23,7 @@ import org.koin.androidx.viewmodel.ext.android.getViewModel
 import taxi.kassa.R
 import taxi.kassa.model.Taxi
 import taxi.kassa.util.*
-import taxi.kassa.util.Constants.CITYMOBIL
+import taxi.kassa.util.Constants.CITY
 import taxi.kassa.util.Constants.GETT
 import taxi.kassa.util.Constants.NOT_FROM_PUSH
 import taxi.kassa.util.Constants.PUSH_COUNTER
@@ -95,7 +95,7 @@ class FuelReplenishFragment : Fragment() {
                             }
                             getString(R.string.citymobil_title) -> {
                                 taxi_recycler.scrollToPosition(2)
-                                viewModel.selectedTaxi.value = CITYMOBIL
+                                viewModel.selectedTaxi.value = CITY
                             }
                             getString(R.string.gett_title) -> viewModel.selectedTaxi.value = GETT
                         }

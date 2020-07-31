@@ -22,7 +22,6 @@ import org.koin.androidx.viewmodel.ext.android.getSharedViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.util.*
-import taxi.kassa.util.Constants.CONNECTION
 import taxi.kassa.view.registration.connection.ConnectionViewModel
 import java.util.concurrent.Executor
 import java.util.concurrent.Executors
@@ -38,7 +37,6 @@ class PhotoFragment : Fragment() {
         Manifest.permission.WRITE_EXTERNAL_STORAGE
     )
 
-    private val taxiType: String by lazy { arguments?.get(CONNECTION) as String }
     private val executor: Executor by lazy { Executors.newSingleThreadExecutor() }
 
     private var imageCapture: ImageCapture? = null

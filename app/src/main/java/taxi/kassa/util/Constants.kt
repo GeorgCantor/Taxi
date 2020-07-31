@@ -37,6 +37,7 @@ object Constants {
 
     const val YANDEX = "yandex"
     const val GETT = "gett"
+    const val CITY = "city"
     const val CITYMOBIL = "citymobil"
 
     const val DRIVER = "driver"
