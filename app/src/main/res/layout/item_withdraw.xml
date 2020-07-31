@@ -30,6 +30,7 @@
         android:background="@drawable/bg_profile_gradient"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/time_tv"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
