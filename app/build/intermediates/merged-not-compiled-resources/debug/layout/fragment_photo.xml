@@ -73,10 +73,11 @@
 
     <TextView
         android:id="@+id/folder"
-        android:layout_width="wrap_content"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:padding="@dimen/margin_16dp"
-        android:text="@string/library"
+        android:gravity="center"
+        android:text="@string/load_from_phone"
         android:textColor="@color/gray_intro_text"
         android:textSize="@dimen/text_16sp"
         app:layout_constraintBottom_toBottomOf="@+id/take_photo_btn"

@@ -10,7 +10,7 @@
     <ImageView
         android:id="@+id/city_background"
         android:layout_width="match_parent"
-        android:layout_height="1160dp"
+        android:layout_height="1260dp"
         android:layout_marginStart="@dimen/margin_16dp"
         android:layout_marginTop="@dimen/margin_24dp"
         android:layout_marginEnd="@dimen/margin_16dp"
@@ -71,7 +71,7 @@
             android:drawableEnd="@drawable/ic_download_green"
             android:focusable="false"
             android:paddingBottom="@dimen/margin_16dp"
-            android:text="Фото 1"
+            android:text="@string/photo1"
             android:textColor="@color/gray_intro_text"
             android:textColorHint="@color/gray_profile"
             android:textSize="@dimen/text_16sp"
@@ -145,7 +145,7 @@
             android:drawableEnd="@drawable/ic_download_green"
             android:focusable="false"
             android:paddingBottom="@dimen/margin_16dp"
-            android:text="Фото 2"
+            android:text="@string/photo2"
             android:textColor="@color/gray_intro_text"
             android:textColorHint="@color/gray_profile"
             android:textSize="@dimen/text_16sp"
@@ -220,7 +220,7 @@
             android:drawableEnd="@drawable/ic_download_green"
             android:focusable="false"
             android:paddingBottom="@dimen/margin_16dp"
-            android:text="Фото 3"
+            android:text="@string/photo3"
             android:textColor="@color/gray_intro_text"
             android:textColorHint="@color/gray_profile"
             android:textSize="@dimen/text_16sp"
@@ -295,7 +295,7 @@
             android:drawableEnd="@drawable/ic_download_green"
             android:focusable="false"
             android:paddingBottom="@dimen/margin_16dp"
-            android:text="Фото 4"
+            android:text="@string/photo4"
             android:textColor="@color/gray_intro_text"
             android:textColorHint="@color/gray_profile"
             android:textSize="@dimen/text_16sp"
@@ -326,7 +326,7 @@
         android:layout_marginStart="@dimen/margin_24dp"
         android:layout_marginTop="@dimen/margin_8dp"
         android:layout_marginEnd="@dimen/margin_24dp"
-        android:hint="@string/sts"
+        android:hint="@string/sts_front"
         android:textColorHint="@color/gray_profile"
         android:textSize="@dimen/text_13sp"
         app:layout_constraintEnd_toEndOf="@+id/city_background"
@@ -354,7 +354,7 @@
         android:layout_marginStart="@dimen/margin_24dp"
         android:layout_marginTop="@dimen/margin_8dp"
         android:layout_marginEnd="@dimen/margin_24dp"
-        android:hint="@string/sts"
+        android:hint="@string/sts_front"
         android:textColorHint="@color/gray_profile"
         android:textSize="@dimen/text_13sp"
         android:visibility="gone"
@@ -370,7 +370,7 @@
             android:drawableEnd="@drawable/ic_download_green"
             android:focusable="false"
             android:paddingBottom="@dimen/margin_16dp"
-            android:text="Фото 5"
+            android:text="@string/photo5"
             android:textColor="@color/gray_intro_text"
             android:textColorHint="@color/gray_profile"
             android:textSize="@dimen/text_16sp"
@@ -395,6 +395,81 @@
     <!--  +++++++++  -->
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/city_sts_back_input_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_24dp"
+        android:layout_marginTop="@dimen/margin_8dp"
+        android:layout_marginEnd="@dimen/margin_24dp"
+        android:hint="@string/sts_back"
+        android:textColorHint="@color/gray_profile"
+        android:textSize="@dimen/text_13sp"
+        app:layout_constraintEnd_toEndOf="@+id/city_background"
+        app:layout_constraintStart_toStartOf="@+id/city_background"
+        app:layout_constraintTop_toBottomOf="@+id/city_sts_input_view">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/city_sts_back_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/gray_profile"
+            android:drawableEnd="@drawable/ic_download"
+            android:focusable="false"
+            android:paddingBottom="@dimen/margin_16dp"
+            android:textColor="@color/gray_intro_text"
+            android:textColorHint="@color/gray_profile"
+            android:textSize="@dimen/text_16sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/city_sts_back_input_view2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_24dp"
+        android:layout_marginTop="@dimen/margin_8dp"
+        android:layout_marginEnd="@dimen/margin_24dp"
+        android:hint="@string/sts_back"
+        android:textColorHint="@color/gray_profile"
+        android:textSize="@dimen/text_13sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/city_background"
+        app:layout_constraintStart_toStartOf="@+id/city_background"
+        app:layout_constraintTop_toBottomOf="@+id/city_sts_input_view">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/city_sts_back_edit_text2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/gray_profile"
+            android:drawableEnd="@drawable/ic_download_green"
+            android:focusable="false"
+            android:paddingBottom="@dimen/margin_16dp"
+            android:text="@string/photo6"
+            android:textColor="@color/gray_intro_text"
+            android:textColorHint="@color/gray_profile"
+            android:textSize="@dimen/text_16sp"
+            android:visibility="gone" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/city_sts_back_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="@dimen/margin_4dp"
+        android:background="?attr/selectableItemBackground"
+        android:padding="@dimen/margin_8dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/city_sts_back_input_view2"
+        app:layout_constraintStart_toStartOf="@+id/city_sts_back_input_view2"
+        app:layout_constraintTop_toTopOf="@+id/city_sts_back_input_view2"
+        app:srcCompat="@drawable/ic_load_cancel" />
+
+    <!--  +++++++++  -->
+
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/city_license_front_input_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -406,7 +481,7 @@
         android:textSize="@dimen/text_13sp"
         app:layout_constraintEnd_toEndOf="@+id/city_background"
         app:layout_constraintStart_toStartOf="@+id/city_background"
-        app:layout_constraintTop_toBottomOf="@+id/city_sts_input_view">
+        app:layout_constraintTop_toBottomOf="@+id/city_sts_back_input_view">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/city_license_front_edit_text"
@@ -435,7 +510,7 @@
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="@+id/city_background"
         app:layout_constraintStart_toStartOf="@+id/city_background"
-        app:layout_constraintTop_toBottomOf="@+id/city_sts_input_view">
+        app:layout_constraintTop_toBottomOf="@+id/city_sts_back_input_view">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/city_license_front_edit_text2"
@@ -445,7 +520,7 @@
             android:drawableEnd="@drawable/ic_download_green"
             android:focusable="false"
             android:paddingBottom="@dimen/margin_16dp"
-            android:text="Фото 6"
+            android:text="@string/photo7"
             android:textColor="@color/gray_intro_text"
             android:textColorHint="@color/gray_profile"
             android:textSize="@dimen/text_16sp"
@@ -520,7 +595,7 @@
             android:drawableEnd="@drawable/ic_download_green"
             android:focusable="false"
             android:paddingBottom="@dimen/margin_16dp"
-            android:text="Фото 7"
+            android:text="@string/photo8"
             android:textColor="@color/gray_intro_text"
             android:textColorHint="@color/gray_profile"
             android:textSize="@dimen/text_16sp"
@@ -640,7 +715,7 @@
             android:drawableEnd="@drawable/ic_download_green"
             android:focusable="false"
             android:paddingBottom="@dimen/margin_16dp"
-            android:text="Фото 8"
+            android:text="@string/photo9"
             android:textColor="@color/gray_intro_text"
             android:textColorHint="@color/gray_profile"
             android:textSize="@dimen/text_16sp"
@@ -715,7 +790,7 @@
             android:drawableEnd="@drawable/ic_download_green"
             android:focusable="false"
             android:paddingBottom="@dimen/margin_16dp"
-            android:text="Фото 9"
+            android:text="@string/photo10"
             android:textColor="@color/gray_intro_text"
             android:textColorHint="@color/gray_profile"
             android:textSize="@dimen/text_16sp"
@@ -790,7 +865,7 @@
             android:drawableEnd="@drawable/ic_download_green"
             android:focusable="false"
             android:paddingBottom="@dimen/margin_16dp"
-            android:text="Фото 10"
+            android:text="@string/photo11"
             android:textColor="@color/gray_intro_text"
             android:textColorHint="@color/gray_profile"
             android:textSize="@dimen/text_16sp"
@@ -865,7 +940,7 @@
             android:drawableEnd="@drawable/ic_download_green"
             android:focusable="false"
             android:paddingBottom="@dimen/margin_16dp"
-            android:text="Фото 11"
+            android:text="@string/photo12"
             android:textColor="@color/gray_intro_text"
             android:textColorHint="@color/gray_profile"
             android:textSize="@dimen/text_16sp"
@@ -953,7 +1028,7 @@
             android:drawableEnd="@drawable/ic_download_green"
             android:focusable="false"
             android:paddingBottom="@dimen/margin_16dp"
-            android:text="Фото 12"
+            android:text="@string/photo13"
             android:textColor="@color/gray_intro_text"
             android:textColorHint="@color/gray_profile"
             android:textSize="@dimen/text_16sp"

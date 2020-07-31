@@ -31,6 +31,13 @@ interface ApiService {
         @Field("account_id") account_id: Int
     ): ResponseAPI<ResponseSimple?>?
 
+    @POST("fuel_fill")
+    @FormUrlEncoded
+    suspend fun refillFuelBalance(
+        @Field("agregator") aggregator: String,
+        @Field("amount") amount: Float
+    ): ResponseAPI<ResponseFuelBalance?>?
+
     @GET("accounts")
     suspend fun getAccounts(): ResponseAPI<AccountsList?>?
 

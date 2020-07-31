@@ -3,8 +3,10 @@ package taxi.kassa.view.balance
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_balance.*
@@ -36,13 +38,20 @@ class BalanceFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                back()
+            }
+        }
+        activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, callback)
+
         with(viewModel) {
             isNetworkAvailable.observe(viewLifecycleOwner) { available ->
                 if (!available) context?.longToast(getString(R.string.internet_unavailable))
             }
 
             isProgressVisible.observe(viewLifecycleOwner) { visible ->
-                progress_bar.visibility = if (visible) VISIBLE else View.GONE
+                progress_bar.visibility = if (visible) VISIBLE else GONE
             }
 
             error.observe(viewLifecycleOwner) { context?.longToast(it) }
@@ -126,5 +135,9 @@ class BalanceFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         viewModel.checkInternet()
+    }
+
+    private fun back() {
+        findNavController(this).navigate(R.id.action_balanceFragment_to_profileFragment)
     }
 }

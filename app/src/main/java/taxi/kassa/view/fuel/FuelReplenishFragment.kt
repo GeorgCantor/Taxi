@@ -20,12 +20,14 @@ import kotlinx.android.synthetic.main.fragment_fuel_replenish.*
 import kotlinx.android.synthetic.main.item_taxi.view.*
 import kotlinx.android.synthetic.main.keyboard.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
-import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.model.Taxi
 import taxi.kassa.util.*
+import taxi.kassa.util.Constants.CITYMOBIL
+import taxi.kassa.util.Constants.GETT
 import taxi.kassa.util.Constants.NOT_FROM_PUSH
 import taxi.kassa.util.Constants.PUSH_COUNTER
+import taxi.kassa.util.Constants.YANDEX
 
 class FuelReplenishFragment : Fragment() {
 
@@ -53,6 +55,8 @@ class FuelReplenishFragment : Fragment() {
         activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, callback)
 
         with(viewModel) {
+            getOwnerData()
+
             isNetworkAvailable.observe(viewLifecycleOwner) { available ->
                 if (!available) context?.longToast(getString(R.string.internet_unavailable))
             }
@@ -85,8 +89,15 @@ class FuelReplenishFragment : Fragment() {
                         )
 
                         when (itemView.taxi_name.text) {
-                            getString(R.string.yandex_title) -> taxi_recycler.scrollToPosition(0)
-                            getString(R.string.citymobil_title) -> taxi_recycler.scrollToPosition(2)
+                            getString(R.string.yandex_title) -> {
+                                taxi_recycler.scrollToPosition(0)
+                                viewModel.selectedTaxi.value = YANDEX
+                            }
+                            getString(R.string.citymobil_title) -> {
+                                taxi_recycler.scrollToPosition(2)
+                                viewModel.selectedTaxi.value = CITYMOBIL
+                            }
+                            getString(R.string.gett_title) -> viewModel.selectedTaxi.value = GETT
                         }
 
                         items.map { view ->
@@ -105,6 +116,10 @@ class FuelReplenishFragment : Fragment() {
 
                     runDelayed(500) { taxi_recycler?.let { if (it.isNotEmpty()) it[0].performClick() } }
                 }
+            }
+
+            newFuelBalance.observe(viewLifecycleOwner) {
+                it?.let { rosneft_amount.text = it }
             }
 
             notifications.observe(viewLifecycleOwner) {
@@ -206,12 +221,15 @@ class FuelReplenishFragment : Fragment() {
 
     private fun replenish() {
         if (enter_amount_edit_text.isEmpty()) enter_amount_input_view.error = getString(R.string.input_error)
+        viewModel.refillFuelBalance(enter_amount_edit_text.value.toFloat())
+        enter_amount_edit_text.setText("")
+        enter_amount_edit_text.clearFocus()
     }
 
     private fun back() {
         when (keyboard.visibility) {
             VISIBLE -> enter_amount_edit_text.clearFocus()
-            GONE -> findNavController(this).popBackStack()
+            GONE -> findNavController(this).navigate(R.id.action_fuelReplenishFragment_to_balanceFragment)
         }
     }
 }

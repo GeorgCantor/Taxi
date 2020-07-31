@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2" xmlns:ns2="http://schemas.android.com/tools">
+    <array name="com_google_android_gms_fonts_certs">
+        <item>@array/com_google_android_gms_fonts_certs_dev</item>
+        <item>@array/com_google_android_gms_fonts_certs_prod</item>
+    </array>
+    <string-array name="com_google_android_gms_fonts_certs_dev">
+        <item>
+            MIIEqDCCA5CgAwIBAgIJANWFuGx90071MA0GCSqGSIb3DQEBBAUAMIGUMQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEQMA4GA1UEChMHQW5kcm9pZDEQMA4GA1UECxMHQW5kcm9pZDEQMA4GA1UEAxMHQW5kcm9pZDEiMCAGCSqGSIb3DQEJARYTYW5kcm9pZEBhbmRyb2lkLmNvbTAeFw0wODA0MTUyMzM2NTZaFw0zNTA5MDEyMzM2NTZaMIGUMQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEQMA4GA1UEChMHQW5kcm9pZDEQMA4GA1UECxMHQW5kcm9pZDEQMA4GA1UEAxMHQW5kcm9pZDEiMCAGCSqGSIb3DQEJARYTYW5kcm9pZEBhbmRyb2lkLmNvbTCCASAwDQYJKoZIhvcNAQEBBQADggENADCCAQgCggEBANbOLggKv+IxTdGNs8/TGFy0PTP6DHThvbbR24kT9ixcOd9W+EaBPWW+wPPKQmsHxajtWjmQwWfna8mZuSeJS48LIgAZlKkpFeVyxW0qMBujb8X8ETrWy550NaFtI6t9+u7hZeTfHwqNvacKhp1RbE6dBRGWynwMVX8XW8N1+UjFaq6GCJukT4qmpN2afb8sCjUigq0GuMwYXrFVee74bQgLHWGJwPmvmLHC69EH6kWr22ijx4OKXlSIx2xT1AsSHee70w5iDBiK4aph27yH3TxkXy9V89TDdexAcKk/cVHYNnDBapcavl7y0RiQ4biu8ymM8Ga/nmzhRKya6G0cGw8CAQOjgfwwgfkwHQYDVR0OBBYEFI0cxb6VTEM8YYY6FbBMvAPyT+CyMIHJBgNVHSMEgcEwgb6AFI0cxb6VTEM8YYY6FbBMvAPyT+CyoYGapIGXMIGUMQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEQMA4GA1UEChMHQW5kcm9pZDEQMA4GA1UECxMHQW5kcm9pZDEQMA4GA1UEAxMHQW5kcm9pZDEiMCAGCSqGSIb3DQEJARYTYW5kcm9pZEBhbmRyb2lkLmNvbYIJANWFuGx90071MAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEEBQADggEBABnTDPEF+3iSP0wNfdIjIz1AlnrPzgAIHVvXxunW7SBrDhEglQZBbKJEk5kT0mtKoOD1JMrSu1xuTKEBahWRbqHsXclaXjoBADb0kkjVEJu/Lh5hgYZnOjvlba8Ld7HCKePCVePoTJBdI4fvugnL8TsgK05aIskyY0hKI9L8KfqfGTl1lzOv2KoWD0KWwtAWPoGChZxmQ+nBli+gwYMzM1vAkP+aayLe0a1EQimlOalO762r0GXO0ks+UeXde2Z4e+8S/pf7pITEI/tP+MxJTALw9QUWEv9lKTk+jkbqxbsh8nfBUapfKqYn0eidpwq2AzVp3juYl7//fKnaPhJD9gs=
+        </item>
+    </string-array>
+    <string-array name="com_google_android_gms_fonts_certs_prod">
+        <item>
+            MIIEQzCCAyugAwIBAgIJAMLgh0ZkSjCNMA0GCSqGSIb3DQEBBAUAMHQxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtHb29nbGUgSW5jLjEQMA4GA1UECxMHQW5kcm9pZDEQMA4GA1UEAxMHQW5kcm9pZDAeFw0wODA4MjEyMzEzMzRaFw0zNjAxMDcyMzEzMzRaMHQxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtHb29nbGUgSW5jLjEQMA4GA1UECxMHQW5kcm9pZDEQMA4GA1UEAxMHQW5kcm9pZDCCASAwDQYJKoZIhvcNAQEBBQADggENADCCAQgCggEBAKtWLgDYO6IIrgqWbxJOKdoR8qtW0I9Y4sypEwPpt1TTcvZApxsdyxMJZ2JORland2qSGT2y5b+3JKkedxiLDmpHpDsz2WCbdxgxRczfey5YZnTJ4VZbH0xqWVW/8lGmPav5xVwnIiJS6HXk+BVKZF+JcWjAsb/GEuq/eFdpuzSqeYTcfi6idkyugwfYwXFU1+5fZKUaRKYCwkkFQVfcAs1fXA5V+++FGfvjJ/CxURaSxaBvGdGDhfXE28LWuT9ozCl5xw4Yq5OGazvV24mZVSoOO0yZ31j7kYvtwYK6NeADwbSxDdJEqO4k//0zOHKrUiGYXtqw/A0LFFtqoZKFjnkCAQOjgdkwgdYwHQYDVR0OBBYEFMd9jMIhF1Ylmn/Tgt9r45jk14alMIGmBgNVHSMEgZ4wgZuAFMd9jMIhF1Ylmn/Tgt9r45jk14aloXikdjB0MQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLR29vZ2xlIEluYy4xEDAOBgNVBAsTB0FuZHJvaWQxEDAOBgNVBAMTB0FuZHJvaWSCCQDC4IdGZEowjTAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBBAUAA4IBAQBt0lLO74UwLDYKqs6Tm8/yzKkEu116FmH4rkaymUIE0P9KaMftGlMexFlaYjzmB2OxZyl6euNXEsQH8gjwyxCUKRJNexBiGcCEyj6z+a1fuHHvkiaai+KL8W1EyNmgjmyy8AW7P+LLlkR+ho5zEHatRbM/YAnqGcFh5iZBqpknHf1SKMXFh4dd239FJ1jWYfbMDMy3NS5CTMQ2XFI1MvcyUTdZPErjQfTbQe3aDQsQcafEQPD+nqActifKZ0Np0IS9L9kR/wbNvyz6ENwPiTrjV2KRkEjH78ZMcUQXg0L3BYHJ3lc69Vs5Ddf9uUGGMYldX3WfMBEmh/9iFBDAaTCK
+        </item>
+    </string-array>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/raleway</item>
+    </array>
     <attr name="appBarLayoutStyle"/>
     <attr format="reference" name="badgeStyle"/>
     <attr format="boolean" name="barrierAllowsGoneWidgets"/>
@@ -520,6 +537,7 @@
     <dimen name="item_touch_helper_swipe_escape_max_velocity">800dp</dimen>
     <dimen name="item_touch_helper_swipe_escape_velocity">120dp</dimen>
     <dimen name="margin_16dp">16dp</dimen>
+    <dimen name="margin_18dp">18dp</dimen>
     <dimen name="margin_24dp">24dp</dimen>
     <dimen name="margin_32dp">32dp</dimen>
     <dimen name="margin_48dp">48dp</dimen>
@@ -748,6 +766,7 @@
     <item name="action_bar_spinner" type="id"/>
     <item name="action_menu_divider" type="id"/>
     <item name="action_menu_presenter" type="id"/>
+    <item name="fragment_container_view_tag" type="id"/>
     <item name="ghost_view" type="id"/>
     <item name="ghost_view_holder" type="id"/>
     <item name="home" type="id"/>
@@ -787,6 +806,7 @@
     <item name="transition_transform" type="id"/>
     <item name="up" type="id"/>
     <item name="view_offset_helper" type="id"/>
+    <item name="visible_removing_fragment_view_tag" type="id"/>
     <integer name="abc_config_activityDefaultDur">220</integer>
     <integer name="abc_config_activityShortDur">150</integer>
     <integer name="app_bar_elevation_anim_duration">150</integer>
@@ -852,9 +872,9 @@
     <string name="aggregator_commission">Комиссия агрегаторов</string>
     <string name="all_partners_sum">Общая сумма по всем партнерам</string>
     <string name="answer">Ответ</string>
-    <string name="app_name">Fast Kassa</string>
+    <string name="app_name">КассаТакси</string>
     <string name="appbar_scrolling_view_behavior" translatable="false">com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior</string>
-    <string name="application_success_message">В ближайшее время наш менеджер свяжется с вами по телефону</string>
+    <string name="application_success_message">В ближайшее время наш оператор свяжется с вами по телефону</string>
     <string name="back">Назад</string>
     <string name="back_side">Задняя сторона</string>
     <string name="back_to_main_screen">Вернуться на главный экран</string>
@@ -868,12 +888,14 @@
     <string name="cancel">Отмена</string>
     <string name="canceled">Отменено</string>
     <string name="car_photo">Фото автомобиля</string>
+    <string name="card_added">Карта добавлена</string>
     <string name="character_counter_content_description">Characters entered %1$d of %2$d</string>
     <string name="character_counter_overflowed_content_description">Character limit exceeded %1$d of %2$d</string>
     <string name="character_counter_pattern" translatable="false">%1$d / %2$d</string>
     <string name="chip_text">Chip text</string>
     <string name="choose_aggregator">Выберите агрегатор</string>
     <string name="citymobil_title">Ситимобил</string>
+    <string name="clear">Ясно!</string>
     <string name="clear_text_end_icon_content_description">Clear text</string>
     <string name="close">Закрыть</string>
     <string name="commission_title">Комиссия</string>
@@ -909,6 +931,8 @@
     <string name="default_web_client_id" translatable="false">894419875902-jac4fr0b1sg5un5ehcdehdo9blbj8k2h.apps.googleusercontent.com</string>
     <string name="delete_account">Удаление счета</string>
     <string name="delete_account_message">Вы действительно хотите удалить этот счет?</string>
+    <string name="delete_card">Удаление карты</string>
+    <string name="delete_card_message">Вы действительно хотите удалить эту карту?</string>
     <string name="done">Готово</string>
     <string name="download_documents">Загрузить документы</string>
     <string name="driver_license">Водительское удостоверение</string>
@@ -920,6 +944,7 @@
     <string name="enter_amount">Укажите сумму</string>
     <string name="enter_card_number">Введите номер карты</string>
     <string name="enter_charge_amount">Введите сумму списания</string>
+    <string name="enter_full_card_number">Введите 16-значный номер</string>
     <string name="enter_sum_error">Введите сумму</string>
     <string name="error_icon_content_description">Error</string>
     <string name="exit">Выход</string>
@@ -930,7 +955,7 @@
     <string name="fcm_fallback_notification_channel_label">Miscellaneous</string>
     <string name="fill_all_fields">Заполните все поля</string>
     <string name="firebase_database_url" translatable="false">https://taxitech-c092a.firebaseio.com</string>
-    <string name="first_middle_name">Имя и отчество</string>
+    <string name="first_name">Имя</string>
     <string name="front_side">Передняя сторона</string>
     <string name="fuel_replenish">Пополнение топлива</string>
     <string name="fuel_title">Топливо</string>
@@ -955,16 +980,19 @@
     </string>
     <string name="internet_unavailable">Интернет недоступен</string>
     <string name="intro_message">Удобные выплаты для водителей с баланса агрегаторов такси на личный счет</string>
+    <string name="intro_registration_message"><![CDATA[Вы впервые у нас? Пройдите, пожалуйста, <font color=\"#F1C46E\">регистрацию.</font> Если вы уже работаете с нами, выполните вход, нажав кнопку <font color=\"#F1C46E\">“Войти”</font>]]></string>
+    <string name="kassa">Касса</string>
     <string name="left_side">Левая (фото под 45°)</string>
-    <string name="library">Библиотека</string>
     <string name="license">Лицензия</string>
     <string name="license_back">Лицензия (обратная сторона)</string>
     <string name="license_front">Лицензия (лицевая сторона)</string>
     <string name="load_all_photos">Загрузите все фотографии</string>
+    <string name="load_from_phone">Загрузить с телефона</string>
     <string name="login_agreement">Нажимая на кнопку, я даю согласие на обработку персональных данных, соглашаюсь с <a href="https://kassa.taxi/privacy">политикой конфиденциальности</a> и принимаю условия <a href="https://kassa.taxi/agreement">лицензионного соглашения</a>.</string>
     <string name="login_agreement_title">Подтверждаю свое согласие на обработку и хранение моих персональных данных в соответствии с пользовательским соглашением</string>
     <string name="login_btn">Войти</string>
     <string name="make_selfie">Сделайте селфи</string>
+    <string name="middle_name">Отчество (если имеется)</string>
     <string description="Content description for new notification (no number count) [CHAR_LIMIT=NONE]" name="mtrl_badge_numberless_content_description">New notification</string>
     <string description="Content description for a close icon that lets the user remove content from the screen" name="mtrl_chip_close_icon_content_description">Remove %1$s</string>
     <string name="mtrl_exceed_max_badge_number_suffix" translatable="false"><ns1:g example="999" id="maximum number">%1$d</ns1:g><ns1:g example="+" id="suffix">%2$s</ns1:g></string>
@@ -1004,10 +1032,12 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="new_card_message">Для перевода средств достаточно ввести только номер вашей карты</string>
     <string name="no">Нет</string>
+    <string name="no_messages">Пока нет сообщений</string>
     <string name="no_notifications">Пока нет уведомлений</string>
     <string name="no_withdrawal_message">Чтобы выводить средства, подключите хотя бы один счет и создайте заявку</string>
     <string name="no_withdrawal_requests">Нет заявок на вывод</string>
     <string name="not_find_call_app">Не найдено приложение для совершения звонков</string>
+    <string name="notification">Уведомление</string>
     <string name="num0">0</string>
     <string name="num1">1</string>
     <string name="num2">2</string>
@@ -1019,6 +1049,7 @@
     <string name="num8">8</string>
     <string name="num9">9</string>
     <string name="ok">Хорошо</string>
+    <string name="ok_keyboard">OK</string>
     <string name="or">Или</string>
     <string name="order">Заказ</string>
     <string name="order_balance_format">Итог: %s₽</string>
@@ -1035,6 +1066,19 @@
     <string name="path_password_strike_through" translatable="false">M3.27,4.27 L19.74,20.74</string>
     <string name="payment_account">Расчетный счет</string>
     <string name="phone_start_symbols">+7 (</string>
+    <string name="photo1">Фото 1</string>
+    <string name="photo10">Фото 10</string>
+    <string name="photo11">Фото 11</string>
+    <string name="photo12">Фото 12</string>
+    <string name="photo13">Фото 13</string>
+    <string name="photo2">Фото 2</string>
+    <string name="photo3">Фото 3</string>
+    <string name="photo4">Фото 4</string>
+    <string name="photo5">Фото 5</string>
+    <string name="photo6">Фото 6</string>
+    <string name="photo7">Фото 7</string>
+    <string name="photo8">Фото 8</string>
+    <string name="photo9">Фото 9</string>
     <string name="photo_loading">Загрузка фото</string>
     <string name="profile_format">+%s</string>
     <string name="project_id" translatable="false">taxitech-c092a</string>
@@ -1053,6 +1097,8 @@
     <string name="set_phone_number">Указать номер телефона</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="sts">СТС</string>
+    <string name="sts_back">СТС (обратная сторона)</string>
+    <string name="sts_front">СТС (лицевая сторона)</string>
     <string name="submit">Отправить</string>
     <string name="subscription_fee_description">Абонентская плата списывается  один раз в неделю за уже отработанные вами дни. Списание происходит сразу за 7 дней , то есть 420 или 490 рублей спишется с вас в конце недели с воскресенья на понедельник.
         \n\nАбонентская плата списывается автоматически и если вы с Понедельника по Воскресенье не выполнили ни одного заказа, то списания абонентской платы не произойдет.</string>
@@ -1062,10 +1108,11 @@
     <string name="surname">Фамилия</string>
     <string name="symbols_max_text">до 200 символов</string>
     <string name="tariff_for_drivers">Тариф для водителей</string>
-    <string name="terms_description"><![CDATA[Мы подключаем к <span style=color:#F1C46E>"Яндекс.Такси, GetTaxi, Ситимобил</span>. Предлагаем вам на выбор 3 варианта условий подключения:
-        <br><br><b>Первый</b> - это 3% с каждого заказа, помимо % агрегатора.
-        <br><b>Второй</b> - это фиксированные  60₽ в день за подключение к любым двум агрегаторам.
-        <br><b>Третий</b> - это фиксированные 70₽ в день за подключение к трём агрегаторам.
+    <string name="taxi">Такси</string>
+    <string name="terms_description"><![CDATA[Мы подключаем к <font color=\"#F1C46E\">"Яндекс.Такси, GetTaxi, Ситимобил.</font> Предлагаем вам на выбор 3 варианта условий подключения:
+        <br><br><b><font color=\"#FFFFFF\">Первый</font></b> - это 3% с каждого заказа, помимо % агрегатора.
+        <br><b><font color=\"#FFFFFF\">Второй</font></b> - это фиксированные  60₽ в день за подключение к любым двум агрегаторам.
+        <br><b><font color=\"#FFFFFF\">Третий</font></b> - это фиксированные 70₽ в день за подключение к трём агрегаторам.
         <br><br>Варианты вывода денежных средств:
         <br>- Ежедневный вывод 1% с суммы вывода.
         <br>- Моментальный вывод 4% с суммы вывода.]]></string>
@@ -1087,6 +1134,7 @@
     <string name="withdrawal_applications">Заявки на вывод</string>
     <string name="withdrawal_title">Выводится</string>
     <string name="withdraws_title">Заявки на вывод</string>
+    <string name="work_in_taxi">работай в такси!</string>
     <string name="write_message_title">Здравствуйте. Вам есть что сообщить нам?</string>
     <string name="write_to_us">Напишите нам</string>
     <string name="wrong_format_error">Неправильный формат</string>
@@ -2963,6 +3011,9 @@
     <style name="EmptyTheme"/>
     <style name="ErrorAppearance" parent="@android:style/TextAppearance">
         <item name="android:textColor">@color/error_red_color</item>
+    </style>
+    <style name="FragmentScenarioEmptyFragmentActivityTheme" parent="android:Theme.WithActionBar">
+        <item name="android:windowIsFloating">false</item>
     </style>
     <style name="KeyboardButtonStyle">
         <item name="android:layout_width">0dp</item>
@@ -6133,6 +6184,15 @@
     <attr name="android:foregroundGravity"/>
     <attr format="boolean" name="foregroundInsidePadding"/>
   </declare-styleable>
+    <declare-styleable name="Fragment">
+        <attr name="android:name"/>
+        <attr name="android:id"/>
+        <attr name="android:tag"/>
+    </declare-styleable>
+    <declare-styleable name="FragmentContainerView">
+        <attr name="android:name"/>
+        <attr name="android:tag"/>
+    </declare-styleable>
     <declare-styleable name="FragmentNavigator">
         <attr name="android:name"/>
     </declare-styleable>

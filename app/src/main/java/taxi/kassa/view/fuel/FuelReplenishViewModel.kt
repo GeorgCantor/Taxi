@@ -12,6 +12,7 @@ import taxi.kassa.model.Notification
 import taxi.kassa.model.responses.ResponseOwner
 import taxi.kassa.repository.Repository
 import taxi.kassa.util.Constants.ERROR_504
+import taxi.kassa.util.Constants.YANDEX
 import taxi.kassa.util.isNetworkAvailable
 
 class FuelReplenishViewModel(
@@ -26,6 +27,8 @@ class FuelReplenishViewModel(
     val responseOwner = MutableLiveData<ResponseOwner>()
     val error = MutableLiveData<String>()
     val notifications = MutableLiveData<MutableList<Notification>>()
+    val newFuelBalance = MutableLiveData<String>()
+    val selectedTaxi = MutableLiveData<String>().apply { value = YANDEX }
 
     private val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
         when (throwable.message) {
@@ -35,7 +38,7 @@ class FuelReplenishViewModel(
         isProgressVisible.postValue(false)
     }
 
-    init {
+    fun getOwnerData() {
         viewModelScope.launch(exceptionHandler) {
             repository.getOwner()?.apply {
                 responseOwner.postValue(response)
@@ -46,5 +49,18 @@ class FuelReplenishViewModel(
         }
 
         isNetworkAvailable.value = context.isNetworkAvailable()
+    }
+
+    fun refillFuelBalance(amount: Float) {
+        isProgressVisible.value = true
+
+        viewModelScope.launch(exceptionHandler) {
+            repository.refillFuelBalance(selectedTaxi.value ?: YANDEX, amount)?.apply {
+                response?.newFuelBalance?.let { newFuelBalance.postValue(it.toString()) }
+                error.postValue(errorMsg)
+            }
+            isProgressVisible.postValue(false)
+            getOwnerData()
+        }
     }
 }

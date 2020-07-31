@@ -1,1 +1,28 @@
-[{"outputType":{"type":"BUNDLE_MANIFEST"},"apkData":{"type":"MAIN","splits":[],"versionCode":21,"versionName":"1.21","enabled":true,"outputFile":"app-debug.apk","fullName":"debug","baseName":"debug","dirName":""},"path":"AndroidManifest.xml","properties":{"packageId":"taxi.kassa","split":"","minSdkVersion":"21"}}]
+{
+  "version": 1,
+  "applicationId": "taxi.kassa",
+  "variantType": "BASE_APK",
+  "elements": [
+    {
+      "outputType": {
+        "type": "BUNDLE_MANIFEST"
+      },
+      "apkData": {
+        "type": "MAIN",
+        "splits": [],
+        "versionCode": 21,
+        "versionName": "1.21",
+        "outputFile": "app-debug.apk",
+        "fullName": "debug",
+        "baseName": "debug",
+        "dirName": ""
+      },
+      "path": "AndroidManifest.xml",
+      "properties": {
+        "packageId": "taxi.kassa",
+        "split": "",
+        "minSdkVersion": "21"
+      }
+    }
+  ]
+}

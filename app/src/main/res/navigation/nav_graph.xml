@@ -219,6 +219,14 @@
             app:destination="@id/notificationsFragment"
             app:popEnterAnim="@anim/slide_in_top"
             app:popExitAnim="@anim/slide_out_top" />
+        <action
+            android:id="@+id/action_balanceFragment_to_profileFragment"
+            app:destination="@id/profileFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"
+            app:popUpTo="@id/nav_graph" />
     </fragment>
 
     <fragment
@@ -231,6 +239,13 @@
             app:destination="@id/notificationsFragment"
             app:popEnterAnim="@anim/slide_in_top"
             app:popExitAnim="@anim/slide_out_top" />
+        <action
+            android:id="@+id/action_fuelReplenishFragment_to_balanceFragment"
+            app:destination="@id/balanceFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left" />
     </fragment>
 
     <fragment

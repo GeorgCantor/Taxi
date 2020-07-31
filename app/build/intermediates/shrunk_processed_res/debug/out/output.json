@@ -1,1 +1,24 @@
-[{"outputType":{"type":"SHRUNK_PROCESSED_RES"},"apkData":{"type":"MAIN","splits":[],"versionCode":21,"versionName":"1.21","enabled":true,"outputFile":"app-debug.apk","fullName":"debug","baseName":"debug","dirName":""},"path":"resources-debug-stripped.ap_","properties":{}}]
+{
+  "version": 1,
+  "applicationId": "taxi.kassa",
+  "variantType": "BASE_APK",
+  "elements": [
+    {
+      "outputType": {
+        "type": "SHRUNK_PROCESSED_RES"
+      },
+      "apkData": {
+        "type": "MAIN",
+        "splits": [],
+        "versionCode": 21,
+        "versionName": "1.21",
+        "outputFile": "app-debug.apk",
+        "fullName": "debug",
+        "baseName": "debug",
+        "dirName": ""
+      },
+      "path": "resources-debug-stripped.ap_",
+      "properties": {}
+    }
+  ]
+}

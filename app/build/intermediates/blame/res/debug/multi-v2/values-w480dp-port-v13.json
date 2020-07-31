@@ -4,7 +4,7 @@
             "outputFile": "D:\\AndroidProjects\\taxitech-android-new\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-w480dp-port-v13\\values-w480dp-port-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Alex\\.gradle\\caches\\transforms-2\\files-2.1\\79337e00db26de04b4b4c44cba60a9d4\\material-1.1.0\\res\\values-w480dp-port-v13\\values-w480dp-port-v13.xml",
+                    "source": "C:\\Users\\Alex\\.gradle\\caches\\transforms-2\\files-2.1\\2ea615c8257cf2b949dc76da2789cd15\\material-1.1.0\\res\\values-w480dp-port-v13\\values-w480dp-port-v13.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",

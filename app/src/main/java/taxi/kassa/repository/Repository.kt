@@ -50,6 +50,11 @@ class Repository(
         accountId: Int
     ) = apiService.createWithdraw(sourceId, amount, accountId)
 
+    suspend fun refillFuelBalance(
+        aggregator: String,
+        amount: Float
+    ) = apiService.refillFuelBalance(aggregator, amount)
+
     suspend fun getOrders(offset: String) = apiService.getOrders(offset)
 
     suspend fun getChatHistory(offset: String) = apiService.getMessages(offset)
