@@ -11,14 +11,12 @@ import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_daily_withdraw.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import taxi.kassa.R
+import taxi.kassa.util.*
 import taxi.kassa.util.Constants.CITYMOBIL
 import taxi.kassa.util.Constants.GETT
+import taxi.kassa.util.Constants.NOT_FROM_PUSH
 import taxi.kassa.util.Constants.TAXI
 import taxi.kassa.util.Constants.YANDEX
-import taxi.kassa.util.inflate
-import taxi.kassa.util.longToast
-import taxi.kassa.util.observe
-import taxi.kassa.util.visible
 
 class DailyWithdrawFragment : Fragment() {
 
@@ -43,9 +41,30 @@ class DailyWithdrawFragment : Fragment() {
 
         back_arrow.setOnClickListener { findNavController(this).popBackStack() }
 
-        add_account_background.setOnClickListener {
-
+        notification_image.setOnClickListener {
+            findNavController(this).navigate(
+                R.id.action_dailyWithdrawFragment_to_notificationsFragment,
+                Bundle().apply { putString(NOT_FROM_PUSH, NOT_FROM_PUSH) }
+            )
         }
+
+        notification_count.setOnClickListener {
+            findNavController(this).navigate(
+                R.id.action_dailyWithdrawFragment_to_notificationsFragment,
+                Bundle().apply { putString(NOT_FROM_PUSH, NOT_FROM_PUSH) }
+            )
+        }
+
+        add_account_background.setOnClickListener {
+            findNavController(this).navigate(R.id.action_dailyWithdrawFragment_to_accountsFragment)
+        }
+
+        next_button.setOnClickListener {
+            accounts_block.gone()
+            withdraw_block.visible()
+        }
+
+        sum_input_view.error = getString(R.string.max_sum_hint)
 
         with(viewModel) {
             isProgressVisible.observe(viewLifecycleOwner) { visible ->
@@ -89,6 +108,20 @@ class DailyWithdrawFragment : Fragment() {
                             taxi_name.text = getString(R.string.citymobil_title)
                             balance_tv.text = getString(R.string.account_balance_format, it.balanceCity)
                         }
+                    }
+                }
+            }
+
+            notifications.observe(viewLifecycleOwner) {
+                val oldPushesSize = PreferenceManager(requireContext()).getInt(Constants.PUSH_COUNTER)
+                oldPushesSize?.let { oldSize ->
+                    if (it.size > oldSize) {
+                        notification_count.text = (it.size - oldSize).toString()
+                        notification_count.visible()
+                        notification_image.invisible()
+                    } else {
+                        notification_count.invisible()
+                        notification_image.visible()
                     }
                 }
             }

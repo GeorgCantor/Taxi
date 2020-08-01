@@ -274,9 +274,9 @@
             android:layout_marginTop="@dimen/margin_8dp"
             android:layout_marginEnd="@dimen/margin_24dp"
             android:hint="@string/amount_in_rubles"
-            android:textColorHint="@color/gray_profile"
-            android:textSize="@dimen/text_13sp"
+            android:textColorHint="@color/colorAccent"
             app:errorTextAppearance="@style/ErrorAppearance"
+            app:errorTextColor="@color/colorAccent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/enter_amount">

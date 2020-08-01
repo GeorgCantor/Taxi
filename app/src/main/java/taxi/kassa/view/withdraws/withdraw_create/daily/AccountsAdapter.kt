@@ -45,8 +45,10 @@ class AccountsAdapter(
                 }
             )
             bankName.text = account.bankName
-            accountNumber.text = account.accountNumber
+            accountNumber.text = itemView.context.getString(R.string.order_format, account.accountNumber)
             name.text = account.driverName
+
+            itemView.setOnClickListener { clickListener(account) }
         }
     }
 
