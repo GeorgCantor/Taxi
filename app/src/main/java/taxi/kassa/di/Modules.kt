@@ -24,6 +24,7 @@ import taxi.kassa.view.support.message.WriteMessageViewModel
 import taxi.kassa.view.withdraws.WithdrawsViewModel
 import taxi.kassa.view.withdraws.withdraw.WithdrawViewModel
 import taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateViewModel
+import taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawViewModel
 
 val apiModule = module {
     single { ApiClient.create(get()) }
@@ -67,6 +68,9 @@ val viewModelModule = module(override = true) {
     }
     viewModel {
         WithdrawCreateViewModel(androidApplication(), get())
+    }
+    viewModel {
+        DailyWithdrawViewModel(androidApplication(), get())
     }
     viewModel {
         OrdersViewModel(androidApplication(), get())

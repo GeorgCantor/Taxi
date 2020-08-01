@@ -9,9 +9,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_withdraw.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
-import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.model.responses.Withdraw
+import taxi.kassa.util.Constants.ALFABANK
+import taxi.kassa.util.Constants.BINBANK
+import taxi.kassa.util.Constants.SBERBANK
+import taxi.kassa.util.Constants.VTB_BANK
 import taxi.kassa.util.Constants.WITHDRAW
 import taxi.kassa.util.inflate
 import taxi.kassa.util.observe
@@ -19,13 +22,6 @@ import taxi.kassa.util.setFormattedText
 import taxi.kassa.util.shortToast
 
 class WithdrawFragment : Fragment() {
-
-    companion object {
-        private const val ALFABANK = "альфа"
-        private const val BINBANK = "бинбанк"
-        private const val VTB_BANK = "втб"
-        private const val SBERBANK = "сбербанк"
-    }
 
     private lateinit var viewModel: WithdrawViewModel
 

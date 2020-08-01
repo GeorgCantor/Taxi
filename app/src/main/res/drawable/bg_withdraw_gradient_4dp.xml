@@ -4,7 +4,7 @@
         <ripple android:color="@color/blackText" tools:targetApi="lollipop">
             <item>
                 <shape android:shape="rectangle">
-                    <corners android:radius="8dp" />
+                    <corners android:radius="4dp" />
 
                     <gradient
                         android:angle="270"

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/account_background"
+        android:layout_width="0dp"
+        android:layout_height="98dp"
+        android:layout_margin="@dimen/margin_8dp"
+        android:background="@drawable/bg_account"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/bank_icon"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_margin="@dimen/margin_16dp"
+        app:layout_constraintStart_toStartOf="@id/account_background"
+        app:layout_constraintTop_toTopOf="@id/account_background"
+        tools:src="@drawable/ic_sberbank" />
+
+    <TextView
+        android:id="@+id/bank_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_16dp"
+        android:layout_marginTop="14dp"
+        android:textColor="@color/withdraws_gray"
+        android:textSize="@dimen/text_16sp"
+        app:layout_constraintStart_toEndOf="@id/bank_icon"
+        app:layout_constraintTop_toTopOf="@id/account_background"
+        tools:text="ПАО “Сбербанк”" />
+
+    <TextView
+        android:id="@+id/account_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_16dp"
+        android:layout_marginTop="@dimen/margin_4dp"
+        android:textColor="@color/registration_white_color"
+        android:textSize="@dimen/text_16sp"
+        app:layout_constraintStart_toEndOf="@id/bank_icon"
+        app:layout_constraintTop_toBottomOf="@id/bank_name_tv"
+        tools:text="Р/с 408190009938888837" />
+
+    <TextView
+        android:id="@+id/name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_4dp"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="@color/colorAccent"
+        android:textSize="@dimen/text_13sp"
+        app:layout_constraintStart_toStartOf="@id/account_number"
+        app:layout_constraintTop_toBottomOf="@id/account_number"
+        tools:text="Поликин Г. И" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

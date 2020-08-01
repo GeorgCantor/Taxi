@@ -35,6 +35,11 @@ object Constants {
     // an error occurs when there is no Internet and no data in the cache
     const val ERROR_504 = "HTTP 504 Unsatisfiable Request (only-if-cached)"
 
+    const val ALFABANK = "альфа"
+    const val BINBANK = "бинбанк"
+    const val VTB_BANK = "втб"
+    const val SBERBANK = "сбербанк"
+
     const val YANDEX = "yandex"
     const val GETT = "gett"
     const val CITY = "city"

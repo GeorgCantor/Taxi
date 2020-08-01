@@ -77,17 +77,22 @@
     <string name="connect_account">Подключить счёт</string>
     <string name="transfer_amount">Сумма перевода</string>
     <string name="enter_amount">Укажите сумму</string>
+    <string name="amount_in_rubles">Сумма перевода в рублях</string>
     <string name="send_request">Отправить заявку</string>
     <string name="no_withdrawal_requests">Нет заявок на вывод</string>
     <string name="enter_sum_error">Введите сумму</string>
     <string name="input_error">Ошибка ввода</string>
     <string name="withdraw_format">%s₽</string>
     <string name="withdraw_create_format">Баланс: %s₽</string>
+    <string name="account_balance_format">Баланс счета: %s ₽</string>
     <string name="bank_card">Банковская карта</string>
     <string name="no_withdrawal_message">Чтобы выводить средства, подключите хотя бы один счет и создайте заявку</string>
     <string name="daily_withdrawal_message">Вывод на любую карту. За вывод 1%. Перевод происходит один раз в день. Только в будни!</string>
     <string name="instant_withdrawal_message">Выводить средства можно на любую банковскую карту. За вывод взимается 4 %  с суммы вывода.</string>
     <string name="detailed">Подробнее</string>
+    <string name="select_account">Выберите счёт</string>
+    <string name="daily_withdraw_hint">Для совершения операции вам необходимо добавить информацию о счете, куда будут зачислены средства</string>
+    <string name="withdraw_hint">Перевод будет осуществлен со счета:</string>
     <!--    Accounts-->
     <string name="accounts_title">Счета и карты</string>
     <string name="daily_withdrawal">Ежедневный вывод</string>
