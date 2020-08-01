@@ -37,17 +37,19 @@ class DailyWithdrawViewModel(
 
     init {
         viewModelScope.launch(exceptionHandler) {
-            val response = repository.getOwner()
-            responseOwner.postValue(response?.response)
+            val response = repository.getAccounts()
+            accountId.postValue(response?.response?.info?.firstOrNull()?.id)
+            accounts.postValue(response?.response)
             error.postValue(response?.errorMsg)
             isProgressVisible.postValue(false)
             notifications.postValue(repository.getNotificationsAsync().await())
         }
+    }
 
+    fun getOwnerData() {
         viewModelScope.launch(exceptionHandler) {
-            val response = repository.getAccounts()
-            accountId.postValue(response?.response?.info?.firstOrNull()?.id)
-            accounts.postValue(response?.response)
+            val response = repository.getOwner()
+            responseOwner.postValue(response?.response)
             error.postValue(response?.errorMsg)
             isProgressVisible.postValue(false)
         }
@@ -63,6 +65,7 @@ class DailyWithdrawViewModel(
                 error.postValue(response?.errorMsg)
                 isProgressVisible.postValue(false)
             }
+            getOwnerData()
         }
     }
 }
