@@ -14,6 +14,7 @@
     <color name="error_red_color">#AE4C4C</color>
     <color name="yellow_color">#F1C46E</color>
     <color name="green_color">#14763B</color>
+    <color name="blue_color">#2F80ED</color>
 
     <color name="gray_intro_text">#CAD0D2</color>
     <color name="main_background">#101017</color>
@@ -40,6 +41,8 @@
 
     <color name="withdraws_gray">#949599</color>
     <color name="withdraws_yellow">#D3A956</color>
+    <color name="withdraws_gradient">#1B1B24</color>
+    <color name="withdraws_gradient_dark">#191920</color>
 
     <color name="accounts_dialog_background">#4D000000</color>
     <color name="accounts_dialog_gray">#B2FFFFFF</color>

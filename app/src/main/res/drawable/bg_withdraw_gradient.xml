@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <item>
+        <ripple android:color="@color/blackText" tools:targetApi="lollipop">
+            <item>
+                <shape android:shape="rectangle">
+                    <corners
+                        android:bottomLeftRadius="8dp"
+                        android:bottomRightRadius="8dp"
+                        android:topLeftRadius="8dp"
+                        android:topRightRadius="8dp" />
+
+                    <gradient
+                        android:angle="270"
+                        android:endColor="@color/withdraws_gradient_dark"
+                        android:startColor="@color/withdraws_gradient"
+                        android:type="linear" />
+                </shape>
+            </item>
+        </ripple>
+    </item>
+</selector>
