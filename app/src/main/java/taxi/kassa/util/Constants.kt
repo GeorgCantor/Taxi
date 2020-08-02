@@ -39,6 +39,7 @@ object Constants {
     const val BINBANK = "бинбанк"
     const val VTB_BANK = "втб"
     const val SBERBANK = "сбербанк"
+    const val TINKOFF = "тинькоф"
 
     const val YANDEX = "yandex"
     const val GETT = "gett"

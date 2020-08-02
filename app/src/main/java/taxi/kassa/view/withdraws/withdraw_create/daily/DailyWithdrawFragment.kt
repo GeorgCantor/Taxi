@@ -11,9 +11,12 @@ import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.core.content.ContextCompat.getColor
+import androidx.core.view.get
+import androidx.core.view.isNotEmpty
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_daily_withdraw.*
+import kotlinx.android.synthetic.main.item_account.view.*
 import kotlinx.android.synthetic.main.keyboard.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import taxi.kassa.R
@@ -116,8 +119,23 @@ class DailyWithdrawFragment : Fragment() {
                     false -> {
                         accounts_block.visible()
                         accounts_recycler.setHasFixedSize(true)
-                        accounts_recycler.adapter = AccountsAdapter(it.info) {
-                            context?.longToast(it.accountNumber)
+                        accounts_recycler.adapter = AccountsAdapter(it.info) { account, view ->
+                            setAccountId(account)
+
+                            val items = mutableListOf<View>()
+                            (0 until (accounts_recycler.adapter?.itemCount ?: 0)).map {
+                                items.add(accounts_recycler[it])
+                            }
+
+                            items.map {
+                                if (it == view) {
+                                    it.account_background_outline.visible()
+                                    it.account_background.invisible()
+                                } else {
+                                    it.account_background_outline.invisible()
+                                    it.account_background.visible()
+                                }
+                            }
                         }
                     }
                 }
@@ -162,6 +180,8 @@ class DailyWithdrawFragment : Fragment() {
                 }
             }
         }
+
+        runDelayed(500) { accounts_recycler?.let { if (it.isNotEmpty()) it[0].performClick() } }
 
         val keyboardPairs = mutableListOf<Pair<Button, Int>>(
             Pair(num_0, R.string.num0),

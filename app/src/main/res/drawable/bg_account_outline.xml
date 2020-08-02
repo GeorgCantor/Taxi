@@ -4,8 +4,9 @@
         <ripple android:color="@color/grayText" tools:targetApi="lollipop">
             <item>
                 <shape android:shape="rectangle">
-                    <solid android:color="@color/continue_color" />
+                    <stroke android:width="2dp" android:color="@color/yellow_color" />
                     <corners android:radius="8dp" />
+                    <solid android:color="@color/continue_color" />
                 </shape>
             </item>
         </ripple>

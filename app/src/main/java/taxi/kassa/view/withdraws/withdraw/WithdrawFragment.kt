@@ -14,6 +14,7 @@ import taxi.kassa.model.responses.Withdraw
 import taxi.kassa.util.Constants.ALFABANK
 import taxi.kassa.util.Constants.BINBANK
 import taxi.kassa.util.Constants.SBERBANK
+import taxi.kassa.util.Constants.TINKOFF
 import taxi.kassa.util.Constants.VTB_BANK
 import taxi.kassa.util.Constants.WITHDRAW
 import taxi.kassa.util.inflate
@@ -106,6 +107,7 @@ class WithdrawFragment : Fragment() {
                 bankName.contains(BINBANK, true) -> R.drawable.ic_binbank
                 bankName.contains(VTB_BANK, true) -> R.drawable.ic_vtb
                 bankName.contains(SBERBANK, true) -> R.drawable.ic_sberbank
+                bankName.contains(TINKOFF, true) -> R.drawable.ic_tinkoff
                 else -> R.drawable.transparent
             }
         )

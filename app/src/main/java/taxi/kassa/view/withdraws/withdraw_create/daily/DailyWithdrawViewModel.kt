@@ -8,6 +8,7 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 import taxi.kassa.R
 import taxi.kassa.model.Notification
+import taxi.kassa.model.responses.Account
 import taxi.kassa.model.responses.AccountsList
 import taxi.kassa.model.responses.ResponseOwner
 import taxi.kassa.repository.Repository
@@ -52,6 +53,13 @@ class DailyWithdrawViewModel(
             responseOwner.postValue(response?.response)
             error.postValue(response?.errorMsg)
             isProgressVisible.postValue(false)
+        }
+    }
+
+    fun setAccountId(account: Account) {
+        viewModelScope.launch(exceptionHandler) {
+            val selectedAccount = accounts.value?.info?.find { it == account }
+            accountId.postValue(selectedAccount?.id)
         }
     }
 
