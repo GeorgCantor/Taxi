@@ -16,15 +16,9 @@ import taxi.kassa.util.Constants.TINKOFF
 import taxi.kassa.util.Constants.VTB_BANK
 
 class AccountsAdapter(
-    accounts: List<Account>,
+    private val accounts: List<Account>,
     private val clickListener: (Account, View) -> Unit
 ) : RecyclerView.Adapter<AccountsAdapter.AccountsViewHolder>() {
-
-    private val accounts = mutableListOf<Account>()
-
-    init {
-        this.accounts.addAll(accounts)
-    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = AccountsViewHolder(
         LayoutInflater.from(parent.context).inflate(R.layout.item_account, parent, false)

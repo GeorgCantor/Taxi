@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_background">
+
+    <ImageView
+        android:id="@+id/back_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_4dp"
+        android:layout_marginTop="12dp"
+        android:background="?attr/selectableItemBackground"
+        android:padding="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_back" />
+
+    <TextView
+        android:id="@+id/instant_withdraw_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/instant_withdrawal"
+        android:textColor="@color/balance_fuel_gray"
+        android:textSize="@dimen/text_20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/back_arrow"
+        app:layout_constraintStart_toEndOf="@+id/back_arrow"
+        app:layout_constraintTop_toTopOf="@+id/back_arrow" />
+
+    <TextView
+        android:id="@+id/notification_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="@dimen/margin_24dp"
+        android:background="@drawable/ic_chip_notification"
+        android:paddingStart="9dp"
+        android:paddingTop="3dp"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="3" />
+
+    <ImageView
+        android:id="@+id/notification_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_8dp"
+        android:background="?attr/selectableItemBackground"
+        android:padding="@dimen/margin_16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_notification"
+        tools:visibility="invisible" />
+
+    <!--  =========  -->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/call_dispatcher_block"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/margin_32dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@+id/instant_withdraw_title">
+
+        <ImageView
+            android:id="@+id/call_background"
+            android:layout_width="match_parent"
+            android:layout_height="74dp"
+            android:layout_marginStart="@dimen/margin_24dp"
+            android:layout_marginEnd="@dimen/margin_24dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/bg_intro_btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/call_dispatcher_block" />
+
+        <TextView
+            android:id="@+id/call_to_dispatcher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/call_to_dispatcher"
+            android:textColor="@color/blackText"
+            android:textSize="@dimen/text_16sp"
+            app:layout_constraintBottom_toBottomOf="@id/call_background"
+            app:layout_constraintEnd_toEndOf="@id/call_background"
+            app:layout_constraintStart_toStartOf="@id/call_background"
+            app:layout_constraintTop_toTopOf="@id/call_background" />
+
+        <TextView
+            android:id="@+id/call_to_dispatcher_message"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="44dp"
+            android:gravity="center"
+            android:text="@string/call_to_dispatcher_message"
+            android:textColor="@color/accounts_dialog_gray"
+            android:textSize="@dimen/text_14sp"
+            app:layout_constraintEnd_toEndOf="@id/call_background"
+            app:layout_constraintStart_toStartOf="@id/call_background"
+            app:layout_constraintTop_toBottomOf="@id/call_background" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--  =========  -->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cards_block"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="76dp"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <TextView
+            android:id="@+id/select_card_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:text="@string/select_card"
+            android:textColor="@color/gray_intro_text"
+            android:textSize="@dimen/text_24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/cards_block" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/cards_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/margin_8dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="@dimen/margin_8dp"
+            android:layout_marginBottom="@dimen/margin_16dp"
+            android:nestedScrollingEnabled="false"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@id/next_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/select_card_title"
+            tools:itemCount="2"
+            tools:listitem="@layout/item_cardd" />
+
+        <Button
+            android:id="@+id/next_button"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_margin="@dimen/margin_16dp"
+            android:background="@drawable/bg_intro_btn"
+            android:fontFamily="sans-serif-medium"
+            android:radius="0dp"
+            android:text="@string/continue_hint"
+            android:textAllCaps="false"
+            android:textColor="@color/continue_color"
+            android:textSize="@dimen/text_20sp"
+            app:layout_constraintBottom_toBottomOf="@id/cards_block"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--  =========  -->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/withdraw_block"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="76dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/withdraw_background"
+            android:layout_width="match_parent"
+            android:layout_height="78dp"
+            android:layout_marginStart="@dimen/margin_18dp"
+            android:layout_marginEnd="@dimen/margin_18dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/bg_withdraw_gradient_4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/withdraw_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:layout_marginTop="14dp"
+            android:text="@string/withdraw_hint"
+            android:textColor="@color/colorAccent"
+            app:layout_constraintStart_toStartOf="@id/withdraw_background"
+            app:layout_constraintTop_toTopOf="@id/withdraw_background" />
+
+        <ImageView
+            android:id="@+id/info_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_info"
+            app:layout_constraintBottom_toBottomOf="@id/withdraw_title"
+            app:layout_constraintEnd_toEndOf="@id/withdraw_background"
+            app:layout_constraintStart_toEndOf="@id/withdraw_title"
+            app:layout_constraintTop_toTopOf="@id/withdraw_title" />
+
+        <ImageView
+            android:id="@+id/taxi_icon"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="@id/withdraw_background"
+            app:layout_constraintTop_toBottomOf="@+id/withdraw_title"
+            tools:src="@drawable/ic_yandex_mini" />
+
+        <TextView
+            android:id="@+id/taxi_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:textColor="@color/gray_intro_text"
+            android:textSize="@dimen/text_14sp"
+            app:layout_constraintBottom_toBottomOf="@id/taxi_icon"
+            app:layout_constraintStart_toEndOf="@id/taxi_icon"
+            app:layout_constraintTop_toTopOf="@id/taxi_icon"
+            tools:text="@string/yandex_title" />
+
+        <TextView
+            android:id="@+id/balance_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/text_12sp"
+            app:layout_constraintBottom_toBottomOf="@id/taxi_name"
+            app:layout_constraintStart_toEndOf="@+id/taxi_name"
+            app:layout_constraintTop_toTopOf="@id/taxi_name"
+            tools:text="Баланс счета: 1 000 ₽" />
+
+        <TextView
+            android:id="@+id/enter_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_24dp"
+            android:layout_marginTop="@dimen/margin_48dp"
+            android:text="@string/enter_amount"
+            android:textColor="@color/gray_intro_text"
+            android:textSize="@dimen/text_24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/withdraw_background" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/sum_input_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_24dp"
+            android:layout_marginTop="@dimen/margin_8dp"
+            android:layout_marginEnd="@dimen/margin_24dp"
+            android:hint="@string/amount_in_rubles"
+            android:textColorHint="@color/colorAccent"
+            app:errorTextAppearance="@style/ErrorAppearance"
+            app:errorTextColor="@color/colorAccent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/enter_amount">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/sum_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/gray_profile"
+                android:imeOptions="actionDone"
+                android:inputType="number"
+                android:maxLines="1"
+                android:textColor="@color/gray_intro_text"
+                android:textColorHint="@color/gray_profile"
+                android:textSize="@dimen/text_16sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/transfer_button"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_margin="@dimen/margin_16dp"
+            android:background="@drawable/bg_intro_btn"
+            android:fontFamily="sans-serif-medium"
+            android:radius="0dp"
+            android:text="@string/transfer"
+            android:textAllCaps="false"
+            android:textColor="@color/continue_color"
+            android:textSize="@dimen/text_20sp"
+            app:layout_constraintBottom_toTopOf="@+id/keyboard"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <include
+            android:id="@+id/keyboard"
+            layout="@layout/keyboard"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
