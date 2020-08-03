@@ -100,6 +100,8 @@
     <string name="transfer">Перевести</string>
     <!--    Accounts-->
     <string name="accounts_title">Счета и карты</string>
+    <string name="accounts">Счета</string>
+    <string name="cards">Карты</string>
     <string name="daily_withdrawal">Ежедневный вывод</string>
     <string name="instant_withdrawal">Моментальный вывод</string>
     <string name="add_account">Добавить счет</string>
@@ -123,7 +125,9 @@
     <string name="enter_full_card_number">Введите 16-значный номер</string>
     <string name="card_added">Карта добавлена</string>
     <string name="new_card_message">Для перевода средств достаточно ввести только номер вашей карты</string>
+    <string name="add_card_message">Добавить новую карту возможно по звонку диспетчеру.</string>
     <string name="order_format">Р/с %s</string>
+    <string name="accounts_message">Вы можете добавить свой счет, куда будут переводиться средства. Счет действует только на ежедневный перевод.</string>
     <string name="daily_withdrawal_dialog_message">Вывод на любую карту. За вывод 1%. Перевод происходит один раз в день. Только в будни! В Субботу , воскресенье и официальные праздничные дни переводов нет!
     Заявки на вывод, которые были оставлены в приложении до 12:00 дня, будут обработаны этим же днём. Поступление денежных средств происходит ближе к 18:00 вечера. В очень редких случаях до 20:00 вечера.
     Напоминаем, что обязательный остаток в программе 500 рублей. Выводить средства можно от 1000 рублей.

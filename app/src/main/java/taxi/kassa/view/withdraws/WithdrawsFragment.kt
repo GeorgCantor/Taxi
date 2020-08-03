@@ -11,7 +11,6 @@ import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.empty_withdraws_screen.*
 import kotlinx.android.synthetic.main.fragment_withdraws.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
-import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.util.*
 import taxi.kassa.util.Constants.NOT_FROM_PUSH
@@ -92,7 +91,7 @@ class WithdrawsFragment : Fragment() {
         notification_count_empty.setOnClickListener { goToNotifications() }
 
         add_account_button.setOnClickListener {
-            findNavController(this).navigate(R.id.action_withdrawsFragment_to_accountsFragment)
+            findNavController(this).navigate(R.id.action_withdrawsFragment_to_accountsCardsFragment)
         }
     }
 

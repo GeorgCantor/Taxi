@@ -66,7 +66,7 @@ class DailyWithdrawFragment : Fragment() {
         }
 
         add_account_background.setOnClickListener {
-            findNavController(this).navigate(R.id.action_dailyWithdrawFragment_to_accountsFragment)
+            findNavController(this).navigate(R.id.action_dailyWithdrawFragment_to_accountsCardsFragment)
         }
 
         next_button.setOnClickListener {

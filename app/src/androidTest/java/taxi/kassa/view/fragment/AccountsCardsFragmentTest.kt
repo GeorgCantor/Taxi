@@ -23,7 +23,7 @@ import taxi.kassa.util.Constants.VISA
 import taxi.kassa.view.MainActivity
 
 @RunWith(AndroidJUnit4ClassRunner::class)
-class AccountsFragmentTest : BaseAndroidTest() {
+class AccountsCardsFragmentTest : BaseAndroidTest() {
 
     companion object {
         private const val INCORRECT_VALUES_ERROR = "Одно или несколько значений указаны неверно"

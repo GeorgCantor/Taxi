@@ -14,7 +14,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_profile.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
-import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.util.*
 import taxi.kassa.util.Constants.MESSAGES_COUNTER
@@ -111,7 +110,7 @@ class ProfileFragment : Fragment() {
             }
 
             accounts_and_cards_view.setOnClickListener {
-                navigate(R.id.action_profileFragment_to_accountsFragment)
+                navigate(R.id.action_profileFragment_to_accountsCardsFragment)
             }
 
             support_service_view.setOnClickListener {

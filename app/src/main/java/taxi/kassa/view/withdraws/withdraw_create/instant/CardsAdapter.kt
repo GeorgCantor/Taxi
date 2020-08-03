@@ -27,7 +27,9 @@ class CardsAdapter(
 
     override fun onBindViewHolder(holder: CardViewHolder, position: Int) {
         val card = cards[position]
-        val formattedNumber = "${card.number?.dropLast(12)} ${card.number?.substring(4,8)} ${card.number?.substring(8,10)}** ${card.number?.drop(12)}"
+        val formattedNumber = with(card.number ?: "") {
+            "${dropLast(12)} ${substring(4, 8)} ${substring(8, 10)}** ${drop(12)}"
+        }
 
         with(holder) {
             cardNumber.text = formattedNumber

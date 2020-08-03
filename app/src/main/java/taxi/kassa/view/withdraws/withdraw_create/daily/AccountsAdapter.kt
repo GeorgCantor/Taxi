@@ -14,6 +14,7 @@ import taxi.kassa.util.Constants.BINBANK
 import taxi.kassa.util.Constants.SBERBANK
 import taxi.kassa.util.Constants.TINKOFF
 import taxi.kassa.util.Constants.VTB_BANK
+import taxi.kassa.util.gone
 
 class AccountsAdapter(
     private val accounts: List<Account>,
@@ -41,6 +42,7 @@ class AccountsAdapter(
                 }
             )
             bankName.text = account.bankName
+            deleteIcon.gone()
             accountNumber.text = itemView.context.getString(R.string.order_format, account.accountNumber)
             name.text = account.driverName
 
@@ -51,6 +53,7 @@ class AccountsAdapter(
     class AccountsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val background: ImageView = view.account_background
         val bankIcon: ImageView = view.bank_icon
+        val deleteIcon: ImageView = view.delete_icon
         val bankName: TextView = view.bank_name_tv
         val accountNumber: TextView = view.account_number
         val name: TextView = view.name_tv
