@@ -1,4 +1,4 @@
-package taxi.kassa.view.accounts
+package taxi.kassa.view.accounts_cards
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
@@ -11,7 +11,7 @@ import taxi.kassa.model.Notification
 import taxi.kassa.repository.Repository
 import taxi.kassa.util.Constants.ERROR_504
 
-class AccountsViewModel(
+class AccountsCardsViewModel(
     app: Application,
     private val repository: Repository
 ) : AndroidViewModel(app) {

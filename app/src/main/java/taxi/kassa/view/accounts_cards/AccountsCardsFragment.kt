@@ -1,4 +1,4 @@
-package taxi.kassa.view.accounts
+package taxi.kassa.view.accounts_cards
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -15,7 +15,7 @@ import taxi.kassa.util.Constants.PUSH_COUNTER
 
 class AccountsCardsFragment : Fragment() {
 
-    private lateinit var viewModel: AccountsViewModel
+    private lateinit var viewModel: AccountsCardsViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -147,14 +147,14 @@ class AccountsCardsFragment : Fragment() {
 
         notification_image.setOnClickListener {
             findNavController(this).navigate(
-                R.id.action_accountsFragment_to_notificationsFragment,
+                R.id.action_accountsCardsFragment_to_notificationsFragment,
                 Bundle().apply { putString(NOT_FROM_PUSH, NOT_FROM_PUSH) }
             )
         }
 
         notification_count.setOnClickListener {
             findNavController(this).navigate(
-                R.id.action_accountsFragment_to_notificationsFragment,
+                R.id.action_accountsCardsFragment_to_notificationsFragment,
                 Bundle().apply { putString(NOT_FROM_PUSH, NOT_FROM_PUSH) }
             )
         }

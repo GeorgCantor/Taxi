@@ -283,11 +283,11 @@
 
     <fragment
         android:id="@+id/accountsCardsFragment"
-        android:name="taxi.kassa.view.accounts.AccountsCardsFragment"
-        android:label="AccountsFragment"
+        android:name="taxi.kassa.view.accounts_cards.AccountsCardsFragment"
+        android:label="AccountsCardsFragment"
         tools:layout="@layout/fragment_accounts">
         <action
-            android:id="@+id/action_accountsFragment_to_notificationsFragment"
+            android:id="@+id/action_accountsCardsFragment_to_notificationsFragment"
             app:destination="@id/notificationsFragment"
             app:popEnterAnim="@anim/slide_in_top"
             app:popExitAnim="@anim/slide_out_top" />
