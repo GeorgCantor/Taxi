@@ -197,7 +197,7 @@ class DailyWithdrawFragment : Fragment() {
         )
 
         keyboardPairs.map {
-            setNumberClickListener(it.first, it.second)
+            sum_edit_text.setNumberClickListener(it.first, it.second)
         }
 
         erase_btn.setOnClickListener {
@@ -209,12 +209,6 @@ class DailyWithdrawFragment : Fragment() {
         }
 
         apply_btn.setOnClickListener { sendRequest() }
-    }
-
-    private fun setNumberClickListener(button: Button, resource: Int) {
-        button.setOnClickListener {
-            sum_edit_text.text?.insert(sum_edit_text.selectionStart, getString(resource))
-        }
     }
 
     private fun sendRequest() {

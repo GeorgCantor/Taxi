@@ -18,13 +18,12 @@ class InstantWithdrawViewModel(
     private val repository: Repository
 ) : AndroidViewModel(app) {
 
-    private val accountId = MutableLiveData<Int>()
-
     val isProgressVisible = MutableLiveData<Boolean>().apply { this.value = true }
     val responseOwner = MutableLiveData<ResponseOwner>()
+    val cards = MutableLiveData<List<Card>>()
+    val creatingStatus = MutableLiveData<String>()
     val error = MutableLiveData<String>()
     val notifications = MutableLiveData<MutableList<Notification>>()
-    val cards = MutableLiveData<List<Card>>()
 
     private val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
         when (throwable.message) {
@@ -49,6 +48,18 @@ class InstantWithdrawViewModel(
             responseOwner.postValue(response?.response)
             error.postValue(response?.errorMsg)
             isProgressVisible.postValue(false)
+        }
+    }
+
+    fun createWithdraw(sourceId: Int, amount: String?, cardId: Int) {
+        isProgressVisible.value = true
+
+        viewModelScope.launch(exceptionHandler) {
+            val response = repository.createWithdraw(sourceId, amount, cardId)
+            creatingStatus.postValue(response?.response?.status)
+            error.postValue(response?.errorMsg)
+            isProgressVisible.postValue(false)
+            getOwnerData()
         }
     }
 }
