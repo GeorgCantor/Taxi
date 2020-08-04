@@ -59,12 +59,18 @@ class AccountsViewModel(
         lastName: String,
         middleName: String,
         accountNumber: String,
-        bankCode: String
+        bik: String
     ) {
         isProgressVisible.value = true
 
         viewModelScope.launch(exceptionHandler) {
-
+            val response = repository.createAccount(
+                firstName, lastName, middleName, accountNumber, bik
+            )
+            creatingStatus.postValue(response?.response?.status)
+            error.postValue(response?.errorMsg)
+            getAccounts()
+            isProgressVisible.postValue(false)
         }
     }
 }
