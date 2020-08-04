@@ -298,6 +298,13 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_accountsCardsFragment_to_cardsFragment"
+            app:destination="@id/cardsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 
     <fragment
@@ -307,6 +314,18 @@
         tools:layout="@layout/fragment_accounts">
         <action
             android:id="@+id/action_accountsFragment_to_notificationsFragment"
+            app:destination="@id/notificationsFragment"
+            app:popEnterAnim="@anim/slide_in_top"
+            app:popExitAnim="@anim/slide_out_top" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/cardsFragment"
+        android:name="taxi.kassa.view.accounts_cards.cards.CardsFragment"
+        android:label="CardsFragment"
+        tools:layout="@layout/fragment_accounts">
+        <action
+            android:id="@+id/action_cardsFragment_to_notificationsFragment"
             app:destination="@id/notificationsFragment"
             app:popEnterAnim="@anim/slide_in_top"
             app:popExitAnim="@anim/slide_out_top" />
@@ -344,17 +363,17 @@
         android:label="DailyWithdrawFragment"
         tools:layout="@layout/fragment_daily_withdraw">
         <action
-            android:id="@+id/action_dailyWithdrawFragment_to_accountsCardsFragment"
-            app:destination="@id/accountsCardsFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
-        <action
             android:id="@+id/action_dailyWithdrawFragment_to_notificationsFragment"
             app:destination="@id/notificationsFragment"
             app:popEnterAnim="@anim/slide_in_top"
             app:popExitAnim="@anim/slide_out_top" />
+        <action
+            android:id="@+id/action_dailyWithdrawFragment_to_accountsFragment"
+            app:destination="@id/accountsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 
     <fragment

@@ -155,7 +155,7 @@
 
     <TextView
         android:id="@+id/add_card_message"
-        android:layout_width="296dp"
+        android:layout_width="286dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_32dp"
         android:layout_marginTop="12dp"

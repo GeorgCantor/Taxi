@@ -8,6 +8,7 @@ import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import androidx.activity.OnBackPressedCallback
 import androidx.core.view.get
 import androidx.core.view.isNotEmpty
 import androidx.fragment.app.Fragment
@@ -39,6 +40,13 @@ class AccountsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                back()
+            }
+        }
+        activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, callback)
 
         back_arrow.setOnClickListener { findNavController(this).popBackStack() }
 
@@ -213,6 +221,13 @@ class AccountsFragment : Fragment() {
             }
 
             focusedInput.text?.insert(focusedInput.selectionStart, getString(resource))
+        }
+    }
+
+    private fun back() {
+        when (keyboard.visibility) {
+            VISIBLE -> keyboard.gone()
+            GONE -> findNavController(this).popBackStack()
         }
     }
 }

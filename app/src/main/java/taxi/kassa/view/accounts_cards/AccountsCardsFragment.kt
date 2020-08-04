@@ -51,6 +51,10 @@ class AccountsCardsFragment : Fragment() {
             findNavController(this).navigate(R.id.action_accountsCardsFragment_to_accountsFragment)
         }
 
+        cards_background.setOnClickListener {
+            findNavController(this).navigate(R.id.action_accountsCardsFragment_to_cardsFragment)
+        }
+
         with(viewModel) {
             error.observe(viewLifecycleOwner) { context?.longToast(it) }
 
