@@ -11,7 +11,6 @@ import androidx.core.view.isNotEmpty
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_accounts.*
-import kotlinx.android.synthetic.main.item_account.view.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import taxi.kassa.R
 import taxi.kassa.util.*
@@ -53,7 +52,19 @@ class AccountsFragment : Fragment() {
             )
         }
 
+        add_account.setOnClickListener {
+            accounts_block.gone()
+            add_account_block.visible()
+        }
+
+        close_image.setOnClickListener {
+            add_account_block.gone()
+            accounts_block.visible()
+        }
+
         with(viewModel) {
+            getAccounts()
+
             isProgressVisible.observe(viewLifecycleOwner) { visible ->
                 progress_bar.visibility = if (visible) VISIBLE else GONE
             }
@@ -67,22 +78,15 @@ class AccountsFragment : Fragment() {
             accounts.observe(viewLifecycleOwner) {
                 accounts_recycler.setHasFixedSize(true)
                 it.info?.let {
-                    accounts_recycler.adapter = AccountsAdapter(it) { account, view ->
-                        val items = mutableListOf<View>()
-                        (0 until (accounts_recycler.adapter?.itemCount ?: 0)).map {
-                            items.add(accounts_recycler[it])
-                        }
-
-                        items.map {
-                            if (it == view) {
-                                it.account_background_outline.visible()
-                                it.account_background.invisible()
-                            } else {
-                                it.account_background_outline.invisible()
-                                it.account_background.visible()
-                            }
-                        }
-                    }
+                    accounts_recycler.adapter = AccountsAdapter(it, true, { _, _ ->
+                    }, { account ->
+                        context?.showTwoButtonsDialog(
+                            getString(R.string.delete_account),
+                            getString(R.string.delete_account_message),
+                            getString(R.string.no),
+                            getString(R.string.yes)
+                        ) { deleteAccount(account.id) }
+                    })
                 }
             }
 

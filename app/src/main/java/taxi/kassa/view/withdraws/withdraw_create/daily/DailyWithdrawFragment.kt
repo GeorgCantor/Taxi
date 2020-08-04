@@ -119,7 +119,7 @@ class DailyWithdrawFragment : Fragment() {
                     false -> {
                         accounts_block.visible()
                         accounts_recycler.setHasFixedSize(true)
-                        accounts_recycler.adapter = AccountsAdapter(it.info) { account, view ->
+                        accounts_recycler.adapter = AccountsAdapter(it.info, false, { account, view ->
                             setAccountId(account)
 
                             val items = mutableListOf<View>()
@@ -136,7 +136,8 @@ class DailyWithdrawFragment : Fragment() {
                                     it.account_background.visible()
                                 }
                             }
-                        }
+                        }, {
+                        })
                     }
                 }
             }

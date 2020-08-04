@@ -20,7 +20,7 @@ class AccountsViewModel(
     val isProgressVisible = MutableLiveData<Boolean>().apply { this.value = true }
     val accounts = MutableLiveData<AccountsList>()
     val creatingStatus = MutableLiveData<String>()
-    val deletingStatus = MutableLiveData<String>()
+    val deletionStatus = MutableLiveData<String>()
     val error = MutableLiveData<String>()
     val notifications = MutableLiveData<MutableList<Notification>>()
 
@@ -32,13 +32,39 @@ class AccountsViewModel(
         isProgressVisible.postValue(false)
     }
 
-    init {
+    fun getAccounts() {
         viewModelScope.launch(exceptionHandler) {
             val response = repository.getAccounts()
             accounts.postValue(response?.response)
             error.postValue(response?.errorMsg)
             isProgressVisible.postValue(false)
             notifications.postValue(repository.getNotificationsAsync().await())
+        }
+    }
+
+    fun deleteAccount(accountId: Int) {
+        isProgressVisible.value = true
+
+        viewModelScope.launch(exceptionHandler) {
+            val response = repository.deleteAccount(accountId)
+            deletionStatus.postValue(response?.response?.status)
+            error.postValue(response?.errorMsg)
+            getAccounts()
+            isProgressVisible.postValue(false)
+        }
+    }
+
+    fun createAccount(
+        firstName: String,
+        lastName: String,
+        middleName: String,
+        accountNumber: String,
+        bankCode: String
+    ) {
+        isProgressVisible.value = true
+
+        viewModelScope.launch(exceptionHandler) {
+
         }
     }
 }

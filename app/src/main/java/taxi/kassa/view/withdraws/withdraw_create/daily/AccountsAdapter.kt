@@ -2,6 +2,8 @@ package taxi.kassa.view.withdraws.withdraw_create.daily
 
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
@@ -14,11 +16,12 @@ import taxi.kassa.util.Constants.BINBANK
 import taxi.kassa.util.Constants.SBERBANK
 import taxi.kassa.util.Constants.TINKOFF
 import taxi.kassa.util.Constants.VTB_BANK
-import taxi.kassa.util.gone
 
 class AccountsAdapter(
     private val accounts: List<Account>,
-    private val clickListener: (Account, View) -> Unit
+    private val deleteVisible: Boolean,
+    private val clickListener: (Account, View) -> Unit,
+    private val deleteClickListener: (Account) -> Unit
 ) : RecyclerView.Adapter<AccountsAdapter.AccountsViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = AccountsViewHolder(
@@ -42,11 +45,12 @@ class AccountsAdapter(
                 }
             )
             bankName.text = account.bankName
-            deleteIcon.gone()
+            deleteIcon.visibility = if (deleteVisible) VISIBLE else GONE
             accountNumber.text = itemView.context.getString(R.string.order_format, account.accountNumber)
             name.text = account.driverName
 
             itemView.setOnClickListener { clickListener(account, itemView) }
+            deleteIcon.setOnClickListener { deleteClickListener(account) }
         }
     }
 
