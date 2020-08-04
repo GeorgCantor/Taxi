@@ -81,7 +81,7 @@ class DailyWithdrawFragment : Fragment() {
         sum_edit_text.setOnFocusChangeListener { _, hasFocus ->
             when (hasFocus) {
                 true -> {
-                    sum_input_view.error = getString(R.string.max_sum_hint)
+                    sum_input_view.error = getString(R.string.min_sum_hint)
                     keyboard.visible()
                 }
                 false -> keyboard.gone()

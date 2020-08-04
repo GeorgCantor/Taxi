@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import androidx.activity.OnBackPressedCallback
+import androidx.constraintlayout.widget.ConstraintSet.BOTTOM
+import androidx.constraintlayout.widget.ConstraintSet.TOP
 import androidx.core.view.get
 import androidx.core.view.isNotEmpty
 import androidx.fragment.app.Fragment
@@ -72,6 +74,37 @@ class AccountsFragment : Fragment() {
         close_image.setOnClickListener {
             add_account_block.gone()
             accounts_block.visible()
+        }
+
+        val fioEditTexts = listOf<EditText>(
+            surname_edit_text, name_edit_text, middle_name_edit_text
+        )
+
+        fioEditTexts.map {
+            it.setOnFocusChangeListener { _, hasFocus ->
+                when (hasFocus) {
+                    true -> {
+                        changeConstraint(
+                            parent_layout,
+                            R.id.scroll_view,
+                            TOP,
+                            R.id.parent_layout,
+                            TOP,
+                            0
+                        )
+                    }
+                    false -> {
+                        changeConstraint(
+                            parent_layout,
+                            R.id.scroll_view,
+                            TOP,
+                            R.id.accounts_cards_title,
+                            BOTTOM,
+                            0
+                        )
+                    }
+                }
+            }
         }
 
         val editTexts = listOf<EditText>(

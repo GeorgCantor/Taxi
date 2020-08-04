@@ -93,7 +93,7 @@
     <string name="select_account">Выберите счёт</string>
     <string name="daily_withdraw_hint">Для совершения операции вам необходимо добавить информацию о счете, куда будут зачислены средства</string>
     <string name="withdraw_hint">Перевод будет осуществлен со счета:</string>
-    <string name="max_sum_hint">Максимальная сумма 1000₽</string>
+    <string name="min_sum_hint">Минимальная сумма 1000₽</string>
     <string name="call_to_dispatcher">Позвонить диспетчеру</string>
     <string name="call_to_dispatcher_message">Для совершения операции вам необходимо позвонить диспетчеру и он внесет информацию о вашей карте, куда будут зачислены средства</string>
     <string name="select_card">Выберите карту</string>
