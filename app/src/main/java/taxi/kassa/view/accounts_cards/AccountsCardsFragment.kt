@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
-import kotlinx.android.synthetic.main.fragment_accounts.*
+import kotlinx.android.synthetic.main.fragment_accounts_cards.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import taxi.kassa.R
 import taxi.kassa.util.*
@@ -26,10 +26,30 @@ class AccountsCardsFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = container?.inflate(R.layout.fragment_accounts)
+    ): View? = container?.inflate(R.layout.fragment_accounts_cards)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        back_arrow.setOnClickListener { findNavController(this).popBackStack() }
+
+        notification_image.setOnClickListener {
+            findNavController(this).navigate(
+                R.id.action_accountsCardsFragment_to_notificationsFragment,
+                Bundle().apply { putString(NOT_FROM_PUSH, NOT_FROM_PUSH) }
+            )
+        }
+
+        notification_count.setOnClickListener {
+            findNavController(this).navigate(
+                R.id.action_accountsCardsFragment_to_notificationsFragment,
+                Bundle().apply { putString(NOT_FROM_PUSH, NOT_FROM_PUSH) }
+            )
+        }
+
+        accounts_background.setOnClickListener {
+            findNavController(this).navigate(R.id.action_accountsCardsFragment_to_accountsFragment)
+        }
 
         with(viewModel) {
             error.observe(viewLifecycleOwner) { context?.longToast(it) }
@@ -144,22 +164,6 @@ class AccountsCardsFragment : Fragment() {
 //            )
 //            close_image.performClick()
 //        }
-
-        notification_image.setOnClickListener {
-            findNavController(this).navigate(
-                R.id.action_accountsCardsFragment_to_notificationsFragment,
-                Bundle().apply { putString(NOT_FROM_PUSH, NOT_FROM_PUSH) }
-            )
-        }
-
-        notification_count.setOnClickListener {
-            findNavController(this).navigate(
-                R.id.action_accountsCardsFragment_to_notificationsFragment,
-                Bundle().apply { putString(NOT_FROM_PUSH, NOT_FROM_PUSH) }
-            )
-        }
-
-        back_arrow.setOnClickListener { findNavController(this).popBackStack() }
 
 //        delete_icon.setOnClickListener {
 //            context?.showTwoButtonsDialog(

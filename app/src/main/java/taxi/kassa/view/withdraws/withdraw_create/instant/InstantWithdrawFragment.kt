@@ -17,7 +17,7 @@ import androidx.core.view.isNotEmpty
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_instant_withdraw.*
-import kotlinx.android.synthetic.main.item_cardd.view.*
+import kotlinx.android.synthetic.main.item_card.view.*
 import kotlinx.android.synthetic.main.keyboard.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import taxi.kassa.R
@@ -26,13 +26,14 @@ import taxi.kassa.util.Constants.CITYMOBIL
 import taxi.kassa.util.Constants.GETT
 import taxi.kassa.util.Constants.NOT_FROM_PUSH
 import taxi.kassa.util.Constants.PUSH_COUNTER
+import taxi.kassa.util.Constants.TAXI
 import taxi.kassa.util.Constants.YANDEX
 
 class InstantWithdrawFragment : Fragment() {
 
     private lateinit var viewModel: InstantWithdrawViewModel
 
-    private val taxiType: String by lazy { arguments?.get(Constants.TAXI) as String }
+    private val taxiType: String by lazy { arguments?.get(TAXI) as String }
     private var sourceId = 1
     private var cardId = 1
 

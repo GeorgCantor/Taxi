@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:fontFamily="sans-serif-medium"
-        android:text="@string/accounts_title"
+        android:text="@string/accounts_and_cards"
         android:textColor="@color/balance_fuel_gray"
         android:textSize="@dimen/text_20sp"
         app:layout_constraintBottom_toBottomOf="@+id/back_arrow"
@@ -60,120 +60,65 @@
 
     <!--  =========  -->
 
-    <ImageView
-        android:id="@+id/accounts_background"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/accounts_block"
         android:layout_width="match_parent"
-        android:layout_height="184dp"
-        android:layout_marginStart="@dimen/margin_18dp"
-        android:layout_marginTop="@dimen/margin_32dp"
-        android:layout_marginEnd="@dimen/margin_18dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:src="@drawable/bg_withdraw_gradient"
+        android:layout_height="match_parent"
+        android:layout_marginTop="76dp">
+
+        <TextView
+            android:id="@+id/accounts_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:text="@string/accounts"
+            android:textColor="@color/gray_intro_text"
+            android:textSize="@dimen/text_24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/accounts_block" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/accounts_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/margin_8dp"
+            android:layout_marginTop="@dimen/margin_32dp"
+            android:layout_marginEnd="@dimen/margin_8dp"
+            android:layout_marginBottom="@dimen/margin_16dp"
+            android:nestedScrollingEnabled="false"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/accounts_title"
+            tools:itemCount="2"
+            tools:listitem="@layout/item_account" />
+
+        <TextView
+            android:id="@+id/add_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="28dp"
+            android:drawableStart="@drawable/ic_plus_yellow"
+            android:drawablePadding="14dp"
+            android:padding="20dp"
+            android:text="@string/add_account"
+            android:textColor="@color/yellow_color"
+            android:textSize="@dimen/text_16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/accounts_recycler" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/accounts_cards_title" />
-
-    <TextView
-        android:id="@+id/accounts_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_32dp"
-        android:text="@string/accounts"
-        android:textColor="@color/gray_intro_text"
-        android:textSize="@dimen/text_24sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/accounts_background"
-        app:layout_constraintTop_toTopOf="@+id/accounts_background" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/margin_24dp"
-        android:src="@drawable/ic_chevron_right_white"
-        app:layout_constraintBottom_toBottomOf="@+id/accounts_title"
-        app:layout_constraintEnd_toEndOf="@+id/accounts_background"
-        app:layout_constraintTop_toTopOf="@+id/accounts_title" />
-
-    <TextView
-        android:id="@+id/accounts_message"
-        android:layout_width="296dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_32dp"
-        android:layout_marginTop="12dp"
-        android:text="@string/accounts_message"
-        android:textColor="@color/accounts_dialog_gray"
-        android:textSize="@dimen/text_14sp"
-        app:layout_constraintStart_toStartOf="@id/accounts_background"
-        app:layout_constraintTop_toBottomOf="@id/accounts_title" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_32dp"
-        android:layout_marginTop="12dp"
-        android:text="@string/continue_hint"
-        android:textColor="@color/blue_color"
-        android:textSize="@dimen/text_14sp"
-        app:layout_constraintStart_toStartOf="@id/accounts_background"
-        app:layout_constraintTop_toBottomOf="@+id/accounts_message" />
-
-    <!--  =========  -->
-
-    <ImageView
-        android:id="@+id/cards_background"
-        android:layout_width="match_parent"
-        android:layout_height="184dp"
-        android:layout_margin="@dimen/margin_18dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:src="@drawable/bg_withdraw_gradient"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/accounts_background" />
-
-    <TextView
-        android:id="@+id/cards_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_32dp"
-        android:text="@string/cards"
-        android:textColor="@color/gray_intro_text"
-        android:textSize="@dimen/text_24sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/cards_background"
-        app:layout_constraintTop_toTopOf="@+id/cards_background" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/margin_24dp"
-        android:src="@drawable/ic_chevron_right_white"
-        app:layout_constraintBottom_toBottomOf="@+id/cards_title"
-        app:layout_constraintEnd_toEndOf="@+id/cards_background"
-        app:layout_constraintTop_toTopOf="@+id/cards_title" />
-
-    <TextView
-        android:id="@+id/add_card_message"
-        android:layout_width="296dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_32dp"
-        android:layout_marginTop="12dp"
-        android:text="@string/add_card_message"
-        android:textColor="@color/accounts_dialog_gray"
-        android:textSize="@dimen/text_14sp"
-        app:layout_constraintStart_toStartOf="@id/cards_background"
-        app:layout_constraintTop_toBottomOf="@id/cards_title" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_32dp"
-        android:text="@string/continue_hint"
-        android:textColor="@color/blue_color"
-        android:textSize="@dimen/text_14sp"
-        app:layout_constraintBottom_toBottomOf="@id/cards_background"
-        app:layout_constraintStart_toStartOf="@id/cards_background"
-        app:layout_constraintTop_toBottomOf="@+id/add_card_message" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,7 +12,7 @@ import androidx.test.espresso.matcher.ViewMatchers
 import org.hamcrest.Matcher
 import org.mockito.Mockito.`when`
 import org.mockito.Mockito.mock
-import taxi.kassa.util.Constants
+import taxi.kassa.util.Constants.TOKEN
 import taxi.kassa.util.PreferenceManager
 import taxi.kassa.util.isNetworkAvailable
 
@@ -23,7 +23,7 @@ open class BaseAndroidTest {
     val preferenceManager = PreferenceManager(getContext())
 
     protected fun isUserLoggedIn(): Boolean {
-        val token = preferenceManager.getString(Constants.TOKEN) ?: ""
+        val token = preferenceManager.getString(TOKEN) ?: ""
 
         return token.isNotEmpty()
     }

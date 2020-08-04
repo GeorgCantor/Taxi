@@ -11,7 +11,7 @@ import androidx.test.espresso.matcher.RootMatchers.withDecorView
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
-import kotlinx.android.synthetic.main.fragment_accounts.*
+import kotlinx.android.synthetic.main.fragment_accounts_cards.*
 import org.hamcrest.Matchers.not
 import org.junit.Rule
 import org.junit.Test

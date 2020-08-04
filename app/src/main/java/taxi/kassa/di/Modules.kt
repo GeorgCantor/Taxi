@@ -8,6 +8,7 @@ import taxi.kassa.repository.Repository
 import taxi.kassa.util.PreferenceManager
 import taxi.kassa.view.MainViewModel
 import taxi.kassa.view.accounts_cards.AccountsCardsViewModel
+import taxi.kassa.view.accounts_cards.accounts.AccountsViewModel
 import taxi.kassa.view.auth.auth_code.AuthCodeViewModel
 import taxi.kassa.view.auth.auth_phone.AuthPhoneViewModel
 import taxi.kassa.view.auth.auth_sign_up.AuthSignUpViewModel
@@ -66,6 +67,9 @@ val viewModelModule = module(override = true) {
     }
     viewModel {
         AccountsCardsViewModel(androidApplication(), get())
+    }
+    viewModel {
+        AccountsViewModel(androidApplication(), get())
     }
     viewModel {
         WithdrawCreateViewModel(androidApplication(), get())

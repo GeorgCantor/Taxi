@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.item_cardd.view.*
+import kotlinx.android.synthetic.main.item_card.view.*
 import taxi.kassa.R
 import taxi.kassa.model.responses.Card
 import taxi.kassa.util.Constants.MASTERCARD
@@ -20,7 +20,7 @@ class CardsAdapter(
 ) : RecyclerView.Adapter<CardsAdapter.CardViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = CardViewHolder(
-        LayoutInflater.from(parent.context).inflate(R.layout.item_cardd, parent, false)
+        LayoutInflater.from(parent.context).inflate(R.layout.item_card, parent, false)
     )
 
     override fun getItemCount() = cards.size
