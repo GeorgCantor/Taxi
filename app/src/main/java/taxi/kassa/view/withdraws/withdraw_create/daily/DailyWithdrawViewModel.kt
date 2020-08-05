@@ -23,7 +23,7 @@ class DailyWithdrawViewModel(
 
     val isProgressVisible = MutableLiveData<Boolean>().apply { this.value = true }
     val accounts = MutableLiveData<AccountsList>()
-    val creatingStatus = MutableLiveData<String>()
+    val showSuccessScreen = MutableLiveData<Boolean>()
     val responseOwner = MutableLiveData<ResponseOwner>()
     val error = MutableLiveData<String>()
     val notifications = MutableLiveData<MutableList<Notification>>()
@@ -69,7 +69,7 @@ class DailyWithdrawViewModel(
         viewModelScope.launch(exceptionHandler) {
             accountId.value?.let { id ->
                 val response = repository.createWithdraw(sourceId, amount, id)
-                creatingStatus.postValue(response?.response?.status)
+                showSuccessScreen.postValue(response?.success)
                 error.postValue(response?.errorMsg)
                 isProgressVisible.postValue(false)
             }

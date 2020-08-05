@@ -374,6 +374,14 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_dailyWithdrawFragment_to_profileFragment"
+            app:destination="@id/profileFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"
+            app:popUpTo="@id/nav_graph" />
     </fragment>
 
     <fragment
@@ -386,6 +394,14 @@
             app:destination="@id/notificationsFragment"
             app:popEnterAnim="@anim/slide_in_top"
             app:popExitAnim="@anim/slide_out_top" />
+        <action
+            android:id="@+id/action_instantWithdrawFragment_to_profileFragment"
+            app:destination="@id/profileFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"
+            app:popUpTo="@id/nav_graph" />
     </fragment>
 
     <fragment

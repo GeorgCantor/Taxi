@@ -22,7 +22,7 @@ class SuccessFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        back_arrow.setOnClickListener { activity?.onBackPressed() }
+        back_arrow_success.setOnClickListener { activity?.onBackPressed() }
 
         back_to_main_button.setOnClickListener {
             activity?.finish()

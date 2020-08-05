@@ -21,7 +21,7 @@ class InstantWithdrawViewModel(
     val isProgressVisible = MutableLiveData<Boolean>().apply { this.value = true }
     val responseOwner = MutableLiveData<ResponseOwner>()
     val cards = MutableLiveData<List<Card>>()
-    val creatingStatus = MutableLiveData<String>()
+    val showSuccessScreen = MutableLiveData<Boolean>()
     val error = MutableLiveData<String>()
     val notifications = MutableLiveData<MutableList<Notification>>()
 
@@ -56,7 +56,7 @@ class InstantWithdrawViewModel(
 
         viewModelScope.launch(exceptionHandler) {
             val response = repository.createWithdraw(sourceId, amount, cardId)
-            creatingStatus.postValue(response?.response?.status)
+            showSuccessScreen.postValue(response?.success)
             error.postValue(response?.errorMsg)
             isProgressVisible.postValue(false)
             getOwnerData()

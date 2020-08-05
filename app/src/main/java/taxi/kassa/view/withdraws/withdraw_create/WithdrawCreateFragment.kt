@@ -64,6 +64,22 @@ class WithdrawCreateFragment : Fragment() {
             )
         }
 
+        daily_what_is_it.setOnClickListener {
+            context?.showOneButtonDialog(
+                getString(R.string.daily_withdrawal),
+                getString(R.string.daily_withdrawal_dialog_message),
+                false
+            )
+        }
+
+        instant_what_is_it.setOnClickListener {
+            context?.showOneButtonDialog(
+                getString(R.string.instant_withdrawal),
+                getString(R.string.instant_withdrawal_dialog_message),
+                false
+            )
+        }
+
         viewModel.notifications.observe(viewLifecycleOwner) {
             val oldPushesSize = PreferenceManager(requireContext()).getInt(PUSH_COUNTER)
             oldPushesSize?.let { oldSize ->

@@ -16,6 +16,7 @@ import androidx.core.view.isNotEmpty
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_daily_withdraw.*
+import kotlinx.android.synthetic.main.fragment_success.*
 import kotlinx.android.synthetic.main.item_account.view.*
 import kotlinx.android.synthetic.main.keyboard.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
@@ -109,8 +110,17 @@ class DailyWithdrawFragment : Fragment() {
 
             error.observe(viewLifecycleOwner) { context?.longToast(it) }
 
-            creatingStatus.observe(viewLifecycleOwner) { status ->
-                status?.let { context?.longToast(it) }
+            showSuccessScreen.observe(viewLifecycleOwner) { show ->
+                if (show) {
+                    success_layout.visible()
+                    success_title.text = getString(R.string.thanks_request_accepted)
+                    success_message.gone()
+                    back_arrow_success.setOnClickListener { activity?.onBackPressed() }
+                    back_to_main_button.setOnClickListener {
+                        findNavController(this@DailyWithdrawFragment).navigate(R.id.action_dailyWithdrawFragment_to_profileFragment)
+                    }
+                    back_button.setOnClickListener { activity?.onBackPressed() }
+                }
             }
 
             accounts.observe(viewLifecycleOwner) {
