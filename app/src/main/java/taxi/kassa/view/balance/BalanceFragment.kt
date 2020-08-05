@@ -46,6 +46,8 @@ class BalanceFragment : Fragment() {
         activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, callback)
 
         with(viewModel) {
+            getUserData()
+
             isNetworkAvailable.observe(viewLifecycleOwner) { available ->
                 if (!available) context?.longToast(getString(R.string.internet_unavailable))
             }
@@ -54,7 +56,10 @@ class BalanceFragment : Fragment() {
                 progress_bar.visibility = if (visible) VISIBLE else GONE
             }
 
-            error.observe(viewLifecycleOwner) { context?.longToast(it) }
+            error.observe(viewLifecycleOwner) {
+                context?.longToast(it)
+                refresh_layout.isRefreshing = false
+            }
 
             responseOwner.observe(viewLifecycleOwner) { response ->
                 response?.let {
@@ -77,6 +82,7 @@ class BalanceFragment : Fragment() {
                     withdraw_citymobil_tv.isEnabled = it.balanceCity.toFloat() > 0.0F
                     withdraw_gett_tv.isEnabled = it.balanceGett.toFloat() > 0.0F
                 }
+                refresh_layout.isRefreshing = false
             }
 
             notifications.observe(viewLifecycleOwner) {
@@ -92,6 +98,8 @@ class BalanceFragment : Fragment() {
                     }
                 }
             }
+
+            refresh_layout.setOnRefreshListener { getUserData() }
         }
 
         val bundle = Bundle()

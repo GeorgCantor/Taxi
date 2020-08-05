@@ -72,11 +72,8 @@ import kotlin.math.pow
 import kotlin.math.roundToInt
 import kotlin.math.sqrt
 
-fun Context.isNetworkAvailable(): Boolean {
-    val manager = getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager?
-
-    return manager?.activeNetworkInfo?.isConnectedOrConnecting ?: false
-}
+fun Context.isNetworkAvailable() = (getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager?)
+    ?.activeNetworkInfo?.isConnectedOrConnecting ?: false
 
 fun Context.shortToast(message: String) = makeText(this, message, LENGTH_SHORT).show()
 

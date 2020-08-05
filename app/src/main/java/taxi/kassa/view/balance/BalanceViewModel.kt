@@ -35,7 +35,7 @@ class BalanceViewModel(
         isProgressVisible.postValue(false)
     }
 
-    init {
+    fun getUserData() {
         viewModelScope.launch(exceptionHandler) {
             repository.getOwner()?.apply {
                 responseOwner.postValue(response)
