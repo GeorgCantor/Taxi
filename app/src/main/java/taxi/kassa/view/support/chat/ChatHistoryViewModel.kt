@@ -34,12 +34,6 @@ class ChatHistoryViewModel(
         isProgressVisible.postValue(false)
     }
 
-    init {
-        viewModelScope.launch(exceptionHandler) {
-            repository.allMessagesRead()
-        }
-    }
-
     fun getMessages(offset: String) {
         viewModelScope.launch(exceptionHandler) {
             val response = repository.getChatHistory(offset)

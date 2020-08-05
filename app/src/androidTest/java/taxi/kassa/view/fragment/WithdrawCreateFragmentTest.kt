@@ -1,17 +1,10 @@
 package taxi.kassa.view.fragment
 
 import android.app.Activity
-import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions.click
-import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
-import kotlinx.android.synthetic.main.fragment_balance.*
 import org.junit.Rule
-import org.junit.Test
 import org.junit.runner.RunWith
-import taxi.kassa.R
 import taxi.kassa.base.BaseAndroidTest
 import taxi.kassa.view.MainActivity
 
@@ -30,15 +23,15 @@ class WithdrawCreateFragmentTest : BaseAndroidTest() {
         return activity
     }
 
-    @Test
-    fun open_withdraw_from_yandex() {
-        if (isUserLoggedIn() && isNetworkAvailable()) {
-            onView(withId(R.id.balance_view)).perform(click())
-            if (getActivity()?.withdraw_yandex_tv?.isEnabled == true) {
-                onView(withId(R.id.withdraw_yandex_tv)).perform(click())
-                onView(withId(R.id.withdraw_create_root_layout)).check(matches(isDisplayed()))
-                onView(withId(R.id.taxi_name)).check(matches(withText(R.string.yandex_title)))
-            }
-        }
-    }
+//    @Test
+//    fun open_withdraw_from_yandex() {
+//        if (isUserLoggedIn() && isNetworkAvailable()) {
+//            onView(withId(R.id.balance_view)).perform(click())
+//            if (getActivity()?.withdraw_yandex_tv?.isEnabled == true) {
+//                onView(withId(R.id.withdraw_yandex_tv)).perform(click())
+//                onView(withId(R.id.withdraw_create_root_layout)).check(matches(isDisplayed()))
+//                onView(withId(R.id.taxi_name)).check(matches(withText(R.string.yandex_title)))
+//            }
+//        }
+//    }
 }
