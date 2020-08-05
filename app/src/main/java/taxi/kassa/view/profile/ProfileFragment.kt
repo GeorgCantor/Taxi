@@ -45,6 +45,8 @@ class ProfileFragment : Fragment() {
         setLogoutButtonConstraint()
 
         with(viewModel) {
+            getUserData()
+
             isNetworkAvailable.observe(viewLifecycleOwner) { available ->
                 if (!available) context?.longToast(getString(R.string.internet_unavailable))
             }
@@ -53,7 +55,10 @@ class ProfileFragment : Fragment() {
                 progress_bar.visibility = if (visible) VISIBLE else GONE
             }
 
-            error.observe(viewLifecycleOwner) { context?.shortToast(it) }
+            error.observe(viewLifecycleOwner) {
+                context?.shortToast(it)
+                refresh_layout.isRefreshing = false
+            }
 
             responseOwner.observe(viewLifecycleOwner) { response ->
                 response?.let {
@@ -67,6 +72,7 @@ class ProfileFragment : Fragment() {
 
                     setBalanceChange(it.balanceTotal.toDouble().toInt())
                 }
+                refresh_layout.isRefreshing = false
             }
 
             notifications.observe(viewLifecycleOwner) {
@@ -94,6 +100,8 @@ class ProfileFragment : Fragment() {
                     message_counter.gone()
                 }
             }
+
+            refresh_layout.setOnRefreshListener { getUserData() }
         }
 
         with(findNavController(this)) {

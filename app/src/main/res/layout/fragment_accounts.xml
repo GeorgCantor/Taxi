@@ -80,7 +80,8 @@
                 android:id="@+id/accounts_block"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="36dp">
+                android:layout_marginTop="36dp"
+                tools:visibility="gone">
 
                 <TextView
                     android:id="@+id/accounts_title"
@@ -133,8 +134,8 @@
                 android:id="@+id/add_account_block"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="36dp"
-                android:visibility="gone">
+                android:visibility="gone"
+                tools:visibility="visible">
 
                 <ImageView
                     android:id="@+id/new_account_background"
