@@ -17,6 +17,7 @@ import androidx.core.view.isNotEmpty
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_fuel_replenish.*
+import kotlinx.android.synthetic.main.fragment_success.*
 import kotlinx.android.synthetic.main.item_taxi.view.*
 import kotlinx.android.synthetic.main.keyboard.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
@@ -66,6 +67,19 @@ class FuelReplenishFragment : Fragment() {
             }
 
             error.observe(viewLifecycleOwner) { context?.shortToast(it) }
+
+            showSuccessScreen.observe(viewLifecycleOwner) { show ->
+                if (show) {
+                    success_layout.visible()
+                    success_title.text = getString(R.string.fuel_replenish_success)
+                    success_message.gone()
+                    back_arrow_success.setOnClickListener { activity?.onBackPressed() }
+                    back_to_main_button.setOnClickListener {
+                        findNavController(this@FuelReplenishFragment).navigate(R.id.action_fuelReplenishFragment_to_profileFragment)
+                    }
+                    back_button.setOnClickListener { activity?.onBackPressed() }
+                }
+            }
 
             responseOwner.observe(viewLifecycleOwner) { response ->
                 response?.let {

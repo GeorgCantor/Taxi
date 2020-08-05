@@ -65,6 +65,7 @@
     <string name="balance_format">%s ₽</string>
     <string name="fuel_title">Топливо</string>
     <string name="fuel_replenish">Пополнение топлива</string>
+    <string name="fuel_replenish_success">Спасибо! \n Баланс топлива пополнен</string>
     <string name="choose_aggregator">Выберите агрегатор</string>
     <string name="enter_charge_amount">Введите сумму списания</string>
     <!--    Withdraws-->

@@ -25,6 +25,7 @@ class FuelReplenishViewModel(
     val isProgressVisible = MutableLiveData<Boolean>().apply { this.value = true }
     val isNetworkAvailable = MutableLiveData<Boolean>()
     val responseOwner = MutableLiveData<ResponseOwner>()
+    val showSuccessScreen = MutableLiveData<Boolean>()
     val error = MutableLiveData<String>()
     val notifications = MutableLiveData<MutableList<Notification>>()
     val newFuelBalance = MutableLiveData<String>()
@@ -57,6 +58,7 @@ class FuelReplenishViewModel(
         viewModelScope.launch(exceptionHandler) {
             repository.refillFuelBalance(selectedTaxi.value ?: YANDEX, amount)?.apply {
                 response?.newFuelBalance?.let { newFuelBalance.postValue(it.toString()) }
+                showSuccessScreen.postValue(success)
                 error.postValue(errorMsg)
             }
             isProgressVisible.postValue(false)
