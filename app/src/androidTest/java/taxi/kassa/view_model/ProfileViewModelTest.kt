@@ -15,7 +15,6 @@ import taxi.kassa.MyApplication
 import taxi.kassa.base.BaseAndroidTest
 import taxi.kassa.model.remote.ApiClient
 import taxi.kassa.repository.Repository
-import taxi.kassa.util.Constants.TOTAL_BALANCE
 import taxi.kassa.view.profile.ProfileViewModel
 
 @RunWith(AndroidJUnit4::class)
@@ -43,9 +42,9 @@ class ProfileViewModelTest : BaseAndroidTest() {
         })
     }
 
-    @Test
-    fun get_from_preferences() = runBlocking {
-        val balance = viewModel.getFromPrefs(TOTAL_BALANCE)
-        if (isUserLoggedIn() && isNetworkAvailable()) assertNotNull(balance)
-    }
+//    @Test
+//    fun get_from_preferences() = runBlocking {
+//        val balance = viewModel.getFromPrefs(TOTAL_BALANCE)
+//        if (isUserLoggedIn() && isNetworkAvailable()) assertNotNull(balance)
+//    }
 }

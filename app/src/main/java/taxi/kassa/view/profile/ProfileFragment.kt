@@ -21,7 +21,6 @@ import taxi.kassa.util.Constants.NOT_FROM_PUSH
 import taxi.kassa.util.Constants.PHONE
 import taxi.kassa.util.Constants.PUSH_COUNTER
 import taxi.kassa.util.Constants.TOKEN
-import taxi.kassa.util.Constants.TOTAL_BALANCE
 import taxi.kassa.view.MainActivity
 import java.util.*
 
@@ -69,8 +68,6 @@ class ProfileFragment : Fragment() {
                     ).replaceFirst(" ", "(").replace(" ", ")")
 
                     balance_tv.setFormattedText(R.string.balance_format, it.balanceTotal.toDouble())
-
-                    setBalanceChange(it.balanceTotal.toDouble().toInt())
                 }
                 refresh_layout.isRefreshing = false
             }
@@ -182,20 +179,6 @@ class ProfileFragment : Fragment() {
 
         activity?.finish()
         startActivity(Intent(requireActivity(), MainActivity::class.java))
-    }
-
-    private fun setBalanceChange(totalBalance: Int) {
-        val pastBalance = viewModel.getFromPrefs(TOTAL_BALANCE)
-        pastBalance?.let {
-            when (totalBalance > it) {
-                true -> {
-                    balance_counter.visible()
-                    balance_counter.text = getString(R.string.profile_format, (totalBalance - it).toString())
-                }
-                false -> balance_counter.gone()
-            }
-        }
-        viewModel.saveToPrefs(TOTAL_BALANCE, totalBalance)
     }
 
     private fun setLogoutButtonConstraint() {
