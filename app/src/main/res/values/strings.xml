@@ -106,6 +106,7 @@
     <string name="cards">Карты</string>
     <string name="daily_withdrawal">Ежедневный вывод</string>
     <string name="instant_withdrawal">Моментальный вывод</string>
+    <string name="account_added">Спасибо! \n Новый счёт добавлен</string>
     <string name="add_account">Добавить счет</string>
     <string name="add_card">Добавить карту</string>
     <string name="add_new_card">+ Добавить новую карту</string>

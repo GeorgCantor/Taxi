@@ -19,6 +19,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import com.google.android.material.textfield.TextInputEditText
 import kotlinx.android.synthetic.main.fragment_accounts.*
+import kotlinx.android.synthetic.main.fragment_success.*
 import kotlinx.android.synthetic.main.keyboard.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import taxi.kassa.R
@@ -161,11 +162,12 @@ class AccountsFragment : Fragment() {
 
             viewModel.createAccount(
                 name_edit_text.value,
-                middle_name_edit_text.value,
                 surname_edit_text.value,
+                middle_name_edit_text.value,
                 account_edit_text.value,
                 bik_edit_text.value
             )
+            keyboard.gone()
         }
 
         with(viewModel) {
@@ -177,7 +179,18 @@ class AccountsFragment : Fragment() {
 
             error.observe(viewLifecycleOwner) { context?.longToast(it) }
 
-            creatingStatus.observe(viewLifecycleOwner) { context?.longToast(it) }
+            showSuccessScreen.observe(viewLifecycleOwner) { show ->
+                if (show) {
+                    success_layout.visible()
+                    success_title.text = getString(R.string.account_added)
+                    success_message.gone()
+                    back_arrow_success.setOnClickListener { activity?.onBackPressed() }
+                    back_to_main_button.setOnClickListener {
+                        findNavController(this@AccountsFragment).navigate(R.id.action_accountsFragment_to_profileFragment)
+                    }
+                    back_button.setOnClickListener { activity?.onBackPressed() }
+                }
+            }
 
             deletionStatus.observe(viewLifecycleOwner) { context?.longToast(it) }
 

@@ -336,6 +336,15 @@
 
     </androidx.core.widget.NestedScrollView>
 
+    <include
+        android:id="@+id/success_layout"
+        layout="@layout/fragment_success"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ProgressBar
         android:id="@+id/progress_bar"
         android:layout_width="wrap_content"

@@ -34,28 +34,4 @@ class AccountsCardsViewModel(
             notifications.postValue(repository.getNotificationsAsync().await())
         }
     }
-
-//    fun deleteAccount() {
-//        isProgressVisible.value = true
-//
-//        viewModelScope.launch(exceptionHandler) {
-//            accounts.value?.info?.firstOrNull()?.id?.let {
-//                val response = repository.deleteAccount(it)
-//                deletionStatus.postValue(response?.response?.status)
-//                error.postValue(response?.errorMsg)
-//                isProgressVisible.postValue(false)
-//            }
-//        }
-//    }
-
-//    fun deleteCard(cardId: Int) {
-//        isProgressVisible.value = true
-//
-//        viewModelScope.launch(exceptionHandler) {
-//            val response = repository.deleteCard(cardId)
-//            deletionStatus.postValue(response?.response?.status)
-//            error.postValue(response?.errorMsg)
-//            isProgressVisible.postValue(false)
-//        }
-//    }
 }

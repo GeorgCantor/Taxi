@@ -19,7 +19,7 @@ class AccountsViewModel(
 
     val isProgressVisible = MutableLiveData<Boolean>().apply { this.value = true }
     val accounts = MutableLiveData<AccountsList>()
-    val creatingStatus = MutableLiveData<String>()
+    val showSuccessScreen = MutableLiveData<Boolean>()
     val deletionStatus = MutableLiveData<String>()
     val error = MutableLiveData<String>()
     val notifications = MutableLiveData<MutableList<Notification>>()
@@ -67,7 +67,7 @@ class AccountsViewModel(
             val response = repository.createAccount(
                 firstName, lastName, middleName, accountNumber, bik
             )
-            creatingStatus.postValue(response?.response?.status)
+            showSuccessScreen.postValue(response?.success)
             error.postValue(response?.errorMsg)
             getAccounts()
             isProgressVisible.postValue(false)
