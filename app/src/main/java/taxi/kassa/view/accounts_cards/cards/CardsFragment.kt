@@ -54,16 +54,22 @@ class CardsFragment : Fragment() {
         call_button.setOnClickListener { activity?.makeCall(this) }
 
         with(viewModel) {
+            getCardsData()
+
             isProgressVisible.observe(viewLifecycleOwner) { visible ->
                 progress_bar.visibility = if (visible) VISIBLE else GONE
             }
 
-            error.observe(viewLifecycleOwner) { context?.longToast(it) }
+            error.observe(viewLifecycleOwner) {
+                context?.longToast(it)
+                refresh_layout.isRefreshing = false
+            }
 
             cards.observe(viewLifecycleOwner) {
                 cards_recycler.setHasFixedSize(true)
                 cards_recycler.adapter = CardsAdapter(it) { _, _ ->
                 }
+                refresh_layout.isRefreshing = false
             }
 
             notifications.observe(viewLifecycleOwner) {
@@ -79,6 +85,8 @@ class CardsFragment : Fragment() {
                     }
                 }
             }
+
+            refresh_layout.setOnRefreshListener { getCardsData() }
         }
     }
 

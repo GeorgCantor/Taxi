@@ -30,7 +30,7 @@ class CardsViewModel(
         isProgressVisible.postValue(false)
     }
 
-    init {
+    fun getCardsData() {
         viewModelScope.launch(exceptionHandler) {
             val response = repository.getCards()
             cards.postValue(response?.response?.cards)
