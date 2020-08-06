@@ -1,6 +1,8 @@
 package taxi.kassa.view.accounts_cards.accounts
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
@@ -102,10 +104,48 @@ class AccountsFragment : Fragment() {
                             BOTTOM,
                             0
                         )
+
+                        it.setCompoundDrawablesWithIntrinsicBounds(
+                            0,
+                            0,
+                            if (it.text?.isNotBlank() == true) R.drawable.ic_check_green else 0,
+                            0
+                        )
                     }
                 }
             }
         }
+
+        account_edit_text.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(p0: Editable?) {
+            }
+
+            override fun beforeTextChanged(chars: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun onTextChanged(chars: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                when (chars?.length ?: 0 < 20) {
+                    true -> {
+                        account_input_view.error = getString(R.string.account_number_hint)
+                        account_edit_text.setCompoundDrawablesWithIntrinsicBounds(
+                            0,
+                            0,
+                            0,
+                            0
+                        )
+                    }
+                    false -> {
+                        account_input_view.error = null
+                        account_edit_text.setCompoundDrawablesWithIntrinsicBounds(
+                            0,
+                            0,
+                            R.drawable.ic_check_green,
+                            0
+                        )
+                    }
+                }
+            }
+        })
 
         val editTexts = listOf<EditText>(
             surname_edit_text, name_edit_text, account_edit_text, bik_edit_text
@@ -113,7 +153,7 @@ class AccountsFragment : Fragment() {
 
         add_account_button.setOnClickListener {
             editTexts.map {
-                if (it.isEmpty()) {
+                if (it.isEmpty() || account_edit_text.value.length < 20) {
                     context?.shortToast(getString(R.string.fill_all_fields))
                     return@setOnClickListener
                 }
@@ -126,7 +166,6 @@ class AccountsFragment : Fragment() {
                 account_edit_text.value,
                 bik_edit_text.value
             )
-            close_image.performClick()
         }
 
         with(viewModel) {
@@ -191,6 +230,14 @@ class AccountsFragment : Fragment() {
             setNumberClickListener(it.first, it.second)
         }
 
+        // to open the keyboard again
+        bik_edit_text.apply {
+            setOnClickListener {
+                clearFocus()
+                requestFocus()
+            }
+        }
+
         val numberInputs = listOf<TextInputEditText>(account_edit_text, bik_edit_text)
 
         numberInputs.map {
@@ -207,15 +254,15 @@ class AccountsFragment : Fragment() {
                     }
                 }
 
-                it.setCompoundDrawablesWithIntrinsicBounds(
-                    0,
-                    0,
-                    if (it.text?.isNotBlank() == true) R.drawable.ic_check_green else 0,
-                    0
-                )
+                if (it.id == R.id.bik_edit_text) {
+                    it.setCompoundDrawablesWithIntrinsicBounds(
+                        0,
+                        0,
+                        if (it.text?.isNotBlank() == true) R.drawable.ic_check_green else 0,
+                        0
+                    )
+                }
             }
-
-            it.setOnClickListener { if (keyboard.visibility == GONE) keyboard.visible() }
         }
 
         erase_btn.setOnClickListener {

@@ -124,7 +124,7 @@
     <string name="bik">БИК</string>
     <string name="fill_all_fields">Заполните все поля</string>
     <string name="enter_card_number">Введите номер карты</string>
-    <string name="enter_full_card_number">Введите 16-значный номер</string>
+    <string name="account_number_hint">Введите 20-значный номер</string>
     <string name="card_adding_hint">Добавление новой карты возможно только через звонок диспетчеру</string>
     <string name="card_added">Карта добавлена</string>
     <string name="new_card_message">Для перевода средств достаточно ввести только номер вашей карты</string>
