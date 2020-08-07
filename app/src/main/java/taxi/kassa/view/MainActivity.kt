@@ -77,6 +77,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+        // if a custom keyboard was opened before exiting, both can be opened
         runDelayed(100) { this.root_layout.hideKeyboard() }
     }
 }

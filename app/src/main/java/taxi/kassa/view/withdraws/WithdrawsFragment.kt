@@ -36,24 +36,28 @@ class WithdrawsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         with(viewModel) {
+            getWithdrawsData()
+
             isProgressVisible.observe(viewLifecycleOwner) { visible ->
                 progress_bar.visibility = if (visible) VISIBLE else GONE
             }
 
-            error.observe(viewLifecycleOwner) { context?.shortToast(it) }
+            error.observe(viewLifecycleOwner) {
+                context?.shortToast(it)
+                refresh_layout.isRefreshing = false
+            }
 
             withdraws.observe(viewLifecycleOwner) {
                 empty_withdraws.visibility = if (it.count ?: 0 > 0) GONE else VISIBLE
 
                 withdraws_recycler.adapter =
                     WithdrawsAdapter(it.info ?: mutableListOf()) { withdraw ->
-                        val bundle = Bundle()
-                        bundle.putParcelable(WITHDRAW, withdraw)
                         findNavController(this@WithdrawsFragment).navigate(
                             R.id.action_withdrawsFragment_to_withdrawFragment,
-                            bundle
+                            Bundle().apply { putParcelable(WITHDRAW, withdraw) }
                         )
                     }
+                refresh_layout.isRefreshing = false
             }
 
             notifications.observe(viewLifecycleOwner) {
@@ -74,6 +78,8 @@ class WithdrawsFragment : Fragment() {
                     }
                 }
             }
+
+            refresh_layout.setOnRefreshListener { getWithdrawsData() }
         }
 
         back_arrow.setOnClickListener { activity?.onBackPressed() }

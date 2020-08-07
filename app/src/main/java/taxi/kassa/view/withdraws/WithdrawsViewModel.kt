@@ -33,7 +33,7 @@ class WithdrawsViewModel(
         isProgressVisible.postValue(false)
     }
 
-    init {
+    fun getWithdrawsData() {
         viewModelScope.launch(exceptionHandler) {
             repository.getWithdraws()?.apply {
                 withdraws.postValue(response)
