@@ -25,5 +25,8 @@ class Account(
     val cardDate: String,
     @SerializedName("readonly")
     @Expose
-    val readOnly: Boolean
+    val readOnly: Boolean,
+    @SerializedName("auto_pay")
+    @Expose
+    val autoPay: String
 )

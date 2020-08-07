@@ -196,7 +196,7 @@ class AccountsFragment : Fragment() {
 
             accounts.observe(viewLifecycleOwner) {
                 accounts_recycler.setHasFixedSize(true)
-                it.info?.let {
+                it?.let {
                     accounts_recycler.adapter = AccountsAdapter(it, true, { _, _ ->
                     }, { account ->
                         context?.showTwoButtonsDialog(

@@ -8,7 +8,7 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 import taxi.kassa.R
 import taxi.kassa.model.Notification
-import taxi.kassa.model.responses.AccountsList
+import taxi.kassa.model.responses.Account
 import taxi.kassa.repository.Repository
 import taxi.kassa.util.Constants.ERROR_504
 
@@ -18,7 +18,7 @@ class AccountsViewModel(
 ) : AndroidViewModel(app) {
 
     val isProgressVisible = MutableLiveData<Boolean>().apply { this.value = true }
-    val accounts = MutableLiveData<AccountsList>()
+    val accounts = MutableLiveData<List<Account>>()
     val showSuccessScreen = MutableLiveData<Boolean>()
     val deletionStatus = MutableLiveData<String>()
     val error = MutableLiveData<String>()
@@ -35,7 +35,7 @@ class AccountsViewModel(
     fun getAccounts() {
         viewModelScope.launch(exceptionHandler) {
             val response = repository.getAccounts()
-            accounts.postValue(response?.response)
+            accounts.postValue(response?.response?.info?.filter { it.autoPay == "0" })
             error.postValue(response?.errorMsg)
             isProgressVisible.postValue(false)
             notifications.postValue(repository.getNotificationsAsync().await())
