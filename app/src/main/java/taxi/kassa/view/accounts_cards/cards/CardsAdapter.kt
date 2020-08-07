@@ -1,4 +1,4 @@
-package taxi.kassa.view.withdraws.withdraw_create.instant
+package taxi.kassa.view.accounts_cards.cards
 
 import android.view.LayoutInflater
 import android.view.View

@@ -15,7 +15,6 @@ import taxi.kassa.R
 import taxi.kassa.util.*
 import taxi.kassa.util.Constants.NOT_FROM_PUSH
 import taxi.kassa.util.Constants.PUSH_COUNTER
-import taxi.kassa.view.withdraws.withdraw_create.instant.CardsAdapter
 
 class CardsFragment : Fragment() {
 

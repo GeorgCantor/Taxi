@@ -29,6 +29,7 @@ import taxi.kassa.util.Constants.NOT_FROM_PUSH
 import taxi.kassa.util.Constants.PUSH_COUNTER
 import taxi.kassa.util.Constants.TAXI
 import taxi.kassa.util.Constants.YANDEX
+import taxi.kassa.view.accounts_cards.cards.CardsAdapter
 
 class InstantWithdrawFragment : Fragment() {
 

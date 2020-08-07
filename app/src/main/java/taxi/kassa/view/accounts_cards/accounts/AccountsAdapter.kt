@@ -1,4 +1,4 @@
-package taxi.kassa.view.withdraws.withdraw_create.daily
+package taxi.kassa.view.accounts_cards.accounts
 
 import android.view.LayoutInflater
 import android.view.View
