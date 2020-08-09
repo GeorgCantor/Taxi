@@ -4,6 +4,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.telephony.PhoneNumberUtils.formatNumber
+import android.transition.TransitionManager.beginDelayedTransition
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
@@ -136,25 +137,39 @@ class ProfileFragment : Fragment() {
         }
 
         phone_image.setOnClickListener {
-            context?.showTwoButtonsDialog(
-                getString(R.string.support_service),
-                getString(R.string.support_service_message),
-                getString(R.string.cancel),
-                getString(R.string.call)
-            ) {
-                requireActivity().makeCall(this)
+            beginDelayedTransition(parent_layout, it.getTransform(progress_bar))
+            runDelayed(200) {
+                context?.showTwoButtonsDialog(
+                    getString(R.string.support_service),
+                    getString(R.string.support_service_message),
+                    getString(R.string.cancel),
+                    getString(R.string.call),
+                    { view, rootLayout ->
+                        beginDelayedTransition(rootLayout, view.getTransform(phone_image))
+                        runDelayed(550) { phone_image.visible() }
+                    },
+                    { requireActivity().makeCall(this) }
+                )
             }
+            phone_image.gone()
         }
 
         exit_tv.setOnClickListener {
-            context?.showTwoButtonsDialog(
-                getString(R.string.exit),
-                getString(R.string.exit_message),
-                getString(R.string.no),
-                getString(R.string.yes)
-            ) {
-                logout()
+            beginDelayedTransition(parent_layout, it.getTransform(progress_bar))
+            runDelayed(200) {
+                context?.showTwoButtonsDialog(
+                    getString(R.string.exit),
+                    getString(R.string.exit_message),
+                    getString(R.string.no),
+                    getString(R.string.yes),
+                    { view, rootLayout ->
+                        beginDelayedTransition(rootLayout, view.getTransform(exit_tv))
+                        runDelayed(550) { exit_tv.visible() }
+                    },
+                    { logout() }
+                )
             }
+            exit_tv.gone()
         }
     }
 

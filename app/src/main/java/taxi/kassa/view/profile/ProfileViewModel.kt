@@ -46,8 +46,8 @@ class ProfileViewModel(
                 responseOwner.postValue(response)
                 error.postValue(errorMsg)
             }
-            isProgressVisible.postValue(false)
             notifications.postValue(repository.getNotificationsAsync().await())
+            isProgressVisible.postValue(false)
 
             incomingMessages.postValue(repository.getChatHistory("")?.response?.messages?.filter { it.status == UNREAD })
         }

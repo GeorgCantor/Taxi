@@ -36,6 +36,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
+import com.google.android.material.transition.platform.MaterialArcMotion
+import com.google.android.material.transition.platform.MaterialContainerTransform
 import kotlinx.android.synthetic.main.dialog_one_button.*
 import kotlinx.android.synthetic.main.dialog_one_button.message
 import kotlinx.android.synthetic.main.dialog_one_button.title
@@ -108,6 +110,7 @@ fun Context.showTwoButtonsDialog(
     message: String,
     cancelText: String,
     okText: String,
+    transitionFunction: (View, ConstraintLayout) -> (Unit),
     function: () -> (Unit)
 ) {
     val dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_two_buttons, null)
@@ -119,11 +122,17 @@ fun Context.showTwoButtonsDialog(
         this.title.text = title
         this.message.text = message
         cancel_btn.text = cancelText
-        cancel_btn.setOnClickListener { dismiss() }
+        cancel_btn.setOnClickListener {
+            transitionFunction(dialogView, two_dialog_root_layout)
+            runDelayed(550) { dismiss() }
+        }
         ok_btn.text = okText
         ok_btn.setOnClickListener {
             dismiss()
             function()
+        }
+        setOnDismissListener {
+            transitionFunction(dialogView, two_dialog_root_layout)
         }
     }
 }
@@ -159,6 +168,17 @@ fun View.gone() { visibility = GONE }
 fun View.hideKeyboard() {
     val manager = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
     manager.hideSoftInputFromWindow(windowToken, InputMethodManager.HIDE_NOT_ALWAYS)
+}
+
+fun View.getTransform(mEndView: View): MaterialContainerTransform {
+    return MaterialContainerTransform().apply {
+        startView = this@getTransform
+        endView = mEndView
+        addTarget(mEndView)
+        pathMotion = MaterialArcMotion()
+        duration = 550
+        scrimColor = TRANSPARENT
+    }
 }
 
 fun TextView.setColor(

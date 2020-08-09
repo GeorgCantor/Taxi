@@ -202,8 +202,10 @@ class AccountsFragment : Fragment() {
                             getString(R.string.delete_account),
                             getString(R.string.delete_account_message),
                             getString(R.string.no),
-                            getString(R.string.yes)
-                        ) { deleteAccount(account.id) }
+                            getString(R.string.yes),
+                            { view, rootLayout -> },
+                            { deleteAccount(account.id) }
+                        )
                     })
                 }
             }
