@@ -170,15 +170,13 @@ fun View.hideKeyboard() {
     manager.hideSoftInputFromWindow(windowToken, InputMethodManager.HIDE_NOT_ALWAYS)
 }
 
-fun View.getTransform(mEndView: View): MaterialContainerTransform {
-    return MaterialContainerTransform().apply {
-        startView = this@getTransform
-        endView = mEndView
-        addTarget(mEndView)
-        pathMotion = MaterialArcMotion()
-        duration = 550
-        scrimColor = TRANSPARENT
-    }
+fun View.getTransform(mEndView: View) = MaterialContainerTransform().apply {
+    startView = this@getTransform
+    endView = mEndView
+    addTarget(mEndView)
+    pathMotion = MaterialArcMotion()
+    duration = 550
+    scrimColor = TRANSPARENT
 }
 
 fun TextView.setColor(
