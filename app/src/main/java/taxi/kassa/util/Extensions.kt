@@ -124,7 +124,7 @@ fun Context.showTwoButtonsDialog(
         cancel_btn.text = cancelText
         cancel_btn.setOnClickListener {
             transitionFunction(dialogView, two_dialog_root_layout)
-            runDelayed(550) { dismiss() }
+            550L.runDelayed { dismiss() }
         }
         ok_btn.text = okText
         ok_btn.setOnClickListener {
@@ -242,6 +242,10 @@ fun Long.convertToTime(pattern: String): String {
     return dateFormat.format(date)
 }
 
+fun Long.runDelayed(action: () -> Unit) {
+    Handler().postDelayed(action, TimeUnit.MILLISECONDS.toMillis(this))
+}
+
 fun Int.getPhotoType() = when (this) {
     1, 6, 11 -> DRIVER_LICENCE_FRONT
     12 -> DRIVER_LICENCE_BACK
@@ -292,10 +296,6 @@ fun Activity.makeCall(fragment: Fragment) {
             shortToast(getString(R.string.not_find_call_app))
         }
     }
-}
-
-fun runDelayed(delay: Long, action: () -> Unit) {
-    Handler().postDelayed(action, TimeUnit.MILLISECONDS.toMillis(delay))
 }
 
 fun changeConstraint(

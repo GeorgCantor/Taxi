@@ -193,7 +193,7 @@ class DailyWithdrawFragment : Fragment() {
             }
         }
 
-        runDelayed(500) { accounts_recycler?.let { if (it.isNotEmpty()) it[0].performClick() } }
+        500L.runDelayed { accounts_recycler?.let { if (it.isNotEmpty()) it[0].performClick() } }
 
         val keyboardPairs = mutableListOf<Pair<Button, Int>>(
             Pair(num_0, R.string.num0),

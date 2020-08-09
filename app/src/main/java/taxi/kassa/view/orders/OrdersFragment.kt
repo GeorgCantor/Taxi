@@ -13,7 +13,6 @@ import androidx.viewpager.widget.ViewPager
 import kotlinx.android.synthetic.main.fragment_orders.*
 import kotlinx.android.synthetic.main.item_taxi_orders.view.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
-import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.util.*
 import taxi.kassa.util.Constants.NOT_FROM_PUSH
@@ -117,7 +116,7 @@ class OrdersFragment : Fragment() {
             }
         }
 
-        runDelayed(500) { taxi_recycler?.let { if (it.isNotEmpty()) it[0].performClick() } }
+        500L.runDelayed { taxi_recycler?.let { if (it.isNotEmpty()) it[0].performClick() } }
 
         notification_image.setOnClickListener {
             findNavController(this).navigate(

@@ -138,7 +138,7 @@ class ProfileFragment : Fragment() {
 
         phone_image.setOnClickListener {
             beginDelayedTransition(parent_layout, it.getTransform(progress_bar))
-            runDelayed(200) {
+            200L.runDelayed {
                 context?.showTwoButtonsDialog(
                     getString(R.string.support_service),
                     getString(R.string.support_service_message),
@@ -146,7 +146,7 @@ class ProfileFragment : Fragment() {
                     getString(R.string.call),
                     { view, rootLayout ->
                         beginDelayedTransition(rootLayout, view.getTransform(phone_image))
-                        runDelayed(550) { phone_image.visible() }
+                        550L.runDelayed { phone_image.visible() }
                     },
                     { requireActivity().makeCall(this) }
                 )
@@ -156,7 +156,7 @@ class ProfileFragment : Fragment() {
 
         exit_tv.setOnClickListener {
             beginDelayedTransition(parent_layout, it.getTransform(progress_bar))
-            runDelayed(200) {
+            200L.runDelayed {
                 context?.showTwoButtonsDialog(
                     getString(R.string.exit),
                     getString(R.string.exit_message),
@@ -164,7 +164,7 @@ class ProfileFragment : Fragment() {
                     getString(R.string.yes),
                     { view, rootLayout ->
                         beginDelayedTransition(rootLayout, view.getTransform(exit_tv))
-                        runDelayed(550) { exit_tv.visible() }
+                        550L.runDelayed { exit_tv.visible() }
                     },
                     { logout() }
                 )

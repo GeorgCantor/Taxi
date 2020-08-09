@@ -164,7 +164,7 @@ class PhotoFragment : Fragment() {
                 viewModel.sendPhoto(bitmap)
                 loadFromGallery = true
 
-                runDelayed(200) { activity?.onBackPressed() }
+                200L.runDelayed { activity?.onBackPressed() }
             }
         }
     }

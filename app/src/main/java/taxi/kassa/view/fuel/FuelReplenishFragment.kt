@@ -128,7 +128,7 @@ class FuelReplenishFragment : Fragment() {
                         }
                     }
 
-                    runDelayed(500) { taxi_recycler?.let { if (it.isNotEmpty()) it[0].performClick() } }
+                    500L.runDelayed { taxi_recycler?.let { if (it.isNotEmpty()) it[0].performClick() } }
                 }
             }
 
@@ -157,7 +157,7 @@ class FuelReplenishFragment : Fragment() {
             when (hasFocus) {
                 true -> {
                     keyboard.visible()
-                    runDelayed(100) { scroll_view.scrollTo(0, scroll_view.bottom) }
+                    100L.runDelayed { scroll_view.scrollTo(0, scroll_view.bottom) }
                     changeConstraint(
                         root_layout,
                         R.id.enter_amount_input_view,
