@@ -147,7 +147,7 @@ class DailyWithdrawFragment : Fragment() {
                                     it.account_background.visible()
                                 }
                             }
-                        }, {
+                        }, { _, _ ->
                         })
                     }
                 }

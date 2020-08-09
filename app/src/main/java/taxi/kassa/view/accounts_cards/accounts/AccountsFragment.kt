@@ -3,6 +3,7 @@ package taxi.kassa.view.accounts_cards.accounts
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.transition.TransitionManager.beginDelayedTransition
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
@@ -197,13 +198,15 @@ class AccountsFragment : Fragment() {
                 accounts_recycler.setHasFixedSize(true)
                 it?.let {
                     accounts_recycler.adapter = AccountsAdapter(it, true, { _, _ ->
-                    }, { account ->
+                    }, { account, deleteIcon ->
                         context?.showTwoButtonsDialog(
                             getString(R.string.delete_account),
                             getString(R.string.delete_account_message),
                             getString(R.string.no),
                             getString(R.string.yes),
-                            { view, rootLayout -> },
+                            { view, rootLayout ->
+                                beginDelayedTransition(rootLayout, view.getTransform(deleteIcon))
+                            },
                             { deleteAccount(account.id) }
                         )
                     })

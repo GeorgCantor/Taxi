@@ -21,7 +21,7 @@ class AccountsAdapter(
     private val accounts: List<Account>,
     private val deleteVisible: Boolean,
     private val clickListener: (Account, View) -> Unit,
-    private val deleteClickListener: (Account) -> Unit
+    private val deleteClickListener: (Account, View) -> Unit
 ) : RecyclerView.Adapter<AccountsAdapter.AccountsViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = AccountsViewHolder(
@@ -50,7 +50,7 @@ class AccountsAdapter(
             name.text = account.driverName
 
             itemView.setOnClickListener { clickListener(account, itemView) }
-            deleteIcon.setOnClickListener { deleteClickListener(account) }
+            deleteIcon.setOnClickListener { deleteClickListener(account, deleteIcon) }
         }
     }
 
