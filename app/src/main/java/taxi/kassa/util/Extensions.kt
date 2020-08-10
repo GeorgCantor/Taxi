@@ -272,10 +272,10 @@ inline fun <T> LiveData<T>.observe(
     this.observe(owner, Observer { it?.apply(observer) })
 }
 
-fun EditText.setMaskListener(input: TextInputLayout) {
+fun EditText.setMaskListener(input: TextInputLayout?) {
     class PhoneMaskListener : MaskedTextChangedListener(PHONE_MASK, this@setMaskListener, object : ValueListener {
         override fun onTextChanged(maskFilled: Boolean, extractedValue: String, formattedValue: String) {
-            input.error = null
+            input?.error = null
         }
     })
     addTextChangedListener(PhoneMaskListener())

@@ -8,14 +8,12 @@ import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
-import com.redmadrobot.inputmask.MaskedTextChangedListener
 import kotlinx.android.synthetic.main.fragment_auth_phone.*
 import kotlinx.android.synthetic.main.keyboard.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import taxi.kassa.R
 import taxi.kassa.util.*
 import taxi.kassa.util.Constants.PHONE
-import taxi.kassa.util.Constants.PHONE_MASK
 
 class AuthPhoneFragment : Fragment() {
 
@@ -60,8 +58,7 @@ class AuthPhoneFragment : Fragment() {
         }
 
         with(phone_edit_text) {
-            addTextChangedListener(PhoneMaskListener())
-
+            setMaskListener(phone_input_view)
             setKeyboard(
                 arrayOf(num_0, num_1, num_2, num_3, num_4, num_5, num_6, num_7, num_8, num_9, erase_btn, apply_btn)
             ) { apply() }
@@ -83,10 +80,4 @@ class AuthPhoneFragment : Fragment() {
 
         viewModel.login(phone)
     }
-
-    inner class PhoneMaskListener : MaskedTextChangedListener(PHONE_MASK, phone_edit_text, object : ValueListener {
-        override fun onTextChanged(maskFilled: Boolean, extractedValue: String, formattedValue: String) {
-            phone_input_view.error = null
-        }
-    })
 }
