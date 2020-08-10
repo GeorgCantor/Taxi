@@ -21,7 +21,7 @@ class BalanceViewModel(
 
     private val context = getApplication<MyApplication>()
 
-    val isProgressVisible = MutableLiveData<Boolean>().apply { this.value = true }
+    val isProgressVisible = MutableLiveData<Boolean>().apply { value = true }
     val isNetworkAvailable = MutableLiveData<Boolean>()
     val responseOwner = MutableLiveData<ResponseOwner>()
     val error = MutableLiveData<String>()

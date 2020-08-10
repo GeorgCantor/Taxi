@@ -19,7 +19,7 @@ class OrdersListViewModel(
 
     private val context = getApplication<MyApplication>()
 
-    val isProgressVisible = MutableLiveData<Boolean>().apply { this.value = true }
+    val isProgressVisible = MutableLiveData<Boolean>().apply { value = true }
     val orders = MutableLiveData<Orders>()
     val error = MutableLiveData<String>()
 

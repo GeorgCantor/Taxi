@@ -21,7 +21,7 @@ class DailyWithdrawViewModel(
 
     private val accountId = MutableLiveData<Int>()
 
-    val isProgressVisible = MutableLiveData<Boolean>().apply { this.value = true }
+    val isProgressVisible = MutableLiveData<Boolean>().apply { value = true }
     val accounts = MutableLiveData<AccountsList>()
     val showSuccessScreen = MutableLiveData<Boolean>()
     val responseOwner = MutableLiveData<ResponseOwner>()

@@ -21,7 +21,7 @@ class AuthCodeViewModel(
 
     private val context = getApplication<MyApplication>()
 
-    val isProgressVisible = MutableLiveData<Boolean>().apply { this.value = false }
+    val isProgressVisible = MutableLiveData<Boolean>().apply { value = false }
     val isLoggedIn = MutableLiveData<Boolean>()
     val token = MutableLiveData<String>()
     val error = MutableLiveData<String>()
