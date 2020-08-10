@@ -35,8 +35,10 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
+import com.google.android.material.textfield.TextInputLayout
 import com.google.android.material.transition.platform.MaterialArcMotion
 import com.google.android.material.transition.platform.MaterialContainerTransform
+import com.redmadrobot.inputmask.MaskedTextChangedListener
 import kotlinx.android.synthetic.main.dialog_one_button.*
 import kotlinx.android.synthetic.main.dialog_one_button.message
 import kotlinx.android.synthetic.main.dialog_one_button.title
@@ -57,6 +59,7 @@ import taxi.kassa.util.Constants.LICENCE_FRONT
 import taxi.kassa.util.Constants.MASTERCARD
 import taxi.kassa.util.Constants.PASSPORT_FIRST
 import taxi.kassa.util.Constants.PASSPORT_REGISTRATION
+import taxi.kassa.util.Constants.PHONE_MASK
 import taxi.kassa.util.Constants.SELFIE
 import taxi.kassa.util.Constants.STS_BACK
 import taxi.kassa.util.Constants.STS_FRONT
@@ -267,6 +270,15 @@ inline fun <T> LiveData<T>.observe(
     crossinline observer: (T) -> Unit
 ) {
     this.observe(owner, Observer { it?.apply(observer) })
+}
+
+fun EditText.setMaskListener(input: TextInputLayout) {
+    class PhoneMaskListener : MaskedTextChangedListener(PHONE_MASK, this@setMaskListener, object : ValueListener {
+        override fun onTextChanged(maskFilled: Boolean, extractedValue: String, formattedValue: String) {
+            input.error = null
+        }
+    })
+    addTextChangedListener(PhoneMaskListener())
 }
 
 fun EditText.setKeyboard(buttons: Array<View>, function: () -> Unit) {
