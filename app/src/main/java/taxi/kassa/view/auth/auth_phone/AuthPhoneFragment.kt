@@ -18,7 +18,6 @@ import taxi.kassa.util.Constants.PHONE
 class AuthPhoneFragment : Fragment() {
 
     private lateinit var viewModel: AuthPhoneViewModel
-    private var agreementChecked = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,8 +32,6 @@ class AuthPhoneFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        agreementChecked = true
 
         with(viewModel) {
             isNetworkAvailable.observe(viewLifecycleOwner) { available ->
@@ -52,9 +49,8 @@ class AuthPhoneFragment : Fragment() {
             }
         }
 
-        login_checkbox.setOnCheckedChangeListener { _, isChecked ->
+        login_checkbox.setOnCheckedChangeListener { _, _ ->
             phone_input_view.error = null
-            agreementChecked = isChecked
         }
 
         with(phone_edit_text) {
@@ -70,7 +66,7 @@ class AuthPhoneFragment : Fragment() {
     }
 
     private fun apply() {
-        if (!agreementChecked) {
+        if (!login_checkbox.isChecked) {
             phone_input_view.error = getString(R.string.accept_conditions_error)
             return
         }
