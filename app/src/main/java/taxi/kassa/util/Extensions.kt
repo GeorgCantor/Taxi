@@ -311,7 +311,6 @@ fun EditText.setKeyboard(buttons: Array<View>, function: () -> Unit) {
 }
 
 fun EditText.setNumberClickListener(button: View, resource: Int) {
-    // handle clicking on the buttons of the custom keyboard
     button.setOnClickListener {
         text?.insert(selectionStart, context.getString(resource))
     }
