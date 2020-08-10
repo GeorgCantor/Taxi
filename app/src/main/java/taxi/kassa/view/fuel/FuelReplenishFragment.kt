@@ -8,7 +8,6 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import androidx.constraintlayout.widget.ConstraintSet
@@ -151,7 +150,9 @@ class FuelReplenishFragment : Fragment() {
             }
         }
 
-        enter_amount_edit_text.showSoftInputOnFocus = false
+        enter_amount_edit_text.setKeyboard(
+            arrayOf(num_0, num_1, num_2, num_3, num_4, num_5, num_6, num_7, num_8, num_9, erase_btn, apply_btn)
+        ) { replenish() }
 
         enter_amount_edit_text.setOnFocusChangeListener { _, hasFocus ->
             when (hasFocus) {
@@ -186,33 +187,6 @@ class FuelReplenishFragment : Fragment() {
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             }
         })
-
-        val keyboardPairs = mutableListOf<Pair<Button, Int>>(
-            Pair(num_0, R.string.num0),
-            Pair(num_1, R.string.num1),
-            Pair(num_2, R.string.num2),
-            Pair(num_3, R.string.num3),
-            Pair(num_4, R.string.num4),
-            Pair(num_5, R.string.num5),
-            Pair(num_6, R.string.num6),
-            Pair(num_7, R.string.num7),
-            Pair(num_8, R.string.num8),
-            Pair(num_9, R.string.num9)
-        )
-
-        keyboardPairs.map {
-            enter_amount_edit_text.setNumberClickListener(it.first, it.second)
-        }
-
-        erase_btn.setOnClickListener {
-            val cursorPosition = enter_amount_edit_text.selectionStart
-            if (cursorPosition > 0) {
-                enter_amount_edit_text.text = enter_amount_edit_text.text?.delete(cursorPosition - 1, cursorPosition)
-                enter_amount_edit_text.setSelection(cursorPosition - 1)
-            }
-        }
-
-        apply_btn.setOnClickListener { replenish() }
 
         replenish_button.setOnClickListener { replenish() }
 
