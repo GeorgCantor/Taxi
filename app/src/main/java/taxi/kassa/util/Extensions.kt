@@ -114,7 +114,7 @@ fun Context.showTwoButtonsDialog(
     okText: String,
     transitionFunction: (View, ConstraintLayout) -> (Unit),
     function: () -> (Unit)
-) {
+): View {
     val dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_two_buttons, null)
     val builder = AlertDialog.Builder(this).setView(dialogView)
     val alertDialog = builder.show()
@@ -137,6 +137,8 @@ fun Context.showTwoButtonsDialog(
             transitionFunction(dialogView, two_dialog_root_layout)
         }
     }
+
+    return dialogView
 }
 
 fun Context.getScreenSize(): Double {

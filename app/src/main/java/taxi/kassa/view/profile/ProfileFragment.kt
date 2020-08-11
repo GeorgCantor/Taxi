@@ -137,38 +137,34 @@ class ProfileFragment : Fragment() {
         }
 
         phone_image.setOnClickListener {
-            beginDelayedTransition(parent_layout, it.getTransform(progress_bar))
-            200L.runDelayed {
-                context?.showTwoButtonsDialog(
-                    getString(R.string.support_service),
-                    getString(R.string.support_service_message),
-                    getString(R.string.cancel),
-                    getString(R.string.call),
-                    { view, rootLayout ->
-                        beginDelayedTransition(rootLayout, view.getTransform(phone_image))
-                        550L.runDelayed { phone_image.visible() }
-                    },
-                    { requireActivity().makeCall(this) }
-                )
-            }
+            val dialogView = requireContext().showTwoButtonsDialog(
+                getString(R.string.support_service),
+                getString(R.string.support_service_message),
+                getString(R.string.cancel),
+                getString(R.string.call),
+                { view, rootLayout ->
+                    beginDelayedTransition(rootLayout, view.getTransform(phone_image))
+                    550L.runDelayed { phone_image.visible() }
+                },
+                { requireActivity().makeCall(this) }
+            )
+            beginDelayedTransition(parent_layout, it.getTransform(dialogView))
             phone_image.gone()
         }
 
         exit_tv.setOnClickListener {
-            beginDelayedTransition(parent_layout, it.getTransform(progress_bar))
-            200L.runDelayed {
-                context?.showTwoButtonsDialog(
-                    getString(R.string.exit),
-                    getString(R.string.exit_message),
-                    getString(R.string.no),
-                    getString(R.string.yes),
-                    { view, rootLayout ->
-                        beginDelayedTransition(rootLayout, view.getTransform(exit_tv))
-                        550L.runDelayed { exit_tv.visible() }
-                    },
-                    { logout() }
-                )
-            }
+            val dialogView = requireContext().showTwoButtonsDialog(
+                getString(R.string.exit),
+                getString(R.string.exit_message),
+                getString(R.string.no),
+                getString(R.string.yes),
+                { view, rootLayout ->
+                    beginDelayedTransition(rootLayout, view.getTransform(exit_tv))
+                    550L.runDelayed { exit_tv.visible() }
+                },
+                { logout() }
+            )
+            beginDelayedTransition(parent_layout, it.getTransform(dialogView))
             exit_tv.gone()
         }
     }
