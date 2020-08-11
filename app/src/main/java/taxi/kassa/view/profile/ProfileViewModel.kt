@@ -63,8 +63,4 @@ class ProfileViewModel(
             is Int -> preferenceManager.saveInt(key, value)
         }
     }
-
-    fun getFromPrefs(key: String): Int? {
-        return preferenceManager.getInt(key)
-    }
 }

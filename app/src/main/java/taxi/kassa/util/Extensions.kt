@@ -86,7 +86,8 @@ fun Context.longToast(message: String) = makeText(this, message, LENGTH_LONG).sh
 fun Context.showOneButtonDialog(
     title: String,
     message: String,
-    isRegistrationDialog: Boolean
+    isRegistrationDialog: Boolean,
+    transitionFunction: (View, ConstraintLayout) -> (Unit)
 ) {
     val dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_one_button, null)
     val builder = AlertDialog.Builder(this).setView(dialogView)
@@ -96,7 +97,10 @@ fun Context.showOneButtonDialog(
         window?.setBackgroundDrawable(ColorDrawable(TRANSPARENT))
         this.title.text = title
         this.message.text = message
-        ok_button.setOnClickListener { dismiss() }
+        ok_button.setOnClickListener {
+            transitionFunction(dialogView, dialog_root_layout)
+            550L.runDelayed { dismiss() }
+        }
 
         if (isRegistrationDialog) {
             this.message.setMultiColoredText(R.string.terms_description)

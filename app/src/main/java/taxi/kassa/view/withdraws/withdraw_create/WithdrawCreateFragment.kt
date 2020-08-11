@@ -1,6 +1,7 @@
 package taxi.kassa.view.withdraws.withdraw_create
 
 import android.os.Bundle
+import android.transition.TransitionManager.beginDelayedTransition
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -69,7 +70,9 @@ class WithdrawCreateFragment : Fragment() {
                 getString(R.string.daily_withdrawal),
                 getString(R.string.daily_withdrawal_dialog_message),
                 false
-            )
+            ) { view, rootLayout ->
+                beginDelayedTransition(rootLayout, view.getTransform(daily_what_is_it))
+            }
         }
 
         instant_what_is_it.setOnClickListener {
@@ -77,7 +80,9 @@ class WithdrawCreateFragment : Fragment() {
                 getString(R.string.instant_withdrawal),
                 getString(R.string.instant_withdrawal_dialog_message),
                 false
-            )
+            ) { view, rootLayout ->
+                beginDelayedTransition(rootLayout, view.getTransform(instant_what_is_it))
+            }
         }
 
         viewModel.notifications.observe(viewLifecycleOwner) {
