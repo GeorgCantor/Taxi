@@ -19,14 +19,17 @@ data class ResponseOwner(
     @SerializedName("balance_fuel")
     @Expose
     var balanceFuel: String,
+    @SerializedName("first_name")
     @Expose
-    var first_name: String,
+    var firstName: String,
+    @SerializedName("last_name")
     @Expose
-    var last_name: String,
+    var lastName: String,
+    @SerializedName("phone")
     @Expose
     var phone: String
 ) {
 
     val fullName: String
-        get() = "$last_name $first_name"
+        get() = "$lastName $firstName"
 }

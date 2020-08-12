@@ -11,9 +11,9 @@ import kotlinx.android.synthetic.main.item_withdraw_date.view.*
 import taxi.kassa.R
 import taxi.kassa.model.responses.Withdraw
 import taxi.kassa.util.Constants.APPROVED
-import taxi.kassa.util.Constants.CANCELED
+import taxi.kassa.util.Constants.DENIED
 import taxi.kassa.util.Constants.NEW
-import taxi.kassa.util.Constants.WRITTEN_OFF
+import taxi.kassa.util.Constants.WITHDRAWN
 import taxi.kassa.util.setFormattedText
 
 class WithdrawsAdapter(
@@ -36,11 +36,11 @@ class WithdrawsAdapter(
         if (this.withdraws.isNotEmpty()) {
             var lastDate = this.withdraws[0].getDate()
 
-            dates.add(Withdraw(DATE_ITEM_ID, "0", this.withdraws[0].date, 0))
+            dates.add(Withdraw(DATE_ITEM_ID, "0", "", this.withdraws[0].date, ""))
 
             this.withdraws.map {
                 if (it.getDate() != lastDate) {
-                    dates.add(Withdraw(DATE_ITEM_ID, "0", it.date, 0))
+                    dates.add(Withdraw(DATE_ITEM_ID, "0", "", it.date, ""))
                     lastDate = it.getDate()
                 }
             }
@@ -88,20 +88,18 @@ class WithdrawsAdapter(
 
         when (holder) {
             is WithdrawsViewHolder -> {
-                val status = withdraw.getStatus()
-
                 holder.time.text = withdraw.hours
                 holder.amount.setFormattedText(R.string.balance_format, withdraw.amount.toDouble())
-                holder.status.text = status
+                holder.status.text = withdraw.status
 
-                when (status) {
+                when (withdraw.status) {
                     NEW -> holder.statusImage.setImageResource(R.drawable.ic_yellow_circle)
                     APPROVED -> holder.statusImage.setImageResource(R.drawable.ic_yellow_circle)
-                    WRITTEN_OFF -> holder.statusImage.setImageResource(R.drawable.ic_green_circle)
-                    CANCELED -> holder.statusImage.setImageResource(R.drawable.ic_red_circle)
+                    WITHDRAWN -> holder.statusImage.setImageResource(R.drawable.ic_green_circle)
+                    DENIED -> holder.statusImage.setImageResource(R.drawable.ic_red_circle)
                 }
 
-                when (withdraw.source_id.toInt()) {
+                when (withdraw.sourceId.toInt()) {
                     1 -> {
                         holder.taxiIcon.setImageResource(R.drawable.ic_yandex_mini)
                         holder.taxiName.setText(R.string.yandex_title)
@@ -125,7 +123,7 @@ class WithdrawsAdapter(
     }
 
     override fun getItemViewType(position: Int): Int {
-        return when (withdraws[position].source_id) {
+        return when (withdraws[position].sourceId) {
             DATE_ITEM_ID -> TYPE_DATE
             else -> TYPE_ITEM
         }

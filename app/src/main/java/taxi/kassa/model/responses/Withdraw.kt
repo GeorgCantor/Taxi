@@ -1,24 +1,27 @@
 package taxi.kassa.model.responses
 
 import android.os.Parcelable
+import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
-import taxi.kassa.util.Constants.APPROVED
-import taxi.kassa.util.Constants.CANCELED
 import taxi.kassa.util.Constants.DAY_YEAR_PATTERN
 import taxi.kassa.util.Constants.FULL_PATTERN
 import taxi.kassa.util.Constants.HOURS_PATTERN
-import taxi.kassa.util.Constants.NEW
-import taxi.kassa.util.Constants.WRITTEN_OFF
 import taxi.kassa.util.Constants.myDateFormatSymbols
 import java.text.SimpleDateFormat
 import java.util.*
 
 @Parcelize
 class Withdraw(
-    val source_id: String,
+    @SerializedName("source_id")
+    val sourceId: String,
+    @SerializedName("amount")
     val amount: String,
+    @SerializedName("amount_fee")
+    val amountFee: String,
+    @SerializedName("date")
     val date: Int,
-    val status: Int
+    @SerializedName("status")
+    val status: String
 ) : Parcelable {
 
     val hours: String
@@ -36,19 +39,6 @@ class Withdraw(
         val dateFormat = SimpleDateFormat(DAY_YEAR_PATTERN, myDateFormatSymbols)
 
         return dateFormat.format(date)
-    }
-
-    fun getStatus(): String {
-        val id = status
-        var result = ""
-        when (id) {
-            0 -> result = NEW
-            1 -> result = APPROVED
-            2 -> result = WRITTEN_OFF
-            -1 -> result = CANCELED
-        }
-
-        return result
     }
 
     fun getWithdrawalDate(): String {

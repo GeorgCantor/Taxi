@@ -13,10 +13,12 @@ import taxi.kassa.R
 import taxi.kassa.model.responses.Withdraw
 import taxi.kassa.util.Constants.ALFABANK
 import taxi.kassa.util.Constants.BINBANK
+import taxi.kassa.util.Constants.DENIED
 import taxi.kassa.util.Constants.SBERBANK
 import taxi.kassa.util.Constants.TINKOFF
 import taxi.kassa.util.Constants.VTB_BANK
 import taxi.kassa.util.Constants.WITHDRAW
+import taxi.kassa.util.Constants.WITHDRAWN
 import taxi.kassa.util.inflate
 import taxi.kassa.util.observe
 import taxi.kassa.util.setFormattedText
@@ -63,7 +65,7 @@ class WithdrawFragment : Fragment() {
 
         back_arrow.setOnClickListener { activity?.onBackPressed() }
 
-        when (withdraw.source_id.toInt()) {
+        when (withdraw.sourceId.toInt()) {
             1 -> {
                 taxi_icon.setImageResource(R.drawable.ic_yandex_mini)
                 taxi_name.setText(R.string.yandex_title)
@@ -84,18 +86,18 @@ class WithdrawFragment : Fragment() {
 
         circle_image.setImageResource(
             when (withdraw.status) {
-                0, 1 -> R.drawable.ic_yellow_circle
-                2 -> R.drawable.ic_green_circle
-                -1 -> R.drawable.ic_red_circle
+//                0, 1 -> R.drawable.ic_yellow_circle
+                WITHDRAWN -> R.drawable.ic_green_circle
+                DENIED -> R.drawable.ic_red_circle
                 else -> R.drawable.ic_yellow_circle
             }
         )
 
-        status_tv.text = withdraw.getStatus()
+        status_tv.text = withdraw.status
         date_time_tv.text = withdraw.getWithdrawalDate()
         withdrawal_amount.setFormattedText(R.string.balance_format, withdraw.amount.toDouble())
-        commission_amount.text = getString(R.string.balance_format, "13.00")
-        total_tv.setFormattedText(R.string.order_balance_format, withdraw.amount.toDouble())
+        commission_amount.text = getString(R.string.balance_format, withdraw.amountFee)
+        total_tv.setFormattedText(R.string.order_balance_format, withdraw.amount.toDouble() - withdraw.amountFee.toDouble())
 
         back_button.setOnClickListener { activity?.onBackPressed() }
     }
