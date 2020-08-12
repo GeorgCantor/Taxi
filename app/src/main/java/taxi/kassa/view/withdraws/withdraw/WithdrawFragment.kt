@@ -86,7 +86,6 @@ class WithdrawFragment : Fragment() {
 
         circle_image.setImageResource(
             when (withdraw.status) {
-//                0, 1 -> R.drawable.ic_yellow_circle
                 WITHDRAWN -> R.drawable.ic_green_circle
                 DENIED -> R.drawable.ic_red_circle
                 else -> R.drawable.ic_yellow_circle
