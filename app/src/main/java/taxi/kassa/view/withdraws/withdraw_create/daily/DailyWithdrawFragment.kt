@@ -4,6 +4,7 @@ import android.content.res.ColorStateList
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.transition.TransitionManager.beginDelayedTransition
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
@@ -72,6 +73,7 @@ class DailyWithdrawFragment : Fragment() {
 
         next_button.setOnClickListener {
             accounts_block.gone()
+            beginDelayedTransition(parent_layout, progress_bar.getTransform(withdraw_block))
             withdraw_block.visible()
         }
 
