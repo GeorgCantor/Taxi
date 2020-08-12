@@ -124,12 +124,12 @@ class DailyWithdrawFragment : Fragment() {
             }
 
             accounts.observe(viewLifecycleOwner) {
-                when (it.info.isNullOrEmpty()) {
+                when (it.isNullOrEmpty()) {
                     true -> add_account_block.visible()
                     false -> {
                         accounts_block.visible()
                         accounts_recycler.setHasFixedSize(true)
-                        accounts_recycler.adapter = AccountsAdapter(it.info, false, { account, view ->
+                        accounts_recycler.adapter = AccountsAdapter(it, false, { account, view ->
                             setAccountId(account)
 
                             val items = mutableListOf<View>()
