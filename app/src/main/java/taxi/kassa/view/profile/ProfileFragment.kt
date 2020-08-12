@@ -144,7 +144,7 @@ class ProfileFragment : Fragment() {
                 getString(R.string.call),
                 { view, rootLayout ->
                     beginDelayedTransition(rootLayout, view.getTransform(phone_image))
-                    550L.runDelayed { phone_image.visible() }
+                    550L.runDelayed { phone_image?.visible() }
                 },
                 { requireActivity().makeCall(this) }
             )
@@ -160,7 +160,7 @@ class ProfileFragment : Fragment() {
                 getString(R.string.yes),
                 { view, rootLayout ->
                     beginDelayedTransition(rootLayout, view.getTransform(exit_tv))
-                    550L.runDelayed { exit_tv.visible() }
+                    550L.runDelayed { exit_tv?.visible() }
                 },
                 { logout() }
             )
