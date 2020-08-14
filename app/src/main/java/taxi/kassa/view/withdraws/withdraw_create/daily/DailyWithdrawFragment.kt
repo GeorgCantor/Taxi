@@ -4,12 +4,12 @@ import android.content.res.ColorStateList
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.transition.TransitionManager.beginDelayedTransition
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.core.content.ContextCompat.getColor
 import androidx.core.view.get
 import androidx.core.view.isNotEmpty
@@ -73,12 +73,11 @@ class DailyWithdrawFragment : Fragment() {
 
         next_button.setOnClickListener {
             accounts_block.gone()
+            beginDelayedTransition(parent_layout, progress_bar.getTransform(withdraw_block))
             withdraw_block.visible()
         }
 
         send_request_button.setOnClickListener { sendRequest() }
-
-        sum_edit_text.showSoftInputOnFocus = false
 
         sum_edit_text.setOnFocusChangeListener { _, hasFocus ->
             when (hasFocus) {
@@ -125,12 +124,12 @@ class DailyWithdrawFragment : Fragment() {
             }
 
             accounts.observe(viewLifecycleOwner) {
-                when (it.info.isNullOrEmpty()) {
+                when (it.isNullOrEmpty()) {
                     true -> add_account_block.visible()
                     false -> {
                         accounts_block.visible()
                         accounts_recycler.setHasFixedSize(true)
-                        accounts_recycler.adapter = AccountsAdapter(it.info, false, { account, view ->
+                        accounts_recycler.adapter = AccountsAdapter(it, false, { account, view ->
                             setAccountId(account)
 
                             val items = mutableListOf<View>()
@@ -195,32 +194,9 @@ class DailyWithdrawFragment : Fragment() {
 
         500L.runDelayed { accounts_recycler?.let { if (it.isNotEmpty()) it[0].performClick() } }
 
-        val keyboardPairs = mutableListOf<Pair<Button, Int>>(
-            Pair(num_0, R.string.num0),
-            Pair(num_1, R.string.num1),
-            Pair(num_2, R.string.num2),
-            Pair(num_3, R.string.num3),
-            Pair(num_4, R.string.num4),
-            Pair(num_5, R.string.num5),
-            Pair(num_6, R.string.num6),
-            Pair(num_7, R.string.num7),
-            Pair(num_8, R.string.num8),
-            Pair(num_9, R.string.num9)
-        )
-
-        keyboardPairs.map {
-            sum_edit_text.setNumberClickListener(it.first, it.second)
-        }
-
-        erase_btn.setOnClickListener {
-            val cursorPosition = sum_edit_text.selectionStart
-            if (cursorPosition > 0) {
-                sum_edit_text.text = sum_edit_text.text?.delete(cursorPosition - 1, cursorPosition)
-                sum_edit_text.setSelection(cursorPosition - 1)
-            }
-        }
-
-        apply_btn.setOnClickListener { sendRequest() }
+        sum_edit_text.setKeyboard(
+            arrayOf(num_0, num_1, num_2, num_3, num_4, num_5, num_6, num_7, num_8, num_9, erase_btn, apply_btn)
+        ) { sendRequest() }
     }
 
     private fun sendRequest() {

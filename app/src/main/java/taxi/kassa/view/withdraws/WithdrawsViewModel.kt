@@ -20,7 +20,7 @@ class WithdrawsViewModel(
 
     private val context = getApplication<MyApplication>()
 
-    val isProgressVisible = MutableLiveData<Boolean>().apply { this.value = true }
+    val isProgressVisible = MutableLiveData<Boolean>().apply { value = true }
     val withdraws = MutableLiveData<Withdraws>()
     val error = MutableLiveData<String>()
     val notifications = MutableLiveData<MutableList<Notification>>()

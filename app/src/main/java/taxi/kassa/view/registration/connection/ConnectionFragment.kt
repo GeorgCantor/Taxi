@@ -16,7 +16,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import com.google.android.material.textfield.TextInputEditText
-import com.redmadrobot.inputmask.MaskedTextChangedListener
 import kotlinx.android.synthetic.main.connection_city.*
 import kotlinx.android.synthetic.main.connection_gett.*
 import kotlinx.android.synthetic.main.connection_yandex.*
@@ -33,7 +32,6 @@ import taxi.kassa.util.*
 import taxi.kassa.util.Constants.CITYMOBIL
 import taxi.kassa.util.Constants.CONNECTION
 import taxi.kassa.util.Constants.GETT
-import taxi.kassa.util.Constants.PHONE_MASK
 import taxi.kassa.util.Constants.YANDEX
 import java.util.*
 
@@ -135,7 +133,7 @@ class ConnectionFragment : Fragment() {
             city_phone_edit_text
         )
         phoneEditTexts.map {
-            it.addTextChangedListener(PhoneMaskListener(it))
+            it.setMaskListener(null)
         }
 
         when (taxiType) {
@@ -591,9 +589,4 @@ class ConnectionFragment : Fragment() {
     }
 
     private fun backToRegScreen() = findNavController(this).popBackStack()
-
-    inner class PhoneMaskListener(editText: EditText) : MaskedTextChangedListener(PHONE_MASK, editText, object : ValueListener {
-        override fun onTextChanged(maskFilled: Boolean, extractedValue: String, formattedValue: String) {
-        }
-    })
 }

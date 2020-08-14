@@ -32,7 +32,7 @@ class ConnectionViewModel(
     private val images = mutableListOf<LoadImage>()
     private var selected = 0
 
-    val isProgressVisible = MutableLiveData<Boolean>().apply { this.value = false }
+    val isProgressVisible = MutableLiveData<Boolean>().apply { value = false }
     val isNetworkAvailable = MutableLiveData<Boolean>()
     val isRegistered = MutableLiveData<Boolean>()
     val error = MutableLiveData<String>()

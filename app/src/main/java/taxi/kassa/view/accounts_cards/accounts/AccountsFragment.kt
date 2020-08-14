@@ -71,11 +71,13 @@ class AccountsFragment : Fragment() {
 
         add_account.setOnClickListener {
             accounts_block.gone()
+            beginDelayedTransition(parent_layout, it.getTransform(add_account_block))
             add_account_block.visible()
         }
 
         close_image.setOnClickListener {
             add_account_block.gone()
+            beginDelayedTransition(parent_layout, add_account_block.getTransform(add_account))
             accounts_block.visible()
         }
 

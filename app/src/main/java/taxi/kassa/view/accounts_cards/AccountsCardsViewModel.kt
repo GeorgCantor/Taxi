@@ -16,7 +16,7 @@ class AccountsCardsViewModel(
     private val repository: Repository
 ) : AndroidViewModel(app) {
 
-    val isProgressVisible = MutableLiveData<Boolean>().apply { this.value = true }
+    val isProgressVisible = MutableLiveData<Boolean>().apply { value = true }
     val error = MutableLiveData<String>()
     val notifications = MutableLiveData<MutableList<Notification>>()
 

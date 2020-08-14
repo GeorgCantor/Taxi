@@ -6,25 +6,17 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
-import com.redmadrobot.inputmask.MaskedTextChangedListener
 import kotlinx.android.synthetic.main.fragment_auth_sign_up.*
 import kotlinx.android.synthetic.main.keyboard.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
-import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
-import taxi.kassa.util.Constants.PHONE_MASK
-import taxi.kassa.util.inflate
-import taxi.kassa.util.longToast
-import taxi.kassa.util.observe
-import taxi.kassa.util.value
+import taxi.kassa.util.*
 
 class AuthSignUpFragment : Fragment() {
 
     private lateinit var viewModel: AuthSignUpViewModel
-    private var agreementChecked = false
     private var phone = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,8 +32,6 @@ class AuthSignUpFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        agreementChecked = true
 
         with(viewModel) {
             isNetworkAvailable.observe(viewLifecycleOwner) { available ->
@@ -59,56 +49,24 @@ class AuthSignUpFragment : Fragment() {
             }
         }
 
-        login_checkbox.setOnCheckedChangeListener { _, isChecked ->
+        login_checkbox.setOnCheckedChangeListener { _, _ ->
             phone_input_view.error = null
-            agreementChecked = isChecked
         }
 
         with(phone_edit_text) {
-            showSoftInputOnFocus = false
-            addTextChangedListener(PhoneMaskListener())
+            setMaskListener(phone_input_view)
+            setKeyboard(
+                arrayOf(num_0, num_1, num_2, num_3, num_4, num_5, num_6, num_7, num_8, num_9, erase_btn, apply_btn)
+            ) { apply() }
         }
 
         signup_button.setOnClickListener { apply() }
 
-        val keyboardPairs = mutableListOf<Pair<Button, Int>>(
-            Pair(num_0, R.string.num0),
-            Pair(num_1, R.string.num1),
-            Pair(num_2, R.string.num2),
-            Pair(num_3, R.string.num3),
-            Pair(num_4, R.string.num4),
-            Pair(num_5, R.string.num5),
-            Pair(num_6, R.string.num6),
-            Pair(num_7, R.string.num7),
-            Pair(num_8, R.string.num8),
-            Pair(num_9, R.string.num9)
-        )
-
-        keyboardPairs.map {
-            setNumberClickListener(it.first, it.second)
-        }
-
-        erase_btn.setOnClickListener {
-            val cursorPosition = phone_edit_text.selectionStart
-            if (cursorPosition > 0) {
-                phone_edit_text.text = phone_edit_text.text?.delete(cursorPosition - 1, cursorPosition)
-                phone_edit_text.setSelection(cursorPosition - 1)
-            }
-        }
-
-        apply_btn.setOnClickListener { apply() }
-
         back_arrow.setOnClickListener { activity?.onBackPressed() }
     }
 
-    private fun setNumberClickListener(button: Button, resource: Int) {
-        button.setOnClickListener {
-            phone_edit_text.text?.insert(phone_edit_text.selectionStart, getString(resource))
-        }
-    }
-
     private fun apply() {
-        if (!agreementChecked) {
+        if (!login_checkbox.isChecked) {
             phone_input_view.error = getString(R.string.accept_conditions_error)
             return
         }
@@ -127,10 +85,4 @@ class AuthSignUpFragment : Fragment() {
 
         viewModel.signUp(phone)
     }
-
-    inner class PhoneMaskListener : MaskedTextChangedListener(PHONE_MASK, phone_edit_text, object : ValueListener {
-        override fun onTextChanged(maskFilled: Boolean, extractedValue: String, formattedValue: String) {
-            phone_input_view.error = null
-        }
-    })
 }

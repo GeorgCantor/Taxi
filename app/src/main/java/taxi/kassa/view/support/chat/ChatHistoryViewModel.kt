@@ -21,7 +21,7 @@ class ChatHistoryViewModel(
 
     private val context = getApplication<MyApplication>()
 
-    val isProgressVisible = MutableLiveData<Boolean>().apply { this.value = true }
+    val isProgressVisible = MutableLiveData<Boolean>().apply { value = true }
     val error = MutableLiveData<String>()
     val messages = MutableLiveData<Messages>()
     val incomingMessages = MutableLiveData<List<Message>>()

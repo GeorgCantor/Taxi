@@ -21,7 +21,7 @@ class AuthSignUpViewModel(
 
     private val context = getApplication<MyApplication>()
 
-    val isProgressVisible = MutableLiveData<Boolean>().apply { this.value = false }
+    val isProgressVisible = MutableLiveData<Boolean>().apply { value = false }
     val isNetworkAvailable = MutableLiveData<Boolean>()
     val isSignUp = MutableLiveData<Boolean>()
     val error = MutableLiveData<String>()

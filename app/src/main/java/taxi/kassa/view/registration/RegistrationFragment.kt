@@ -1,6 +1,7 @@
 package taxi.kassa.view.registration
 
 import android.os.Bundle
+import android.transition.TransitionManager.beginDelayedTransition
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_registration.*
 import taxi.kassa.R
+import taxi.kassa.util.getTransform
 import taxi.kassa.util.inflate
 import taxi.kassa.util.showOneButtonDialog
 
@@ -39,7 +41,9 @@ class RegistrationFragment : Fragment() {
                 getString(R.string.connection_terms),
                 getString(R.string.terms_description),
                 true
-            )
+            ) { view, rootLayout ->
+                beginDelayedTransition(rootLayout, view.getTransform(view_terms))
+            }
         }
     }
 }

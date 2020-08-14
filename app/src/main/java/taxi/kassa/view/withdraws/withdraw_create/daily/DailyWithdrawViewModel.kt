@@ -9,7 +9,6 @@ import kotlinx.coroutines.launch
 import taxi.kassa.R
 import taxi.kassa.model.Notification
 import taxi.kassa.model.responses.Account
-import taxi.kassa.model.responses.AccountsList
 import taxi.kassa.model.responses.ResponseOwner
 import taxi.kassa.repository.Repository
 import taxi.kassa.util.Constants.ERROR_504
@@ -21,8 +20,8 @@ class DailyWithdrawViewModel(
 
     private val accountId = MutableLiveData<Int>()
 
-    val isProgressVisible = MutableLiveData<Boolean>().apply { this.value = true }
-    val accounts = MutableLiveData<AccountsList>()
+    val isProgressVisible = MutableLiveData<Boolean>().apply { value = true }
+    val accounts = MutableLiveData<List<Account>>()
     val showSuccessScreen = MutableLiveData<Boolean>()
     val responseOwner = MutableLiveData<ResponseOwner>()
     val error = MutableLiveData<String>()
@@ -40,7 +39,7 @@ class DailyWithdrawViewModel(
         viewModelScope.launch(exceptionHandler) {
             val response = repository.getAccounts()
             accountId.postValue(response?.response?.info?.firstOrNull()?.id)
-            accounts.postValue(response?.response)
+            accounts.postValue(response?.response?.info?.filter { it.autoPay == "0" })
             error.postValue(response?.errorMsg)
             isProgressVisible.postValue(false)
             notifications.postValue(repository.getNotificationsAsync().await())
@@ -58,7 +57,7 @@ class DailyWithdrawViewModel(
 
     fun setAccountId(account: Account) {
         viewModelScope.launch(exceptionHandler) {
-            val selectedAccount = accounts.value?.info?.find { it == account }
+            val selectedAccount = accounts.value?.find { it == account }
             accountId.postValue(selectedAccount?.id)
         }
     }

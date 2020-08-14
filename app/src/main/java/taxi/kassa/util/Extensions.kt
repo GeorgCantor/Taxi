@@ -22,7 +22,6 @@ import android.view.View.*
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
-import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast.*
@@ -36,8 +35,10 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
+import com.google.android.material.textfield.TextInputLayout
 import com.google.android.material.transition.platform.MaterialArcMotion
 import com.google.android.material.transition.platform.MaterialContainerTransform
+import com.redmadrobot.inputmask.MaskedTextChangedListener
 import kotlinx.android.synthetic.main.dialog_one_button.*
 import kotlinx.android.synthetic.main.dialog_one_button.message
 import kotlinx.android.synthetic.main.dialog_one_button.title
@@ -58,6 +59,7 @@ import taxi.kassa.util.Constants.LICENCE_FRONT
 import taxi.kassa.util.Constants.MASTERCARD
 import taxi.kassa.util.Constants.PASSPORT_FIRST
 import taxi.kassa.util.Constants.PASSPORT_REGISTRATION
+import taxi.kassa.util.Constants.PHONE_MASK
 import taxi.kassa.util.Constants.SELFIE
 import taxi.kassa.util.Constants.STS_BACK
 import taxi.kassa.util.Constants.STS_FRONT
@@ -84,7 +86,8 @@ fun Context.longToast(message: String) = makeText(this, message, LENGTH_LONG).sh
 fun Context.showOneButtonDialog(
     title: String,
     message: String,
-    isRegistrationDialog: Boolean
+    isRegistrationDialog: Boolean,
+    transitionFunction: (View, ConstraintLayout) -> (Unit)
 ) {
     val dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_one_button, null)
     val builder = AlertDialog.Builder(this).setView(dialogView)
@@ -94,7 +97,10 @@ fun Context.showOneButtonDialog(
         window?.setBackgroundDrawable(ColorDrawable(TRANSPARENT))
         this.title.text = title
         this.message.text = message
-        ok_button.setOnClickListener { dismiss() }
+        ok_button.setOnClickListener {
+            transitionFunction(dialogView, dialog_root_layout)
+            550L.runDelayed { dismiss() }
+        }
 
         if (isRegistrationDialog) {
             this.message.setMultiColoredText(R.string.terms_description)
@@ -112,7 +118,7 @@ fun Context.showTwoButtonsDialog(
     okText: String,
     transitionFunction: (View, ConstraintLayout) -> (Unit),
     function: () -> (Unit)
-) {
+): View {
     val dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_two_buttons, null)
     val builder = AlertDialog.Builder(this).setView(dialogView)
     val alertDialog = builder.show()
@@ -135,6 +141,8 @@ fun Context.showTwoButtonsDialog(
             transitionFunction(dialogView, two_dialog_root_layout)
         }
     }
+
+    return dialogView
 }
 
 fun Context.getScreenSize(): Double {
@@ -270,8 +278,45 @@ inline fun <T> LiveData<T>.observe(
     this.observe(owner, Observer { it?.apply(observer) })
 }
 
-fun EditText.setNumberClickListener(button: Button, resource: Int) {
-    // handle clicking on the buttons of the custom keyboard
+fun EditText.setMaskListener(input: TextInputLayout?) {
+    class PhoneMaskListener : MaskedTextChangedListener(PHONE_MASK, this@setMaskListener, object : ValueListener {
+        override fun onTextChanged(maskFilled: Boolean, extractedValue: String, formattedValue: String) {
+            input?.error = null
+        }
+    })
+    addTextChangedListener(PhoneMaskListener())
+}
+
+fun EditText.setKeyboard(buttons: Array<View>, function: () -> Unit) {
+    showSoftInputOnFocus = false
+
+    listOf(
+        Pair(buttons[0], R.string.num0),
+        Pair(buttons[1], R.string.num1),
+        Pair(buttons[2], R.string.num2),
+        Pair(buttons[3], R.string.num3),
+        Pair(buttons[4], R.string.num4),
+        Pair(buttons[5], R.string.num5),
+        Pair(buttons[6], R.string.num6),
+        Pair(buttons[7], R.string.num7),
+        Pair(buttons[8], R.string.num8),
+        Pair(buttons[9], R.string.num9)
+    ).map {
+        setNumberClickListener(it.first, it.second)
+    }
+
+    buttons[10].setOnClickListener {
+        val cursorPosition = selectionStart
+        if (cursorPosition > 0) {
+            text = text?.delete(cursorPosition - 1, cursorPosition)
+            setSelection(cursorPosition - 1)
+        }
+    }
+
+    buttons[11].setOnClickListener { function() }
+}
+
+fun EditText.setNumberClickListener(button: View, resource: Int) {
     button.setOnClickListener {
         text?.insert(selectionStart, context.getString(resource))
     }
