@@ -11,8 +11,8 @@ android {
         applicationId "taxi.kassa"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 23
-        versionName "1.23"
+        versionCode 27
+        versionName "1.27"
         multiDexEnabled true
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -27,7 +27,7 @@ android {
         debug {
             minifyEnabled true
             shrinkResources true
-            debuggable false
+            debuggable true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -44,11 +44,11 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.core:core-ktx:1.2.0'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.core:core-ktx:1.3.1'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation "androidx.recyclerview:recyclerview:1.1.0"
-    implementation "com.google.android.material:material:1.3.0-alpha01"
+    implementation "com.google.android.material:material:1.3.0-alpha02"
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
 
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.5"
@@ -69,7 +69,7 @@ dependencies {
 
     implementation 'android.arch.navigation:navigation-fragment:1.0.0'
 
-    implementation 'com.google.firebase:firebase-messaging:20.1.6'
+    implementation 'com.google.firebase:firebase-messaging:20.2.4'
 
     implementation "com.redmadrobot:input-mask-android:4.3.1"
 
@@ -86,5 +86,5 @@ dependencies {
     testImplementation "org.mockito:mockito-core:3.3.3"
     androidTestImplementation "org.mockito:mockito-android:2.21.0"
     debugImplementation 'androidx.test:core:1.2.0'
-    debugImplementation group: 'androidx.fragment', name: 'fragment-testing', version: '1.2.4'
+    debugImplementation group: 'androidx.fragment', name: 'fragment-testing', version: '1.2.5'
 }

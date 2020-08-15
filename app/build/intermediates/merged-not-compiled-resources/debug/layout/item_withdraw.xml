@@ -21,7 +21,7 @@
 
     <ImageView
         android:id="@+id/background"
-        android:layout_width="308dp"
+        android:layout_width="0dp"
         android:layout_height="74dp"
         android:layout_marginStart="@dimen/margin_16dp"
         android:layout_marginTop="8dp"
@@ -30,6 +30,7 @@
         android:background="@drawable/bg_profile_gradient"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/time_tv"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView

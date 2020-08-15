@@ -1,4 +1,4 @@
-#Fri Jul 31 15:07:42 MSK 2020
-base.0=D\:\\AndroidProjects\\taxitech-android-new\\app\\build\\intermediates\\dex\\debug\\minifyDebugWithR8\\classes.dex
+#Sat Aug 15 18:14:49 MSK 2020
+base.0=C\:\\Android\\projects\\taxitech_v3\\app\\build\\intermediates\\dex\\debug\\minifyDebugWithR8\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

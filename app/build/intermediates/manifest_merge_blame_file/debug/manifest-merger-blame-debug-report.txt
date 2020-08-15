@@ -1,315 +1,316 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
 3    package="taxi.kassa"
-4    android:versionCode="21"
-5    android:versionName="1.21" >
+4    android:versionCode="23"
+5    android:versionName="1.23" >
 6
 7    <uses-sdk
 8        android:minSdkVersion="21"
-8-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml
+8-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml
 9        android:targetSdkVersion="29" />
-9-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml
+9-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml
 10
 11    <uses-permission android:name="android.permission.INTERNET" />
-11-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml:6:5-67
-11-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml:6:22-64
+11-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml:6:5-67
+11-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml:6:22-64
 12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-12-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml:7:5-79
-12-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml:7:22-76
+12-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml:7:5-79
+12-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml:7:22-76
 13    <uses-permission android:name="android.permission.CALL_PHONE" />
-13-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml:8:5-69
-13-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml:8:22-66
+13-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml:8:5-69
+13-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml:8:22-66
 14    <uses-permission android:name="android.permission.CAMERA" />
-14-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml:9:5-65
-14-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml:9:22-62
+14-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml:9:5-65
+14-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml:9:22-62
 15    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-15-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml:10:5-81
-15-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml:10:22-78
+15-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml:10:5-81
+15-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml:10:22-78
 16    <uses-permission android:name="android.permission.REORDER_TASKS" />
-16-->[androidx.fragment:fragment-testing:1.2.4] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\2c53a5c9ddc1be96c882c30133337fc7\jetified-fragment-testing-1.2.4\AndroidManifest.xml:25:5-72
-16-->[androidx.fragment:fragment-testing:1.2.4] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\2c53a5c9ddc1be96c882c30133337fc7\jetified-fragment-testing-1.2.4\AndroidManifest.xml:25:22-69
+16-->[androidx.fragment:fragment-testing:1.2.4] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\2c53a5c9ddc1be96c882c30133337fc7\jetified-fragment-testing-1.2.4\AndroidManifest.xml:25:5-72
+16-->[androidx.fragment:fragment-testing:1.2.4] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\2c53a5c9ddc1be96c882c30133337fc7\jetified-fragment-testing-1.2.4\AndroidManifest.xml:25:22-69
 17    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- Required by older versions of Google Play services to create IID tokens -->
-17-->[com.google.firebase:firebase-iid:20.1.6] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\3be3c47f0616a9c663f819128ca746a3\jetified-firebase-iid-20.1.6\AndroidManifest.xml:24:5-68
-17-->[com.google.firebase:firebase-iid:20.1.6] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\3be3c47f0616a9c663f819128ca746a3\jetified-firebase-iid-20.1.6\AndroidManifest.xml:24:22-65
+17-->[com.google.firebase:firebase-iid:20.1.6] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\3be3c47f0616a9c663f819128ca746a3\jetified-firebase-iid-20.1.6\AndroidManifest.xml:24:5-68
+17-->[com.google.firebase:firebase-iid:20.1.6] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\3be3c47f0616a9c663f819128ca746a3\jetified-firebase-iid-20.1.6\AndroidManifest.xml:24:22-65
 18    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-18-->[com.google.firebase:firebase-iid:20.1.6] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\3be3c47f0616a9c663f819128ca746a3\jetified-firebase-iid-20.1.6\AndroidManifest.xml:26:5-82
-18-->[com.google.firebase:firebase-iid:20.1.6] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\3be3c47f0616a9c663f819128ca746a3\jetified-firebase-iid-20.1.6\AndroidManifest.xml:26:22-79
+18-->[com.google.firebase:firebase-iid:20.1.6] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\3be3c47f0616a9c663f819128ca746a3\jetified-firebase-iid-20.1.6\AndroidManifest.xml:26:5-82
+18-->[com.google.firebase:firebase-iid:20.1.6] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\3be3c47f0616a9c663f819128ca746a3\jetified-firebase-iid-20.1.6\AndroidManifest.xml:26:22-79
 19
 20    <application
-20-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml:12:5-53:19
+20-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml:12:5-53:19
 21        android:name="taxi.kassa.MyApplication"
-21-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml:13:9-38
+21-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml:13:9-38
 22        android:allowBackup="false"
-22-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml:14:9-36
+22-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml:14:9-36
 23        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-23-->[androidx.core:core:1.2.0] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\db3be9df1f951610e30a19ba4ff2f1fb\core-1.2.0\AndroidManifest.xml:24:18-86
-24        android:icon="@drawable/ic_app_logo"
-24-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml:15:9-45
-25        android:label="@string/app_name"
-25-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml:16:9-41
-26        android:largeHeap="true"
-26-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml:17:9-33
-27        android:requestLegacyExternalStorage="true"
-27-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml:18:9-52
-28        android:roundIcon="@drawable/ic_app_logo"
-28-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml:19:9-50
-29        android:supportsRtl="true"
-29-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml:20:9-35
-30        android:testOnly="true"
-31        android:theme="@style/AppTheme" >
-31-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml:21:9-40
-32        <activity
-32-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml:24:9-35:20
-33            android:name="taxi.kassa.view.MainActivity"
-33-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml:25:13-46
-34            android:screenOrientation="portrait"
-34-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml:26:13-49
-35            android:theme="@style/AppTheme.Launcher"
-35-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml:27:13-53
-36            android:windowSoftInputMode="adjustResize" >
-36-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml:28:13-55
-37            <intent-filter>
-37-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml:30:13-34:29
-38                <action android:name="android.intent.action.MAIN" />
-38-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml:31:17-69
-38-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml:31:25-66
-39
-40                <category android:name="android.intent.category.LAUNCHER" />
-40-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml:33:17-77
-40-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml:33:27-74
-41            </intent-filter>
-42        </activity>
-43
-44        <service
-44-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml:37:9-44:19
-45            android:name="taxi.kassa.model.remote.firebase.MyFirebaseMessagingService"
-45-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml:38:13-77
-46            android:exported="false"
-46-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml:39:13-37
-47            android:stopWithTask="false" >
-47-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml:40:13-41
-48            <intent-filter>
-48-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml:41:13-43:29
-49                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-49-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml:42:17-78
-49-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml:42:25-75
-50            </intent-filter>
-51        </service>
-52
-53        <meta-data
-53-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml:46:9-48:61
-54            android:name="com.google.firebase.messaging.default_notification_icon"
-54-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml:47:13-83
-55            android:resource="@drawable/ic_push_app_logo" />
-55-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml:48:13-58
-56        <meta-data
-56-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml:49:9-51:57
-57            android:name="preloaded_fonts"
-57-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml:50:13-43
-58            android:resource="@array/preloaded_fonts" />
-58-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml:51:13-54
-59
-60        <activity
-60-->[androidx.fragment:fragment-testing:1.2.4] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\2c53a5c9ddc1be96c882c30133337fc7\jetified-fragment-testing-1.2.4\AndroidManifest.xml:28:9-37:20
-61            android:name="androidx.fragment.app.testing.FragmentScenario$EmptyFragmentActivity"
-61-->[androidx.fragment:fragment-testing:1.2.4] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\2c53a5c9ddc1be96c882c30133337fc7\jetified-fragment-testing-1.2.4\AndroidManifest.xml:29:13-96
-62            android:exported="true"
-62-->[androidx.fragment:fragment-testing:1.2.4] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\2c53a5c9ddc1be96c882c30133337fc7\jetified-fragment-testing-1.2.4\AndroidManifest.xml:30:13-36
-63            android:multiprocess="true"
-63-->[androidx.fragment:fragment-testing:1.2.4] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\2c53a5c9ddc1be96c882c30133337fc7\jetified-fragment-testing-1.2.4\AndroidManifest.xml:31:13-40
-64            android:taskAffinity=""
-64-->[androidx.fragment:fragment-testing:1.2.4] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\2c53a5c9ddc1be96c882c30133337fc7\jetified-fragment-testing-1.2.4\AndroidManifest.xml:32:13-36
-65            android:theme="@style/FragmentScenarioEmptyFragmentActivityTheme" >
-65-->[androidx.fragment:fragment-testing:1.2.4] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\2c53a5c9ddc1be96c882c30133337fc7\jetified-fragment-testing-1.2.4\AndroidManifest.xml:33:13-78
-66            <intent-filter>
-66-->[androidx.fragment:fragment-testing:1.2.4] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\2c53a5c9ddc1be96c882c30133337fc7\jetified-fragment-testing-1.2.4\AndroidManifest.xml:34:13-36:29
-67                <action android:name="android.intent.action.MAIN" />
-67-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml:31:17-69
-67-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml:31:25-66
-68            </intent-filter>
-69        </activity>
-70        <activity
-70-->[androidx.test:core:1.2.0] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\b3a49d1fedf4d02216e1b0da95780e59\jetified-core-1.2.0\AndroidManifest.xml:27:9-33:20
-71            android:name="androidx.test.core.app.InstrumentationActivityInvoker$BootstrapActivity"
-71-->[androidx.test:core:1.2.0] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\b3a49d1fedf4d02216e1b0da95780e59\jetified-core-1.2.0\AndroidManifest.xml:28:13-99
-72            android:theme="@android:style/Theme" >
-72-->[androidx.test:core:1.2.0] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\b3a49d1fedf4d02216e1b0da95780e59\jetified-core-1.2.0\AndroidManifest.xml:29:13-49
-73            <intent-filter>
-73-->[androidx.fragment:fragment-testing:1.2.4] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\2c53a5c9ddc1be96c882c30133337fc7\jetified-fragment-testing-1.2.4\AndroidManifest.xml:34:13-36:29
-74                <action android:name="android.intent.action.MAIN" />
-74-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml:31:17-69
-74-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml:31:25-66
-75            </intent-filter>
-76        </activity>
-77        <activity
-77-->[androidx.test:core:1.2.0] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\b3a49d1fedf4d02216e1b0da95780e59\jetified-core-1.2.0\AndroidManifest.xml:34:9-40:20
-78            android:name="androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity"
-78-->[androidx.test:core:1.2.0] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\b3a49d1fedf4d02216e1b0da95780e59\jetified-core-1.2.0\AndroidManifest.xml:35:13-95
-79            android:theme="@android:style/Theme" >
-79-->[androidx.test:core:1.2.0] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\b3a49d1fedf4d02216e1b0da95780e59\jetified-core-1.2.0\AndroidManifest.xml:36:13-49
-80            <intent-filter>
-80-->[androidx.fragment:fragment-testing:1.2.4] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\2c53a5c9ddc1be96c882c30133337fc7\jetified-fragment-testing-1.2.4\AndroidManifest.xml:34:13-36:29
-81                <action android:name="android.intent.action.MAIN" />
-81-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml:31:17-69
-81-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml:31:25-66
-82            </intent-filter>
-83        </activity>
-84        <activity
-84-->[androidx.test:core:1.2.0] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\b3a49d1fedf4d02216e1b0da95780e59\jetified-core-1.2.0\AndroidManifest.xml:41:9-47:20
-85            android:name="androidx.test.core.app.InstrumentationActivityInvoker$EmptyFloatingActivity"
-85-->[androidx.test:core:1.2.0] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\b3a49d1fedf4d02216e1b0da95780e59\jetified-core-1.2.0\AndroidManifest.xml:42:13-103
-86            android:theme="@android:style/Theme.Dialog" >
-86-->[androidx.test:core:1.2.0] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\b3a49d1fedf4d02216e1b0da95780e59\jetified-core-1.2.0\AndroidManifest.xml:43:13-56
-87            <intent-filter>
-87-->[androidx.fragment:fragment-testing:1.2.4] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\2c53a5c9ddc1be96c882c30133337fc7\jetified-fragment-testing-1.2.4\AndroidManifest.xml:34:13-36:29
-88                <action android:name="android.intent.action.MAIN" />
-88-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml:31:17-69
-88-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml:31:25-66
-89            </intent-filter>
-90        </activity>
-91
-92        <uses-library
-92-->[androidx.camera:camera-extensions:1.0.0-alpha03] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\7c4f72310bb59ad861027bb0bf2975a7\jetified-camera-extensions-1.0.0-alpha03\AndroidManifest.xml:25:9-27:40
-93            android:name="androidx.camera.extensions.impl"
-93-->[androidx.camera:camera-extensions:1.0.0-alpha03] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\7c4f72310bb59ad861027bb0bf2975a7\jetified-camera-extensions-1.0.0-alpha03\AndroidManifest.xml:26:13-59
-94            android:required="false" />
-94-->[androidx.camera:camera-extensions:1.0.0-alpha03] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\7c4f72310bb59ad861027bb0bf2975a7\jetified-camera-extensions-1.0.0-alpha03\AndroidManifest.xml:27:13-37
-95
-96        <provider
-96-->[androidx.camera:camera-camera2:1.0.0-alpha06] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\f4b8bfde25070d354ddcdeea1e3fe702\jetified-camera-camera2-1.0.0-alpha06\AndroidManifest.xml:25:9-30:43
-97            android:name="androidx.camera.camera2.impl.Camera2Initializer"
-97-->[androidx.camera:camera-camera2:1.0.0-alpha06] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\f4b8bfde25070d354ddcdeea1e3fe702\jetified-camera-camera2-1.0.0-alpha06\AndroidManifest.xml:26:13-75
-98            android:authorities="taxi.kassa.camerax-init"
-98-->[androidx.camera:camera-camera2:1.0.0-alpha06] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\f4b8bfde25070d354ddcdeea1e3fe702\jetified-camera-camera2-1.0.0-alpha06\AndroidManifest.xml:27:13-64
-99            android:exported="false"
-99-->[androidx.camera:camera-camera2:1.0.0-alpha06] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\f4b8bfde25070d354ddcdeea1e3fe702\jetified-camera-camera2-1.0.0-alpha06\AndroidManifest.xml:28:13-37
-100            android:initOrder="100"
-100-->[androidx.camera:camera-camera2:1.0.0-alpha06] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\f4b8bfde25070d354ddcdeea1e3fe702\jetified-camera-camera2-1.0.0-alpha06\AndroidManifest.xml:29:13-36
-101            android:multiprocess="true" />
-101-->[androidx.camera:camera-camera2:1.0.0-alpha06] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\f4b8bfde25070d354ddcdeea1e3fe702\jetified-camera-camera2-1.0.0-alpha06\AndroidManifest.xml:30:13-40
-102        <!--
-103             FirebaseMessagingService performs security checks at runtime,
-104             but set to not exported to explicitly avoid allowing another app to call it.
-105        -->
-106        <service
-106-->[com.google.firebase:firebase-messaging:20.1.6] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\64632f129d5946a516768ca5a338e716\jetified-firebase-messaging-20.1.6\AndroidManifest.xml:28:9-34:19
-107            android:name="com.google.firebase.messaging.FirebaseMessagingService"
-107-->[com.google.firebase:firebase-messaging:20.1.6] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\64632f129d5946a516768ca5a338e716\jetified-firebase-messaging-20.1.6\AndroidManifest.xml:29:13-82
-108            android:exported="false" >
-108-->[com.google.firebase:firebase-messaging:20.1.6] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\64632f129d5946a516768ca5a338e716\jetified-firebase-messaging-20.1.6\AndroidManifest.xml:30:13-37
-109            <intent-filter android:priority="-500" >
-109-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml:41:13-43:29
-110                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-110-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml:42:17-78
-110-->D:\AndroidProjects\taxitech-android-new\app\src\main\AndroidManifest.xml:42:25-75
-111            </intent-filter>
-112        </service>
-113        <service
-113-->[com.google.firebase:firebase-messaging:20.1.6] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\64632f129d5946a516768ca5a338e716\jetified-firebase-messaging-20.1.6\AndroidManifest.xml:35:9-41:19
-114            android:name="com.google.firebase.components.ComponentDiscoveryService"
-114-->[com.google.firebase:firebase-messaging:20.1.6] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\64632f129d5946a516768ca5a338e716\jetified-firebase-messaging-20.1.6\AndroidManifest.xml:36:13-84
-115            android:directBootAware="true"
-115-->[com.google.firebase:firebase-common:19.3.0] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\4aae06f1b6f9aaff6bbf418ed91fd09c\jetified-firebase-common-19.3.0\AndroidManifest.xml:34:13-43
-116            android:exported="false" >
-116-->[com.google.firebase:firebase-messaging:20.1.6] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\64632f129d5946a516768ca5a338e716\jetified-firebase-messaging-20.1.6\AndroidManifest.xml:37:13-37
-117            <meta-data
-117-->[com.google.firebase:firebase-messaging:20.1.6] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\64632f129d5946a516768ca5a338e716\jetified-firebase-messaging-20.1.6\AndroidManifest.xml:38:13-40:85
-118                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
-118-->[com.google.firebase:firebase-messaging:20.1.6] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\64632f129d5946a516768ca5a338e716\jetified-firebase-messaging-20.1.6\AndroidManifest.xml:39:17-119
-119                android:value="com.google.firebase.components.ComponentRegistrar" />
-119-->[com.google.firebase:firebase-messaging:20.1.6] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\64632f129d5946a516768ca5a338e716\jetified-firebase-messaging-20.1.6\AndroidManifest.xml:40:17-82
-120            <meta-data
-120-->[com.google.firebase:firebase-iid:20.1.6] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\3be3c47f0616a9c663f819128ca746a3\jetified-firebase-iid-20.1.6\AndroidManifest.xml:32:13-34:85
-121                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
-121-->[com.google.firebase:firebase-iid:20.1.6] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\3be3c47f0616a9c663f819128ca746a3\jetified-firebase-iid-20.1.6\AndroidManifest.xml:33:17-96
-122                android:value="com.google.firebase.components.ComponentRegistrar" />
-122-->[com.google.firebase:firebase-iid:20.1.6] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\3be3c47f0616a9c663f819128ca746a3\jetified-firebase-iid-20.1.6\AndroidManifest.xml:34:17-82
-123            <meta-data
-123-->[com.google.firebase:firebase-datatransport:17.0.3] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\09f3cda06bd4c7ecb88f7bbf7efee807\jetified-firebase-datatransport-17.0.3\AndroidManifest.xml:28:13-30:85
-124                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
-124-->[com.google.firebase:firebase-datatransport:17.0.3] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\09f3cda06bd4c7ecb88f7bbf7efee807\jetified-firebase-datatransport-17.0.3\AndroidManifest.xml:29:17-115
-125                android:value="com.google.firebase.components.ComponentRegistrar" />
-125-->[com.google.firebase:firebase-datatransport:17.0.3] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\09f3cda06bd4c7ecb88f7bbf7efee807\jetified-firebase-datatransport-17.0.3\AndroidManifest.xml:30:17-82
-126            <meta-data
-126-->[com.google.firebase:firebase-installations:16.2.2] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\7daebbbd899794a2ceb39410c95db6ec\jetified-firebase-installations-16.2.2\AndroidManifest.xml:17:13-19:85
-127                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
-127-->[com.google.firebase:firebase-installations:16.2.2] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\7daebbbd899794a2ceb39410c95db6ec\jetified-firebase-installations-16.2.2\AndroidManifest.xml:18:17-127
-128                android:value="com.google.firebase.components.ComponentRegistrar" />
-128-->[com.google.firebase:firebase-installations:16.2.2] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\7daebbbd899794a2ceb39410c95db6ec\jetified-firebase-installations-16.2.2\AndroidManifest.xml:19:17-82
-129        </service>
-130
-131        <receiver
-131-->[com.google.firebase:firebase-iid:20.1.6] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\3be3c47f0616a9c663f819128ca746a3\jetified-firebase-iid-20.1.6\AndroidManifest.xml:37:9-44:20
-132            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
-132-->[com.google.firebase:firebase-iid:20.1.6] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\3be3c47f0616a9c663f819128ca746a3\jetified-firebase-iid-20.1.6\AndroidManifest.xml:38:13-78
-133            android:exported="true"
-133-->[com.google.firebase:firebase-iid:20.1.6] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\3be3c47f0616a9c663f819128ca746a3\jetified-firebase-iid-20.1.6\AndroidManifest.xml:39:13-36
-134            android:permission="com.google.android.c2dm.permission.SEND" >
-134-->[com.google.firebase:firebase-iid:20.1.6] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\3be3c47f0616a9c663f819128ca746a3\jetified-firebase-iid-20.1.6\AndroidManifest.xml:40:13-73
-135            <intent-filter>
-135-->[com.google.firebase:firebase-iid:20.1.6] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\3be3c47f0616a9c663f819128ca746a3\jetified-firebase-iid-20.1.6\AndroidManifest.xml:41:13-43:29
-136                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-136-->[com.google.firebase:firebase-iid:20.1.6] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\3be3c47f0616a9c663f819128ca746a3\jetified-firebase-iid-20.1.6\AndroidManifest.xml:42:17-81
-136-->[com.google.firebase:firebase-iid:20.1.6] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\3be3c47f0616a9c663f819128ca746a3\jetified-firebase-iid-20.1.6\AndroidManifest.xml:42:25-78
-137            </intent-filter>
-138        </receiver>
-139
-140        <provider
-140-->[com.google.firebase:firebase-common:19.3.0] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\4aae06f1b6f9aaff6bbf418ed91fd09c\jetified-firebase-common-19.3.0\AndroidManifest.xml:26:9-30:39
-141            android:name="com.google.firebase.provider.FirebaseInitProvider"
-141-->[com.google.firebase:firebase-common:19.3.0] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\4aae06f1b6f9aaff6bbf418ed91fd09c\jetified-firebase-common-19.3.0\AndroidManifest.xml:27:13-77
-142            android:authorities="taxi.kassa.firebaseinitprovider"
-142-->[com.google.firebase:firebase-common:19.3.0] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\4aae06f1b6f9aaff6bbf418ed91fd09c\jetified-firebase-common-19.3.0\AndroidManifest.xml:28:13-72
-143            android:exported="false"
-143-->[com.google.firebase:firebase-common:19.3.0] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\4aae06f1b6f9aaff6bbf418ed91fd09c\jetified-firebase-common-19.3.0\AndroidManifest.xml:29:13-37
-144            android:initOrder="100" />
-144-->[com.google.firebase:firebase-common:19.3.0] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\4aae06f1b6f9aaff6bbf418ed91fd09c\jetified-firebase-common-19.3.0\AndroidManifest.xml:30:13-36
-145
-146        <activity
-146-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\812c72bdc8cd720bfd455662d0799f1a\jetified-play-services-base-17.0.0\AndroidManifest.xml:23:9-26:75
-147            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-147-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\812c72bdc8cd720bfd455662d0799f1a\jetified-play-services-base-17.0.0\AndroidManifest.xml:24:13-79
-148            android:exported="false"
-148-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\812c72bdc8cd720bfd455662d0799f1a\jetified-play-services-base-17.0.0\AndroidManifest.xml:25:13-37
-149            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-149-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\812c72bdc8cd720bfd455662d0799f1a\jetified-play-services-base-17.0.0\AndroidManifest.xml:26:13-72
-150
-151        <meta-data
-151-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\0cd1183d03563a3b1c35ca1940a3d68c\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
-152            android:name="com.google.android.gms.version"
-152-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\0cd1183d03563a3b1c35ca1940a3d68c\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
-153            android:value="@integer/google_play_services_version" />
-153-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\0cd1183d03563a3b1c35ca1940a3d68c\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
-154
-155        <service
-155-->[com.google.android.datatransport:transport-backend-cct:2.2.0] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\c92b00c55d5b30f6c6b664357d8be1bf\jetified-transport-backend-cct-2.2.0\AndroidManifest.xml:29:9-35:19
-156            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
-156-->[com.google.android.datatransport:transport-backend-cct:2.2.0] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\c92b00c55d5b30f6c6b664357d8be1bf\jetified-transport-backend-cct-2.2.0\AndroidManifest.xml:30:13-103
-157            android:exported="false" >
-157-->[com.google.android.datatransport:transport-backend-cct:2.2.0] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\c92b00c55d5b30f6c6b664357d8be1bf\jetified-transport-backend-cct-2.2.0\AndroidManifest.xml:31:13-37
-158            <meta-data
-158-->[com.google.android.datatransport:transport-backend-cct:2.2.0] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\c92b00c55d5b30f6c6b664357d8be1bf\jetified-transport-backend-cct-2.2.0\AndroidManifest.xml:32:13-34:39
-159                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
-159-->[com.google.android.datatransport:transport-backend-cct:2.2.0] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\c92b00c55d5b30f6c6b664357d8be1bf\jetified-transport-backend-cct-2.2.0\AndroidManifest.xml:33:17-94
-160                android:value="cct" />
-160-->[com.google.android.datatransport:transport-backend-cct:2.2.0] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\c92b00c55d5b30f6c6b664357d8be1bf\jetified-transport-backend-cct-2.2.0\AndroidManifest.xml:34:17-36
-161        </service>
-162        <service
-162-->[com.google.android.datatransport:transport-runtime:2.2.0] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\2ac4c3080c2f49688c621c468e4b6837\jetified-transport-runtime-2.2.0\AndroidManifest.xml:26:9-30:19
-163            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
-163-->[com.google.android.datatransport:transport-runtime:2.2.0] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\2ac4c3080c2f49688c621c468e4b6837\jetified-transport-runtime-2.2.0\AndroidManifest.xml:27:13-117
-164            android:exported="false"
-164-->[com.google.android.datatransport:transport-runtime:2.2.0] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\2ac4c3080c2f49688c621c468e4b6837\jetified-transport-runtime-2.2.0\AndroidManifest.xml:28:13-37
-165            android:permission="android.permission.BIND_JOB_SERVICE" >
-165-->[com.google.android.datatransport:transport-runtime:2.2.0] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\2ac4c3080c2f49688c621c468e4b6837\jetified-transport-runtime-2.2.0\AndroidManifest.xml:29:13-69
-166        </service>
-167
-168        <receiver
-168-->[com.google.android.datatransport:transport-runtime:2.2.0] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\2ac4c3080c2f49688c621c468e4b6837\jetified-transport-runtime-2.2.0\AndroidManifest.xml:32:9-34:40
-169            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
-169-->[com.google.android.datatransport:transport-runtime:2.2.0] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\2ac4c3080c2f49688c621c468e4b6837\jetified-transport-runtime-2.2.0\AndroidManifest.xml:33:13-132
-170            android:exported="false" />
-170-->[com.google.android.datatransport:transport-runtime:2.2.0] C:\Users\Alex\.gradle\caches\transforms-2\files-2.1\2ac4c3080c2f49688c621c468e4b6837\jetified-transport-runtime-2.2.0\AndroidManifest.xml:34:13-37
-171    </application>
-172
-173</manifest>
+23-->[androidx.core:core:1.2.0] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\db3be9df1f951610e30a19ba4ff2f1fb\core-1.2.0\AndroidManifest.xml:24:18-86
+24        android:debuggable="true"
+25        android:icon="@drawable/ic_app_logo"
+25-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml:15:9-45
+26        android:label="@string/app_name"
+26-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml:16:9-41
+27        android:largeHeap="true"
+27-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml:17:9-33
+28        android:requestLegacyExternalStorage="true"
+28-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml:18:9-52
+29        android:roundIcon="@drawable/ic_app_logo"
+29-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml:19:9-50
+30        android:supportsRtl="true"
+30-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml:20:9-35
+31        android:testOnly="true"
+32        android:theme="@style/AppTheme" >
+32-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml:21:9-40
+33        <activity
+33-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml:24:9-35:20
+34            android:name="taxi.kassa.view.MainActivity"
+34-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml:25:13-46
+35            android:screenOrientation="portrait"
+35-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml:26:13-49
+36            android:theme="@style/AppTheme.Launcher"
+36-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml:27:13-53
+37            android:windowSoftInputMode="adjustResize" >
+37-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml:28:13-55
+38            <intent-filter>
+38-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml:30:13-34:29
+39                <action android:name="android.intent.action.MAIN" />
+39-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml:31:17-69
+39-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml:31:25-66
+40
+41                <category android:name="android.intent.category.LAUNCHER" />
+41-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml:33:17-77
+41-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml:33:27-74
+42            </intent-filter>
+43        </activity>
+44
+45        <service
+45-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml:37:9-44:19
+46            android:name="taxi.kassa.model.remote.firebase.MyFirebaseMessagingService"
+46-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml:38:13-77
+47            android:exported="false"
+47-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml:39:13-37
+48            android:stopWithTask="false" >
+48-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml:40:13-41
+49            <intent-filter>
+49-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml:41:13-43:29
+50                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+50-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml:42:17-78
+50-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml:42:25-75
+51            </intent-filter>
+52        </service>
+53
+54        <meta-data
+54-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml:46:9-48:61
+55            android:name="com.google.firebase.messaging.default_notification_icon"
+55-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml:47:13-83
+56            android:resource="@drawable/ic_push_app_logo" />
+56-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml:48:13-58
+57        <meta-data
+57-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml:49:9-51:57
+58            android:name="preloaded_fonts"
+58-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml:50:13-43
+59            android:resource="@array/preloaded_fonts" />
+59-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml:51:13-54
+60
+61        <activity
+61-->[androidx.fragment:fragment-testing:1.2.4] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\2c53a5c9ddc1be96c882c30133337fc7\jetified-fragment-testing-1.2.4\AndroidManifest.xml:28:9-37:20
+62            android:name="androidx.fragment.app.testing.FragmentScenario$EmptyFragmentActivity"
+62-->[androidx.fragment:fragment-testing:1.2.4] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\2c53a5c9ddc1be96c882c30133337fc7\jetified-fragment-testing-1.2.4\AndroidManifest.xml:29:13-96
+63            android:exported="true"
+63-->[androidx.fragment:fragment-testing:1.2.4] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\2c53a5c9ddc1be96c882c30133337fc7\jetified-fragment-testing-1.2.4\AndroidManifest.xml:30:13-36
+64            android:multiprocess="true"
+64-->[androidx.fragment:fragment-testing:1.2.4] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\2c53a5c9ddc1be96c882c30133337fc7\jetified-fragment-testing-1.2.4\AndroidManifest.xml:31:13-40
+65            android:taskAffinity=""
+65-->[androidx.fragment:fragment-testing:1.2.4] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\2c53a5c9ddc1be96c882c30133337fc7\jetified-fragment-testing-1.2.4\AndroidManifest.xml:32:13-36
+66            android:theme="@style/FragmentScenarioEmptyFragmentActivityTheme" >
+66-->[androidx.fragment:fragment-testing:1.2.4] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\2c53a5c9ddc1be96c882c30133337fc7\jetified-fragment-testing-1.2.4\AndroidManifest.xml:33:13-78
+67            <intent-filter>
+67-->[androidx.fragment:fragment-testing:1.2.4] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\2c53a5c9ddc1be96c882c30133337fc7\jetified-fragment-testing-1.2.4\AndroidManifest.xml:34:13-36:29
+68                <action android:name="android.intent.action.MAIN" />
+68-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml:31:17-69
+68-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml:31:25-66
+69            </intent-filter>
+70        </activity>
+71        <activity
+71-->[androidx.test:core:1.2.0] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\b3a49d1fedf4d02216e1b0da95780e59\jetified-core-1.2.0\AndroidManifest.xml:27:9-33:20
+72            android:name="androidx.test.core.app.InstrumentationActivityInvoker$BootstrapActivity"
+72-->[androidx.test:core:1.2.0] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\b3a49d1fedf4d02216e1b0da95780e59\jetified-core-1.2.0\AndroidManifest.xml:28:13-99
+73            android:theme="@android:style/Theme" >
+73-->[androidx.test:core:1.2.0] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\b3a49d1fedf4d02216e1b0da95780e59\jetified-core-1.2.0\AndroidManifest.xml:29:13-49
+74            <intent-filter>
+74-->[androidx.fragment:fragment-testing:1.2.4] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\2c53a5c9ddc1be96c882c30133337fc7\jetified-fragment-testing-1.2.4\AndroidManifest.xml:34:13-36:29
+75                <action android:name="android.intent.action.MAIN" />
+75-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml:31:17-69
+75-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml:31:25-66
+76            </intent-filter>
+77        </activity>
+78        <activity
+78-->[androidx.test:core:1.2.0] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\b3a49d1fedf4d02216e1b0da95780e59\jetified-core-1.2.0\AndroidManifest.xml:34:9-40:20
+79            android:name="androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity"
+79-->[androidx.test:core:1.2.0] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\b3a49d1fedf4d02216e1b0da95780e59\jetified-core-1.2.0\AndroidManifest.xml:35:13-95
+80            android:theme="@android:style/Theme" >
+80-->[androidx.test:core:1.2.0] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\b3a49d1fedf4d02216e1b0da95780e59\jetified-core-1.2.0\AndroidManifest.xml:36:13-49
+81            <intent-filter>
+81-->[androidx.fragment:fragment-testing:1.2.4] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\2c53a5c9ddc1be96c882c30133337fc7\jetified-fragment-testing-1.2.4\AndroidManifest.xml:34:13-36:29
+82                <action android:name="android.intent.action.MAIN" />
+82-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml:31:17-69
+82-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml:31:25-66
+83            </intent-filter>
+84        </activity>
+85        <activity
+85-->[androidx.test:core:1.2.0] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\b3a49d1fedf4d02216e1b0da95780e59\jetified-core-1.2.0\AndroidManifest.xml:41:9-47:20
+86            android:name="androidx.test.core.app.InstrumentationActivityInvoker$EmptyFloatingActivity"
+86-->[androidx.test:core:1.2.0] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\b3a49d1fedf4d02216e1b0da95780e59\jetified-core-1.2.0\AndroidManifest.xml:42:13-103
+87            android:theme="@android:style/Theme.Dialog" >
+87-->[androidx.test:core:1.2.0] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\b3a49d1fedf4d02216e1b0da95780e59\jetified-core-1.2.0\AndroidManifest.xml:43:13-56
+88            <intent-filter>
+88-->[androidx.fragment:fragment-testing:1.2.4] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\2c53a5c9ddc1be96c882c30133337fc7\jetified-fragment-testing-1.2.4\AndroidManifest.xml:34:13-36:29
+89                <action android:name="android.intent.action.MAIN" />
+89-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml:31:17-69
+89-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml:31:25-66
+90            </intent-filter>
+91        </activity>
+92
+93        <uses-library
+93-->[androidx.camera:camera-extensions:1.0.0-alpha03] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\7c4f72310bb59ad861027bb0bf2975a7\jetified-camera-extensions-1.0.0-alpha03\AndroidManifest.xml:25:9-27:40
+94            android:name="androidx.camera.extensions.impl"
+94-->[androidx.camera:camera-extensions:1.0.0-alpha03] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\7c4f72310bb59ad861027bb0bf2975a7\jetified-camera-extensions-1.0.0-alpha03\AndroidManifest.xml:26:13-59
+95            android:required="false" />
+95-->[androidx.camera:camera-extensions:1.0.0-alpha03] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\7c4f72310bb59ad861027bb0bf2975a7\jetified-camera-extensions-1.0.0-alpha03\AndroidManifest.xml:27:13-37
+96
+97        <provider
+97-->[androidx.camera:camera-camera2:1.0.0-alpha06] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\f4b8bfde25070d354ddcdeea1e3fe702\jetified-camera-camera2-1.0.0-alpha06\AndroidManifest.xml:25:9-30:43
+98            android:name="androidx.camera.camera2.impl.Camera2Initializer"
+98-->[androidx.camera:camera-camera2:1.0.0-alpha06] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\f4b8bfde25070d354ddcdeea1e3fe702\jetified-camera-camera2-1.0.0-alpha06\AndroidManifest.xml:26:13-75
+99            android:authorities="taxi.kassa.camerax-init"
+99-->[androidx.camera:camera-camera2:1.0.0-alpha06] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\f4b8bfde25070d354ddcdeea1e3fe702\jetified-camera-camera2-1.0.0-alpha06\AndroidManifest.xml:27:13-64
+100            android:exported="false"
+100-->[androidx.camera:camera-camera2:1.0.0-alpha06] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\f4b8bfde25070d354ddcdeea1e3fe702\jetified-camera-camera2-1.0.0-alpha06\AndroidManifest.xml:28:13-37
+101            android:initOrder="100"
+101-->[androidx.camera:camera-camera2:1.0.0-alpha06] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\f4b8bfde25070d354ddcdeea1e3fe702\jetified-camera-camera2-1.0.0-alpha06\AndroidManifest.xml:29:13-36
+102            android:multiprocess="true" />
+102-->[androidx.camera:camera-camera2:1.0.0-alpha06] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\f4b8bfde25070d354ddcdeea1e3fe702\jetified-camera-camera2-1.0.0-alpha06\AndroidManifest.xml:30:13-40
+103        <!--
+104             FirebaseMessagingService performs security checks at runtime,
+105             but set to not exported to explicitly avoid allowing another app to call it.
+106        -->
+107        <service
+107-->[com.google.firebase:firebase-messaging:20.1.6] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\64632f129d5946a516768ca5a338e716\jetified-firebase-messaging-20.1.6\AndroidManifest.xml:28:9-34:19
+108            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+108-->[com.google.firebase:firebase-messaging:20.1.6] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\64632f129d5946a516768ca5a338e716\jetified-firebase-messaging-20.1.6\AndroidManifest.xml:29:13-82
+109            android:exported="false" >
+109-->[com.google.firebase:firebase-messaging:20.1.6] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\64632f129d5946a516768ca5a338e716\jetified-firebase-messaging-20.1.6\AndroidManifest.xml:30:13-37
+110            <intent-filter android:priority="-500" >
+110-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml:41:13-43:29
+111                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+111-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml:42:17-78
+111-->C:\Android\projects\taxitech_v3\app\src\main\AndroidManifest.xml:42:25-75
+112            </intent-filter>
+113        </service>
+114        <service
+114-->[com.google.firebase:firebase-messaging:20.1.6] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\64632f129d5946a516768ca5a338e716\jetified-firebase-messaging-20.1.6\AndroidManifest.xml:35:9-41:19
+115            android:name="com.google.firebase.components.ComponentDiscoveryService"
+115-->[com.google.firebase:firebase-messaging:20.1.6] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\64632f129d5946a516768ca5a338e716\jetified-firebase-messaging-20.1.6\AndroidManifest.xml:36:13-84
+116            android:directBootAware="true"
+116-->[com.google.firebase:firebase-common:19.3.0] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\4aae06f1b6f9aaff6bbf418ed91fd09c\jetified-firebase-common-19.3.0\AndroidManifest.xml:34:13-43
+117            android:exported="false" >
+117-->[com.google.firebase:firebase-messaging:20.1.6] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\64632f129d5946a516768ca5a338e716\jetified-firebase-messaging-20.1.6\AndroidManifest.xml:37:13-37
+118            <meta-data
+118-->[com.google.firebase:firebase-messaging:20.1.6] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\64632f129d5946a516768ca5a338e716\jetified-firebase-messaging-20.1.6\AndroidManifest.xml:38:13-40:85
+119                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
+119-->[com.google.firebase:firebase-messaging:20.1.6] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\64632f129d5946a516768ca5a338e716\jetified-firebase-messaging-20.1.6\AndroidManifest.xml:39:17-119
+120                android:value="com.google.firebase.components.ComponentRegistrar" />
+120-->[com.google.firebase:firebase-messaging:20.1.6] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\64632f129d5946a516768ca5a338e716\jetified-firebase-messaging-20.1.6\AndroidManifest.xml:40:17-82
+121            <meta-data
+121-->[com.google.firebase:firebase-iid:20.1.6] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\3be3c47f0616a9c663f819128ca746a3\jetified-firebase-iid-20.1.6\AndroidManifest.xml:32:13-34:85
+122                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
+122-->[com.google.firebase:firebase-iid:20.1.6] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\3be3c47f0616a9c663f819128ca746a3\jetified-firebase-iid-20.1.6\AndroidManifest.xml:33:17-96
+123                android:value="com.google.firebase.components.ComponentRegistrar" />
+123-->[com.google.firebase:firebase-iid:20.1.6] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\3be3c47f0616a9c663f819128ca746a3\jetified-firebase-iid-20.1.6\AndroidManifest.xml:34:17-82
+124            <meta-data
+124-->[com.google.firebase:firebase-datatransport:17.0.3] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\09f3cda06bd4c7ecb88f7bbf7efee807\jetified-firebase-datatransport-17.0.3\AndroidManifest.xml:28:13-30:85
+125                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
+125-->[com.google.firebase:firebase-datatransport:17.0.3] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\09f3cda06bd4c7ecb88f7bbf7efee807\jetified-firebase-datatransport-17.0.3\AndroidManifest.xml:29:17-115
+126                android:value="com.google.firebase.components.ComponentRegistrar" />
+126-->[com.google.firebase:firebase-datatransport:17.0.3] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\09f3cda06bd4c7ecb88f7bbf7efee807\jetified-firebase-datatransport-17.0.3\AndroidManifest.xml:30:17-82
+127            <meta-data
+127-->[com.google.firebase:firebase-installations:16.2.2] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\7daebbbd899794a2ceb39410c95db6ec\jetified-firebase-installations-16.2.2\AndroidManifest.xml:17:13-19:85
+128                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+128-->[com.google.firebase:firebase-installations:16.2.2] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\7daebbbd899794a2ceb39410c95db6ec\jetified-firebase-installations-16.2.2\AndroidManifest.xml:18:17-127
+129                android:value="com.google.firebase.components.ComponentRegistrar" />
+129-->[com.google.firebase:firebase-installations:16.2.2] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\7daebbbd899794a2ceb39410c95db6ec\jetified-firebase-installations-16.2.2\AndroidManifest.xml:19:17-82
+130        </service>
+131
+132        <receiver
+132-->[com.google.firebase:firebase-iid:20.1.6] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\3be3c47f0616a9c663f819128ca746a3\jetified-firebase-iid-20.1.6\AndroidManifest.xml:37:9-44:20
+133            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+133-->[com.google.firebase:firebase-iid:20.1.6] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\3be3c47f0616a9c663f819128ca746a3\jetified-firebase-iid-20.1.6\AndroidManifest.xml:38:13-78
+134            android:exported="true"
+134-->[com.google.firebase:firebase-iid:20.1.6] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\3be3c47f0616a9c663f819128ca746a3\jetified-firebase-iid-20.1.6\AndroidManifest.xml:39:13-36
+135            android:permission="com.google.android.c2dm.permission.SEND" >
+135-->[com.google.firebase:firebase-iid:20.1.6] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\3be3c47f0616a9c663f819128ca746a3\jetified-firebase-iid-20.1.6\AndroidManifest.xml:40:13-73
+136            <intent-filter>
+136-->[com.google.firebase:firebase-iid:20.1.6] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\3be3c47f0616a9c663f819128ca746a3\jetified-firebase-iid-20.1.6\AndroidManifest.xml:41:13-43:29
+137                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+137-->[com.google.firebase:firebase-iid:20.1.6] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\3be3c47f0616a9c663f819128ca746a3\jetified-firebase-iid-20.1.6\AndroidManifest.xml:42:17-81
+137-->[com.google.firebase:firebase-iid:20.1.6] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\3be3c47f0616a9c663f819128ca746a3\jetified-firebase-iid-20.1.6\AndroidManifest.xml:42:25-78
+138            </intent-filter>
+139        </receiver>
+140
+141        <provider
+141-->[com.google.firebase:firebase-common:19.3.0] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\4aae06f1b6f9aaff6bbf418ed91fd09c\jetified-firebase-common-19.3.0\AndroidManifest.xml:26:9-30:39
+142            android:name="com.google.firebase.provider.FirebaseInitProvider"
+142-->[com.google.firebase:firebase-common:19.3.0] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\4aae06f1b6f9aaff6bbf418ed91fd09c\jetified-firebase-common-19.3.0\AndroidManifest.xml:27:13-77
+143            android:authorities="taxi.kassa.firebaseinitprovider"
+143-->[com.google.firebase:firebase-common:19.3.0] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\4aae06f1b6f9aaff6bbf418ed91fd09c\jetified-firebase-common-19.3.0\AndroidManifest.xml:28:13-72
+144            android:exported="false"
+144-->[com.google.firebase:firebase-common:19.3.0] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\4aae06f1b6f9aaff6bbf418ed91fd09c\jetified-firebase-common-19.3.0\AndroidManifest.xml:29:13-37
+145            android:initOrder="100" />
+145-->[com.google.firebase:firebase-common:19.3.0] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\4aae06f1b6f9aaff6bbf418ed91fd09c\jetified-firebase-common-19.3.0\AndroidManifest.xml:30:13-36
+146
+147        <activity
+147-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\812c72bdc8cd720bfd455662d0799f1a\jetified-play-services-base-17.0.0\AndroidManifest.xml:23:9-26:75
+148            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+148-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\812c72bdc8cd720bfd455662d0799f1a\jetified-play-services-base-17.0.0\AndroidManifest.xml:24:13-79
+149            android:exported="false"
+149-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\812c72bdc8cd720bfd455662d0799f1a\jetified-play-services-base-17.0.0\AndroidManifest.xml:25:13-37
+150            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+150-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\812c72bdc8cd720bfd455662d0799f1a\jetified-play-services-base-17.0.0\AndroidManifest.xml:26:13-72
+151
+152        <meta-data
+152-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\0cd1183d03563a3b1c35ca1940a3d68c\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
+153            android:name="com.google.android.gms.version"
+153-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\0cd1183d03563a3b1c35ca1940a3d68c\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
+154            android:value="@integer/google_play_services_version" />
+154-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\0cd1183d03563a3b1c35ca1940a3d68c\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
+155
+156        <service
+156-->[com.google.android.datatransport:transport-backend-cct:2.2.0] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\c92b00c55d5b30f6c6b664357d8be1bf\jetified-transport-backend-cct-2.2.0\AndroidManifest.xml:29:9-35:19
+157            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+157-->[com.google.android.datatransport:transport-backend-cct:2.2.0] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\c92b00c55d5b30f6c6b664357d8be1bf\jetified-transport-backend-cct-2.2.0\AndroidManifest.xml:30:13-103
+158            android:exported="false" >
+158-->[com.google.android.datatransport:transport-backend-cct:2.2.0] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\c92b00c55d5b30f6c6b664357d8be1bf\jetified-transport-backend-cct-2.2.0\AndroidManifest.xml:31:13-37
+159            <meta-data
+159-->[com.google.android.datatransport:transport-backend-cct:2.2.0] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\c92b00c55d5b30f6c6b664357d8be1bf\jetified-transport-backend-cct-2.2.0\AndroidManifest.xml:32:13-34:39
+160                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+160-->[com.google.android.datatransport:transport-backend-cct:2.2.0] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\c92b00c55d5b30f6c6b664357d8be1bf\jetified-transport-backend-cct-2.2.0\AndroidManifest.xml:33:17-94
+161                android:value="cct" />
+161-->[com.google.android.datatransport:transport-backend-cct:2.2.0] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\c92b00c55d5b30f6c6b664357d8be1bf\jetified-transport-backend-cct-2.2.0\AndroidManifest.xml:34:17-36
+162        </service>
+163        <service
+163-->[com.google.android.datatransport:transport-runtime:2.2.0] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\2ac4c3080c2f49688c621c468e4b6837\jetified-transport-runtime-2.2.0\AndroidManifest.xml:26:9-30:19
+164            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+164-->[com.google.android.datatransport:transport-runtime:2.2.0] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\2ac4c3080c2f49688c621c468e4b6837\jetified-transport-runtime-2.2.0\AndroidManifest.xml:27:13-117
+165            android:exported="false"
+165-->[com.google.android.datatransport:transport-runtime:2.2.0] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\2ac4c3080c2f49688c621c468e4b6837\jetified-transport-runtime-2.2.0\AndroidManifest.xml:28:13-37
+166            android:permission="android.permission.BIND_JOB_SERVICE" >
+166-->[com.google.android.datatransport:transport-runtime:2.2.0] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\2ac4c3080c2f49688c621c468e4b6837\jetified-transport-runtime-2.2.0\AndroidManifest.xml:29:13-69
+167        </service>
+168
+169        <receiver
+169-->[com.google.android.datatransport:transport-runtime:2.2.0] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\2ac4c3080c2f49688c621c468e4b6837\jetified-transport-runtime-2.2.0\AndroidManifest.xml:32:9-34:40
+170            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+170-->[com.google.android.datatransport:transport-runtime:2.2.0] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\2ac4c3080c2f49688c621c468e4b6837\jetified-transport-runtime-2.2.0\AndroidManifest.xml:33:13-132
+171            android:exported="false" />
+171-->[com.google.android.datatransport:transport-runtime:2.2.0] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\2ac4c3080c2f49688c621c468e4b6837\jetified-transport-runtime-2.2.0\AndroidManifest.xml:34:13-37
+172    </application>
+173
+174</manifest>

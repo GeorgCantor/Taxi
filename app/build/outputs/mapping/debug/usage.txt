@@ -338,7 +338,6 @@ kotlin.jvm.internal.ArrayIntIterator
 androidx.core.view.ScrollingView
 taxi.kassa.R$color
 kotlinx.coroutines.flow.FlowKt__MigrationKt$combineLatest$$inlined$combine$3$1
-androidx.core.graphics.BlendModeUtils$1
 androidx.camera.core.impl.utils.package-info
 androidx.camera.core.R$id
 kotlinx.coroutines.flow.FlowKt__ZipKt$combineTransform$$inlined$combineTransform$1$1
@@ -459,7 +458,14 @@ okio.Options:
 androidx.annotation.InspectableProperty$FlagEntry
 androidx.camera.core.CameraDeviceConfig$Builder
 kotlin.reflect.KClassifier
-androidx.core.view.accessibility.AccessibilityNodeInfoCompat$RangeInfoCompat
+androidx.core.view.accessibility.AccessibilityNodeInfoCompat$RangeInfoCompat:
+    public float getCurrent()
+    public float getMax()
+    public float getMin()
+    public int getType()
+    public static final int RANGE_TYPE_INT
+    public static final int RANGE_TYPE_FLOAT
+    public static final int RANGE_TYPE_PERCENT
 androidx.core.widget.TextViewCompat$OreoCallback:
     private static final int MENU_ITEM_ORDER_PROCESS_TEXT_INTENT_ACTIONS_START
 kotlinx.coroutines.flow.FlowKt__TransformKt$filter$$inlined$unsafeTransform$1$2
@@ -797,11 +803,6 @@ androidx.camera.extensions.ExtensionsManager$ExtensionsAvailability
 taxi.kassa.R$styleable
 kotlinx.coroutines.channels.TickerChannelsKt$WhenMappings
 kotlin.collections.UCollectionsKt
-taxi.kassa.view.withdraws.withdraw.WithdrawFragment:
-    private static final java.lang.String ALFABANK
-    private static final java.lang.String BINBANK
-    private static final java.lang.String VTB_BANK
-    private static final java.lang.String SBERBANK
 androidx.collection.LongSparseArray:
     public boolean remove(long,java.lang.Object)
     public java.lang.Object replace(long,java.lang.Object)
@@ -945,6 +946,8 @@ androidx.camera.core.impl.utils.executor.SequentialExecutor:
 androidx.legacy.coreutils.R$integer
 androidx.core.transition.TransitionKt$addListener$3
 androidx.core.util.SparseArrayKt$valueIterator$1
+taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment:
+    public static final synthetic int access$getSourceId$p(taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment)
 androidx.camera.core.ImageAnalysis$Analyzer
 androidx.core.location.LocationKt
 androidx.appcompat.view.menu.MenuDialogHelper:
@@ -988,7 +991,6 @@ androidx.appcompat.graphics.drawable.StateListDrawable:
     void clearMutated()
     private static final java.lang.String TAG
     private static final boolean DEBUG
-androidx.vectordrawable.graphics.drawable.Animatable2Compat$AnimationCallback$1
 kotlinx.coroutines.ExecutorsKt
 androidx.core.app.NotificationCompat$BigPictureStyle:
     public void <init>(androidx.core.app.NotificationCompat$Builder)
@@ -1331,6 +1333,7 @@ androidx.transition.ChangeBounds:
     private static final java.lang.String PROPNAME_PARENT
     private static final java.lang.String PROPNAME_WINDOW_X
     private static final java.lang.String PROPNAME_WINDOW_Y
+androidx.dynamicanimation.animation.FlingAnimation
 okio.-GzipSinkExtensions
 kotlinx.android.parcel.Parceler$DefaultImpls
 org.koin.androidx.viewmodel.ext.android.ViewModelStoreOwnerExtKt$viewModel$1
@@ -1343,6 +1346,8 @@ androidx.cursoradapter.widget.ResourceCursorAdapter:
     public void <init>(android.content.Context,int,android.database.Cursor,int)
     public void setViewResource(int)
     public void setDropDownViewResource(int)
+androidx.dynamicanimation.animation.FloatPropertyCompat:
+    public static androidx.dynamicanimation.animation.FloatPropertyCompat createFloatPropertyCompat(android.util.FloatProperty)
 androidx.core.content.ContextKt
 androidx.arch.core.executor.ArchTaskExecutor:
     public static java.util.concurrent.Executor getMainThreadExecutor()
@@ -1643,8 +1648,14 @@ com.google.android.material.card.MaterialCardViewHelper:
     private static final int DEFAULT_STROKE_VALUE
     private static final float CARD_VIEW_SHADOW_MULTIPLIER
     private static final int CHECKED_ICON_LAYER_INDEX
+androidx.dynamicanimation.animation.FloatPropertyCompat$1
 kotlinx.coroutines.channels.ChannelsKt__Channels_commonKt$distinct$1
 taxi.kassa.R$array
+com.google.android.material.progressindicator.IndeterminateAnimatorControl:
+    public abstract void startMainAnimator()
+    public abstract void cancelMainAnimatorImmediately()
+    public abstract void resetMainAnimatorPropertiesForEnd()
+    public abstract void resetMainAnimatorPropertiesForNextCycle()
 dagger.internal.Beta
 androidx.recyclerview.widget.LinearSmoothScroller:
     private static final boolean DEBUG
@@ -1726,6 +1737,7 @@ androidx.versionedparcelable.ParcelField
 androidx.transition.PatternPathMotion:
     public void <init>(android.graphics.Path)
     public android.graphics.Path getPatternPath()
+com.google.android.material.internal.ViewGroupOverlayImpl
 kotlin.internal.DynamicExtension
 androidx.core.provider.FontsContractCompat$FontRequestCallback
 kotlin.jvm.internal.FunctionReferenceImpl
@@ -3140,7 +3152,13 @@ androidx.transition.GhostViewPlatform:
     private static final java.lang.String TAG
 androidx.collection.LongSparseArrayKt
 dagger.BindsInstance
-taxi.kassa.BuildConfig
+taxi.kassa.BuildConfig:
+    public void <init>()
+    public static final java.lang.String APPLICATION_ID
+    public static final java.lang.String BUILD_TYPE
+    public static final int VERSION_CODE
+    public static final java.lang.String VERSION_NAME
+    public static final java.lang.String BASE_URL
 androidx.core.os.ParcelableCompat
 androidx.test.core.content.pm.ApplicationInfoBuilder
 kotlin.jvm.internal.PrimitiveSpreadBuilder
@@ -3238,6 +3256,10 @@ kotlin.collections.SetsKt__SetsJVMKt:
 com.google.android.material.floatingactionbutton.BorderDrawable:
     public com.google.android.material.shape.ShapeAppearanceModel getShapeAppearanceModel()
     private static final float DRAW_STROKE_WIDTH_MULTIPLE
+com.google.android.material.transition.MaterialContainerTransform$TransitionDrawable:
+    private static final int SHADOW_COLOR
+    private static final int COMPAT_SHADOW_COLOR
+    private static final float COMPAT_SHADOW_OFFSET_MULTIPLIER
 kotlin.sequences.SequencesKt___SequencesJvmKt$filterIsInstance$1
 androidx.viewpager2.R$integer
 org.koin.androidx.viewmodel.compat.ScopeCompat
@@ -3497,6 +3519,7 @@ androidx.appcompat.widget.ResourceManagerInternal:
     private static final java.lang.String SKIP_DRAWABLE_TAG
     private static final java.lang.String PLATFORM_VD_CLAZZ
 androidx.recyclerview.widget.ViewBoundsCheck$ViewBounds
+androidx.swiperefreshlayout.R$layout
 kotlin.collections.SlidingWindowKt$windowedSequence$$inlined$Sequence$1
 kotlin.time.TimeSourcesKt
 taxi.kassa.R$dimen
@@ -3618,7 +3641,6 @@ androidx.test.internal.platform.content.PermissionGranter
 kotlin.random.PlatformRandomKt
 kotlinx.coroutines.flow.FlowKt__ReduceKt$single$1
 taxi.kassa.view.registration.photo.PhotoFragment:
-    private final java.lang.String getTaxiType()
     public static final synthetic android.graphics.Bitmap access$getPhotoBitmap$p(taxi.kassa.view.registration.photo.PhotoFragment)
     private static final int REQUEST_CODE_PERMISSIONS
 kotlin.text.TypeAliasesKt
@@ -3628,6 +3650,7 @@ androidx.camera.extensions.R$color
 kotlinx.coroutines.channels.ChannelsKt__Channels_commonKt$filterNotTo$3
 kotlinx.coroutines.flow.FlowKt__MigrationKt$combine$$inlined$unsafeFlow$3$lambda$1
 androidx.camera.core.impl.utils.Optional
+androidx.annotation.experimental.Experimental
 kotlinx.coroutines.test.TestCoroutineContext$Dispatcher$scheduleResumeAfterDelay$$inlined$Runnable$1
 kotlin.sequences.SequencesKt__SequencesJVMKt:
     private static final kotlin.sequences.Sequence asSequence(java.util.Enumeration)
@@ -3645,6 +3668,7 @@ androidx.camera.core.ImageAnalysisNonBlockingAnalyzer$1
 androidx.viewpager.R$styleable
 androidx.core.app.JobIntentService$CompatWorkEnqueuer:
     void enqueueWork(android.content.Intent)
+androidx.swiperefreshlayout.R$string
 androidx.activity.R$dimen
 okio.internal.RealBufferedSourceKt
 androidx.core.transition.TransitionKt$addListener$5
@@ -3704,8 +3728,8 @@ taxi.kassa.util.Constants:
     public static final java.lang.String TOKEN
     public static final java.lang.String NEW
     public static final java.lang.String APPROVED
-    public static final java.lang.String WRITTEN_OFF
-    public static final java.lang.String CANCELED
+    public static final java.lang.String WITHDRAWN
+    public static final java.lang.String DENIED
     public static final java.lang.String WITHDRAW
     public static final java.lang.String TAXI
     public static final java.lang.String CONNECTION
@@ -3714,7 +3738,6 @@ taxi.kassa.util.Constants:
     public static final java.lang.String NOTIFICATIONS
     public static final java.lang.String PUSH_COUNTER
     public static final java.lang.String MESSAGES_COUNTER
-    public static final java.lang.String TOTAL_BALANCE
     public static final java.lang.String PHONE_MASK
     public static final java.lang.String CARD_MASK
     public static final java.lang.String TITLE
@@ -3724,8 +3747,14 @@ taxi.kassa.util.Constants:
     public static final java.lang.String NOT_FROM_PUSH
     public static final java.lang.String UNREAD
     public static final java.lang.String ERROR_504
+    public static final java.lang.String ALFABANK
+    public static final java.lang.String BINBANK
+    public static final java.lang.String VTB_BANK
+    public static final java.lang.String SBERBANK
+    public static final java.lang.String TINKOFF
     public static final java.lang.String YANDEX
     public static final java.lang.String GETT
+    public static final java.lang.String CITY
     public static final java.lang.String CITYMOBIL
     public static final java.lang.String DRIVER
     public static final java.lang.String ADMIN
@@ -3832,6 +3861,7 @@ androidx.viewpager2.adapter.FragmentStateAdapter:
 androidx.recyclerview.widget.ItemTouchUIUtilImpl
 kotlin.ranges.ULongRange$Companion
 kotlin.sequences.GeneratorSequence
+androidx.dynamicanimation.R$color
 kotlin.sequences.SequencesKt__SequenceBuilderKt$sequence$$inlined$Sequence$1
 androidx.annotation.CheckResult
 kotlin.Suppress
@@ -3857,7 +3887,9 @@ androidx.camera.camera2.impl.FocusMeteringControl$1
 kotlin.jvm.internal.EnumCompanionObject
 androidx.lifecycle.SavedStateHandleController:
     static final java.lang.String TAG_SAVED_STATE_HANDLE_CONTROLLER
-androidx.vectordrawable.graphics.drawable.Animatable2Compat
+androidx.vectordrawable.graphics.drawable.Animatable2Compat:
+    public abstract boolean unregisterAnimationCallback(androidx.vectordrawable.graphics.drawable.Animatable2Compat$AnimationCallback)
+    public abstract void clearAnimationCallbacks()
 okhttp3.internal.cache.DiskLruCache$Editor:
     public final okio.Source newSource(int)
 androidx.navigation.NavDirections
@@ -3916,7 +3948,8 @@ androidx.core.view.ViewPropertyAnimatorListenerAdapter:
     public void onAnimationEnd(android.view.View)
 taxi.kassa.view.orders.list.OrdersListFragment:
     private static final java.lang.String ARG_TAXI
-androidx.core.graphics.BlendModeUtils
+androidx.core.graphics.BlendModeUtils:
+    private void <init>()
 okhttp3.internal.http2.PushObserver$Companion:
     static final synthetic okhttp3.internal.http2.PushObserver$Companion $$INSTANCE
 kotlin.ranges.ComparableRange
@@ -4051,17 +4084,10 @@ androidx.collection.SparseArrayKt
 kotlin.sequences.SequencesKt___SequencesKt$minus$1
 androidx.camera.camera2.impl.Camera2CameraControl$6
 org.koin.androidx.scope.R$color
-kotlinx.coroutines.flow.FlowKt__ZipKt$combineTransform$$inlined$combineTransform$3$2
 androidx.appcompat.app.ToolbarActionBar$2
+kotlinx.coroutines.flow.FlowKt__ZipKt$combineTransform$$inlined$combineTransform$3$2
 androidx.transition.Explode:
     private static final java.lang.String PROPNAME_SCREEN_BOUNDS
-androidx.transition.Visibility:
-    public boolean isVisible(androidx.transition.TransitionValues)
-    static final java.lang.String PROPNAME_VISIBILITY
-    private static final java.lang.String PROPNAME_PARENT
-    private static final java.lang.String PROPNAME_SCREEN_LOCATION
-    public static final int MODE_IN
-    public static final int MODE_OUT
 kotlin.UninitializedPropertyAccessException:
     public void <init>(java.lang.String,java.lang.Throwable)
     public void <init>(java.lang.Throwable)
@@ -4174,6 +4200,14 @@ androidx.camera.extensions.AutoImageCaptureExtender$1
 androidx.camera.core.impl.LiveDataObservable$1
 androidx.navigation.NavArgs
 okhttp3.internal.ws.MessageInflater
+com.google.android.material.progressindicator.CircularIndeterminateDrawable:
+    private static final float INDICATOR_MAX_DEGREES
+    private static final float INDICATOR_MIN_DEGREES
+    private static final float INDICATOR_DELTA_DEGREES
+    private static final float INDICATOR_OFFSET_PER_COLOR_DEGREES
+    private static final long DURATION_PER_COLOR_IN_MS
+    private static final long COLOR_FADING_DURATION
+    private static final long COLOR_FADING_DELAY
 androidx.navigation.common.R$drawable
 androidx.test.runner.lifecycle.ApplicationLifecycleMonitorRegistry
 androidx.core.internal.view.SupportMenu:
@@ -4324,6 +4358,9 @@ androidx.fragment.ktx.R$dimen
 kotlin.UByteArray$Iterator
 kotlin.comparisons.ComparisonsKt__ComparisonsKt$nullsFirst$1
 kotlin.sequences.SequencesKt___SequencesKt$requireNoNulls$1
+taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment:
+    public static final synthetic int access$getCardId$p(taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment)
+    public static final synthetic int access$getSourceId$p(taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment)
 kotlinx.coroutines.sync.Mutex$DefaultImpls
 kotlinx.coroutines.channels.ArrayBroadcastChannel$Subscriber
 androidx.core.graphics.drawable.IconCompat:
@@ -4458,6 +4495,7 @@ kotlinx.coroutines.flow.FlowKt__ZipKt$combine$$inlined$unsafeFlow$4$lambda$2
 androidx.recyclerview.widget.SortedListAdapterCallback
 dagger.internal.SingleCheck
 androidx.transition.Styleable$ArcMotion
+androidx.swiperefreshlayout.R$id
 kotlinx.coroutines.internal.ExceptionsConstuctorKt$safeCtor$1
 androidx.camera.core.ProcessingImageReader:
     void <init>(androidx.camera.core.ImageReaderProxy,android.os.Handler,androidx.camera.core.CaptureBundle,androidx.camera.core.CaptureProcessor)
@@ -4466,6 +4504,10 @@ kotlinx.coroutines.channels.ChannelsKt__Channels_commonKt$find$1
 androidx.camera.extensions.PreviewExtender$CloseableProcessor
 androidx.transition.Styleable$ChangeTransform
 kotlin.UByte$Companion
+com.google.android.material.internal.ViewGroupOverlayApi14:
+    static com.google.android.material.internal.ViewGroupOverlayApi14 createFrom(android.view.ViewGroup)
+    public void add(android.view.View)
+    public void remove(android.view.View)
 androidx.core.view.PointerIconCompat:
     public static androidx.core.view.PointerIconCompat create(android.graphics.Bitmap,float,float)
     public static androidx.core.view.PointerIconCompat load(android.content.res.Resources,int)
@@ -4613,6 +4655,8 @@ kotlin.sequences.SequencesKt___SequencesKt$scanIndexed$1
 kotlin.coroutines.CoroutineContext$Element:
     public abstract java.lang.Object fold(java.lang.Object,kotlin.jvm.functions.Function2)
     public abstract kotlin.coroutines.CoroutineContext minusKey(kotlin.coroutines.CoroutineContext$Key)
+com.google.android.material.progressindicator.DeterminateDrawable:
+    private static final int MAX_DRAWABLE_LEVEL
 org.koin.ext.InjectPropertyKt
 okhttp3.internal.platform.ConscryptPlatform:
     public javax.net.ssl.X509TrustManager trustManager(javax.net.ssl.SSLSocketFactory)
@@ -4885,6 +4929,13 @@ kotlin.jvm.functions.FunctionN
 androidx.lifecycle.ViewModelKt:
     private static final java.lang.String JOB_KEY
 kotlin.jvm.internal.PropertyReference1
+com.google.android.material.internal.StaticLayoutBuilderCompat:
+    public com.google.android.material.internal.StaticLayoutBuilderCompat setStart(int)
+    public com.google.android.material.internal.StaticLayoutBuilderCompat setEnd(int)
+    private static final java.lang.String TEXT_DIR_CLASS
+    private static final java.lang.String TEXT_DIRS_CLASS
+    private static final java.lang.String TEXT_DIR_CLASS_LTR
+    private static final java.lang.String TEXT_DIR_CLASS_RTL
 kotlinx.coroutines.flow.FlowKt__MigrationKt$combine$$inlined$unsafeFlow$1$lambda$2
 kotlinx.coroutines.internal.Concurrent_commonKt
 kotlinx.coroutines.flow.FlowKt__ZipKt$combineTransform$$inlined$combineTransform$3$1
@@ -5009,8 +5060,6 @@ kotlin.io.SerializableKt
 androidx.core.view.ViewCompat$ScrollIndicators
 androidx.camera.extensions.ExtensionsManager$3
 kotlinx.coroutines.flow.FlowKt__DistinctKt$distinctUntilChangedBy$$inlined$distinctUntilChangedBy$FlowKt__DistinctKt$1$2$1
-androidx.core.view.NestedScrollingParentHelper:
-    public void onStopNestedScroll(android.view.View)
 kotlin.jvm.internal.ByteSpreadBuilder
 androidx.core.view.accessibility.AccessibilityWindowInfoCompat
 kotlinx.coroutines.channels.AbstractChannel$ReceiveSelect
@@ -5256,7 +5305,6 @@ androidx.camera.core.DeferrableSurfaces:
     public static java.util.Set surfaceSet(java.util.Collection)
     private static final java.lang.String TAG
 androidx.core.text.HtmlKt
-androidx.vectordrawable.graphics.drawable.Animatable2Compat$AnimationCallback
 androidx.lifecycle.Lifecycling$1:
     void <init>(androidx.lifecycle.LifecycleEventObserver)
 androidx.constraintlayout.solver.widgets.ConstraintTableLayout$HorizontalSlice
@@ -5313,6 +5361,11 @@ androidx.camera.core.PreviewConfig:
     public androidx.camera.core.CaptureProcessor getCaptureProcessor()
 kotlinx.coroutines.flow.FlowKt__ErrorsKt$onErrorCollect$2
 org.koin.android.R
+com.google.android.material.progressindicator.DrawableWithAnimatedVisibilityChange:
+    public boolean unregisterAnimationCallback(androidx.vectordrawable.graphics.drawable.Animatable2Compat$AnimationCallback)
+    public void clearAnimationCallbacks()
+    private static final boolean DEFAULT_DRAWABLE_RESTART
+    private static final long GROW_DURATION
 androidx.annotation.DimenRes
 androidx.fragment.R$layout
 androidx.core.app.NotificationCompat$MessagingStyle
@@ -5519,6 +5572,7 @@ androidx.recyclerview.widget.AdapterHelper$UpdateOp:
     static final int MOVE
     static final int POOL_SIZE
 androidx.core.app.ShareCompat
+androidx.dynamicanimation.R$id
 kotlin.collections.unsigned.UArraysKt___UArraysKt$withIndex$3
 okhttp3.internal.http.StatusLine:
     public static final int HTTP_TEMP_REDIRECT
@@ -5545,10 +5599,6 @@ androidx.appcompat.widget.ListPopupWindow:
     public void postShow()
     public int getInputMethodMode()
     public boolean performItemClick(int)
-    public java.lang.Object getSelectedItem()
-    public int getSelectedItemPosition()
-    public long getSelectedItemId()
-    public android.view.View getSelectedView()
     void setListItemExpandMax(int)
     public boolean onKeyDown(int,android.view.KeyEvent)
     public boolean onKeyUp(int,android.view.KeyEvent)
@@ -5565,6 +5615,9 @@ androidx.appcompat.widget.ListPopupWindow:
     public static final int INPUT_METHOD_NEEDED
     public static final int INPUT_METHOD_NOT_NEEDED
 androidx.appcompat.widget.ActivityChooserModel$HistoricalRecord
+com.google.android.material.datepicker.TimeSource:
+    static com.google.android.material.datepicker.TimeSource fixed(long,java.util.TimeZone)
+    static com.google.android.material.datepicker.TimeSource fixed(long)
 androidx.appcompat.view.menu.ActionMenuItem:
     public androidx.appcompat.view.menu.ActionMenuItem setExclusiveCheckable(boolean)
     public boolean invoke()
@@ -5660,6 +5713,8 @@ okhttp3.Cookie$Builder
 kotlinx.coroutines.channels.ArrayBroadcastChannel
 dagger.internal.ProviderOfLazy
 androidx.test.core.content.pm.PackageInfoBuilder
+com.google.android.material.transition.FitModeEvaluators:
+    private void <init>()
 kotlinx.coroutines.CancellableContinuation$DefaultImpls
 androidx.lifecycle.extensions.R$string
 kotlin.collections.MutableMapWithDefault
@@ -5875,6 +5930,7 @@ kotlin.collections.EmptyList:
     public java.lang.Void remove(int)
     public java.lang.Void set(int,java.lang.Void)
     private static final long serialVersionUID
+androidx.dynamicanimation.R
 kotlin.jvm.internal.PropertyReference0
 kotlin.collections.ReversedListReadOnly
 kotlin.collections.CollectionsKt__MutableCollectionsJVMKt:
@@ -5908,6 +5964,10 @@ androidx.core.hardware.fingerprint.FingerprintManagerCompat$1
 androidx.core.graphics.PathUtils
 okhttp3.logging.LoggingEventListener$Factory
 androidx.exifinterface.media.ExifInterface$ExifTag
+androidx.dynamicanimation.animation.AnimationHandler:
+    public static long getFrameTime()
+    public void setProvider(androidx.dynamicanimation.animation.AnimationHandler$AnimationFrameCallbackProvider)
+    private static final long FRAME_DELAY_MS
 org.koin.android.BuildConfig
 kotlin.NumbersKt__NumbersKt
 kotlin.Triple
@@ -5968,6 +6028,7 @@ androidx.collection.ArraySet:
 androidx.camera.camera2.impl.ImageAnalysisConfigProvider:
     private static final java.lang.String TAG
 com.google.android.material.datepicker.UtcDates:
+    static void setTimeSource(com.google.android.material.datepicker.TimeSource)
     private void <init>()
     static java.text.SimpleDateFormat getSimpleFormat(java.lang.String)
     static java.text.DateFormat getMediumFormat()
@@ -6108,6 +6169,7 @@ androidx.activity.OnBackPressedDispatcher:
     public void <init>()
     public void addCallback(androidx.activity.OnBackPressedCallback)
     public boolean hasEnabledCallbacks()
+androidx.annotation.experimental.Experimental$Level
 kotlinx.coroutines.sync.MutexImpl$lockSuspend$$inlined$suspendAtomicCancellableCoroutineReusable$lambda$1
 kotlin.ranges.URangesKt
 kotlin.ranges.LongRange
@@ -6161,6 +6223,7 @@ okhttp3.internal.connection.RealCall:
     public synchronized boolean isExecuted()
 kotlinx.coroutines.Delay
 androidx.appcompat.app.AppCompatDelegateImpl$ActionBarDrawableToggleImpl
+androidx.dynamicanimation.animation.DynamicAnimation$15
 androidx.appcompat.widget.ShareActionProvider$ShareMenuItemOnMenuItemClickListener
 kotlinx.coroutines.flow.FlowKt__EmittersKt$invokeSafely$1
 androidx.viewpager.widget.PagerAdapter:
@@ -6284,7 +6347,6 @@ androidx.core.view.MarginLayoutParamsCompat:
     public static void resolveLayoutDirection(android.view.ViewGroup$MarginLayoutParams,int)
     private void <init>()
 androidx.camera.extensions.PreviewExtender$PreviewExtenderAdapter$1
-androidx.core.graphics.BlendModeCompat
 kotlin.sequences.SequencesKt__SequencesKt$flatten$2
 androidx.core.text.PrecomputedTextCompat$PrecomputedTextFutureTask
 androidx.appcompat.app.AlertController$RecycleListView:
@@ -6359,7 +6421,6 @@ androidx.navigation.fragment.R$integer
 org.koin.core.error.BadScopeInstanceException
 kotlinx.coroutines.flow.internal.UndispatchedContextCollector
 androidx.core.widget.ListViewCompat:
-    public static boolean canScrollList(android.widget.ListView,int)
     private void <init>()
 androidx.viewpager2.adapter.FragmentStateAdapter$FragmentMaxLifecycleEnforcer:
     void <init>(androidx.viewpager2.adapter.FragmentStateAdapter)
@@ -6571,6 +6632,7 @@ androidx.navigation.Navigation:
     public static android.view.View$OnClickListener createNavigateOnClickListener(int)
     public static android.view.View$OnClickListener createNavigateOnClickListener(int,android.os.Bundle)
 kotlinx.coroutines.flow.internal.ChannelFlowMerge$collectTo$$inlined$collect$1$lambda$1
+androidx.dynamicanimation.R$integer
 androidx.transition.MatrixUtils:
     private void <init>()
 kotlinx.coroutines.channels.ChannelsKt__Channels_commonKt$partition$1
@@ -6784,6 +6846,16 @@ androidx.appcompat.view.menu.MenuHelper
 kotlin.jvm.internal.PropertyReference0Impl
 androidx.appcompat.widget.ListPopupWindow$1
 kotlinx.coroutines.channels.ChannelsKt__Channels_commonKt$mapIndexedTo$1
+com.google.android.material.progressindicator.LinearIndeterminateDrawable:
+    private static final long MAIN_LINE_1_HEAD_DURATION
+    private static final long MAIN_LINE_1_TAIL_DELAY
+    private static final long MAIN_LINE_1_TAIL_DURATION
+    private static final long MAIN_LINE_2_HEAD_DELAY
+    private static final long MAIN_LINE_2_HEAD_DURATION
+    private static final long MAIN_LINE_2_TAIL_DELAY
+    private static final long MAIN_LINE_2_TAIL_DURATION
+    private static final long SEAMLESS_NEXT_COLOR_DELAY
+    private static final long SEAMLESS_DURATION_PER_COLOR
 androidx.camera.camera2.impl.Camera2CameraCaptureResultConverter
 org.koin.androidx.scope.R$attr
 kotlin.collections.AbstractSet
@@ -6820,6 +6892,7 @@ kotlin.ResultKt:
     private static final java.lang.Object onSuccess(java.lang.Object,kotlin.jvm.functions.Function1)
 kotlinx.coroutines.flow.FlowKt__ZipKt$combineTransform$$inlined$combineTransform$2
 kotlinx.coroutines.flow.FlowKt__ReduceKt$singleOrNull$$inlined$collect$1
+androidx.dynamicanimation.R$attr
 androidx.camera.core.ImageUtil$CodecFailedException
 kotlin.time.AbstractDoubleTimeSource
 androidx.core.app.ActivityCompat$SharedElementCallback21Impl$1
@@ -6846,8 +6919,6 @@ com.google.gson.DefaultDateTypeAdapter:
     private static final java.lang.String SIMPLE_NAME
 kotlinx.coroutines.channels.AbstractChannel$ReceiveElement
 androidx.annotation.StringRes
-taxi.kassa.view.auth.auth_sign_up.AuthSignUpFragment:
-    public static final synthetic boolean access$getAgreementChecked$p(taxi.kassa.view.auth.auth_sign_up.AuthSignUpFragment)
 kotlin.reflect.KVisibility
 kotlinx.coroutines.channels.ProducerCoroutine
 kotlin.coroutines.SafeContinuation$Companion
@@ -6875,6 +6946,11 @@ kotlinx.coroutines.channels.ChannelsKt__Channels_commonKt$toChannel$1
 androidx.recyclerview.widget.DiffUtil$DiffResult
 kotlinx.coroutines.selects.UnbiasedSelectBuilderImpl$invoke$1
 kotlin.coroutines.experimental.SequenceBuilderKt__SequenceBuilderKt$buildSequence$$inlined$Sequence$1
+com.google.android.material.transition.TransitionUtils:
+    private void <init>()
+    static android.graphics.Rect getRelativeBoundsRect(android.view.View)
+    static void maybeAddTransition(androidx.transition.TransitionSet,androidx.transition.Transition)
+    static void maybeRemoveTransition(androidx.transition.TransitionSet,androidx.transition.Transition)
 kotlinx.coroutines.channels.ChannelsKt__Channels_commonKt$minWith$1
 androidx.core.text.TextUtilsCompat:
     public static java.lang.String htmlEncode(java.lang.String)
@@ -6884,6 +6960,7 @@ androidx.core.text.TextUtilsCompat:
 androidx.appcompat.resources.R$style
 androidx.core.graphics.ImageDecoderKt$decodeBitmap$1
 androidx.core.app.NotificationCompat$Action$WearableExtender
+androidx.dynamicanimation.R$style
 dagger.Subcomponent$Builder
 dagger.multibindings.Multibinds
 kotlinx.coroutines.flow.FlowKt__DistinctKt$distinctUntilChangedBy$$inlined$unsafeFlow$3$1
@@ -6935,6 +7012,15 @@ okhttp3.internal.platform.Jdk8WithJettyBootPlatform$AlpnProvider:
 org.koin.androidx.viewmodel.koin.KoinStateVMExtKt
 kotlinx.coroutines.flow.FlowKt__DistinctKt$distinctUntilChangedBy$$inlined$unsafeFlow$2$lambda$1
 kotlinx.coroutines.channels.ChannelsKt__Channels_commonKt$firstOrNull$3
+androidx.dynamicanimation.animation.SpringAnimation:
+    public void <init>(androidx.dynamicanimation.animation.FloatValueHolder)
+    public void <init>(java.lang.Object,androidx.dynamicanimation.animation.FloatPropertyCompat,float)
+    public androidx.dynamicanimation.animation.SpringForce getSpring()
+    public void skipToEnd()
+    public boolean canSkipToEnd()
+    float getAcceleration(float,float)
+    void setValueThreshold(float)
+    private static final float UNSET
 retrofit2.Invocation:
     public static retrofit2.Invocation of(java.lang.reflect.Method,java.util.List)
     public java.util.List arguments()
@@ -7014,12 +7100,11 @@ taxi.kassa.MyApplication:
 kotlin.jvm.internal.ShortCompanionObject
 androidx.core.content.pm.PackageInfoCompat
 kotlinx.coroutines.flow.FlowKt__ContextKt$flowWith$$inlined$unsafeFlow$1
+androidx.swiperefreshlayout.widget.CircularProgressDrawable$ProgressDrawableSize
 androidx.appcompat.app.ActionBarDrawerToggle$DelegateProvider
 retrofit2.Platform:
     int defaultCallAdapterFactoriesSize()
 kotlin.coroutines.experimental.CoroutineContext$Element
-taxi.kassa.view.accounts.AccountsFragment:
-    public static final synthetic void access$setViewModel$p(taxi.kassa.view.accounts.AccountsFragment,taxi.kassa.view.accounts.AccountsViewModel)
 androidx.appcompat.widget.AppCompatHintHelper:
     private void <init>()
 androidx.camera.camera2.impl.Camera2CameraControl:
@@ -7054,6 +7139,7 @@ androidx.transition.AnimatorUtils:
 kotlinx.coroutines.flow.FlowKt__ZipKt$combineTransform$7$2
 org.koin.androidx.viewmodel.compat.ViewModelCompat
 kotlinx.coroutines.internal.SynchronizedKt
+androidx.dynamicanimation.R$styleable
 kotlinx.coroutines.flow.FlowKt__MergeKt$unsafeTransform$$inlined$unsafeFlow$1$lambda$1$1
 kotlinx.coroutines.flow.internal.CombineKt$combineTransformInternal$2$invokeSuspend$$inlined$select$lambda$4
 kotlinx.coroutines.channels.ChannelsKt__Channels_commonKt$indexOfLast$1
@@ -7064,6 +7150,8 @@ androidx.customview.R$id
 kotlinx.coroutines.flow.FlowKt__MigrationKt$combine$$inlined$combine$3$2
 androidx.core.view.ViewCompat$FocusRelativeDirection
 kotlin.reflect.KProperty$DefaultImpls
+taxi.kassa.view.accounts_cards.cards.CardsAdapter$CardViewHolder:
+    public final android.widget.ImageView getBankIcon()
 kotlin.collections.ArraysKt___ArraysKt$withIndex$1
 androidx.camera.extensions.R$attr
 kotlinx.coroutines.CancellableContinuation:
@@ -7110,6 +7198,7 @@ kotlinx.coroutines.flow.FlowKt__CountKt$count$$inlined$collect$2$1
 kotlinx.coroutines.flow.FlowKt__BuildersKt$asFlow$$inlined$unsafeFlow$4$1
 androidx.fragment.testing.R$string
 kotlin.coroutines.experimental.CoroutineContext$Element$DefaultImpls
+androidx.swiperefreshlayout.R$dimen
 kotlinx.coroutines.flow.FlowKt__TransformKt$unsafeTransform$$inlined$unsafeFlow$6$1
 androidx.camera.camera2.impl.compat.params.SessionConfigurationCompat$SessionMode
 androidx.fragment.app.testing.FragmentScenario
@@ -7136,6 +7225,15 @@ androidx.camera.core.impl.LiveDataObservable:
     public androidx.lifecycle.LiveData getLiveData()
     public com.google.common.util.concurrent.ListenableFuture fetchData()
 kotlin.jvm.JvmOverloads
+androidx.swiperefreshlayout.widget.CircleImageView:
+    public int getBackgroundColor()
+    private static final int DEFAULT_BACKGROUND_COLOR
+    private static final int FILL_SHADOW_COLOR
+    private static final int KEY_SHADOW_COLOR
+    private static final float X_OFFSET
+    private static final float Y_OFFSET
+    private static final float SHADOW_RADIUS
+    private static final int SHADOW_ELEVATION
 kotlin.ranges.UIntRange
 kotlin.ranges.ClosedRange$DefaultImpls
 kotlinx.coroutines.flow.FlowKt__ZipKt$combineTransform$$inlined$combineTransform$4
@@ -7310,7 +7408,7 @@ androidx.core.view.accessibility.AccessibilityNodeInfoCompat:
     public androidx.core.view.accessibility.AccessibilityNodeInfoCompat$CollectionInfoCompat getCollectionInfo()
     public androidx.core.view.accessibility.AccessibilityNodeInfoCompat$CollectionItemInfoCompat getCollectionItemInfo()
     public androidx.core.view.accessibility.AccessibilityNodeInfoCompat$RangeInfoCompat getRangeInfo()
-    public void setRangeInfo(androidx.core.view.accessibility.AccessibilityNodeInfoCompat$RangeInfoCompat)
+    public void setContentInvalid(boolean)
     public boolean isContentInvalid()
     public boolean isContextClickable()
     public void setContextClickable(boolean)
@@ -7326,7 +7424,6 @@ androidx.core.view.accessibility.AccessibilityNodeInfoCompat:
     public java.util.List findAccessibilityNodeInfosByViewId(java.lang.String)
     public int getInputType()
     public void setInputType(int)
-    public void setMaxTextLength(int)
     public int getMaxTextLength()
     public void setTextSelection(int,int)
     public int getTextSelectionStart()
@@ -7352,7 +7449,6 @@ androidx.core.view.accessibility.AccessibilityNodeInfoCompat:
     public void setTextEntryKey(boolean)
     public boolean refresh()
     public java.lang.CharSequence getRoleDescription()
-    public void setRoleDescription(java.lang.CharSequence)
     public androidx.core.view.accessibility.AccessibilityNodeInfoCompat$TouchDelegateInfoCompat getTouchDelegateInfo()
     public void setTouchDelegateInfo(androidx.core.view.accessibility.AccessibilityNodeInfoCompat$TouchDelegateInfoCompat)
     private static final java.lang.String ROLE_DESCRIPTION_KEY
@@ -7420,6 +7516,8 @@ androidx.appcompat.widget.SuggestionsAdapter:
     static final int REFINE_ALL
     static final int INVALID_INDEX
 kotlin.UseExperimental
+com.google.android.material.transition.FadeModeEvaluators:
+    private void <init>()
 androidx.appcompat.widget.TooltipPopup:
     private static final java.lang.String TAG
 androidx.fragment.app.FragmentStore:
@@ -7447,12 +7545,10 @@ androidx.core.text.BidiFormatter:
     public boolean isRtlContext()
     public boolean isRtl(java.lang.String)
     public boolean isRtl(java.lang.CharSequence)
-    public java.lang.String unicodeWrap(java.lang.String,androidx.core.text.TextDirectionHeuristicCompat,boolean)
     public java.lang.String unicodeWrap(java.lang.String,androidx.core.text.TextDirectionHeuristicCompat)
     public java.lang.CharSequence unicodeWrap(java.lang.CharSequence,androidx.core.text.TextDirectionHeuristicCompat)
     public java.lang.String unicodeWrap(java.lang.String,boolean)
     public java.lang.CharSequence unicodeWrap(java.lang.CharSequence,boolean)
-    public java.lang.String unicodeWrap(java.lang.String)
     private static final char LRE
     private static final char RLE
     private static final char PDF
@@ -7472,6 +7568,7 @@ kotlinx.coroutines.ThreadPoolDispatcher
 kotlinx.coroutines.CompletionHandler_commonKt
 androidx.test.core.app.ActivityScenario$$Lambda$2
 androidx.recyclerview.R$drawable
+androidx.dynamicanimation.animation.FlingAnimation$DragForce
 androidx.activity.R$string
 androidx.camera.core.AndroidImageProxy:
     public synchronized android.graphics.Rect getCropRect()
@@ -7527,6 +7624,7 @@ androidx.core.app.NotificationCompat$Builder:
     boolean mChronometerCountDown
     private static final int MAX_CHARSEQUENCE_LENGTH
 kotlinx.coroutines.flow.FlowKt__MigrationKt$combine$$inlined$unsafeFlow$2$1
+com.google.android.material.internal.ViewGroupOverlayApi18
 androidx.navigation.NavGraph:
     public final void addDestinations(java.util.Collection)
     public final varargs void addDestinations(androidx.navigation.NavDestination[])
@@ -7539,6 +7637,41 @@ androidx.appcompat.widget.AppCompatDrawableManager:
     boolean tintDrawableUsingColorFilter(android.content.Context,int,android.graphics.drawable.Drawable)
     private static final java.lang.String TAG
     private static final boolean DEBUG
+androidx.swiperefreshlayout.widget.CircularProgressDrawable:
+    private float getRotation()
+    public float getStrokeWidth()
+    public float getCenterRadius()
+    public void setCenterRadius(float)
+    public void setStrokeCap(android.graphics.Paint$Cap)
+    public android.graphics.Paint$Cap getStrokeCap()
+    public float getArrowWidth()
+    public float getArrowHeight()
+    public void setArrowDimensions(float,float)
+    public boolean getArrowEnabled()
+    public float getArrowScale()
+    public float getStartTrim()
+    public float getEndTrim()
+    public float getProgressRotation()
+    public int getBackgroundColor()
+    public void setBackgroundColor(int)
+    public int[] getColorSchemeColors()
+    public static final int LARGE
+    private static final float CENTER_RADIUS_LARGE
+    private static final float STROKE_WIDTH_LARGE
+    private static final int ARROW_WIDTH_LARGE
+    private static final int ARROW_HEIGHT_LARGE
+    public static final int DEFAULT
+    private static final float CENTER_RADIUS
+    private static final float STROKE_WIDTH
+    private static final int ARROW_WIDTH
+    private static final int ARROW_HEIGHT
+    private static final float COLOR_CHANGE_OFFSET
+    private static final float SHRINK_OFFSET
+    private static final int ANIMATION_DURATION
+    private static final float GROUP_FULL_ROTATION
+    private static final float MAX_PROGRESS_ARC
+    private static final float MIN_PROGRESS_ARC
+    private static final float RING_ROTATION
 org.koin.core.logger.Logger:
     public final org.koin.core.logger.Level getLevel()
     public final void setLevel(org.koin.core.logger.Level)
@@ -7608,6 +7741,7 @@ android.support.v4.app.INotificationSideChannel$Stub:
 kotlin.jvm.internal.Ref$ByteRef
 androidx.vectordrawable.R$attr
 androidx.core.app.BundleCompat
+androidx.dynamicanimation.R$drawable
 androidx.core.app.NavUtils:
     public static void navigateUpFromSameTask(android.app.Activity)
     public static android.content.Intent getParentActivityIntent(android.content.Context,java.lang.Class)
@@ -7865,7 +7999,6 @@ kotlin.text.StringsKt___StringsKt:
     public static final java.lang.Character singleOrNull(java.lang.CharSequence,kotlin.jvm.functions.Function1)
     public static final java.lang.CharSequence drop(java.lang.CharSequence,int)
     public static final java.lang.CharSequence dropLast(java.lang.CharSequence,int)
-    public static final java.lang.String dropLast(java.lang.String,int)
     public static final java.lang.CharSequence dropLastWhile(java.lang.CharSequence,kotlin.jvm.functions.Function1)
     public static final java.lang.String dropLastWhile(java.lang.String,kotlin.jvm.functions.Function1)
     public static final java.lang.CharSequence dropWhile(java.lang.CharSequence,kotlin.jvm.functions.Function1)
@@ -7884,7 +8017,6 @@ kotlin.text.StringsKt___StringsKt:
     public static final java.lang.CharSequence slice(java.lang.CharSequence,java.lang.Iterable)
     private static final java.lang.String slice(java.lang.String,java.lang.Iterable)
     public static final java.lang.CharSequence take(java.lang.CharSequence,int)
-    public static final java.lang.String take(java.lang.String,int)
     public static final java.lang.CharSequence takeLast(java.lang.CharSequence,int)
     public static final java.lang.String takeLast(java.lang.String,int)
     public static final java.lang.CharSequence takeLastWhile(java.lang.CharSequence,kotlin.jvm.functions.Function1)
@@ -7998,6 +8130,7 @@ okio.ForwardingSink:
     public final okio.Sink -deprecated_delegate()
     public final okio.Sink delegate()
 androidx.recyclerview.R$string
+androidx.dynamicanimation.R$layout
 androidx.annotation.ContentView
 androidx.transition.ViewUtils:
     private void <init>()
@@ -8469,8 +8602,6 @@ kotlinx.coroutines.BuildersKt__Builders_commonKt:
     private static final int UNDECIDED
     private static final int SUSPENDED
     private static final int RESUMED
-taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment:
-    public static final synthetic void access$setViewModel$p(taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment,taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateViewModel)
 kotlinx.coroutines.DispatchedContinuationKt:
     private static synthetic void UNDEFINED$annotations()
     public static synthetic void REUSABLE_CLAIMED$annotations()
@@ -8592,8 +8723,6 @@ androidx.appcompat.widget.TooltipCompatHandler:
 kotlin.sequences.SubSequence$iterator$1
 kotlin.collections.RingBuffer
 kotlinx.coroutines.flow.FlowKt__DistinctKt$distinctUntilChangedBy$$inlined$unsafeFlow$1$1
-taxi.kassa.view.auth.auth_phone.AuthPhoneFragment:
-    public static final synthetic boolean access$getAgreementChecked$p(taxi.kassa.view.auth.auth_phone.AuthPhoneFragment)
 androidx.appcompat.graphics.drawable.DrawableContainer:
     public void setEnterFadeDuration(int)
     public void setExitFadeDuration(int)
@@ -8668,6 +8797,7 @@ androidx.collection.ContainerHelpers:
     private void <init>()
 androidx.core.ktx.R$id
 kotlin.coroutines.experimental.migration.ExperimentalSuspendFunction1Migration
+androidx.annotation.experimental.UseExperimental
 androidx.core.view.ViewCompat$ScrollAxis
 androidx.annotation.HalfFloat
 kotlinx.coroutines.internal.AtomicDesc
@@ -8935,7 +9065,6 @@ kotlin.collections.MapsKt__MapWithDefaultKt:
     public void <init>()
 kotlin.ranges.CharProgression$Companion
 kotlin.comparisons.ComparisonsKt__ComparisonsKt$compareBy$3
-androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat$2
 kotlin.coroutines.EmptyCoroutineContext:
     private final java.lang.Object readResolve()
     private static final long serialVersionUID
@@ -9859,6 +9988,7 @@ kotlin.sequences.SequencesKt___SequencesKt$scanReduceIndexed$1
 taxi.kassa.R$xml
 kotlin.text.StringsKt___StringsKt$windowed$1
 kotlin.coroutines.experimental.intrinsics.IntrinsicsKt__IntrinsicsJvmKt$createCoroutineUnchecked$$inlined$buildContinuationByInvokeCall$IntrinsicsKt__IntrinsicsJvmKt$1
+androidx.swiperefreshlayout.R$color
 kotlinx.coroutines.EventLoopImplBase$DelayedTask:
     public void <init>(long)
 androidx.transition.TransitionUtils:
@@ -9908,8 +10038,6 @@ androidx.appcompat.widget.AppCompatCheckedTextView:
     public void <init>(android.content.Context)
 androidx.customview.widget.ExploreByTouchHelper:
     public final void invalidateRoot()
-    public final void invalidateVirtualView(int)
-    public final void invalidateVirtualView(int,int)
     public int getFocusedVirtualView()
     public static final int INVALID_ID
     public static final int HOST_ID
@@ -10167,6 +10295,9 @@ kotlinx.coroutines.flow.FlowKt__LimitKt$drop$$inlined$unsafeFlow$1$lambda$1
 kotlinx.coroutines.flow.FlowKt__MigrationKt$combine$$inlined$combine$1
 kotlinx.coroutines.flow.FlowKt__CollectKt
 kotlinx.coroutines.sync.CancelSemaphoreAcquisitionHandler
+taxi.kassa.repository.Repository:
+    public final java.lang.Object addCard(java.lang.String,kotlin.coroutines.Continuation)
+    public final java.lang.Object deleteCard(int,kotlin.coroutines.Continuation)
 kotlinx.coroutines.flow.FlowKt__CollectKt$collect$3$emit$1
 kotlinx.coroutines.CompletableDeferred
 kotlin.collections.ArraysKt___ArraysKt$withIndex$5
@@ -10201,6 +10332,10 @@ androidx.recyclerview.widget.LinearLayoutManager:
     public static final int INVALID_OFFSET
     private static final float MAX_SCROLL_FACTOR
 dagger.Subcomponent
+com.google.android.material.transition.platform.MaterialContainerTransform$TransitionDrawable:
+    private static final int SHADOW_COLOR
+    private static final int COMPAT_SHADOW_COLOR
+    private static final float COMPAT_SHADOW_OFFSET_MULTIPLIER
 kotlinx.coroutines.flow.FlowKt__MigrationKt$combineLatest$$inlined$combine$1
 androidx.vectordrawable.graphics.drawable.VectorDrawableCompat:
     private void printGroupTree(androidx.vectordrawable.graphics.drawable.VectorDrawableCompat$VGroup,int)
@@ -10225,6 +10360,32 @@ kotlinx.coroutines.flow.FlowKt__TransformKt$onEach$$inlined$unsafeTransform$1
 kotlinx.coroutines.channels.ChannelsKt__Channels_commonKt
 kotlin.internal.UProgressionUtilKt
 kotlin.reflect.KProperty0
+androidx.swiperefreshlayout.widget.SwipeRefreshLayout:
+    public void <init>(android.content.Context)
+    public void setProgressViewOffset(boolean,int,int)
+    public void setProgressViewEndTarget(boolean,int)
+    public boolean isRefreshing()
+    public boolean startNestedScroll(int,int)
+    public void stopNestedScroll(int)
+    public boolean hasNestedScrollingParent(int)
+    public boolean dispatchNestedScroll(int,int,int,int,int[],int)
+    public boolean dispatchNestedPreScroll(int,int,int[],int[],int)
+    public static final int LARGE
+    public static final int DEFAULT
+    public static final int DEFAULT_SLINGSHOT_DISTANCE
+    static final int CIRCLE_DIAMETER
+    static final int CIRCLE_DIAMETER_LARGE
+    private static final int MAX_ALPHA
+    private static final int STARTING_PROGRESS_ALPHA
+    private static final float DECELERATE_INTERPOLATION_FACTOR
+    private static final int INVALID_POINTER
+    private static final float DRAG_RATE
+    private static final float MAX_PROGRESS_ANGLE
+    private static final int SCALE_DOWN_DURATION
+    private static final int ALPHA_ANIMATION_DURATION
+    private static final int ANIMATE_TO_TRIGGER_DURATION
+    private static final int ANIMATE_TO_START_DURATION
+    private static final int DEFAULT_CIRCLE_TARGET
 androidx.test.internal.util.ReflectionUtil
 kotlin.ExperimentalMultiplatform
 androidx.constraintlayout.solver.LinearSystem$Row:
@@ -10390,10 +10551,10 @@ androidx.constraintlayout.widget.ConstraintLayout$LayoutParams:
     public static final int CHAIN_SPREAD_INSIDE
     public static final int CHAIN_PACKED
 androidx.test.internal.runner.lifecycle.ApplicationLifecycleMonitorImpl
+kotlinx.coroutines.channels.ChannelsKt__Channels_commonKt$count$3
 androidx.lifecycle.ViewModelProvider:
     public void <init>(androidx.lifecycle.ViewModelStoreOwner)
     private static final java.lang.String DEFAULT_KEY
-kotlinx.coroutines.channels.ChannelsKt__Channels_commonKt$count$3
 androidx.camera.core.R$dimen
 kotlinx.coroutines.flow.FlowKt__TransformKt$filter$$inlined$unsafeTransform$2
 kotlinx.coroutines.flow.FlowKt__TransformKt$unsafeTransform$$inlined$unsafeFlow$1$lambda$1$1
@@ -10456,9 +10617,14 @@ kotlin.sequences.DropSequence$iterator$1:
     public final int getLeft()
     public final void setLeft(int)
 androidx.appcompat.app.AppCompatDelegate$NightMode
+com.google.android.material.transition.TransitionListenerAdapter:
+    public void onTransitionStart(androidx.transition.Transition)
+    public void onTransitionEnd(androidx.transition.Transition)
 androidx.navigation.fragment.R$attr
 androidx.cursoradapter.widget.SimpleCursorAdapter
 kotlinx.coroutines.flow.FlowKt__CollectKt$collectIndexed$2
+com.google.android.material.transition.platform.FadeModeEvaluators:
+    private void <init>()
 androidx.customview.R$layout
 kotlin.coroutines.CombinedContext$Serialized$Companion
 kotlinx.coroutines.channels.ChannelsKt__Channels_commonKt$last$3
@@ -10483,6 +10649,7 @@ androidx.core.graphics.RegionKt$iterator$1
 okio.HashingSink
 androidx.test.internal.platform.app.ActivityInvoker
 kotlinx.coroutines.flow.FlowKt__ZipKt$combine$$inlined$unsafeFlow$5
+androidx.swiperefreshlayout.R
 kotlinx.coroutines.flow.FlowKt__MigrationKt$combine$$inlined$combine$1$1
 androidx.camera.core.ImageAnalysisConfig:
     public androidx.camera.core.ImageAnalysis$ImageReaderMode getImageReaderMode(androidx.camera.core.ImageAnalysis$ImageReaderMode)
@@ -10798,6 +10965,7 @@ kotlinx.coroutines.channels.ChannelsKt__Channels_commonKt$map$1
 androidx.core.view.ViewGroupKt$iterator$1
 androidx.vectordrawable.animated.R$id
 androidx.camera.extensions.BeautyImageCaptureExtender$VendorBeautyImageCaptureExtender
+androidx.dynamicanimation.animation.FloatValueHolder
 androidx.customview.R$dimen
 androidx.core.content.ContextCompat$LegacyServiceMapHolder
 androidx.drawerlayout.R$attr
@@ -10845,6 +11013,7 @@ kotlinx.coroutines.flow.FlowKt__TransformKt$scanReduce$$inlined$unsafeFlow$1$lam
 okhttp3.internal.ws.WebSocketWriter
 okhttp3.internal.platform.android.UtilKt:
     private static final int MAX_LOG_LENGTH
+androidx.dynamicanimation.animation.Force
 okhttp3.internal.cache2.Relay$RelaySource
 androidx.core.graphics.TypefaceCompatUtil:
     private void <init>()
@@ -11246,6 +11415,10 @@ androidx.appcompat.view.menu.CascadingMenuPopup:
     static final int SUBMENU_TIMEOUT_MS
 kotlin.text.Typography
 kotlin.collections.ArrayDequeKt
+com.google.android.material.transition.platform.TransitionUtils:
+    private void <init>()
+    static void maybeAddTransition(android.transition.TransitionSet,android.transition.Transition)
+    static void maybeRemoveTransition(android.transition.TransitionSet,android.transition.Transition)
 retrofit2.RequestBuilder:
     private static final java.lang.String PATH_SEGMENT_ALWAYS_ENCODE_SET
 androidx.core.provider.FontsContractCompat$4$6
@@ -11368,6 +11541,9 @@ kotlin.UIntArrayKt
 kotlinx.coroutines.flow.FlowKt__LimitKt$takeWhile$$inlined$unsafeFlow$1
 kotlinx.coroutines.channels.Send
 androidx.legacy.coreutils.R$drawable
+com.google.android.material.progressindicator.LinearDrawingDelegate:
+    private static final float TRACK_WIDTH_LOCAL
+    private static final float TRACK_LEFT_LOCAL
 kotlin.coroutines.experimental.migration.ExperimentalContextMigration
 kotlin.native.concurrent.SharedImmutable
 androidx.recyclerview.widget.RecyclerView$EdgeEffectFactory$EdgeDirection
@@ -11492,6 +11668,26 @@ kotlin.random.AbstractPlatformRandom:
     public double nextDouble()
     public float nextFloat()
     public byte[] nextBytes(byte[])
+androidx.dynamicanimation.animation.DynamicAnimation:
+    void <init>(androidx.dynamicanimation.animation.FloatValueHolder)
+    private static void removeEntry(java.util.ArrayList,java.lang.Object)
+    public androidx.dynamicanimation.animation.DynamicAnimation setStartVelocity(float)
+    public androidx.dynamicanimation.animation.DynamicAnimation setMaxValue(float)
+    public androidx.dynamicanimation.animation.DynamicAnimation setMinValue(float)
+    public androidx.dynamicanimation.animation.DynamicAnimation addEndListener(androidx.dynamicanimation.animation.DynamicAnimation$OnAnimationEndListener)
+    public void removeEndListener(androidx.dynamicanimation.animation.DynamicAnimation$OnAnimationEndListener)
+    public void removeUpdateListener(androidx.dynamicanimation.animation.DynamicAnimation$OnAnimationUpdateListener)
+    public androidx.dynamicanimation.animation.DynamicAnimation setMinimumVisibleChange(float)
+    public float getMinimumVisibleChange()
+    abstract float getAcceleration(float,float)
+    abstract boolean isAtEquilibrium(float,float)
+    abstract void setValueThreshold(float)
+    public static final float MIN_VISIBLE_CHANGE_PIXELS
+    public static final float MIN_VISIBLE_CHANGE_ROTATION_DEGREES
+    public static final float MIN_VISIBLE_CHANGE_ALPHA
+    public static final float MIN_VISIBLE_CHANGE_SCALE
+    private static final float UNSET
+    private static final float THRESHOLD_MULTIPLIER
 androidx.activity.ktx.R$color
 kotlinx.android.parcel.WriteWith
 kotlinx.coroutines.channels.ConflatedBroadcastChannel$Closed
@@ -11577,6 +11773,10 @@ androidx.savedstate.R
 androidx.core.R$integer
 kotlin.collections.ArraysKt___ArraysKt$asIterable$$inlined$Iterable$6
 kotlin.coroutines.experimental.ContinuationInterceptor$Key
+com.google.android.material.internal.ViewOverlayApi14$OverlayViewGroup:
+    public void add(android.view.View)
+    public void remove(android.view.View)
+    protected android.view.ViewParent invalidateChildInParentFast(int,int,android.graphics.Rect)
 kotlinx.coroutines.EventLoopImplBase:
     public static final synthetic void access$setCompleted$p(kotlinx.coroutines.EventLoopImplBase,boolean)
     public void scheduleResumeAfterDelay(long,kotlinx.coroutines.CancellableContinuation)
@@ -11720,7 +11920,8 @@ kotlin.sequences.SequencesKt___SequencesKt:
     public static final float sumOfFloat(kotlin.sequences.Sequence)
     public static final double sumOfDouble(kotlin.sequences.Sequence)
     public void <init>()
-androidx.core.graphics.BlendModeColorFilterCompat
+androidx.core.graphics.BlendModeColorFilterCompat:
+    private void <init>()
 androidx.recyclerview.widget.RecyclerView$SmoothScroller$Action:
     public void <init>(int,int,int)
     public int getDx()
@@ -11798,6 +11999,7 @@ androidx.appcompat.app.AlertController:
 okhttp3.Interceptor$Companion$invoke$1
 androidx.recyclerview.widget.AsyncListDiffer$1$2
 kotlinx.coroutines.channels.ChannelsKt__Channels_commonKt$maxBy$1
+androidx.annotation.experimental.R
 androidx.camera.extensions.PreviewExtender
 kotlin.random.PlatformRandom
 org.intellij.lang.annotations.Subst
@@ -11995,12 +12197,25 @@ kotlinx.coroutines.DispatchedContinuation:
     public final boolean resumeCancelled()
     public final void resumeUndispatchedWith(java.lang.Object)
     public final void dispatchYield$kotlinx_coroutines_core(kotlin.coroutines.CoroutineContext,java.lang.Object)
+androidx.dynamicanimation.animation.SpringForce:
+    public float getStiffness()
+    public float getDampingRatio()
+    public float getAcceleration(float,float)
+    public static final float STIFFNESS_HIGH
+    public static final float STIFFNESS_MEDIUM
+    public static final float STIFFNESS_LOW
+    public static final float STIFFNESS_VERY_LOW
+    public static final float DAMPING_RATIO_HIGH_BOUNCY
+    public static final float DAMPING_RATIO_MEDIUM_BOUNCY
+    public static final float DAMPING_RATIO_LOW_BOUNCY
+    public static final float DAMPING_RATIO_NO_BOUNCY
+    private static final double VELOCITY_THRESHOLD_MULTIPLIER
+    private static final double UNSET
 okhttp3.MultipartBody$Builder:
     public final okhttp3.MultipartBody$Builder addPart(okhttp3.RequestBody)
     public final okhttp3.MultipartBody$Builder addFormDataPart(java.lang.String,java.lang.String)
     public final okhttp3.MultipartBody$Builder addFormDataPart(java.lang.String,java.lang.String,okhttp3.RequestBody)
 androidx.annotation.XmlRes
-androidx.test.internal.runner.InstrumentationConnection$MessengerReceiver
 kotlinx.coroutines.Dispatchers:
     public static synthetic void Default$annotations()
     public static synthetic void Main$annotations()
@@ -12008,6 +12223,7 @@ kotlinx.coroutines.Dispatchers:
     public static final kotlinx.coroutines.CoroutineDispatcher getUnconfined()
     public static synthetic void IO$annotations()
     public static final kotlinx.coroutines.CoroutineDispatcher getIO()
+androidx.test.internal.runner.InstrumentationConnection$MessengerReceiver
 androidx.camera.core.UseCaseGroupLifecycleController:
     void release()
 androidx.appcompat.R
@@ -12238,12 +12454,10 @@ kotlin.jvm.Synchronized
 androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat:
     public static androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat create(android.content.Context,int)
     private static boolean unregisterPlatformCallback(android.graphics.drawable.AnimatedVectorDrawable,androidx.vectordrawable.graphics.drawable.Animatable2Compat$AnimationCallback)
-    private static void registerPlatformCallback(android.graphics.drawable.AnimatedVectorDrawable,androidx.vectordrawable.graphics.drawable.Animatable2Compat$AnimationCallback)
     private void removeAnimatorSetListener()
     public static void registerAnimationCallback(android.graphics.drawable.Drawable,androidx.vectordrawable.graphics.drawable.Animatable2Compat$AnimationCallback)
     public static boolean unregisterAnimationCallback(android.graphics.drawable.Drawable,androidx.vectordrawable.graphics.drawable.Animatable2Compat$AnimationCallback)
     public static void clearAnimationCallbacks(android.graphics.drawable.Drawable)
-    public void registerAnimationCallback(androidx.vectordrawable.graphics.drawable.Animatable2Compat$AnimationCallback)
     public boolean unregisterAnimationCallback(androidx.vectordrawable.graphics.drawable.Animatable2Compat$AnimationCallback)
     public void clearAnimationCallbacks()
     androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat$AnimatedVectorDrawableDelegateState mCachedConstantStateDelegate
@@ -12300,8 +12514,6 @@ com.google.android.gms.common.images.ImageManager$zaa:
     protected final synthetic int sizeOf(java.lang.Object,java.lang.Object)
     protected final synthetic void entryRemoved(boolean,java.lang.Object,java.lang.Object,java.lang.Object)
 org.koin.core.scope.ScopeDefinition$saveNewDefinition$beanDefinition$1
-androidx.appcompat.widget.AppCompatAutoCompleteTextView:
-    public void <init>(android.content.Context)
 kotlin.comparisons.ComparisonsKt___ComparisonsKt:
     public static final java.lang.Object maxOf(java.lang.Object,java.lang.Object,java.lang.Object,java.util.Comparator)
     public static final java.lang.Object maxOf(java.lang.Object,java.lang.Object,java.util.Comparator)
@@ -12324,6 +12536,19 @@ org.jetbrains.annotations.Nullable
 androidx.test.internal.util.LogUtil
 androidx.appcompat.R$layout:
     private void <init>()
+androidx.swiperefreshlayout.widget.CircularProgressDrawable$Ring:
+    void setStrokeCap(android.graphics.Paint$Cap)
+    android.graphics.Paint$Cap getStrokeCap()
+    float getArrowWidth()
+    float getArrowHeight()
+    int[] getColors()
+    void setBackgroundColor(int)
+    int getBackgroundColor()
+    float getStrokeWidth()
+    float getRotation()
+    float getCenterRadius()
+    boolean getShowArrow()
+    float getArrowScale()
 kotlinx.coroutines.android.HandlerContext:
     public synthetic void <init>(android.os.Handler,java.lang.String,int,kotlin.jvm.internal.DefaultConstructorMarker)
     public static final synthetic android.os.Handler access$getHandler$p(kotlinx.coroutines.android.HandlerContext)
@@ -12554,6 +12779,8 @@ androidx.constraintlayout.widget.ConstraintLayout$LayoutParams$Table:
     public static final int LAYOUT_CONSTRAINT_VERTICAL_CHAINSTYLE
     public static final int LAYOUT_EDITOR_ABSOLUTEX
     public static final int LAYOUT_EDITOR_ABSOLUTEY
+androidx.swiperefreshlayout.R$styleable:
+    private void <init>()
 kotlinx.coroutines.sync.MutexKt
 kotlin.jvm.internal.ArrayBooleanIterator
 androidx.appcompat.widget.ShareActionProvider
@@ -12777,6 +13004,7 @@ okio.ByteString$Companion:
     public final okio.ByteString -deprecated_of(java.nio.ByteBuffer)
     public final okio.ByteString -deprecated_of(byte[],int,int)
     public final okio.ByteString -deprecated_read(java.io.InputStream,int)
+androidx.swiperefreshlayout.R$integer
 androidx.test.internal.platform.ServiceLoaderWrapper$Factory
 androidx.annotation.Px
 androidx.vectordrawable.R$color
@@ -13037,6 +13265,8 @@ androidx.core.view.MenuItemCompat$1
 kotlinx.coroutines.internal.ArrayQueue:
     public final void clear()
 okhttp3.internal.ws.MessageDeflaterKt
+com.google.android.material.transition.platform.FitModeEvaluators:
+    private void <init>()
 kotlin.internal.PureReifiable
 org.koin.core.parameter.DefinitionParameters:
     private final java.lang.Object elementAt(int)
@@ -13099,6 +13329,8 @@ androidx.recyclerview.widget.RecyclerView$LayoutManager:
 dagger.Component
 kotlinx.coroutines.flow.FlowKt__DistinctKt$distinctUntilChanged$$inlined$distinctUntilChangedBy$FlowKt__DistinctKt$1$2$1
 androidx.recyclerview.R
+taxi.kassa.view.accounts_cards.accounts.AccountsAdapter$AccountsViewHolder:
+    public final android.widget.ImageView getBackground()
 org.intellij.lang.annotations.Identifier
 androidx.core.app.NotificationCompat$CarExtender$UnreadConversation
 kotlin.ranges.ULongProgression
@@ -13261,12 +13493,15 @@ androidx.viewpager2.widget.ViewPager2$DataSetChangeObserver:
     public final void onItemRangeInserted(int,int)
     public final void onItemRangeRemoved(int,int)
     public final void onItemRangeMoved(int,int,int)
+androidx.swiperefreshlayout.R$attr
 androidx.fragment.R$integer
 androidx.appcompat.view.menu.MenuPopup:
     public androidx.appcompat.view.menu.MenuView getMenuView(android.view.ViewGroup)
 kotlinx.coroutines.flow.FlowKt__BuildersKt$asFlow$$inlined$unsafeFlow$4
 kotlin.time.TimedValue
 androidx.viewpager2.adapter.FragmentStateAdapter$FragmentMaxLifecycleEnforcer$1
+taxi.kassa.view.accounts_cards.accounts.AccountsFragment:
+    public static final synthetic void access$setViewModel$p(taxi.kassa.view.accounts_cards.accounts.AccountsFragment,taxi.kassa.view.accounts_cards.accounts.AccountsViewModel)
 kotlinx.coroutines.channels.ConflatedBroadcastChannel
 kotlin.jvm.internal.ClassReference$Companion:
     public final java.lang.String getClassSimpleName(java.lang.Class)
@@ -13322,6 +13557,7 @@ androidx.core.widget.AutoScrollHelper:
     private static final int DEFAULT_RAMP_DOWN_DURATION
 kotlinx.coroutines.flow.FlowKt__ZipKt$combine$$inlined$unsafeFlow$5$lambda$2
 kotlinx.coroutines.channels.SendChannel$DefaultImpls
+androidx.swiperefreshlayout.R$style
 kotlin.coroutines.experimental.intrinsics.IntrinsicsKt__IntrinsicsJvmKt
 kotlinx.coroutines.channels.ChannelsKt__Channels_commonKt$toCollection$1
 androidx.core.ktx.R$integer
@@ -13576,7 +13812,6 @@ androidx.core.view.ViewCompat:
     public static boolean dispatchNestedPreFling(android.view.View,float,float)
     public static boolean isInLayout(android.view.View)
     public static boolean isLayoutDirectionResolved(android.view.View)
-    public static void setZ(android.view.View,float)
     public static void setScrollIndicators(android.view.View,int)
     public static int getScrollIndicators(android.view.View)
     public static void setTooltipText(android.view.View,java.lang.CharSequence)
@@ -13641,6 +13876,7 @@ androidx.vectordrawable.animated.R$string
 androidx.core.os.CancellationSignal:
     public void throwIfCanceled()
     public java.lang.Object getCancellationSignalObject()
+androidx.swiperefreshlayout.R$drawable
 androidx.recyclerview.widget.RecyclerView$SmoothScroller:
     public void instantScrollToPosition(int)
 org.jetbrains.annotations.NotNull
@@ -13770,6 +14006,7 @@ kotlinx.coroutines.flow.internal.ChannelFlowOperator$collectWithContextUndispatc
 androidx.camera.extensions.AutoImageCaptureExtender$VendorAutoImageCaptureExtender
 org.jetbrains.annotations.Contract
 androidx.viewpager2.R$string
+androidx.dynamicanimation.R$string
 org.koin.androidx.viewmodel.compat.ScopeCompat$viewModel$1
 androidx.arch.core.executor.TaskExecutor:
     public void executeOnMainThread(java.lang.Runnable)
@@ -13795,6 +14032,7 @@ kotlin.ranges.LongProgression
 androidx.core.util.SparseLongArrayKt$keyIterator$1
 androidx.core.net.TrafficStatsCompat
 androidx.fragment.testing.R$integer
+androidx.dynamicanimation.R$dimen
 androidx.test.core.view.PointerPropertiesBuilder
 okhttp3.internal.http2.Http2Reader$Handler:
     public abstract void alternateService(int,java.lang.String,okio.ByteString,java.lang.String,int,long)
@@ -13870,9 +14108,6 @@ taxi.kassa.view.auth.auth_code.AuthCodeFragment$onViewCreated$$inlined$with$lamb
     final synthetic android.view.View $view$inlined
 com.google.android.material.appbar.AppBarLayout$2:
     final synthetic com.google.android.material.appbar.AppBarLayout this$0
-androidx.camera.core.ImageReaderProxys:
-    private void <init>()
-    private static final java.lang.String TAG
 androidx.appcompat.app.AlertController$2:
     final synthetic androidx.appcompat.app.AlertController this$0
 retrofit2.http.HeaderMap
@@ -13894,8 +14129,6 @@ taxi.kassa.view.auth.auth_phone.AuthPhoneFragment$onViewCreated$$inlined$with$la
     final synthetic taxi.kassa.view.auth.auth_phone.AuthPhoneFragment this$0
 taxi.kassa.view.balance.BalanceFragment$onViewCreated$$inlined$with$lambda$6:
     final synthetic taxi.kassa.view.balance.BalanceFragment this$0
-taxi.kassa.view.withdraws.withdraw.WithdrawFragment:
-    public static final taxi.kassa.view.withdraws.withdraw.WithdrawFragment$Companion Companion
 com.google.android.material.transformation.FabTransformationBehavior$4:
     final synthetic com.google.android.material.transformation.FabTransformationBehavior this$0
 com.google.android.material.bottomsheet.BottomSheetDialog$3:
@@ -13919,18 +14152,17 @@ androidx.core.app.JobIntentService:
     static final java.lang.Object sLock
 androidx.appcompat.graphics.drawable.AnimatedStateListDrawableCompat:
     private static final java.lang.String LOGTAG
-kotlin.KotlinVersion$Companion
 androidx.transition.Slide:
     private int mSlideEdge
+androidx.dynamicanimation.animation.FloatPropertyCompat:
+    final java.lang.String mPropertyName
 androidx.arch.core.executor.ArchTaskExecutor:
-    public void executeOnDiskIO(java.lang.Runnable)
     private static final java.util.concurrent.Executor sMainThreadExecutor
     private static final java.util.concurrent.Executor sIOThreadExecutor
 dagger.internal.InstanceFactory:
     private static final dagger.internal.InstanceFactory NULL_INSTANCE_FACTORY
 com.google.gson.internal.LinkedTreeMap$KeySet$1:
     final synthetic com.google.gson.internal.LinkedTreeMap$KeySet this$1
-okhttp3.EventListener$Companion
 androidx.core.text.TextDirectionHeuristicsCompat:
     public static final androidx.core.text.TextDirectionHeuristicCompat ANYRTL_LTR
     public static final androidx.core.text.TextDirectionHeuristicCompat LOCALE
@@ -14063,7 +14295,6 @@ okhttp3.internal.platform.android.AndroidSocketAdapter:
 okhttp3.internal.http2.Http2Connection$pushHeadersLater$$inlined$execute$1:
     final synthetic java.lang.String $name
     final synthetic boolean $cancelable
-okhttp3.logging.HttpLoggingInterceptor$Logger$Companion
 androidx.core.app.JobIntentService$JobWorkEnqueuer:
     private final android.app.job.JobScheduler mJobScheduler
 androidx.core.content.res.GrowingArrayUtils:
@@ -14083,11 +14314,8 @@ androidx.constraintlayout.solver.SolverVariable:
     private static int uniqueUnrestrictedId
     private static int uniqueConstantId
     private static int uniqueId
-taxi.kassa.view.auth.auth_sign_up.AuthSignUpFragment$PhoneMaskListener:
-    final synthetic taxi.kassa.view.auth.auth_sign_up.AuthSignUpFragment this$0
 taxi.kassa.view.auth.auth_code.AuthCodeFragment$onViewCreated$$inlined$with$lambda$3:
     final synthetic taxi.kassa.view.auth.auth_code.AuthCodeFragment this$0
-okhttp3.internal.io.FileSystem$Companion
 kotlin.jvm.internal.DoubleCompanionObject:
     private static final double MIN_VALUE
     private static final double MAX_VALUE
@@ -14114,6 +14342,8 @@ okhttp3.Headers$Builder:
     public final okhttp3.Headers$Builder addAll(okhttp3.Headers)
 androidx.appcompat.widget.ActivityChooserView$3:
     final synthetic androidx.appcompat.widget.ActivityChooserView this$0
+com.google.android.material.appbar.AppBarLayout$BaseBehavior$3:
+    final synthetic com.google.android.material.appbar.AppBarLayout$BaseBehavior this$0
 androidx.fragment.app.FragmentTransitionCompat21$2:
     final synthetic androidx.fragment.app.FragmentTransitionCompat21 this$0
 okhttp3.internal.concurrent.TaskQueue$execute$1:
@@ -14126,7 +14356,6 @@ kotlin.jvm.internal.Reflection:
 com.google.android.material.card.MaterialCardViewHelper$1:
     final synthetic com.google.android.material.card.MaterialCardViewHelper this$0
 taxi.kassa.view.registration.photo.PhotoFragment:
-    private final kotlin.Lazy taxiType$delegate
     public static final taxi.kassa.view.registration.photo.PhotoFragment$Companion Companion
 androidx.core.app.JobIntentService$CompatWorkEnqueuer:
     private final android.content.Context mContext
@@ -14135,16 +14364,12 @@ com.google.android.material.datepicker.MaterialCalendar$1:
 androidx.core.graphics.TypefaceCompatBaseImpl$1:
     final synthetic androidx.core.graphics.TypefaceCompatBaseImpl this$0
 kotlin.internal.PlatformImplementations$ReflectAddSuppressedMethod:
-    private void <init>()
     public static final kotlin.internal.PlatformImplementations$ReflectAddSuppressedMethod INSTANCE
-okhttp3.internal.cache.DiskLruCache$Companion
-androidx.constraintlayout.solver.widgets.Rectangle
 dagger.internal.MemoizedSentinel
 androidx.camera.core.ImageCapture$16:
     final synthetic androidx.camera.core.ImageCapture this$0
 taxi.kassa.view.registration.RegistrationSelectionFragment$onViewCreated$$inlined$with$lambda$3:
     final synthetic taxi.kassa.view.registration.RegistrationSelectionFragment this$0
-okhttp3.internal.http2.PushObserver$Companion
 taxi.kassa.view.auth.auth_code.AuthCodeFragment$onViewCreated$$inlined$with$lambda$2:
     final synthetic android.view.View $view$inlined
 kotlin.jvm.internal.markers.KMutableList
@@ -14187,6 +14412,10 @@ androidx.camera.camera2.impl.Camera$3:
 androidx.core.text.PrecomputedTextCompat:
     private static final java.lang.Object sLock
     private static java.util.concurrent.Executor sExecutor
+taxi.kassa.util.ExtensionsKt$showOneButtonDialog$$inlined$with$lambda$1:
+    final synthetic java.lang.String $title$inlined
+    final synthetic java.lang.String $message$inlined
+    final synthetic boolean $isRegistrationDialog$inlined
 retrofit2.Utils:
     static varargs java.lang.RuntimeException parameterError(java.lang.reflect.Method,java.lang.Throwable,int,java.lang.String,java.lang.Object[])
 androidx.core.graphics.TypefaceCompatBaseImpl$2:
@@ -14195,9 +14424,8 @@ androidx.camera.camera2.impl.Camera:
     final java.util.concurrent.atomic.AtomicInteger mReleaseRequestCount
 androidx.lifecycle.Lifecycle:
     java.util.concurrent.atomic.AtomicReference mInternalScopeRef
-okhttp3.ConnectionSpec$Companion
-taxi.kassa.view.accounts.AccountsFragment$CardDailyMaskListener:
-    final synthetic taxi.kassa.view.accounts.AccountsFragment this$0
+com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback$1:
+    final synthetic com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback this$0
 com.google.gson.internal.LinkedHashTreeMap$KeySet$1:
     final synthetic com.google.gson.internal.LinkedHashTreeMap$KeySet this$1
 okhttp3.internal.http2.Http2Connection$writeSynResetLater$$inlined$execute$1:
@@ -14230,24 +14458,18 @@ androidx.core.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityAction
     public static final androidx.core.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat ACTION_PAGE_LEFT
     public static final androidx.core.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat ACTION_PAGE_RIGHT
     public static final androidx.core.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat ACTION_CONTEXT_CLICK
-    public static final androidx.core.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat ACTION_SET_PROGRESS
     public static final androidx.core.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat ACTION_MOVE_WINDOW
     public static final androidx.core.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat ACTION_SHOW_TOOLTIP
     public static final androidx.core.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat ACTION_HIDE_TOOLTIP
 androidx.camera.core.impl.utils.executor.HighPriorityExecutor$1:
     final synthetic androidx.camera.core.impl.utils.executor.HighPriorityExecutor this$0
-taxi.kassa.view.withdraws.WithdrawsAdapter$Companion
-okhttp3.internal.http2.Header$Companion
 okhttp3.internal.http2.Settings:
     public static final okhttp3.internal.http2.Settings$Companion Companion
-com.redmadrobot.inputmask.MaskedTextChangedListener$Companion
 androidx.fragment.app.FragmentTransitionImpl$1:
     final synthetic androidx.fragment.app.FragmentTransitionImpl this$0
 okhttp3.internal.http2.Http2Connection$ReaderRunnable$settings$$inlined$execute$1:
     final synthetic java.lang.String $name
     final synthetic boolean $cancelable
-okhttp3.internal.http.RetryAndFollowUpInterceptor$Companion
-okhttp3.internal.http1.Http1ExchangeCodec$Companion
 androidx.camera.core.ImageCapture$18:
     final synthetic androidx.camera.core.ImageCapture this$0
 org.koin.core.registry.PropertyRegistry:
@@ -14264,7 +14486,6 @@ androidx.transition.TransitionSet$1:
     final synthetic androidx.transition.TransitionSet this$0
 okhttp3.internal.http2.Http2Writer:
     public static final okhttp3.internal.http2.Http2Writer$Companion Companion
-androidx.arch.core.executor.ArchTaskExecutor$2
 com.google.gson.Gson$1:
     final synthetic com.google.gson.Gson this$0
 okhttp3.internal.tls.BasicCertificateChainCleaner:
@@ -14280,17 +14501,18 @@ androidx.appcompat.view.menu.ActionMenuItem:
     private android.view.MenuItem$OnMenuItemClickListener mClickListener
 retrofit2.Retrofit:
     final java.util.concurrent.Executor callbackExecutor
-taxi.kassa.view.auth.auth_phone.AuthPhoneFragment$PhoneMaskListener:
-    final synthetic taxi.kassa.view.auth.auth_phone.AuthPhoneFragment this$0
+com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback$2:
+    final synthetic com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback this$0
 androidx.core.view.ActionProvider:
     private final android.content.Context mContext
-androidx.camera.core.ImageCapture$Metadata
 androidx.camera.core.CameraRepository:
     private final java.util.Set mReleasingCameras
 androidx.core.text.PrecomputedTextCompat$Params:
     final android.text.PrecomputedText$Params mWrapped
 okhttp3.internal.http2.Http2Stream:
     public static final okhttp3.internal.http2.Http2Stream$Companion Companion
+com.google.android.material.transition.MaterialContainerTransform$1:
+    final synthetic com.google.android.material.transition.MaterialContainerTransform this$0
 taxi.kassa.view.registration.connection.ConnectionFragment$onViewCreated$$inlined$with$lambda$4:
     final synthetic java.util.List $inputViews$inlined
 androidx.camera.core.Preview:
@@ -14300,15 +14522,12 @@ androidx.transition.FragmentTransitionSupport$4:
 okhttp3.internal.http.HttpHeaders:
     private static final okio.ByteString QUOTED_STRING_DELIMITERS
     private static final okio.ByteString TOKEN_DELIMITERS
-taxi.kassa.view.withdraws.withdraw.WithdrawFragment$Companion
 taxi.kassa.view.registration.photo.PhotoFragment$savePictureToMemory$1$onCaptureSuccess$$inlined$let$lambda$1:
     final synthetic int $rotationDegrees$inlined
 androidx.camera.core.UseCaseAttachState$1:
     final synthetic androidx.camera.core.UseCaseAttachState this$0
 androidx.fragment.app.FragmentTransitionImpl$2:
     final synthetic androidx.fragment.app.FragmentTransitionImpl this$0
-okhttp3.internal.http2.Http2Stream$Companion
-okio.Timeout$Companion
 androidx.viewpager.widget.PagerAdapter:
     private android.database.DataSetObserver mViewPagerObserver
 androidx.test.internal.util.Checks:
@@ -14325,6 +14544,8 @@ taxi.kassa.view.registration.connection.ConnectionFragment$onViewCreated$$inline
     final synthetic java.util.List $inputViews$inlined
 androidx.constraintlayout.solver.widgets.ConstraintAnchor:
     private androidx.constraintlayout.solver.widgets.ConstraintAnchor$ConnectionType mConnectionType
+com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback$3:
+    final synthetic com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback this$0
 androidx.camera.camera2.impl.Camera$14:
     final synthetic androidx.camera.camera2.impl.Camera this$0
 androidx.camera.camera2.impl.Camera2CameraInfo:
@@ -14354,13 +14575,12 @@ androidx.camera.camera2.impl.Camera2CameraControl:
     volatile android.util.Rational mPreviewAspectRatio
 okhttp3.MediaType:
     private final java.lang.String subtype
-taxi.kassa.view.support.chat.ChatHistoryAdapter$Companion
+taxi.kassa.view.accounts_cards.cards.CardsAdapter$CardViewHolder:
+    private final android.widget.ImageView bankIcon
 okhttp3.internal.connection.RealConnection:
     public static final okhttp3.internal.connection.RealConnection$Companion Companion
 androidx.camera.core.VideoCapture$3:
     final synthetic androidx.camera.core.VideoCapture this$0
-androidx.arch.core.executor.DefaultTaskExecutor:
-    public void executeOnDiskIO(java.lang.Runnable)
 taxi.kassa.view.withdraws.WithdrawsAdapter:
     public static final taxi.kassa.view.withdraws.WithdrawsAdapter$Companion Companion
 androidx.camera.camera2.Camera2Config$1:
@@ -14371,7 +14591,6 @@ androidx.constraintlayout.solver.widgets.Guideline:
     private int mHeadSize
 kotlinx.coroutines.android.HandlerDispatcherKt:
     public static final kotlinx.coroutines.android.HandlerDispatcher Main
-okhttp3.CookieJar$Companion
 taxi.kassa.view.registration.connection.ConnectionFragment$onViewCreated$$inlined$with$lambda$1:
     final synthetic java.util.List $inputViews$inlined
 okhttp3.CookieJar:
@@ -14382,7 +14601,6 @@ androidx.appcompat.widget.SuggestionsAdapter:
     private final android.app.SearchManager mSearchManager
 com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$3:
     final synthetic com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton this$0
-org.koin.core.instance.InstanceFactory$Companion
 androidx.transition.ChangeClipBounds$1:
     final synthetic androidx.transition.ChangeClipBounds this$0
 androidx.camera.core.CheckedSurfaceTexture$2:
@@ -14402,12 +14620,10 @@ androidx.camera.core.ImageAnalysisAbstractAnalyzer:
     abstract void close()
 taxi.kassa.view.support.chat.ChatHistoryAdapter:
     public static final taxi.kassa.view.support.chat.ChatHistoryAdapter$Companion Companion
-androidx.appcompat.widget.ListPopupWindow$2
 okhttp3.internal.cache.DiskLruCache$Editor$newSink$$inlined$synchronized$lambda$1:
     final synthetic int $index$inlined
 androidx.appcompat.view.menu.BaseMenuPresenter:
     protected android.view.LayoutInflater mInflater
-taxi.kassa.view.registration.photo.PhotoFragment$Companion
 androidx.core.app.ComponentActivity:
     private androidx.collection.SimpleArrayMap mExtraDataMap
 kotlinx.coroutines.scheduling.TasksKt:
@@ -14415,13 +14631,12 @@ kotlinx.coroutines.scheduling.TasksKt:
 retrofit2.http.Body
 androidx.camera.camera2.impl.CameraAvailabilityRegistry:
     private java.lang.StringBuilder mDebugString
-okhttp3.internal.platform.android.AndroidSocketAdapter$Companion
 androidx.camera.core.impl.utils.executor.SequentialExecutor$1:
     final synthetic androidx.camera.core.impl.utils.executor.SequentialExecutor this$0
 retrofit2.CompletableFutureCallAdapterFactory$BodyCallAdapter$1:
     final synthetic retrofit2.CompletableFutureCallAdapterFactory$BodyCallAdapter this$0
-okhttp3.Dns$Companion
-taxi.kassa.view.orders.adapter.OrdersAdapter$Companion
+taxi.kassa.util.ExtensionsKt$setMaskListener$PhoneMaskListener:
+    final synthetic com.google.android.material.textfield.TextInputLayout $input
 androidx.lifecycle.SavedStateHandle:
     private final java.util.Map mLiveDatas
     private static final java.lang.Class[] ACCEPTABLE_CLASSES
@@ -14442,7 +14657,6 @@ androidx.camera.core.FixedSizeSurfaceTexture:
     boolean mIsSuperReleased
 androidx.appcompat.graphics.drawable.DrawableContainer:
     private int mLastIndex
-okhttp3.FormBody$Companion
 retrofit2.ParameterHandler$Headers
 org.koin.core.instance.InstanceFactory:
     public static final org.koin.core.instance.InstanceFactory$Companion Companion
@@ -14450,14 +14664,12 @@ androidx.cardview.widget.CardViewApi17Impl$1:
     final synthetic androidx.cardview.widget.CardViewApi17Impl this$0
 org.koin.core.instance.InstanceContext:
     private final org.koin.core.Koin koin
-okhttp3.Cache$Entry$Companion
 retrofit2.CompletableFutureCallAdapterFactory$ResponseCallAdapter$1:
     final synthetic retrofit2.CompletableFutureCallAdapterFactory$ResponseCallAdapter this$0
 com.google.gson.internal.LinkedHashTreeMap$EntrySet$1:
     final synthetic com.google.gson.internal.LinkedHashTreeMap$EntrySet this$1
 androidx.camera.core.impl.utils.executor.HandlerScheduledExecutorService$2:
     final synthetic androidx.camera.core.impl.utils.executor.HandlerScheduledExecutorService this$0
-androidx.camera.core.VideoCapture$Metadata
 com.google.firebase.iid.zzu:
     private final com.google.firebase.iid.zzt zza
 kotlin.jvm.internal.ClassReference:
@@ -14467,6 +14679,8 @@ com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$1:
 com.google.android.material.datepicker.MaterialCalendarGridView$1:
     final synthetic com.google.android.material.datepicker.MaterialCalendarGridView this$0
 retrofit2.http.Url
+taxi.kassa.view.accounts_cards.cards.CardsAdapter$onBindViewHolder$$inlined$with$lambda$1:
+    final synthetic java.lang.String $formattedNumber$inlined
 com.google.gson.internal.ConstructorConstructor$3:
     final synthetic com.google.gson.internal.ConstructorConstructor this$0
 okhttp3.internal.http2.Http2Connection$sendDegradedPingLater$$inlined$execute$1:
@@ -14474,10 +14688,8 @@ okhttp3.internal.http2.Http2Connection$sendDegradedPingLater$$inlined$execute$1:
     final synthetic boolean $cancelable
 androidx.navigation.NavDestination:
     private java.lang.CharSequence mLabel
-kotlinx.coroutines.scheduling.CoroutineScheduler$Companion
 android.support.v4.os.ResultReceiver:
     final boolean mLocal
-org.koin.core.parameter.DefinitionParameters$Companion
 androidx.fragment.app.FragmentHostCallback:
     private final int mWindowAnimations
 androidx.fragment.app.FragmentTransaction:
@@ -14487,15 +14699,12 @@ com.google.android.material.datepicker.SmoothCalendarLayoutManager$1:
     final synthetic com.google.android.material.datepicker.SmoothCalendarLayoutManager this$0
 androidx.drawerlayout.widget.DrawerLayout:
     private boolean mDisallowInterceptRequested
-okio.Segment$Companion
 okhttp3.Interceptor:
     public static final okhttp3.Interceptor$Companion Companion
-androidx.arch.core.executor.ArchTaskExecutor$1
 com.google.android.material.bottomnavigation.BottomNavigationView$2:
     final synthetic com.google.android.material.bottomnavigation.BottomNavigationView this$0
 androidx.camera.core.ImageCapture$18$1:
     final synthetic androidx.camera.core.ImageCapture$18 this$1
-okhttp3.internal.connection.RealConnectionPool$Companion
 com.redmadrobot.inputmask.MaskedTextChangedListener:
     public static final com.redmadrobot.inputmask.MaskedTextChangedListener$Companion Companion
 androidx.core.os.TraceCompat:
@@ -14569,33 +14778,26 @@ androidx.core.provider.SelfDestructiveThread$2:
     final synthetic androidx.core.provider.SelfDestructiveThread this$0
 org.koin.core.registry.ScopeRegistry:
     private org.koin.core.scope.ScopeDefinition _rootScopeDefinition
-okhttp3.internal.http2.Http2Writer$Companion
 kotlin.sequences.DropSequence$iterator$1:
     final synthetic kotlin.sequences.DropSequence this$0
-taxi.kassa.view.registration.connection.ConnectionFragment$PhoneMaskListener:
-    final synthetic taxi.kassa.view.registration.connection.ConnectionFragment this$0
+com.google.android.material.transition.platform.MaterialContainerTransform$1:
+    final synthetic com.google.android.material.transition.platform.MaterialContainerTransform this$0
 retrofit2.ParameterHandler$Body
 kotlinx.coroutines.JobSupport$addLastAtomic$$inlined$addLastIf$1:
     final synthetic kotlinx.coroutines.internal.LockFreeLinkedListNode $node
-okhttp3.internal.tls.BasicCertificateChainCleaner$Companion
 okhttp3.internal.http2.Http2Connection$pushRequestLater$$inlined$execute$1:
     final synthetic java.lang.String $name
     final synthetic boolean $cancelable
 androidx.camera.core.DeferrableSurface:
     private static java.util.concurrent.atomic.AtomicInteger sSurfaceCount
-taxi.kassa.view.withdraws.withdraw_create.WithdrawCardsAdapter$onBindViewHolder$$inlined$with$lambda$1:
-    final synthetic java.lang.String $formattedNumber$inlined
-    final synthetic taxi.kassa.model.responses.Card $card$inlined
 okhttp3.Cache$Entry:
     public static final okhttp3.Cache$Entry$Companion Companion
-okhttp3.internal.http2.Http2Connection$Listener$Companion
 androidx.arch.core.executor.DefaultTaskExecutor$1:
     final synthetic androidx.arch.core.executor.DefaultTaskExecutor this$0
 androidx.fragment.app.FragmentManager$5:
     final synthetic androidx.fragment.app.FragmentManager this$0
 androidx.appcompat.widget.ActionBarContextView$1:
     final synthetic androidx.appcompat.widget.ActionBarContextView this$0
-okhttp3.Authenticator$Companion
 com.google.gson.internal.ConstructorConstructor$8:
     final synthetic com.google.gson.internal.ConstructorConstructor this$0
 androidx.transition.ChangeBounds$7:
@@ -14623,21 +14825,30 @@ androidx.constraintlayout.solver.widgets.ConstraintWidget:
     androidx.constraintlayout.solver.widgets.ConstraintWidget mVerticalNextWidget
 androidx.constraintlayout.solver.widgets.ConstraintWidgetContainer:
     int mDebugSolverPassCount
+androidx.dynamicanimation.animation.DynamicAnimation:
+    public static final androidx.dynamicanimation.animation.DynamicAnimation$ViewProperty TRANSLATION_X
+    public static final androidx.dynamicanimation.animation.DynamicAnimation$ViewProperty TRANSLATION_Y
+    public static final androidx.dynamicanimation.animation.DynamicAnimation$ViewProperty TRANSLATION_Z
+    public static final androidx.dynamicanimation.animation.DynamicAnimation$ViewProperty X
+    public static final androidx.dynamicanimation.animation.DynamicAnimation$ViewProperty Y
+    public static final androidx.dynamicanimation.animation.DynamicAnimation$ViewProperty Z
+    public static final androidx.dynamicanimation.animation.DynamicAnimation$ViewProperty SCROLL_X
+    public static final androidx.dynamicanimation.animation.DynamicAnimation$ViewProperty SCROLL_Y
 kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsJvmKt$createCoroutineUnintercepted$$inlined$createCoroutineFromSuspendFunction$IntrinsicsKt__IntrinsicsJvmKt$1:
     final synthetic kotlin.coroutines.Continuation $completion
 okhttp3.internal.http2.Http2Connection$pushResetLater$$inlined$execute$1:
     final synthetic java.lang.String $name
     final synthetic boolean $cancelable
+com.google.android.material.internal.ViewOverlayApi14$OverlayViewGroup:
+    static java.lang.reflect.Method invalidateChildInParentFastMethod
 androidx.lifecycle.MethodCallsLogger:
     private java.util.Map mCalledMethods
 com.google.android.gms.dynamite.DynamiteModule$zzb:
     private final int zziq
-okhttp3.internal.connection.RealConnection$Companion
 androidx.concurrent.futures.AbstractResolvableFuture$Failure:
     static final androidx.concurrent.futures.AbstractResolvableFuture$Failure FALLBACK_INSTANCE
 com.google.gson.internal.ConstructorConstructor$11:
     final synthetic com.google.gson.internal.ConstructorConstructor this$0
-kotlin.text.Regex$Companion
 androidx.transition.ChangeBounds$10:
     final synthetic androidx.transition.ChangeBounds this$0
 androidx.appcompat.widget.ThemeUtils:
@@ -14648,23 +14859,18 @@ kotlin.text.Regex:
     public static final kotlin.text.Regex$Companion Companion
 com.google.gson.internal.ConstructorConstructor$10:
     final synthetic com.google.gson.internal.ConstructorConstructor this$0
-taxi.kassa.view.accounts.AccountsCardsAdapter$onBindViewHolder$$inlined$with$lambda$1:
-    final synthetic java.lang.String $formattedNumber$inlined
 androidx.appcompat.widget.ScrollingTabContainerView:
     private static final android.view.animation.Interpolator sAlphaInterpolator
 androidx.fragment.app.FragmentTransitionCompat21$1:
     final synthetic androidx.fragment.app.FragmentTransitionCompat21 this$0
 kotlinx.coroutines.Dispatchers:
-    private void <init>()
     private static final kotlinx.coroutines.CoroutineDispatcher Unconfined
     private static final kotlinx.coroutines.CoroutineDispatcher IO
     public static final kotlinx.coroutines.Dispatchers INSTANCE
 taxi.kassa.view.registration.RegistrationSelectionFragment$onViewCreated$$inlined$with$lambda$1:
     final synthetic taxi.kassa.view.registration.RegistrationSelectionFragment this$0
-androidx.camera.core.impl.utils.futures.Futures$2
 androidx.transition.ChangeBounds$8:
     final synthetic androidx.transition.ChangeBounds this$0
-okhttp3.internal.http2.Settings$Companion
 okio.-Base64:
     private static final byte[] BASE64_URL_SAFE
 taxi.kassa.util.ExtensionsKt$showTwoButtonsDialog$$inlined$with$lambda$1:
@@ -14672,6 +14878,7 @@ taxi.kassa.util.ExtensionsKt$showTwoButtonsDialog$$inlined$with$lambda$1:
     final synthetic java.lang.String $message$inlined
     final synthetic java.lang.String $cancelText$inlined
     final synthetic java.lang.String $okText$inlined
+    final synthetic kotlin.jvm.functions.Function0 $function$inlined
 com.google.gson.internal.ConstructorConstructor$7:
     final synthetic com.google.gson.internal.ConstructorConstructor this$0
 androidx.constraintlayout.widget.ConstraintLayout:
@@ -14679,9 +14886,6 @@ androidx.constraintlayout.widget.ConstraintLayout:
     int mLastMeasureHeightSize
     int mLastMeasureWidthMode
     int mLastMeasureHeightMode
-androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat:
-    private android.animation.Animator$AnimatorListener mAnimatorListener
-    java.util.ArrayList mAnimationCallbacks
 kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsJvmKt$createCoroutineUnintercepted$$inlined$createCoroutineFromSuspendFunction$IntrinsicsKt__IntrinsicsJvmKt$2:
     final synthetic kotlin.coroutines.Continuation $completion
     final synthetic kotlin.coroutines.CoroutineContext $context
@@ -14726,12 +14930,21 @@ com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$Disabl
     final synthetic com.google.android.material.floatingactionbutton.FloatingActionButtonImpl this$0
 androidx.constraintlayout.solver.LinearSystem:
     private androidx.constraintlayout.solver.ArrayRow[] tempClientsCopy
+taxi.kassa.util.ExtensionsKt$showTwoButtonsDialog$$inlined$with$lambda$2:
+    final synthetic java.lang.String $title$inlined
+    final synthetic java.lang.String $message$inlined
+    final synthetic java.lang.String $cancelText$inlined
+    final synthetic kotlin.jvm.functions.Function2 $transitionFunction$inlined
+    final synthetic android.view.View $dialogView$inlined
+    final synthetic java.lang.String $okText$inlined
 com.google.gson.internal.ConstructorConstructor$6:
     final synthetic com.google.gson.internal.ConstructorConstructor this$0
 org.koin.core.parameter.DefinitionParameters:
     public static final org.koin.core.parameter.DefinitionParameters$Companion Companion
 androidx.lifecycle.LiveData$AlwaysActiveObserver:
     final synthetic androidx.lifecycle.LiveData this$0
+taxi.kassa.view.accounts_cards.accounts.AccountsAdapter$AccountsViewHolder:
+    private final android.widget.ImageView background
 androidx.camera.core.VideoCapture:
     private int mVideoTrackIndex
     private int mAudioTrackIndex
@@ -14746,13 +14959,10 @@ okhttp3.internal.http1.Http1ExchangeCodec:
     public static final okhttp3.internal.http1.Http1ExchangeCodec$Companion Companion
 androidx.viewpager2.widget.AnimateLayoutChangeDetector$1:
     final synthetic androidx.viewpager2.widget.AnimateLayoutChangeDetector this$0
-com.google.android.material.textfield.PasswordToggleEndIconDelegate$3:
-    final synthetic com.google.android.material.textfield.PasswordToggleEndIconDelegate this$0
 okio.Timeout:
     public static final okio.Timeout$Companion Companion
 com.google.gson.internal.ConstructorConstructor$5:
     final synthetic com.google.gson.internal.ConstructorConstructor this$0
-androidx.test.internal.util.Checks$1
 androidx.drawerlayout.widget.DrawerLayout$1:
     final synthetic androidx.drawerlayout.widget.DrawerLayout this$0
 androidx.core.view.ViewCompat:
@@ -14772,8 +14982,12 @@ androidx.appcompat.app.WindowDecorActionBar:
 kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsJvmKt$createCoroutineUnintercepted$$inlined$createCoroutineFromSuspendFunction$IntrinsicsKt__IntrinsicsJvmKt$4:
     final synthetic kotlin.coroutines.Continuation $completion
     final synthetic kotlin.coroutines.CoroutineContext $context
-androidx.arch.core.executor.TaskExecutor:
-    public abstract void executeOnDiskIO(java.lang.Runnable)
+taxi.kassa.util.ExtensionsKt$showTwoButtonsDialog$$inlined$with$lambda$3:
+    final synthetic java.lang.String $title$inlined
+    final synthetic java.lang.String $message$inlined
+    final synthetic java.lang.String $cancelText$inlined
+    final synthetic java.lang.String $okText$inlined
+    final synthetic kotlin.jvm.functions.Function0 $function$inlined
 com.google.android.material.transformation.FabTransformationBehavior$1:
     final synthetic com.google.android.material.transformation.FabTransformationBehavior this$0
 com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$4:

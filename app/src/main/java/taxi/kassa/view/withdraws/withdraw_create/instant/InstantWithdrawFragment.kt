@@ -160,17 +160,17 @@ class InstantWithdrawFragment : Fragment() {
                             taxi_name.text = getString(R.string.yandex_title)
                             balance_tv.text = getString(R.string.account_balance_format, it.balanceYandex)
                         }
-                        GETT -> {
-                            sourceId = 4
-                            taxi_icon.setImageResource(R.drawable.ic_gett_mini)
-                            taxi_name.text = getString(R.string.gett_title)
-                            balance_tv.text = getString(R.string.account_balance_format, it.balanceGett)
-                        }
                         CITYMOBIL -> {
-                            sourceId = 3
+                            sourceId = 2
                             taxi_icon.setImageResource(R.drawable.ic_citymobil_mini)
                             taxi_name.text = getString(R.string.citymobil_title)
                             balance_tv.text = getString(R.string.account_balance_format, it.balanceCity)
+                        }
+                        GETT -> {
+                            sourceId = 3
+                            taxi_icon.setImageResource(R.drawable.ic_gett_mini)
+                            taxi_name.text = getString(R.string.gett_title)
+                            balance_tv.text = getString(R.string.account_balance_format, it.balanceGett)
                         }
                     }
                 }

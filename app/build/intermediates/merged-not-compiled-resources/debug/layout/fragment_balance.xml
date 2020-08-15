@@ -1,337 +1,356 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/balance_root_layout"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/refresh_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/profile_gradient_light">
+    android:background="@color/colorPrimary">
 
-    <ImageView
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/balance_root_layout"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:background="@drawable/bg_profile"
-        app:layout_constraintBottom_toTopOf="@+id/citymobil_image"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent"
+        android:background="@color/profile_gradient_light">
 
-    <ImageView
-        android:id="@+id/back_arrow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_4dp"
-        android:layout_marginTop="12dp"
-        android:background="?attr/selectableItemBackground"
-        android:padding="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_back" />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/bg_profile"
+            app:layout_constraintBottom_toTopOf="@+id/citymobil_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/balance_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:fontFamily="sans-serif-medium"
-        android:text="@string/balance"
-        android:textColor="@color/gray_intro_text"
-        android:textSize="@dimen/text_20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/back_arrow"
-        app:layout_constraintStart_toEndOf="@+id/back_arrow"
-        app:layout_constraintTop_toTopOf="@+id/back_arrow" />
+        <ImageView
+            android:id="@+id/back_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_4dp"
+            android:layout_marginTop="12dp"
+            android:background="?attr/selectableItemBackground"
+            android:padding="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_back" />
 
-    <TextView
-        android:id="@+id/notification_count"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="@dimen/margin_24dp"
-        android:background="@drawable/ic_chip_notification"
-        android:paddingStart="9dp"
-        android:paddingTop="3dp"
-        android:textColor="@android:color/black"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="3" />
+        <TextView
+            android:id="@+id/balance_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/balance"
+            android:textColor="@color/gray_intro_text"
+            android:textSize="@dimen/text_20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/back_arrow"
+            app:layout_constraintStart_toEndOf="@+id/back_arrow"
+            app:layout_constraintTop_toTopOf="@+id/back_arrow" />
 
-    <ImageView
-        android:id="@+id/notification_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_8dp"
-        android:background="?attr/selectableItemBackground"
-        android:padding="@dimen/margin_16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_notification"
-        tools:visibility="invisible" />
+        <TextView
+            android:id="@+id/notification_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="@dimen/margin_24dp"
+            android:background="@drawable/ic_chip_notification"
+            android:paddingStart="9dp"
+            android:paddingTop="3dp"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="3" />
 
-    <TextView
-        android:id="@+id/balance_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:fontFamily="sans-serif-medium"
-        android:textColor="@color/gray_intro_text"
-        android:textSize="@dimen/text_30sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/balance_title"
-        tools:text="4 500 ₽" />
+        <ImageView
+            android:id="@+id/notification_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_8dp"
+            android:background="?attr/selectableItemBackground"
+            android:padding="@dimen/margin_16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_notification"
+            tools:visibility="invisible" />
 
-    <TextView
-        android:id="@+id/title_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="@string/all_partners_sum"
-        android:textColor="@color/gray_profile"
-        android:textSize="@dimen/text_16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/balance_tv" />
+        <TextView
+            android:id="@+id/balance_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/gray_intro_text"
+            android:textSize="@dimen/text_30sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/balance_title"
+            tools:text="4 500 ₽" />
 
-    <ImageView
-        android:id="@+id/background"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="46dp"
-        android:src="@drawable/bg_balance"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_tv" />
+        <TextView
+            android:id="@+id/title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/all_partners_sum"
+            android:textColor="@color/gray_profile"
+            android:textSize="@dimen/text_16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/balance_tv" />
 
-    <ImageView
-        android:id="@+id/yandex_image"
-        android:layout_width="42dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="36dp"
-        android:src="@drawable/ic_yandex"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/background" />
+        <ImageView
+            android:id="@+id/background"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="46dp"
+            android:src="@drawable/bg_balance"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_tv" />
 
-    <TextView
-        android:id="@+id/yandex_amount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_16dp"
-        android:fontFamily="sans-serif-medium"
-        android:textSize="@dimen/text_18sp"
-        app:layout_constraintBottom_toTopOf="@+id/yandex_title"
-        app:layout_constraintStart_toEndOf="@+id/yandex_image"
-        app:layout_constraintTop_toTopOf="@+id/yandex_image"
-        tools:text="1000 ₽"
-        tools:textColor="@color/balance_green" />
+        <ImageView
+            android:id="@+id/yandex_image"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="36dp"
+            android:src="@drawable/ic_yandex"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/background" />
 
-    <TextView
-        android:id="@+id/yandex_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_16dp"
-        android:fontFamily="sans-serif"
-        android:text="@string/yandex_title"
-        android:textColor="@color/gray_profile"
-        android:textSize="@dimen/text_16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/yandex_image"
-        app:layout_constraintStart_toEndOf="@+id/yandex_image" />
+        <TextView
+            android:id="@+id/yandex_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:fontFamily="sans-serif-medium"
+            android:textSize="@dimen/text_18sp"
+            app:layout_constraintBottom_toTopOf="@+id/yandex_title"
+            app:layout_constraintStart_toEndOf="@+id/yandex_image"
+            app:layout_constraintTop_toTopOf="@+id/yandex_image"
+            tools:text="1000 ₽"
+            tools:textColor="@color/balance_green" />
 
-    <TextView
-        android:id="@+id/withdraw_yandex_tv"
-        android:layout_width="104dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="@dimen/margin_16dp"
-        android:background="@drawable/bg_registration_btn"
-        android:fontFamily="sans-serif"
-        android:gravity="center"
-        android:padding="8dp"
-        android:text="@string/withdraw"
-        android:textColor="@color/gray_intro_text"
-        android:textSize="@dimen/text_16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/background" />
+        <TextView
+            android:id="@+id/yandex_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:fontFamily="sans-serif"
+            android:text="@string/yandex_title"
+            android:textColor="@color/gray_profile"
+            android:textSize="@dimen/text_16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/yandex_image"
+            app:layout_constraintStart_toEndOf="@+id/yandex_image" />
 
-
-    <ImageView
-        android:id="@+id/citymobil_image"
-        android:layout_width="42dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="28dp"
-        android:src="@drawable/ic_citymobil"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/yandex_image" />
-
-    <TextView
-        android:id="@+id/citymobil_amount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_16dp"
-        android:fontFamily="sans-serif-medium"
-        android:textSize="@dimen/text_18sp"
-        app:layout_constraintBottom_toTopOf="@+id/citymobil_title"
-        app:layout_constraintStart_toEndOf="@+id/citymobil_image"
-        app:layout_constraintTop_toTopOf="@+id/citymobil_image"
-        tools:text="- 500 ₽"
-        tools:textColor="@color/balance_red" />
-
-    <TextView
-        android:id="@+id/citymobil_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_16dp"
-        android:fontFamily="sans-serif"
-        android:text="@string/citymobil_title"
-        android:textColor="@color/gray_profile"
-        android:textSize="@dimen/text_16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/citymobil_image"
-        app:layout_constraintStart_toEndOf="@+id/citymobil_image" />
-
-    <TextView
-        android:id="@+id/withdraw_citymobil_tv"
-        android:layout_width="104dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="26dp"
-        android:layout_marginEnd="@dimen/margin_16dp"
-        android:background="@drawable/bg_registration_btn"
-        android:fontFamily="sans-serif"
-        android:gravity="center"
-        android:padding="8dp"
-        android:text="@string/withdraw"
-        android:textColor="@color/gray_intro_text"
-        android:textSize="@dimen/text_16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/withdraw_yandex_tv" />
+        <TextView
+            android:id="@+id/withdraw_yandex_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_16dp"
+            android:background="@drawable/bg_registration_btn"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:paddingStart="@dimen/margin_18dp"
+            android:paddingTop="12dp"
+            android:paddingEnd="@dimen/margin_18dp"
+            android:paddingBottom="12dp"
+            android:text="@string/withdraw"
+            android:textColor="@color/gray_intro_text"
+            android:textSize="@dimen/text_16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/yandex_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/yandex_image" />
 
 
-    <ImageView
-        android:id="@+id/gett_image"
-        android:layout_width="42dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="28dp"
-        android:src="@drawable/ic_gett"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/citymobil_image" />
+        <ImageView
+            android:id="@+id/citymobil_image"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="28dp"
+            android:src="@drawable/ic_citymobil"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/yandex_image" />
 
-    <TextView
-        android:id="@+id/gett_amount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_16dp"
-        android:fontFamily="sans-serif-medium"
-        android:textSize="@dimen/text_18sp"
-        app:layout_constraintBottom_toTopOf="@+id/gett_title"
-        app:layout_constraintStart_toEndOf="@+id/gett_image"
-        app:layout_constraintTop_toTopOf="@+id/gett_image"
-        tools:text="- 500 ₽"
-        tools:textColor="@color/balance_red" />
+        <TextView
+            android:id="@+id/citymobil_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:fontFamily="sans-serif-medium"
+            android:textSize="@dimen/text_18sp"
+            app:layout_constraintBottom_toTopOf="@+id/citymobil_title"
+            app:layout_constraintStart_toEndOf="@+id/citymobil_image"
+            app:layout_constraintTop_toTopOf="@+id/citymobil_image"
+            tools:text="- 500 ₽"
+            tools:textColor="@color/balance_red" />
 
-    <TextView
-        android:id="@+id/gett_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_16dp"
-        android:fontFamily="sans-serif"
-        android:text="@string/gett_title"
-        android:textColor="@color/gray_profile"
-        android:textSize="@dimen/text_16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/gett_image"
-        app:layout_constraintStart_toEndOf="@+id/gett_image" />
+        <TextView
+            android:id="@+id/citymobil_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:fontFamily="sans-serif"
+            android:text="@string/citymobil_title"
+            android:textColor="@color/gray_profile"
+            android:textSize="@dimen/text_16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/citymobil_image"
+            app:layout_constraintStart_toEndOf="@+id/citymobil_image" />
 
-    <TextView
-        android:id="@+id/withdraw_gett_tv"
-        android:layout_width="104dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="26dp"
-        android:layout_marginEnd="@dimen/margin_16dp"
-        android:background="@drawable/bg_registration_btn"
-        android:fontFamily="sans-serif"
-        android:gravity="center"
-        android:padding="8dp"
-        android:text="@string/withdraw"
-        android:textColor="@color/gray_intro_text"
-        android:textSize="@dimen/text_16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/withdraw_citymobil_tv" />
+        <TextView
+            android:id="@+id/withdraw_citymobil_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_16dp"
+            android:background="@drawable/bg_registration_btn"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:paddingStart="@dimen/margin_18dp"
+            android:paddingTop="12dp"
+            android:paddingEnd="@dimen/margin_18dp"
+            android:paddingBottom="12dp"
+            android:text="@string/withdraw"
+            android:textColor="@color/gray_intro_text"
+            android:textSize="@dimen/text_16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/citymobil_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/citymobil_image" />
 
 
-    <TextView
-        android:id="@+id/fuel_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="62dp"
-        android:fontFamily="sans-serif-medium"
-        android:text="@string/fuel_title"
-        android:textColor="@color/balance_fuel_gray"
-        android:textSize="@dimen/text_20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gett_image" />
+        <ImageView
+            android:id="@+id/gett_image"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="28dp"
+            android:src="@drawable/ic_gett"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/citymobil_image" />
 
-    <ImageView
-        android:id="@+id/rosneft_image"
-        android:layout_width="42dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/ic_rosneft"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fuel_title" />
+        <TextView
+            android:id="@+id/gett_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:fontFamily="sans-serif-medium"
+            android:textSize="@dimen/text_18sp"
+            app:layout_constraintBottom_toTopOf="@+id/gett_title"
+            app:layout_constraintStart_toEndOf="@+id/gett_image"
+            app:layout_constraintTop_toTopOf="@+id/gett_image"
+            tools:text="- 500 ₽"
+            tools:textColor="@color/balance_red" />
 
-    <TextView
-        android:id="@+id/rosneft_amount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_16dp"
-        android:fontFamily="sans-serif-medium"
-        android:textColor="@color/balance_green"
-        android:textSize="@dimen/text_18sp"
-        app:layout_constraintBottom_toTopOf="@+id/rosneft_title"
-        app:layout_constraintStart_toEndOf="@+id/rosneft_image"
-        app:layout_constraintTop_toTopOf="@+id/rosneft_image"
-        tools:text="1000 ₽" />
+        <TextView
+            android:id="@+id/gett_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:fontFamily="sans-serif"
+            android:text="@string/gett_title"
+            android:textColor="@color/gray_profile"
+            android:textSize="@dimen/text_16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/gett_image"
+            app:layout_constraintStart_toEndOf="@+id/gett_image" />
 
-    <TextView
-        android:id="@+id/rosneft_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_16dp"
-        android:fontFamily="sans-serif"
-        android:text="@string/rosneft_title"
-        android:textColor="@color/gray_profile"
-        android:textSize="@dimen/text_16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/rosneft_image"
-        app:layout_constraintStart_toEndOf="@+id/rosneft_image" />
+        <TextView
+            android:id="@+id/withdraw_gett_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_16dp"
+            android:background="@drawable/bg_registration_btn"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:paddingStart="@dimen/margin_18dp"
+            android:paddingTop="12dp"
+            android:paddingEnd="@dimen/margin_18dp"
+            android:paddingBottom="12dp"
+            android:text="@string/withdraw"
+            android:textColor="@color/gray_intro_text"
+            android:textSize="@dimen/text_16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/gett_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/gett_image" />
 
-    <TextView
-        android:id="@+id/replenish_rosneft_tv"
-        android:layout_width="104dp"
-        android:layout_height="44dp"
-        android:layout_marginEnd="@dimen/margin_16dp"
-        android:background="@drawable/bg_registration_btn"
-        android:fontFamily="sans-serif"
-        android:gravity="center"
-        android:padding="8dp"
-        android:text="@string/replenish"
-        android:textColor="@color/gray_intro_text"
-        android:textSize="@dimen/text_16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/rosneft_image"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/rosneft_image" />
 
-    <ProgressBar
-        android:id="@+id/progress_bar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/fuel_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="62dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/fuel_title"
+            android:textColor="@color/balance_fuel_gray"
+            android:textSize="@dimen/text_20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gett_image" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/rosneft_image"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/ic_rosneft"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fuel_title" />
+
+        <TextView
+            android:id="@+id/rosneft_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/balance_green"
+            android:textSize="@dimen/text_18sp"
+            app:layout_constraintBottom_toTopOf="@+id/rosneft_title"
+            app:layout_constraintStart_toEndOf="@+id/rosneft_image"
+            app:layout_constraintTop_toTopOf="@+id/rosneft_image"
+            tools:text="1000 ₽" />
+
+        <TextView
+            android:id="@+id/rosneft_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:fontFamily="sans-serif"
+            android:text="@string/rosneft_title"
+            android:textColor="@color/gray_profile"
+            android:textSize="@dimen/text_16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/rosneft_image"
+            app:layout_constraintStart_toEndOf="@+id/rosneft_image" />
+
+        <TextView
+            android:id="@+id/replenish_rosneft_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_16dp"
+            android:background="@drawable/bg_registration_btn"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:paddingStart="@dimen/margin_18dp"
+            android:paddingTop="12dp"
+            android:paddingEnd="@dimen/margin_18dp"
+            android:paddingBottom="12dp"
+            android:text="@string/replenish"
+            android:textColor="@color/gray_intro_text"
+            android:textSize="@dimen/text_16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/rosneft_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/rosneft_image" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
