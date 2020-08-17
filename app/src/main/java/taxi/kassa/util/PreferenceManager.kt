@@ -22,6 +22,10 @@ class PreferenceManager(context: Context) {
 
     fun getInt(key: String): Int? = prefs.getInt(key, 0)
 
+    fun saveBoolean(key: String, value: Boolean) = prefs.edit().putBoolean(key, value).apply()
+
+    fun getBoolean(key: String): Boolean = prefs.getBoolean(key, false)
+
     fun saveNotifications(key: String, notifications: MutableList<Notification>) {
         val json = gson.toJson(notifications)
         prefs.edit().putString(key, json).apply()

@@ -3,6 +3,9 @@ package taxi.kassa.view
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
+import com.google.android.play.core.review.ReviewInfo
+import com.google.android.play.core.review.ReviewManager
+import com.google.android.play.core.review.ReviewManagerFactory
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import taxi.kassa.R
@@ -21,6 +24,8 @@ import java.util.*
 class MainActivity : AppCompatActivity() {
 
     private lateinit var viewModel: MainViewModel
+    private lateinit var reviewManager: ReviewManager
+    private lateinit var reviewInfo: ReviewInfo
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -73,11 +78,32 @@ class MainActivity : AppCompatActivity() {
 
             navHostFragment.navController.graph = graph
         }
+
+        reviewManager = ReviewManagerFactory.create(this)
+        val request = reviewManager.requestReviewFlow()
+        request.addOnCompleteListener { task ->
+            if (task.isSuccessful) reviewInfo = task.result
+        }
+
+        viewModel.isRateDialogShow.observe(this) { show ->
+            if (show) showInAppReview()
+        }
     }
 
     override fun onResume() {
         super.onResume()
         // if a custom keyboard was opened before exiting, both can be opened
         100L.runDelayed { this.root_layout.hideKeyboard() }
+    }
+
+    /**
+     * Google Play In-App Review API lets you prompt users to submit Play Store ratings
+     * and reviews without the inconvenience of leaving your app
+     */
+    private fun showInAppReview() {
+        if (::reviewInfo.isInitialized) reviewManager.launchReviewFlow(this, reviewInfo)
+            .addOnSuccessListener {
+                viewModel.saveUserRate()
+            }
     }
 }

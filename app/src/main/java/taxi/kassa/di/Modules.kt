@@ -43,7 +43,7 @@ val preferenceModule = module {
 
 val viewModelModule = module(override = true) {
     viewModel {
-        MainViewModel(get())
+        MainViewModel(get(), get())
     }
     viewModel {
         AuthPhoneViewModel(androidApplication(), get())
