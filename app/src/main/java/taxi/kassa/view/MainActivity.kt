@@ -82,11 +82,12 @@ class MainActivity : AppCompatActivity() {
         reviewManager = ReviewManagerFactory.create(this)
         val request = reviewManager.requestReviewFlow()
         request.addOnCompleteListener { task ->
-            if (task.isSuccessful) reviewInfo = task.result
-        }
-
-        viewModel.isRateDialogShow.observe(this) { show ->
-            if (show) showInAppReview()
+            if (task.isSuccessful) {
+                reviewInfo = task.result
+                viewModel.isRateDialogShow.observe(this) { show ->
+                    if (show) showInAppReview()
+                }
+            }
         }
     }
 
@@ -102,8 +103,5 @@ class MainActivity : AppCompatActivity() {
      */
     private fun showInAppReview() {
         if (::reviewInfo.isInitialized) reviewManager.launchReviewFlow(this, reviewInfo)
-            .addOnSuccessListener {
-                viewModel.saveUserRate()
-            }
     }
 }
