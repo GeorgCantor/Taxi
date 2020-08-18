@@ -89,8 +89,7 @@ class AccountsFragment : Fragment() {
             it.setOnFocusChangeListener { _, hasFocus ->
                 when (hasFocus) {
                     true -> {
-                        changeConstraint(
-                            parent_layout,
+                        parent_layout.changeConstraint(
                             R.id.scroll_view,
                             TOP,
                             R.id.parent_layout,
@@ -99,8 +98,7 @@ class AccountsFragment : Fragment() {
                         )
                     }
                     false -> {
-                        changeConstraint(
-                            parent_layout,
+                        parent_layout.changeConstraint(
                             R.id.scroll_view,
                             TOP,
                             R.id.accounts_cards_title,

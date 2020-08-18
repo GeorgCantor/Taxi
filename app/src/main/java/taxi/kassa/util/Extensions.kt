@@ -343,31 +343,24 @@ fun Activity.makeCall(fragment: Fragment) {
     }
 }
 
-fun changeConstraint(
-    rootId: ConstraintLayout,
+fun ConstraintLayout.changeConstraint(
     startId: Int,
     startSide: Int,
     endId: Int,
     endSide: Int,
     margin: Int
 ) {
-    val constraintSet = ConstraintSet()
-    with(constraintSet) {
-        clone(rootId)
+    ConstraintSet().apply {
+        clone(this@changeConstraint)
         connect(startId, startSide, endId, endSide, margin)
-        applyTo(rootId)
+        applyTo(this@changeConstraint)
     }
 }
 
-fun removeConstraint(
-    rootId: ConstraintLayout,
-    id: Int,
-    side: Int
-) {
-    val constraintSet = ConstraintSet()
-    with(constraintSet) {
-        clone(rootId)
+fun ConstraintLayout.removeConstraint(id: Int, side: Int) {
+    ConstraintSet().apply {
+        clone(this@removeConstraint)
         clear(id, side)
-        applyTo(rootId)
+        applyTo(this@removeConstraint)
     }
 }

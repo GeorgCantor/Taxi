@@ -10,7 +10,8 @@ import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.content.res.AppCompatResources.getDrawable
-import androidx.constraintlayout.widget.ConstraintSet
+import androidx.constraintlayout.widget.ConstraintSet.BOTTOM
+import androidx.constraintlayout.widget.ConstraintSet.TOP
 import androidx.core.view.get
 import androidx.core.view.isNotEmpty
 import androidx.fragment.app.Fragment
@@ -159,19 +160,18 @@ class FuelReplenishFragment : Fragment() {
                 true -> {
                     keyboard.visible()
                     100L.runDelayed { scroll_view.scrollTo(0, scroll_view.bottom) }
-                    changeConstraint(
-                        root_layout,
+                    root_layout.changeConstraint(
                         R.id.enter_amount_input_view,
-                        ConstraintSet.BOTTOM,
+                        BOTTOM,
                         R.id.replenish_button,
-                        ConstraintSet.TOP,
+                        TOP,
                         40
                     )
                 }
                 false -> {
                     keyboard.gone()
                     enter_amount_input_view.error = null
-                    removeConstraint(root_layout, R.id.enter_amount_input_view, ConstraintSet.BOTTOM)
+                    root_layout.removeConstraint(R.id.enter_amount_input_view, BOTTOM)
                 }
             }
         }
