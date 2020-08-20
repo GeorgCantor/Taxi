@@ -10,19 +10,14 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import kotlinx.android.synthetic.main.fragment_auth_phone.*
 import kotlinx.android.synthetic.main.keyboard.*
-import org.koin.androidx.viewmodel.ext.android.getViewModel
+import org.koin.android.ext.android.inject
 import taxi.kassa.R
 import taxi.kassa.util.*
 import taxi.kassa.util.Constants.PHONE
 
 class AuthPhoneFragment : Fragment() {
 
-    private lateinit var viewModel: AuthPhoneViewModel
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        viewModel = getViewModel()
-    }
+    private val viewModel by inject<AuthPhoneViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,

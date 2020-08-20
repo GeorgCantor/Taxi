@@ -15,7 +15,7 @@ import androidx.constraintlayout.widget.ConstraintSet.TOP
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_profile.*
-import org.koin.androidx.viewmodel.ext.android.getViewModel
+import org.koin.android.ext.android.inject
 import taxi.kassa.R
 import taxi.kassa.util.*
 import taxi.kassa.util.Constants.MESSAGES_COUNTER
@@ -28,12 +28,7 @@ import java.util.*
 
 class ProfileFragment : Fragment() {
 
-    private lateinit var viewModel: ProfileViewModel
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        viewModel = getViewModel()
-    }
+    private val viewModel by inject<ProfileViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,

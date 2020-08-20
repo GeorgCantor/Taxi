@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.fragment_fuel_replenish.*
 import kotlinx.android.synthetic.main.fragment_success.*
 import kotlinx.android.synthetic.main.item_taxi.view.*
 import kotlinx.android.synthetic.main.keyboard.*
-import org.koin.androidx.viewmodel.ext.android.getViewModel
+import org.koin.android.ext.android.inject
 import taxi.kassa.R
 import taxi.kassa.model.Taxi
 import taxi.kassa.util.*
@@ -32,12 +32,7 @@ import taxi.kassa.util.Constants.YANDEX
 
 class FuelReplenishFragment : Fragment() {
 
-    private lateinit var viewModel: FuelReplenishViewModel
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        viewModel = getViewModel()
-    }
+    private val viewModel by inject<FuelReplenishViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,

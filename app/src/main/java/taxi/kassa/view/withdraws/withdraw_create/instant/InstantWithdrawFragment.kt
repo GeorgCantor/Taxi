@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.fragment_instant_withdraw.*
 import kotlinx.android.synthetic.main.fragment_success.*
 import kotlinx.android.synthetic.main.item_card.view.*
 import kotlinx.android.synthetic.main.keyboard.*
-import org.koin.androidx.viewmodel.ext.android.getViewModel
+import org.koin.android.ext.android.inject
 import taxi.kassa.R
 import taxi.kassa.util.*
 import taxi.kassa.util.Constants.CITYMOBIL
@@ -33,16 +33,11 @@ import taxi.kassa.view.accounts_cards.cards.CardsAdapter
 
 class InstantWithdrawFragment : Fragment() {
 
-    private lateinit var viewModel: InstantWithdrawViewModel
+    private val viewModel by inject<InstantWithdrawViewModel>()
 
     private val taxiType: String by lazy { arguments?.get(TAXI) as String }
     private var sourceId = 1
     private var cardId = 1
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        viewModel = getViewModel()
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

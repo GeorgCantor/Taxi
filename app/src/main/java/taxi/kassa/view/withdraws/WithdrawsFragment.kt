@@ -1,7 +1,6 @@
 package taxi.kassa.view.withdraws
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
@@ -11,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.empty_withdraws_screen.*
 import kotlinx.android.synthetic.main.fragment_withdraws.*
-import org.koin.androidx.viewmodel.ext.android.getViewModel
+import org.koin.android.ext.android.inject
 import taxi.kassa.R
 import taxi.kassa.util.*
 import taxi.kassa.util.Constants.NOT_FROM_PUSH
@@ -20,12 +19,7 @@ import taxi.kassa.util.Constants.WITHDRAW
 
 class WithdrawsFragment : Fragment() {
 
-    private lateinit var viewModel: WithdrawsViewModel
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        viewModel = getViewModel()
-    }
+    private val viewModel by inject<WithdrawsViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,

@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.fragment_daily_withdraw.*
 import kotlinx.android.synthetic.main.fragment_success.*
 import kotlinx.android.synthetic.main.item_account.view.*
 import kotlinx.android.synthetic.main.keyboard.*
-import org.koin.androidx.viewmodel.ext.android.getViewModel
+import org.koin.android.ext.android.inject
 import taxi.kassa.R
 import taxi.kassa.util.*
 import taxi.kassa.util.Constants.CITYMOBIL
@@ -32,15 +32,10 @@ import taxi.kassa.view.accounts_cards.accounts.AccountsAdapter
 
 class DailyWithdrawFragment : Fragment() {
 
-    private lateinit var viewModel: DailyWithdrawViewModel
+    private val viewModel by inject<DailyWithdrawViewModel>()
 
     private val taxiType: String by lazy { arguments?.get(TAXI) as String }
     private var sourceId = 1
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        viewModel = getViewModel()
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

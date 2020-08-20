@@ -7,8 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_write_message.*
-import org.koin.androidx.viewmodel.ext.android.getViewModel
-import org.koin.core.parameter.parametersOf
+import org.koin.android.ext.android.inject
 import taxi.kassa.R
 import taxi.kassa.util.hideKeyboard
 import taxi.kassa.util.inflate
@@ -17,12 +16,7 @@ import taxi.kassa.util.observe
 
 class WriteMessageFragment : Fragment() {
 
-    private lateinit var viewModel: WriteMessageViewModel
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        viewModel = getViewModel()
-    }
+    private val viewModel by inject<WriteMessageViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,

@@ -22,7 +22,7 @@ import com.google.android.material.textfield.TextInputEditText
 import kotlinx.android.synthetic.main.fragment_accounts.*
 import kotlinx.android.synthetic.main.fragment_success.*
 import kotlinx.android.synthetic.main.keyboard.*
-import org.koin.androidx.viewmodel.ext.android.getViewModel
+import org.koin.android.ext.android.inject
 import taxi.kassa.R
 import taxi.kassa.util.*
 import taxi.kassa.util.Constants.NOT_FROM_PUSH
@@ -30,12 +30,7 @@ import taxi.kassa.util.Constants.PUSH_COUNTER
 
 class AccountsFragment : Fragment() {
 
-    private lateinit var viewModel: AccountsViewModel
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        viewModel = getViewModel()
-    }
+    private val viewModel by inject<AccountsViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,

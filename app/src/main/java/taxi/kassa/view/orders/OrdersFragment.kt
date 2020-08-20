@@ -12,7 +12,7 @@ import androidx.navigation.fragment.NavHostFragment.findNavController
 import androidx.viewpager.widget.ViewPager
 import kotlinx.android.synthetic.main.fragment_orders.*
 import kotlinx.android.synthetic.main.item_taxi_orders.view.*
-import org.koin.androidx.viewmodel.ext.android.getViewModel
+import org.koin.android.ext.android.inject
 import taxi.kassa.R
 import taxi.kassa.util.*
 import taxi.kassa.util.Constants.NOT_FROM_PUSH
@@ -23,12 +23,7 @@ import taxi.kassa.view.orders.list.OrdersListFragment
 
 class OrdersFragment : Fragment() {
 
-    private lateinit var viewModel: OrdersViewModel
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        viewModel = getViewModel()
-    }
+    private val viewModel by inject<OrdersViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,

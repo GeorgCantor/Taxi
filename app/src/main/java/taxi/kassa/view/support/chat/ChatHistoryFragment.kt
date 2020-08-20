@@ -8,8 +8,7 @@ import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_chat_history.*
-import org.koin.androidx.viewmodel.ext.android.getViewModel
-import org.koin.core.parameter.parametersOf
+import org.koin.android.ext.android.inject
 import taxi.kassa.R
 import taxi.kassa.model.responses.Message
 import taxi.kassa.util.*
@@ -17,15 +16,10 @@ import taxi.kassa.util.Constants.MESSAGES_COUNTER
 
 class ChatHistoryFragment : Fragment() {
 
-    private lateinit var viewModel: ChatHistoryViewModel
+    private val viewModel by inject<ChatHistoryViewModel>()
     private lateinit var adapter: ChatHistoryAdapter
     private var nextOffset = ""
     private var firstLoad = true
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        viewModel = getViewModel()
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

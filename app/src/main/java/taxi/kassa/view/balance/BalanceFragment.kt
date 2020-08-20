@@ -10,7 +10,7 @@ import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_balance.*
-import org.koin.androidx.viewmodel.ext.android.getViewModel
+import org.koin.android.ext.android.inject
 import taxi.kassa.R
 import taxi.kassa.util.*
 import taxi.kassa.util.Constants.CITYMOBIL
@@ -22,12 +22,7 @@ import taxi.kassa.util.Constants.YANDEX
 
 class BalanceFragment : Fragment() {
 
-    private lateinit var viewModel: BalanceViewModel
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        viewModel = getViewModel()
-    }
+    private val viewModel by inject<BalanceViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,

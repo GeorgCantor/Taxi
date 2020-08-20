@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_withdraw_create.*
-import org.koin.androidx.viewmodel.ext.android.getViewModel
+import org.koin.android.ext.android.inject
 import taxi.kassa.R
 import taxi.kassa.util.*
 import taxi.kassa.util.Constants.NOT_FROM_PUSH
@@ -17,14 +17,9 @@ import taxi.kassa.util.Constants.TAXI
 
 class WithdrawCreateFragment : Fragment() {
 
-    private lateinit var viewModel: WithdrawCreateViewModel
+    private val viewModel by inject<WithdrawCreateViewModel>()
 
     private val taxiType: String by lazy { arguments?.get(TAXI) as String }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        viewModel = getViewModel()
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

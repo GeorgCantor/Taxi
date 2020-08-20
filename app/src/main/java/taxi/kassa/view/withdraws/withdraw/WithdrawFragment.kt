@@ -8,7 +8,7 @@ import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_withdraw.*
-import org.koin.androidx.viewmodel.ext.android.getViewModel
+import org.koin.android.ext.android.inject
 import taxi.kassa.R
 import taxi.kassa.model.responses.Withdraw
 import taxi.kassa.util.Constants.ALFABANK
@@ -26,14 +26,9 @@ import taxi.kassa.util.shortToast
 
 class WithdrawFragment : Fragment() {
 
-    private lateinit var viewModel: WithdrawViewModel
+    private val viewModel by inject<WithdrawViewModel>()
 
     private val withdraw: Withdraw by lazy { arguments?.get(WITHDRAW) as Withdraw }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        viewModel = getViewModel()
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
