@@ -5,11 +5,9 @@ import android.content.pm.PackageManager
 import android.os.Bundle
 import android.telephony.PhoneNumberUtils.formatNumber
 import android.transition.TransitionManager.beginDelayedTransition
-import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
-import android.view.ViewGroup
 import androidx.constraintlayout.widget.ConstraintSet.BOTTOM
 import androidx.constraintlayout.widget.ConstraintSet.TOP
 import androidx.fragment.app.Fragment
@@ -26,15 +24,9 @@ import taxi.kassa.util.Constants.TOKEN
 import taxi.kassa.view.MainActivity
 import java.util.*
 
-class ProfileFragment : Fragment() {
+class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
     private val viewModel by inject<ProfileViewModel>()
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? = container?.inflate(R.layout.fragment_profile)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

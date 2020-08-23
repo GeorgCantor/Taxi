@@ -1,18 +1,15 @@
 package taxi.kassa.view.notifications
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_notification.*
 import org.koin.androidx.viewmodel.ext.android.getSharedViewModel
 import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
-import taxi.kassa.util.inflate
 import taxi.kassa.util.observe
 
-class NotificationFragment : Fragment() {
+class NotificationFragment : Fragment(R.layout.fragment_notification) {
 
     private lateinit var viewModel: NotificationsViewModel
 
@@ -20,12 +17,6 @@ class NotificationFragment : Fragment() {
         super.onCreate(savedInstanceState)
         viewModel = getSharedViewModel { parametersOf() }
     }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? = container?.inflate(R.layout.fragment_notification)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
