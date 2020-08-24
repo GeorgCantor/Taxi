@@ -19,7 +19,6 @@ import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.*
-import android.view.ViewGroup
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
@@ -164,8 +163,6 @@ fun Context.getScreenWidth(): Float {
 
     return displayMetrics.widthPixels / displayMetrics.density
 }
-
-fun ViewGroup.inflate(layoutRes: Int): View = LayoutInflater.from(context).inflate(layoutRes, this, false)
 
 fun View.visible() { visibility = VISIBLE }
 
