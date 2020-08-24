@@ -6,7 +6,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
-import taxi.kassa.MyApplication
 import taxi.kassa.R
 import taxi.kassa.model.responses.AccountsList
 import taxi.kassa.repository.Repository
@@ -23,7 +22,7 @@ class WithdrawViewModel(
 
     private val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
         when (throwable.message) {
-            ERROR_504 -> error.postValue(getApplication<MyApplication>().getString(R.string.internet_unavailable))
+            ERROR_504 -> error.postValue(app.baseContext.getString(R.string.internet_unavailable))
             else -> error.postValue(throwable.message)
         }
         isProgressVisible.postValue(false)

@@ -2,11 +2,9 @@ package taxi.kassa.view.notifications
 
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
-import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
@@ -20,7 +18,7 @@ import taxi.kassa.util.Constants.NOTIFICATIONS
 import taxi.kassa.util.Constants.NOT_FROM_PUSH
 import taxi.kassa.util.Constants.PUSH_COUNTER
 
-class NotificationsFragment : Fragment() {
+class NotificationsFragment : Fragment(R.layout.fragment_notifications) {
 
     private lateinit var viewModel: NotificationsViewModel
     private lateinit var notifications: MutableList<Notification>
@@ -30,12 +28,6 @@ class NotificationsFragment : Fragment() {
         super.onCreate(savedInstanceState)
         viewModel = getSharedViewModel { parametersOf() }
     }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? = container?.inflate(R.layout.fragment_notifications)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

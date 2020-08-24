@@ -1,13 +1,11 @@
 package taxi.kassa.view.auth.auth_phone
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation
+import androidx.navigation.Navigation.findNavController
 import kotlinx.android.synthetic.main.fragment_auth_phone.*
 import kotlinx.android.synthetic.main.keyboard.*
 import org.koin.android.ext.android.inject
@@ -15,15 +13,9 @@ import taxi.kassa.R
 import taxi.kassa.util.*
 import taxi.kassa.util.Constants.PHONE
 
-class AuthPhoneFragment : Fragment() {
+class AuthPhoneFragment : Fragment(R.layout.fragment_auth_phone) {
 
     private val viewModel by inject<AuthPhoneViewModel>()
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? = container?.inflate(R.layout.fragment_auth_phone)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -40,7 +32,7 @@ class AuthPhoneFragment : Fragment() {
             error.observe(viewLifecycleOwner) { phone_input_view.error = it }
 
             isLoggedIn.observe(viewLifecycleOwner) { loggedIn ->
-                if (loggedIn) Navigation.findNavController(view).navigate(R.id.action_authPhoneFragment_to_authCodeFragment)
+                if (loggedIn) findNavController(view).navigate(R.id.action_authPhoneFragment_to_authCodeFragment)
             }
         }
 

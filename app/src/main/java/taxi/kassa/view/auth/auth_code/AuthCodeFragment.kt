@@ -3,11 +3,9 @@ package taxi.kassa.view.auth.auth_code
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
-import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.Fragment
@@ -18,21 +16,14 @@ import org.koin.android.ext.android.inject
 import taxi.kassa.R
 import taxi.kassa.util.Constants.PHONE
 import taxi.kassa.util.Constants.accessToken
-import taxi.kassa.util.inflate
 import taxi.kassa.util.observe
 
-class AuthCodeFragment : Fragment() {
+class AuthCodeFragment : Fragment(R.layout.fragment_auth_code) {
 
     private val viewModel by inject<AuthCodeViewModel>()
     private lateinit var editTexts: List<EditText>
     private var phone = ""
     private var inputCounter = 0
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? = container?.inflate(R.layout.fragment_auth_code)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

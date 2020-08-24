@@ -6,11 +6,9 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.transition.TransitionManager.beginDelayedTransition
-import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
-import android.view.ViewGroup
 import androidx.core.content.ContextCompat.getColor
 import androidx.core.view.get
 import androidx.core.view.isNotEmpty
@@ -31,19 +29,13 @@ import taxi.kassa.util.Constants.TAXI
 import taxi.kassa.util.Constants.YANDEX
 import taxi.kassa.view.accounts_cards.cards.CardsAdapter
 
-class InstantWithdrawFragment : Fragment() {
+class InstantWithdrawFragment : Fragment(R.layout.fragment_instant_withdraw) {
 
     private val viewModel by inject<InstantWithdrawViewModel>()
 
     private val taxiType: String by lazy { arguments?.get(TAXI) as String }
     private var sourceId = 1
     private var cardId = 1
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? = container?.inflate(R.layout.fragment_instant_withdraw)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

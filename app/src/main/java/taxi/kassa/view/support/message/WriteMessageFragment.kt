@@ -1,28 +1,19 @@
 package taxi.kassa.view.support.message
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_write_message.*
 import org.koin.android.ext.android.inject
 import taxi.kassa.R
 import taxi.kassa.util.hideKeyboard
-import taxi.kassa.util.inflate
 import taxi.kassa.util.longToast
 import taxi.kassa.util.observe
 
-class WriteMessageFragment : Fragment() {
+class WriteMessageFragment : Fragment(R.layout.fragment_write_message) {
 
     private val viewModel by inject<WriteMessageViewModel>()
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? = container?.inflate(R.layout.fragment_write_message)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

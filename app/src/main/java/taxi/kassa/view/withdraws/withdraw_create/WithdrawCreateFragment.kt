@@ -2,9 +2,7 @@ package taxi.kassa.view.withdraws.withdraw_create
 
 import android.os.Bundle
 import android.transition.TransitionManager.beginDelayedTransition
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_withdraw_create.*
@@ -15,17 +13,11 @@ import taxi.kassa.util.Constants.NOT_FROM_PUSH
 import taxi.kassa.util.Constants.PUSH_COUNTER
 import taxi.kassa.util.Constants.TAXI
 
-class WithdrawCreateFragment : Fragment() {
+class WithdrawCreateFragment : Fragment(R.layout.fragment_withdraw_create) {
 
     private val viewModel by inject<WithdrawCreateViewModel>()
 
     private val taxiType: String by lazy { arguments?.get(TAXI) as String }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? = container?.inflate(R.layout.fragment_withdraw_create)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

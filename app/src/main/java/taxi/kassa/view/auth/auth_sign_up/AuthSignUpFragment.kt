@@ -1,11 +1,9 @@
 package taxi.kassa.view.auth.auth_sign_up
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_auth_sign_up.*
@@ -14,16 +12,10 @@ import org.koin.android.ext.android.inject
 import taxi.kassa.R
 import taxi.kassa.util.*
 
-class AuthSignUpFragment : Fragment() {
+class AuthSignUpFragment : Fragment(R.layout.fragment_auth_sign_up) {
 
     private val viewModel by inject<AuthSignUpViewModel>()
     private var phone = ""
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? = container?.inflate(R.layout.fragment_auth_sign_up)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

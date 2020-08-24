@@ -1,11 +1,9 @@
 package taxi.kassa.view.orders.list
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
-import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
@@ -18,7 +16,7 @@ import taxi.kassa.model.responses.Order
 import taxi.kassa.util.*
 import taxi.kassa.view.orders.adapter.OrdersAdapter
 
-class OrdersListFragment : Fragment() {
+class OrdersListFragment : Fragment(R.layout.fragment_orders_list) {
 
     companion object {
         private const val ARG_TAXI = "taxi"
@@ -36,12 +34,6 @@ class OrdersListFragment : Fragment() {
     private lateinit var adapter: OrdersAdapter
     private var nextOffset = ""
     private var firstLoad = true
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? = container?.inflate(R.layout.fragment_orders_list)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

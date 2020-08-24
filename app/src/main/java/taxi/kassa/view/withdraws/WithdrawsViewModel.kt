@@ -6,7 +6,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
-import taxi.kassa.MyApplication
 import taxi.kassa.R
 import taxi.kassa.model.Notification
 import taxi.kassa.model.responses.Withdraws
@@ -18,8 +17,6 @@ class WithdrawsViewModel(
     private val repository: Repository
 ) : AndroidViewModel(app) {
 
-    private val context = getApplication<MyApplication>()
-
     val isProgressVisible = MutableLiveData<Boolean>().apply { value = true }
     val withdraws = MutableLiveData<Withdraws>()
     val error = MutableLiveData<String>()
@@ -27,7 +24,7 @@ class WithdrawsViewModel(
 
     private val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
         when (throwable.message) {
-            ERROR_504 -> error.postValue(context.getString(R.string.internet_unavailable))
+            ERROR_504 -> error.postValue(app.baseContext.getString(R.string.internet_unavailable))
             else -> error.postValue(throwable.message)
         }
         isProgressVisible.postValue(false)
