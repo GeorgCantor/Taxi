@@ -718,7 +718,6 @@ com.google.gson.internal.$Gson$Types$WildcardTypeImpl:
     private static final long serialVersionUID
 androidx.camera.core.UseCaseGroup:
     private static final java.lang.String TAG
-kotlin.SafePublicationLazyImpl$Companion
 androidx.core.util.RangeKt$toClosedRange$1
 kotlin.collections.MapsKt__MapsJVMKt:
     public static final java.lang.Object getOrPut(java.util.concurrent.ConcurrentMap,java.lang.Object,kotlin.jvm.functions.Function0)
@@ -737,6 +736,7 @@ androidx.appcompat.resources.R$string
 androidx.test.core.app.ActivityScenario$ActivityState
 okhttp3.internal.platform.BouncyCastlePlatform:
     public javax.net.ssl.X509TrustManager trustManager(javax.net.ssl.SSLSocketFactory)
+androidx.test.monitor.R
 androidx.collection.SparseArrayCompat:
     public void delete(int)
     public boolean remove(int,java.lang.Object)
@@ -1111,7 +1111,6 @@ kotlinx.coroutines.internal.LockFreeLinkedListKt:
     public static final int FAILURE
 kotlin.text.StringsKt___StringsKt$chunkedSequence$1
 kotlinx.coroutines.InterruptibleKt
-kotlin.LazyThreadSafetyMode
 kotlinx.coroutines.CompletableJob$DefaultImpls
 androidx.transition.TransitionListenerAdapter:
     public void onTransitionEnd(androidx.transition.Transition)
@@ -1791,18 +1790,12 @@ kotlinx.coroutines.ThreadContextElementKt
 androidx.core.util.Pools
 kotlinx.coroutines.channels.ChannelsKt__Channels_commonKt$requireNoNulls$1
 androidx.annotation.MenuRes
-org.koin.androidx.viewmodel.ext.android.ViewModelStoreOwnerExtKt:
-    public static final kotlin.Lazy viewModel(androidx.lifecycle.ViewModelStoreOwner,kotlin.reflect.KClass,org.koin.core.qualifier.Qualifier,kotlin.jvm.functions.Function0)
-    public static synthetic kotlin.Lazy viewModel$default(androidx.lifecycle.ViewModelStoreOwner,kotlin.reflect.KClass,org.koin.core.qualifier.Qualifier,kotlin.jvm.functions.Function0,int,java.lang.Object)
-    public static final synthetic kotlin.Lazy viewModel(androidx.lifecycle.ViewModelStoreOwner,org.koin.core.qualifier.Qualifier,kotlin.jvm.functions.Function0)
-    public static synthetic kotlin.Lazy viewModel$default(androidx.lifecycle.ViewModelStoreOwner,org.koin.core.qualifier.Qualifier,kotlin.jvm.functions.Function0,int,java.lang.Object)
-    public static final synthetic androidx.lifecycle.ViewModel getViewModel(androidx.lifecycle.ViewModelStoreOwner,org.koin.core.qualifier.Qualifier,kotlin.jvm.functions.Function0)
-    public static synthetic androidx.lifecycle.ViewModel getViewModel$default(androidx.lifecycle.ViewModelStoreOwner,org.koin.core.qualifier.Qualifier,kotlin.jvm.functions.Function0,int,java.lang.Object)
-    public static synthetic androidx.lifecycle.ViewModel getViewModel$default(androidx.lifecycle.ViewModelStoreOwner,kotlin.reflect.KClass,org.koin.core.qualifier.Qualifier,kotlin.jvm.functions.Function0,int,java.lang.Object)
+org.koin.androidx.viewmodel.ext.android.ViewModelStoreOwnerExtKt
 androidx.constraintlayout.motion.widget.TransitionAdapter
 androidx.test.internal.platform.util.TestOutputEmitter$1
 kotlin.UByteArrayKt
 androidx.core.content.SharedPreferencesKt
+androidx.test.internal.platform.app.ActivityLifecycleTimeout
 kotlin.time.TestTimeSource
 org.koin.core.definition.BeanDefinition:
     public static synthetic org.koin.core.definition.BeanDefinition copy$default(org.koin.core.definition.BeanDefinition,org.koin.core.scope.ScopeDefinition,kotlin.reflect.KClass,org.koin.core.qualifier.Qualifier,kotlin.jvm.functions.Function2,org.koin.core.definition.Kind,java.util.List,org.koin.core.definition.Options,org.koin.core.definition.Properties,org.koin.core.definition.Callbacks,int,java.lang.Object)
@@ -4708,6 +4701,7 @@ com.google.android.datatransport.runtime.scheduling.persistence.SchemaManager:
     private static final java.lang.String DROP_CONTEXTS_SQL
 androidx.vectordrawable.R$drawable
 androidx.core.view.DragStartHelper
+androidx.test.internal.platform.util.InstrumentationParameterUtil
 kotlinx.coroutines.channels.ChannelsKt__Channels_commonKt$consumeEach$1
 kotlinx.coroutines.flow.FlowKt__MergeKt$map$$inlined$unsafeTransform$2$1
 androidx.core.text.TextDirectionHeuristicCompat:
@@ -5343,7 +5337,6 @@ androidx.constraintlayout.motion.widget.KeyCycle$Loader:
     private static final int ANDROID_TRANSLATION_Z
     private static final int PROGRESS
 kotlin.LazyKt__LazyJVMKt:
-    public static final kotlin.Lazy lazy(kotlin.LazyThreadSafetyMode,kotlin.jvm.functions.Function0)
     public static final kotlin.Lazy lazy(java.lang.Object,kotlin.jvm.functions.Function0)
     public void <init>()
 androidx.fragment.app.FragmentViewModelLazyKt$viewModels$2
@@ -8261,7 +8254,8 @@ okhttp3.internal.http.RealInterceptorChain:
     public okhttp3.Interceptor$Chain withReadTimeout(int,java.util.concurrent.TimeUnit)
     public int writeTimeoutMillis()
     public okhttp3.Interceptor$Chain withWriteTimeout(int,java.util.concurrent.TimeUnit)
-kotlin.SafePublicationLazyImpl
+kotlin.SafePublicationLazyImpl:
+    private final java.lang.Object writeReplace()
 kotlin.time.DurationUnitKt__DurationUnitJvmKt:
     public static synthetic void DurationUnit$annotations()
     public void <init>()
@@ -8920,7 +8914,6 @@ kotlinx.coroutines.RemoveOnCancel
 kotlinx.coroutines.flow.FlowKt__ZipKt$combine$$inlined$unsafeFlow$5$lambda$1
 androidx.camera.camera2.impl.ImageCaptureConfigProvider:
     private static final java.lang.String TAG
-androidx.test.R
 androidx.transition.Slide$GravityFlag
 kotlin.sequences.SequencesKt___SequencesKt$zipWithNext$1
 androidx.core.widget.TintableCompoundDrawablesView:
@@ -9524,7 +9517,8 @@ androidx.camera.camera2.impl.compat.CameraCaptureSessionCompat$CameraCaptureSess
     public abstract int captureSingleRequest(android.hardware.camera2.CameraCaptureSession,android.hardware.camera2.CaptureRequest,java.util.concurrent.Executor,android.hardware.camera2.CameraCaptureSession$CaptureCallback)
     public abstract int setRepeatingBurstRequests(android.hardware.camera2.CameraCaptureSession,java.util.List,java.util.concurrent.Executor,android.hardware.camera2.CameraCaptureSession$CaptureCallback)
 androidx.annotation.FontRes
-kotlin.UnsafeLazyImpl
+kotlin.UnsafeLazyImpl:
+    private final java.lang.Object writeReplace()
 androidx.core.app.AppLaunchChecker
 kotlinx.coroutines.flow.FlowKt__DelayKt$sample$2
 androidx.loader.content.ModernAsyncTask$3
@@ -10680,7 +10674,6 @@ okhttp3.internal.platform.android.AndroidLog:
 androidx.navigation.common.R
 androidx.core.app.FrameMetricsAggregator
 taxi.kassa.view.MainActivity:
-    public static final synthetic void access$setViewModel$p(taxi.kassa.view.MainActivity,taxi.kassa.view.MainViewModel)
     public static final synthetic com.google.android.play.core.review.ReviewInfo access$getReviewInfo$p(taxi.kassa.view.MainActivity)
     public void _$_clearFindViewByIdCache()
 kotlinx.coroutines.channels.ChannelsKt__Channels_commonKt$filterNotNullTo$1
@@ -11147,8 +11140,6 @@ androidx.loader.app.LoaderManager:
     public abstract void destroyLoader(int)
     public abstract androidx.loader.content.Loader getLoader(int)
     public boolean hasRunningLoaders()
-taxi.kassa.view.fuel.FuelReplenishFragment:
-    public static final synthetic void access$setViewModel$p(taxi.kassa.view.fuel.FuelReplenishFragment,taxi.kassa.view.fuel.FuelReplenishViewModel)
 kotlinx.coroutines.flow.FlowKt__ReduceKt$fold$1
 androidx.loader.R$integer
 androidx.core.graphics.TypefaceCompatApi26Impl:
@@ -13080,7 +13071,6 @@ androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat:
     private static final boolean DBG_ANIMATION_VECTOR_DRAWABLE
 androidx.localbroadcastmanager.content.LocalBroadcastManager
 androidx.core.graphics.ColorKt
-kotlin.LazyKt$WhenMappings
 dagger.Subcomponent$Factory
 org.koin.androidx.viewmodel.ext.android.FragmentExtKt$sharedViewModel$1
 androidx.concurrent.futures.CallbackToFutureAdapter$Completer:
@@ -14184,8 +14174,6 @@ androidx.appcompat.view.menu.MenuPopup:
 kotlinx.coroutines.flow.FlowKt__BuildersKt$asFlow$$inlined$unsafeFlow$4
 kotlin.time.TimedValue
 androidx.viewpager2.adapter.FragmentStateAdapter$FragmentMaxLifecycleEnforcer$1
-taxi.kassa.view.accounts_cards.accounts.AccountsFragment:
-    public static final synthetic void access$setViewModel$p(taxi.kassa.view.accounts_cards.accounts.AccountsFragment,taxi.kassa.view.accounts_cards.accounts.AccountsViewModel)
 kotlinx.coroutines.channels.ConflatedBroadcastChannel
 kotlin.jvm.internal.ClassReference$Companion:
     public final java.lang.String getClassSimpleName(java.lang.Class)
@@ -14839,14 +14827,6 @@ com.google.android.material.tabs.TabLayout$SlidingTabIndicator:
     float getIndicatorPosition()
 androidx.appcompat.widget.FitWindowsFrameLayout:
     public void <init>(android.content.Context)
-kotlin.KotlinVersion:
-    public void <init>(int,int)
-    public final boolean isAtLeast(int,int)
-    public final boolean isAtLeast(int,int,int)
-    public final int getMajor()
-    public final int getMinor()
-    public final int getPatch()
-    public static final int MAX_COMPONENT_VALUE
 kotlin.Result:
     public static synthetic void value$annotations()
     private synthetic void <init>(java.lang.Object)
@@ -14861,6 +14841,14 @@ kotlin.Result:
     public int hashCode()
     public boolean equals(java.lang.Object)
     private final java.lang.Object value
+kotlin.KotlinVersion:
+    public void <init>(int,int)
+    public final boolean isAtLeast(int,int)
+    public final boolean isAtLeast(int,int,int)
+    public final int getMajor()
+    public final int getMinor()
+    public final int getPatch()
+    public static final int MAX_COMPONENT_VALUE
 androidx.camera.extensions.BokehPreviewExtender$VendorBokehPreviewExtender
 androidx.appcompat.view.StandaloneActionMode:
     public void onCloseMenu(androidx.appcompat.view.menu.MenuBuilder,boolean)
@@ -14898,6 +14886,7 @@ androidx.camera.core.ImageCapture$13:
     final synthetic androidx.camera.core.ImageCapture this$0
 androidx.fragment.app.FragmentTransitionCompat21$5:
     final synthetic androidx.fragment.app.FragmentTransitionCompat21 this$0
+kotlin.SafePublicationLazyImpl$Companion
 com.google.android.material.shape.MaterialShapeDrawable$2:
     final synthetic com.google.android.material.shape.MaterialShapeDrawable this$0
 taxi.kassa.view.auth.auth_phone.AuthPhoneFragment$onViewCreated$$inlined$with$lambda$4:
@@ -15453,6 +15442,9 @@ androidx.core.view.WindowInsetsCompat$Impl29:
     private androidx.core.graphics.Insets mTappableElementInsets
 androidx.camera.core.ImageAnalysisAbstractAnalyzer:
     abstract void close()
+kotlin.SafePublicationLazyImpl:
+    private final java.lang.Object final
+    public static final kotlin.SafePublicationLazyImpl$Companion Companion
 taxi.kassa.view.support.chat.ChatHistoryAdapter:
     public static final taxi.kassa.view.support.chat.ChatHistoryAdapter$Companion Companion
 androidx.appcompat.widget.ListPopupWindow$2

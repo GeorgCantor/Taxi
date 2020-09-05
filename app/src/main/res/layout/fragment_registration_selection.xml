@@ -62,8 +62,8 @@
 
         <ImageView
             android:id="@+id/yandex_image"
-            android:layout_width="42dp"
-            android:layout_height="42dp"
+            android:layout_width="@dimen/size_42dp"
+            android:layout_height="@dimen/size_42dp"
             android:layout_marginStart="20dp"
             android:src="@drawable/ic_yandex"
             app:layout_constraintBottom_toBottomOf="@+id/yandex_background"
@@ -108,8 +108,8 @@
 
         <ImageView
             android:id="@+id/gett_image"
-            android:layout_width="42dp"
-            android:layout_height="42dp"
+            android:layout_width="@dimen/size_42dp"
+            android:layout_height="@dimen/size_42dp"
             android:layout_marginStart="20dp"
             android:src="@drawable/ic_gett"
             app:layout_constraintBottom_toBottomOf="@+id/gett_background"
@@ -154,8 +154,8 @@
 
         <ImageView
             android:id="@+id/city_image"
-            android:layout_width="42dp"
-            android:layout_height="42dp"
+            android:layout_width="@dimen/size_42dp"
+            android:layout_height="@dimen/size_42dp"
             android:layout_marginStart="20dp"
             android:src="@drawable/ic_citymobil"
             app:layout_constraintBottom_toBottomOf="@+id/city_background"

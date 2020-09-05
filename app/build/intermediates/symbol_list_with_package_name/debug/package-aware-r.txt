@@ -27,8 +27,6 @@ anim design_bottom_sheet_slide_in
 anim design_bottom_sheet_slide_out
 anim design_snackbar_in
 anim design_snackbar_out
-anim fade_in
-anim fade_out
 anim fragment_close_enter
 anim fragment_close_exit
 anim fragment_fade_enter
@@ -1370,6 +1368,7 @@ dimen margin_24dp
 dimen margin_32dp
 dimen margin_48dp
 dimen margin_4dp
+dimen margin_62dp
 dimen margin_64dp
 dimen margin_8dp
 dimen material_clock_display_padding
@@ -1571,6 +1570,7 @@ dimen notification_small_icon_size_as_large
 dimen notification_subtext_size
 dimen notification_top_pad
 dimen notification_top_pad_large_text
+dimen size_42dp
 dimen test_mtrl_calendar_day_cornerSize
 dimen text_10sp
 dimen text_12sp

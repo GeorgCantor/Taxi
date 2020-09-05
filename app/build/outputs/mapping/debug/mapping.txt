@@ -1,7 +1,7 @@
 # compiler: R8
 # compiler_version: 2.0.88
 # min_api: 21
-# pg_map_id: 5fd92ee
+# pg_map_id: fe27742
 # common_typos_disable
 $$ServiceLoaderMethods -> a:
     java.util.Iterator $load$kotlinx$coroutines$CoroutineExceptionHandlerImplKt$$clinit$-163931$$0() -> a
@@ -19719,75 +19719,89 @@ kotlin.KotlinVersion -> kotlin.e:
     int compareTo(kotlin.KotlinVersion) -> a
     int versionOf(int,int,int) -> b
 kotlin.Lazy -> kotlin.f:
-kotlin.LazyKt -> kotlin.g:
-    kotlin.Lazy lazy(kotlin.jvm.functions.Function0) -> a
-kotlin.LazyKt__LazyJVMKt -> kotlin.h:
-    kotlin.Lazy lazy(kotlin.jvm.functions.Function0) -> a
-kotlin.LazyKt__LazyKt -> kotlin.i:
-kotlin.NoWhenBranchMatchedException -> kotlin.j:
-kotlin.Pair -> kotlin.k:
+kotlin.LazyKt -> kotlin.h:
+    kotlin.Lazy lazy(kotlin.LazyThreadSafetyMode,kotlin.jvm.functions.Function0) -> a
+    kotlin.Lazy lazy(kotlin.jvm.functions.Function0) -> b
+kotlin.LazyKt$WhenMappings -> kotlin.g:
+    int[] $EnumSwitchMapping$0 -> a
+kotlin.LazyKt__LazyJVMKt -> kotlin.i:
+    kotlin.Lazy lazy(kotlin.LazyThreadSafetyMode,kotlin.jvm.functions.Function0) -> a
+    kotlin.Lazy lazy(kotlin.jvm.functions.Function0) -> b
+kotlin.LazyKt__LazyKt -> kotlin.j:
+kotlin.LazyThreadSafetyMode -> kotlin.k:
+kotlin.NoWhenBranchMatchedException -> kotlin.l:
+kotlin.Pair -> kotlin.m:
     java.lang.Object second -> b
     java.lang.Object first -> a
     java.lang.Object component1() -> a
     java.lang.Object component2() -> b
     java.lang.Object getFirst() -> c
     java.lang.Object getSecond() -> d
-kotlin.Result -> kotlin.l:
+kotlin.Result -> kotlin.n:
     kotlin.Result$Companion Companion -> a
     java.lang.Object constructor-impl(java.lang.Object) -> a
     java.lang.Throwable exceptionOrNull-impl(java.lang.Object) -> b
     boolean isFailure-impl(java.lang.Object) -> c
     boolean isSuccess-impl(java.lang.Object) -> d
-kotlin.Result$Companion -> kotlin.l$a:
-kotlin.Result$Failure -> kotlin.l$b:
+kotlin.Result$Companion -> kotlin.n$a:
+kotlin.Result$Failure -> kotlin.n$b:
     java.lang.Throwable exception -> a
-kotlin.ResultKt -> kotlin.m:
+kotlin.ResultKt -> kotlin.o:
     java.lang.Object createFailure(java.lang.Throwable) -> a
     void throwOnFailure(java.lang.Object) -> b
-kotlin.SynchronizedLazyImpl -> kotlin.n:
+kotlin.SafePublicationLazyImpl -> kotlin.p:
+    java.lang.Object _value -> b
+    java.util.concurrent.atomic.AtomicReferenceFieldUpdater valueUpdater -> g
+    kotlin.jvm.functions.Function0 initializer -> a
+    boolean isInitialized() -> a
+kotlin.SynchronizedLazyImpl -> kotlin.q:
     java.lang.Object lock -> g
     java.lang.Object _value -> b
     kotlin.jvm.functions.Function0 initializer -> a
     boolean isInitialized() -> a
-kotlin.TuplesKt -> kotlin.o:
+kotlin.TuplesKt -> kotlin.r:
     kotlin.Pair to(java.lang.Object,java.lang.Object) -> a
-kotlin.TypeCastException -> kotlin.p:
-kotlin.UNINITIALIZED_VALUE -> kotlin.q:
+kotlin.TypeCastException -> kotlin.s:
+kotlin.UNINITIALIZED_VALUE -> kotlin.t:
     kotlin.UNINITIALIZED_VALUE INSTANCE -> a
-kotlin.UninitializedPropertyAccessException -> kotlin.r:
-kotlin.Unit -> kotlin.s:
+kotlin.UninitializedPropertyAccessException -> kotlin.u:
+kotlin.Unit -> kotlin.v:
     kotlin.Unit INSTANCE -> a
-kotlin.collections.AbstractCollection -> kotlin.t.a:
+kotlin.UnsafeLazyImpl -> kotlin.w:
+    java.lang.Object _value -> b
+    kotlin.jvm.functions.Function0 initializer -> a
+    boolean isInitialized() -> a
+kotlin.collections.AbstractCollection -> kotlin.x.a:
     int getSize() -> a
-kotlin.collections.AbstractCollection$toString$1 -> kotlin.t.a$a:
+kotlin.collections.AbstractCollection$toString$1 -> kotlin.x.a$a:
     kotlin.collections.AbstractCollection this$0 -> b
     java.lang.CharSequence invoke(java.lang.Object) -> a
     java.lang.Object invoke(java.lang.Object) -> i
-kotlin.collections.AbstractList -> kotlin.t.b:
+kotlin.collections.AbstractList -> kotlin.x.b:
     kotlin.collections.AbstractList$Companion Companion -> a
-kotlin.collections.AbstractList$Companion -> kotlin.t.b$a:
+kotlin.collections.AbstractList$Companion -> kotlin.x.b$a:
     void checkElementIndex$kotlin_stdlib(int,int) -> a
     void checkPositionIndex$kotlin_stdlib(int,int) -> b
     void checkRangeIndexes$kotlin_stdlib(int,int,int) -> c
     boolean orderedEquals$kotlin_stdlib(java.util.Collection,java.util.Collection) -> d
     int orderedHashCode$kotlin_stdlib(java.util.Collection) -> e
-kotlin.collections.AbstractList$IteratorImpl -> kotlin.t.b$b:
+kotlin.collections.AbstractList$IteratorImpl -> kotlin.x.b$b:
     kotlin.collections.AbstractList this$0 -> b
     int index -> a
     int getIndex() -> a
     void setIndex(int) -> b
-kotlin.collections.AbstractList$ListIteratorImpl -> kotlin.t.b$c:
+kotlin.collections.AbstractList$ListIteratorImpl -> kotlin.x.b$c:
     kotlin.collections.AbstractList this$0 -> g
-kotlin.collections.AbstractList$SubList -> kotlin.t.b$d:
+kotlin.collections.AbstractList$SubList -> kotlin.x.b$d:
     int fromIndex -> h
     int _size -> b
     kotlin.collections.AbstractList list -> g
     int getSize() -> a
-kotlin.collections.ArrayAsCollection -> kotlin.t.c:
+kotlin.collections.ArrayAsCollection -> kotlin.x.c:
     java.lang.Object[] values -> a
     boolean isVarargs -> b
     int getSize() -> a
-kotlin.collections.ArraysKt -> kotlin.t.d:
+kotlin.collections.ArraysKt -> kotlin.x.d:
     java.util.List asList(java.lang.Object[]) -> b
     byte[] copyInto(byte[],byte[],int,int,int) -> c
     byte[] copyInto$default(byte[],byte[],int,int,int,int,java.lang.Object) -> e
@@ -19803,10 +19817,10 @@ kotlin.collections.ArraysKt -> kotlin.t.d:
     java.util.List sortedWith(java.lang.Object[],java.util.Comparator) -> w
     java.util.List toList(java.lang.Object[]) -> x
     java.util.List toMutableList(java.lang.Object[]) -> y
-kotlin.collections.ArraysKt__ArraysJVMKt -> kotlin.t.e:
+kotlin.collections.ArraysKt__ArraysJVMKt -> kotlin.x.e:
     void copyOfRangeToIndexCheck(int,int) -> a
-kotlin.collections.ArraysKt__ArraysKt -> kotlin.t.f:
-kotlin.collections.ArraysKt___ArraysJvmKt -> kotlin.t.g:
+kotlin.collections.ArraysKt__ArraysKt -> kotlin.x.f:
+kotlin.collections.ArraysKt___ArraysJvmKt -> kotlin.x.g:
     java.util.List asList(java.lang.Object[]) -> b
     byte[] copyInto(byte[],byte[],int,int,int) -> c
     java.lang.Object[] copyInto(java.lang.Object[],java.lang.Object[],int,int,int) -> d
@@ -19818,7 +19832,7 @@ kotlin.collections.ArraysKt___ArraysJvmKt -> kotlin.t.g:
     void sort(java.lang.Object[]) -> j
     void sortWith(java.lang.Object[],java.util.Comparator) -> k
     java.lang.Character[] toTypedArray(char[]) -> l
-kotlin.collections.ArraysKt___ArraysKt -> kotlin.t.h:
+kotlin.collections.ArraysKt___ArraysKt -> kotlin.x.h:
     boolean contains(java.lang.Object[],java.lang.Object) -> m
     java.util.List filterNotNull(java.lang.Object[]) -> n
     java.util.Collection filterNotNullTo(java.lang.Object[],java.util.Collection) -> o
@@ -19832,9 +19846,9 @@ kotlin.collections.ArraysKt___ArraysKt -> kotlin.t.h:
     java.util.List sortedWith(java.lang.Object[],java.util.Comparator) -> w
     java.util.List toList(java.lang.Object[]) -> x
     java.util.List toMutableList(java.lang.Object[]) -> y
-kotlin.collections.ArraysUtilJVM -> kotlin.t.i:
+kotlin.collections.ArraysUtilJVM -> kotlin.x.i:
     java.util.List asList(java.lang.Object[]) -> a
-kotlin.collections.CollectionsKt -> kotlin.t.j:
+kotlin.collections.CollectionsKt -> kotlin.x.j:
     java.lang.String joinToString$default(java.lang.Iterable,java.lang.CharSequence,java.lang.CharSequence,java.lang.CharSequence,int,java.lang.CharSequence,kotlin.jvm.functions.Function1,int,java.lang.Object) -> B
     java.lang.Object last(java.util.List) -> C
     java.util.List plus(java.util.Collection,java.lang.Iterable) -> D
@@ -19864,10 +19878,10 @@ kotlin.collections.CollectionsKt -> kotlin.t.j:
     java.lang.Object first(java.util.List) -> w
     java.lang.Object firstOrNull(java.util.List) -> x
     java.lang.Appendable joinTo$default(java.lang.Iterable,java.lang.Appendable,java.lang.CharSequence,java.lang.CharSequence,java.lang.CharSequence,int,java.lang.CharSequence,kotlin.jvm.functions.Function1,int,java.lang.Object) -> z
-kotlin.collections.CollectionsKt__CollectionsJVMKt -> kotlin.t.k:
+kotlin.collections.CollectionsKt__CollectionsJVMKt -> kotlin.x.k:
     java.lang.Object[] copyToArrayOfAny(java.lang.Object[],boolean) -> a
     java.util.List listOf(java.lang.Object) -> b
-kotlin.collections.CollectionsKt__CollectionsKt -> kotlin.t.l:
+kotlin.collections.CollectionsKt__CollectionsKt -> kotlin.x.l:
     java.util.Collection asCollection(java.lang.Object[]) -> c
     int binarySearch(java.util.List,java.lang.Comparable,int,int) -> d
     int binarySearch$default(java.util.List,java.lang.Comparable,int,int,int,java.lang.Object) -> e
@@ -19879,20 +19893,20 @@ kotlin.collections.CollectionsKt__CollectionsKt -> kotlin.t.l:
     java.util.List optimizeReadOnlyList(java.util.List) -> k
     void rangeCheck$CollectionsKt__CollectionsKt(int,int,int) -> l
     void throwIndexOverflow() -> m
-kotlin.collections.CollectionsKt__IterablesKt -> kotlin.t.m:
+kotlin.collections.CollectionsKt__IterablesKt -> kotlin.x.m:
     int collectionSizeOrDefault(java.lang.Iterable,int) -> n
-kotlin.collections.CollectionsKt__IteratorsJVMKt -> kotlin.t.n:
-kotlin.collections.CollectionsKt__IteratorsKt -> kotlin.t.o:
-kotlin.collections.CollectionsKt__MutableCollectionsJVMKt -> kotlin.t.p:
+kotlin.collections.CollectionsKt__IteratorsJVMKt -> kotlin.x.n:
+kotlin.collections.CollectionsKt__IteratorsKt -> kotlin.x.o:
+kotlin.collections.CollectionsKt__MutableCollectionsJVMKt -> kotlin.x.p:
     void sort(java.util.List) -> o
     void sortWith(java.util.List,java.util.Comparator) -> p
-kotlin.collections.CollectionsKt__MutableCollectionsKt -> kotlin.t.q:
+kotlin.collections.CollectionsKt__MutableCollectionsKt -> kotlin.x.q:
     boolean addAll(java.util.Collection,java.lang.Iterable) -> q
     boolean addAll(java.util.Collection,java.lang.Object[]) -> r
-kotlin.collections.CollectionsKt__ReversedViewsKt -> kotlin.t.r:
-kotlin.collections.CollectionsKt___CollectionsJvmKt -> kotlin.t.s:
+kotlin.collections.CollectionsKt__ReversedViewsKt -> kotlin.x.r:
+kotlin.collections.CollectionsKt___CollectionsJvmKt -> kotlin.x.s:
     void reverse(java.util.List) -> s
-kotlin.collections.CollectionsKt___CollectionsKt -> kotlin.t.t:
+kotlin.collections.CollectionsKt___CollectionsKt -> kotlin.x.t:
     java.lang.String joinToString(java.lang.Iterable,java.lang.CharSequence,java.lang.CharSequence,java.lang.CharSequence,int,java.lang.CharSequence,kotlin.jvm.functions.Function1) -> A
     java.lang.String joinToString$default(java.lang.Iterable,java.lang.CharSequence,java.lang.CharSequence,java.lang.CharSequence,int,java.lang.CharSequence,kotlin.jvm.functions.Function1,int,java.lang.Object) -> B
     java.lang.Object last(java.util.List) -> C
@@ -19914,20 +19928,20 @@ kotlin.collections.CollectionsKt___CollectionsKt -> kotlin.t.t:
     java.lang.Object firstOrNull(java.util.List) -> x
     java.lang.Appendable joinTo(java.lang.Iterable,java.lang.Appendable,java.lang.CharSequence,java.lang.CharSequence,java.lang.CharSequence,int,java.lang.CharSequence,kotlin.jvm.functions.Function1) -> y
     java.lang.Appendable joinTo$default(java.lang.Iterable,java.lang.Appendable,java.lang.CharSequence,java.lang.CharSequence,java.lang.CharSequence,int,java.lang.CharSequence,kotlin.jvm.functions.Function1,int,java.lang.Object) -> z
-kotlin.collections.CollectionsKt___CollectionsKt$asSequence$$inlined$Sequence$1 -> kotlin.t.t$a:
+kotlin.collections.CollectionsKt___CollectionsKt$asSequence$$inlined$Sequence$1 -> kotlin.x.t$a:
     java.lang.Iterable $this_asSequence$inlined -> a
-kotlin.collections.EmptyIterator -> kotlin.t.u:
+kotlin.collections.EmptyIterator -> kotlin.x.u:
     kotlin.collections.EmptyIterator INSTANCE -> a
     java.lang.Void next() -> a
     java.lang.Void previous() -> b
-kotlin.collections.EmptyList -> kotlin.t.v:
+kotlin.collections.EmptyList -> kotlin.x.v:
     kotlin.collections.EmptyList INSTANCE -> a
     boolean contains(java.lang.Void) -> a
     java.lang.Void get(int) -> b
     int getSize() -> c
     int indexOf(java.lang.Void) -> d
     int lastIndexOf(java.lang.Void) -> e
-kotlin.collections.EmptyMap -> kotlin.t.w:
+kotlin.collections.EmptyMap -> kotlin.x.w:
     kotlin.collections.EmptyMap INSTANCE -> a
     boolean containsValue(java.lang.Void) -> a
     java.lang.Void get(java.lang.Object) -> b
@@ -19935,25 +19949,25 @@ kotlin.collections.EmptyMap -> kotlin.t.w:
     java.util.Set getKeys() -> d
     int getSize() -> e
     java.util.Collection getValues() -> f
-kotlin.collections.EmptySet -> kotlin.t.x:
+kotlin.collections.EmptySet -> kotlin.x.x:
     kotlin.collections.EmptySet INSTANCE -> a
     boolean contains(java.lang.Void) -> a
     int getSize() -> b
-kotlin.collections.IntIterator -> kotlin.t.y:
+kotlin.collections.IntIterator -> kotlin.x.y:
     java.lang.Integer next() -> a
     int nextInt() -> b
-kotlin.collections.MapsKt -> kotlin.t.z:
+kotlin.collections.MapsKt -> kotlin.x.z:
     int mapCapacity(int) -> a
     java.util.Map emptyMap() -> d
     java.util.Map toMap(java.lang.Iterable) -> g
     java.util.Map toMap(java.util.Map) -> i
     java.util.Map toMutableMap(java.util.Map) -> j
-kotlin.collections.MapsKt__MapWithDefaultKt -> kotlin.t.a0:
-kotlin.collections.MapsKt__MapsJVMKt -> kotlin.t.b0:
+kotlin.collections.MapsKt__MapWithDefaultKt -> kotlin.x.a0:
+kotlin.collections.MapsKt__MapsJVMKt -> kotlin.x.b0:
     int mapCapacity(int) -> a
     java.util.Map mapOf(kotlin.Pair) -> b
     java.util.Map toSingletonMap(java.util.Map) -> c
-kotlin.collections.MapsKt__MapsKt -> kotlin.t.c0:
+kotlin.collections.MapsKt__MapsKt -> kotlin.x.c0:
     java.util.Map emptyMap() -> d
     java.util.Map optimizeReadOnlyMap(java.util.Map) -> e
     void putAll(java.util.Map,java.lang.Iterable) -> f
@@ -19961,106 +19975,106 @@ kotlin.collections.MapsKt__MapsKt -> kotlin.t.c0:
     java.util.Map toMap(java.lang.Iterable,java.util.Map) -> h
     java.util.Map toMap(java.util.Map) -> i
     java.util.Map toMutableMap(java.util.Map) -> j
-kotlin.collections.MapsKt___MapsKt -> kotlin.t.d0:
-kotlin.collections.SetsKt -> kotlin.t.e0:
+kotlin.collections.MapsKt___MapsKt -> kotlin.x.d0:
+kotlin.collections.SetsKt -> kotlin.x.e0:
     java.util.Set emptySet() -> b
-kotlin.collections.SetsKt__SetsJVMKt -> kotlin.t.f0:
+kotlin.collections.SetsKt__SetsJVMKt -> kotlin.x.f0:
     java.util.Set setOf(java.lang.Object) -> a
-kotlin.collections.SetsKt__SetsKt -> kotlin.t.g0:
+kotlin.collections.SetsKt__SetsKt -> kotlin.x.g0:
     java.util.Set emptySet() -> b
     java.util.Set optimizeReadOnlySet(java.util.Set) -> c
-kotlin.collections.SetsKt___SetsKt -> kotlin.t.h0:
-kotlin.comparisons.ComparisonsKt -> kotlin.u.a:
+kotlin.collections.SetsKt___SetsKt -> kotlin.x.h0:
+kotlin.comparisons.ComparisonsKt -> kotlin.y.a:
     int compareValues(java.lang.Comparable,java.lang.Comparable) -> a
     java.util.Comparator naturalOrder() -> b
-kotlin.comparisons.ComparisonsKt__ComparisonsKt -> kotlin.u.b:
+kotlin.comparisons.ComparisonsKt__ComparisonsKt -> kotlin.y.b:
     int compareValues(java.lang.Comparable,java.lang.Comparable) -> a
     java.util.Comparator naturalOrder() -> b
-kotlin.comparisons.ComparisonsKt___ComparisonsJvmKt -> kotlin.u.c:
-kotlin.comparisons.ComparisonsKt___ComparisonsKt -> kotlin.u.d:
-kotlin.comparisons.NaturalOrderComparator -> kotlin.u.e:
+kotlin.comparisons.ComparisonsKt___ComparisonsJvmKt -> kotlin.y.c:
+kotlin.comparisons.ComparisonsKt___ComparisonsKt -> kotlin.y.d:
+kotlin.comparisons.NaturalOrderComparator -> kotlin.y.e:
     kotlin.comparisons.NaturalOrderComparator INSTANCE -> a
     int compare(java.lang.Comparable,java.lang.Comparable) -> a
-kotlin.comparisons.ReverseOrderComparator -> kotlin.u.f:
+kotlin.comparisons.ReverseOrderComparator -> kotlin.y.f:
     kotlin.comparisons.ReverseOrderComparator INSTANCE -> a
     int compare(java.lang.Comparable,java.lang.Comparable) -> a
-kotlin.coroutines.AbstractCoroutineContextElement -> kotlin.v.a:
-kotlin.coroutines.AbstractCoroutineContextKey -> kotlin.v.b:
+kotlin.coroutines.AbstractCoroutineContextElement -> kotlin.z.a:
+kotlin.coroutines.AbstractCoroutineContextKey -> kotlin.z.b:
     kotlin.coroutines.CoroutineContext$Key topmostKey -> a
     kotlin.jvm.functions.Function1 safeCast -> b
     boolean isSubKey$kotlin_stdlib(kotlin.coroutines.CoroutineContext$Key) -> a
     kotlin.coroutines.CoroutineContext$Element tryCast$kotlin_stdlib(kotlin.coroutines.CoroutineContext$Element) -> b
-kotlin.coroutines.CombinedContext -> kotlin.v.c:
+kotlin.coroutines.CombinedContext -> kotlin.z.c:
     kotlin.coroutines.CoroutineContext$Element element -> b
     kotlin.coroutines.CoroutineContext left -> a
     boolean contains(kotlin.coroutines.CoroutineContext$Element) -> c
     boolean containsAll(kotlin.coroutines.CombinedContext) -> d
     int size() -> e
-kotlin.coroutines.CombinedContext$toString$1 -> kotlin.v.c$a:
+kotlin.coroutines.CombinedContext$toString$1 -> kotlin.z.c$a:
     kotlin.coroutines.CombinedContext$toString$1 INSTANCE -> b
     java.lang.String invoke(java.lang.String,kotlin.coroutines.CoroutineContext$Element) -> a
     java.lang.Object invoke(java.lang.Object,java.lang.Object) -> g
-kotlin.coroutines.Continuation -> kotlin.v.d:
+kotlin.coroutines.Continuation -> kotlin.z.d:
     void resumeWith(java.lang.Object) -> e
-kotlin.coroutines.ContinuationInterceptor -> kotlin.v.e:
+kotlin.coroutines.ContinuationInterceptor -> kotlin.z.e:
     kotlin.coroutines.ContinuationInterceptor$Key Key -> d
     void releaseInterceptedContinuation(kotlin.coroutines.Continuation) -> b
     kotlin.coroutines.Continuation interceptContinuation(kotlin.coroutines.Continuation) -> h
-kotlin.coroutines.ContinuationInterceptor$DefaultImpls -> kotlin.v.e$a:
+kotlin.coroutines.ContinuationInterceptor$DefaultImpls -> kotlin.z.e$a:
     kotlin.coroutines.CoroutineContext$Element get(kotlin.coroutines.ContinuationInterceptor,kotlin.coroutines.CoroutineContext$Key) -> a
     kotlin.coroutines.CoroutineContext minusKey(kotlin.coroutines.ContinuationInterceptor,kotlin.coroutines.CoroutineContext$Key) -> b
-kotlin.coroutines.ContinuationInterceptor$Key -> kotlin.v.e$b:
+kotlin.coroutines.ContinuationInterceptor$Key -> kotlin.z.e$b:
     kotlin.coroutines.ContinuationInterceptor$Key $$INSTANCE -> a
-kotlin.coroutines.ContinuationKt -> kotlin.v.f:
+kotlin.coroutines.ContinuationKt -> kotlin.z.f:
     void startCoroutine(kotlin.jvm.functions.Function1,kotlin.coroutines.Continuation) -> a
     void startCoroutine(kotlin.jvm.functions.Function2,java.lang.Object,kotlin.coroutines.Continuation) -> b
-kotlin.coroutines.CoroutineContext -> kotlin.v.g:
-kotlin.coroutines.CoroutineContext$DefaultImpls -> kotlin.v.g$a:
+kotlin.coroutines.CoroutineContext -> kotlin.z.g:
+kotlin.coroutines.CoroutineContext$DefaultImpls -> kotlin.z.g$a:
     kotlin.coroutines.CoroutineContext plus(kotlin.coroutines.CoroutineContext,kotlin.coroutines.CoroutineContext) -> a
-kotlin.coroutines.CoroutineContext$Element -> kotlin.v.g$b:
-kotlin.coroutines.CoroutineContext$Element$DefaultImpls -> kotlin.v.g$b$a:
+kotlin.coroutines.CoroutineContext$Element -> kotlin.z.g$b:
+kotlin.coroutines.CoroutineContext$Element$DefaultImpls -> kotlin.z.g$b$a:
     java.lang.Object fold(kotlin.coroutines.CoroutineContext$Element,java.lang.Object,kotlin.jvm.functions.Function2) -> a
     kotlin.coroutines.CoroutineContext$Element get(kotlin.coroutines.CoroutineContext$Element,kotlin.coroutines.CoroutineContext$Key) -> b
     kotlin.coroutines.CoroutineContext minusKey(kotlin.coroutines.CoroutineContext$Element,kotlin.coroutines.CoroutineContext$Key) -> c
     kotlin.coroutines.CoroutineContext plus(kotlin.coroutines.CoroutineContext$Element,kotlin.coroutines.CoroutineContext) -> d
-kotlin.coroutines.CoroutineContext$Key -> kotlin.v.g$c:
-kotlin.coroutines.CoroutineContext$plus$1 -> kotlin.v.g$a$a:
+kotlin.coroutines.CoroutineContext$Key -> kotlin.z.g$c:
+kotlin.coroutines.CoroutineContext$plus$1 -> kotlin.z.g$a$a:
     kotlin.coroutines.CoroutineContext$plus$1 INSTANCE -> b
     kotlin.coroutines.CoroutineContext invoke(kotlin.coroutines.CoroutineContext,kotlin.coroutines.CoroutineContext$Element) -> a
     java.lang.Object invoke(java.lang.Object,java.lang.Object) -> g
-kotlin.coroutines.EmptyCoroutineContext -> kotlin.v.h:
+kotlin.coroutines.EmptyCoroutineContext -> kotlin.z.h:
     kotlin.coroutines.EmptyCoroutineContext INSTANCE -> a
-kotlin.coroutines.intrinsics.CoroutineSingletons -> kotlin.v.i.a:
-kotlin.coroutines.intrinsics.IntrinsicsKt -> kotlin.v.i.b:
+kotlin.coroutines.intrinsics.CoroutineSingletons -> kotlin.z.i.a:
+kotlin.coroutines.intrinsics.IntrinsicsKt -> kotlin.z.i.b:
     kotlin.coroutines.Continuation createCoroutineUnintercepted(kotlin.jvm.functions.Function1,kotlin.coroutines.Continuation) -> a
     kotlin.coroutines.Continuation createCoroutineUnintercepted(kotlin.jvm.functions.Function2,java.lang.Object,kotlin.coroutines.Continuation) -> b
     kotlin.coroutines.Continuation intercepted(kotlin.coroutines.Continuation) -> c
     java.lang.Object getCOROUTINE_SUSPENDED() -> d
-kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsJvmKt -> kotlin.v.i.c:
+kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsJvmKt -> kotlin.z.i.c:
     kotlin.coroutines.Continuation createCoroutineUnintercepted(kotlin.jvm.functions.Function1,kotlin.coroutines.Continuation) -> a
     kotlin.coroutines.Continuation createCoroutineUnintercepted(kotlin.jvm.functions.Function2,java.lang.Object,kotlin.coroutines.Continuation) -> b
     kotlin.coroutines.Continuation intercepted(kotlin.coroutines.Continuation) -> c
-kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsJvmKt$createCoroutineUnintercepted$$inlined$createCoroutineFromSuspendFunction$IntrinsicsKt__IntrinsicsJvmKt$1 -> kotlin.v.i.c$a:
+kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsJvmKt$createCoroutineUnintercepted$$inlined$createCoroutineFromSuspendFunction$IntrinsicsKt__IntrinsicsJvmKt$1 -> kotlin.z.i.c$a:
     kotlin.jvm.functions.Function1 $this_createCoroutineUnintercepted$inlined -> g
     int label -> b
     java.lang.Object invokeSuspend(java.lang.Object) -> l
-kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsJvmKt$createCoroutineUnintercepted$$inlined$createCoroutineFromSuspendFunction$IntrinsicsKt__IntrinsicsJvmKt$2 -> kotlin.v.i.c$b:
+kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsJvmKt$createCoroutineUnintercepted$$inlined$createCoroutineFromSuspendFunction$IntrinsicsKt__IntrinsicsJvmKt$2 -> kotlin.z.i.c$b:
     kotlin.jvm.functions.Function1 $this_createCoroutineUnintercepted$inlined -> i
     int label -> h
     java.lang.Object invokeSuspend(java.lang.Object) -> l
-kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsJvmKt$createCoroutineUnintercepted$$inlined$createCoroutineFromSuspendFunction$IntrinsicsKt__IntrinsicsJvmKt$3 -> kotlin.v.i.c$c:
+kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsJvmKt$createCoroutineUnintercepted$$inlined$createCoroutineFromSuspendFunction$IntrinsicsKt__IntrinsicsJvmKt$3 -> kotlin.z.i.c$c:
     kotlin.jvm.functions.Function2 $this_createCoroutineUnintercepted$inlined -> g
     java.lang.Object $receiver$inlined -> h
     int label -> b
     java.lang.Object invokeSuspend(java.lang.Object) -> l
-kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsJvmKt$createCoroutineUnintercepted$$inlined$createCoroutineFromSuspendFunction$IntrinsicsKt__IntrinsicsJvmKt$4 -> kotlin.v.i.c$d:
+kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsJvmKt$createCoroutineUnintercepted$$inlined$createCoroutineFromSuspendFunction$IntrinsicsKt__IntrinsicsJvmKt$4 -> kotlin.z.i.c$d:
     java.lang.Object $receiver$inlined -> j
     kotlin.jvm.functions.Function2 $this_createCoroutineUnintercepted$inlined -> i
     int label -> h
     java.lang.Object invokeSuspend(java.lang.Object) -> l
-kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsKt -> kotlin.v.i.d:
+kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsKt -> kotlin.z.i.d:
     java.lang.Object getCOROUTINE_SUSPENDED() -> d
-kotlin.coroutines.jvm.internal.BaseContinuationImpl -> kotlin.v.j.a.a:
+kotlin.coroutines.jvm.internal.BaseContinuationImpl -> kotlin.z.j.a.a:
     kotlin.coroutines.Continuation completion -> a
     kotlin.coroutines.Continuation create(java.lang.Object,kotlin.coroutines.Continuation) -> a
     kotlin.coroutines.jvm.internal.CoroutineStackFrame getCallerFrame() -> c
@@ -20070,98 +20084,98 @@ kotlin.coroutines.jvm.internal.BaseContinuationImpl -> kotlin.v.j.a.a:
     kotlin.coroutines.Continuation getCompletion() -> k
     java.lang.Object invokeSuspend(java.lang.Object) -> l
     void releaseIntercepted() -> m
-kotlin.coroutines.jvm.internal.Boxing -> kotlin.v.j.a.b:
+kotlin.coroutines.jvm.internal.Boxing -> kotlin.z.j.a.b:
     java.lang.Boolean boxBoolean(boolean) -> a
     java.lang.Integer boxInt(int) -> b
-kotlin.coroutines.jvm.internal.CompletedContinuation -> kotlin.v.j.a.c:
+kotlin.coroutines.jvm.internal.CompletedContinuation -> kotlin.z.j.a.c:
     kotlin.coroutines.jvm.internal.CompletedContinuation INSTANCE -> a
     void resumeWith(java.lang.Object) -> e
-kotlin.coroutines.jvm.internal.ContinuationImpl -> kotlin.v.j.a.d:
+kotlin.coroutines.jvm.internal.ContinuationImpl -> kotlin.z.j.a.d:
     kotlin.coroutines.Continuation intercepted -> b
     kotlin.coroutines.CoroutineContext _context -> g
     void releaseIntercepted() -> m
     kotlin.coroutines.Continuation intercepted() -> n
-kotlin.coroutines.jvm.internal.CoroutineStackFrame -> kotlin.v.j.a.e:
+kotlin.coroutines.jvm.internal.CoroutineStackFrame -> kotlin.z.j.a.e:
     kotlin.coroutines.jvm.internal.CoroutineStackFrame getCallerFrame() -> c
     java.lang.StackTraceElement getStackTraceElement() -> j
-kotlin.coroutines.jvm.internal.DebugMetadata -> kotlin.v.j.a.f:
-kotlin.coroutines.jvm.internal.DebugMetadataKt -> kotlin.v.j.a.g:
+kotlin.coroutines.jvm.internal.DebugMetadata -> kotlin.z.j.a.f:
+kotlin.coroutines.jvm.internal.DebugMetadataKt -> kotlin.z.j.a.g:
     void checkDebugMetadataVersion(int,int) -> a
     kotlin.coroutines.jvm.internal.DebugMetadata getDebugMetadataAnnotation(kotlin.coroutines.jvm.internal.BaseContinuationImpl) -> b
     int getLabel(kotlin.coroutines.jvm.internal.BaseContinuationImpl) -> c
     java.lang.StackTraceElement getStackTraceElement(kotlin.coroutines.jvm.internal.BaseContinuationImpl) -> d
-kotlin.coroutines.jvm.internal.DebugProbesKt -> kotlin.v.j.a.h:
+kotlin.coroutines.jvm.internal.DebugProbesKt -> kotlin.z.j.a.h:
     kotlin.coroutines.Continuation probeCoroutineCreated(kotlin.coroutines.Continuation) -> a
     void probeCoroutineResumed(kotlin.coroutines.Continuation) -> b
     void probeCoroutineSuspended(kotlin.coroutines.Continuation) -> c
-kotlin.coroutines.jvm.internal.ModuleNameRetriever -> kotlin.v.j.a.i:
+kotlin.coroutines.jvm.internal.ModuleNameRetriever -> kotlin.z.j.a.i:
     kotlin.coroutines.jvm.internal.ModuleNameRetriever$Cache cache -> b
     kotlin.coroutines.jvm.internal.ModuleNameRetriever$Cache notOnJava9 -> a
     kotlin.coroutines.jvm.internal.ModuleNameRetriever INSTANCE -> c
     kotlin.coroutines.jvm.internal.ModuleNameRetriever$Cache buildCache(kotlin.coroutines.jvm.internal.BaseContinuationImpl) -> a
     java.lang.String getModuleName(kotlin.coroutines.jvm.internal.BaseContinuationImpl) -> b
-kotlin.coroutines.jvm.internal.ModuleNameRetriever$Cache -> kotlin.v.j.a.i$a:
+kotlin.coroutines.jvm.internal.ModuleNameRetriever$Cache -> kotlin.z.j.a.i$a:
     java.lang.reflect.Method nameMethod -> c
     java.lang.reflect.Method getModuleMethod -> a
     java.lang.reflect.Method getDescriptorMethod -> b
-kotlin.coroutines.jvm.internal.RestrictedContinuationImpl -> kotlin.v.j.a.j:
-kotlin.coroutines.jvm.internal.SuspendLambda -> kotlin.v.j.a.k:
+kotlin.coroutines.jvm.internal.RestrictedContinuationImpl -> kotlin.z.j.a.j:
+kotlin.coroutines.jvm.internal.SuspendLambda -> kotlin.z.j.a.k:
     int arity -> h
     int getArity() -> d
-kotlin.internal.PlatformImplementations -> kotlin.w.a:
+kotlin.internal.PlatformImplementations -> kotlin.a0.a:
     void addSuppressed(java.lang.Throwable,java.lang.Throwable) -> a
     kotlin.random.Random defaultPlatformRandom() -> b
-kotlin.internal.PlatformImplementations$ReflectAddSuppressedMethod -> kotlin.w.a$a:
+kotlin.internal.PlatformImplementations$ReflectAddSuppressedMethod -> kotlin.a0.a$a:
     java.lang.reflect.Method method -> a
-kotlin.internal.PlatformImplementationsKt -> kotlin.w.b:
+kotlin.internal.PlatformImplementationsKt -> kotlin.a0.b:
     kotlin.internal.PlatformImplementations IMPLEMENTATIONS -> a
     int getJavaVersion() -> a
-kotlin.internal.ProgressionUtilKt -> kotlin.w.c:
+kotlin.internal.ProgressionUtilKt -> kotlin.a0.c:
     int differenceModulo(int,int,int) -> a
     int getProgressionLastElement(int,int,int) -> b
     int mod(int,int) -> c
-kotlin.internal.jdk7.JDK7PlatformImplementations -> kotlin.w.d.a:
+kotlin.internal.jdk7.JDK7PlatformImplementations -> kotlin.a0.d.a:
     void addSuppressed(java.lang.Throwable,java.lang.Throwable) -> a
-kotlin.io.CloseableKt -> kotlin.x.a:
+kotlin.io.CloseableKt -> kotlin.b0.a:
     void closeFinally(java.io.Closeable,java.lang.Throwable) -> a
-kotlin.jvm.JvmClassMappingKt -> kotlin.y.a:
+kotlin.jvm.JvmClassMappingKt -> kotlin.c0.a:
     java.lang.Class getJavaClass(kotlin.reflect.KClass) -> a
     java.lang.Class getJavaObjectType(kotlin.reflect.KClass) -> b
     kotlin.reflect.KClass getKotlinClass(java.lang.Class) -> c
-kotlin.jvm.functions.Function0 -> kotlin.y.b.a:
+kotlin.jvm.functions.Function0 -> kotlin.c0.b.a:
     java.lang.Object invoke() -> b
-kotlin.jvm.functions.Function1 -> kotlin.y.b.l:
+kotlin.jvm.functions.Function1 -> kotlin.c0.b.l:
     java.lang.Object invoke(java.lang.Object) -> i
-kotlin.jvm.functions.Function10 -> kotlin.y.b.b:
-kotlin.jvm.functions.Function11 -> kotlin.y.b.c:
-kotlin.jvm.functions.Function12 -> kotlin.y.b.d:
-kotlin.jvm.functions.Function13 -> kotlin.y.b.e:
-kotlin.jvm.functions.Function14 -> kotlin.y.b.f:
-kotlin.jvm.functions.Function15 -> kotlin.y.b.g:
-kotlin.jvm.functions.Function16 -> kotlin.y.b.h:
-kotlin.jvm.functions.Function17 -> kotlin.y.b.i:
-kotlin.jvm.functions.Function18 -> kotlin.y.b.j:
-kotlin.jvm.functions.Function19 -> kotlin.y.b.k:
-kotlin.jvm.functions.Function2 -> kotlin.y.b.p:
+kotlin.jvm.functions.Function10 -> kotlin.c0.b.b:
+kotlin.jvm.functions.Function11 -> kotlin.c0.b.c:
+kotlin.jvm.functions.Function12 -> kotlin.c0.b.d:
+kotlin.jvm.functions.Function13 -> kotlin.c0.b.e:
+kotlin.jvm.functions.Function14 -> kotlin.c0.b.f:
+kotlin.jvm.functions.Function15 -> kotlin.c0.b.g:
+kotlin.jvm.functions.Function16 -> kotlin.c0.b.h:
+kotlin.jvm.functions.Function17 -> kotlin.c0.b.i:
+kotlin.jvm.functions.Function18 -> kotlin.c0.b.j:
+kotlin.jvm.functions.Function19 -> kotlin.c0.b.k:
+kotlin.jvm.functions.Function2 -> kotlin.c0.b.p:
     java.lang.Object invoke(java.lang.Object,java.lang.Object) -> g
-kotlin.jvm.functions.Function20 -> kotlin.y.b.m:
-kotlin.jvm.functions.Function21 -> kotlin.y.b.n:
-kotlin.jvm.functions.Function22 -> kotlin.y.b.o:
-kotlin.jvm.functions.Function3 -> kotlin.y.b.q:
-kotlin.jvm.functions.Function4 -> kotlin.y.b.r:
-kotlin.jvm.functions.Function5 -> kotlin.y.b.s:
-kotlin.jvm.functions.Function6 -> kotlin.y.b.t:
-kotlin.jvm.functions.Function7 -> kotlin.y.b.u:
-kotlin.jvm.functions.Function8 -> kotlin.y.b.v:
-kotlin.jvm.functions.Function9 -> kotlin.y.b.w:
-kotlin.jvm.internal.ArrayIterator -> kotlin.y.c.a:
+kotlin.jvm.functions.Function20 -> kotlin.c0.b.m:
+kotlin.jvm.functions.Function21 -> kotlin.c0.b.n:
+kotlin.jvm.functions.Function22 -> kotlin.c0.b.o:
+kotlin.jvm.functions.Function3 -> kotlin.c0.b.q:
+kotlin.jvm.functions.Function4 -> kotlin.c0.b.r:
+kotlin.jvm.functions.Function5 -> kotlin.c0.b.s:
+kotlin.jvm.functions.Function6 -> kotlin.c0.b.t:
+kotlin.jvm.functions.Function7 -> kotlin.c0.b.u:
+kotlin.jvm.functions.Function8 -> kotlin.c0.b.v:
+kotlin.jvm.functions.Function9 -> kotlin.c0.b.w:
+kotlin.jvm.internal.ArrayIterator -> kotlin.c0.c.a:
     java.lang.Object[] array -> b
     int index -> a
-kotlin.jvm.internal.ArrayIteratorKt -> kotlin.y.c.b:
+kotlin.jvm.internal.ArrayIteratorKt -> kotlin.c0.c.b:
     java.util.Iterator iterator(java.lang.Object[]) -> a
-kotlin.jvm.internal.ClassBasedDeclarationContainer -> kotlin.y.c.c:
+kotlin.jvm.internal.ClassBasedDeclarationContainer -> kotlin.c0.c.c:
     java.lang.Class getJClass() -> b
-kotlin.jvm.internal.ClassReference -> kotlin.y.c.d:
+kotlin.jvm.internal.ClassReference -> kotlin.c0.c.d:
     java.util.Map FUNCTION_CLASSES -> b
     kotlin.jvm.internal.ClassReference$Companion Companion -> f
     java.util.HashMap classFqNames -> e
@@ -20171,20 +20185,20 @@ kotlin.jvm.internal.ClassReference -> kotlin.y.c.d:
     boolean isInstance(java.lang.Object) -> a
     java.lang.Class getJClass() -> b
     java.util.Map access$getFUNCTION_CLASSES$cp() -> c
-kotlin.jvm.internal.ClassReference$Companion -> kotlin.y.c.d$a:
+kotlin.jvm.internal.ClassReference$Companion -> kotlin.c0.c.d$a:
     boolean isInstance(java.lang.Object,java.lang.Class) -> a
-kotlin.jvm.internal.CollectionToArray -> kotlin.y.c.e:
+kotlin.jvm.internal.CollectionToArray -> kotlin.c0.c.e:
     java.lang.Object[] EMPTY -> a
     java.lang.Object[] toArray(java.util.Collection) -> a
     java.lang.Object[] toArray(java.util.Collection,java.lang.Object[]) -> b
-kotlin.jvm.internal.DefaultConstructorMarker -> kotlin.y.c.f:
-kotlin.jvm.internal.DoubleCompanionObject -> kotlin.y.c.g:
+kotlin.jvm.internal.DefaultConstructorMarker -> kotlin.c0.c.f:
+kotlin.jvm.internal.DoubleCompanionObject -> kotlin.c0.c.g:
     double POSITIVE_INFINITY -> a
     kotlin.jvm.internal.DoubleCompanionObject INSTANCE -> b
     double getPOSITIVE_INFINITY() -> a
-kotlin.jvm.internal.FunctionBase -> kotlin.y.c.h:
+kotlin.jvm.internal.FunctionBase -> kotlin.c0.c.h:
     int getArity() -> d
-kotlin.jvm.internal.Intrinsics -> kotlin.y.c.i:
+kotlin.jvm.internal.Intrinsics -> kotlin.c0.c.i:
     boolean areEqual(java.lang.Object,java.lang.Object) -> a
     void checkExpressionValueIsNotNull(java.lang.Object,java.lang.String) -> b
     void checkParameterIsNotNull(java.lang.Object,java.lang.String) -> c
@@ -20195,27 +20209,27 @@ kotlin.jvm.internal.Intrinsics -> kotlin.y.c.i:
     void throwParameterIsNullException(java.lang.String) -> h
     void throwUninitializedProperty(java.lang.String) -> i
     void throwUninitializedPropertyAccessException(java.lang.String) -> j
-kotlin.jvm.internal.Lambda -> kotlin.y.c.j:
+kotlin.jvm.internal.Lambda -> kotlin.c0.c.j:
     int arity -> a
     int getArity() -> d
-kotlin.jvm.internal.Ref$IntRef -> kotlin.y.c.k:
+kotlin.jvm.internal.Ref$IntRef -> kotlin.c0.c.k:
     int element -> a
-kotlin.jvm.internal.Ref$LongRef -> kotlin.y.c.l:
+kotlin.jvm.internal.Ref$LongRef -> kotlin.c0.c.l:
     long element -> a
-kotlin.jvm.internal.Ref$ObjectRef -> kotlin.y.c.m:
+kotlin.jvm.internal.Ref$ObjectRef -> kotlin.c0.c.m:
     java.lang.Object element -> a
-kotlin.jvm.internal.Reflection -> kotlin.y.c.n:
+kotlin.jvm.internal.Reflection -> kotlin.c0.c.n:
     kotlin.jvm.internal.ReflectionFactory factory -> a
     kotlin.reflect.KClass getOrCreateKotlinClass(java.lang.Class) -> a
     java.lang.String renderLambdaToString(kotlin.jvm.internal.FunctionBase) -> b
     java.lang.String renderLambdaToString(kotlin.jvm.internal.Lambda) -> c
-kotlin.jvm.internal.ReflectionFactory -> kotlin.y.c.o:
+kotlin.jvm.internal.ReflectionFactory -> kotlin.c0.c.o:
     kotlin.reflect.KClass getOrCreateKotlinClass(java.lang.Class) -> a
     java.lang.String renderLambdaToString(kotlin.jvm.internal.FunctionBase) -> b
     java.lang.String renderLambdaToString(kotlin.jvm.internal.Lambda) -> c
-kotlin.jvm.internal.StringCompanionObject -> kotlin.y.c.p:
+kotlin.jvm.internal.StringCompanionObject -> kotlin.c0.c.p:
     kotlin.jvm.internal.StringCompanionObject INSTANCE -> a
-kotlin.jvm.internal.TypeIntrinsics -> kotlin.y.c.q:
+kotlin.jvm.internal.TypeIntrinsics -> kotlin.c0.c.q:
     java.util.List asMutableList(java.lang.Object) -> a
     java.lang.Object beforeCheckcastToFunctionOfArity(java.lang.Object,int) -> b
     java.util.List castToList(java.lang.Object) -> c
@@ -20225,36 +20239,36 @@ kotlin.jvm.internal.TypeIntrinsics -> kotlin.y.c.q:
     java.lang.ClassCastException throwCce(java.lang.ClassCastException) -> g
     void throwCce(java.lang.Object,java.lang.String) -> h
     void throwCce(java.lang.String) -> i
-kotlin.jvm.internal.markers.KMappedMarker -> kotlin.y.c.r.a:
-kotlin.math.MathKt -> kotlin.z.a:
+kotlin.jvm.internal.markers.KMappedMarker -> kotlin.c0.c.r.a:
+kotlin.math.MathKt -> kotlin.d0.a:
     int roundToInt(double) -> a
-kotlin.math.MathKt__MathHKt -> kotlin.z.b:
-kotlin.math.MathKt__MathJVMKt -> kotlin.z.c:
+kotlin.math.MathKt__MathHKt -> kotlin.d0.b:
+kotlin.math.MathKt__MathJVMKt -> kotlin.d0.c:
     int roundToInt(double) -> a
-kotlin.random.AbstractPlatformRandom -> kotlin.a0.a:
+kotlin.random.AbstractPlatformRandom -> kotlin.e0.a:
     int nextBits(int) -> b
     int nextInt() -> c
     java.util.Random getImpl() -> d
-kotlin.random.FallbackThreadLocalRandom -> kotlin.a0.b:
+kotlin.random.FallbackThreadLocalRandom -> kotlin.e0.b:
     kotlin.random.FallbackThreadLocalRandom$implStorage$1 implStorage -> c
     java.util.Random getImpl() -> d
-kotlin.random.FallbackThreadLocalRandom$implStorage$1 -> kotlin.a0.b$a:
+kotlin.random.FallbackThreadLocalRandom$implStorage$1 -> kotlin.e0.b$a:
     java.util.Random initialValue() -> a
-kotlin.random.Random -> kotlin.a0.c:
+kotlin.random.Random -> kotlin.e0.c:
     kotlin.random.Random$Default Default -> b
     kotlin.random.Random defaultRandom -> a
     kotlin.random.Random access$getDefaultRandom$cp() -> a
     int nextBits(int) -> b
     int nextInt() -> c
-kotlin.random.Random$Companion -> kotlin.a0.c$a:
+kotlin.random.Random$Companion -> kotlin.e0.c$a:
     kotlin.random.Random$Companion INSTANCE -> c
     int nextBits(int) -> b
-kotlin.random.Random$Default -> kotlin.a0.c$b:
+kotlin.random.Random$Default -> kotlin.e0.c$b:
     int nextBits(int) -> b
     int nextInt() -> c
-kotlin.random.RandomKt -> kotlin.a0.d:
+kotlin.random.RandomKt -> kotlin.e0.d:
     int takeUpperBits(int,int) -> a
-kotlin.ranges.IntProgression -> kotlin.b0.a:
+kotlin.ranges.IntProgression -> kotlin.f0.a:
     int step -> g
     kotlin.ranges.IntProgression$Companion Companion -> h
     int last -> b
@@ -20263,23 +20277,23 @@ kotlin.ranges.IntProgression -> kotlin.b0.a:
     int getLast() -> b
     int getStep() -> c
     kotlin.collections.IntIterator iterator() -> d
-kotlin.ranges.IntProgression$Companion -> kotlin.b0.a$a:
+kotlin.ranges.IntProgression$Companion -> kotlin.f0.a$a:
     kotlin.ranges.IntProgression fromClosedRange(int,int,int) -> a
-kotlin.ranges.IntProgressionIterator -> kotlin.b0.b:
+kotlin.ranges.IntProgressionIterator -> kotlin.f0.b:
     int step -> h
     int next -> g
     boolean hasNext -> b
     int finalElement -> a
     int nextInt() -> b
-kotlin.ranges.IntRange -> kotlin.b0.c:
+kotlin.ranges.IntRange -> kotlin.f0.c:
     kotlin.ranges.IntRange EMPTY -> i
     kotlin.ranges.IntRange$Companion Companion -> j
     kotlin.ranges.IntRange access$getEMPTY$cp() -> e
     java.lang.Integer getEndInclusive() -> f
     java.lang.Integer getStart() -> g
-kotlin.ranges.IntRange$Companion -> kotlin.b0.c$a:
+kotlin.ranges.IntRange$Companion -> kotlin.f0.c$a:
     kotlin.ranges.IntRange getEMPTY() -> a
-kotlin.ranges.RangesKt -> kotlin.b0.d:
+kotlin.ranges.RangesKt -> kotlin.f0.d:
     int coerceAtLeast(int,int) -> b
     long coerceAtLeast(long,long) -> c
     int coerceAtMost(int,int) -> d
@@ -20288,9 +20302,9 @@ kotlin.ranges.RangesKt -> kotlin.b0.d:
     kotlin.ranges.IntProgression downTo(int,int) -> g
     kotlin.ranges.IntProgression step(kotlin.ranges.IntProgression,int) -> h
     kotlin.ranges.IntRange until(int,int) -> i
-kotlin.ranges.RangesKt__RangesKt -> kotlin.b0.e:
+kotlin.ranges.RangesKt__RangesKt -> kotlin.f0.e:
     void checkStepIsPositive(boolean,java.lang.Number) -> a
-kotlin.ranges.RangesKt___RangesKt -> kotlin.b0.f:
+kotlin.ranges.RangesKt___RangesKt -> kotlin.f0.f:
     int coerceAtLeast(int,int) -> b
     long coerceAtLeast(long,long) -> c
     int coerceAtMost(int,int) -> d
@@ -20299,39 +20313,39 @@ kotlin.ranges.RangesKt___RangesKt -> kotlin.b0.f:
     kotlin.ranges.IntProgression downTo(int,int) -> g
     kotlin.ranges.IntProgression step(kotlin.ranges.IntProgression,int) -> h
     kotlin.ranges.IntRange until(int,int) -> i
-kotlin.reflect.KClass -> kotlin.c0.a:
+kotlin.reflect.KClass -> kotlin.g0.a:
     boolean isInstance(java.lang.Object) -> a
-kotlin.sequences.ConstrainedOnceSequence -> kotlin.d0.a:
+kotlin.sequences.ConstrainedOnceSequence -> kotlin.h0.a:
     java.util.concurrent.atomic.AtomicReference sequenceRef -> a
-kotlin.sequences.DropSequence -> kotlin.d0.b:
+kotlin.sequences.DropSequence -> kotlin.h0.b:
     kotlin.sequences.Sequence sequence -> a
     int count -> b
     kotlin.sequences.Sequence drop(int) -> a
     int access$getCount$p(kotlin.sequences.DropSequence) -> b
     kotlin.sequences.Sequence access$getSequence$p(kotlin.sequences.DropSequence) -> c
-kotlin.sequences.DropSequence$iterator$1 -> kotlin.d0.b$a:
+kotlin.sequences.DropSequence$iterator$1 -> kotlin.h0.b$a:
     java.util.Iterator iterator -> a
     int left -> b
     void drop() -> a
-kotlin.sequences.DropTakeSequence -> kotlin.d0.c:
+kotlin.sequences.DropTakeSequence -> kotlin.h0.c:
     kotlin.sequences.Sequence drop(int) -> a
-kotlin.sequences.Sequence -> kotlin.d0.d:
-kotlin.sequences.SequencesKt -> kotlin.d0.e:
+kotlin.sequences.Sequence -> kotlin.h0.d:
+kotlin.sequences.SequencesKt -> kotlin.h0.e:
     kotlin.sequences.Sequence asSequence(java.util.Iterator) -> a
     java.lang.Iterable asIterable(kotlin.sequences.Sequence) -> c
     kotlin.sequences.Sequence drop(kotlin.sequences.Sequence,int) -> d
     java.lang.String joinToString$default(kotlin.sequences.Sequence,java.lang.CharSequence,java.lang.CharSequence,java.lang.CharSequence,int,java.lang.CharSequence,kotlin.jvm.functions.Function1,int,java.lang.Object) -> g
     kotlin.sequences.Sequence map(kotlin.sequences.Sequence,kotlin.jvm.functions.Function1) -> h
     java.util.List toList(kotlin.sequences.Sequence) -> j
-kotlin.sequences.SequencesKt__SequenceBuilderKt -> kotlin.d0.f:
-kotlin.sequences.SequencesKt__SequencesJVMKt -> kotlin.d0.g:
-kotlin.sequences.SequencesKt__SequencesKt -> kotlin.d0.h:
+kotlin.sequences.SequencesKt__SequenceBuilderKt -> kotlin.h0.f:
+kotlin.sequences.SequencesKt__SequencesJVMKt -> kotlin.h0.g:
+kotlin.sequences.SequencesKt__SequencesKt -> kotlin.h0.h:
     kotlin.sequences.Sequence asSequence(java.util.Iterator) -> a
     kotlin.sequences.Sequence constrainOnce(kotlin.sequences.Sequence) -> b
-kotlin.sequences.SequencesKt__SequencesKt$asSequence$$inlined$Sequence$1 -> kotlin.d0.h$a:
+kotlin.sequences.SequencesKt__SequencesKt$asSequence$$inlined$Sequence$1 -> kotlin.h0.h$a:
     java.util.Iterator $this_asSequence$inlined -> a
-kotlin.sequences.SequencesKt___SequencesJvmKt -> kotlin.d0.i:
-kotlin.sequences.SequencesKt___SequencesKt -> kotlin.d0.j:
+kotlin.sequences.SequencesKt___SequencesJvmKt -> kotlin.h0.i:
+kotlin.sequences.SequencesKt___SequencesKt -> kotlin.h0.j:
     java.lang.Iterable asIterable(kotlin.sequences.Sequence) -> c
     kotlin.sequences.Sequence drop(kotlin.sequences.Sequence,int) -> d
     java.lang.Appendable joinTo(kotlin.sequences.Sequence,java.lang.Appendable,java.lang.CharSequence,java.lang.CharSequence,java.lang.CharSequence,int,java.lang.CharSequence,kotlin.jvm.functions.Function1) -> e
@@ -20341,32 +20355,32 @@ kotlin.sequences.SequencesKt___SequencesKt -> kotlin.d0.j:
     java.util.Collection toCollection(kotlin.sequences.Sequence,java.util.Collection) -> i
     java.util.List toList(kotlin.sequences.Sequence) -> j
     java.util.List toMutableList(kotlin.sequences.Sequence) -> k
-kotlin.sequences.SequencesKt___SequencesKt$asIterable$$inlined$Iterable$1 -> kotlin.d0.j$a:
+kotlin.sequences.SequencesKt___SequencesKt$asIterable$$inlined$Iterable$1 -> kotlin.h0.j$a:
     kotlin.sequences.Sequence $this_asIterable$inlined -> a
-kotlin.sequences.TransformingSequence -> kotlin.d0.k:
+kotlin.sequences.TransformingSequence -> kotlin.h0.k:
     kotlin.sequences.Sequence sequence -> a
     kotlin.jvm.functions.Function1 transformer -> b
     kotlin.sequences.Sequence access$getSequence$p(kotlin.sequences.TransformingSequence) -> b
     kotlin.jvm.functions.Function1 access$getTransformer$p(kotlin.sequences.TransformingSequence) -> c
-kotlin.sequences.TransformingSequence$iterator$1 -> kotlin.d0.k$a:
+kotlin.sequences.TransformingSequence$iterator$1 -> kotlin.h0.k$a:
     kotlin.sequences.TransformingSequence this$0 -> b
     java.util.Iterator iterator -> a
-kotlin.text.CharsKt -> kotlin.e0.a:
+kotlin.text.CharsKt -> kotlin.i0.a:
     int checkRadix(int) -> a
-kotlin.text.CharsKt__CharJVMKt -> kotlin.e0.b:
+kotlin.text.CharsKt__CharJVMKt -> kotlin.i0.b:
     int checkRadix(int) -> a
     int digitOf(char,int) -> b
     boolean isWhitespace(char) -> c
-kotlin.text.CharsKt__CharKt -> kotlin.e0.c:
+kotlin.text.CharsKt__CharKt -> kotlin.i0.c:
     boolean equals(char,char,boolean) -> d
-kotlin.text.Charsets -> kotlin.e0.d:
+kotlin.text.Charsets -> kotlin.i0.d:
     java.nio.charset.Charset utf_32be -> c
     java.nio.charset.Charset utf_32le -> b
     java.nio.charset.Charset UTF_8 -> a
     kotlin.text.Charsets INSTANCE -> d
     java.nio.charset.Charset UTF32_BE() -> a
     java.nio.charset.Charset UTF32_LE() -> b
-kotlin.text.DelimitedRangesSequence -> kotlin.e0.e:
+kotlin.text.DelimitedRangesSequence -> kotlin.i0.e:
     java.lang.CharSequence input -> a
     int startIndex -> b
     int limit -> c
@@ -20375,7 +20389,7 @@ kotlin.text.DelimitedRangesSequence -> kotlin.e0.e:
     java.lang.CharSequence access$getInput$p(kotlin.text.DelimitedRangesSequence) -> c
     int access$getLimit$p(kotlin.text.DelimitedRangesSequence) -> d
     int access$getStartIndex$p(kotlin.text.DelimitedRangesSequence) -> e
-kotlin.text.DelimitedRangesSequence$iterator$1 -> kotlin.e0.e$a:
+kotlin.text.DelimitedRangesSequence$iterator$1 -> kotlin.i0.e$a:
     kotlin.ranges.IntRange nextItem -> h
     int counter -> i
     int nextSearchIndex -> g
@@ -20384,11 +20398,11 @@ kotlin.text.DelimitedRangesSequence$iterator$1 -> kotlin.e0.e$a:
     int nextState -> a
     void calcNext() -> a
     kotlin.ranges.IntRange next() -> b
-kotlin.text.Regex -> kotlin.e0.f:
+kotlin.text.Regex -> kotlin.i0.f:
     java.util.regex.Pattern nativePattern -> a
     boolean matches(java.lang.CharSequence) -> a
     java.lang.String replace(java.lang.CharSequence,java.lang.String) -> b
-kotlin.text.StringsKt -> kotlin.e0.g:
+kotlin.text.StringsKt -> kotlin.i0.g:
     boolean startsWith$default(java.lang.String,java.lang.String,boolean,int,java.lang.Object) -> A
     java.lang.String drop(java.lang.String,int) -> A0
     java.lang.String dropLast(java.lang.String,int) -> B0
@@ -20425,32 +20439,32 @@ kotlin.text.StringsKt -> kotlin.e0.g:
     java.lang.String substringBefore$default(java.lang.String,java.lang.String,java.lang.String,int,java.lang.Object) -> y0
     boolean startsWith$default(java.lang.String,java.lang.String,int,boolean,int,java.lang.Object) -> z
     java.lang.CharSequence trim(java.lang.CharSequence) -> z0
-kotlin.text.StringsKt__AppendableKt -> kotlin.e0.h:
+kotlin.text.StringsKt__AppendableKt -> kotlin.i0.h:
     void appendElement(java.lang.Appendable,java.lang.Object,kotlin.jvm.functions.Function1) -> a
-kotlin.text.StringsKt__IndentKt -> kotlin.e0.i:
+kotlin.text.StringsKt__IndentKt -> kotlin.i0.i:
     kotlin.jvm.functions.Function1 getIndentFunction$StringsKt__IndentKt(java.lang.String) -> b
     java.lang.String replaceIndentByMargin(java.lang.String,java.lang.String,java.lang.String) -> c
     java.lang.String trimMargin(java.lang.String,java.lang.String) -> d
     java.lang.String trimMargin$default(java.lang.String,java.lang.String,int,java.lang.Object) -> e
-kotlin.text.StringsKt__IndentKt$getIndentFunction$1 -> kotlin.e0.i$a:
+kotlin.text.StringsKt__IndentKt$getIndentFunction$1 -> kotlin.i0.i$a:
     kotlin.text.StringsKt__IndentKt$getIndentFunction$1 INSTANCE -> b
     java.lang.String invoke(java.lang.String) -> a
     java.lang.Object invoke(java.lang.Object) -> i
-kotlin.text.StringsKt__IndentKt$getIndentFunction$2 -> kotlin.e0.i$b:
+kotlin.text.StringsKt__IndentKt$getIndentFunction$2 -> kotlin.i0.i$b:
     java.lang.String $indent -> b
     java.lang.String invoke(java.lang.String) -> a
     java.lang.Object invoke(java.lang.Object) -> i
-kotlin.text.StringsKt__RegexExtensionsJVMKt -> kotlin.e0.j:
-kotlin.text.StringsKt__RegexExtensionsKt -> kotlin.e0.k:
-kotlin.text.StringsKt__StringBuilderJVMKt -> kotlin.e0.l:
-kotlin.text.StringsKt__StringBuilderKt -> kotlin.e0.m:
-kotlin.text.StringsKt__StringNumberConversionsJVMKt -> kotlin.e0.n:
-kotlin.text.StringsKt__StringNumberConversionsKt -> kotlin.e0.o:
+kotlin.text.StringsKt__RegexExtensionsJVMKt -> kotlin.i0.j:
+kotlin.text.StringsKt__RegexExtensionsKt -> kotlin.i0.k:
+kotlin.text.StringsKt__StringBuilderJVMKt -> kotlin.i0.l:
+kotlin.text.StringsKt__StringBuilderKt -> kotlin.i0.m:
+kotlin.text.StringsKt__StringNumberConversionsJVMKt -> kotlin.i0.n:
+kotlin.text.StringsKt__StringNumberConversionsKt -> kotlin.i0.o:
     java.lang.Integer toIntOrNull(java.lang.String) -> f
     java.lang.Integer toIntOrNull(java.lang.String,int) -> g
     java.lang.Long toLongOrNull(java.lang.String) -> h
     java.lang.Long toLongOrNull(java.lang.String,int) -> i
-kotlin.text.StringsKt__StringsJVMKt -> kotlin.e0.p:
+kotlin.text.StringsKt__StringsJVMKt -> kotlin.i0.p:
     boolean startsWith$default(java.lang.String,java.lang.String,boolean,int,java.lang.Object) -> A
     boolean endsWith(java.lang.String,java.lang.String,boolean) -> j
     boolean endsWith$default(java.lang.String,java.lang.String,boolean,int,java.lang.Object) -> k
@@ -20469,7 +20483,7 @@ kotlin.text.StringsKt__StringsJVMKt -> kotlin.e0.p:
     boolean startsWith(java.lang.String,java.lang.String,int,boolean) -> x
     boolean startsWith(java.lang.String,java.lang.String,boolean) -> y
     boolean startsWith$default(java.lang.String,java.lang.String,int,boolean,int,java.lang.Object) -> z
-kotlin.text.StringsKt__StringsKt -> kotlin.e0.q:
+kotlin.text.StringsKt__StringsKt -> kotlin.i0.q:
     kotlin.Pair access$findAnyOf(java.lang.CharSequence,java.util.Collection,int,boolean,boolean) -> B
     boolean contains(java.lang.CharSequence,char,boolean) -> C
     boolean contains(java.lang.CharSequence,java.lang.CharSequence,boolean) -> D
@@ -20521,41 +20535,41 @@ kotlin.text.StringsKt__StringsKt -> kotlin.e0.q:
     java.lang.String substringBefore$default(java.lang.String,char,java.lang.String,int,java.lang.Object) -> x0
     java.lang.String substringBefore$default(java.lang.String,java.lang.String,java.lang.String,int,java.lang.Object) -> y0
     java.lang.CharSequence trim(java.lang.CharSequence) -> z0
-kotlin.text.StringsKt__StringsKt$rangesDelimitedBy$2 -> kotlin.e0.q$a:
+kotlin.text.StringsKt__StringsKt$rangesDelimitedBy$2 -> kotlin.i0.q$a:
     char[] $delimiters -> b
     boolean $ignoreCase -> g
     kotlin.Pair invoke(java.lang.CharSequence,int) -> a
     java.lang.Object invoke(java.lang.Object,java.lang.Object) -> g
-kotlin.text.StringsKt__StringsKt$rangesDelimitedBy$4 -> kotlin.e0.q$b:
+kotlin.text.StringsKt__StringsKt$rangesDelimitedBy$4 -> kotlin.i0.q$b:
     java.util.List $delimitersList -> b
     boolean $ignoreCase -> g
     kotlin.Pair invoke(java.lang.CharSequence,int) -> a
     java.lang.Object invoke(java.lang.Object,java.lang.Object) -> g
-kotlin.text.StringsKt__StringsKt$splitToSequence$1 -> kotlin.e0.q$c:
+kotlin.text.StringsKt__StringsKt$splitToSequence$1 -> kotlin.i0.q$c:
     java.lang.CharSequence $this_splitToSequence -> b
     java.lang.String invoke(kotlin.ranges.IntRange) -> a
     java.lang.Object invoke(java.lang.Object) -> i
-kotlin.text.StringsKt__StringsKt$splitToSequence$2 -> kotlin.e0.q$d:
+kotlin.text.StringsKt__StringsKt$splitToSequence$2 -> kotlin.i0.q$d:
     java.lang.CharSequence $this_splitToSequence -> b
     java.lang.String invoke(kotlin.ranges.IntRange) -> a
     java.lang.Object invoke(java.lang.Object) -> i
-kotlin.text.StringsKt___StringsJvmKt -> kotlin.e0.r:
-kotlin.text.StringsKt___StringsKt -> kotlin.e0.s:
+kotlin.text.StringsKt___StringsJvmKt -> kotlin.i0.r:
+kotlin.text.StringsKt___StringsKt -> kotlin.i0.s:
     java.lang.String drop(java.lang.String,int) -> A0
     java.lang.String dropLast(java.lang.String,int) -> B0
     char first(java.lang.CharSequence) -> C0
     java.lang.String take(java.lang.String,int) -> D0
-kotlin.time.AbstractLongTimeSource -> kotlin.f0.a:
+kotlin.time.AbstractLongTimeSource -> kotlin.j0.a:
     java.util.concurrent.TimeUnit unit -> a
     java.util.concurrent.TimeUnit getUnit() -> a
     kotlin.time.TimeMark markNow() -> b
     long read() -> c
-kotlin.time.AbstractLongTimeSource$LongTimeMark -> kotlin.f0.a$a:
+kotlin.time.AbstractLongTimeSource$LongTimeMark -> kotlin.j0.a$a:
     kotlin.time.AbstractLongTimeSource timeSource -> b
     long startedAt -> a
     double offset -> c
     double elapsedNow() -> a
-kotlin.time.Duration -> kotlin.f0.b:
+kotlin.time.Duration -> kotlin.j0.b:
     double ZERO -> a
     kotlin.time.Duration$Companion Companion -> b
     double access$getZERO$cp() -> a
@@ -20563,24 +20577,24 @@ kotlin.time.Duration -> kotlin.f0.b:
     double getInMilliseconds-impl(double) -> c
     double minus-LRDsOJo(double,double) -> d
     double toDouble-impl(double,java.util.concurrent.TimeUnit) -> e
-kotlin.time.Duration$Companion -> kotlin.f0.b$a:
+kotlin.time.Duration$Companion -> kotlin.j0.b$a:
     double getZERO() -> a
-kotlin.time.DurationKt -> kotlin.f0.c:
+kotlin.time.DurationKt -> kotlin.j0.c:
     java.util.concurrent.TimeUnit access$getStorageUnit$p() -> a
     java.util.concurrent.TimeUnit getStorageUnit() -> b
     double toDuration(double,java.util.concurrent.TimeUnit) -> c
     double toDuration(long,java.util.concurrent.TimeUnit) -> d
-kotlin.time.DurationUnitKt__DurationUnitJvmKt -> kotlin.f0.d:
+kotlin.time.DurationUnitKt__DurationUnitJvmKt -> kotlin.j0.d:
     double convertDurationUnit(double,java.util.concurrent.TimeUnit,java.util.concurrent.TimeUnit) -> a
-kotlin.time.MonotonicTimeSource -> kotlin.f0.e:
+kotlin.time.MonotonicTimeSource -> kotlin.j0.e:
     kotlin.time.MonotonicTimeSource INSTANCE -> b
     long read() -> c
-kotlin.time.TimeMark -> kotlin.f0.f:
+kotlin.time.TimeMark -> kotlin.j0.f:
     double elapsedNow() -> a
-kotlin.time.TimeSource -> kotlin.f0.g:
-kotlin.time.TimeSource$Companion -> kotlin.f0.g$a:
+kotlin.time.TimeSource -> kotlin.j0.g:
+kotlin.time.TimeSource$Companion -> kotlin.j0.g$a:
     kotlin.time.TimeSource$Companion $$INSTANCE -> a
-kotlin.time.TimeSource$Monotonic -> kotlin.f0.g$b:
+kotlin.time.TimeSource$Monotonic -> kotlin.j0.g$b:
     kotlin.time.TimeSource$Monotonic INSTANCE -> b
     kotlin.time.MonotonicTimeSource $$delegate_0 -> a
     kotlin.time.TimeMark markNow() -> a
@@ -24454,9 +24468,6 @@ org.koin.androidx.viewmodel.dsl.ModuleExtKt -> j.a.b.a.d.a:
     void setIsViewModel(org.koin.core.definition.BeanDefinition) -> a
 org.koin.androidx.viewmodel.ext.android.FragmentExtKt -> j.a.b.a.e.a.a:
     androidx.lifecycle.ViewModel getSharedViewModel(androidx.fragment.app.Fragment,kotlin.reflect.KClass,org.koin.core.qualifier.Qualifier,kotlin.jvm.functions.Function0) -> a
-org.koin.androidx.viewmodel.ext.android.ViewModelStoreOwnerExtKt -> j.a.b.a.e.a.b:
-    org.koin.core.Koin getKoin(androidx.lifecycle.ViewModelStoreOwner) -> a
-    androidx.lifecycle.ViewModel getViewModel(androidx.lifecycle.ViewModelStoreOwner,kotlin.reflect.KClass,org.koin.core.qualifier.Qualifier,kotlin.jvm.functions.Function0) -> b
 org.koin.androidx.viewmodel.koin.KoinExtKt -> j.a.b.a.f.a:
     androidx.lifecycle.ViewModel getViewModel(org.koin.core.Koin,androidx.lifecycle.ViewModelStoreOwner,kotlin.reflect.KClass,org.koin.core.qualifier.Qualifier,kotlin.jvm.functions.Function0) -> a
 org.koin.androidx.viewmodel.scope.ScopeExtKt -> j.a.b.a.g.a:
@@ -25433,11 +25444,10 @@ taxi.kassa.util.EndlessScrollListener -> taxi.kassa.d.b:
     void onLoadMore(int,int) -> c
     void onScroll(int,int,int) -> d
 taxi.kassa.util.ExtensionsKt -> taxi.kassa.d.d:
-    void setNumberClickListener(android.widget.EditText,android.view.View,int) -> A
-    void shortToast(android.content.Context,java.lang.String) -> B
-    void showOneButtonDialog(android.content.Context,java.lang.String,java.lang.String,boolean,kotlin.jvm.functions.Function2) -> C
-    android.view.View showTwoButtonsDialog(android.content.Context,java.lang.String,java.lang.String,java.lang.String,java.lang.String,kotlin.jvm.functions.Function2,kotlin.jvm.functions.Function0) -> D
-    void visible(android.view.View) -> E
+    void shortToast(android.content.Context,java.lang.String) -> A
+    void showOneButtonDialog(android.content.Context,java.lang.String,java.lang.String,boolean,kotlin.jvm.functions.Function2) -> B
+    android.view.View showTwoButtonsDialog(android.content.Context,java.lang.String,java.lang.String,java.lang.String,java.lang.String,kotlin.jvm.functions.Function2,kotlin.jvm.functions.Function0) -> C
+    void visible(android.view.View) -> D
     void changeConstraint(androidx.constraintlayout.widget.ConstraintLayout,int,int,int,int,int) -> a
     java.lang.String convertToTime(long,java.lang.String) -> b
     java.lang.String getCardType(java.lang.String) -> c
@@ -25449,21 +25459,21 @@ taxi.kassa.util.ExtensionsKt -> taxi.kassa.d.d:
     java.lang.String getValue(android.widget.EditText) -> i
     void gone(android.view.View) -> j
     void hideKeyboard(android.view.View) -> k
-    android.view.View inflate(android.view.ViewGroup,int) -> l
-    void invisible(android.view.View) -> m
-    boolean isEmpty(android.widget.EditText) -> n
-    boolean isNetworkAvailable(android.content.Context) -> o
-    void longToast(android.content.Context,java.lang.String) -> p
-    void makeCall(android.app.Activity,androidx.fragment.app.Fragment) -> q
-    void removeConstraint(androidx.constraintlayout.widget.ConstraintLayout,int,int) -> r
-    void runDelayed(long,kotlin.jvm.functions.Function0) -> s
-    void setColor(android.widget.TextView,java.lang.String,int,int) -> t
-    void setFormattedText(android.widget.TextView,int,double) -> u
-    void setKeyboard(android.widget.EditText,android.view.View[],kotlin.jvm.functions.Function0) -> v
-    void setLoadPhotoVisibility(android.view.View[]) -> w
-    void setMaskListener(android.widget.EditText,com.google.android.material.textfield.TextInputLayout) -> x
-    void setMultiColoredText(android.widget.TextView,int) -> y
-    void setNormalVisibility(android.view.View[]) -> z
+    void invisible(android.view.View) -> l
+    boolean isEmpty(android.widget.EditText) -> m
+    boolean isNetworkAvailable(android.content.Context) -> n
+    void longToast(android.content.Context,java.lang.String) -> o
+    void makeCall(android.app.Activity,androidx.fragment.app.Fragment) -> p
+    void removeConstraint(androidx.constraintlayout.widget.ConstraintLayout,int,int) -> q
+    void runDelayed(long,kotlin.jvm.functions.Function0) -> r
+    void setColor(android.widget.TextView,java.lang.String,int,int) -> s
+    void setFormattedText(android.widget.TextView,int,double) -> t
+    void setKeyboard(android.widget.EditText,android.view.View[],kotlin.jvm.functions.Function0) -> u
+    void setLoadPhotoVisibility(android.view.View[]) -> v
+    void setMaskListener(android.widget.EditText,com.google.android.material.textfield.TextInputLayout) -> w
+    void setMultiColoredText(android.widget.TextView,int) -> x
+    void setNormalVisibility(android.view.View[]) -> y
+    void setNumberClickListener(android.widget.EditText,android.view.View,int) -> z
 taxi.kassa.util.ExtensionsKt$sam$java_lang_Runnable$0 -> taxi.kassa.d.c:
     kotlin.jvm.functions.Function0 function -> a
 taxi.kassa.util.ExtensionsKt$setKeyboard$2 -> taxi.kassa.d.d$a:
@@ -25514,29 +25524,35 @@ taxi.kassa.util.PreferenceManager$getNotifications$type$1 -> taxi.kassa.d.e$a:
 taxi.kassa.view.MainActivity -> taxi.kassa.view.MainActivity:
     java.util.HashMap _$_findViewCache -> z
     com.google.android.play.core.review.ReviewInfo reviewInfo -> y
+    kotlin.Lazy viewModel$delegate -> w
     com.google.android.play.core.review.ReviewManager reviewManager -> x
-    taxi.kassa.view.MainViewModel viewModel -> w
     android.view.View _$_findCachedViewById(int) -> D
     taxi.kassa.view.MainViewModel access$getViewModel$p(taxi.kassa.view.MainActivity) -> E
     void access$setReviewInfo$p(taxi.kassa.view.MainActivity,com.google.android.play.core.review.ReviewInfo) -> F
     void access$showInAppReview(taxi.kassa.view.MainActivity) -> G
-    void showInAppReview() -> H
-taxi.kassa.view.MainActivity$onCreate$$inlined$let$lambda$1 -> taxi.kassa.view.MainActivity$a:
+    taxi.kassa.view.MainViewModel getViewModel() -> H
+    void showInAppReview() -> I
+taxi.kassa.view.MainActivity$$special$$inlined$inject$1 -> taxi.kassa.view.MainActivity$a:
+    kotlin.jvm.functions.Function0 $parameters -> h
+    org.koin.core.qualifier.Qualifier $qualifier -> g
+    android.content.ComponentCallbacks $this_inject -> b
+    java.lang.Object invoke() -> b
+taxi.kassa.view.MainActivity$onCreate$$inlined$let$lambda$1 -> taxi.kassa.view.MainActivity$b:
     taxi.kassa.view.MainActivity this$0 -> b
     java.lang.String $date$inlined -> a
     kotlin.jvm.internal.Ref$ObjectRef $title$inlined -> c
     kotlin.jvm.internal.Ref$ObjectRef $message$inlined -> d
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.MainActivity$onCreate$$inlined$observe$1 -> taxi.kassa.view.MainActivity$b:
+taxi.kassa.view.MainActivity$onCreate$$inlined$observe$1 -> taxi.kassa.view.MainActivity$c:
     taxi.kassa.view.MainActivity this$0 -> a
     kotlin.jvm.internal.Ref$ObjectRef $message$inlined -> b
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.MainActivity$onCreate$3 -> taxi.kassa.view.MainActivity$c:
+taxi.kassa.view.MainActivity$onCreate$3 -> taxi.kassa.view.MainActivity$d:
     taxi.kassa.view.MainActivity this$0 -> a
-taxi.kassa.view.MainActivity$onCreate$3$$special$$inlined$observe$1 -> taxi.kassa.view.MainActivity$c$a:
+taxi.kassa.view.MainActivity$onCreate$3$$special$$inlined$observe$1 -> taxi.kassa.view.MainActivity$d$a:
     taxi.kassa.view.MainActivity$onCreate$3 this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.MainActivity$onResume$1 -> taxi.kassa.view.MainActivity$d:
+taxi.kassa.view.MainActivity$onResume$1 -> taxi.kassa.view.MainActivity$e:
     taxi.kassa.view.MainActivity this$0 -> b
     void invoke() -> a
     java.lang.Object invoke() -> b
@@ -25572,24 +25588,30 @@ taxi.kassa.view.MainViewModel$saveNotifications$1 -> taxi.kassa.view.a$b:
     java.lang.Object invokeSuspend(java.lang.Object) -> l
 taxi.kassa.view.accounts_cards.AccountsCardsFragment -> taxi.kassa.view.accounts_cards.AccountsCardsFragment:
     java.util.HashMap _$_findViewCache -> b
-    taxi.kassa.view.accounts_cards.AccountsCardsViewModel viewModel -> a
+    kotlin.Lazy viewModel$delegate -> a
     void _$_clearFindViewByIdCache() -> a
     android.view.View _$_findCachedViewById(int) -> c
-taxi.kassa.view.accounts_cards.AccountsCardsFragment$onViewCreated$$inlined$with$lambda$1 -> taxi.kassa.view.accounts_cards.AccountsCardsFragment$a:
+    taxi.kassa.view.accounts_cards.AccountsCardsViewModel getViewModel() -> d
+taxi.kassa.view.accounts_cards.AccountsCardsFragment$$special$$inlined$inject$1 -> taxi.kassa.view.accounts_cards.AccountsCardsFragment$a:
+    kotlin.jvm.functions.Function0 $parameters -> h
+    org.koin.core.qualifier.Qualifier $qualifier -> g
+    android.content.ComponentCallbacks $this_inject -> b
+    java.lang.Object invoke() -> b
+taxi.kassa.view.accounts_cards.AccountsCardsFragment$onViewCreated$$inlined$with$lambda$1 -> taxi.kassa.view.accounts_cards.AccountsCardsFragment$b:
     taxi.kassa.view.accounts_cards.AccountsCardsFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.accounts_cards.AccountsCardsFragment$onViewCreated$$inlined$with$lambda$2 -> taxi.kassa.view.accounts_cards.AccountsCardsFragment$b:
+taxi.kassa.view.accounts_cards.AccountsCardsFragment$onViewCreated$$inlined$with$lambda$2 -> taxi.kassa.view.accounts_cards.AccountsCardsFragment$c:
     taxi.kassa.view.accounts_cards.AccountsCardsFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.accounts_cards.AccountsCardsFragment$onViewCreated$1 -> taxi.kassa.view.accounts_cards.AccountsCardsFragment$c:
+taxi.kassa.view.accounts_cards.AccountsCardsFragment$onViewCreated$1 -> taxi.kassa.view.accounts_cards.AccountsCardsFragment$d:
     taxi.kassa.view.accounts_cards.AccountsCardsFragment this$0 -> a
-taxi.kassa.view.accounts_cards.AccountsCardsFragment$onViewCreated$2 -> taxi.kassa.view.accounts_cards.AccountsCardsFragment$d:
+taxi.kassa.view.accounts_cards.AccountsCardsFragment$onViewCreated$2 -> taxi.kassa.view.accounts_cards.AccountsCardsFragment$e:
     taxi.kassa.view.accounts_cards.AccountsCardsFragment this$0 -> a
-taxi.kassa.view.accounts_cards.AccountsCardsFragment$onViewCreated$3 -> taxi.kassa.view.accounts_cards.AccountsCardsFragment$e:
+taxi.kassa.view.accounts_cards.AccountsCardsFragment$onViewCreated$3 -> taxi.kassa.view.accounts_cards.AccountsCardsFragment$f:
     taxi.kassa.view.accounts_cards.AccountsCardsFragment this$0 -> a
-taxi.kassa.view.accounts_cards.AccountsCardsFragment$onViewCreated$4 -> taxi.kassa.view.accounts_cards.AccountsCardsFragment$f:
+taxi.kassa.view.accounts_cards.AccountsCardsFragment$onViewCreated$4 -> taxi.kassa.view.accounts_cards.AccountsCardsFragment$g:
     taxi.kassa.view.accounts_cards.AccountsCardsFragment this$0 -> a
-taxi.kassa.view.accounts_cards.AccountsCardsFragment$onViewCreated$5 -> taxi.kassa.view.accounts_cards.AccountsCardsFragment$g:
+taxi.kassa.view.accounts_cards.AccountsCardsFragment$onViewCreated$5 -> taxi.kassa.view.accounts_cards.AccountsCardsFragment$h:
     taxi.kassa.view.accounts_cards.AccountsCardsFragment this$0 -> a
 taxi.kassa.view.accounts_cards.AccountsCardsViewModel -> taxi.kassa.view.accounts_cards.a:
     taxi.kassa.repository.Repository repository -> h
@@ -25646,92 +25668,98 @@ taxi.kassa.view.accounts_cards.accounts.AccountsAdapter$onBindViewHolder$$inline
     taxi.kassa.model.responses.Account $account$inlined -> g
 taxi.kassa.view.accounts_cards.accounts.AccountsFragment -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment:
     java.util.HashMap _$_findViewCache -> b
-    taxi.kassa.view.accounts_cards.accounts.AccountsViewModel viewModel -> a
+    kotlin.Lazy viewModel$delegate -> a
     void _$_clearFindViewByIdCache() -> a
     android.view.View _$_findCachedViewById(int) -> c
     void access$back(taxi.kassa.view.accounts_cards.accounts.AccountsFragment) -> d
     taxi.kassa.view.accounts_cards.accounts.AccountsViewModel access$getViewModel$p(taxi.kassa.view.accounts_cards.accounts.AccountsFragment) -> e
     void back() -> f
-    void setNumberClickListener(android.widget.Button,int) -> g
-taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$$inlined$map$lambda$1 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$a:
+    taxi.kassa.view.accounts_cards.accounts.AccountsViewModel getViewModel() -> g
+    void setNumberClickListener(android.widget.Button,int) -> h
+taxi.kassa.view.accounts_cards.accounts.AccountsFragment$$special$$inlined$inject$1 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$a:
+    kotlin.jvm.functions.Function0 $parameters -> h
+    org.koin.core.qualifier.Qualifier $qualifier -> g
+    android.content.ComponentCallbacks $this_inject -> b
+    java.lang.Object invoke() -> b
+taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$$inlined$map$lambda$1 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$b:
     taxi.kassa.view.accounts_cards.accounts.AccountsFragment this$0 -> b
     android.widget.EditText $it -> a
-taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$$inlined$map$lambda$2 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$b:
+taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$$inlined$map$lambda$2 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$c:
     com.google.android.material.textfield.TextInputEditText $it -> a
     taxi.kassa.view.accounts_cards.accounts.AccountsFragment this$0 -> b
-taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$$inlined$with$lambda$1 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$c:
+taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$$inlined$with$lambda$1 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$d:
     taxi.kassa.view.accounts_cards.accounts.AccountsFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$$inlined$with$lambda$2 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$d:
+taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$$inlined$with$lambda$2 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$e:
     taxi.kassa.view.accounts_cards.accounts.AccountsFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$$inlined$with$lambda$3 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$e:
+taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$$inlined$with$lambda$3 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$f:
     taxi.kassa.view.accounts_cards.accounts.AccountsFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$$inlined$with$lambda$3$1 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$e$a:
+taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$$inlined$with$lambda$3$1 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$f$a:
     taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$$inlined$with$lambda$3 this$0 -> a
-taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$$inlined$with$lambda$3$2 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$e$b:
+taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$$inlined$with$lambda$3$2 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$f$b:
     taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$$inlined$with$lambda$3 this$0 -> a
-taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$$inlined$with$lambda$3$3 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$e$c:
+taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$$inlined$with$lambda$3$3 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$f$c:
     taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$$inlined$with$lambda$3 this$0 -> a
-taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$$inlined$with$lambda$4 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$f:
+taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$$inlined$with$lambda$4 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$g:
     taxi.kassa.view.accounts_cards.accounts.AccountsFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$$inlined$with$lambda$5 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$g:
+taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$$inlined$with$lambda$5 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$h:
     taxi.kassa.view.accounts_cards.accounts.AccountsFragment this$0 -> b
     taxi.kassa.view.accounts_cards.accounts.AccountsViewModel $this_with$inlined -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$$inlined$with$lambda$5$1 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$g$a:
+taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$$inlined$with$lambda$5$1 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$h$a:
     taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$$inlined$with$lambda$5 this$0 -> b
     void invoke(taxi.kassa.model.responses.Account,android.view.View) -> a
     java.lang.Object invoke(java.lang.Object,java.lang.Object) -> g
-taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$$inlined$with$lambda$5$1$1 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$g$a$a:
+taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$$inlined$with$lambda$5$1$1 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$h$a$a:
     android.view.View $deleteIcon -> b
     void invoke(android.view.View,androidx.constraintlayout.widget.ConstraintLayout) -> a
     java.lang.Object invoke(java.lang.Object,java.lang.Object) -> g
-taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$$inlined$with$lambda$5$1$2 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$g$a$b:
+taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$$inlined$with$lambda$5$1$2 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$h$a$b:
     taxi.kassa.model.responses.Account $account -> g
     taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$$inlined$with$lambda$5$1 this$0 -> b
     void invoke() -> a
     java.lang.Object invoke() -> b
-taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$$inlined$with$lambda$6 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$h:
+taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$$inlined$with$lambda$6 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$i:
     taxi.kassa.view.accounts_cards.accounts.AccountsFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$1 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$m:
+taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$1 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$n:
     taxi.kassa.view.accounts_cards.accounts.AccountsFragment this$0 -> a
-taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$10 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$i:
+taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$10 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$j:
     taxi.kassa.view.accounts_cards.accounts.AccountsFragment this$0 -> b
     void invoke() -> a
     java.lang.Object invoke() -> b
-taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$12$1 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$j:
+taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$12$1 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$k:
     com.google.android.material.textfield.TextInputEditText $this_apply -> a
-taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$14 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$k:
+taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$14 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$l:
     java.util.List $numberInputs -> b
     taxi.kassa.view.accounts_cards.accounts.AccountsFragment this$0 -> a
-taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$15 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$l:
+taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$15 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$m:
     java.util.List $numberInputs -> b
     taxi.kassa.view.accounts_cards.accounts.AccountsFragment this$0 -> a
-taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$2 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$n:
+taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$2 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$o:
     taxi.kassa.view.accounts_cards.accounts.AccountsFragment this$0 -> a
-taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$3 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$o:
+taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$3 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$p:
     taxi.kassa.view.accounts_cards.accounts.AccountsFragment this$0 -> a
-taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$4 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$p:
+taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$4 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$q:
     taxi.kassa.view.accounts_cards.accounts.AccountsFragment this$0 -> a
-taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$5 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$q:
+taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$5 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$r:
     taxi.kassa.view.accounts_cards.accounts.AccountsFragment this$0 -> a
-taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$7 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$r:
+taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$7 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$s:
     taxi.kassa.view.accounts_cards.accounts.AccountsFragment this$0 -> a
-taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$8 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$s:
+taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$8 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$t:
     java.util.List $editTexts -> b
     taxi.kassa.view.accounts_cards.accounts.AccountsFragment this$0 -> a
-taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$9$5$1$1 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$t:
+taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$9$5$1$1 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$u:
     taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$9$5$1$1 INSTANCE -> b
     void invoke(taxi.kassa.model.responses.Account,android.view.View) -> a
     java.lang.Object invoke(java.lang.Object,java.lang.Object) -> g
-taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$callback$1 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$u:
+taxi.kassa.view.accounts_cards.accounts.AccountsFragment$onViewCreated$callback$1 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$v:
     taxi.kassa.view.accounts_cards.accounts.AccountsFragment this$0 -> c
     void handleOnBackPressed() -> b
-taxi.kassa.view.accounts_cards.accounts.AccountsFragment$setNumberClickListener$1 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$v:
+taxi.kassa.view.accounts_cards.accounts.AccountsFragment$setNumberClickListener$1 -> taxi.kassa.view.accounts_cards.accounts.AccountsFragment$w:
     java.util.List $editTexts -> b
     taxi.kassa.view.accounts_cards.accounts.AccountsFragment this$0 -> a
     int $resource -> g
@@ -25808,35 +25836,41 @@ taxi.kassa.view.accounts_cards.cards.CardsAdapter$onBindViewHolder$$inlined$with
     taxi.kassa.model.responses.Card $card$inlined -> g
     taxi.kassa.view.accounts_cards.cards.CardsAdapter$CardViewHolder $this_with -> a
 taxi.kassa.view.accounts_cards.cards.CardsFragment -> taxi.kassa.view.accounts_cards.cards.CardsFragment:
-    taxi.kassa.view.accounts_cards.cards.CardsViewModel viewModel -> a
     java.util.HashMap _$_findViewCache -> b
+    kotlin.Lazy viewModel$delegate -> a
     void _$_clearFindViewByIdCache() -> a
     android.view.View _$_findCachedViewById(int) -> c
-taxi.kassa.view.accounts_cards.cards.CardsFragment$onViewCreated$$inlined$with$lambda$1 -> taxi.kassa.view.accounts_cards.cards.CardsFragment$a:
+    taxi.kassa.view.accounts_cards.cards.CardsViewModel getViewModel() -> d
+taxi.kassa.view.accounts_cards.cards.CardsFragment$$special$$inlined$inject$1 -> taxi.kassa.view.accounts_cards.cards.CardsFragment$a:
+    kotlin.jvm.functions.Function0 $parameters -> h
+    org.koin.core.qualifier.Qualifier $qualifier -> g
+    android.content.ComponentCallbacks $this_inject -> b
+    java.lang.Object invoke() -> b
+taxi.kassa.view.accounts_cards.cards.CardsFragment$onViewCreated$$inlined$with$lambda$1 -> taxi.kassa.view.accounts_cards.cards.CardsFragment$b:
     taxi.kassa.view.accounts_cards.cards.CardsFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.accounts_cards.cards.CardsFragment$onViewCreated$$inlined$with$lambda$2 -> taxi.kassa.view.accounts_cards.cards.CardsFragment$b:
+taxi.kassa.view.accounts_cards.cards.CardsFragment$onViewCreated$$inlined$with$lambda$2 -> taxi.kassa.view.accounts_cards.cards.CardsFragment$c:
     taxi.kassa.view.accounts_cards.cards.CardsFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.accounts_cards.cards.CardsFragment$onViewCreated$$inlined$with$lambda$3 -> taxi.kassa.view.accounts_cards.cards.CardsFragment$c:
+taxi.kassa.view.accounts_cards.cards.CardsFragment$onViewCreated$$inlined$with$lambda$3 -> taxi.kassa.view.accounts_cards.cards.CardsFragment$d:
     taxi.kassa.view.accounts_cards.cards.CardsFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.accounts_cards.cards.CardsFragment$onViewCreated$$inlined$with$lambda$4 -> taxi.kassa.view.accounts_cards.cards.CardsFragment$d:
+taxi.kassa.view.accounts_cards.cards.CardsFragment$onViewCreated$$inlined$with$lambda$4 -> taxi.kassa.view.accounts_cards.cards.CardsFragment$e:
     taxi.kassa.view.accounts_cards.cards.CardsFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.accounts_cards.cards.CardsFragment$onViewCreated$1 -> taxi.kassa.view.accounts_cards.cards.CardsFragment$e:
+taxi.kassa.view.accounts_cards.cards.CardsFragment$onViewCreated$1 -> taxi.kassa.view.accounts_cards.cards.CardsFragment$f:
     taxi.kassa.view.accounts_cards.cards.CardsFragment this$0 -> a
-taxi.kassa.view.accounts_cards.cards.CardsFragment$onViewCreated$2 -> taxi.kassa.view.accounts_cards.cards.CardsFragment$f:
+taxi.kassa.view.accounts_cards.cards.CardsFragment$onViewCreated$2 -> taxi.kassa.view.accounts_cards.cards.CardsFragment$g:
     taxi.kassa.view.accounts_cards.cards.CardsFragment this$0 -> a
-taxi.kassa.view.accounts_cards.cards.CardsFragment$onViewCreated$3 -> taxi.kassa.view.accounts_cards.cards.CardsFragment$g:
+taxi.kassa.view.accounts_cards.cards.CardsFragment$onViewCreated$3 -> taxi.kassa.view.accounts_cards.cards.CardsFragment$h:
     taxi.kassa.view.accounts_cards.cards.CardsFragment this$0 -> a
-taxi.kassa.view.accounts_cards.cards.CardsFragment$onViewCreated$4 -> taxi.kassa.view.accounts_cards.cards.CardsFragment$h:
+taxi.kassa.view.accounts_cards.cards.CardsFragment$onViewCreated$4 -> taxi.kassa.view.accounts_cards.cards.CardsFragment$i:
     taxi.kassa.view.accounts_cards.cards.CardsFragment this$0 -> a
-taxi.kassa.view.accounts_cards.cards.CardsFragment$onViewCreated$5$3$1 -> taxi.kassa.view.accounts_cards.cards.CardsFragment$i:
+taxi.kassa.view.accounts_cards.cards.CardsFragment$onViewCreated$5$3$1 -> taxi.kassa.view.accounts_cards.cards.CardsFragment$j:
     taxi.kassa.view.accounts_cards.cards.CardsFragment$onViewCreated$5$3$1 INSTANCE -> b
     void invoke(taxi.kassa.model.responses.Card,android.view.View) -> a
     java.lang.Object invoke(java.lang.Object,java.lang.Object) -> g
-taxi.kassa.view.accounts_cards.cards.CardsFragment$onViewCreated$5$5 -> taxi.kassa.view.accounts_cards.cards.CardsFragment$j:
+taxi.kassa.view.accounts_cards.cards.CardsFragment$onViewCreated$5$5 -> taxi.kassa.view.accounts_cards.cards.CardsFragment$k:
     taxi.kassa.view.accounts_cards.cards.CardsViewModel $this_with -> a
     void onRefresh() -> a
 taxi.kassa.view.accounts_cards.cards.CardsViewModel -> taxi.kassa.view.accounts_cards.cards.b:
@@ -25870,7 +25904,7 @@ taxi.kassa.view.auth.auth_code.AuthCodeFragment -> taxi.kassa.view.auth.auth_cod
     java.lang.String phone -> g
     java.util.HashMap _$_findViewCache -> i
     int inputCounter -> h
-    taxi.kassa.view.auth.auth_code.AuthCodeViewModel viewModel -> a
+    kotlin.Lazy viewModel$delegate -> a
     void _$_clearFindViewByIdCache() -> a
     android.view.View _$_findCachedViewById(int) -> c
     java.util.List access$getEditTexts$p(taxi.kassa.view.auth.auth_code.AuthCodeFragment) -> d
@@ -25878,56 +25912,61 @@ taxi.kassa.view.auth.auth_code.AuthCodeFragment -> taxi.kassa.view.auth.auth_cod
     void access$login(taxi.kassa.view.auth.auth_code.AuthCodeFragment) -> f
     void access$setInputCounter$p(taxi.kassa.view.auth.auth_code.AuthCodeFragment,int) -> g
     void addChangingRequestFocus() -> h
-    void login() -> i
-    void setNumberClickListener(android.widget.Button,int) -> j
-    void setTextChangedListener(android.widget.EditText,android.widget.EditText) -> k
-taxi.kassa.view.auth.auth_code.AuthCodeFragment$$special$$inlined$observe$3 -> taxi.kassa.view.auth.auth_code.AuthCodeFragment$a:
+    taxi.kassa.view.auth.auth_code.AuthCodeViewModel getViewModel() -> i
+    void login() -> j
+    void setNumberClickListener(android.widget.Button,int) -> k
+    void setTextChangedListener(android.widget.EditText,android.widget.EditText) -> l
+taxi.kassa.view.auth.auth_code.AuthCodeFragment$$special$$inlined$inject$1 -> taxi.kassa.view.auth.auth_code.AuthCodeFragment$a:
+    kotlin.jvm.functions.Function0 $parameters -> h
+    org.koin.core.qualifier.Qualifier $qualifier -> g
+    android.content.ComponentCallbacks $this_inject -> b
+    java.lang.Object invoke() -> b
+taxi.kassa.view.auth.auth_code.AuthCodeFragment$$special$$inlined$observe$3 -> taxi.kassa.view.auth.auth_code.AuthCodeFragment$b:
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.auth.auth_code.AuthCodeFragment$onViewCreated$$inlined$with$lambda$1 -> taxi.kassa.view.auth.auth_code.AuthCodeFragment$b:
+taxi.kassa.view.auth.auth_code.AuthCodeFragment$onViewCreated$$inlined$with$lambda$1 -> taxi.kassa.view.auth.auth_code.AuthCodeFragment$c:
     taxi.kassa.view.auth.auth_code.AuthCodeFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.auth.auth_code.AuthCodeFragment$onViewCreated$$inlined$with$lambda$2 -> taxi.kassa.view.auth.auth_code.AuthCodeFragment$c:
+taxi.kassa.view.auth.auth_code.AuthCodeFragment$onViewCreated$$inlined$with$lambda$2 -> taxi.kassa.view.auth.auth_code.AuthCodeFragment$d:
     taxi.kassa.view.auth.auth_code.AuthCodeFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.auth.auth_code.AuthCodeFragment$onViewCreated$$inlined$with$lambda$3 -> taxi.kassa.view.auth.auth_code.AuthCodeFragment$d:
+taxi.kassa.view.auth.auth_code.AuthCodeFragment$onViewCreated$$inlined$with$lambda$3 -> taxi.kassa.view.auth.auth_code.AuthCodeFragment$e:
     android.view.View $view$inlined -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.auth.auth_code.AuthCodeFragment$onViewCreated$2 -> taxi.kassa.view.auth.auth_code.AuthCodeFragment$e:
+taxi.kassa.view.auth.auth_code.AuthCodeFragment$onViewCreated$2 -> taxi.kassa.view.auth.auth_code.AuthCodeFragment$f:
     taxi.kassa.view.auth.auth_code.AuthCodeFragment this$0 -> a
-taxi.kassa.view.auth.auth_code.AuthCodeFragment$onViewCreated$3 -> taxi.kassa.view.auth.auth_code.AuthCodeFragment$f:
+taxi.kassa.view.auth.auth_code.AuthCodeFragment$onViewCreated$3 -> taxi.kassa.view.auth.auth_code.AuthCodeFragment$g:
     taxi.kassa.view.auth.auth_code.AuthCodeFragment this$0 -> a
-taxi.kassa.view.auth.auth_code.AuthCodeFragment$onViewCreated$6 -> taxi.kassa.view.auth.auth_code.AuthCodeFragment$g:
+taxi.kassa.view.auth.auth_code.AuthCodeFragment$onViewCreated$6 -> taxi.kassa.view.auth.auth_code.AuthCodeFragment$h:
     taxi.kassa.view.auth.auth_code.AuthCodeFragment this$0 -> a
-taxi.kassa.view.auth.auth_code.AuthCodeFragment$onViewCreated$7 -> taxi.kassa.view.auth.auth_code.AuthCodeFragment$h:
+taxi.kassa.view.auth.auth_code.AuthCodeFragment$onViewCreated$7 -> taxi.kassa.view.auth.auth_code.AuthCodeFragment$i:
     taxi.kassa.view.auth.auth_code.AuthCodeFragment this$0 -> a
-taxi.kassa.view.auth.auth_code.AuthCodeFragment$onViewCreated$8 -> taxi.kassa.view.auth.auth_code.AuthCodeFragment$i:
+taxi.kassa.view.auth.auth_code.AuthCodeFragment$onViewCreated$8 -> taxi.kassa.view.auth.auth_code.AuthCodeFragment$j:
     taxi.kassa.view.auth.auth_code.AuthCodeFragment this$0 -> a
-taxi.kassa.view.auth.auth_code.AuthCodeFragment$setNumberClickListener$1 -> taxi.kassa.view.auth.auth_code.AuthCodeFragment$j:
+taxi.kassa.view.auth.auth_code.AuthCodeFragment$setNumberClickListener$1 -> taxi.kassa.view.auth.auth_code.AuthCodeFragment$k:
     int $resource -> b
     taxi.kassa.view.auth.auth_code.AuthCodeFragment this$0 -> a
-taxi.kassa.view.auth.auth_code.AuthCodeFragment$setTextChangedListener$1 -> taxi.kassa.view.auth.auth_code.AuthCodeFragment$k:
+taxi.kassa.view.auth.auth_code.AuthCodeFragment$setTextChangedListener$1 -> taxi.kassa.view.auth.auth_code.AuthCodeFragment$l:
     android.widget.EditText $second -> b
     taxi.kassa.view.auth.auth_code.AuthCodeFragment this$0 -> a
 taxi.kassa.view.auth.auth_code.AuthCodeViewModel -> taxi.kassa.view.auth.auth_code.a:
-    kotlinx.coroutines.CoroutineExceptionHandler exceptionHandler -> i
-    taxi.kassa.MyApplication context -> d
-    taxi.kassa.repository.Repository repository -> k
-    androidx.lifecycle.MutableLiveData error -> h
-    taxi.kassa.util.PreferenceManager preferenceManager -> j
-    androidx.lifecycle.MutableLiveData isProgressVisible -> e
-    androidx.lifecycle.MutableLiveData isLoggedIn -> f
-    androidx.lifecycle.MutableLiveData token -> g
-    taxi.kassa.MyApplication access$getContext$p(taxi.kassa.view.auth.auth_code.AuthCodeViewModel) -> g
-    taxi.kassa.repository.Repository access$getRepository$p(taxi.kassa.view.auth.auth_code.AuthCodeViewModel) -> h
-    void access$saveToPrefs(taxi.kassa.view.auth.auth_code.AuthCodeViewModel,java.lang.String) -> i
-    androidx.lifecycle.MutableLiveData getError() -> j
-    java.lang.String getFromPrefs(java.lang.String) -> k
-    androidx.lifecycle.MutableLiveData getToken() -> l
-    androidx.lifecycle.MutableLiveData isLoggedIn() -> m
-    androidx.lifecycle.MutableLiveData isProgressVisible() -> n
-    void login(java.lang.String,java.lang.String) -> o
-    void saveToPrefs(java.lang.String) -> p
+    kotlinx.coroutines.CoroutineExceptionHandler exceptionHandler -> h
+    taxi.kassa.util.PreferenceManager preferenceManager -> i
+    taxi.kassa.repository.Repository repository -> j
+    androidx.lifecycle.MutableLiveData isProgressVisible -> d
+    androidx.lifecycle.MutableLiveData isLoggedIn -> e
+    androidx.lifecycle.MutableLiveData token -> f
+    androidx.lifecycle.MutableLiveData error -> g
+    taxi.kassa.repository.Repository access$getRepository$p(taxi.kassa.view.auth.auth_code.AuthCodeViewModel) -> g
+    void access$saveToPrefs(taxi.kassa.view.auth.auth_code.AuthCodeViewModel,java.lang.String) -> h
+    androidx.lifecycle.MutableLiveData getError() -> i
+    java.lang.String getFromPrefs(java.lang.String) -> j
+    androidx.lifecycle.MutableLiveData getToken() -> k
+    androidx.lifecycle.MutableLiveData isLoggedIn() -> l
+    androidx.lifecycle.MutableLiveData isProgressVisible() -> m
+    void login(java.lang.String,java.lang.String) -> n
+    void saveToPrefs(java.lang.String) -> o
 taxi.kassa.view.auth.auth_code.AuthCodeViewModel$$special$$inlined$CoroutineExceptionHandler$1 -> taxi.kassa.view.auth.auth_code.a$a:
+    android.app.Application $app$inlined -> b
     taxi.kassa.view.auth.auth_code.AuthCodeViewModel this$0 -> a
 taxi.kassa.view.auth.auth_code.AuthCodeViewModel$login$1 -> taxi.kassa.view.auth.auth_code.a$b:
     java.lang.Object L$0 -> j
@@ -25940,33 +25979,39 @@ taxi.kassa.view.auth.auth_code.AuthCodeViewModel$login$1 -> taxi.kassa.view.auth
     java.lang.Object invoke(java.lang.Object,java.lang.Object) -> g
     java.lang.Object invokeSuspend(java.lang.Object) -> l
 taxi.kassa.view.auth.auth_phone.AuthPhoneFragment -> taxi.kassa.view.auth.auth_phone.AuthPhoneFragment:
-    taxi.kassa.view.auth.auth_phone.AuthPhoneViewModel viewModel -> a
     java.util.HashMap _$_findViewCache -> b
+    kotlin.Lazy viewModel$delegate -> a
     void _$_clearFindViewByIdCache() -> a
     android.view.View _$_findCachedViewById(int) -> c
     void access$apply(taxi.kassa.view.auth.auth_phone.AuthPhoneFragment) -> d
     void apply() -> e
-taxi.kassa.view.auth.auth_phone.AuthPhoneFragment$onViewCreated$$inlined$with$lambda$1 -> taxi.kassa.view.auth.auth_phone.AuthPhoneFragment$a:
+    taxi.kassa.view.auth.auth_phone.AuthPhoneViewModel getViewModel() -> f
+taxi.kassa.view.auth.auth_phone.AuthPhoneFragment$$special$$inlined$inject$1 -> taxi.kassa.view.auth.auth_phone.AuthPhoneFragment$a:
+    kotlin.jvm.functions.Function0 $parameters -> h
+    org.koin.core.qualifier.Qualifier $qualifier -> g
+    android.content.ComponentCallbacks $this_inject -> b
+    java.lang.Object invoke() -> b
+taxi.kassa.view.auth.auth_phone.AuthPhoneFragment$onViewCreated$$inlined$with$lambda$1 -> taxi.kassa.view.auth.auth_phone.AuthPhoneFragment$b:
     taxi.kassa.view.auth.auth_phone.AuthPhoneFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.auth.auth_phone.AuthPhoneFragment$onViewCreated$$inlined$with$lambda$2 -> taxi.kassa.view.auth.auth_phone.AuthPhoneFragment$b:
+taxi.kassa.view.auth.auth_phone.AuthPhoneFragment$onViewCreated$$inlined$with$lambda$2 -> taxi.kassa.view.auth.auth_phone.AuthPhoneFragment$c:
     taxi.kassa.view.auth.auth_phone.AuthPhoneFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.auth.auth_phone.AuthPhoneFragment$onViewCreated$$inlined$with$lambda$3 -> taxi.kassa.view.auth.auth_phone.AuthPhoneFragment$c:
+taxi.kassa.view.auth.auth_phone.AuthPhoneFragment$onViewCreated$$inlined$with$lambda$3 -> taxi.kassa.view.auth.auth_phone.AuthPhoneFragment$d:
     taxi.kassa.view.auth.auth_phone.AuthPhoneFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.auth.auth_phone.AuthPhoneFragment$onViewCreated$$inlined$with$lambda$4 -> taxi.kassa.view.auth.auth_phone.AuthPhoneFragment$d:
+taxi.kassa.view.auth.auth_phone.AuthPhoneFragment$onViewCreated$$inlined$with$lambda$4 -> taxi.kassa.view.auth.auth_phone.AuthPhoneFragment$e:
     android.view.View $view$inlined -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.auth.auth_phone.AuthPhoneFragment$onViewCreated$$inlined$with$lambda$5 -> taxi.kassa.view.auth.auth_phone.AuthPhoneFragment$e:
+taxi.kassa.view.auth.auth_phone.AuthPhoneFragment$onViewCreated$$inlined$with$lambda$5 -> taxi.kassa.view.auth.auth_phone.AuthPhoneFragment$f:
     taxi.kassa.view.auth.auth_phone.AuthPhoneFragment this$0 -> b
     void invoke() -> a
     java.lang.Object invoke() -> b
-taxi.kassa.view.auth.auth_phone.AuthPhoneFragment$onViewCreated$2 -> taxi.kassa.view.auth.auth_phone.AuthPhoneFragment$f:
+taxi.kassa.view.auth.auth_phone.AuthPhoneFragment$onViewCreated$2 -> taxi.kassa.view.auth.auth_phone.AuthPhoneFragment$g:
     taxi.kassa.view.auth.auth_phone.AuthPhoneFragment this$0 -> a
-taxi.kassa.view.auth.auth_phone.AuthPhoneFragment$onViewCreated$4 -> taxi.kassa.view.auth.auth_phone.AuthPhoneFragment$g:
+taxi.kassa.view.auth.auth_phone.AuthPhoneFragment$onViewCreated$4 -> taxi.kassa.view.auth.auth_phone.AuthPhoneFragment$h:
     taxi.kassa.view.auth.auth_phone.AuthPhoneFragment this$0 -> a
-taxi.kassa.view.auth.auth_phone.AuthPhoneFragment$onViewCreated$5 -> taxi.kassa.view.auth.auth_phone.AuthPhoneFragment$h:
+taxi.kassa.view.auth.auth_phone.AuthPhoneFragment$onViewCreated$5 -> taxi.kassa.view.auth.auth_phone.AuthPhoneFragment$i:
     taxi.kassa.view.auth.auth_phone.AuthPhoneFragment this$0 -> a
 taxi.kassa.view.auth.auth_phone.AuthPhoneViewModel -> taxi.kassa.view.auth.auth_phone.a:
     kotlinx.coroutines.CoroutineExceptionHandler exceptionHandler -> i
@@ -25996,33 +26041,39 @@ taxi.kassa.view.auth.auth_phone.AuthPhoneViewModel$login$1 -> taxi.kassa.view.au
     java.lang.Object invokeSuspend(java.lang.Object) -> l
 taxi.kassa.view.auth.auth_sign_up.AuthSignUpFragment -> taxi.kassa.view.auth.auth_sign_up.AuthSignUpFragment:
     java.util.HashMap _$_findViewCache -> g
-    taxi.kassa.view.auth.auth_sign_up.AuthSignUpViewModel viewModel -> a
     java.lang.String phone -> b
+    kotlin.Lazy viewModel$delegate -> a
     void _$_clearFindViewByIdCache() -> a
     android.view.View _$_findCachedViewById(int) -> c
     void access$apply(taxi.kassa.view.auth.auth_sign_up.AuthSignUpFragment) -> d
     void apply() -> e
-taxi.kassa.view.auth.auth_sign_up.AuthSignUpFragment$onViewCreated$$inlined$with$lambda$1 -> taxi.kassa.view.auth.auth_sign_up.AuthSignUpFragment$a:
+    taxi.kassa.view.auth.auth_sign_up.AuthSignUpViewModel getViewModel() -> f
+taxi.kassa.view.auth.auth_sign_up.AuthSignUpFragment$$special$$inlined$inject$1 -> taxi.kassa.view.auth.auth_sign_up.AuthSignUpFragment$a:
+    kotlin.jvm.functions.Function0 $parameters -> h
+    org.koin.core.qualifier.Qualifier $qualifier -> g
+    android.content.ComponentCallbacks $this_inject -> b
+    java.lang.Object invoke() -> b
+taxi.kassa.view.auth.auth_sign_up.AuthSignUpFragment$onViewCreated$$inlined$with$lambda$1 -> taxi.kassa.view.auth.auth_sign_up.AuthSignUpFragment$b:
     taxi.kassa.view.auth.auth_sign_up.AuthSignUpFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.auth.auth_sign_up.AuthSignUpFragment$onViewCreated$$inlined$with$lambda$2 -> taxi.kassa.view.auth.auth_sign_up.AuthSignUpFragment$b:
+taxi.kassa.view.auth.auth_sign_up.AuthSignUpFragment$onViewCreated$$inlined$with$lambda$2 -> taxi.kassa.view.auth.auth_sign_up.AuthSignUpFragment$c:
     taxi.kassa.view.auth.auth_sign_up.AuthSignUpFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.auth.auth_sign_up.AuthSignUpFragment$onViewCreated$$inlined$with$lambda$3 -> taxi.kassa.view.auth.auth_sign_up.AuthSignUpFragment$c:
+taxi.kassa.view.auth.auth_sign_up.AuthSignUpFragment$onViewCreated$$inlined$with$lambda$3 -> taxi.kassa.view.auth.auth_sign_up.AuthSignUpFragment$d:
     taxi.kassa.view.auth.auth_sign_up.AuthSignUpFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.auth.auth_sign_up.AuthSignUpFragment$onViewCreated$$inlined$with$lambda$4 -> taxi.kassa.view.auth.auth_sign_up.AuthSignUpFragment$d:
+taxi.kassa.view.auth.auth_sign_up.AuthSignUpFragment$onViewCreated$$inlined$with$lambda$4 -> taxi.kassa.view.auth.auth_sign_up.AuthSignUpFragment$e:
     taxi.kassa.view.auth.auth_sign_up.AuthSignUpFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.auth.auth_sign_up.AuthSignUpFragment$onViewCreated$$inlined$with$lambda$5 -> taxi.kassa.view.auth.auth_sign_up.AuthSignUpFragment$e:
+taxi.kassa.view.auth.auth_sign_up.AuthSignUpFragment$onViewCreated$$inlined$with$lambda$5 -> taxi.kassa.view.auth.auth_sign_up.AuthSignUpFragment$f:
     taxi.kassa.view.auth.auth_sign_up.AuthSignUpFragment this$0 -> b
     void invoke() -> a
     java.lang.Object invoke() -> b
-taxi.kassa.view.auth.auth_sign_up.AuthSignUpFragment$onViewCreated$2 -> taxi.kassa.view.auth.auth_sign_up.AuthSignUpFragment$f:
+taxi.kassa.view.auth.auth_sign_up.AuthSignUpFragment$onViewCreated$2 -> taxi.kassa.view.auth.auth_sign_up.AuthSignUpFragment$g:
     taxi.kassa.view.auth.auth_sign_up.AuthSignUpFragment this$0 -> a
-taxi.kassa.view.auth.auth_sign_up.AuthSignUpFragment$onViewCreated$4 -> taxi.kassa.view.auth.auth_sign_up.AuthSignUpFragment$g:
+taxi.kassa.view.auth.auth_sign_up.AuthSignUpFragment$onViewCreated$4 -> taxi.kassa.view.auth.auth_sign_up.AuthSignUpFragment$h:
     taxi.kassa.view.auth.auth_sign_up.AuthSignUpFragment this$0 -> a
-taxi.kassa.view.auth.auth_sign_up.AuthSignUpFragment$onViewCreated$5 -> taxi.kassa.view.auth.auth_sign_up.AuthSignUpFragment$h:
+taxi.kassa.view.auth.auth_sign_up.AuthSignUpFragment$onViewCreated$5 -> taxi.kassa.view.auth.auth_sign_up.AuthSignUpFragment$i:
     taxi.kassa.view.auth.auth_sign_up.AuthSignUpFragment this$0 -> a
 taxi.kassa.view.auth.auth_sign_up.AuthSignUpViewModel -> taxi.kassa.view.auth.auth_sign_up.a:
     kotlinx.coroutines.CoroutineExceptionHandler exceptionHandler -> i
@@ -26060,47 +26111,53 @@ taxi.kassa.view.auth.auth_sign_up.SuccessRequestFragment$onViewCreated$2 -> taxi
     taxi.kassa.view.auth.auth_sign_up.SuccessRequestFragment this$0 -> a
 taxi.kassa.view.balance.BalanceFragment -> taxi.kassa.view.balance.BalanceFragment:
     java.util.HashMap _$_findViewCache -> b
-    taxi.kassa.view.balance.BalanceViewModel viewModel -> a
+    kotlin.Lazy viewModel$delegate -> a
     void _$_clearFindViewByIdCache() -> a
     android.view.View _$_findCachedViewById(int) -> c
     void access$back(taxi.kassa.view.balance.BalanceFragment) -> d
     void back() -> e
-taxi.kassa.view.balance.BalanceFragment$onViewCreated$$inlined$with$lambda$1 -> taxi.kassa.view.balance.BalanceFragment$a:
+    taxi.kassa.view.balance.BalanceViewModel getViewModel() -> f
+taxi.kassa.view.balance.BalanceFragment$$special$$inlined$inject$1 -> taxi.kassa.view.balance.BalanceFragment$a:
+    kotlin.jvm.functions.Function0 $parameters -> h
+    org.koin.core.qualifier.Qualifier $qualifier -> g
+    android.content.ComponentCallbacks $this_inject -> b
+    java.lang.Object invoke() -> b
+taxi.kassa.view.balance.BalanceFragment$onViewCreated$$inlined$with$lambda$1 -> taxi.kassa.view.balance.BalanceFragment$b:
     taxi.kassa.view.balance.BalanceFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.balance.BalanceFragment$onViewCreated$$inlined$with$lambda$2 -> taxi.kassa.view.balance.BalanceFragment$b:
+taxi.kassa.view.balance.BalanceFragment$onViewCreated$$inlined$with$lambda$2 -> taxi.kassa.view.balance.BalanceFragment$c:
     taxi.kassa.view.balance.BalanceFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.balance.BalanceFragment$onViewCreated$$inlined$with$lambda$3 -> taxi.kassa.view.balance.BalanceFragment$c:
+taxi.kassa.view.balance.BalanceFragment$onViewCreated$$inlined$with$lambda$3 -> taxi.kassa.view.balance.BalanceFragment$d:
     taxi.kassa.view.balance.BalanceFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.balance.BalanceFragment$onViewCreated$$inlined$with$lambda$4 -> taxi.kassa.view.balance.BalanceFragment$d:
+taxi.kassa.view.balance.BalanceFragment$onViewCreated$$inlined$with$lambda$4 -> taxi.kassa.view.balance.BalanceFragment$e:
     taxi.kassa.view.balance.BalanceFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.balance.BalanceFragment$onViewCreated$$inlined$with$lambda$5 -> taxi.kassa.view.balance.BalanceFragment$e:
+taxi.kassa.view.balance.BalanceFragment$onViewCreated$$inlined$with$lambda$5 -> taxi.kassa.view.balance.BalanceFragment$f:
     taxi.kassa.view.balance.BalanceFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.balance.BalanceFragment$onViewCreated$$inlined$with$lambda$6 -> taxi.kassa.view.balance.BalanceFragment$f:
+taxi.kassa.view.balance.BalanceFragment$onViewCreated$$inlined$with$lambda$6 -> taxi.kassa.view.balance.BalanceFragment$g:
     android.os.Bundle $bundle$inlined -> b
     androidx.navigation.NavController $this_with -> a
-taxi.kassa.view.balance.BalanceFragment$onViewCreated$$inlined$with$lambda$7 -> taxi.kassa.view.balance.BalanceFragment$g:
+taxi.kassa.view.balance.BalanceFragment$onViewCreated$$inlined$with$lambda$7 -> taxi.kassa.view.balance.BalanceFragment$h:
     android.os.Bundle $bundle$inlined -> b
     androidx.navigation.NavController $this_with -> a
-taxi.kassa.view.balance.BalanceFragment$onViewCreated$$inlined$with$lambda$8 -> taxi.kassa.view.balance.BalanceFragment$h:
+taxi.kassa.view.balance.BalanceFragment$onViewCreated$$inlined$with$lambda$8 -> taxi.kassa.view.balance.BalanceFragment$i:
     android.os.Bundle $bundle$inlined -> b
     androidx.navigation.NavController $this_with -> a
-taxi.kassa.view.balance.BalanceFragment$onViewCreated$1$6 -> taxi.kassa.view.balance.BalanceFragment$i:
+taxi.kassa.view.balance.BalanceFragment$onViewCreated$1$6 -> taxi.kassa.view.balance.BalanceFragment$j:
     taxi.kassa.view.balance.BalanceViewModel $this_with -> a
     void onRefresh() -> a
-taxi.kassa.view.balance.BalanceFragment$onViewCreated$2$4 -> taxi.kassa.view.balance.BalanceFragment$j:
+taxi.kassa.view.balance.BalanceFragment$onViewCreated$2$4 -> taxi.kassa.view.balance.BalanceFragment$k:
     androidx.navigation.NavController $this_with -> a
-taxi.kassa.view.balance.BalanceFragment$onViewCreated$2$5 -> taxi.kassa.view.balance.BalanceFragment$k:
+taxi.kassa.view.balance.BalanceFragment$onViewCreated$2$5 -> taxi.kassa.view.balance.BalanceFragment$l:
     androidx.navigation.NavController $this_with -> a
-taxi.kassa.view.balance.BalanceFragment$onViewCreated$2$6 -> taxi.kassa.view.balance.BalanceFragment$l:
+taxi.kassa.view.balance.BalanceFragment$onViewCreated$2$6 -> taxi.kassa.view.balance.BalanceFragment$m:
     androidx.navigation.NavController $this_with -> a
-taxi.kassa.view.balance.BalanceFragment$onViewCreated$3 -> taxi.kassa.view.balance.BalanceFragment$m:
+taxi.kassa.view.balance.BalanceFragment$onViewCreated$3 -> taxi.kassa.view.balance.BalanceFragment$n:
     taxi.kassa.view.balance.BalanceFragment this$0 -> a
-taxi.kassa.view.balance.BalanceFragment$onViewCreated$callback$1 -> taxi.kassa.view.balance.BalanceFragment$n:
+taxi.kassa.view.balance.BalanceFragment$onViewCreated$callback$1 -> taxi.kassa.view.balance.BalanceFragment$o:
     taxi.kassa.view.balance.BalanceFragment this$0 -> c
     void handleOnBackPressed() -> b
 taxi.kassa.view.balance.BalanceViewModel -> taxi.kassa.view.balance.a:
@@ -26133,71 +26190,77 @@ taxi.kassa.view.balance.BalanceViewModel$getUserData$1 -> taxi.kassa.view.balanc
     java.lang.Object invoke(java.lang.Object,java.lang.Object) -> g
     java.lang.Object invokeSuspend(java.lang.Object) -> l
 taxi.kassa.view.fuel.FuelReplenishFragment -> taxi.kassa.view.fuel.FuelReplenishFragment:
-    taxi.kassa.view.fuel.FuelReplenishViewModel viewModel -> a
     java.util.HashMap _$_findViewCache -> b
+    kotlin.Lazy viewModel$delegate -> a
     void _$_clearFindViewByIdCache() -> a
     android.view.View _$_findCachedViewById(int) -> c
     void access$back(taxi.kassa.view.fuel.FuelReplenishFragment) -> d
     taxi.kassa.view.fuel.FuelReplenishViewModel access$getViewModel$p(taxi.kassa.view.fuel.FuelReplenishFragment) -> e
     void access$replenish(taxi.kassa.view.fuel.FuelReplenishFragment) -> f
     void back() -> g
-    void replenish() -> h
-taxi.kassa.view.fuel.FuelReplenishFragment$onViewCreated$$inlined$with$lambda$1 -> taxi.kassa.view.fuel.FuelReplenishFragment$a:
+    taxi.kassa.view.fuel.FuelReplenishViewModel getViewModel() -> h
+    void replenish() -> i
+taxi.kassa.view.fuel.FuelReplenishFragment$$special$$inlined$inject$1 -> taxi.kassa.view.fuel.FuelReplenishFragment$a:
+    kotlin.jvm.functions.Function0 $parameters -> h
+    org.koin.core.qualifier.Qualifier $qualifier -> g
+    android.content.ComponentCallbacks $this_inject -> b
+    java.lang.Object invoke() -> b
+taxi.kassa.view.fuel.FuelReplenishFragment$onViewCreated$$inlined$with$lambda$1 -> taxi.kassa.view.fuel.FuelReplenishFragment$b:
     taxi.kassa.view.fuel.FuelReplenishFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.fuel.FuelReplenishFragment$onViewCreated$$inlined$with$lambda$2 -> taxi.kassa.view.fuel.FuelReplenishFragment$b:
+taxi.kassa.view.fuel.FuelReplenishFragment$onViewCreated$$inlined$with$lambda$2 -> taxi.kassa.view.fuel.FuelReplenishFragment$c:
     taxi.kassa.view.fuel.FuelReplenishFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.fuel.FuelReplenishFragment$onViewCreated$$inlined$with$lambda$3 -> taxi.kassa.view.fuel.FuelReplenishFragment$c:
+taxi.kassa.view.fuel.FuelReplenishFragment$onViewCreated$$inlined$with$lambda$3 -> taxi.kassa.view.fuel.FuelReplenishFragment$d:
     taxi.kassa.view.fuel.FuelReplenishFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.fuel.FuelReplenishFragment$onViewCreated$$inlined$with$lambda$4 -> taxi.kassa.view.fuel.FuelReplenishFragment$d:
+taxi.kassa.view.fuel.FuelReplenishFragment$onViewCreated$$inlined$with$lambda$4 -> taxi.kassa.view.fuel.FuelReplenishFragment$e:
     taxi.kassa.view.fuel.FuelReplenishFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.fuel.FuelReplenishFragment$onViewCreated$$inlined$with$lambda$4$1 -> taxi.kassa.view.fuel.FuelReplenishFragment$d$a:
+taxi.kassa.view.fuel.FuelReplenishFragment$onViewCreated$$inlined$with$lambda$4$1 -> taxi.kassa.view.fuel.FuelReplenishFragment$e$a:
     taxi.kassa.view.fuel.FuelReplenishFragment$onViewCreated$$inlined$with$lambda$4 this$0 -> a
-taxi.kassa.view.fuel.FuelReplenishFragment$onViewCreated$$inlined$with$lambda$4$2 -> taxi.kassa.view.fuel.FuelReplenishFragment$d$b:
+taxi.kassa.view.fuel.FuelReplenishFragment$onViewCreated$$inlined$with$lambda$4$2 -> taxi.kassa.view.fuel.FuelReplenishFragment$e$b:
     taxi.kassa.view.fuel.FuelReplenishFragment$onViewCreated$$inlined$with$lambda$4 this$0 -> a
-taxi.kassa.view.fuel.FuelReplenishFragment$onViewCreated$$inlined$with$lambda$4$3 -> taxi.kassa.view.fuel.FuelReplenishFragment$d$c:
+taxi.kassa.view.fuel.FuelReplenishFragment$onViewCreated$$inlined$with$lambda$4$3 -> taxi.kassa.view.fuel.FuelReplenishFragment$e$c:
     taxi.kassa.view.fuel.FuelReplenishFragment$onViewCreated$$inlined$with$lambda$4 this$0 -> a
-taxi.kassa.view.fuel.FuelReplenishFragment$onViewCreated$$inlined$with$lambda$5 -> taxi.kassa.view.fuel.FuelReplenishFragment$e:
+taxi.kassa.view.fuel.FuelReplenishFragment$onViewCreated$$inlined$with$lambda$5 -> taxi.kassa.view.fuel.FuelReplenishFragment$f:
     taxi.kassa.view.fuel.FuelReplenishFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.fuel.FuelReplenishFragment$onViewCreated$$inlined$with$lambda$5$1 -> taxi.kassa.view.fuel.FuelReplenishFragment$e$a:
+taxi.kassa.view.fuel.FuelReplenishFragment$onViewCreated$$inlined$with$lambda$5$1 -> taxi.kassa.view.fuel.FuelReplenishFragment$f$a:
     taxi.kassa.view.fuel.FuelReplenishFragment$onViewCreated$$inlined$with$lambda$5 this$0 -> b
     void invoke(android.view.View) -> a
     java.lang.Object invoke(java.lang.Object) -> i
-taxi.kassa.view.fuel.FuelReplenishFragment$onViewCreated$$inlined$with$lambda$5$2 -> taxi.kassa.view.fuel.FuelReplenishFragment$e$b:
+taxi.kassa.view.fuel.FuelReplenishFragment$onViewCreated$$inlined$with$lambda$5$2 -> taxi.kassa.view.fuel.FuelReplenishFragment$f$b:
     taxi.kassa.view.fuel.FuelReplenishFragment$onViewCreated$$inlined$with$lambda$5 this$0 -> b
     void invoke() -> a
     java.lang.Object invoke() -> b
-taxi.kassa.view.fuel.FuelReplenishFragment$onViewCreated$$inlined$with$lambda$6 -> taxi.kassa.view.fuel.FuelReplenishFragment$f:
+taxi.kassa.view.fuel.FuelReplenishFragment$onViewCreated$$inlined$with$lambda$6 -> taxi.kassa.view.fuel.FuelReplenishFragment$g:
     taxi.kassa.view.fuel.FuelReplenishFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.fuel.FuelReplenishFragment$onViewCreated$$inlined$with$lambda$7 -> taxi.kassa.view.fuel.FuelReplenishFragment$g:
+taxi.kassa.view.fuel.FuelReplenishFragment$onViewCreated$$inlined$with$lambda$7 -> taxi.kassa.view.fuel.FuelReplenishFragment$h:
     taxi.kassa.view.fuel.FuelReplenishFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.fuel.FuelReplenishFragment$onViewCreated$2 -> taxi.kassa.view.fuel.FuelReplenishFragment$h:
+taxi.kassa.view.fuel.FuelReplenishFragment$onViewCreated$2 -> taxi.kassa.view.fuel.FuelReplenishFragment$i:
     taxi.kassa.view.fuel.FuelReplenishFragment this$0 -> b
     void invoke() -> a
     java.lang.Object invoke() -> b
-taxi.kassa.view.fuel.FuelReplenishFragment$onViewCreated$3 -> taxi.kassa.view.fuel.FuelReplenishFragment$i:
+taxi.kassa.view.fuel.FuelReplenishFragment$onViewCreated$3 -> taxi.kassa.view.fuel.FuelReplenishFragment$j:
     taxi.kassa.view.fuel.FuelReplenishFragment this$0 -> a
-taxi.kassa.view.fuel.FuelReplenishFragment$onViewCreated$3$1 -> taxi.kassa.view.fuel.FuelReplenishFragment$i$a:
+taxi.kassa.view.fuel.FuelReplenishFragment$onViewCreated$3$1 -> taxi.kassa.view.fuel.FuelReplenishFragment$j$a:
     taxi.kassa.view.fuel.FuelReplenishFragment$onViewCreated$3 this$0 -> b
     void invoke() -> a
     java.lang.Object invoke() -> b
-taxi.kassa.view.fuel.FuelReplenishFragment$onViewCreated$4 -> taxi.kassa.view.fuel.FuelReplenishFragment$j:
+taxi.kassa.view.fuel.FuelReplenishFragment$onViewCreated$4 -> taxi.kassa.view.fuel.FuelReplenishFragment$k:
     taxi.kassa.view.fuel.FuelReplenishFragment this$0 -> a
-taxi.kassa.view.fuel.FuelReplenishFragment$onViewCreated$5 -> taxi.kassa.view.fuel.FuelReplenishFragment$k:
+taxi.kassa.view.fuel.FuelReplenishFragment$onViewCreated$5 -> taxi.kassa.view.fuel.FuelReplenishFragment$l:
     taxi.kassa.view.fuel.FuelReplenishFragment this$0 -> a
-taxi.kassa.view.fuel.FuelReplenishFragment$onViewCreated$6 -> taxi.kassa.view.fuel.FuelReplenishFragment$l:
+taxi.kassa.view.fuel.FuelReplenishFragment$onViewCreated$6 -> taxi.kassa.view.fuel.FuelReplenishFragment$m:
     taxi.kassa.view.fuel.FuelReplenishFragment this$0 -> a
-taxi.kassa.view.fuel.FuelReplenishFragment$onViewCreated$7 -> taxi.kassa.view.fuel.FuelReplenishFragment$m:
+taxi.kassa.view.fuel.FuelReplenishFragment$onViewCreated$7 -> taxi.kassa.view.fuel.FuelReplenishFragment$n:
     taxi.kassa.view.fuel.FuelReplenishFragment this$0 -> a
-taxi.kassa.view.fuel.FuelReplenishFragment$onViewCreated$8 -> taxi.kassa.view.fuel.FuelReplenishFragment$n:
+taxi.kassa.view.fuel.FuelReplenishFragment$onViewCreated$8 -> taxi.kassa.view.fuel.FuelReplenishFragment$o:
     taxi.kassa.view.fuel.FuelReplenishFragment this$0 -> a
-taxi.kassa.view.fuel.FuelReplenishFragment$onViewCreated$callback$1 -> taxi.kassa.view.fuel.FuelReplenishFragment$o:
+taxi.kassa.view.fuel.FuelReplenishFragment$onViewCreated$callback$1 -> taxi.kassa.view.fuel.FuelReplenishFragment$p:
     taxi.kassa.view.fuel.FuelReplenishFragment this$0 -> c
     void handleOnBackPressed() -> b
 taxi.kassa.view.fuel.FuelReplenishViewModel -> taxi.kassa.view.fuel.a:
@@ -26360,36 +26423,41 @@ taxi.kassa.view.notifications.NotificationsViewModel$getNotifications$1 -> taxi.
     java.lang.Object invoke(java.lang.Object,java.lang.Object) -> g
     java.lang.Object invokeSuspend(java.lang.Object) -> l
 taxi.kassa.view.orders.OrdersFragment -> taxi.kassa.view.orders.OrdersFragment:
-    taxi.kassa.view.orders.OrdersViewModel viewModel -> a
     java.util.HashMap _$_findViewCache -> b
+    kotlin.Lazy viewModel$delegate -> a
     void _$_clearFindViewByIdCache() -> a
     android.view.View _$_findCachedViewById(int) -> c
-taxi.kassa.view.orders.OrdersFragment$onViewCreated$$inlined$observe$1 -> taxi.kassa.view.orders.OrdersFragment$a:
+    taxi.kassa.view.orders.OrdersViewModel getViewModel() -> d
+taxi.kassa.view.orders.OrdersFragment$$special$$inlined$inject$1 -> taxi.kassa.view.orders.OrdersFragment$a:
+    kotlin.jvm.functions.Function0 $parameters -> h
+    org.koin.core.qualifier.Qualifier $qualifier -> g
+    android.content.ComponentCallbacks $this_inject -> b
+    java.lang.Object invoke() -> b
+taxi.kassa.view.orders.OrdersFragment$onViewCreated$$inlined$observe$1 -> taxi.kassa.view.orders.OrdersFragment$b:
     taxi.kassa.view.orders.OrdersFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.orders.OrdersFragment$onViewCreated$$inlined$observe$1$lambda$1 -> taxi.kassa.view.orders.OrdersFragment$a$a:
+taxi.kassa.view.orders.OrdersFragment$onViewCreated$$inlined$observe$1$lambda$1 -> taxi.kassa.view.orders.OrdersFragment$b$a:
     taxi.kassa.view.orders.OrdersFragment$onViewCreated$$inlined$observe$1 this$0 -> b
     void invoke(android.view.View,taxi.kassa.model.Taxi) -> a
     java.lang.Object invoke(java.lang.Object,java.lang.Object) -> g
-taxi.kassa.view.orders.OrdersFragment$onViewCreated$$inlined$observe$2 -> taxi.kassa.view.orders.OrdersFragment$b:
+taxi.kassa.view.orders.OrdersFragment$onViewCreated$$inlined$observe$2 -> taxi.kassa.view.orders.OrdersFragment$c:
     taxi.kassa.view.orders.OrdersFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.orders.OrdersFragment$onViewCreated$2 -> taxi.kassa.view.orders.OrdersFragment$c:
+taxi.kassa.view.orders.OrdersFragment$onViewCreated$2 -> taxi.kassa.view.orders.OrdersFragment$d:
     taxi.kassa.view.orders.OrdersFragment this$0 -> a
-taxi.kassa.view.orders.OrdersFragment$onViewCreated$5 -> taxi.kassa.view.orders.OrdersFragment$d:
+taxi.kassa.view.orders.OrdersFragment$onViewCreated$5 -> taxi.kassa.view.orders.OrdersFragment$e:
     taxi.kassa.view.orders.OrdersFragment this$0 -> b
     void invoke() -> a
     java.lang.Object invoke() -> b
-taxi.kassa.view.orders.OrdersFragment$onViewCreated$6 -> taxi.kassa.view.orders.OrdersFragment$e:
+taxi.kassa.view.orders.OrdersFragment$onViewCreated$6 -> taxi.kassa.view.orders.OrdersFragment$f:
     taxi.kassa.view.orders.OrdersFragment this$0 -> a
-taxi.kassa.view.orders.OrdersFragment$onViewCreated$7 -> taxi.kassa.view.orders.OrdersFragment$f:
+taxi.kassa.view.orders.OrdersFragment$onViewCreated$7 -> taxi.kassa.view.orders.OrdersFragment$g:
     taxi.kassa.view.orders.OrdersFragment this$0 -> a
-taxi.kassa.view.orders.OrdersFragment$onViewCreated$8 -> taxi.kassa.view.orders.OrdersFragment$g:
+taxi.kassa.view.orders.OrdersFragment$onViewCreated$8 -> taxi.kassa.view.orders.OrdersFragment$h:
     taxi.kassa.view.orders.OrdersFragment this$0 -> a
 taxi.kassa.view.orders.OrdersViewModel -> taxi.kassa.view.orders.a:
-    taxi.kassa.MyApplication context -> d
-    androidx.lifecycle.MutableLiveData taxis -> e
-    androidx.lifecycle.MutableLiveData notifications -> f
+    androidx.lifecycle.MutableLiveData taxis -> d
+    androidx.lifecycle.MutableLiveData notifications -> e
     androidx.lifecycle.MutableLiveData getNotifications() -> g
     androidx.lifecycle.MutableLiveData getTaxis() -> h
 taxi.kassa.view.orders.OrdersViewModel$1 -> taxi.kassa.view.orders.a$a:
@@ -26462,9 +26530,9 @@ taxi.kassa.view.orders.list.OrdersListFragment -> taxi.kassa.view.orders.c.a:
     java.lang.String nextOffset -> g
     taxi.kassa.view.orders.adapter.OrdersAdapter adapter -> b
     java.util.HashMap _$_findViewCache -> i
-    taxi.kassa.view.orders.list.OrdersListViewModel viewModel -> a
     boolean firstLoad -> h
     taxi.kassa.view.orders.list.OrdersListFragment$Companion Companion -> j
+    kotlin.Lazy viewModel$delegate -> a
     void _$_clearFindViewByIdCache() -> a
     android.view.View _$_findCachedViewById(int) -> c
     void access$back(taxi.kassa.view.orders.list.OrdersListFragment) -> d
@@ -26477,50 +26545,55 @@ taxi.kassa.view.orders.list.OrdersListFragment -> taxi.kassa.view.orders.c.a:
     void access$setFirstLoad$p(taxi.kassa.view.orders.list.OrdersListFragment,boolean) -> k
     void access$setNextOffset$p(taxi.kassa.view.orders.list.OrdersListFragment,java.lang.String) -> l
     void back() -> m
-    void hideOrderDetails() -> n
-    void openOrderDetails(taxi.kassa.model.responses.Order) -> o
-taxi.kassa.view.orders.list.OrdersListFragment$Companion -> taxi.kassa.view.orders.c.a$a:
+    taxi.kassa.view.orders.list.OrdersListViewModel getViewModel() -> n
+    void hideOrderDetails() -> o
+    void openOrderDetails(taxi.kassa.model.responses.Order) -> p
+taxi.kassa.view.orders.list.OrdersListFragment$$special$$inlined$inject$1 -> taxi.kassa.view.orders.c.a$a:
+    kotlin.jvm.functions.Function0 $parameters -> h
+    org.koin.core.qualifier.Qualifier $qualifier -> g
+    android.content.ComponentCallbacks $this_inject -> b
+    java.lang.Object invoke() -> b
+taxi.kassa.view.orders.list.OrdersListFragment$Companion -> taxi.kassa.view.orders.c.a$b:
     taxi.kassa.view.orders.list.OrdersListFragment create(int) -> a
-taxi.kassa.view.orders.list.OrdersListFragment$onViewCreated$$inlined$with$lambda$1 -> taxi.kassa.view.orders.c.a$b:
+taxi.kassa.view.orders.list.OrdersListFragment$onViewCreated$$inlined$with$lambda$1 -> taxi.kassa.view.orders.c.a$c:
     taxi.kassa.view.orders.list.OrdersListFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.orders.list.OrdersListFragment$onViewCreated$$inlined$with$lambda$2 -> taxi.kassa.view.orders.c.a$c:
+taxi.kassa.view.orders.list.OrdersListFragment$onViewCreated$$inlined$with$lambda$2 -> taxi.kassa.view.orders.c.a$d:
     taxi.kassa.view.orders.list.OrdersListFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.orders.list.OrdersListFragment$onViewCreated$$inlined$with$lambda$3 -> taxi.kassa.view.orders.c.a$d:
+taxi.kassa.view.orders.list.OrdersListFragment$onViewCreated$$inlined$with$lambda$3 -> taxi.kassa.view.orders.c.a$e:
     taxi.kassa.view.orders.list.OrdersListFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.orders.list.OrdersListFragment$onViewCreated$$inlined$with$lambda$3$1 -> taxi.kassa.view.orders.c.a$d$a:
+taxi.kassa.view.orders.list.OrdersListFragment$onViewCreated$$inlined$with$lambda$3$1 -> taxi.kassa.view.orders.c.a$e$a:
     taxi.kassa.view.orders.list.OrdersListFragment$onViewCreated$$inlined$with$lambda$3 this$0 -> b
     void invoke(taxi.kassa.model.responses.Order) -> a
     java.lang.Object invoke(java.lang.Object) -> i
-taxi.kassa.view.orders.list.OrdersListFragment$onViewCreated$$inlined$with$lambda$4 -> taxi.kassa.view.orders.c.a$e:
+taxi.kassa.view.orders.list.OrdersListFragment$onViewCreated$$inlined$with$lambda$4 -> taxi.kassa.view.orders.c.a$f:
     taxi.kassa.view.orders.list.OrdersListFragment this$0 -> j
     taxi.kassa.view.orders.list.OrdersListViewModel $this_with -> i
     void onLoadMore(int,int) -> c
-taxi.kassa.view.orders.list.OrdersListFragment$onViewCreated$callback$1 -> taxi.kassa.view.orders.c.a$f:
+taxi.kassa.view.orders.list.OrdersListFragment$onViewCreated$callback$1 -> taxi.kassa.view.orders.c.a$g:
     taxi.kassa.view.orders.list.OrdersListFragment this$0 -> c
     void handleOnBackPressed() -> b
-taxi.kassa.view.orders.list.OrdersListFragment$openOrderDetails$$inlined$with$lambda$1 -> taxi.kassa.view.orders.c.a$g:
+taxi.kassa.view.orders.list.OrdersListFragment$openOrderDetails$$inlined$with$lambda$1 -> taxi.kassa.view.orders.c.a$h:
     taxi.kassa.view.orders.list.OrdersListFragment this$0 -> a
     taxi.kassa.model.responses.Order $order$inlined -> b
-taxi.kassa.view.orders.list.OrdersListFragment$openOrderDetails$$inlined$with$lambda$2 -> taxi.kassa.view.orders.c.a$h:
+taxi.kassa.view.orders.list.OrdersListFragment$openOrderDetails$$inlined$with$lambda$2 -> taxi.kassa.view.orders.c.a$i:
     taxi.kassa.view.orders.list.OrdersListFragment this$0 -> a
     taxi.kassa.model.responses.Order $order$inlined -> b
 taxi.kassa.view.orders.list.OrdersListViewModel -> taxi.kassa.view.orders.c.b:
-    kotlinx.coroutines.CoroutineExceptionHandler exceptionHandler -> h
-    taxi.kassa.MyApplication context -> d
-    taxi.kassa.repository.Repository repository -> i
-    androidx.lifecycle.MutableLiveData isProgressVisible -> e
-    androidx.lifecycle.MutableLiveData orders -> f
-    androidx.lifecycle.MutableLiveData error -> g
-    taxi.kassa.MyApplication access$getContext$p(taxi.kassa.view.orders.list.OrdersListViewModel) -> g
-    taxi.kassa.repository.Repository access$getRepository$p(taxi.kassa.view.orders.list.OrdersListViewModel) -> h
-    androidx.lifecycle.MutableLiveData getError() -> i
-    androidx.lifecycle.MutableLiveData getOrders() -> j
-    void getOrders(java.lang.String) -> k
-    androidx.lifecycle.MutableLiveData isProgressVisible() -> l
+    taxi.kassa.repository.Repository repository -> h
+    androidx.lifecycle.MutableLiveData isProgressVisible -> d
+    androidx.lifecycle.MutableLiveData orders -> e
+    androidx.lifecycle.MutableLiveData error -> f
+    kotlinx.coroutines.CoroutineExceptionHandler exceptionHandler -> g
+    taxi.kassa.repository.Repository access$getRepository$p(taxi.kassa.view.orders.list.OrdersListViewModel) -> g
+    androidx.lifecycle.MutableLiveData getError() -> h
+    androidx.lifecycle.MutableLiveData getOrders() -> i
+    void getOrders(java.lang.String) -> j
+    androidx.lifecycle.MutableLiveData isProgressVisible() -> k
 taxi.kassa.view.orders.list.OrdersListViewModel$$special$$inlined$CoroutineExceptionHandler$1 -> taxi.kassa.view.orders.c.b$a:
+    android.app.Application $app$inlined -> b
     taxi.kassa.view.orders.list.OrdersListViewModel this$0 -> a
 taxi.kassa.view.orders.list.OrdersListViewModel$getOrders$1 -> taxi.kassa.view.orders.c.b$b:
     java.lang.Object L$0 -> j
@@ -26533,72 +26606,78 @@ taxi.kassa.view.orders.list.OrdersListViewModel$getOrders$1 -> taxi.kassa.view.o
     java.lang.Object invokeSuspend(java.lang.Object) -> l
 taxi.kassa.view.profile.ProfileFragment -> taxi.kassa.view.profile.ProfileFragment:
     java.util.HashMap _$_findViewCache -> b
-    taxi.kassa.view.profile.ProfileViewModel viewModel -> a
+    kotlin.Lazy viewModel$delegate -> a
     void _$_clearFindViewByIdCache() -> a
     android.view.View _$_findCachedViewById(int) -> c
     void access$logout(taxi.kassa.view.profile.ProfileFragment) -> d
-    void logout() -> e
-    void setLogoutButtonConstraint() -> f
-taxi.kassa.view.profile.ProfileFragment$onViewCreated$$inlined$with$lambda$1 -> taxi.kassa.view.profile.ProfileFragment$a:
+    taxi.kassa.view.profile.ProfileViewModel getViewModel() -> e
+    void logout() -> f
+    void setLogoutButtonConstraint() -> g
+taxi.kassa.view.profile.ProfileFragment$$special$$inlined$inject$1 -> taxi.kassa.view.profile.ProfileFragment$a:
+    kotlin.jvm.functions.Function0 $parameters -> h
+    org.koin.core.qualifier.Qualifier $qualifier -> g
+    android.content.ComponentCallbacks $this_inject -> b
+    java.lang.Object invoke() -> b
+taxi.kassa.view.profile.ProfileFragment$onViewCreated$$inlined$with$lambda$1 -> taxi.kassa.view.profile.ProfileFragment$b:
     taxi.kassa.view.profile.ProfileFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.profile.ProfileFragment$onViewCreated$$inlined$with$lambda$2 -> taxi.kassa.view.profile.ProfileFragment$b:
+taxi.kassa.view.profile.ProfileFragment$onViewCreated$$inlined$with$lambda$2 -> taxi.kassa.view.profile.ProfileFragment$c:
     taxi.kassa.view.profile.ProfileFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.profile.ProfileFragment$onViewCreated$$inlined$with$lambda$3 -> taxi.kassa.view.profile.ProfileFragment$c:
+taxi.kassa.view.profile.ProfileFragment$onViewCreated$$inlined$with$lambda$3 -> taxi.kassa.view.profile.ProfileFragment$d:
     taxi.kassa.view.profile.ProfileFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.profile.ProfileFragment$onViewCreated$$inlined$with$lambda$4 -> taxi.kassa.view.profile.ProfileFragment$d:
+taxi.kassa.view.profile.ProfileFragment$onViewCreated$$inlined$with$lambda$4 -> taxi.kassa.view.profile.ProfileFragment$e:
     taxi.kassa.view.profile.ProfileFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.profile.ProfileFragment$onViewCreated$$inlined$with$lambda$5 -> taxi.kassa.view.profile.ProfileFragment$e:
+taxi.kassa.view.profile.ProfileFragment$onViewCreated$$inlined$with$lambda$5 -> taxi.kassa.view.profile.ProfileFragment$f:
     taxi.kassa.view.profile.ProfileFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.profile.ProfileFragment$onViewCreated$$inlined$with$lambda$6 -> taxi.kassa.view.profile.ProfileFragment$f:
+taxi.kassa.view.profile.ProfileFragment$onViewCreated$$inlined$with$lambda$6 -> taxi.kassa.view.profile.ProfileFragment$g:
     taxi.kassa.view.profile.ProfileFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.profile.ProfileFragment$onViewCreated$1$7 -> taxi.kassa.view.profile.ProfileFragment$g:
+taxi.kassa.view.profile.ProfileFragment$onViewCreated$1$7 -> taxi.kassa.view.profile.ProfileFragment$h:
     taxi.kassa.view.profile.ProfileViewModel $this_with -> a
     void onRefresh() -> a
-taxi.kassa.view.profile.ProfileFragment$onViewCreated$2$1 -> taxi.kassa.view.profile.ProfileFragment$h:
+taxi.kassa.view.profile.ProfileFragment$onViewCreated$2$1 -> taxi.kassa.view.profile.ProfileFragment$i:
     androidx.navigation.NavController $this_with -> a
-taxi.kassa.view.profile.ProfileFragment$onViewCreated$2$2 -> taxi.kassa.view.profile.ProfileFragment$i:
+taxi.kassa.view.profile.ProfileFragment$onViewCreated$2$2 -> taxi.kassa.view.profile.ProfileFragment$j:
     androidx.navigation.NavController $this_with -> a
-taxi.kassa.view.profile.ProfileFragment$onViewCreated$2$3 -> taxi.kassa.view.profile.ProfileFragment$j:
+taxi.kassa.view.profile.ProfileFragment$onViewCreated$2$3 -> taxi.kassa.view.profile.ProfileFragment$k:
     androidx.navigation.NavController $this_with -> a
-taxi.kassa.view.profile.ProfileFragment$onViewCreated$2$4 -> taxi.kassa.view.profile.ProfileFragment$k:
+taxi.kassa.view.profile.ProfileFragment$onViewCreated$2$4 -> taxi.kassa.view.profile.ProfileFragment$l:
     androidx.navigation.NavController $this_with -> a
-taxi.kassa.view.profile.ProfileFragment$onViewCreated$2$5 -> taxi.kassa.view.profile.ProfileFragment$l:
+taxi.kassa.view.profile.ProfileFragment$onViewCreated$2$5 -> taxi.kassa.view.profile.ProfileFragment$m:
     androidx.navigation.NavController $this_with -> a
-taxi.kassa.view.profile.ProfileFragment$onViewCreated$2$6 -> taxi.kassa.view.profile.ProfileFragment$m:
+taxi.kassa.view.profile.ProfileFragment$onViewCreated$2$6 -> taxi.kassa.view.profile.ProfileFragment$n:
     androidx.navigation.NavController $this_with -> a
-taxi.kassa.view.profile.ProfileFragment$onViewCreated$2$7 -> taxi.kassa.view.profile.ProfileFragment$n:
+taxi.kassa.view.profile.ProfileFragment$onViewCreated$2$7 -> taxi.kassa.view.profile.ProfileFragment$o:
     androidx.navigation.NavController $this_with -> a
-taxi.kassa.view.profile.ProfileFragment$onViewCreated$3 -> taxi.kassa.view.profile.ProfileFragment$o:
+taxi.kassa.view.profile.ProfileFragment$onViewCreated$3 -> taxi.kassa.view.profile.ProfileFragment$p:
     taxi.kassa.view.profile.ProfileFragment this$0 -> a
-taxi.kassa.view.profile.ProfileFragment$onViewCreated$3$dialogView$1 -> taxi.kassa.view.profile.ProfileFragment$o$a:
+taxi.kassa.view.profile.ProfileFragment$onViewCreated$3$dialogView$1 -> taxi.kassa.view.profile.ProfileFragment$p$a:
     taxi.kassa.view.profile.ProfileFragment$onViewCreated$3 this$0 -> b
     void invoke(android.view.View,androidx.constraintlayout.widget.ConstraintLayout) -> a
     java.lang.Object invoke(java.lang.Object,java.lang.Object) -> g
-taxi.kassa.view.profile.ProfileFragment$onViewCreated$3$dialogView$1$1 -> taxi.kassa.view.profile.ProfileFragment$o$a$a:
+taxi.kassa.view.profile.ProfileFragment$onViewCreated$3$dialogView$1$1 -> taxi.kassa.view.profile.ProfileFragment$p$a$a:
     taxi.kassa.view.profile.ProfileFragment$onViewCreated$3$dialogView$1 this$0 -> b
     void invoke() -> a
     java.lang.Object invoke() -> b
-taxi.kassa.view.profile.ProfileFragment$onViewCreated$3$dialogView$2 -> taxi.kassa.view.profile.ProfileFragment$o$b:
+taxi.kassa.view.profile.ProfileFragment$onViewCreated$3$dialogView$2 -> taxi.kassa.view.profile.ProfileFragment$p$b:
     taxi.kassa.view.profile.ProfileFragment$onViewCreated$3 this$0 -> b
     void invoke() -> a
     java.lang.Object invoke() -> b
-taxi.kassa.view.profile.ProfileFragment$onViewCreated$4 -> taxi.kassa.view.profile.ProfileFragment$p:
+taxi.kassa.view.profile.ProfileFragment$onViewCreated$4 -> taxi.kassa.view.profile.ProfileFragment$q:
     taxi.kassa.view.profile.ProfileFragment this$0 -> a
-taxi.kassa.view.profile.ProfileFragment$onViewCreated$4$dialogView$1 -> taxi.kassa.view.profile.ProfileFragment$p$a:
+taxi.kassa.view.profile.ProfileFragment$onViewCreated$4$dialogView$1 -> taxi.kassa.view.profile.ProfileFragment$q$a:
     taxi.kassa.view.profile.ProfileFragment$onViewCreated$4 this$0 -> b
     void invoke(android.view.View,androidx.constraintlayout.widget.ConstraintLayout) -> a
     java.lang.Object invoke(java.lang.Object,java.lang.Object) -> g
-taxi.kassa.view.profile.ProfileFragment$onViewCreated$4$dialogView$1$1 -> taxi.kassa.view.profile.ProfileFragment$p$a$a:
+taxi.kassa.view.profile.ProfileFragment$onViewCreated$4$dialogView$1$1 -> taxi.kassa.view.profile.ProfileFragment$q$a$a:
     taxi.kassa.view.profile.ProfileFragment$onViewCreated$4$dialogView$1 this$0 -> b
     void invoke() -> a
     java.lang.Object invoke() -> b
-taxi.kassa.view.profile.ProfileFragment$onViewCreated$4$dialogView$2 -> taxi.kassa.view.profile.ProfileFragment$p$b:
+taxi.kassa.view.profile.ProfileFragment$onViewCreated$4$dialogView$2 -> taxi.kassa.view.profile.ProfileFragment$q$b:
     taxi.kassa.view.profile.ProfileFragment$onViewCreated$4 this$0 -> b
     void invoke() -> a
     java.lang.Object invoke() -> b
@@ -26882,26 +26961,32 @@ taxi.kassa.view.support.SuccessFragment$onViewCreated$3 -> taxi.kassa.view.suppo
     taxi.kassa.view.support.SuccessFragment this$0 -> a
 taxi.kassa.view.support.SupportFragment -> taxi.kassa.view.support.SupportFragment:
     java.util.HashMap _$_findViewCache -> b
-    taxi.kassa.view.support.SupportViewModel viewModel -> a
+    kotlin.Lazy viewModel$delegate -> a
     void _$_clearFindViewByIdCache() -> a
     android.view.View _$_findCachedViewById(int) -> c
-taxi.kassa.view.support.SupportFragment$onViewCreated$$inlined$observe$1 -> taxi.kassa.view.support.SupportFragment$a:
+    taxi.kassa.view.support.SupportViewModel getViewModel() -> d
+taxi.kassa.view.support.SupportFragment$$special$$inlined$inject$1 -> taxi.kassa.view.support.SupportFragment$a:
+    kotlin.jvm.functions.Function0 $parameters -> h
+    org.koin.core.qualifier.Qualifier $qualifier -> g
+    android.content.ComponentCallbacks $this_inject -> b
+    java.lang.Object invoke() -> b
+taxi.kassa.view.support.SupportFragment$onViewCreated$$inlined$observe$1 -> taxi.kassa.view.support.SupportFragment$b:
     taxi.kassa.view.support.SupportFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.support.SupportFragment$onViewCreated$$inlined$observe$2 -> taxi.kassa.view.support.SupportFragment$b:
+taxi.kassa.view.support.SupportFragment$onViewCreated$$inlined$observe$2 -> taxi.kassa.view.support.SupportFragment$c:
     taxi.kassa.view.support.SupportFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.support.SupportFragment$onViewCreated$3$1 -> taxi.kassa.view.support.SupportFragment$c:
+taxi.kassa.view.support.SupportFragment$onViewCreated$3$1 -> taxi.kassa.view.support.SupportFragment$d:
     androidx.navigation.NavController $this_with -> a
-taxi.kassa.view.support.SupportFragment$onViewCreated$3$2 -> taxi.kassa.view.support.SupportFragment$d:
+taxi.kassa.view.support.SupportFragment$onViewCreated$3$2 -> taxi.kassa.view.support.SupportFragment$e:
     androidx.navigation.NavController $this_with -> a
-taxi.kassa.view.support.SupportFragment$onViewCreated$3$3 -> taxi.kassa.view.support.SupportFragment$e:
+taxi.kassa.view.support.SupportFragment$onViewCreated$3$3 -> taxi.kassa.view.support.SupportFragment$f:
     androidx.navigation.NavController $this_with -> a
-taxi.kassa.view.support.SupportFragment$onViewCreated$3$4 -> taxi.kassa.view.support.SupportFragment$f:
+taxi.kassa.view.support.SupportFragment$onViewCreated$3$4 -> taxi.kassa.view.support.SupportFragment$g:
     androidx.navigation.NavController $this_with -> a
-taxi.kassa.view.support.SupportFragment$onViewCreated$4 -> taxi.kassa.view.support.SupportFragment$g:
+taxi.kassa.view.support.SupportFragment$onViewCreated$4 -> taxi.kassa.view.support.SupportFragment$h:
     taxi.kassa.view.support.SupportFragment this$0 -> a
-taxi.kassa.view.support.SupportFragment$onViewCreated$5 -> taxi.kassa.view.support.SupportFragment$h:
+taxi.kassa.view.support.SupportFragment$onViewCreated$5 -> taxi.kassa.view.support.SupportFragment$i:
     taxi.kassa.view.support.SupportFragment this$0 -> a
 taxi.kassa.view.support.SupportViewModel -> taxi.kassa.view.support.a:
     androidx.lifecycle.MutableLiveData notifications -> c
@@ -26938,9 +27023,9 @@ taxi.kassa.view.support.chat.ChatHistoryAdapter$SentViewHolder -> taxi.kassa.vie
 taxi.kassa.view.support.chat.ChatHistoryFragment -> taxi.kassa.view.support.chat.ChatHistoryFragment:
     java.lang.String nextOffset -> g
     java.util.HashMap _$_findViewCache -> i
-    taxi.kassa.view.support.chat.ChatHistoryViewModel viewModel -> a
     boolean firstLoad -> h
     taxi.kassa.view.support.chat.ChatHistoryAdapter adapter -> b
+    kotlin.Lazy viewModel$delegate -> a
     void _$_clearFindViewByIdCache() -> a
     android.view.View _$_findCachedViewById(int) -> c
     taxi.kassa.view.support.chat.ChatHistoryAdapter access$getAdapter$p(taxi.kassa.view.support.chat.ChatHistoryFragment) -> d
@@ -26949,37 +27034,42 @@ taxi.kassa.view.support.chat.ChatHistoryFragment -> taxi.kassa.view.support.chat
     void access$setAdapter$p(taxi.kassa.view.support.chat.ChatHistoryFragment,taxi.kassa.view.support.chat.ChatHistoryAdapter) -> g
     void access$setFirstLoad$p(taxi.kassa.view.support.chat.ChatHistoryFragment,boolean) -> h
     void access$setNextOffset$p(taxi.kassa.view.support.chat.ChatHistoryFragment,java.lang.String) -> i
-taxi.kassa.view.support.chat.ChatHistoryFragment$onViewCreated$$inlined$with$lambda$1 -> taxi.kassa.view.support.chat.ChatHistoryFragment$a:
+    taxi.kassa.view.support.chat.ChatHistoryViewModel getViewModel() -> j
+taxi.kassa.view.support.chat.ChatHistoryFragment$$special$$inlined$inject$1 -> taxi.kassa.view.support.chat.ChatHistoryFragment$a:
+    kotlin.jvm.functions.Function0 $parameters -> h
+    org.koin.core.qualifier.Qualifier $qualifier -> g
+    android.content.ComponentCallbacks $this_inject -> b
+    java.lang.Object invoke() -> b
+taxi.kassa.view.support.chat.ChatHistoryFragment$onViewCreated$$inlined$with$lambda$1 -> taxi.kassa.view.support.chat.ChatHistoryFragment$b:
     taxi.kassa.view.support.chat.ChatHistoryFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.support.chat.ChatHistoryFragment$onViewCreated$$inlined$with$lambda$2 -> taxi.kassa.view.support.chat.ChatHistoryFragment$b:
+taxi.kassa.view.support.chat.ChatHistoryFragment$onViewCreated$$inlined$with$lambda$2 -> taxi.kassa.view.support.chat.ChatHistoryFragment$c:
     taxi.kassa.view.support.chat.ChatHistoryFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.support.chat.ChatHistoryFragment$onViewCreated$$inlined$with$lambda$3 -> taxi.kassa.view.support.chat.ChatHistoryFragment$c:
+taxi.kassa.view.support.chat.ChatHistoryFragment$onViewCreated$$inlined$with$lambda$3 -> taxi.kassa.view.support.chat.ChatHistoryFragment$d:
     taxi.kassa.view.support.chat.ChatHistoryFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.support.chat.ChatHistoryFragment$onViewCreated$$inlined$with$lambda$4 -> taxi.kassa.view.support.chat.ChatHistoryFragment$d:
+taxi.kassa.view.support.chat.ChatHistoryFragment$onViewCreated$$inlined$with$lambda$4 -> taxi.kassa.view.support.chat.ChatHistoryFragment$e:
     taxi.kassa.view.support.chat.ChatHistoryViewModel $this_with -> i
     taxi.kassa.view.support.chat.ChatHistoryFragment this$0 -> j
     void onLoadMore(int,int) -> c
-taxi.kassa.view.support.chat.ChatHistoryFragment$onViewCreated$2 -> taxi.kassa.view.support.chat.ChatHistoryFragment$e:
+taxi.kassa.view.support.chat.ChatHistoryFragment$onViewCreated$2 -> taxi.kassa.view.support.chat.ChatHistoryFragment$f:
     taxi.kassa.view.support.chat.ChatHistoryFragment this$0 -> a
 taxi.kassa.view.support.chat.ChatHistoryViewModel -> taxi.kassa.view.support.chat.b:
-    kotlinx.coroutines.CoroutineExceptionHandler exceptionHandler -> i
-    taxi.kassa.MyApplication context -> d
-    taxi.kassa.repository.Repository repository -> j
-    androidx.lifecycle.MutableLiveData incomingMessages -> h
-    androidx.lifecycle.MutableLiveData isProgressVisible -> e
-    androidx.lifecycle.MutableLiveData error -> f
-    androidx.lifecycle.MutableLiveData messages -> g
-    taxi.kassa.MyApplication access$getContext$p(taxi.kassa.view.support.chat.ChatHistoryViewModel) -> g
-    taxi.kassa.repository.Repository access$getRepository$p(taxi.kassa.view.support.chat.ChatHistoryViewModel) -> h
-    androidx.lifecycle.MutableLiveData getError() -> i
-    androidx.lifecycle.MutableLiveData getIncomingMessages() -> j
-    androidx.lifecycle.MutableLiveData getMessages() -> k
-    void getMessages(java.lang.String) -> l
-    androidx.lifecycle.MutableLiveData isProgressVisible() -> m
+    kotlinx.coroutines.CoroutineExceptionHandler exceptionHandler -> h
+    taxi.kassa.repository.Repository repository -> i
+    androidx.lifecycle.MutableLiveData isProgressVisible -> d
+    androidx.lifecycle.MutableLiveData error -> e
+    androidx.lifecycle.MutableLiveData messages -> f
+    androidx.lifecycle.MutableLiveData incomingMessages -> g
+    taxi.kassa.repository.Repository access$getRepository$p(taxi.kassa.view.support.chat.ChatHistoryViewModel) -> g
+    androidx.lifecycle.MutableLiveData getError() -> h
+    androidx.lifecycle.MutableLiveData getIncomingMessages() -> i
+    androidx.lifecycle.MutableLiveData getMessages() -> j
+    void getMessages(java.lang.String) -> k
+    androidx.lifecycle.MutableLiveData isProgressVisible() -> l
 taxi.kassa.view.support.chat.ChatHistoryViewModel$$special$$inlined$CoroutineExceptionHandler$1 -> taxi.kassa.view.support.chat.b$a:
+    android.app.Application $app$inlined -> b
     taxi.kassa.view.support.chat.ChatHistoryViewModel this$0 -> a
 taxi.kassa.view.support.chat.ChatHistoryViewModel$getMessages$1 -> taxi.kassa.view.support.chat.b$b:
     java.lang.Object L$0 -> j
@@ -26992,25 +27082,31 @@ taxi.kassa.view.support.chat.ChatHistoryViewModel$getMessages$1 -> taxi.kassa.vi
     java.lang.Object invokeSuspend(java.lang.Object) -> l
 taxi.kassa.view.support.message.WriteMessageFragment -> taxi.kassa.view.support.message.WriteMessageFragment:
     java.util.HashMap _$_findViewCache -> b
-    taxi.kassa.view.support.message.WriteMessageViewModel viewModel -> a
+    kotlin.Lazy viewModel$delegate -> a
     void _$_clearFindViewByIdCache() -> a
     android.view.View _$_findCachedViewById(int) -> c
-taxi.kassa.view.support.message.WriteMessageFragment$onViewCreated$$inlined$with$lambda$1 -> taxi.kassa.view.support.message.WriteMessageFragment$a:
+    taxi.kassa.view.support.message.WriteMessageViewModel getViewModel() -> d
+taxi.kassa.view.support.message.WriteMessageFragment$$special$$inlined$inject$1 -> taxi.kassa.view.support.message.WriteMessageFragment$a:
+    kotlin.jvm.functions.Function0 $parameters -> h
+    org.koin.core.qualifier.Qualifier $qualifier -> g
+    android.content.ComponentCallbacks $this_inject -> b
+    java.lang.Object invoke() -> b
+taxi.kassa.view.support.message.WriteMessageFragment$onViewCreated$$inlined$with$lambda$1 -> taxi.kassa.view.support.message.WriteMessageFragment$b:
     taxi.kassa.view.support.message.WriteMessageFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.support.message.WriteMessageFragment$onViewCreated$$inlined$with$lambda$2 -> taxi.kassa.view.support.message.WriteMessageFragment$b:
+taxi.kassa.view.support.message.WriteMessageFragment$onViewCreated$$inlined$with$lambda$2 -> taxi.kassa.view.support.message.WriteMessageFragment$c:
     taxi.kassa.view.support.message.WriteMessageFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.support.message.WriteMessageFragment$onViewCreated$$inlined$with$lambda$3 -> taxi.kassa.view.support.message.WriteMessageFragment$c:
+taxi.kassa.view.support.message.WriteMessageFragment$onViewCreated$$inlined$with$lambda$3 -> taxi.kassa.view.support.message.WriteMessageFragment$d:
     taxi.kassa.view.support.message.WriteMessageFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.support.message.WriteMessageFragment$onViewCreated$$inlined$with$lambda$4 -> taxi.kassa.view.support.message.WriteMessageFragment$d:
+taxi.kassa.view.support.message.WriteMessageFragment$onViewCreated$$inlined$with$lambda$4 -> taxi.kassa.view.support.message.WriteMessageFragment$e:
     taxi.kassa.view.support.message.WriteMessageFragment this$0 -> b
     taxi.kassa.view.support.message.WriteMessageViewModel $this_with -> a
-taxi.kassa.view.support.message.WriteMessageFragment$onViewCreated$$inlined$with$lambda$5 -> taxi.kassa.view.support.message.WriteMessageFragment$e:
+taxi.kassa.view.support.message.WriteMessageFragment$onViewCreated$$inlined$with$lambda$5 -> taxi.kassa.view.support.message.WriteMessageFragment$f:
     taxi.kassa.view.support.message.WriteMessageFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.support.message.WriteMessageFragment$onViewCreated$1 -> taxi.kassa.view.support.message.WriteMessageFragment$f:
+taxi.kassa.view.support.message.WriteMessageFragment$onViewCreated$1 -> taxi.kassa.view.support.message.WriteMessageFragment$g:
     taxi.kassa.view.support.message.WriteMessageFragment this$0 -> a
 taxi.kassa.view.support.message.WriteMessageViewModel -> taxi.kassa.view.support.message.a:
     kotlinx.coroutines.CoroutineExceptionHandler exceptionHandler -> i
@@ -27067,63 +27163,68 @@ taxi.kassa.view.withdraws.WithdrawsAdapter$onBindViewHolder$1 -> taxi.kassa.view
     taxi.kassa.model.responses.Withdraw $withdraw -> b
     taxi.kassa.view.withdraws.WithdrawsAdapter this$0 -> a
 taxi.kassa.view.withdraws.WithdrawsFragment -> taxi.kassa.view.withdraws.WithdrawsFragment:
-    taxi.kassa.view.withdraws.WithdrawsViewModel viewModel -> a
     java.util.HashMap _$_findViewCache -> b
+    kotlin.Lazy viewModel$delegate -> a
     void _$_clearFindViewByIdCache() -> a
     android.view.View _$_findCachedViewById(int) -> c
     void access$goToNotifications(taxi.kassa.view.withdraws.WithdrawsFragment) -> d
-    void goToNotifications() -> e
-taxi.kassa.view.withdraws.WithdrawsFragment$onViewCreated$$inlined$with$lambda$1 -> taxi.kassa.view.withdraws.WithdrawsFragment$a:
+    taxi.kassa.view.withdraws.WithdrawsViewModel getViewModel() -> e
+    void goToNotifications() -> f
+taxi.kassa.view.withdraws.WithdrawsFragment$$special$$inlined$inject$1 -> taxi.kassa.view.withdraws.WithdrawsFragment$a:
+    kotlin.jvm.functions.Function0 $parameters -> h
+    org.koin.core.qualifier.Qualifier $qualifier -> g
+    android.content.ComponentCallbacks $this_inject -> b
+    java.lang.Object invoke() -> b
+taxi.kassa.view.withdraws.WithdrawsFragment$onViewCreated$$inlined$with$lambda$1 -> taxi.kassa.view.withdraws.WithdrawsFragment$b:
     taxi.kassa.view.withdraws.WithdrawsFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.withdraws.WithdrawsFragment$onViewCreated$$inlined$with$lambda$2 -> taxi.kassa.view.withdraws.WithdrawsFragment$b:
+taxi.kassa.view.withdraws.WithdrawsFragment$onViewCreated$$inlined$with$lambda$2 -> taxi.kassa.view.withdraws.WithdrawsFragment$c:
     taxi.kassa.view.withdraws.WithdrawsFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.withdraws.WithdrawsFragment$onViewCreated$$inlined$with$lambda$3 -> taxi.kassa.view.withdraws.WithdrawsFragment$c:
+taxi.kassa.view.withdraws.WithdrawsFragment$onViewCreated$$inlined$with$lambda$3 -> taxi.kassa.view.withdraws.WithdrawsFragment$d:
     taxi.kassa.view.withdraws.WithdrawsFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.withdraws.WithdrawsFragment$onViewCreated$$inlined$with$lambda$3$1 -> taxi.kassa.view.withdraws.WithdrawsFragment$c$a:
+taxi.kassa.view.withdraws.WithdrawsFragment$onViewCreated$$inlined$with$lambda$3$1 -> taxi.kassa.view.withdraws.WithdrawsFragment$d$a:
     taxi.kassa.view.withdraws.WithdrawsFragment$onViewCreated$$inlined$with$lambda$3 this$0 -> b
     void invoke(taxi.kassa.model.responses.Withdraw) -> a
     java.lang.Object invoke(java.lang.Object) -> i
-taxi.kassa.view.withdraws.WithdrawsFragment$onViewCreated$$inlined$with$lambda$4 -> taxi.kassa.view.withdraws.WithdrawsFragment$d:
+taxi.kassa.view.withdraws.WithdrawsFragment$onViewCreated$$inlined$with$lambda$4 -> taxi.kassa.view.withdraws.WithdrawsFragment$e:
     taxi.kassa.view.withdraws.WithdrawsFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.withdraws.WithdrawsFragment$onViewCreated$1$5 -> taxi.kassa.view.withdraws.WithdrawsFragment$e:
+taxi.kassa.view.withdraws.WithdrawsFragment$onViewCreated$1$5 -> taxi.kassa.view.withdraws.WithdrawsFragment$f:
     taxi.kassa.view.withdraws.WithdrawsViewModel $this_with -> a
     void onRefresh() -> a
-taxi.kassa.view.withdraws.WithdrawsFragment$onViewCreated$2 -> taxi.kassa.view.withdraws.WithdrawsFragment$f:
+taxi.kassa.view.withdraws.WithdrawsFragment$onViewCreated$2 -> taxi.kassa.view.withdraws.WithdrawsFragment$g:
     taxi.kassa.view.withdraws.WithdrawsFragment this$0 -> a
-taxi.kassa.view.withdraws.WithdrawsFragment$onViewCreated$3 -> taxi.kassa.view.withdraws.WithdrawsFragment$g:
+taxi.kassa.view.withdraws.WithdrawsFragment$onViewCreated$3 -> taxi.kassa.view.withdraws.WithdrawsFragment$h:
     taxi.kassa.view.withdraws.WithdrawsFragment this$0 -> a
-taxi.kassa.view.withdraws.WithdrawsFragment$onViewCreated$4 -> taxi.kassa.view.withdraws.WithdrawsFragment$h:
+taxi.kassa.view.withdraws.WithdrawsFragment$onViewCreated$4 -> taxi.kassa.view.withdraws.WithdrawsFragment$i:
     taxi.kassa.view.withdraws.WithdrawsFragment this$0 -> a
-taxi.kassa.view.withdraws.WithdrawsFragment$onViewCreated$5 -> taxi.kassa.view.withdraws.WithdrawsFragment$i:
+taxi.kassa.view.withdraws.WithdrawsFragment$onViewCreated$5 -> taxi.kassa.view.withdraws.WithdrawsFragment$j:
     taxi.kassa.view.withdraws.WithdrawsFragment this$0 -> a
-taxi.kassa.view.withdraws.WithdrawsFragment$onViewCreated$6 -> taxi.kassa.view.withdraws.WithdrawsFragment$j:
+taxi.kassa.view.withdraws.WithdrawsFragment$onViewCreated$6 -> taxi.kassa.view.withdraws.WithdrawsFragment$k:
     taxi.kassa.view.withdraws.WithdrawsFragment this$0 -> a
-taxi.kassa.view.withdraws.WithdrawsFragment$onViewCreated$7 -> taxi.kassa.view.withdraws.WithdrawsFragment$k:
+taxi.kassa.view.withdraws.WithdrawsFragment$onViewCreated$7 -> taxi.kassa.view.withdraws.WithdrawsFragment$l:
     taxi.kassa.view.withdraws.WithdrawsFragment this$0 -> a
-taxi.kassa.view.withdraws.WithdrawsFragment$onViewCreated$8 -> taxi.kassa.view.withdraws.WithdrawsFragment$l:
+taxi.kassa.view.withdraws.WithdrawsFragment$onViewCreated$8 -> taxi.kassa.view.withdraws.WithdrawsFragment$m:
     taxi.kassa.view.withdraws.WithdrawsFragment this$0 -> a
-taxi.kassa.view.withdraws.WithdrawsFragment$onViewCreated$9 -> taxi.kassa.view.withdraws.WithdrawsFragment$m:
+taxi.kassa.view.withdraws.WithdrawsFragment$onViewCreated$9 -> taxi.kassa.view.withdraws.WithdrawsFragment$n:
     taxi.kassa.view.withdraws.WithdrawsFragment this$0 -> a
 taxi.kassa.view.withdraws.WithdrawsViewModel -> taxi.kassa.view.withdraws.b:
-    kotlinx.coroutines.CoroutineExceptionHandler exceptionHandler -> i
-    taxi.kassa.MyApplication context -> d
-    taxi.kassa.repository.Repository repository -> j
-    androidx.lifecycle.MutableLiveData notifications -> h
-    androidx.lifecycle.MutableLiveData isProgressVisible -> e
-    androidx.lifecycle.MutableLiveData withdraws -> f
-    androidx.lifecycle.MutableLiveData error -> g
-    taxi.kassa.MyApplication access$getContext$p(taxi.kassa.view.withdraws.WithdrawsViewModel) -> g
-    taxi.kassa.repository.Repository access$getRepository$p(taxi.kassa.view.withdraws.WithdrawsViewModel) -> h
-    androidx.lifecycle.MutableLiveData getError() -> i
-    androidx.lifecycle.MutableLiveData getNotifications() -> j
-    androidx.lifecycle.MutableLiveData getWithdraws() -> k
-    void getWithdrawsData() -> l
-    androidx.lifecycle.MutableLiveData isProgressVisible() -> m
+    kotlinx.coroutines.CoroutineExceptionHandler exceptionHandler -> h
+    taxi.kassa.repository.Repository repository -> i
+    androidx.lifecycle.MutableLiveData isProgressVisible -> d
+    androidx.lifecycle.MutableLiveData withdraws -> e
+    androidx.lifecycle.MutableLiveData error -> f
+    androidx.lifecycle.MutableLiveData notifications -> g
+    taxi.kassa.repository.Repository access$getRepository$p(taxi.kassa.view.withdraws.WithdrawsViewModel) -> g
+    androidx.lifecycle.MutableLiveData getError() -> h
+    androidx.lifecycle.MutableLiveData getNotifications() -> i
+    androidx.lifecycle.MutableLiveData getWithdraws() -> j
+    void getWithdrawsData() -> k
+    androidx.lifecycle.MutableLiveData isProgressVisible() -> l
 taxi.kassa.view.withdraws.WithdrawsViewModel$$special$$inlined$CoroutineExceptionHandler$1 -> taxi.kassa.view.withdraws.b$a:
+    android.app.Application $app$inlined -> b
     taxi.kassa.view.withdraws.WithdrawsViewModel this$0 -> a
 taxi.kassa.view.withdraws.WithdrawsViewModel$getWithdrawsData$1 -> taxi.kassa.view.withdraws.b$b:
     java.lang.Object L$0 -> j
@@ -27137,26 +27238,32 @@ taxi.kassa.view.withdraws.WithdrawsViewModel$getWithdrawsData$1 -> taxi.kassa.vi
 taxi.kassa.view.withdraws.withdraw.WithdrawFragment -> taxi.kassa.view.withdraws.withdraw.WithdrawFragment:
     kotlin.Lazy withdraw$delegate -> b
     java.util.HashMap _$_findViewCache -> g
-    taxi.kassa.view.withdraws.withdraw.WithdrawViewModel viewModel -> a
+    kotlin.Lazy viewModel$delegate -> a
     void _$_clearFindViewByIdCache() -> a
     android.view.View _$_findCachedViewById(int) -> c
     void access$setBankIcon(taxi.kassa.view.withdraws.withdraw.WithdrawFragment,java.lang.String) -> d
-    taxi.kassa.model.responses.Withdraw getWithdraw() -> e
-    void setBankIcon(java.lang.String) -> f
-taxi.kassa.view.withdraws.withdraw.WithdrawFragment$onViewCreated$$inlined$observe$1 -> taxi.kassa.view.withdraws.withdraw.WithdrawFragment$a:
+    taxi.kassa.view.withdraws.withdraw.WithdrawViewModel getViewModel() -> e
+    taxi.kassa.model.responses.Withdraw getWithdraw() -> f
+    void setBankIcon(java.lang.String) -> g
+taxi.kassa.view.withdraws.withdraw.WithdrawFragment$$special$$inlined$inject$1 -> taxi.kassa.view.withdraws.withdraw.WithdrawFragment$a:
+    kotlin.jvm.functions.Function0 $parameters -> h
+    org.koin.core.qualifier.Qualifier $qualifier -> g
+    android.content.ComponentCallbacks $this_inject -> b
+    java.lang.Object invoke() -> b
+taxi.kassa.view.withdraws.withdraw.WithdrawFragment$onViewCreated$$inlined$observe$1 -> taxi.kassa.view.withdraws.withdraw.WithdrawFragment$b:
     taxi.kassa.view.withdraws.withdraw.WithdrawFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.withdraws.withdraw.WithdrawFragment$onViewCreated$$inlined$observe$2 -> taxi.kassa.view.withdraws.withdraw.WithdrawFragment$b:
+taxi.kassa.view.withdraws.withdraw.WithdrawFragment$onViewCreated$$inlined$observe$2 -> taxi.kassa.view.withdraws.withdraw.WithdrawFragment$c:
     taxi.kassa.view.withdraws.withdraw.WithdrawFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.withdraws.withdraw.WithdrawFragment$onViewCreated$$inlined$observe$3 -> taxi.kassa.view.withdraws.withdraw.WithdrawFragment$c:
+taxi.kassa.view.withdraws.withdraw.WithdrawFragment$onViewCreated$$inlined$observe$3 -> taxi.kassa.view.withdraws.withdraw.WithdrawFragment$d:
     taxi.kassa.view.withdraws.withdraw.WithdrawFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.withdraws.withdraw.WithdrawFragment$onViewCreated$4 -> taxi.kassa.view.withdraws.withdraw.WithdrawFragment$d:
+taxi.kassa.view.withdraws.withdraw.WithdrawFragment$onViewCreated$4 -> taxi.kassa.view.withdraws.withdraw.WithdrawFragment$e:
     taxi.kassa.view.withdraws.withdraw.WithdrawFragment this$0 -> a
-taxi.kassa.view.withdraws.withdraw.WithdrawFragment$onViewCreated$5 -> taxi.kassa.view.withdraws.withdraw.WithdrawFragment$e:
+taxi.kassa.view.withdraws.withdraw.WithdrawFragment$onViewCreated$5 -> taxi.kassa.view.withdraws.withdraw.WithdrawFragment$f:
     taxi.kassa.view.withdraws.withdraw.WithdrawFragment this$0 -> a
-taxi.kassa.view.withdraws.withdraw.WithdrawFragment$withdraw$2 -> taxi.kassa.view.withdraws.withdraw.WithdrawFragment$f:
+taxi.kassa.view.withdraws.withdraw.WithdrawFragment$withdraw$2 -> taxi.kassa.view.withdraws.withdraw.WithdrawFragment$g:
     taxi.kassa.view.withdraws.withdraw.WithdrawFragment this$0 -> b
     taxi.kassa.model.responses.Withdraw invoke() -> a
     java.lang.Object invoke() -> b
@@ -27171,6 +27278,7 @@ taxi.kassa.view.withdraws.withdraw.WithdrawViewModel -> taxi.kassa.view.withdraw
     androidx.lifecycle.MutableLiveData getError() -> i
     androidx.lifecycle.MutableLiveData isProgressVisible() -> j
 taxi.kassa.view.withdraws.withdraw.WithdrawViewModel$$special$$inlined$CoroutineExceptionHandler$1 -> taxi.kassa.view.withdraws.withdraw.a$a:
+    android.app.Application $app$inlined -> b
     taxi.kassa.view.withdraws.withdraw.WithdrawViewModel this$0 -> a
 taxi.kassa.view.withdraws.withdraw.WithdrawViewModel$1 -> taxi.kassa.view.withdraws.withdraw.a$b:
     java.lang.Object L$0 -> j
@@ -27183,37 +27291,43 @@ taxi.kassa.view.withdraws.withdraw.WithdrawViewModel$1 -> taxi.kassa.view.withdr
 taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment -> taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment:
     kotlin.Lazy taxiType$delegate -> b
     java.util.HashMap _$_findViewCache -> g
-    taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateViewModel viewModel -> a
+    kotlin.Lazy viewModel$delegate -> a
     void _$_clearFindViewByIdCache() -> a
     android.view.View _$_findCachedViewById(int) -> c
     java.lang.String access$getTaxiType$p(taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment) -> d
     java.lang.String getTaxiType() -> e
-taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment$onViewCreated$$inlined$observe$1 -> taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment$a:
+    taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateViewModel getViewModel() -> f
+taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment$$special$$inlined$inject$1 -> taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment$a:
+    kotlin.jvm.functions.Function0 $parameters -> h
+    org.koin.core.qualifier.Qualifier $qualifier -> g
+    android.content.ComponentCallbacks $this_inject -> b
+    java.lang.Object invoke() -> b
+taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment$onViewCreated$$inlined$observe$1 -> taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment$b:
     taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment$onViewCreated$1 -> taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment$b:
+taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment$onViewCreated$1 -> taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment$c:
     taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment this$0 -> a
-taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment$onViewCreated$2 -> taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment$c:
+taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment$onViewCreated$2 -> taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment$d:
     taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment this$0 -> a
-taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment$onViewCreated$3 -> taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment$d:
+taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment$onViewCreated$3 -> taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment$e:
     taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment this$0 -> a
-taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment$onViewCreated$4 -> taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment$e:
+taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment$onViewCreated$4 -> taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment$f:
     taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment this$0 -> a
-taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment$onViewCreated$5 -> taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment$f:
+taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment$onViewCreated$5 -> taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment$g:
     taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment this$0 -> a
-taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment$onViewCreated$6 -> taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment$g:
+taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment$onViewCreated$6 -> taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment$h:
     taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment this$0 -> a
-taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment$onViewCreated$6$1 -> taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment$g$a:
+taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment$onViewCreated$6$1 -> taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment$h$a:
     taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment$onViewCreated$6 this$0 -> b
     void invoke(android.view.View,androidx.constraintlayout.widget.ConstraintLayout) -> a
     java.lang.Object invoke(java.lang.Object,java.lang.Object) -> g
-taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment$onViewCreated$7 -> taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment$h:
+taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment$onViewCreated$7 -> taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment$i:
     taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment this$0 -> a
-taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment$onViewCreated$7$1 -> taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment$h$a:
+taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment$onViewCreated$7$1 -> taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment$i$a:
     taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment$onViewCreated$7 this$0 -> b
     void invoke(android.view.View,androidx.constraintlayout.widget.ConstraintLayout) -> a
     java.lang.Object invoke(java.lang.Object,java.lang.Object) -> g
-taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment$taxiType$2 -> taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment$i:
+taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment$taxiType$2 -> taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment$j:
     taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateFragment this$0 -> b
     java.lang.String invoke() -> a
     java.lang.Object invoke() -> b
@@ -27240,73 +27354,79 @@ taxi.kassa.view.withdraws.withdraw_create.WithdrawCreateViewModel$1 -> taxi.kass
 taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment -> taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment:
     kotlin.Lazy taxiType$delegate -> b
     java.util.HashMap _$_findViewCache -> h
-    taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawViewModel viewModel -> a
     int sourceId -> g
+    kotlin.Lazy viewModel$delegate -> a
     void _$_clearFindViewByIdCache() -> a
     android.view.View _$_findCachedViewById(int) -> c
     java.lang.String access$getTaxiType$p(taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment) -> d
     void access$sendRequest(taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment) -> e
     void access$setSourceId$p(taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment,int) -> f
     java.lang.String getTaxiType() -> g
-    void sendRequest() -> h
-taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$onViewCreated$$inlined$with$lambda$1 -> taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$a:
+    taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawViewModel getViewModel() -> h
+    void sendRequest() -> i
+taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$$special$$inlined$inject$1 -> taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$a:
+    kotlin.jvm.functions.Function0 $parameters -> h
+    org.koin.core.qualifier.Qualifier $qualifier -> g
+    android.content.ComponentCallbacks $this_inject -> b
+    java.lang.Object invoke() -> b
+taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$onViewCreated$$inlined$with$lambda$1 -> taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$b:
     taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$onViewCreated$$inlined$with$lambda$2 -> taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$b:
+taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$onViewCreated$$inlined$with$lambda$2 -> taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$c:
     taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$onViewCreated$$inlined$with$lambda$3 -> taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$c:
+taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$onViewCreated$$inlined$with$lambda$3 -> taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$d:
     taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$onViewCreated$$inlined$with$lambda$3$1 -> taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$c$a:
+taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$onViewCreated$$inlined$with$lambda$3$1 -> taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$d$a:
     taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$onViewCreated$$inlined$with$lambda$3 this$0 -> a
-taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$onViewCreated$$inlined$with$lambda$3$2 -> taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$c$b:
+taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$onViewCreated$$inlined$with$lambda$3$2 -> taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$d$b:
     taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$onViewCreated$$inlined$with$lambda$3 this$0 -> a
-taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$onViewCreated$$inlined$with$lambda$3$3 -> taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$c$c:
+taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$onViewCreated$$inlined$with$lambda$3$3 -> taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$d$c:
     taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$onViewCreated$$inlined$with$lambda$3 this$0 -> a
-taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$onViewCreated$$inlined$with$lambda$4 -> taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$d:
+taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$onViewCreated$$inlined$with$lambda$4 -> taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$e:
     taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment this$0 -> b
     taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawViewModel $this_with$inlined -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$onViewCreated$$inlined$with$lambda$4$1 -> taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$d$a:
+taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$onViewCreated$$inlined$with$lambda$4$1 -> taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$e$a:
     taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$onViewCreated$$inlined$with$lambda$4 this$0 -> b
     void invoke(taxi.kassa.model.responses.Account,android.view.View) -> a
     java.lang.Object invoke(java.lang.Object,java.lang.Object) -> g
-taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$onViewCreated$$inlined$with$lambda$5 -> taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$e:
+taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$onViewCreated$$inlined$with$lambda$5 -> taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$f:
     taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$onViewCreated$$inlined$with$lambda$6 -> taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$f:
+taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$onViewCreated$$inlined$with$lambda$6 -> taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$g:
     taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$onViewCreated$1 -> taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$i:
+taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$onViewCreated$1 -> taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$j:
     taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment this$0 -> a
-taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$onViewCreated$10 -> taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$g:
+taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$onViewCreated$10 -> taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$h:
     taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment this$0 -> b
     void invoke() -> a
     java.lang.Object invoke() -> b
-taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$onViewCreated$11 -> taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$h:
+taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$onViewCreated$11 -> taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$i:
     taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment this$0 -> b
     void invoke() -> a
     java.lang.Object invoke() -> b
-taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$onViewCreated$2 -> taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$j:
+taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$onViewCreated$2 -> taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$k:
     taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment this$0 -> a
-taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$onViewCreated$3 -> taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$k:
+taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$onViewCreated$3 -> taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$l:
     taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment this$0 -> a
-taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$onViewCreated$4 -> taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$l:
+taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$onViewCreated$4 -> taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$m:
     taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment this$0 -> a
-taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$onViewCreated$5 -> taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$m:
+taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$onViewCreated$5 -> taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$n:
     taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment this$0 -> a
-taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$onViewCreated$6 -> taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$n:
+taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$onViewCreated$6 -> taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$o:
     taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment this$0 -> a
-taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$onViewCreated$7 -> taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$o:
+taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$onViewCreated$7 -> taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$p:
     taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment this$0 -> a
-taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$onViewCreated$8 -> taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$p:
+taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$onViewCreated$8 -> taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$q:
     taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment this$0 -> a
-taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$onViewCreated$9$4$2 -> taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$q:
+taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$onViewCreated$9$4$2 -> taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$r:
     taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$onViewCreated$9$4$2 INSTANCE -> b
     void invoke(taxi.kassa.model.responses.Account,android.view.View) -> a
     java.lang.Object invoke(java.lang.Object,java.lang.Object) -> g
-taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$taxiType$2 -> taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$r:
+taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$taxiType$2 -> taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment$s:
     taxi.kassa.view.withdraws.withdraw_create.daily.DailyWithdrawFragment this$0 -> b
     java.lang.String invoke() -> a
     java.lang.Object invoke() -> b
@@ -27376,7 +27496,7 @@ taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment -> tax
     java.util.HashMap _$_findViewCache -> i
     int cardId -> h
     int sourceId -> g
-    taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawViewModel viewModel -> a
+    kotlin.Lazy viewModel$delegate -> a
     void _$_clearFindViewByIdCache() -> a
     android.view.View _$_findCachedViewById(int) -> c
     java.lang.String access$getTaxiType$p(taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment) -> d
@@ -27384,60 +27504,66 @@ taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment -> tax
     void access$setCardId$p(taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment,int) -> f
     void access$setSourceId$p(taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment,int) -> g
     java.lang.String getTaxiType() -> h
-    void sendRequest() -> i
-taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$onViewCreated$$inlined$with$lambda$1 -> taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$a:
+    taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawViewModel getViewModel() -> i
+    void sendRequest() -> j
+taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$$special$$inlined$inject$1 -> taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$a:
+    kotlin.jvm.functions.Function0 $parameters -> h
+    org.koin.core.qualifier.Qualifier $qualifier -> g
+    android.content.ComponentCallbacks $this_inject -> b
+    java.lang.Object invoke() -> b
+taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$onViewCreated$$inlined$with$lambda$1 -> taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$b:
     taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$onViewCreated$$inlined$with$lambda$2 -> taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$b:
+taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$onViewCreated$$inlined$with$lambda$2 -> taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$c:
     taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$onViewCreated$$inlined$with$lambda$3 -> taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$c:
+taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$onViewCreated$$inlined$with$lambda$3 -> taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$d:
     taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$onViewCreated$$inlined$with$lambda$3$1 -> taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$c$a:
+taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$onViewCreated$$inlined$with$lambda$3$1 -> taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$d$a:
     taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$onViewCreated$$inlined$with$lambda$3 this$0 -> a
-taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$onViewCreated$$inlined$with$lambda$3$2 -> taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$c$b:
+taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$onViewCreated$$inlined$with$lambda$3$2 -> taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$d$b:
     taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$onViewCreated$$inlined$with$lambda$3 this$0 -> a
-taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$onViewCreated$$inlined$with$lambda$3$3 -> taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$c$c:
+taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$onViewCreated$$inlined$with$lambda$3$3 -> taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$d$c:
     taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$onViewCreated$$inlined$with$lambda$3 this$0 -> a
-taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$onViewCreated$$inlined$with$lambda$4 -> taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$d:
+taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$onViewCreated$$inlined$with$lambda$4 -> taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$e:
     taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$onViewCreated$$inlined$with$lambda$4$1 -> taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$d$a:
+taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$onViewCreated$$inlined$with$lambda$4$1 -> taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$e$a:
     taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$onViewCreated$$inlined$with$lambda$4 this$0 -> b
     void invoke(taxi.kassa.model.responses.Card,android.view.View) -> a
     java.lang.Object invoke(java.lang.Object,java.lang.Object) -> g
-taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$onViewCreated$$inlined$with$lambda$5 -> taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$e:
+taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$onViewCreated$$inlined$with$lambda$5 -> taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$f:
     taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$onViewCreated$$inlined$with$lambda$6 -> taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$f:
+taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$onViewCreated$$inlined$with$lambda$6 -> taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$g:
     taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment this$0 -> a
     void onChanged(java.lang.Object) -> a
-taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$onViewCreated$1 -> taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$i:
+taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$onViewCreated$1 -> taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$j:
     taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment this$0 -> a
-taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$onViewCreated$10 -> taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$g:
+taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$onViewCreated$10 -> taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$h:
     taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment this$0 -> b
     void invoke() -> a
     java.lang.Object invoke() -> b
-taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$onViewCreated$11 -> taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$h:
+taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$onViewCreated$11 -> taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$i:
     taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment this$0 -> b
     void invoke() -> a
     java.lang.Object invoke() -> b
-taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$onViewCreated$2 -> taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$j:
+taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$onViewCreated$2 -> taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$k:
     taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment this$0 -> a
-taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$onViewCreated$3 -> taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$k:
+taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$onViewCreated$3 -> taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$l:
     taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment this$0 -> a
-taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$onViewCreated$4 -> taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$l:
+taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$onViewCreated$4 -> taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$m:
     taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment this$0 -> a
-taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$onViewCreated$5 -> taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$m:
+taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$onViewCreated$5 -> taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$n:
     taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment this$0 -> a
-taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$onViewCreated$6 -> taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$n:
+taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$onViewCreated$6 -> taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$o:
     taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment this$0 -> a
-taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$onViewCreated$7 -> taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$o:
+taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$onViewCreated$7 -> taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$p:
     taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment this$0 -> a
-taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$onViewCreated$8 -> taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$p:
+taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$onViewCreated$8 -> taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$q:
     taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment this$0 -> a
-taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$taxiType$2 -> taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$q:
+taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$taxiType$2 -> taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment$r:
     taxi.kassa.view.withdraws.withdraw_create.instant.InstantWithdrawFragment this$0 -> b
     java.lang.String invoke() -> a
     java.lang.Object invoke() -> b

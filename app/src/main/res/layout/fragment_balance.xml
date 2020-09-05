@@ -117,8 +117,8 @@
 
             <ImageView
                 android:id="@+id/yandex_image"
-                android:layout_width="42dp"
-                android:layout_height="42dp"
+                android:layout_width="@dimen/size_42dp"
+                android:layout_height="@dimen/size_42dp"
                 android:layout_marginStart="26dp"
                 android:layout_marginTop="36dp"
                 android:src="@drawable/ic_yandex"
@@ -172,8 +172,8 @@
 
             <ImageView
                 android:id="@+id/citymobil_image"
-                android:layout_width="42dp"
-                android:layout_height="42dp"
+                android:layout_width="@dimen/size_42dp"
+                android:layout_height="@dimen/size_42dp"
                 android:layout_marginStart="26dp"
                 android:layout_marginTop="28dp"
                 android:src="@drawable/ic_citymobil"
@@ -227,8 +227,8 @@
 
             <ImageView
                 android:id="@+id/gett_image"
-                android:layout_width="42dp"
-                android:layout_height="42dp"
+                android:layout_width="@dimen/size_42dp"
+                android:layout_height="@dimen/size_42dp"
                 android:layout_marginStart="26dp"
                 android:layout_marginTop="28dp"
                 android:src="@drawable/ic_gett"
@@ -285,7 +285,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="28dp"
-                android:layout_marginTop="62dp"
+                android:layout_marginTop="@dimen/margin_62dp"
                 android:fontFamily="sans-serif-medium"
                 android:text="@string/fuel_title"
                 android:textColor="@color/balance_fuel_gray"
@@ -295,8 +295,8 @@
 
             <ImageView
                 android:id="@+id/rosneft_image"
-                android:layout_width="42dp"
-                android:layout_height="62dp"
+                android:layout_width="@dimen/size_42dp"
+                android:layout_height="@dimen/margin_62dp"
                 android:layout_marginStart="26dp"
                 android:layout_marginTop="20dp"
                 android:paddingBottom="20dp"
