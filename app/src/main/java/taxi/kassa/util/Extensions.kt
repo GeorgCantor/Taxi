@@ -5,6 +5,7 @@ import android.app.Activity
 import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Context.CONNECTIVITY_SERVICE
+import android.content.Context.INPUT_METHOD_SERVICE
 import android.content.Intent
 import android.content.pm.PackageManager.PERMISSION_GRANTED
 import android.graphics.Color.TRANSPARENT
@@ -21,6 +22,7 @@ import android.view.View
 import android.view.View.*
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
+import android.view.inputmethod.InputMethodManager.HIDE_NOT_ALWAYS
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast.*
@@ -170,10 +172,8 @@ fun View.invisible() { visibility = INVISIBLE }
 
 fun View.gone() { visibility = GONE }
 
-fun View.hideKeyboard() {
-    val manager = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-    manager.hideSoftInputFromWindow(windowToken, InputMethodManager.HIDE_NOT_ALWAYS)
-}
+fun View.hideKeyboard() = (context.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager)
+    .hideSoftInputFromWindow(windowToken, HIDE_NOT_ALWAYS)
 
 fun View.getTransform(mEndView: View) = MaterialContainerTransform().apply {
     startView = this@getTransform
@@ -319,7 +319,7 @@ fun EditText.setNumberClickListener(button: View, resource: Int) {
     }
 }
 
-fun EditText.isEmpty(): Boolean = value.isBlank()
+fun EditText.isEmpty() = value.isBlank()
 
 val EditText.value
     get() = text.toString()
