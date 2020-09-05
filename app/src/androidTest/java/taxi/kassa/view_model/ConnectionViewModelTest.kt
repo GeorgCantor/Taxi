@@ -1,6 +1,6 @@
 package taxi.kassa.view_model
 
-import android.graphics.BitmapFactory
+import android.graphics.BitmapFactory.decodeResource
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -38,24 +38,28 @@ class ConnectionViewModelTest : BaseAndroidTest() {
 
     @Test
     fun check_loading_images() {
-        viewModel.setSelected(1)
-        viewModel.sendPhoto(BitmapFactory.decodeResource(getContext().resources, R.drawable.ic_gett))
-        viewModel.setSelected(2)
-        viewModel.sendPhoto(BitmapFactory.decodeResource(getContext().resources, R.drawable.ic_yandex))
-        viewModel.loadedImages.observe(mockLifecycleOwner(), Observer {
-            assertEquals(2, it.size)
-        })
+        if (!isUserLoggedIn()) {
+            viewModel.setSelected(1)
+            viewModel.sendPhoto(decodeResource(getContext().resources, R.drawable.ic_gett))
+            viewModel.setSelected(2)
+            viewModel.sendPhoto(decodeResource(getContext().resources, R.drawable.ic_yandex))
+            viewModel.loadedImages.observe(mockLifecycleOwner(), Observer {
+                assertEquals(2, it.size)
+            })
+        }
     }
 
     @Test
     fun check_removing_images() {
-        viewModel.setSelected(1)
-        viewModel.sendPhoto(BitmapFactory.decodeResource(getContext().resources, R.drawable.ic_gett))
-        viewModel.setSelected(2)
-        viewModel.sendPhoto(BitmapFactory.decodeResource(getContext().resources, R.drawable.ic_yandex))
-        viewModel.removeLoadImage(1)
-        viewModel.loadedImages.observe(mockLifecycleOwner(), Observer {
-            assertEquals(1, it.size)
-        })
+        if (!isUserLoggedIn()) {
+            viewModel.setSelected(1)
+            viewModel.sendPhoto(decodeResource(getContext().resources, R.drawable.ic_gett))
+            viewModel.setSelected(2)
+            viewModel.sendPhoto(decodeResource(getContext().resources, R.drawable.ic_yandex))
+            viewModel.removeLoadImage(1)
+            viewModel.loadedImages.observe(mockLifecycleOwner(), Observer {
+                assertEquals(1, it.size)
+            })
+        }
     }
 }
