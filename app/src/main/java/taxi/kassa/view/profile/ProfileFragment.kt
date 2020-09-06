@@ -8,8 +8,6 @@ import android.transition.TransitionManager.beginDelayedTransition
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
-import androidx.constraintlayout.widget.ConstraintSet.BOTTOM
-import androidx.constraintlayout.widget.ConstraintSet.TOP
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_profile.*
@@ -30,7 +28,6 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setLogoutButtonConstraint()
 
         with(viewModel) {
             getUserData()
@@ -178,11 +175,5 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
         activity?.finish()
         startActivity(Intent(requireActivity(), MainActivity::class.java))
-    }
-
-    private fun setLogoutButtonConstraint() {
-        if (requireContext().getScreenSize() < 5.5) {
-            parent_layout.changeConstraint(R.id.exit_tv, TOP, R.id.bottom_line, BOTTOM, 40)
-        }
     }
 }
