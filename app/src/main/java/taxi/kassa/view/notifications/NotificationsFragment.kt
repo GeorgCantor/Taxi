@@ -53,7 +53,7 @@ class NotificationsFragment : Fragment(R.layout.fragment_notifications) {
                 findNavController(this).navigate(R.id.action_notificationsFragment_to_notificationFragment)
             }
 
-            empty_tv.visibility = if (it.isNullOrEmpty()) VISIBLE else GONE
+            500L.runDelayed { empty_tv.visibility = if (it.isNullOrEmpty()) VISIBLE else GONE }
 
             manager = PreferenceManager(requireContext())
 
