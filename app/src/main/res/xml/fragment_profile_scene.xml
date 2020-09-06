@@ -41,4 +41,5 @@
         app:constraintSetStart="@+id/start">
         <OnClick app:targetId="@+id/name_tv" />
     </Transition>
+
 </MotionScene>

@@ -42,4 +42,5 @@
         app:constraintSetStart="@+id/start">
         <OnClick app:targetId="@+id/image_view" />
     </Transition>
+
 </MotionScene>
