@@ -13,6 +13,9 @@ class IntroFragment : Fragment(R.layout.fragment_intro) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        image_view.performClick()
+        image_view.isEnabled = false
+
         intro_registration_message.setMultiColoredText(R.string.intro_registration_message)
 
         with(findNavController(this)) {
