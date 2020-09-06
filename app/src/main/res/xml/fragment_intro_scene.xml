@@ -5,21 +5,21 @@
     <ConstraintSet android:id="@+id/start">
         <Constraint android:id="@+id/image_view" />
         <Constraint
+            android:id="@+id/login_button"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
             android:layout_marginBottom="20dp"
-            android:id="@+id/login_button"
-            app:layout_editor_absoluteX="266dp"
             app:layout_constraintBottom_toBottomOf="@+id/login_button"
             app:layout_constraintBottom_toTopOf="@id/signup_button"
-            app:layout_constraintStart_toEndOf="parent" />
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_editor_absoluteX="266dp" />
         <Constraint
             android:id="@+id/signup_button"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
+            android:layout_marginStart="@dimen/margin_24dp"
             android:layout_marginBottom="18dp"
             app:layout_constraintBottom_toTopOf="@+id/intro_registration_message"
-            android:layout_marginStart="@dimen/margin_24dp"
             app:layout_constraintEnd_toStartOf="parent" />
     </ConstraintSet>
 
@@ -27,24 +27,19 @@
         <Constraint android:id="@id/image_view" />
         <Constraint
             android:id="@+id/login_button"
-            app:layout_constraintEnd_toEndOf="parent"
             android:layout_width="match_parent"
             android:layout_height="60dp"
+            android:layout_marginStart="@dimen/margin_24dp"
+            android:layout_marginEnd="@dimen/margin_24dp"
             android:layout_marginBottom="20dp"
             app:layout_constraintBottom_toTopOf="@+id/signup_button"
-            android:layout_marginEnd="@dimen/margin_24dp"
-            android:layout_marginStart="@dimen/margin_24dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
     </ConstraintSet>
 
     <Transition
         app:constraintSetEnd="@id/end"
-        app:constraintSetStart="@+id/start" >
+        app:constraintSetStart="@+id/start">
         <OnClick app:targetId="@+id/image_view" />
     </Transition>
-    <ConstraintSet android:id="@+id/alternativeState" />
-    <Transition
-        android:id="@+id/startToAlternative"
-        app:constraintSetStart="@+id/start"
-        app:constraintSetEnd="@+id/alternativeState" />
 </MotionScene>

@@ -14,10 +14,11 @@
         android:background="@color/profile_background"
         android:fillViewport="true">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.constraintlayout.motion.widget.MotionLayout
             android:id="@+id/parent_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            app:layoutDescription="@xml/fragment_profile_scene">
 
             <ImageView
                 android:id="@+id/top_background"
@@ -121,7 +122,7 @@
                 android:layout_width="0dp"
                 android:layout_height="60dp"
                 android:layout_marginStart="@dimen/margin_16dp"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="12dp"
                 android:layout_marginEnd="@dimen/margin_16dp"
                 android:background="?attr/selectableItemBackground"
                 android:fontFamily="sans-serif-medium"
@@ -304,12 +305,13 @@
                 android:id="@+id/progress_bar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.motion.widget.MotionLayout>
 
     </androidx.core.widget.NestedScrollView>
 

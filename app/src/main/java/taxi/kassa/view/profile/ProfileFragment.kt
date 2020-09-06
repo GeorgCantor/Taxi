@@ -29,6 +29,11 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        name_tv.apply {
+            performClick()
+            isEnabled = false
+        }
+
         with(viewModel) {
             getUserData()
 
