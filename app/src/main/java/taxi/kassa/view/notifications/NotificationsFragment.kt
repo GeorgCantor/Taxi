@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_notifications.*
 import org.koin.androidx.viewmodel.ext.android.getSharedViewModel
-import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.model.Notification
 import taxi.kassa.util.*
@@ -26,7 +25,7 @@ class NotificationsFragment : Fragment(R.layout.fragment_notifications) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = getSharedViewModel { parametersOf() }
+        viewModel = getSharedViewModel()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -99,6 +98,9 @@ class NotificationsFragment : Fragment(R.layout.fragment_notifications) {
     }
 
     private fun back() {
+        listOf(image, phone_image, notification_count, notification_image).apply {
+            map { it.invisible() }
+        }
         // check if the app is running by clicking on the notification
         when (arguments?.get(NOT_FROM_PUSH)) {
             NOT_FROM_PUSH -> findNavController(this).popBackStack()

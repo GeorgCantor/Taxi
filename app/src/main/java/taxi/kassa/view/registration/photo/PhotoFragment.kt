@@ -18,7 +18,6 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_photo.*
 import org.koin.androidx.viewmodel.ext.android.getSharedViewModel
-import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.util.gone
 import taxi.kassa.util.runDelayed
@@ -50,7 +49,7 @@ class PhotoFragment : Fragment(R.layout.fragment_photo) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = getSharedViewModel { parametersOf() }
+        viewModel = getSharedViewModel()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

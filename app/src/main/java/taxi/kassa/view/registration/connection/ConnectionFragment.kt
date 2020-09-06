@@ -23,7 +23,6 @@ import kotlinx.android.synthetic.main.fragment_connection.gett_block
 import kotlinx.android.synthetic.main.fragment_connection.yandex_block
 import kotlinx.android.synthetic.main.keyboard.*
 import org.koin.androidx.viewmodel.ext.android.getSharedViewModel
-import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.model.LoadImage
 import taxi.kassa.util.*
@@ -41,7 +40,7 @@ class ConnectionFragment : Fragment(R.layout.fragment_connection) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = getSharedViewModel { parametersOf() }
+        viewModel = getSharedViewModel()
         viewModel.requestUid.value = UUID.randomUUID().toString()
     }
 
