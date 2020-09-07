@@ -15,10 +15,9 @@
         <ImageView
             android:id="@+id/image"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="280dp"
             android:layout_marginBottom="@dimen/margin_64dp"
             android:background="@drawable/bg_profile"
-            app:layout_constraintBottom_toBottomOf="@+id/empty_tv"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
