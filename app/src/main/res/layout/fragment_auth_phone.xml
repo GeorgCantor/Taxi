@@ -1,126 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/main_background">
+    android:background="@color/colorPrimary"
+    tools:context=".view.MainActivity">
 
-    <ImageView
-        android:id="@+id/back_arrow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_4dp"
-        android:layout_marginTop="12dp"
-        android:background="?attr/selectableItemBackground"
-        android:padding="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_back" />
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/main_background"
+        app:layoutDescription="@xml/fragment_auth_phone_scene">
 
-    <TextView
-        android:id="@+id/input_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-medium"
-        android:text="@string/input_phone_number"
-        android:textColor="@color/gray_intro_text"
-        android:textSize="@dimen/text_20sp"
-        app:layout_constraintBottom_toTopOf="@+id/phone_input_view"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/back_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_4dp"
+            android:layout_marginTop="12dp"
+            android:background="?attr/selectableItemBackground"
+            android:padding="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_back" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/phone_input_view"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/text_13sp"
-        app:errorTextAppearance="@style/ErrorAppearance"
-        app:layout_constraintBottom_toTopOf="@+id/login_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/input_title">
+        <TextView
+            android:id="@+id/input_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/input_phone_number"
+            android:textColor="@color/gray_intro_text"
+            android:textSize="@dimen/text_20sp"
+            app:layout_constraintBottom_toTopOf="@+id/phone_input_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/phone_edit_text"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/phone_input_view"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@android:color/transparent"
-            android:inputType="phone"
-            android:maxLength="18"
-            android:maxLines="1"
-            android:paddingBottom="@dimen/margin_16dp"
-            android:text="@string/phone_start_symbols"
-            android:textColor="@color/gray_intro_text"
-            android:textColorHint="@color/grayText"
-            android:textCursorDrawable="@drawable/color_cursor"
-            android:textSize="@dimen/text_30sp"
-            android:textStyle="bold"
-            app:backgroundTint="@color/grayText" />
+            android:textSize="@dimen/text_13sp"
+            app:errorTextAppearance="@style/ErrorAppearance"
+            app:layout_constraintBottom_toTopOf="@+id/login_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/input_title">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/phone_edit_text"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"
+                android:inputType="phone"
+                android:maxLength="18"
+                android:maxLines="1"
+                android:paddingBottom="@dimen/margin_16dp"
+                android:text="@string/phone_start_symbols"
+                android:textColor="@color/gray_intro_text"
+                android:textColorHint="@color/grayText"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:textSize="@dimen/text_30sp"
+                android:textStyle="bold"
+                app:backgroundTint="@color/grayText" />
 
-    <Button
-        android:id="@+id/login_button"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:layout_marginStart="@dimen/margin_24dp"
-        android:layout_marginTop="@dimen/margin_32dp"
-        android:layout_marginEnd="@dimen/margin_24dp"
-        android:background="@drawable/bg_intro_btn"
-        android:fontFamily="sans-serif-medium"
-        android:radius="0dp"
-        android:text="@string/continue_hint"
-        android:textAllCaps="false"
-        android:textColor="@color/continue_color"
-        android:textSize="@dimen/text_20sp"
-        app:layout_constraintBottom_toTopOf="@+id/login_checkbox"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phone_input_view" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <CheckBox
-        android:id="@+id/login_checkbox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_24dp"
-        android:button="@drawable/checkbox_selector"
-        android:checked="true"
-        android:paddingEnd="@dimen/margin_16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/agreement_text" />
+        <Button
+            android:id="@+id/login_button"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginStart="@dimen/margin_24dp"
+            android:layout_marginTop="@dimen/margin_32dp"
+            android:layout_marginEnd="@dimen/margin_24dp"
+            android:background="@drawable/bg_intro_btn"
+            android:fontFamily="sans-serif-medium"
+            android:radius="0dp"
+            android:text="@string/continue_hint"
+            android:textAllCaps="false"
+            android:textColor="@color/continue_color"
+            android:textSize="@dimen/text_20sp"
+            app:layout_constraintBottom_toTopOf="@+id/login_checkbox"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/phone_input_view" />
 
-    <TextView
-        android:id="@+id/agreement_text"
-        android:layout_width="324dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_16dp"
-        android:text="@string/login_agreement_title"
-        android:textColor="@color/agreement_text_color"
-        android:textSize="@dimen/text_13sp"
-        app:layout_constraintBottom_toTopOf="@+id/keyboard"
-        app:layout_constraintStart_toEndOf="@+id/login_checkbox"
-        app:layout_constraintTop_toBottomOf="@+id/login_button" />
+        <CheckBox
+            android:id="@+id/login_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_24dp"
+            android:button="@drawable/checkbox_selector"
+            android:checked="true"
+            android:paddingEnd="@dimen/margin_16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/agreement_text" />
 
-    <requestFocus />
+        <TextView
+            android:id="@+id/agreement_text"
+            android:layout_width="324dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_16dp"
+            android:text="@string/login_agreement_title"
+            android:textColor="@color/agreement_text_color"
+            android:textSize="@dimen/text_13sp"
+            app:layout_constraintBottom_toTopOf="@+id/keyboard"
+            app:layout_constraintStart_toEndOf="@+id/login_checkbox"
+            app:layout_constraintTop_toBottomOf="@+id/login_button" />
 
-    <include
-        android:id="@+id/keyboard"
-        layout="@layout/keyboard"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <requestFocus />
+
+        <include
+            android:id="@+id/keyboard"
+            layout="@layout/keyboard"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.motion.widget.MotionLayout>
 
     <ProgressBar
         android:id="@+id/progress_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/login_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phone_input_view" />
+        android:layout_gravity="center"
+        android:layout_marginBottom="80dp"
+        android:visibility="gone" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

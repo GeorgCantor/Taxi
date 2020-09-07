@@ -19,6 +19,7 @@ class AuthPhoneFragment : Fragment(R.layout.fragment_auth_phone) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        input_title.oneClick()
 
         with(viewModel) {
             isNetworkAvailable.observe(viewLifecycleOwner) { available ->
