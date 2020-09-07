@@ -38,7 +38,8 @@
 
     <Transition
         app:constraintSetEnd="@id/end"
-        app:constraintSetStart="@+id/start">
+        app:constraintSetStart="@+id/start"
+        app:duration="600">
         <OnClick app:targetId="@+id/name_tv" />
     </Transition>
 

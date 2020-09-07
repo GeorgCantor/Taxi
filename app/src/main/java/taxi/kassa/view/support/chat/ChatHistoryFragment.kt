@@ -9,11 +9,8 @@ import kotlinx.android.synthetic.main.fragment_chat_history.*
 import org.koin.android.ext.android.inject
 import taxi.kassa.R
 import taxi.kassa.model.responses.Message
+import taxi.kassa.util.*
 import taxi.kassa.util.Constants.MESSAGES_COUNTER
-import taxi.kassa.util.EndlessScrollListener
-import taxi.kassa.util.PreferenceManager
-import taxi.kassa.util.longToast
-import taxi.kassa.util.observe
 
 class ChatHistoryFragment : Fragment(R.layout.fragment_chat_history) {
 
@@ -24,6 +21,7 @@ class ChatHistoryFragment : Fragment(R.layout.fragment_chat_history) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        call_history_title.oneClick()
 
         with(viewModel) {
             getMessages("")

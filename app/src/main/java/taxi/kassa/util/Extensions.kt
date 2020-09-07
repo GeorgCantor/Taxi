@@ -165,6 +165,11 @@ fun View.getTransform(mEndView: View) = MaterialContainerTransform().apply {
     scrimColor = TRANSPARENT
 }
 
+fun View.oneClick() {
+    performClick()
+    isEnabled = false
+}
+
 fun TextView.setColor(
     balance: String,
     colorPositive: Int,

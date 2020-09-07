@@ -14,14 +14,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/notification_image" />
         <Constraint
-            app:layout_constraintEnd_toEndOf="parent"
             android:layout_width="185dp"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginBottom="100dp"
-            app:layout_constraintTop_toTopOf="@+id/background"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:visibility="gone" />
+            app:layout_constraintTop_toTopOf="@+id/background" />
     </ConstraintSet>
 
     <ConstraintSet android:id="@+id/end">

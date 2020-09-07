@@ -30,11 +30,7 @@ class NotificationsFragment : Fragment(R.layout.fragment_notifications) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        space.apply {
-            performClick()
-            isEnabled = false
-        }
+        space.oneClick()
 
         viewModel.getNotifications()
 
