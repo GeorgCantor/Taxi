@@ -17,6 +17,7 @@ import taxi.kassa.R
 import taxi.kassa.util.Constants.PHONE
 import taxi.kassa.util.Constants.accessToken
 import taxi.kassa.util.observe
+import taxi.kassa.util.oneClick
 
 class AuthCodeFragment : Fragment(R.layout.fragment_auth_code) {
 
@@ -28,6 +29,7 @@ class AuthCodeFragment : Fragment(R.layout.fragment_auth_code) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         addChangingRequestFocus()
+        input_code_title.oneClick()
 
         phone = viewModel.getFromPrefs(PHONE) ?: ""
 
