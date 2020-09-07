@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint android:id="@+id/image_view" />
+        <Constraint
+            android:id="@+id/login_button"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/login_button"
+            app:layout_constraintBottom_toTopOf="@id/signup_button"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_editor_absoluteX="266dp" />
+        <Constraint
+            android:id="@+id/signup_button"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginStart="@dimen/margin_24dp"
+            android:layout_marginBottom="18dp"
+            app:layout_constraintBottom_toTopOf="@+id/intro_registration_message"
+            app:layout_constraintEnd_toStartOf="parent" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint android:id="@id/image_view" />
+        <Constraint
+            android:id="@+id/login_button"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginStart="@dimen/margin_24dp"
+            android:layout_marginEnd="@dimen/margin_24dp"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/signup_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </ConstraintSet>
+
+    <Transition
+        app:constraintSetEnd="@id/end"
+        app:constraintSetStart="@+id/start">
+        <OnClick app:targetId="@+id/image_view" />
+    </Transition>
+
+</MotionScene>

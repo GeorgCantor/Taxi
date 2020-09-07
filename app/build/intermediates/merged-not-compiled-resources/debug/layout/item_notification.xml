@@ -31,12 +31,13 @@
         android:id="@+id/push_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
         android:fontFamily="sans-serif-medium"
         android:textColor="@color/gray_intro_text"
         android:textSize="18dp"
-        app:layout_constraintBottom_toBottomOf="@+id/status_image"
+        app:layout_constraintEnd_toEndOf="@id/push_message"
         app:layout_constraintStart_toEndOf="@+id/status_image"
-        app:layout_constraintTop_toTopOf="@+id/status_image"
+        app:layout_constraintTop_toTopOf="parent"
         tools:text="Уважаемые водители!" />
 
     <TextView

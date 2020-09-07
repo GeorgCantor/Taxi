@@ -1,11 +1,9 @@
 package taxi.kassa.view.registration.connection
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
-import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
@@ -25,7 +23,6 @@ import kotlinx.android.synthetic.main.fragment_connection.gett_block
 import kotlinx.android.synthetic.main.fragment_connection.yandex_block
 import kotlinx.android.synthetic.main.keyboard.*
 import org.koin.androidx.viewmodel.ext.android.getSharedViewModel
-import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.model.LoadImage
 import taxi.kassa.util.*
@@ -35,7 +32,7 @@ import taxi.kassa.util.Constants.GETT
 import taxi.kassa.util.Constants.YANDEX
 import java.util.*
 
-class ConnectionFragment : Fragment() {
+class ConnectionFragment : Fragment(R.layout.fragment_connection) {
 
     private val taxiType: String by lazy { arguments?.get(CONNECTION) as String }
 
@@ -43,15 +40,9 @@ class ConnectionFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = getSharedViewModel { parametersOf() }
+        viewModel = getSharedViewModel()
         viewModel.requestUid.value = UUID.randomUUID().toString()
     }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? = container?.inflate(R.layout.fragment_connection)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

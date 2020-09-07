@@ -1,40 +1,27 @@
 package taxi.kassa.view.support.chat
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_chat_history.*
-import org.koin.androidx.viewmodel.ext.android.getViewModel
-import org.koin.core.parameter.parametersOf
+import org.koin.android.ext.android.inject
 import taxi.kassa.R
 import taxi.kassa.model.responses.Message
 import taxi.kassa.util.*
 import taxi.kassa.util.Constants.MESSAGES_COUNTER
 
-class ChatHistoryFragment : Fragment() {
+class ChatHistoryFragment : Fragment(R.layout.fragment_chat_history) {
 
-    private lateinit var viewModel: ChatHistoryViewModel
+    private val viewModel by inject<ChatHistoryViewModel>()
     private lateinit var adapter: ChatHistoryAdapter
     private var nextOffset = ""
     private var firstLoad = true
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        viewModel = getViewModel()
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? = container?.inflate(R.layout.fragment_chat_history)
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        call_history_title.oneClick()
 
         with(viewModel) {
             getMessages("")

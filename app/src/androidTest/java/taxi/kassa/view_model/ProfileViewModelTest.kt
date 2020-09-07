@@ -3,7 +3,7 @@ package taxi.kassa.view_model
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import junit.framework.Assert.assertNotNull
+import junit.framework.Assert.*
 import kotlinx.coroutines.runBlocking
 import org.junit.Before
 import org.junit.Rule
@@ -42,9 +42,18 @@ class ProfileViewModelTest : BaseAndroidTest() {
         })
     }
 
-//    @Test
-//    fun get_from_preferences() = runBlocking {
-//        val balance = viewModel.getFromPrefs(TOTAL_BALANCE)
-//        if (isUserLoggedIn() && isNetworkAvailable()) assertNotNull(balance)
-//    }
+    @Test
+    fun check_internet() {
+        viewModel.checkInternet()
+
+        when (isUserLoggedIn()) {
+            true -> {
+                viewModel.isNetworkAvailable.observe(mockLifecycleOwner(), Observer {
+                    if (isNetworkAvailable()) assertTrue(it) else assertFalse(it)
+                })
+            }
+            false -> {
+            }
+        }
+    }
 }

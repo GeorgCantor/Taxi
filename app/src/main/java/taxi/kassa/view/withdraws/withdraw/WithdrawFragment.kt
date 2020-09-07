@@ -1,14 +1,12 @@
 package taxi.kassa.view.withdraws.withdraw
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_withdraw.*
-import org.koin.androidx.viewmodel.ext.android.getViewModel
+import org.koin.android.ext.android.inject
 import taxi.kassa.R
 import taxi.kassa.model.responses.Withdraw
 import taxi.kassa.util.Constants.ALFABANK
@@ -19,27 +17,15 @@ import taxi.kassa.util.Constants.TINKOFF
 import taxi.kassa.util.Constants.VTB_BANK
 import taxi.kassa.util.Constants.WITHDRAW
 import taxi.kassa.util.Constants.WITHDRAWN
-import taxi.kassa.util.inflate
 import taxi.kassa.util.observe
 import taxi.kassa.util.setFormattedText
 import taxi.kassa.util.shortToast
 
-class WithdrawFragment : Fragment() {
+class WithdrawFragment : Fragment(R.layout.fragment_withdraw) {
 
-    private lateinit var viewModel: WithdrawViewModel
+    private val viewModel by inject<WithdrawViewModel>()
 
     private val withdraw: Withdraw by lazy { arguments?.get(WITHDRAW) as Withdraw }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        viewModel = getViewModel()
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? = container?.inflate(R.layout.fragment_withdraw)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

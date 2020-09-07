@@ -2,402 +2,185 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/withdraw_create_root_layout"
+    android:id="@+id/root_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/main_background">
 
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/scroll_view"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:background="@color/main_background"
-        android:fillViewport="true"
-        app:layout_constraintBottom_toTopOf="@+id/keyboard"
-        app:layout_constraintTop_toTopOf="parent">
+    <ImageView
+        android:id="@+id/back_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_4dp"
+        android:layout_marginTop="12dp"
+        android:background="?attr/selectableItemBackground"
+        android:padding="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_back" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/parent_layout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="@dimen/margin_16dp">
+    <TextView
+        android:id="@+id/withdraw_create_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/withdraw_create_title"
+        android:textColor="@color/balance_fuel_gray"
+        android:textSize="@dimen/text_20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/back_arrow"
+        app:layout_constraintStart_toEndOf="@+id/back_arrow"
+        app:layout_constraintTop_toTopOf="@+id/back_arrow" />
 
-            <ImageView
-                android:id="@+id/back_arrow"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_4dp"
-                android:layout_marginTop="12dp"
-                android:background="?attr/selectableItemBackground"
-                android:padding="16dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_back" />
-
-            <TextView
-                android:id="@+id/withdraw_create_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:fontFamily="sans-serif-medium"
-                android:text="@string/withdraw_create_title"
-                android:textColor="@color/gray_intro_text"
-                android:textSize="@dimen/text_20sp"
-                app:layout_constraintBottom_toBottomOf="@+id/back_arrow"
-                app:layout_constraintStart_toEndOf="@+id/back_arrow"
-                app:layout_constraintTop_toTopOf="@+id/back_arrow" />
-
-            <TextView
-                android:id="@+id/notification_count"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="@dimen/margin_24dp"
-                android:background="@drawable/ic_chip_notification"
-                android:paddingStart="9dp"
-                android:paddingTop="3dp"
-                android:textColor="@android:color/black"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="3" />
-
-            <ImageView
-                android:id="@+id/notification_image"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_8dp"
-                android:background="?attr/selectableItemBackground"
-                android:padding="@dimen/margin_16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_notification"
-                tools:visibility="invisible" />
-
-            <ImageView
-                android:id="@+id/taxi_icon"
-                android:layout_width="13dp"
-                android:layout_height="13dp"
-                android:layout_marginStart="@dimen/margin_24dp"
-                android:layout_marginTop="@dimen/margin_32dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/back_arrow"
-                tools:src="@drawable/ic_yandex_mini" />
-
-            <TextView
-                android:id="@+id/taxi_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_8dp"
-                android:textColor="@color/gray_profile"
-                android:textSize="@dimen/text_16sp"
-                app:layout_constraintBottom_toBottomOf="@+id/taxi_icon"
-                app:layout_constraintStart_toEndOf="@+id/taxi_icon"
-                app:layout_constraintTop_toTopOf="@+id/taxi_icon"
-                tools:text="@string/yandex_title" />
-
-            <TextView
-                android:id="@+id/balance_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/margin_16dp"
-                android:textColor="@color/gray_intro_text"
-                android:textSize="@dimen/text_16sp"
-                app:layout_constraintBottom_toBottomOf="@+id/taxi_icon"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/taxi_icon"
-                tools:text="Баланс: 1000₽" />
-
-            <ImageView
-                android:id="@+id/parent_background"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginTop="22dp"
-                android:src="@drawable/bg_balance"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/taxi_icon" />
-
-            <TextView
-                android:id="@+id/daily_withdrawal_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="60dp"
-                android:drawableEnd="@drawable/ic_question"
-                android:drawablePadding="10dp"
-                android:text="@string/daily_withdrawal"
-                android:textColor="@color/gray_intro_text"
-                android:textSize="@dimen/text_24sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/taxi_icon" />
-
-            <ImageView
-                android:id="@+id/plus_image"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="24dp"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="@+id/daily_withdrawal_tv"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/daily_withdrawal_tv"
-                app:srcCompat="@drawable/ic_plus_light_gray" />
-
-            <ImageView
-                android:id="@+id/minus_image"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="24dp"
-                app:layout_constraintBottom_toBottomOf="@+id/daily_withdrawal_tv"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/daily_withdrawal_tv"
-                app:srcCompat="@drawable/ic_minus_gray" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/cards_daily_recycler"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_8dp"
-                android:layout_marginTop="18dp"
-                android:layout_marginEnd="@dimen/margin_8dp"
-                android:nestedScrollingEnabled="false"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/daily_withdrawal_tv"
-                tools:itemCount="2"
-                tools:listitem="@layout/item_card" />
-
-            <TextView
-                android:id="@+id/add_card_daily_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_24dp"
-                android:background="?selectableItemBackground"
-                android:padding="@dimen/margin_16dp"
-                android:text="@string/add_new_card"
-                android:textColor="@color/gray_profile"
-                android:textSize="@dimen/text_16sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cards_daily_recycler" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/account_block"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                app:layout_constraintTop_toBottomOf="@+id/add_card_daily_tv">
-
-                <ImageView
-                    android:id="@+id/background"
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:layout_marginStart="@dimen/margin_24dp"
-                    android:layout_marginTop="@dimen/margin_24dp"
-                    android:layout_marginEnd="@dimen/margin_24dp"
-                    android:background="@drawable/bg_profile_gradient"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/bank_name_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_24dp"
-                    android:layout_marginTop="14dp"
-                    android:textColor="@color/withdraws_gray"
-                    android:textSize="@dimen/text_16sp"
-                    app:layout_constraintStart_toStartOf="@+id/background"
-                    app:layout_constraintTop_toTopOf="@+id/background"
-                    tools:text="ПАО “Сбербанк”" />
-
-                <TextView
-                    android:id="@+id/order_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_24dp"
-                    android:layout_marginTop="6dp"
-                    android:textColor="@color/withdraws_gray"
-                    android:textSize="@dimen/text_16sp"
-                    app:layout_constraintStart_toStartOf="@+id/background"
-                    app:layout_constraintTop_toBottomOf="@+id/bank_name_tv"
-                    tools:text="Р/с 408190009938888837" />
-
-                <TextView
-                    android:id="@+id/name_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_24dp"
-                    android:layout_marginTop="8dp"
-                    android:textColor="@color/gray_profile"
-                    android:textSize="@dimen/text_13sp"
-                    app:layout_constraintStart_toStartOf="@+id/background"
-                    app:layout_constraintTop_toBottomOf="@+id/order_tv"
-                    tools:text="Поликин Г. И" />
-
-                <ImageView
-                    android:id="@+id/delete_icon"
-                    android:layout_width="18dp"
-                    android:layout_height="18dp"
-                    android:layout_margin="@dimen/margin_16dp"
-                    app:layout_constraintEnd_toEndOf="@+id/background"
-                    app:layout_constraintTop_toTopOf="@+id/background"
-                    app:srcCompat="@drawable/ic_delete" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <View
-                android:id="@+id/space"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginStart="@dimen/margin_24dp"
-                android:layout_marginTop="22dp"
-                android:layout_marginEnd="@dimen/margin_24dp"
-                android:background="@color/colorAccent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/account_block" />
-
-            <TextView
-                android:id="@+id/instant_withdrawal_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="@dimen/margin_24dp"
-                android:drawableEnd="@drawable/ic_question"
-                android:drawablePadding="10dp"
-                android:text="@string/instant_withdrawal"
-                android:textColor="@color/gray_intro_text"
-                android:textSize="@dimen/text_24sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/space" />
-
-            <ImageView
-                android:id="@+id/plus_card_image"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="24dp"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="@+id/instant_withdrawal_tv"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/instant_withdrawal_tv"
-                app:srcCompat="@drawable/ic_plus_light_gray" />
-
-            <ImageView
-                android:id="@+id/minus_card_image"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="24dp"
-                app:layout_constraintBottom_toBottomOf="@+id/instant_withdrawal_tv"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/instant_withdrawal_tv"
-                app:srcCompat="@drawable/ic_minus_gray" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/cards_recycler"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_8dp"
-                android:layout_marginTop="18dp"
-                android:layout_marginEnd="@dimen/margin_8dp"
-                android:nestedScrollingEnabled="false"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/instant_withdrawal_tv"
-                tools:itemCount="2"
-                tools:listitem="@layout/item_card" />
-
-            <View
-                android:id="@+id/space2"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginStart="@dimen/margin_24dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginEnd="@dimen/margin_24dp"
-                android:background="@color/colorAccent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cards_recycler" />
-
-            <TextView
-                android:id="@+id/sum_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_24dp"
-                android:layout_marginTop="@dimen/margin_24dp"
-                android:text="@string/transfer_amount"
-                android:textColor="@color/gray_intro_text"
-                android:textSize="@dimen/text_24sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/space2" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/sum_input_view"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_24dp"
-                android:layout_marginTop="@dimen/margin_8dp"
-                android:layout_marginEnd="@dimen/margin_24dp"
-                android:hint="@string/enter_amount"
-                android:textColorHint="@color/gray_profile"
-                android:textSize="@dimen/text_13sp"
-                app:errorTextAppearance="@style/ErrorAppearance"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/sum_tv">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/sum_edit_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/gray_profile"
-                    android:imeOptions="actionDone"
-                    android:inputType="number"
-                    android:maxLines="1"
-                    android:textColor="@color/gray_intro_text"
-                    android:textColorHint="@color/gray_profile"
-                    android:textSize="@dimen/text_16sp" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <Button
-                android:id="@+id/send_request_button"
-                android:layout_width="0dp"
-                android:layout_height="56dp"
-                android:layout_margin="@dimen/margin_24dp"
-                android:background="@drawable/bg_intro_btn"
-                android:fontFamily="sans-serif-medium"
-                android:text="@string/send_request"
-                android:textAllCaps="false"
-                android:textColor="@color/continue_color"
-                android:textSize="@dimen/text_20sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/sum_input_view" />
-
-            <ProgressBar
-                android:id="@+id/progress_bar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.core.widget.NestedScrollView>
-
-    <include
-        android:id="@+id/keyboard"
-        layout="@layout/keyboard"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <TextView
+        android:id="@+id/notification_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="@dimen/margin_24dp"
+        android:background="@drawable/ic_chip_notification"
+        android:paddingStart="9dp"
+        android:paddingTop="3dp"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="3" />
+
+    <ImageView
+        android:id="@+id/notification_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_8dp"
+        android:background="?attr/selectableItemBackground"
+        android:padding="@dimen/margin_16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_notification"
+        tools:visibility="invisible" />
+
+    <!--  =========  -->
+
+    <ImageView
+        android:id="@+id/daily_background"
+        android:layout_width="match_parent"
+        android:layout_height="184dp"
+        android:layout_marginStart="@dimen/margin_18dp"
+        android:layout_marginTop="@dimen/margin_32dp"
+        android:layout_marginEnd="@dimen/margin_18dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/bg_withdraw_gradient"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/withdraw_create_title" />
+
+    <TextView
+        android:id="@+id/daily_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_24dp"
+        android:layout_marginTop="@dimen/margin_32dp"
+        android:text="@string/daily_withdrawal"
+        android:textColor="@color/gray_intro_text"
+        android:textSize="@dimen/text_24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/daily_background"
+        app:layout_constraintTop_toTopOf="@+id/daily_background" />
+
+    <ImageView
+        android:id="@+id/chevron_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_24dp"
+        android:src="@drawable/ic_chevron_right_white"
+        app:layout_constraintBottom_toBottomOf="@+id/daily_title"
+        app:layout_constraintEnd_toEndOf="@+id/daily_background"
+        app:layout_constraintTop_toTopOf="@+id/daily_title" />
+
+    <TextView
+        android:id="@+id/daily_message"
+        android:layout_width="296dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_24dp"
+        android:layout_marginTop="12dp"
+        android:text="@string/daily_withdrawal_message"
+        android:textColor="@color/accounts_dialog_gray"
+        android:textSize="@dimen/text_14sp"
+        app:layout_constraintStart_toStartOf="@id/daily_background"
+        app:layout_constraintTop_toBottomOf="@id/daily_title" />
+
+    <TextView
+        android:id="@+id/daily_what_is_it"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:padding="12dp"
+        android:text="@string/what_is_it"
+        android:textColor="@color/blue_color"
+        android:textSize="@dimen/text_14sp"
+        app:layout_constraintStart_toStartOf="@id/daily_background"
+        app:layout_constraintTop_toBottomOf="@+id/daily_message" />
+
+    <!--  =========  -->
+
+    <ImageView
+        android:id="@+id/instant_background"
+        android:layout_width="match_parent"
+        android:layout_height="184dp"
+        android:layout_margin="@dimen/margin_18dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/bg_withdraw_gradient"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/daily_background" />
+
+    <TextView
+        android:id="@+id/instant_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_24dp"
+        android:layout_marginTop="@dimen/margin_32dp"
+        android:text="@string/instant_withdrawal"
+        android:textColor="@color/gray_intro_text"
+        android:textSize="@dimen/text_24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/instant_background"
+        app:layout_constraintTop_toTopOf="@+id/instant_background" />
+
+    <ImageView
+        android:id="@+id/instant_chevron_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_24dp"
+        android:src="@drawable/ic_chevron_right_white"
+        app:layout_constraintBottom_toBottomOf="@+id/instant_title"
+        app:layout_constraintEnd_toEndOf="@+id/instant_background"
+        app:layout_constraintTop_toTopOf="@+id/instant_title" />
+
+    <TextView
+        android:id="@+id/instant_message"
+        android:layout_width="296dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_24dp"
+        android:layout_marginTop="12dp"
+        android:text="@string/instant_withdrawal_message"
+        android:textColor="@color/accounts_dialog_gray"
+        android:textSize="@dimen/text_14sp"
+        app:layout_constraintStart_toStartOf="@id/instant_background"
+        app:layout_constraintTop_toBottomOf="@id/instant_title" />
+
+    <TextView
+        android:id="@+id/instant_what_is_it"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:padding="12dp"
+        android:text="@string/what_is_it"
+        android:textColor="@color/blue_color"
+        android:textSize="@dimen/text_14sp"
+        app:layout_constraintStart_toStartOf="@id/instant_background"
+        app:layout_constraintTop_toBottomOf="@+id/instant_message" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,11 +4,9 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.transition.TransitionManager.beginDelayedTransition
-import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
-import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import androidx.activity.OnBackPressedCallback
@@ -22,26 +20,15 @@ import com.google.android.material.textfield.TextInputEditText
 import kotlinx.android.synthetic.main.fragment_accounts.*
 import kotlinx.android.synthetic.main.fragment_success.*
 import kotlinx.android.synthetic.main.keyboard.*
-import org.koin.androidx.viewmodel.ext.android.getViewModel
+import org.koin.android.ext.android.inject
 import taxi.kassa.R
 import taxi.kassa.util.*
 import taxi.kassa.util.Constants.NOT_FROM_PUSH
 import taxi.kassa.util.Constants.PUSH_COUNTER
 
-class AccountsFragment : Fragment() {
+class AccountsFragment : Fragment(R.layout.fragment_accounts) {
 
-    private lateinit var viewModel: AccountsViewModel
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        viewModel = getViewModel()
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? = container?.inflate(R.layout.fragment_accounts)
+    private val viewModel by inject<AccountsViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -89,8 +76,7 @@ class AccountsFragment : Fragment() {
             it.setOnFocusChangeListener { _, hasFocus ->
                 when (hasFocus) {
                     true -> {
-                        changeConstraint(
-                            parent_layout,
+                        parent_layout.changeConstraint(
                             R.id.scroll_view,
                             TOP,
                             R.id.parent_layout,
@@ -99,8 +85,7 @@ class AccountsFragment : Fragment() {
                         )
                     }
                     false -> {
-                        changeConstraint(
-                            parent_layout,
+                        parent_layout.changeConstraint(
                             R.id.scroll_view,
                             TOP,
                             R.id.accounts_cards_title,

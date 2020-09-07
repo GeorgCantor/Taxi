@@ -6,7 +6,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
-import taxi.kassa.MyApplication
 import taxi.kassa.R
 import taxi.kassa.repository.Repository
 import taxi.kassa.util.Constants.ERROR_504
@@ -19,8 +18,6 @@ class AuthCodeViewModel(
     private val repository: Repository
 ) : AndroidViewModel(app) {
 
-    private val context = getApplication<MyApplication>()
-
     val isProgressVisible = MutableLiveData<Boolean>().apply { value = false }
     val isLoggedIn = MutableLiveData<Boolean>()
     val token = MutableLiveData<String>()
@@ -28,7 +25,7 @@ class AuthCodeViewModel(
 
     private val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
         when (throwable.message) {
-            ERROR_504 -> error.postValue(context.getString(R.string.internet_unavailable))
+            ERROR_504 -> error.postValue(app.baseContext.getString(R.string.internet_unavailable))
             else -> error.postValue(throwable.message)
         }
         isProgressVisible.postValue(false)

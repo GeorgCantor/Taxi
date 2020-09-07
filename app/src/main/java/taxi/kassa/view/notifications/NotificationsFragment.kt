@@ -2,17 +2,14 @@ package taxi.kassa.view.notifications
 
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
-import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_notifications.*
 import org.koin.androidx.viewmodel.ext.android.getSharedViewModel
-import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
 import taxi.kassa.model.Notification
 import taxi.kassa.util.*
@@ -20,7 +17,7 @@ import taxi.kassa.util.Constants.NOTIFICATIONS
 import taxi.kassa.util.Constants.NOT_FROM_PUSH
 import taxi.kassa.util.Constants.PUSH_COUNTER
 
-class NotificationsFragment : Fragment() {
+class NotificationsFragment : Fragment(R.layout.fragment_notifications) {
 
     private lateinit var viewModel: NotificationsViewModel
     private lateinit var notifications: MutableList<Notification>
@@ -28,17 +25,12 @@ class NotificationsFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = getSharedViewModel { parametersOf() }
+        viewModel = getSharedViewModel()
     }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? = container?.inflate(R.layout.fragment_notifications)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        space.oneClick()
 
         viewModel.getNotifications()
 
@@ -57,7 +49,7 @@ class NotificationsFragment : Fragment() {
                 findNavController(this).navigate(R.id.action_notificationsFragment_to_notificationFragment)
             }
 
-            empty_tv.visibility = if (it.isNullOrEmpty()) VISIBLE else GONE
+            500L.runDelayed { empty_tv.visibility = if (it.isNullOrEmpty()) VISIBLE else GONE }
 
             manager = PreferenceManager(requireContext())
 
@@ -102,6 +94,9 @@ class NotificationsFragment : Fragment() {
     }
 
     private fun back() {
+        listOf(image, phone_image, notification_count, notification_image).apply {
+            map { it.invisible() }
+        }
         // check if the app is running by clicking on the notification
         when (arguments?.get(NOT_FROM_PUSH)) {
             NOT_FROM_PUSH -> findNavController(this).popBackStack()

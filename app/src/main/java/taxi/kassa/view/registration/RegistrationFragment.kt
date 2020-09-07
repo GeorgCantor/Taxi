@@ -2,24 +2,15 @@ package taxi.kassa.view.registration
 
 import android.os.Bundle
 import android.transition.TransitionManager.beginDelayedTransition
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_registration.*
 import taxi.kassa.R
 import taxi.kassa.util.getTransform
-import taxi.kassa.util.inflate
 import taxi.kassa.util.showOneButtonDialog
 
-class RegistrationFragment : Fragment() {
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? = container?.inflate(R.layout.fragment_registration)
+class RegistrationFragment : Fragment(R.layout.fragment_registration) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

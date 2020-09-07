@@ -5,10 +5,10 @@ import android.app.Activity
 import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Context.CONNECTIVITY_SERVICE
+import android.content.Context.INPUT_METHOD_SERVICE
 import android.content.Intent
 import android.content.pm.PackageManager.PERMISSION_GRANTED
 import android.graphics.Color.TRANSPARENT
-import android.graphics.Point
 import android.graphics.drawable.ColorDrawable
 import android.net.ConnectivityManager
 import android.net.Uri
@@ -19,9 +19,8 @@ import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.*
-import android.view.ViewGroup
-import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
+import android.view.inputmethod.InputMethodManager.HIDE_NOT_ALWAYS
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast.*
@@ -72,9 +71,6 @@ import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.TimeUnit
-import kotlin.math.pow
-import kotlin.math.roundToInt
-import kotlin.math.sqrt
 
 fun Context.isNetworkAvailable() = (getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager?)
     ?.activeNetworkInfo?.isConnectedOrConnecting ?: false
@@ -145,27 +141,11 @@ fun Context.showTwoButtonsDialog(
     return dialogView
 }
 
-fun Context.getScreenSize(): Double {
-    val point = Point()
-    (getSystemService(Context.WINDOW_SERVICE) as WindowManager).defaultDisplay.getRealSize(point)
-    val displayMetrics: DisplayMetrics = resources.displayMetrics
-    val width: Int = point.x
-    val height: Int = point.y
-    val wi = width.toDouble() / displayMetrics.xdpi.toDouble()
-    val hi = height.toDouble() / displayMetrics.ydpi.toDouble()
-    val x = wi.pow(2.0)
-    val y = hi.pow(2.0)
-
-    return ((sqrt(x + y) * 10.0).roundToInt() / 10.0)
-}
-
 fun Context.getScreenWidth(): Float {
     val displayMetrics: DisplayMetrics = resources.displayMetrics
 
     return displayMetrics.widthPixels / displayMetrics.density
 }
-
-fun ViewGroup.inflate(layoutRes: Int): View = LayoutInflater.from(context).inflate(layoutRes, this, false)
 
 fun View.visible() { visibility = VISIBLE }
 
@@ -173,10 +153,8 @@ fun View.invisible() { visibility = INVISIBLE }
 
 fun View.gone() { visibility = GONE }
 
-fun View.hideKeyboard() {
-    val manager = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-    manager.hideSoftInputFromWindow(windowToken, InputMethodManager.HIDE_NOT_ALWAYS)
-}
+fun View.hideKeyboard() = (context.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager)
+    .hideSoftInputFromWindow(windowToken, HIDE_NOT_ALWAYS)
 
 fun View.getTransform(mEndView: View) = MaterialContainerTransform().apply {
     startView = this@getTransform
@@ -185,6 +163,11 @@ fun View.getTransform(mEndView: View) = MaterialContainerTransform().apply {
     pathMotion = MaterialArcMotion()
     duration = 550
     scrimColor = TRANSPARENT
+}
+
+fun View.oneClick() {
+    performClick()
+    isEnabled = false
 }
 
 fun TextView.setColor(
@@ -322,7 +305,7 @@ fun EditText.setNumberClickListener(button: View, resource: Int) {
     }
 }
 
-fun EditText.isEmpty(): Boolean = value.isBlank()
+fun EditText.isEmpty() = value.isBlank()
 
 val EditText.value
     get() = text.toString()
@@ -343,31 +326,24 @@ fun Activity.makeCall(fragment: Fragment) {
     }
 }
 
-fun changeConstraint(
-    rootId: ConstraintLayout,
+fun ConstraintLayout.changeConstraint(
     startId: Int,
     startSide: Int,
     endId: Int,
     endSide: Int,
     margin: Int
 ) {
-    val constraintSet = ConstraintSet()
-    with(constraintSet) {
-        clone(rootId)
+    ConstraintSet().apply {
+        clone(this@changeConstraint)
         connect(startId, startSide, endId, endSide, margin)
-        applyTo(rootId)
+        applyTo(this@changeConstraint)
     }
 }
 
-fun removeConstraint(
-    rootId: ConstraintLayout,
-    id: Int,
-    side: Int
-) {
-    val constraintSet = ConstraintSet()
-    with(constraintSet) {
-        clone(rootId)
+fun ConstraintLayout.removeConstraint(id: Int, side: Int) {
+    ConstraintSet().apply {
+        clone(this@removeConstraint)
         clear(id, side)
-        applyTo(rootId)
+        applyTo(this@removeConstraint)
     }
 }

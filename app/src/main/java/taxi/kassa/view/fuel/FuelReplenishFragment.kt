@@ -3,14 +3,13 @@ package taxi.kassa.view.fuel
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
-import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.content.res.AppCompatResources.getDrawable
-import androidx.constraintlayout.widget.ConstraintSet
+import androidx.constraintlayout.widget.ConstraintSet.BOTTOM
+import androidx.constraintlayout.widget.ConstraintSet.TOP
 import androidx.core.view.get
 import androidx.core.view.isNotEmpty
 import androidx.fragment.app.Fragment
@@ -19,7 +18,7 @@ import kotlinx.android.synthetic.main.fragment_fuel_replenish.*
 import kotlinx.android.synthetic.main.fragment_success.*
 import kotlinx.android.synthetic.main.item_taxi.view.*
 import kotlinx.android.synthetic.main.keyboard.*
-import org.koin.androidx.viewmodel.ext.android.getViewModel
+import org.koin.android.ext.android.inject
 import taxi.kassa.R
 import taxi.kassa.model.Taxi
 import taxi.kassa.util.*
@@ -29,20 +28,9 @@ import taxi.kassa.util.Constants.NOT_FROM_PUSH
 import taxi.kassa.util.Constants.PUSH_COUNTER
 import taxi.kassa.util.Constants.YANDEX
 
-class FuelReplenishFragment : Fragment() {
+class FuelReplenishFragment : Fragment(R.layout.fragment_fuel_replenish) {
 
-    private lateinit var viewModel: FuelReplenishViewModel
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        viewModel = getViewModel()
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? = container?.inflate(R.layout.fragment_fuel_replenish)
+    private val viewModel by inject<FuelReplenishViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -159,19 +147,18 @@ class FuelReplenishFragment : Fragment() {
                 true -> {
                     keyboard.visible()
                     100L.runDelayed { scroll_view.scrollTo(0, scroll_view.bottom) }
-                    changeConstraint(
-                        root_layout,
+                    root_layout.changeConstraint(
                         R.id.enter_amount_input_view,
-                        ConstraintSet.BOTTOM,
+                        BOTTOM,
                         R.id.replenish_button,
-                        ConstraintSet.TOP,
+                        TOP,
                         40
                     )
                 }
                 false -> {
                     keyboard.gone()
                     enter_amount_input_view.error = null
-                    removeConstraint(root_layout, R.id.enter_amount_input_view, ConstraintSet.BOTTOM)
+                    root_layout.removeConstraint(R.id.enter_amount_input_view, BOTTOM)
                 }
             }
         }

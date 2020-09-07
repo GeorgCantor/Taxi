@@ -1,170 +1,179 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/auth_code_root_layout"
+    android:id="@+id/root_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/main_background">
+    android:background="@color/colorPrimary"
+    tools:context=".view.MainActivity">
 
-    <ImageView
-        android:id="@+id/back_arrow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_4dp"
-        android:layout_marginTop="12dp"
-        android:background="?attr/selectableItemBackground"
-        android:padding="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_back" />
-
-    <TextView
-        android:id="@+id/input_code_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:fontFamily="sans-serif-medium"
-        android:gravity="center"
-        android:text="@string/input_code"
-        android:textColor="@color/gray_intro_text"
-        android:textSize="@dimen/text_20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <LinearLayout
-        android:id="@+id/code_inputs_layout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_16dp"
-        android:layout_marginTop="52dp"
-        android:layout_marginEnd="@dimen/margin_16dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/input_code_title">
-
-        <EditText
-            android:id="@+id/input1"
-            android:layout_width="64dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:imeOptions="actionNext"
-            android:inputType="phone"
-            android:maxLength="1"
-            android:maxLines="1"
-            android:orientation="horizontal"
-            android:paddingBottom="20dp"
-            android:singleLine="true"
-            android:textColor="@color/white_code_text"
-            android:textSize="@dimen/text_30sp"
-            android:textStyle="bold"
-            app:backgroundTint="@color/gray_application_text"
-            tools:text="4" />
-
-        <EditText
-            android:id="@+id/input2"
-            android:layout_width="64dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_24dp"
-            android:gravity="center"
-            android:imeOptions="actionNext"
-            android:inputType="phone"
-            android:maxLength="1"
-            android:maxLines="1"
-            android:orientation="horizontal"
-            android:paddingBottom="20dp"
-            android:singleLine="true"
-            android:textColor="@color/white_code_text"
-            android:textSize="@dimen/text_30sp"
-            android:textStyle="bold"
-            app:backgroundTint="@color/gray_application_text"
-            tools:text="8" />
-
-        <EditText
-            android:id="@+id/input3"
-            android:layout_width="64dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_24dp"
-            android:gravity="center"
-            android:imeOptions="actionNext"
-            android:inputType="phone"
-            android:maxLength="1"
-            android:maxLines="1"
-            android:orientation="horizontal"
-            android:paddingBottom="20dp"
-            android:singleLine="true"
-            android:textColor="@color/white_code_text"
-            android:textSize="@dimen/text_30sp"
-            android:textStyle="bold"
-            app:backgroundTint="@color/gray_application_text"
-            tools:text="9" />
-
-        <EditText
-            android:id="@+id/input4"
-            android:layout_width="64dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_24dp"
-            android:gravity="center"
-            android:imeOptions="actionDone"
-            android:inputType="phone"
-            android:maxLength="1"
-            android:maxLines="1"
-            android:orientation="horizontal"
-            android:paddingBottom="20dp"
-            android:singleLine="true"
-            android:textColor="@color/white_code_text"
-            android:textSize="@dimen/text_30sp"
-            android:textStyle="bold"
-            app:backgroundTint="@color/gray_application_text"
-            tools:text="2" />
-
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/error_tv"
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        android:id="@+id/auth_code_root_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        android:textAlignment="center"
-        android:textColor="@color/error_red_color"
-        app:layout_constraintTop_toBottomOf="@+id/code_inputs_layout"
-        tools:text="@string/wrong_format_error" />
+        android:layout_height="match_parent"
+        android:background="@color/main_background"
+        app:layoutDescription="@xml/fragment_auth_code_scene">
 
-    <Button
-        android:id="@+id/login_button"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:layout_marginStart="38dp"
-        android:layout_marginEnd="38dp"
-        android:layout_marginBottom="@dimen/margin_48dp"
-        android:background="@drawable/bg_intro_btn"
-        android:fontFamily="sans-serif-medium"
-        android:text="@string/login_btn"
-        android:textAllCaps="false"
-        android:textColor="@color/continue_color"
-        android:textSize="@dimen/text_20sp"
-        app:layout_constraintBottom_toTopOf="@+id/keyboard"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <ImageView
+            android:id="@+id/back_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_4dp"
+            android:layout_marginTop="12dp"
+            android:background="?attr/selectableItemBackground"
+            android:padding="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_back" />
 
-    <include
-        android:id="@+id/keyboard"
-        layout="@layout/keyboard"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/input_code_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:text="@string/input_code"
+            android:textColor="@color/gray_intro_text"
+            android:textSize="@dimen/text_20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/code_inputs_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:layout_marginTop="52dp"
+            android:layout_marginEnd="@dimen/margin_16dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/input_code_title">
+
+            <EditText
+                android:id="@+id/input1"
+                android:layout_width="64dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:imeOptions="actionNext"
+                android:inputType="phone"
+                android:maxLength="1"
+                android:maxLines="1"
+                android:orientation="horizontal"
+                android:paddingBottom="20dp"
+                android:singleLine="true"
+                android:textColor="@color/white_code_text"
+                android:textSize="@dimen/text_30sp"
+                android:textStyle="bold"
+                app:backgroundTint="@color/gray_application_text"
+                tools:text="4" />
+
+            <EditText
+                android:id="@+id/input2"
+                android:layout_width="64dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_24dp"
+                android:gravity="center"
+                android:imeOptions="actionNext"
+                android:inputType="phone"
+                android:maxLength="1"
+                android:maxLines="1"
+                android:orientation="horizontal"
+                android:paddingBottom="20dp"
+                android:singleLine="true"
+                android:textColor="@color/white_code_text"
+                android:textSize="@dimen/text_30sp"
+                android:textStyle="bold"
+                app:backgroundTint="@color/gray_application_text"
+                tools:text="8" />
+
+            <EditText
+                android:id="@+id/input3"
+                android:layout_width="64dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_24dp"
+                android:gravity="center"
+                android:imeOptions="actionNext"
+                android:inputType="phone"
+                android:maxLength="1"
+                android:maxLines="1"
+                android:orientation="horizontal"
+                android:paddingBottom="20dp"
+                android:singleLine="true"
+                android:textColor="@color/white_code_text"
+                android:textSize="@dimen/text_30sp"
+                android:textStyle="bold"
+                app:backgroundTint="@color/gray_application_text"
+                tools:text="9" />
+
+            <EditText
+                android:id="@+id/input4"
+                android:layout_width="64dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_24dp"
+                android:gravity="center"
+                android:imeOptions="actionDone"
+                android:inputType="phone"
+                android:maxLength="1"
+                android:maxLines="1"
+                android:orientation="horizontal"
+                android:paddingBottom="20dp"
+                android:singleLine="true"
+                android:textColor="@color/white_code_text"
+                android:textSize="@dimen/text_30sp"
+                android:textStyle="bold"
+                app:backgroundTint="@color/gray_application_text"
+                tools:text="2" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/error_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:textAlignment="center"
+            android:textColor="@color/error_red_color"
+            app:layout_constraintTop_toBottomOf="@+id/code_inputs_layout"
+            tools:text="@string/wrong_format_error" />
+
+        <Button
+            android:id="@+id/login_button"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginStart="38dp"
+            android:layout_marginEnd="38dp"
+            android:layout_marginBottom="@dimen/margin_48dp"
+            android:background="@drawable/bg_intro_btn"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/login_btn"
+            android:textAllCaps="false"
+            android:textColor="@color/continue_color"
+            android:textSize="@dimen/text_20sp"
+            app:layout_constraintBottom_toTopOf="@+id/keyboard"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <include
+            android:id="@+id/keyboard"
+            layout="@layout/keyboard"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.motion.widget.MotionLayout>
 
     <ProgressBar
         android:id="@+id/progress_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/login_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/error_tv" />
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/margin_62dp"
+        android:visibility="gone" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

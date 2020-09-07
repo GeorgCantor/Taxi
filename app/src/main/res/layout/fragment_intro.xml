@@ -7,10 +7,11 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg_intro">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.constraintlayout.motion.widget.MotionLayout
         android:id="@+id/intro_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layoutDescription="@xml/fragment_intro_scene">
 
         <ImageView
             android:id="@+id/image_view"
@@ -53,6 +54,7 @@
             app:layout_constraintTop_toBottomOf="@+id/image_view" />
 
         <TextView
+            android:id="@+id/text_work"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_8dp"
@@ -111,6 +113,6 @@
             app:layout_constraintStart_toStartOf="parent"
             tools:text="@string/intro_registration_message" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.motion.widget.MotionLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

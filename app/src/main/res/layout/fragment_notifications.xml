@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/notifications_root_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/profile_background"
-    android:fillViewport="true">
+    tools:context=".view.MainActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        android:id="@+id/notifications_root_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        app:layoutDescription="@xml/fragment_notifications_scene">
 
         <ImageView
+            android:id="@+id/image"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="280dp"
             android:layout_marginBottom="@dimen/margin_64dp"
             android:background="@drawable/bg_profile"
-            app:layout_constraintBottom_toBottomOf="@+id/empty_tv"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -104,21 +104,16 @@
             tools:itemCount="5"
             tools:listitem="@layout/item_notification" />
 
-        <TextView
-            android:id="@+id/empty_tv"
-            android:layout_width="185dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="100dp"
-            android:gravity="center"
-            android:text="@string/no_notifications"
-            android:textColor="@color/gray_profile"
-            android:textSize="@dimen/text_16sp"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/background" />
+    </androidx.constraintlayout.motion.widget.MotionLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/empty_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/no_notifications"
+        android:textColor="@color/gray_profile"
+        android:textSize="@dimen/text_16sp"
+        android:visibility="gone" />
 
-</androidx.core.widget.NestedScrollView>
+</FrameLayout>

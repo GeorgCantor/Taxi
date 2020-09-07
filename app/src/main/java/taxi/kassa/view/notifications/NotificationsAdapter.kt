@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.constraintlayout.widget.ConstraintSet
+import androidx.constraintlayout.widget.ConstraintSet.START
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_notification.view.*
 import taxi.kassa.R
@@ -45,14 +45,7 @@ class NotificationsAdapter(
                 true -> statusImage.setImageResource(R.drawable.ic_yellow_circle)
                 false -> {
                     statusImage.invisible()
-                    changeConstraint(
-                        parent,
-                        R.id.push_title,
-                        ConstraintSet.START,
-                        R.id.push_message,
-                        ConstraintSet.START,
-                        0
-                    )
+                    parent.changeConstraint(R.id.push_title, START, R.id.push_message, START, 0)
                 }
             }
 

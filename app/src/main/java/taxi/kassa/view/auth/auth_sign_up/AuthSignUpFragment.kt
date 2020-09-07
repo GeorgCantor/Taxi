@@ -1,34 +1,21 @@
 package taxi.kassa.view.auth.auth_sign_up
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_auth_sign_up.*
+import kotlinx.android.synthetic.main.fragment_success.*
 import kotlinx.android.synthetic.main.keyboard.*
-import org.koin.androidx.viewmodel.ext.android.getViewModel
+import org.koin.android.ext.android.inject
 import taxi.kassa.R
 import taxi.kassa.util.*
 
-class AuthSignUpFragment : Fragment() {
+class AuthSignUpFragment : Fragment(R.layout.fragment_auth_sign_up) {
 
-    private lateinit var viewModel: AuthSignUpViewModel
+    private val viewModel by inject<AuthSignUpViewModel>()
     private var phone = ""
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        viewModel = getViewModel()
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? = container?.inflate(R.layout.fragment_auth_sign_up)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -45,7 +32,16 @@ class AuthSignUpFragment : Fragment() {
             error.observe(viewLifecycleOwner) { phone_input_view.error = it }
 
             isSignUp.observe(viewLifecycleOwner) { success ->
-                if (success) findNavController(this@AuthSignUpFragment).navigate(R.id.action_authSignUpFragment_to_successRequestFragment)
+                if (success) {
+                    signup_button.gone()
+                    success_layout.visible()
+                    success_title.text = getString(R.string.register_application_success)
+                    success_message.text = getString(R.string.application_success_message)
+                    back_arrow_success.setOnClickListener { activity?.onBackPressed() }
+                    back_to_main_button.setOnClickListener { activity?.onBackPressed() }
+                    back_to_main_button.text = getString(R.string.ok)
+                    back_button.gone()
+                }
             }
         }
 

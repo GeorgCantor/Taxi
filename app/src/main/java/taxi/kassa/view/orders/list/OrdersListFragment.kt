@@ -1,25 +1,22 @@
 package taxi.kassa.view.orders.list
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
-import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_order.*
 import kotlinx.android.synthetic.main.fragment_orders.*
 import kotlinx.android.synthetic.main.fragment_orders_list.*
-import org.koin.androidx.viewmodel.ext.android.getViewModel
-import org.koin.core.parameter.parametersOf
+import org.koin.android.ext.android.inject
 import taxi.kassa.R
 import taxi.kassa.model.responses.Order
 import taxi.kassa.util.*
 import taxi.kassa.view.orders.adapter.OrdersAdapter
 
-class OrdersListFragment : Fragment() {
+class OrdersListFragment : Fragment(R.layout.fragment_orders_list) {
 
     companion object {
         private const val ARG_TAXI = "taxi"
@@ -33,21 +30,10 @@ class OrdersListFragment : Fragment() {
         }
     }
 
-    private lateinit var viewModel: OrdersListViewModel
+    private val viewModel by inject<OrdersListViewModel>()
     private lateinit var adapter: OrdersAdapter
     private var nextOffset = ""
     private var firstLoad = true
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        viewModel = getViewModel()
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? = container?.inflate(R.layout.fragment_orders_list)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

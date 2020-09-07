@@ -105,12 +105,12 @@ class WithdrawsAdapter(
                         holder.taxiName.setText(R.string.yandex_title)
                     }
                     2 -> {
-                        holder.taxiIcon.setImageResource(R.drawable.ic_gett_mini)
-                        holder.taxiName.setText(R.string.gett_title)
-                    }
-                    3 -> {
                         holder.taxiIcon.setImageResource(R.drawable.ic_citymobil_mini)
                         holder.taxiName.setText(R.string.citymobil_title)
+                    }
+                    3 -> {
+                        holder.taxiIcon.setImageResource(R.drawable.ic_gett_mini)
+                        holder.taxiName.setText(R.string.gett_title)
                     }
                 }
 

@@ -10,7 +10,6 @@ import android.graphics.Matrix
 import android.media.Image
 import android.os.Bundle
 import android.provider.MediaStore
-import android.view.LayoutInflater
 import android.view.Surface
 import android.view.View
 import android.view.ViewGroup
@@ -19,14 +18,16 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_photo.*
 import org.koin.androidx.viewmodel.ext.android.getSharedViewModel
-import org.koin.core.parameter.parametersOf
 import taxi.kassa.R
-import taxi.kassa.util.*
+import taxi.kassa.util.gone
+import taxi.kassa.util.runDelayed
+import taxi.kassa.util.shortToast
+import taxi.kassa.util.visible
 import taxi.kassa.view.registration.connection.ConnectionViewModel
 import java.util.concurrent.Executor
 import java.util.concurrent.Executors
 
-class PhotoFragment : Fragment() {
+class PhotoFragment : Fragment(R.layout.fragment_photo) {
 
     companion object {
         private const val REQUEST_CODE_PERMISSIONS = 10
@@ -48,14 +49,8 @@ class PhotoFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = getSharedViewModel { parametersOf() }
+        viewModel = getSharedViewModel()
     }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? = container?.inflate(R.layout.fragment_photo)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

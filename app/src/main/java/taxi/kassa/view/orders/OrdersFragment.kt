@@ -1,9 +1,7 @@
 package taxi.kassa.view.orders
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import androidx.core.view.get
 import androidx.core.view.isNotEmpty
@@ -12,7 +10,7 @@ import androidx.navigation.fragment.NavHostFragment.findNavController
 import androidx.viewpager.widget.ViewPager
 import kotlinx.android.synthetic.main.fragment_orders.*
 import kotlinx.android.synthetic.main.item_taxi_orders.view.*
-import org.koin.androidx.viewmodel.ext.android.getViewModel
+import org.koin.android.ext.android.inject
 import taxi.kassa.R
 import taxi.kassa.util.*
 import taxi.kassa.util.Constants.NOT_FROM_PUSH
@@ -21,20 +19,9 @@ import taxi.kassa.view.orders.adapter.OrdersPagerAdapter
 import taxi.kassa.view.orders.adapter.OrdersTaxiAdapter
 import taxi.kassa.view.orders.list.OrdersListFragment
 
-class OrdersFragment : Fragment() {
+class OrdersFragment : Fragment(R.layout.fragment_orders) {
 
-    private lateinit var viewModel: OrdersViewModel
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        viewModel = getViewModel()
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? = container?.inflate(R.layout.fragment_orders)
+    private val viewModel by inject<OrdersViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
