@@ -1,7 +1,6 @@
 package taxi.kassa.view.profile
 
-import android.content.Intent
-import android.content.pm.PackageManager
+import android.content.pm.PackageManager.PERMISSION_GRANTED
 import android.os.Bundle
 import android.telephony.PhoneNumberUtils.formatNumber
 import android.transition.TransitionManager.beginDelayedTransition
@@ -19,7 +18,6 @@ import taxi.kassa.util.Constants.NOT_FROM_PUSH
 import taxi.kassa.util.Constants.PHONE
 import taxi.kassa.util.Constants.PUSH_COUNTER
 import taxi.kassa.util.Constants.TOKEN
-import taxi.kassa.view.MainActivity
 import java.util.*
 
 class ProfileFragment : Fragment(R.layout.fragment_profile) {
@@ -32,10 +30,6 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
         with(viewModel) {
             getUserData()
-
-            isNetworkAvailable.observe(viewLifecycleOwner) { available ->
-                if (!available) context?.longToast(getString(R.string.internet_unavailable))
-            }
 
             isProgressVisible.observe(viewLifecycleOwner) { visible ->
                 progress_bar.visibility = if (visible) VISIBLE else GONE
@@ -155,17 +149,12 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         }
     }
 
-    override fun onResume() {
-        super.onResume()
-        viewModel.checkInternet()
-    }
-
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
         grantResults: IntArray
     ) {
-        if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+        if (grantResults.isNotEmpty() && grantResults[0] == PERMISSION_GRANTED) {
             requireActivity().makeCall(this)
         }
     }
@@ -173,8 +162,6 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
     private fun logout() {
         viewModel.saveToPrefs(PHONE, "")
         viewModel.saveToPrefs(TOKEN, "")
-
-        activity?.finish()
-        startActivity(Intent(requireActivity(), MainActivity::class.java))
+        activity?.restart()
     }
 }

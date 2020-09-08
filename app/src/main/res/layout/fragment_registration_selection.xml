@@ -5,9 +5,10 @@
     android:background="@color/main_background"
     android:fillViewport="true">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    <androidx.constraintlayout.motion.widget.MotionLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:layoutDescription="@xml/fragment_registration_selection_scene">
 
         <ImageView
             android:id="@+id/back_arrow"
@@ -185,6 +186,6 @@
             app:layout_constraintTop_toTopOf="@id/city_background"
             app:srcCompat="@drawable/ic_plus" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.motion.widget.MotionLayout>
 
 </androidx.core.widget.NestedScrollView>

@@ -12,7 +12,6 @@ import taxi.kassa.repository.Repository
 import taxi.kassa.util.Constants.ERROR_504
 import taxi.kassa.util.Constants.KEY
 import taxi.kassa.util.Constants.PHONE_REQUEST
-import taxi.kassa.util.isNetworkAvailable
 
 class AuthSignUpViewModel(
     app: Application,
@@ -22,7 +21,6 @@ class AuthSignUpViewModel(
     private val context = getApplication<MyApplication>()
 
     val isProgressVisible = MutableLiveData<Boolean>().apply { value = false }
-    val isNetworkAvailable = MutableLiveData<Boolean>()
     val isSignUp = MutableLiveData<Boolean>()
     val error = MutableLiveData<String>()
 
@@ -49,7 +47,5 @@ class AuthSignUpViewModel(
             response?.errorMsg?.let { error.postValue(it) }
             isProgressVisible.postValue(false)
         }
-
-        isNetworkAvailable.value = context.isNetworkAvailable()
     }
 }

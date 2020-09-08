@@ -67,6 +67,7 @@ import taxi.kassa.util.Constants.VISA
 import taxi.kassa.util.Constants.YANDEX
 import taxi.kassa.util.Constants.YANDEX_REQUEST
 import taxi.kassa.util.Constants.myDateFormatSymbols
+import taxi.kassa.view.MainActivity
 import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.*
@@ -324,6 +325,11 @@ fun Activity.makeCall(fragment: Fragment) {
             shortToast(getString(R.string.not_find_call_app))
         }
     }
+}
+
+fun Activity.restart() {
+    finish()
+    startActivity(Intent(this, MainActivity::class.java))
 }
 
 fun ConstraintLayout.changeConstraint(

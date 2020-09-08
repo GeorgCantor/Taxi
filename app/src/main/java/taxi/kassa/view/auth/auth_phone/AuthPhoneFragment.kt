@@ -22,10 +22,6 @@ class AuthPhoneFragment : Fragment(R.layout.fragment_auth_phone) {
         input_title.oneClick()
 
         with(viewModel) {
-            isNetworkAvailable.observe(viewLifecycleOwner) { available ->
-                if (!available) context?.longToast(getString(R.string.internet_unavailable))
-            }
-
             isProgressVisible.observe(viewLifecycleOwner) { visible ->
                 progress_bar.visibility = if (visible) VISIBLE else GONE
             }

@@ -1,12 +1,11 @@
 package taxi.kassa.view.support
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_success.*
 import taxi.kassa.R
-import taxi.kassa.view.MainActivity
+import taxi.kassa.util.restart
 
 class SuccessFragment : Fragment(R.layout.fragment_success) {
 
@@ -15,10 +14,7 @@ class SuccessFragment : Fragment(R.layout.fragment_success) {
 
         back_arrow_success.setOnClickListener { activity?.onBackPressed() }
 
-        back_to_main_button.setOnClickListener {
-            activity?.finish()
-            startActivity(Intent(requireActivity(), MainActivity::class.java))
-        }
+        back_to_main_button.setOnClickListener { activity?.restart() }
 
         back_button.setOnClickListener { activity?.onBackPressed() }
     }

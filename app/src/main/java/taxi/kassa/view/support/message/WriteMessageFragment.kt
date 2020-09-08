@@ -27,10 +27,6 @@ class WriteMessageFragment : Fragment(R.layout.fragment_write_message) {
                 progress_bar.visibility = if (visible) View.VISIBLE else View.GONE
             }
 
-            isNetworkAvailable.observe(viewLifecycleOwner) { available ->
-                if (!available) context?.longToast(getString(R.string.internet_unavailable))
-            }
-
             error.observe(viewLifecycleOwner) { context?.longToast(it) }
 
             send_button.setOnClickListener {

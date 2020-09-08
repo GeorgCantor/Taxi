@@ -21,10 +21,6 @@ class AuthSignUpFragment : Fragment(R.layout.fragment_auth_sign_up) {
         super.onViewCreated(view, savedInstanceState)
 
         with(viewModel) {
-            isNetworkAvailable.observe(viewLifecycleOwner) { available ->
-                if (!available) context?.longToast(getString(R.string.internet_unavailable))
-            }
-
             isProgressVisible.observe(viewLifecycleOwner) { visible ->
                 progress_bar.visibility = if (visible) VISIBLE else GONE
             }

@@ -1,6 +1,8 @@
 package taxi.kassa.view
 
 import android.os.Bundle
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import com.google.android.play.core.review.ReviewInfo
@@ -15,6 +17,7 @@ import taxi.kassa.util.Constants.PUSH_PATTERN
 import taxi.kassa.util.Constants.TITLE
 import taxi.kassa.util.Constants.accessToken
 import taxi.kassa.util.Constants.myDateFormatSymbols
+import taxi.kassa.util.NetworkUtils.getNetworkLiveData
 import taxi.kassa.util.hideKeyboard
 import taxi.kassa.util.observe
 import taxi.kassa.util.runDelayed
@@ -86,6 +89,10 @@ class MainActivity : AppCompatActivity() {
                     if (show) showInAppReview()
                 }
             }
+        }
+
+        getNetworkLiveData(applicationContext).observe(this) { isConnected ->
+            no_internet_warning.visibility = if (isConnected) GONE else VISIBLE
         }
     }
 
