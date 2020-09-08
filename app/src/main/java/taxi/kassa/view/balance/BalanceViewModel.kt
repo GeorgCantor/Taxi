@@ -12,7 +12,6 @@ import taxi.kassa.model.Notification
 import taxi.kassa.model.responses.ResponseOwner
 import taxi.kassa.repository.Repository
 import taxi.kassa.util.Constants.ERROR_504
-import taxi.kassa.util.isNetworkAvailable
 
 class BalanceViewModel(
     app: Application,
@@ -22,7 +21,6 @@ class BalanceViewModel(
     private val context = getApplication<MyApplication>()
 
     val isProgressVisible = MutableLiveData<Boolean>().apply { value = true }
-    val isNetworkAvailable = MutableLiveData<Boolean>()
     val responseOwner = MutableLiveData<ResponseOwner>()
     val error = MutableLiveData<String>()
     val notifications = MutableLiveData<MutableList<Notification>>()
@@ -44,9 +42,5 @@ class BalanceViewModel(
             isProgressVisible.postValue(false)
             notifications.postValue(repository.getNotificationsAsync().await())
         }
-    }
-
-    fun checkInternet() {
-        isNetworkAvailable.value = context.isNetworkAvailable()
     }
 }

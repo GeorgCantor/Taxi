@@ -13,7 +13,6 @@ import taxi.kassa.model.responses.ResponseOwner
 import taxi.kassa.repository.Repository
 import taxi.kassa.util.Constants.ERROR_504
 import taxi.kassa.util.Constants.YANDEX
-import taxi.kassa.util.isNetworkAvailable
 
 class FuelReplenishViewModel(
     app: Application,
@@ -23,7 +22,6 @@ class FuelReplenishViewModel(
     private val context = getApplication<MyApplication>()
 
     val isProgressVisible = MutableLiveData<Boolean>().apply { value = true }
-    val isNetworkAvailable = MutableLiveData<Boolean>()
     val responseOwner = MutableLiveData<ResponseOwner>()
     val showSuccessScreen = MutableLiveData<Boolean>()
     val error = MutableLiveData<String>()
@@ -48,8 +46,6 @@ class FuelReplenishViewModel(
             isProgressVisible.postValue(false)
             notifications.postValue(repository.getNotificationsAsync().await())
         }
-
-        isNetworkAvailable.value = context.isNetworkAvailable()
     }
 
     fun refillFuelBalance(amount: Float) {

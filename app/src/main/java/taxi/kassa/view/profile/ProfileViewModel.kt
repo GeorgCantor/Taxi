@@ -15,7 +15,6 @@ import taxi.kassa.repository.Repository
 import taxi.kassa.util.Constants.ERROR_504
 import taxi.kassa.util.Constants.UNREAD
 import taxi.kassa.util.PreferenceManager
-import taxi.kassa.util.isNetworkAvailable
 
 class ProfileViewModel(
     app: Application,
@@ -26,7 +25,6 @@ class ProfileViewModel(
     private val context = getApplication<MyApplication>()
 
     val isProgressVisible = MutableLiveData<Boolean>().apply { value = true }
-    val isNetworkAvailable = MutableLiveData<Boolean>()
     val responseOwner = MutableLiveData<ResponseOwner>()
     val error = MutableLiveData<String>()
     val notifications = MutableLiveData<MutableList<Notification>>()
@@ -51,10 +49,6 @@ class ProfileViewModel(
 
             incomingMessages.postValue(repository.getChatHistory("")?.response?.messages?.filter { it.status == UNREAD })
         }
-    }
-
-    fun checkInternet() {
-        isNetworkAvailable.value = context.isNetworkAvailable()
     }
 
     fun saveToPrefs(key: String, value: Any) {

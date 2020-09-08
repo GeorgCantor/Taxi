@@ -35,10 +35,6 @@ class BalanceFragment : Fragment(R.layout.fragment_balance) {
         with(viewModel) {
             getUserData()
 
-            isNetworkAvailable.observe(viewLifecycleOwner) { available ->
-                if (!available) context?.longToast(getString(R.string.internet_unavailable))
-            }
-
             isProgressVisible.observe(viewLifecycleOwner) { visible ->
                 progress_bar.visibility = if (visible) VISIBLE else GONE
             }
@@ -125,11 +121,6 @@ class BalanceFragment : Fragment(R.layout.fragment_balance) {
         }
 
         back_arrow.setOnClickListener { activity?.onBackPressed() }
-    }
-
-    override fun onResume() {
-        super.onResume()
-        viewModel.checkInternet()
     }
 
     private fun back() {

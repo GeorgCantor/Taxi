@@ -10,7 +10,6 @@ import taxi.kassa.MyApplication
 import taxi.kassa.R
 import taxi.kassa.repository.Repository
 import taxi.kassa.util.Constants.ERROR_504
-import taxi.kassa.util.isNetworkAvailable
 
 class WriteMessageViewModel(
     app: Application,
@@ -20,7 +19,6 @@ class WriteMessageViewModel(
     private val context = getApplication<MyApplication>()
 
     val isProgressVisible = MutableLiveData<Boolean>().apply { value = false }
-    val isNetworkAvailable = MutableLiveData<Boolean>()
     val error = MutableLiveData<String>()
     val isMessageSent = MutableLiveData<Boolean>().apply { value = false }
 
@@ -41,6 +39,5 @@ class WriteMessageViewModel(
             error.postValue(response?.errorMsg)
             isProgressVisible.postValue(false)
         }
-        isNetworkAvailable.value = context.isNetworkAvailable()
     }
 }

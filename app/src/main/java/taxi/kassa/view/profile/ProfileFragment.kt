@@ -31,10 +31,6 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         with(viewModel) {
             getUserData()
 
-            isNetworkAvailable.observe(viewLifecycleOwner) { available ->
-                if (!available) context?.longToast(getString(R.string.internet_unavailable))
-            }
-
             isProgressVisible.observe(viewLifecycleOwner) { visible ->
                 progress_bar.visibility = if (visible) VISIBLE else GONE
             }
@@ -151,11 +147,6 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
             beginDelayedTransition(parent_layout, it.getTransform(dialogView))
             exit_tv.gone()
         }
-    }
-
-    override fun onResume() {
-        super.onResume()
-        viewModel.checkInternet()
     }
 
     override fun onRequestPermissionsResult(

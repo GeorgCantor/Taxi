@@ -45,10 +45,6 @@ class FuelReplenishFragment : Fragment(R.layout.fragment_fuel_replenish) {
         with(viewModel) {
             getOwnerData()
 
-            isNetworkAvailable.observe(viewLifecycleOwner) { available ->
-                if (!available) context?.longToast(getString(R.string.internet_unavailable))
-            }
-
             isProgressVisible.observe(viewLifecycleOwner) { visible ->
                 progress_bar.visibility = if (visible) VISIBLE else GONE
             }
