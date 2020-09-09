@@ -3,7 +3,7 @@ package taxi.kassa.view.registration.photo
 import android.Manifest
 import android.app.Activity
 import android.content.Intent
-import android.content.pm.PackageManager
+import android.content.pm.PackageManager.PERMISSION_GRANTED
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Matrix
@@ -126,7 +126,7 @@ class PhotoFragment : Fragment(R.layout.fragment_photo) {
     }
 
     private fun allPermissionsGranted() = permissions.all {
-        ContextCompat.checkSelfPermission(requireContext(), it) == PackageManager.PERMISSION_GRANTED
+        ContextCompat.checkSelfPermission(requireContext(), it) == PERMISSION_GRANTED
     }
 
     private fun startCamera() {
