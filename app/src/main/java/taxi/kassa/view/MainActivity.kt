@@ -1,9 +1,10 @@
 package taxi.kassa.view
 
 import android.os.Bundle
-import android.view.View.GONE
-import android.view.View.VISIBLE
+import android.transition.TransitionManager.beginDelayedTransition
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import androidx.navigation.fragment.NavHostFragment
 import com.google.android.play.core.review.ReviewInfo
 import com.google.android.play.core.review.ReviewManager
@@ -12,15 +13,13 @@ import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.android.ext.android.inject
 import taxi.kassa.R
 import taxi.kassa.model.Notification
+import taxi.kassa.util.*
 import taxi.kassa.util.Constants.MESSAGE
 import taxi.kassa.util.Constants.PUSH_PATTERN
 import taxi.kassa.util.Constants.TITLE
 import taxi.kassa.util.Constants.accessToken
 import taxi.kassa.util.Constants.myDateFormatSymbols
 import taxi.kassa.util.NetworkUtils.getNetworkLiveData
-import taxi.kassa.util.hideKeyboard
-import taxi.kassa.util.observe
-import taxi.kassa.util.runDelayed
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -92,7 +91,20 @@ class MainActivity : AppCompatActivity() {
         }
 
         getNetworkLiveData(applicationContext).observe(this) { isConnected ->
-            no_internet_warning.visibility = if (isConnected) GONE else VISIBLE
+            when (isConnected) {
+                true -> {
+                    if (no_internet_warning.isVisible) {
+                        beginDelayedTransition(root_layout, no_internet_warning.getTransform(line))
+                        550L.runDelayed { no_internet_warning.gone() }
+                    }
+                }
+                false -> {
+                    if (no_internet_warning.isGone) {
+                        beginDelayedTransition(root_layout, line.getTransform(no_internet_warning))
+                        550L.runDelayed { no_internet_warning.visible() }
+                    }
+                }
+            }
         }
     }
 
