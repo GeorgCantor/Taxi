@@ -2,6 +2,7 @@ package taxi.kassa.view
 
 import android.os.Bundle
 import android.transition.TransitionManager.beginDelayedTransition
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
@@ -91,18 +92,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         getNetworkLiveData(applicationContext).observe(this) { isConnected ->
-            when (isConnected) {
-                true -> {
-                    if (no_internet_warning.isVisible) {
-                        beginDelayedTransition(root_layout, no_internet_warning.getTransform(line))
-                        550L.runDelayed { no_internet_warning.gone() }
-                    }
-                }
-                false -> {
-                    if (no_internet_warning.isGone) {
-                        beginDelayedTransition(root_layout, line.getTransform(no_internet_warning))
-                        550L.runDelayed { no_internet_warning.visible() }
-                    }
+            no_internet_warning.apply {
+                when (isConnected) {
+                    true -> if (isVisible) setWarningTransition(this, line) { gone() }
+                    false -> if (isGone) setWarningTransition(line, this) { visible() }
                 }
             }
         }
@@ -112,6 +105,11 @@ class MainActivity : AppCompatActivity() {
         super.onResume()
         // if a custom keyboard was opened before exiting, both can be opened
         100L.runDelayed { this.root_layout.hideKeyboard() }
+    }
+
+    private fun setWarningTransition(startView: View, endView: View, action: () -> Unit) {
+        beginDelayedTransition(root_layout, startView.getTransform(endView))
+        550L.runDelayed { action() }
     }
 
     /**
