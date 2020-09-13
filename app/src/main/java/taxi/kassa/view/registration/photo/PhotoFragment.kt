@@ -138,7 +138,7 @@ class PhotoFragment : Fragment(R.layout.fragment_photo) {
             parent.removeView(preview_view)
             parent.addView(preview_view, 0)
 
-            preview_view.surfaceTexture = it.surfaceTexture
+            preview_view.setSurfaceTexture(it.surfaceTexture)
             updateTransform()
         }
         imageCapture = createCaptureUseCase()
