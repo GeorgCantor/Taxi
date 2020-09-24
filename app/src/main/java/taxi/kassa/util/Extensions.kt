@@ -14,6 +14,7 @@ import android.net.ConnectivityManager
 import android.net.Uri
 import android.os.Build
 import android.os.Handler
+import android.os.Looper.getMainLooper
 import android.util.DisplayMetrics
 import android.util.TypedValue
 import android.view.LayoutInflater
@@ -235,7 +236,7 @@ fun Long.convertToTime(pattern: String): String {
 }
 
 fun Long.runDelayed(action: () -> Unit) {
-    Handler().postDelayed(action, TimeUnit.MILLISECONDS.toMillis(this))
+    Handler(getMainLooper()).postDelayed(action, TimeUnit.MILLISECONDS.toMillis(this))
 }
 
 fun Int.getPhotoType() = when (this) {
