@@ -12,8 +12,6 @@ import taxi.kassa.util.showOneButtonDialog
 
 class RegistrationFragment : Fragment(R.layout.fragment_registration) {
 
-    private lateinit var dialogView: View
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -30,7 +28,7 @@ class RegistrationFragment : Fragment(R.layout.fragment_registration) {
         }
 
         view_terms.setOnClickListener {
-            dialogView = requireContext().showOneButtonDialog(
+            val dialogView = requireContext().showOneButtonDialog(
                 getString(R.string.connection_terms),
                 getString(R.string.terms_description),
                 true

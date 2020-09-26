@@ -13,6 +13,8 @@ import taxi.kassa.model.responses.Message
 import taxi.kassa.model.responses.ResponseOwner
 import taxi.kassa.repository.Repository
 import taxi.kassa.util.Constants.ERROR_504
+import taxi.kassa.util.Constants.PHONE
+import taxi.kassa.util.Constants.TOKEN
 import taxi.kassa.util.Constants.UNREAD
 import taxi.kassa.util.PreferenceManager
 
@@ -51,10 +53,8 @@ class ProfileViewModel(
         }
     }
 
-    fun saveToPrefs(key: String, value: Any) {
-        when (value) {
-            is String -> preferenceManager.saveString(key, value)
-            is Int -> preferenceManager.saveInt(key, value)
-        }
+    fun removePhoneToken() {
+        preferenceManager.saveString(PHONE, "")
+        preferenceManager.saveString(TOKEN, "")
     }
 }

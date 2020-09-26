@@ -15,9 +15,7 @@ import taxi.kassa.R
 import taxi.kassa.util.*
 import taxi.kassa.util.Constants.MESSAGES_COUNTER
 import taxi.kassa.util.Constants.NOT_FROM_PUSH
-import taxi.kassa.util.Constants.PHONE
 import taxi.kassa.util.Constants.PUSH_COUNTER
-import taxi.kassa.util.Constants.TOKEN
 import java.util.*
 
 class ProfileFragment : Fragment(R.layout.fragment_profile) {
@@ -124,12 +122,10 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
                 getString(R.string.call),
                 { view, rootLayout ->
                     beginDelayedTransition(rootLayout, view.getTransform(phone_image))
-                    550L.runDelayed { phone_image?.visible() }
                 },
                 { requireActivity().makeCall(this) }
             )
             beginDelayedTransition(parent_layout, it.getTransform(dialogView))
-            phone_image.gone()
         }
 
         exit_tv.setOnClickListener {
@@ -140,12 +136,10 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
                 getString(R.string.yes),
                 { view, rootLayout ->
                     beginDelayedTransition(rootLayout, view.getTransform(exit_tv))
-                    550L.runDelayed { exit_tv?.visible() }
                 },
                 { logout() }
             )
             beginDelayedTransition(parent_layout, it.getTransform(dialogView))
-            exit_tv.gone()
         }
     }
 
@@ -160,8 +154,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
     }
 
     private fun logout() {
-        viewModel.saveToPrefs(PHONE, "")
-        viewModel.saveToPrefs(TOKEN, "")
+        viewModel.removePhoneToken()
         activity?.restart()
     }
 }
