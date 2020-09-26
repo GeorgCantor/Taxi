@@ -86,7 +86,7 @@ fun Context.showOneButtonDialog(
     message: String,
     isRegistrationDialog: Boolean,
     transitionFunction: (View, ConstraintLayout) -> (Unit)
-) {
+): View {
     val dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_one_button, null)
     val builder = AlertDialog.Builder(this).setView(dialogView)
     val alertDialog = builder.show()
@@ -107,6 +107,8 @@ fun Context.showOneButtonDialog(
             this.extra_message.visible()
         }
     }
+
+    return dialogView
 }
 
 fun Context.showTwoButtonsDialog(
