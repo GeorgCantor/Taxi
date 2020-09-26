@@ -38,11 +38,10 @@
     </ConstraintSet>
 
     <Transition
+        app:autoTransition="animateToEnd"
         app:constraintSetEnd="@id/end"
         app:constraintSetStart="@+id/start"
-        app:duration="600">
-        <OnClick app:targetId="@+id/registration_title" />
-    </Transition>
-    <ConstraintSet android:id="@+id/endGett" />
+        app:duration="600"
+        app:layoutDuringTransition="honorRequest" />
 
 </MotionScene>
