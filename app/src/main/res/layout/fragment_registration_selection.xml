@@ -29,8 +29,8 @@
             android:layout_marginStart="20dp"
             android:fontFamily="sans-serif-medium"
             android:text="@string/registration"
-            android:textColor="@color/gray_profile"
-            android:textSize="@dimen/text_16sp"
+            android:textColor="@color/balance_fuel_gray"
+            android:textSize="@dimen/text_20sp"
             app:layout_constraintBottom_toBottomOf="@+id/back_arrow"
             app:layout_constraintStart_toEndOf="@+id/back_arrow"
             app:layout_constraintTop_toTopOf="@+id/back_arrow" />
