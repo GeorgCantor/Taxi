@@ -9,10 +9,11 @@
     app:layout_constraintBottom_toTopOf="@+id/keyboard"
     app:layout_constraintTop_toTopOf="parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.constraintlayout.motion.widget.MotionLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/main_background">
+        android:background="@color/main_background"
+        app:layoutDescription="@xml/fragment_notification_scene">
 
         <ImageView
             android:id="@+id/back_arrow"
@@ -64,7 +65,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/title_tv"
-            tools:text="@tools:sample/lorem/random" />
+            tools:text="@string/daily_withdrawal_dialog_message" />
 
         <Button
             android:id="@+id/ok_button"
@@ -83,7 +84,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.motion.widget.MotionLayout>
 
 </androidx.core.widget.NestedScrollView>
 
