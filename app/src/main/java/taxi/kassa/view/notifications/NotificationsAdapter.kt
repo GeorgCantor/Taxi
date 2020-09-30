@@ -17,7 +17,7 @@ import taxi.kassa.util.changeConstraint
 import taxi.kassa.util.invisible
 
 class NotificationsAdapter(
-    notifications: MutableList<Notification>,
+    private val notifications: MutableList<Notification>,
     private val clickListener: (Notification) -> Unit
 ) : ListAdapter<Notification, NotificationsAdapter.NotificationsViewHolder>(DiffCallback) {
 
@@ -25,12 +25,6 @@ class NotificationsAdapter(
         override fun areItemsTheSame(oldItem: Notification, newItem: Notification) = oldItem == newItem
 
         override fun areContentsTheSame(old: Notification, new: Notification) = old.longDate == new.longDate
-    }
-
-    private val notifications = mutableListOf<Notification>()
-
-    init {
-        this.notifications.addAll(notifications)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotificationsViewHolder {
