@@ -4,7 +4,6 @@ import android.content.Context
 import okhttp3.Cache
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
-import okhttp3.Response
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -14,7 +13,6 @@ import taxi.kassa.model.remote.interceptor.OfflineResponseCacheInterceptor
 import taxi.kassa.util.Constants.API_VERSION
 import taxi.kassa.util.Constants.accessToken
 import java.io.File
-import java.io.IOException
 import java.util.concurrent.TimeUnit
 
 object ApiClient {
@@ -23,19 +21,16 @@ object ApiClient {
         val loggingInterceptor = HttpLoggingInterceptor()
         loggingInterceptor.level = if (DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
 
-        val interceptor: Interceptor = object : Interceptor {
-            @Throws(IOException::class)
-            override fun intercept(chain: Interceptor.Chain): Response {
-                val request = chain.request().newBuilder()
-                    .addHeader("Content-Type", "application/json")
-                    .addHeader("X-Requested-With", "XMLHttpRequest")
-                    .addHeader("Accept", "application/json")
-                    .addHeader("v", API_VERSION)
-                    .addHeader("token", accessToken)
-                    .build()
+        val interceptor = Interceptor { chain ->
+            val request = chain.request().newBuilder()
+                .addHeader("Content-Type", "application/json")
+                .addHeader("X-Requested-With", "XMLHttpRequest")
+                .addHeader("Accept", "application/json")
+                .addHeader("v", API_VERSION)
+                .addHeader("token", accessToken)
+                .build()
 
-                return chain.proceed(request)
-            }
+            chain.proceed(request)
         }
 
         val okHttpClient = OkHttpClient().newBuilder()
