@@ -10,13 +10,11 @@ import taxi.kassa.util.Constants.CITYMOBIL
 import taxi.kassa.util.Constants.CONNECTION
 import taxi.kassa.util.Constants.GETT
 import taxi.kassa.util.Constants.YANDEX
-import taxi.kassa.util.oneClick
 
 class RegistrationSelectionFragment : Fragment(R.layout.fragment_registration_selection) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        registration_title.oneClick()
 
         val bundle = Bundle()
 

@@ -28,13 +28,14 @@ class RegistrationFragment : Fragment(R.layout.fragment_registration) {
         }
 
         view_terms.setOnClickListener {
-            context?.showOneButtonDialog(
+            val dialogView = requireContext().showOneButtonDialog(
                 getString(R.string.connection_terms),
                 getString(R.string.terms_description),
                 true
             ) { view, rootLayout ->
                 beginDelayedTransition(rootLayout, view.getTransform(view_terms))
             }
+            beginDelayedTransition(root_layout, it.getTransform(dialogView))
         }
     }
 }

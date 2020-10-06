@@ -4,6 +4,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_incoming_message.view.*
 import kotlinx.android.synthetic.main.item_sent_message.view.*
@@ -15,9 +17,15 @@ import taxi.kassa.util.Constants.FULL_PATTERN
 import taxi.kassa.util.convertToTime
 
 class ChatHistoryAdapter(messages: MutableList<Message>) :
-    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    ListAdapter<Message, RecyclerView.ViewHolder>(DiffCallback) {
 
     companion object {
+        object DiffCallback : DiffUtil.ItemCallback<Message>() {
+            override fun areItemsTheSame(oldItem: Message, newItem: Message) = oldItem == newItem
+
+            override fun areContentsTheSame(old: Message, new: Message) = old.id == new.id
+        }
+
         private const val TYPE_SENT = 0
         private const val TYPE_INCOMING = 1
     }

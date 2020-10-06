@@ -14,6 +14,7 @@ import android.net.ConnectivityManager
 import android.net.Uri
 import android.os.Build
 import android.os.Handler
+import android.os.Looper.getMainLooper
 import android.util.DisplayMetrics
 import android.util.TypedValue
 import android.view.LayoutInflater
@@ -85,7 +86,7 @@ fun Context.showOneButtonDialog(
     message: String,
     isRegistrationDialog: Boolean,
     transitionFunction: (View, ConstraintLayout) -> (Unit)
-) {
+): View {
     val dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_one_button, null)
     val builder = AlertDialog.Builder(this).setView(dialogView)
     val alertDialog = builder.show()
@@ -106,6 +107,8 @@ fun Context.showOneButtonDialog(
             this.extra_message.visible()
         }
     }
+
+    return dialogView
 }
 
 fun Context.showTwoButtonsDialog(
@@ -235,7 +238,7 @@ fun Long.convertToTime(pattern: String): String {
 }
 
 fun Long.runDelayed(action: () -> Unit) {
-    Handler().postDelayed(action, TimeUnit.MILLISECONDS.toMillis(this))
+    Handler(getMainLooper()).postDelayed(action, TimeUnit.MILLISECONDS.toMillis(this))
 }
 
 fun Int.getPhotoType() = when (this) {

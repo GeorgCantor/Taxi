@@ -1,6 +1,6 @@
 package taxi.kassa.view.notifications
 
-import android.content.pm.PackageManager
+import android.content.pm.PackageManager.PERMISSION_GRANTED
 import android.os.Bundle
 import android.view.View
 import android.view.View.GONE
@@ -78,7 +78,7 @@ class NotificationsFragment : Fragment(R.layout.fragment_notifications) {
         permissions: Array<out String>,
         grantResults: IntArray
     ) {
-        if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+        if (grantResults.isNotEmpty() && grantResults[0] == PERMISSION_GRANTED) {
             requireActivity().makeCall(this)
         }
     }

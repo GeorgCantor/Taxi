@@ -24,6 +24,7 @@ class BalanceFragment : Fragment(R.layout.fragment_balance) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        balance_title.oneClick()
 
         val callback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {

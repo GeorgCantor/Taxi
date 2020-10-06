@@ -21,11 +21,9 @@ class OrdersListFragment : Fragment(R.layout.fragment_orders_list) {
     companion object {
         private const val ARG_TAXI = "taxi"
 
-        fun create(taxiId: Int): OrdersListFragment {
-            return OrdersListFragment().apply {
-                arguments = Bundle().apply {
-                    putInt(ARG_TAXI, taxiId)
-                }
+        fun create(taxiId: Int) = OrdersListFragment().apply {
+            arguments = Bundle().apply {
+                putInt(ARG_TAXI, taxiId)
             }
         }
     }

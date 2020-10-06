@@ -7,6 +7,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet.START
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_notification.view.*
 import taxi.kassa.R
@@ -15,14 +17,14 @@ import taxi.kassa.util.changeConstraint
 import taxi.kassa.util.invisible
 
 class NotificationsAdapter(
-    notifications: MutableList<Notification>,
+    private val notifications: MutableList<Notification>,
     private val clickListener: (Notification) -> Unit
-) : RecyclerView.Adapter<NotificationsAdapter.NotificationsViewHolder>() {
+) : ListAdapter<Notification, NotificationsAdapter.NotificationsViewHolder>(DiffCallback) {
 
-    private val notifications = mutableListOf<Notification>()
+    companion object DiffCallback : DiffUtil.ItemCallback<Notification>() {
+        override fun areItemsTheSame(oldItem: Notification, newItem: Notification) = oldItem == newItem
 
-    init {
-        this.notifications.addAll(notifications)
+        override fun areContentsTheSame(old: Notification, new: Notification) = old.longDate == new.longDate
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotificationsViewHolder {
