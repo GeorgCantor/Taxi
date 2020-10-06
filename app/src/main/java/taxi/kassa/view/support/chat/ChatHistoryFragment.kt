@@ -2,8 +2,6 @@ package taxi.kassa.view.support.chat
 
 import android.os.Bundle
 import android.view.View
-import android.view.View.GONE
-import android.view.View.VISIBLE
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_chat_history.*
 import org.koin.android.ext.android.inject
@@ -41,7 +39,7 @@ class ChatHistoryFragment : Fragment(R.layout.fragment_chat_history) {
                     false -> adapter.updateList(it.messages as MutableList<Message>)
                 }
 
-                empty_tv.visibility = if (adapter.itemCount == 0) VISIBLE else GONE
+                empty_tv.setVisibility(adapter.itemCount == 0)
             }
 
             incomingMessages.observe(viewLifecycleOwner) {

@@ -498,9 +498,7 @@ class ConnectionFragment : Fragment(R.layout.fragment_connection) {
         )
 
         with(viewModel) {
-            isProgressVisible.observe(viewLifecycleOwner) { visible ->
-                progress_bar.visibility = if (visible) VISIBLE else GONE
-            }
+            isProgressVisible.observe(viewLifecycleOwner) { progress_bar.setVisibility(it) }
 
             error.observe(viewLifecycleOwner) { context?.longToast(it) }
 

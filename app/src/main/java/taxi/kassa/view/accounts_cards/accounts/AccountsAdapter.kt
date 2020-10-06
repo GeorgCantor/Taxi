@@ -2,8 +2,6 @@ package taxi.kassa.view.accounts_cards.accounts
 
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.GONE
-import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
@@ -16,6 +14,7 @@ import taxi.kassa.util.Constants.BINBANK
 import taxi.kassa.util.Constants.SBERBANK
 import taxi.kassa.util.Constants.TINKOFF
 import taxi.kassa.util.Constants.VTB_BANK
+import taxi.kassa.util.setVisibility
 
 class AccountsAdapter(
     private val accounts: List<Account>,
@@ -45,7 +44,7 @@ class AccountsAdapter(
                 }
             )
             bankName.text = account.bankName
-            deleteIcon.visibility = if (deleteVisible) VISIBLE else GONE
+            deleteIcon.setVisibility(deleteVisible)
             accountNumber.text = itemView.context.getString(R.string.order_format, account.accountNumber)
             name.text = account.driverName
 

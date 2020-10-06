@@ -10,7 +10,10 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import kotlinx.android.synthetic.main.fragment_accounts.*
 import kotlinx.android.synthetic.main.fragment_auth_code.*
+import kotlinx.android.synthetic.main.fragment_auth_code.back_arrow
+import kotlinx.android.synthetic.main.fragment_auth_code.progress_bar
 import kotlinx.android.synthetic.main.keyboard.*
 import org.koin.android.ext.android.inject
 import taxi.kassa.R
@@ -18,6 +21,7 @@ import taxi.kassa.util.Constants.PHONE
 import taxi.kassa.util.Constants.accessToken
 import taxi.kassa.util.observe
 import taxi.kassa.util.oneClick
+import taxi.kassa.util.setVisibility
 
 class AuthCodeFragment : Fragment(R.layout.fragment_auth_code) {
 
@@ -34,9 +38,7 @@ class AuthCodeFragment : Fragment(R.layout.fragment_auth_code) {
         phone = viewModel.getFromPrefs(PHONE) ?: ""
 
         with(viewModel) {
-            isProgressVisible.observe(viewLifecycleOwner) { visible ->
-                progress_bar.visibility = if (visible) VISIBLE else GONE
-            }
+            isProgressVisible.observe(viewLifecycleOwner) { progress_bar.setVisibility(it) }
 
             error.observe(viewLifecycleOwner) { error_tv.text = it }
 

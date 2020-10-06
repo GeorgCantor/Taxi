@@ -6,8 +6,6 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.transition.TransitionManager.beginDelayedTransition
 import android.view.View
-import android.view.View.GONE
-import android.view.View.VISIBLE
 import androidx.core.content.ContextCompat.getColor
 import androidx.core.view.get
 import androidx.core.view.isNotEmpty
@@ -91,9 +89,7 @@ class DailyWithdrawFragment : Fragment(R.layout.fragment_daily_withdraw) {
         with(viewModel) {
             getOwnerData()
 
-            isProgressVisible.observe(viewLifecycleOwner) { visible ->
-                progress_bar.visibility = if (visible) VISIBLE else GONE
-            }
+            isProgressVisible.observe(viewLifecycleOwner) { progress_bar.setVisibility(it) }
 
             error.observe(viewLifecycleOwner) { context?.longToast(it) }
 

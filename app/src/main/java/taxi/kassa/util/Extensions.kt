@@ -151,6 +151,10 @@ fun Context.getScreenWidth(): Float {
     return displayMetrics.widthPixels / displayMetrics.density
 }
 
+fun View.setVisibility(visible: Boolean) {
+    visibility = if (visible) VISIBLE else GONE
+}
+
 fun View.visible() { visibility = VISIBLE }
 
 fun View.invisible() { visibility = INVISIBLE }
