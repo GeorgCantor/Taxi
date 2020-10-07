@@ -179,7 +179,7 @@ fun View.getTransform(mEndView: View) = MaterialContainerTransform().apply {
 fun View.slideAnim(rootLayout: ConstraintLayout, show: Boolean) {
     Slide(Gravity.BOTTOM).apply {
         duration = 600
-        addTarget(R.id.no_internet_warning)
+        addTarget(this@slideAnim)
         beginDelayedTransition(rootLayout, this)
     }
     setVisibility(show)
