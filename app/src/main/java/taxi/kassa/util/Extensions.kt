@@ -15,8 +15,11 @@ import android.net.Uri
 import android.os.Build
 import android.os.Handler
 import android.os.Looper.getMainLooper
+import android.transition.Slide
+import android.transition.TransitionManager.beginDelayedTransition
 import android.util.DisplayMetrics
 import android.util.TypedValue
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.*
@@ -171,6 +174,15 @@ fun View.getTransform(mEndView: View) = MaterialContainerTransform().apply {
     pathMotion = MaterialArcMotion()
     duration = 550
     scrimColor = TRANSPARENT
+}
+
+fun View.slideAnim(rootLayout: ConstraintLayout, show: Boolean) {
+    Slide(Gravity.BOTTOM).apply {
+        duration = 600
+        addTarget(R.id.no_internet_warning)
+        beginDelayedTransition(rootLayout, this)
+    }
+    setVisibility(show)
 }
 
 fun View.oneClick() {
