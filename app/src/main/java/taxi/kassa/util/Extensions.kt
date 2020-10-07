@@ -246,12 +246,8 @@ fun Array<View>.setLoadPhotoVisibility() {
     this[4].visible()
 }
 
-fun Long.convertToTime(pattern: String): String {
-    val date = Date(this)
-    val dateFormat = SimpleDateFormat(pattern, myDateFormatSymbols)
-
-    return dateFormat.format(date)
-}
+fun Long.convertToTime(pattern: String): String =
+    SimpleDateFormat(pattern, myDateFormatSymbols).format(Date(this))
 
 fun Long.runDelayed(action: () -> Unit) {
     Handler(getMainLooper()).postDelayed(action, TimeUnit.MILLISECONDS.toMillis(this))
