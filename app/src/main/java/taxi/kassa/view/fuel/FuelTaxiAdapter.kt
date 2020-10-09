@@ -12,21 +12,13 @@ import taxi.kassa.R
 import taxi.kassa.model.Taxi
 
 class FuelTaxiAdapter(
-    taxis: MutableList<Taxi>,
+    private val taxis: MutableList<Taxi>,
     private val clickListener: (View) -> Unit
 ) : RecyclerView.Adapter<FuelTaxiAdapter.FuelTaxiViewHolder>() {
 
-    private val taxis = mutableListOf<Taxi>()
-
-    init {
-        this.taxis.addAll(taxis)
-    }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FuelTaxiViewHolder {
-        return FuelTaxiViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.item_taxi, null)
-        )
-    }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = FuelTaxiViewHolder(
+        LayoutInflater.from(parent.context).inflate(R.layout.item_taxi, null)
+    )
 
     override fun getItemCount(): Int = taxis.size
 
