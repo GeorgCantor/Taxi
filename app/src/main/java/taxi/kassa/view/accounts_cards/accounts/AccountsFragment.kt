@@ -160,9 +160,7 @@ class AccountsFragment : Fragment(R.layout.fragment_accounts) {
         with(viewModel) {
             getAccounts()
 
-            isProgressVisible.observe(viewLifecycleOwner) { visible ->
-                progress_bar.visibility = if (visible) VISIBLE else GONE
-            }
+            isProgressVisible.observe(viewLifecycleOwner) { progress_bar.setVisibility(it) }
 
             error.observe(viewLifecycleOwner) { context?.longToast(it) }
 

@@ -46,9 +46,7 @@ class OrdersListFragment : Fragment(R.layout.fragment_orders_list) {
         with(viewModel) {
             getOrders("")
 
-            isProgressVisible.observe(viewLifecycleOwner) { visible ->
-                progress_bar.visibility = if (visible) VISIBLE else GONE
-            }
+            isProgressVisible.observe(viewLifecycleOwner) { progress_bar.setVisibility(it) }
 
             error.observe(viewLifecycleOwner) { context?.shortToast(it) }
 
@@ -64,7 +62,7 @@ class OrdersListFragment : Fragment(R.layout.fragment_orders_list) {
                         }
                         orders_recycler.adapter = adapter
 
-                        empty_tv.visibility = if (orders_recycler.adapter?.itemCount == 0) VISIBLE else GONE
+                        empty_tv.setVisibility(orders_recycler.adapter?.itemCount == 0)
 
                         firstLoad = false
                     }

@@ -10,6 +10,7 @@ import taxi.kassa.R
 import taxi.kassa.util.hideKeyboard
 import taxi.kassa.util.longToast
 import taxi.kassa.util.observe
+import taxi.kassa.util.setVisibility
 
 class WriteMessageFragment : Fragment(R.layout.fragment_write_message) {
 
@@ -23,9 +24,7 @@ class WriteMessageFragment : Fragment(R.layout.fragment_write_message) {
         back_arrow.setOnClickListener { activity?.onBackPressed() }
 
         with(viewModel) {
-            isProgressVisible.observe(viewLifecycleOwner) { visible ->
-                progress_bar.visibility = if (visible) View.VISIBLE else View.GONE
-            }
+            isProgressVisible.observe(viewLifecycleOwner) { progress_bar.setVisibility(it) }
 
             error.observe(viewLifecycleOwner) { context?.longToast(it) }
 

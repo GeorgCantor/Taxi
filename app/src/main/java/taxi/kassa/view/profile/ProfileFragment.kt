@@ -5,8 +5,6 @@ import android.os.Bundle
 import android.telephony.PhoneNumberUtils.formatNumber
 import android.transition.TransitionManager.beginDelayedTransition
 import android.view.View
-import android.view.View.GONE
-import android.view.View.VISIBLE
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_profile.*
@@ -29,9 +27,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         with(viewModel) {
             getUserData()
 
-            isProgressVisible.observe(viewLifecycleOwner) { visible ->
-                progress_bar.visibility = if (visible) VISIBLE else GONE
-            }
+            isProgressVisible.observe(viewLifecycleOwner) { progress_bar.setVisibility(it) }
 
             error.observe(viewLifecycleOwner) {
                 context?.shortToast(it)

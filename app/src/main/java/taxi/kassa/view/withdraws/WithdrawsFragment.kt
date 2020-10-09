@@ -2,8 +2,6 @@ package taxi.kassa.view.withdraws
 
 import android.os.Bundle
 import android.view.View
-import android.view.View.GONE
-import android.view.View.VISIBLE
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.empty_withdraws_screen.*
@@ -25,9 +23,7 @@ class WithdrawsFragment : Fragment(R.layout.fragment_withdraws) {
         with(viewModel) {
             getWithdrawsData()
 
-            isProgressVisible.observe(viewLifecycleOwner) { visible ->
-                progress_bar.visibility = if (visible) VISIBLE else GONE
-            }
+            isProgressVisible.observe(viewLifecycleOwner) { progress_bar.setVisibility(it) }
 
             error.observe(viewLifecycleOwner) {
                 context?.shortToast(it)
@@ -35,7 +31,7 @@ class WithdrawsFragment : Fragment(R.layout.fragment_withdraws) {
             }
 
             withdraws.observe(viewLifecycleOwner) {
-                empty_withdraws.visibility = if (it.count ?: 0 > 0) GONE else VISIBLE
+                empty_withdraws.setVisibility(it.count == 0)
 
                 withdraws_recycler.adapter =
                     WithdrawsAdapter(it.info ?: mutableListOf()) { withdraw ->

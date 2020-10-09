@@ -24,6 +24,7 @@
         android:id="@+id/no_internet_warning"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:background="@color/colorPrimaryDark"
         android:fontFamily="@font/raleway"
         android:gravity="center"
         android:text="@string/internet_unavailable"
@@ -34,13 +35,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:visibility="visible" />
-
-    <View
-        android:id="@+id/line"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

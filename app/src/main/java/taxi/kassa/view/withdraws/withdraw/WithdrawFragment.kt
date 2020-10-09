@@ -2,8 +2,6 @@ package taxi.kassa.view.withdraws.withdraw
 
 import android.os.Bundle
 import android.view.View
-import android.view.View.GONE
-import android.view.View.VISIBLE
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_withdraw.*
 import org.koin.android.ext.android.inject
@@ -19,6 +17,7 @@ import taxi.kassa.util.Constants.WITHDRAW
 import taxi.kassa.util.Constants.WITHDRAWN
 import taxi.kassa.util.observe
 import taxi.kassa.util.setFormattedText
+import taxi.kassa.util.setVisibility
 import taxi.kassa.util.shortToast
 
 class WithdrawFragment : Fragment(R.layout.fragment_withdraw) {
@@ -30,21 +29,21 @@ class WithdrawFragment : Fragment(R.layout.fragment_withdraw) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.isProgressVisible.observe(viewLifecycleOwner) { visible ->
-            progress_bar.visibility = if (visible) VISIBLE else GONE
-        }
+        with(viewModel) {
+            isProgressVisible.observe(viewLifecycleOwner) { progress_bar.setVisibility(it) }
 
-        viewModel.error.observe(viewLifecycleOwner) { context?.shortToast(it) }
+            error.observe(viewLifecycleOwner) { context?.shortToast(it) }
 
-        viewModel.accounts.observe(viewLifecycleOwner) { accounts ->
-            accounts?.let {
-                if (it.info?.isNotEmpty() == true) {
-                    val account = it.info.firstOrNull()
-                    bank_name_tv.text = account?.bankName
-                    order_tv.text = getString(R.string.order_format, account?.accountNumber)
-                    name_tv.text = account?.driverName
+            accounts.observe(viewLifecycleOwner) { accounts ->
+                accounts?.let {
+                    if (it.info?.isNotEmpty() == true) {
+                        val account = it.info.firstOrNull()
+                        bank_name_tv.text = account?.bankName
+                        order_tv.text = getString(R.string.order_format, account?.accountNumber)
+                        name_tv.text = account?.driverName
 
-                    setBankIcon(account?.bankName ?: "")
+                        setBankIcon(account?.bankName ?: "")
+                    }
                 }
             }
         }

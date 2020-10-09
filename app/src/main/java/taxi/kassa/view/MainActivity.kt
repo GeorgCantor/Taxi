@@ -1,11 +1,7 @@
 package taxi.kassa.view
 
 import android.os.Bundle
-import android.transition.TransitionManager.beginDelayedTransition
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isGone
-import androidx.core.view.isVisible
 import androidx.navigation.fragment.NavHostFragment
 import com.google.android.play.core.review.ReviewInfo
 import com.google.android.play.core.review.ReviewManager
@@ -14,13 +10,16 @@ import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.android.ext.android.inject
 import taxi.kassa.R
 import taxi.kassa.model.Notification
-import taxi.kassa.util.*
 import taxi.kassa.util.Constants.MESSAGE
 import taxi.kassa.util.Constants.PUSH_PATTERN
 import taxi.kassa.util.Constants.TITLE
 import taxi.kassa.util.Constants.accessToken
 import taxi.kassa.util.Constants.myDateFormatSymbols
 import taxi.kassa.util.NetworkUtils.getNetworkLiveData
+import taxi.kassa.util.hideKeyboard
+import taxi.kassa.util.observe
+import taxi.kassa.util.runDelayed
+import taxi.kassa.util.slideAnim
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -92,12 +91,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         getNetworkLiveData(applicationContext).observe(this) { isConnected ->
-            no_internet_warning.apply {
-                when (isConnected) {
-                    true -> if (isVisible) setWarningTransition(this, line) { gone() }
-                    false -> if (isGone) setWarningTransition(line, this) { visible() }
-                }
-            }
+            no_internet_warning.slideAnim(root_layout, !isConnected)
         }
     }
 
@@ -105,11 +99,6 @@ class MainActivity : AppCompatActivity() {
         super.onResume()
         // if a custom keyboard was opened before exiting, both can be opened
         100L.runDelayed { this.root_layout.hideKeyboard() }
-    }
-
-    private fun setWarningTransition(startView: View, endView: View, action: () -> Unit) {
-        beginDelayedTransition(root_layout, startView.getTransform(endView))
-        550L.runDelayed { action() }
     }
 
     /**

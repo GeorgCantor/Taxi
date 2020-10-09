@@ -2,8 +2,6 @@ package taxi.kassa.view.auth.auth_sign_up
 
 import android.os.Bundle
 import android.view.View
-import android.view.View.GONE
-import android.view.View.VISIBLE
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_auth_sign_up.*
 import kotlinx.android.synthetic.main.fragment_success.*
@@ -21,9 +19,7 @@ class AuthSignUpFragment : Fragment(R.layout.fragment_auth_sign_up) {
         super.onViewCreated(view, savedInstanceState)
 
         with(viewModel) {
-            isProgressVisible.observe(viewLifecycleOwner) { visible ->
-                progress_bar.visibility = if (visible) VISIBLE else GONE
-            }
+            isProgressVisible.observe(viewLifecycleOwner) { progress_bar.setVisibility(it) }
 
             error.observe(viewLifecycleOwner) { phone_input_view.error = it }
 

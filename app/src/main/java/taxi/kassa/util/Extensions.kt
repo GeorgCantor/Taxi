@@ -15,8 +15,11 @@ import android.net.Uri
 import android.os.Build
 import android.os.Handler
 import android.os.Looper.getMainLooper
+import android.transition.Slide
+import android.transition.TransitionManager.beginDelayedTransition
 import android.util.DisplayMetrics
 import android.util.TypedValue
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.*
@@ -151,6 +154,10 @@ fun Context.getScreenWidth(): Float {
     return displayMetrics.widthPixels / displayMetrics.density
 }
 
+fun View.setVisibility(visible: Boolean) {
+    visibility = if (visible) VISIBLE else GONE
+}
+
 fun View.visible() { visibility = VISIBLE }
 
 fun View.invisible() { visibility = INVISIBLE }
@@ -167,6 +174,15 @@ fun View.getTransform(mEndView: View) = MaterialContainerTransform().apply {
     pathMotion = MaterialArcMotion()
     duration = 550
     scrimColor = TRANSPARENT
+}
+
+fun View.slideAnim(rootLayout: ConstraintLayout, show: Boolean) {
+    Slide(Gravity.BOTTOM).apply {
+        duration = 600
+        addTarget(this@slideAnim)
+        beginDelayedTransition(rootLayout, this)
+    }
+    setVisibility(show)
 }
 
 fun View.oneClick() {
@@ -230,12 +246,8 @@ fun Array<View>.setLoadPhotoVisibility() {
     this[4].visible()
 }
 
-fun Long.convertToTime(pattern: String): String {
-    val date = Date(this)
-    val dateFormat = SimpleDateFormat(pattern, myDateFormatSymbols)
-
-    return dateFormat.format(date)
-}
+fun Long.convertToTime(pattern: String): String =
+    SimpleDateFormat(pattern, myDateFormatSymbols).format(Date(this))
 
 fun Long.runDelayed(action: () -> Unit) {
     Handler(getMainLooper()).postDelayed(action, TimeUnit.MILLISECONDS.toMillis(this))
