@@ -26,7 +26,7 @@ class WithdrawsFragment : Fragment(R.layout.fragment_withdraws) {
             isProgressVisible.observe(viewLifecycleOwner) { progress_bar.setVisibility(it) }
 
             error.observe(viewLifecycleOwner) {
-                context?.shortToast(it)
+                context?.showToast(it)
                 refresh_layout.isRefreshing = false
             }
 

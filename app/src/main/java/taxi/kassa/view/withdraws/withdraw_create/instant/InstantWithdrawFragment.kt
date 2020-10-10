@@ -91,7 +91,7 @@ class InstantWithdrawFragment : Fragment(R.layout.fragment_instant_withdraw) {
 
             isProgressVisible.observe(viewLifecycleOwner) { progress_bar.setVisibility(it) }
 
-            error.observe(viewLifecycleOwner) { context?.longToast(it) }
+            error.observe(viewLifecycleOwner) { context?.showToast(it) }
 
             showSuccessScreen.observe(viewLifecycleOwner) { show ->
                 if (show) {

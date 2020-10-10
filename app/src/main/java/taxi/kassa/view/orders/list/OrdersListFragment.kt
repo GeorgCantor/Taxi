@@ -48,7 +48,7 @@ class OrdersListFragment : Fragment(R.layout.fragment_orders_list) {
 
             isProgressVisible.observe(viewLifecycleOwner) { progress_bar.setVisibility(it) }
 
-            error.observe(viewLifecycleOwner) { context?.shortToast(it) }
+            error.observe(viewLifecycleOwner) { context?.showToast(it) }
 
             orders.observe(viewLifecycleOwner) {
                 nextOffset = it.nextOffset ?: ""

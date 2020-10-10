@@ -47,7 +47,7 @@ class FuelReplenishFragment : Fragment(R.layout.fragment_fuel_replenish) {
 
             isProgressVisible.observe(viewLifecycleOwner) { progress_bar.setVisibility(it) }
 
-            error.observe(viewLifecycleOwner) { context?.shortToast(it) }
+            error.observe(viewLifecycleOwner) { context?.showToast(it) }
 
             showSuccessScreen.observe(viewLifecycleOwner) { show ->
                 if (show) {

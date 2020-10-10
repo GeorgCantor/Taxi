@@ -8,9 +8,9 @@ import kotlinx.android.synthetic.main.fragment_write_message.*
 import org.koin.android.ext.android.inject
 import taxi.kassa.R
 import taxi.kassa.util.hideKeyboard
-import taxi.kassa.util.longToast
 import taxi.kassa.util.observe
 import taxi.kassa.util.setVisibility
+import taxi.kassa.util.showToast
 
 class WriteMessageFragment : Fragment(R.layout.fragment_write_message) {
 
@@ -26,7 +26,7 @@ class WriteMessageFragment : Fragment(R.layout.fragment_write_message) {
         with(viewModel) {
             isProgressVisible.observe(viewLifecycleOwner) { progress_bar.setVisibility(it) }
 
-            error.observe(viewLifecycleOwner) { context?.longToast(it) }
+            error.observe(viewLifecycleOwner) { context?.showToast(it) }
 
             send_button.setOnClickListener {
                 if (message_edit_text.text.isBlank()) {

@@ -142,7 +142,7 @@ class AccountsFragment : Fragment(R.layout.fragment_accounts) {
         add_account_button.setOnClickListener {
             editTexts.map {
                 if (it.isEmpty() || account_edit_text.value.length < 20) {
-                    context?.shortToast(getString(R.string.fill_all_fields))
+                    context?.showToast(getString(R.string.fill_all_fields))
                     return@setOnClickListener
                 }
             }
@@ -162,7 +162,7 @@ class AccountsFragment : Fragment(R.layout.fragment_accounts) {
 
             isProgressVisible.observe(viewLifecycleOwner) { progress_bar.setVisibility(it) }
 
-            error.observe(viewLifecycleOwner) { context?.longToast(it) }
+            error.observe(viewLifecycleOwner) { context?.showToast(it) }
 
             showSuccessScreen.observe(viewLifecycleOwner) { show ->
                 if (show) {
@@ -177,7 +177,7 @@ class AccountsFragment : Fragment(R.layout.fragment_accounts) {
                 }
             }
 
-            deletionStatus.observe(viewLifecycleOwner) { context?.longToast(it) }
+            deletionStatus.observe(viewLifecycleOwner) { context?.showToast(it) }
 
             accounts.observe(viewLifecycleOwner) {
                 accounts_recycler.setHasFixedSize(true)

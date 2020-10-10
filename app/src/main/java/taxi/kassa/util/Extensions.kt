@@ -27,7 +27,8 @@ import android.view.inputmethod.InputMethodManager
 import android.view.inputmethod.InputMethodManager.HIDE_NOT_ALWAYS
 import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast.*
+import android.widget.Toast
+import android.widget.Toast.LENGTH_LONG
 import androidx.appcompat.app.AlertDialog
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
@@ -46,6 +47,7 @@ import kotlinx.android.synthetic.main.dialog_one_button.*
 import kotlinx.android.synthetic.main.dialog_one_button.message
 import kotlinx.android.synthetic.main.dialog_one_button.title
 import kotlinx.android.synthetic.main.dialog_two_buttons.*
+import kotlinx.android.synthetic.main.toast_layout.view.*
 import taxi.kassa.R
 import taxi.kassa.util.Constants.CAR_BACK
 import taxi.kassa.util.Constants.CAR_FRONT
@@ -80,9 +82,13 @@ import java.util.concurrent.TimeUnit
 fun Context.isNetworkAvailable() = (getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager?)
     ?.activeNetworkInfo?.isConnectedOrConnecting ?: false
 
-fun Context.shortToast(message: String) = makeText(this, message, LENGTH_SHORT).show()
-
-fun Context.longToast(message: String) = makeText(this, message, LENGTH_LONG).show()
+fun Context.showToast(message: String) = Toast(this).apply {
+    duration = LENGTH_LONG
+    view = LayoutInflater.from(this@showToast).inflate(R.layout.toast_layout, null).apply {
+        toast_text.text = message
+    }
+    show()
+}
 
 fun Context.showOneButtonDialog(
     title: String,
@@ -337,7 +343,7 @@ fun Activity.makeCall(fragment: Fragment) {
         try {
             startActivity(callIntent)
         } catch (ex: ActivityNotFoundException) {
-            shortToast(getString(R.string.not_find_call_app))
+            showToast(getString(R.string.not_find_call_app))
         }
     }
 }

@@ -500,7 +500,7 @@ class ConnectionFragment : Fragment(R.layout.fragment_connection) {
         with(viewModel) {
             isProgressVisible.observe(viewLifecycleOwner) { progress_bar.setVisibility(it) }
 
-            error.observe(viewLifecycleOwner) { context?.longToast(it) }
+            error.observe(viewLifecycleOwner) { context?.showToast(it) }
 
             loadedImages.observe(viewLifecycleOwner, Observer { loadImages ->
                 var id = 1
@@ -546,14 +546,14 @@ class ConnectionFragment : Fragment(R.layout.fragment_connection) {
     ) {
         cancelButtons.map {
             if (!it.isVisible) {
-                context?.longToast(getString(R.string.load_all_photos))
+                context?.showToast(getString(R.string.load_all_photos))
                 return
             }
         }
 
         editTexts.map {
             if (it.text.isNullOrBlank()) {
-                context?.longToast(getString(R.string.fill_all_fields))
+                context?.showToast(getString(R.string.fill_all_fields))
                 return
             }
 

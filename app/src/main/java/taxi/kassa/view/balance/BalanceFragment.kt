@@ -37,7 +37,7 @@ class BalanceFragment : Fragment(R.layout.fragment_balance) {
             isProgressVisible.observe(viewLifecycleOwner) { progress_bar.setVisibility(it) }
 
             error.observe(viewLifecycleOwner) {
-                context?.longToast(it)
+                context?.showToast(it)
                 refresh_layout.isRefreshing = false
             }
 

@@ -30,7 +30,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
             isProgressVisible.observe(viewLifecycleOwner) { progress_bar.setVisibility(it) }
 
             error.observe(viewLifecycleOwner) {
-                context?.shortToast(it)
+                context?.showToast(it)
                 refresh_layout.isRefreshing = false
             }
 

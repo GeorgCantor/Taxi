@@ -43,7 +43,7 @@ class AccountsCardsFragment : Fragment(R.layout.fragment_accounts_cards) {
         }
 
         with(viewModel) {
-            error.observe(viewLifecycleOwner) { context?.longToast(it) }
+            error.observe(viewLifecycleOwner) { context?.showToast(it) }
 
             notifications.observe(viewLifecycleOwner) {
                 val oldPushesSize = PreferenceManager(requireContext()).getInt(PUSH_COUNTER)
