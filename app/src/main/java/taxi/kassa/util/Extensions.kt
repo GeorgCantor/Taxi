@@ -26,6 +26,7 @@ import android.view.View.*
 import android.view.inputmethod.InputMethodManager
 import android.view.inputmethod.InputMethodManager.HIDE_NOT_ALWAYS
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import android.widget.Toast.LENGTH_LONG
@@ -49,6 +50,7 @@ import kotlinx.android.synthetic.main.dialog_one_button.title
 import kotlinx.android.synthetic.main.dialog_two_buttons.*
 import kotlinx.android.synthetic.main.toast_layout.view.*
 import taxi.kassa.R
+import taxi.kassa.model.Notification
 import taxi.kassa.util.Constants.CAR_BACK
 import taxi.kassa.util.Constants.CAR_FRONT
 import taxi.kassa.util.Constants.CAR_LEFT
@@ -65,6 +67,7 @@ import taxi.kassa.util.Constants.MASTERCARD
 import taxi.kassa.util.Constants.PASSPORT_FIRST
 import taxi.kassa.util.Constants.PASSPORT_REGISTRATION
 import taxi.kassa.util.Constants.PHONE_MASK
+import taxi.kassa.util.Constants.PUSH_COUNTER
 import taxi.kassa.util.Constants.SELFIE
 import taxi.kassa.util.Constants.STS_BACK
 import taxi.kassa.util.Constants.STS_FRONT
@@ -158,6 +161,21 @@ fun Context.getScreenWidth(): Float {
     val displayMetrics: DisplayMetrics = resources.displayMetrics
 
     return displayMetrics.widthPixels / displayMetrics.density
+}
+
+fun Context.checkSizes(
+    newList: MutableList<Notification>,
+    notifCount: TextView,
+    notifImage: ImageView
+) = PreferenceManager(this).getInt(PUSH_COUNTER)?.let { oldSize ->
+    if (newList.size > oldSize) {
+        notifCount.text = (newList.size - oldSize).toString()
+        notifCount.visible()
+        notifImage.invisible()
+    } else {
+        notifCount.invisible()
+        notifImage.visible()
+    }
 }
 
 fun View.setVisibility(visible: Boolean) {

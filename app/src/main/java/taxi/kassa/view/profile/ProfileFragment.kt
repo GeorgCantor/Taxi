@@ -13,7 +13,6 @@ import taxi.kassa.R
 import taxi.kassa.util.*
 import taxi.kassa.util.Constants.MESSAGES_COUNTER
 import taxi.kassa.util.Constants.NOT_FROM_PUSH
-import taxi.kassa.util.Constants.PUSH_COUNTER
 import java.util.*
 
 class ProfileFragment : Fragment(R.layout.fragment_profile) {
@@ -48,17 +47,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
             }
 
             notifications.observe(viewLifecycleOwner) {
-                val oldPushesSize = PreferenceManager(requireContext()).getInt(PUSH_COUNTER)
-                oldPushesSize?.let { oldSize ->
-                    if (it.size > oldSize) {
-                        notification_count.text = (it.size - oldSize).toString()
-                        notification_count.visible()
-                        notification_image.invisible()
-                    } else {
-                        notification_count.invisible()
-                        notification_image.visible()
-                    }
-                }
+                context?.checkSizes(it, notification_count, notification_image)
             }
 
             incomingMessages.observe(viewLifecycleOwner) {

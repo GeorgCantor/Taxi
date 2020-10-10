@@ -8,10 +8,12 @@ import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_withdraw_create.*
 import org.koin.android.ext.android.inject
 import taxi.kassa.R
-import taxi.kassa.util.*
 import taxi.kassa.util.Constants.NOT_FROM_PUSH
-import taxi.kassa.util.Constants.PUSH_COUNTER
 import taxi.kassa.util.Constants.TAXI
+import taxi.kassa.util.checkSizes
+import taxi.kassa.util.getTransform
+import taxi.kassa.util.observe
+import taxi.kassa.util.showOneButtonDialog
 
 class WithdrawCreateFragment : Fragment(R.layout.fragment_withdraw_create) {
 
@@ -73,17 +75,7 @@ class WithdrawCreateFragment : Fragment(R.layout.fragment_withdraw_create) {
         }
 
         viewModel.notifications.observe(viewLifecycleOwner) {
-            val oldPushesSize = PreferenceManager(requireContext()).getInt(PUSH_COUNTER)
-            oldPushesSize?.let { oldSize ->
-                if (it.size > oldSize) {
-                    notification_count.text = (it.size - oldSize).toString()
-                    notification_count.visible()
-                    notification_image.invisible()
-                } else {
-                    notification_count.invisible()
-                    notification_image.visible()
-                }
-            }
+            context?.checkSizes(it, notification_count, notification_image)
         }
     }
 }

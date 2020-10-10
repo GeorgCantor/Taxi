@@ -22,7 +22,6 @@ import taxi.kassa.util.*
 import taxi.kassa.util.Constants.CITYMOBIL
 import taxi.kassa.util.Constants.GETT
 import taxi.kassa.util.Constants.NOT_FROM_PUSH
-import taxi.kassa.util.Constants.PUSH_COUNTER
 import taxi.kassa.util.Constants.TAXI
 import taxi.kassa.util.Constants.YANDEX
 import taxi.kassa.view.accounts_cards.cards.CardsAdapter
@@ -160,17 +159,7 @@ class InstantWithdrawFragment : Fragment(R.layout.fragment_instant_withdraw) {
             }
 
             notifications.observe(viewLifecycleOwner) {
-                val oldPushesSize = PreferenceManager(requireContext()).getInt(PUSH_COUNTER)
-                oldPushesSize?.let { oldSize ->
-                    if (it.size > oldSize) {
-                        notification_count.text = (it.size - oldSize).toString()
-                        notification_count.visible()
-                        notification_image.invisible()
-                    } else {
-                        notification_count.invisible()
-                        notification_image.visible()
-                    }
-                }
+                context?.checkSizes(it, notification_count, notification_image)
             }
         }
 
