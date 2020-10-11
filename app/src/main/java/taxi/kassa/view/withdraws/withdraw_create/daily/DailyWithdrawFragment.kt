@@ -21,7 +21,6 @@ import taxi.kassa.util.*
 import taxi.kassa.util.Constants.CITYMOBIL
 import taxi.kassa.util.Constants.GETT
 import taxi.kassa.util.Constants.NOT_FROM_PUSH
-import taxi.kassa.util.Constants.PUSH_COUNTER
 import taxi.kassa.util.Constants.TAXI
 import taxi.kassa.util.Constants.YANDEX
 import taxi.kassa.view.accounts_cards.accounts.AccountsAdapter
@@ -91,7 +90,7 @@ class DailyWithdrawFragment : Fragment(R.layout.fragment_daily_withdraw) {
 
             isProgressVisible.observe(viewLifecycleOwner) { progress_bar.setVisibility(it) }
 
-            error.observe(viewLifecycleOwner) { context?.longToast(it) }
+            error.observe(viewLifecycleOwner) { context?.showToast(it) }
 
             showSuccessScreen.observe(viewLifecycleOwner) { show ->
                 if (show) {
@@ -161,17 +160,7 @@ class DailyWithdrawFragment : Fragment(R.layout.fragment_daily_withdraw) {
             }
 
             notifications.observe(viewLifecycleOwner) {
-                val oldPushesSize = PreferenceManager(requireContext()).getInt(PUSH_COUNTER)
-                oldPushesSize?.let { oldSize ->
-                    if (it.size > oldSize) {
-                        notification_count.text = (it.size - oldSize).toString()
-                        notification_count.visible()
-                        notification_image.invisible()
-                    } else {
-                        notification_count.invisible()
-                        notification_image.visible()
-                    }
-                }
+                context?.checkSizes(it, notification_count, notification_image)
             }
         }
 

@@ -12,9 +12,10 @@ import kotlinx.android.synthetic.main.fragment_orders.*
 import kotlinx.android.synthetic.main.item_taxi_orders.view.*
 import org.koin.android.ext.android.inject
 import taxi.kassa.R
-import taxi.kassa.util.*
 import taxi.kassa.util.Constants.NOT_FROM_PUSH
-import taxi.kassa.util.Constants.PUSH_COUNTER
+import taxi.kassa.util.checkSizes
+import taxi.kassa.util.observe
+import taxi.kassa.util.runDelayed
 import taxi.kassa.view.orders.adapter.OrdersPagerAdapter
 import taxi.kassa.view.orders.adapter.OrdersTaxiAdapter
 import taxi.kassa.view.orders.list.OrdersListFragment
@@ -90,17 +91,7 @@ class OrdersFragment : Fragment(R.layout.fragment_orders) {
         }
 
         viewModel.notifications.observe(viewLifecycleOwner) {
-            val oldPushesSize = PreferenceManager(requireContext()).getInt(PUSH_COUNTER)
-            oldPushesSize?.let { oldSize ->
-                if (it.size > oldSize) {
-                    notification_count.text = (it.size - oldSize).toString()
-                    notification_count.visible()
-                    notification_image.invisible()
-                } else {
-                    notification_count.invisible()
-                    notification_image.visible()
-                }
-            }
+            context?.checkSizes(it, notification_count, notification_image)
         }
 
         500L.runDelayed { taxi_recycler?.let { if (it.isNotEmpty()) it[0].performClick() } }

@@ -21,7 +21,7 @@ import org.koin.androidx.viewmodel.ext.android.getSharedViewModel
 import taxi.kassa.R
 import taxi.kassa.util.gone
 import taxi.kassa.util.runDelayed
-import taxi.kassa.util.shortToast
+import taxi.kassa.util.showToast
 import taxi.kassa.util.visible
 import taxi.kassa.view.registration.connection.ConnectionViewModel
 import java.util.concurrent.Executor
@@ -218,7 +218,7 @@ class PhotoFragment : Fragment(R.layout.fragment_photo) {
     private fun savePictureToMemory() {
         imageCapture?.takePicture(executor, object : ImageCapture.OnImageCapturedListener() {
                 override fun onError(error: ImageCapture.ImageCaptureError, message: String, exc: Throwable?) {
-                    context?.shortToast(message)
+                    context?.showToast(message)
                 }
 
                 override fun onCaptureSuccess(imageProxy: ImageProxy?, rotationDegrees: Int) {

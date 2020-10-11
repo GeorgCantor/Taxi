@@ -18,7 +18,7 @@ import taxi.kassa.util.Constants.WITHDRAWN
 import taxi.kassa.util.observe
 import taxi.kassa.util.setFormattedText
 import taxi.kassa.util.setVisibility
-import taxi.kassa.util.shortToast
+import taxi.kassa.util.showToast
 
 class WithdrawFragment : Fragment(R.layout.fragment_withdraw) {
 
@@ -32,7 +32,7 @@ class WithdrawFragment : Fragment(R.layout.fragment_withdraw) {
         with(viewModel) {
             isProgressVisible.observe(viewLifecycleOwner) { progress_bar.setVisibility(it) }
 
-            error.observe(viewLifecycleOwner) { context?.shortToast(it) }
+            error.observe(viewLifecycleOwner) { context?.showToast(it) }
 
             accounts.observe(viewLifecycleOwner) { accounts ->
                 accounts?.let {

@@ -42,73 +42,27 @@ val preferenceModule = module {
 }
 
 val viewModelModule = module(override = true) {
-    viewModel {
-        MainViewModel(get(), get())
-    }
-    viewModel {
-        AuthPhoneViewModel(androidApplication(), get())
-    }
-    viewModel {
-        AuthSignUpViewModel(androidApplication(), get())
-    }
-    viewModel {
-        AuthCodeViewModel(androidApplication(), get(), get())
-    }
-    viewModel {
-        ProfileViewModel(androidApplication(), get(), get())
-    }
-    viewModel {
-        BalanceViewModel(androidApplication(), get())
-    }
-    viewModel {
-        WithdrawsViewModel(androidApplication(), get())
-    }
-    viewModel {
-        WithdrawViewModel(androidApplication(), get())
-    }
-    viewModel {
-        AccountsCardsViewModel(androidApplication(), get())
-    }
-    viewModel {
-        AccountsViewModel(androidApplication(), get())
-    }
-    viewModel {
-        CardsViewModel(androidApplication(), get())
-    }
-    viewModel {
-        WithdrawCreateViewModel(androidApplication(), get())
-    }
-    viewModel {
-        DailyWithdrawViewModel(androidApplication(), get())
-    }
-    viewModel {
-        InstantWithdrawViewModel(androidApplication(), get())
-    }
-    viewModel {
-        OrdersViewModel(androidApplication(), get())
-    }
-    viewModel {
-        FuelReplenishViewModel(androidApplication(), get())
-    }
-    viewModel {
-        OrdersListViewModel(androidApplication(), get())
-    }
-    viewModel {
-        ChatHistoryViewModel(androidApplication(), get())
-    }
-    viewModel {
-        WriteMessageViewModel(androidApplication(), get())
-    }
-    viewModel {
-        NotificationsViewModel(get())
-    }
-    viewModel {
-        SupportViewModel(get())
-    }
-    viewModel {
-        SupportViewModel(get())
-    }
-    viewModel {
-        ConnectionViewModel(androidApplication(), get())
-    }
+    viewModel { MainViewModel(get(), get()) }
+    viewModel { AuthPhoneViewModel(androidApplication(), get()) }
+    viewModel { AuthSignUpViewModel(androidApplication(), get()) }
+    viewModel { AuthCodeViewModel(androidApplication(), get(), get()) }
+    viewModel { ProfileViewModel(androidApplication(), get(), get()) }
+    viewModel { BalanceViewModel(androidApplication(), get()) }
+    viewModel { WithdrawsViewModel(androidApplication(), get()) }
+    viewModel { WithdrawViewModel(androidApplication(), get()) }
+    viewModel { AccountsCardsViewModel(androidApplication(), get()) }
+    viewModel { AccountsViewModel(androidApplication(), get()) }
+    viewModel { CardsViewModel(androidApplication(), get()) }
+    viewModel { WithdrawCreateViewModel(androidApplication(), get()) }
+    viewModel { DailyWithdrawViewModel(androidApplication(), get()) }
+    viewModel { InstantWithdrawViewModel(androidApplication(), get()) }
+    viewModel { OrdersViewModel(androidApplication(), get()) }
+    viewModel { FuelReplenishViewModel(androidApplication(), get()) }
+    viewModel { OrdersListViewModel(androidApplication(), get()) }
+    viewModel { ChatHistoryViewModel(androidApplication(), get()) }
+    viewModel { WriteMessageViewModel(androidApplication(), get()) }
+    viewModel { NotificationsViewModel(get()) }
+    viewModel { SupportViewModel(get()) }
+    viewModel { SupportViewModel(get()) }
+    viewModel { ConnectionViewModel(androidApplication(), get()) }
 }

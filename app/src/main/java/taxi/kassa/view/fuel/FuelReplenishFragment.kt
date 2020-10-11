@@ -25,7 +25,6 @@ import taxi.kassa.util.*
 import taxi.kassa.util.Constants.CITY
 import taxi.kassa.util.Constants.GETT
 import taxi.kassa.util.Constants.NOT_FROM_PUSH
-import taxi.kassa.util.Constants.PUSH_COUNTER
 import taxi.kassa.util.Constants.YANDEX
 
 class FuelReplenishFragment : Fragment(R.layout.fragment_fuel_replenish) {
@@ -47,7 +46,7 @@ class FuelReplenishFragment : Fragment(R.layout.fragment_fuel_replenish) {
 
             isProgressVisible.observe(viewLifecycleOwner) { progress_bar.setVisibility(it) }
 
-            error.observe(viewLifecycleOwner) { context?.shortToast(it) }
+            error.observe(viewLifecycleOwner) { context?.showToast(it) }
 
             showSuccessScreen.observe(viewLifecycleOwner) { show ->
                 if (show) {
@@ -118,17 +117,7 @@ class FuelReplenishFragment : Fragment(R.layout.fragment_fuel_replenish) {
             }
 
             notifications.observe(viewLifecycleOwner) {
-                val oldPushesSize = PreferenceManager(requireContext()).getInt(PUSH_COUNTER)
-                oldPushesSize?.let { oldSize ->
-                    if (it.size > oldSize) {
-                        notification_count.text = (it.size - oldSize).toString()
-                        notification_count.visible()
-                        notification_image.invisible()
-                    } else {
-                        notification_count.invisible()
-                        notification_image.visible()
-                    }
-                }
+                context?.checkSizes(it, notification_count, notification_image)
             }
         }
 

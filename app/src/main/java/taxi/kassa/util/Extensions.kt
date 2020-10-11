@@ -26,8 +26,10 @@ import android.view.View.*
 import android.view.inputmethod.InputMethodManager
 import android.view.inputmethod.InputMethodManager.HIDE_NOT_ALWAYS
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast.*
+import android.widget.Toast
+import android.widget.Toast.LENGTH_LONG
 import androidx.appcompat.app.AlertDialog
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
@@ -46,7 +48,9 @@ import kotlinx.android.synthetic.main.dialog_one_button.*
 import kotlinx.android.synthetic.main.dialog_one_button.message
 import kotlinx.android.synthetic.main.dialog_one_button.title
 import kotlinx.android.synthetic.main.dialog_two_buttons.*
+import kotlinx.android.synthetic.main.toast_layout.view.*
 import taxi.kassa.R
+import taxi.kassa.model.Notification
 import taxi.kassa.util.Constants.CAR_BACK
 import taxi.kassa.util.Constants.CAR_FRONT
 import taxi.kassa.util.Constants.CAR_LEFT
@@ -63,6 +67,7 @@ import taxi.kassa.util.Constants.MASTERCARD
 import taxi.kassa.util.Constants.PASSPORT_FIRST
 import taxi.kassa.util.Constants.PASSPORT_REGISTRATION
 import taxi.kassa.util.Constants.PHONE_MASK
+import taxi.kassa.util.Constants.PUSH_COUNTER
 import taxi.kassa.util.Constants.SELFIE
 import taxi.kassa.util.Constants.STS_BACK
 import taxi.kassa.util.Constants.STS_FRONT
@@ -80,9 +85,13 @@ import java.util.concurrent.TimeUnit
 fun Context.isNetworkAvailable() = (getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager?)
     ?.activeNetworkInfo?.isConnectedOrConnecting ?: false
 
-fun Context.shortToast(message: String) = makeText(this, message, LENGTH_SHORT).show()
-
-fun Context.longToast(message: String) = makeText(this, message, LENGTH_LONG).show()
+fun Context.showToast(message: String) = Toast(this).apply {
+    duration = LENGTH_LONG
+    view = LayoutInflater.from(this@showToast).inflate(R.layout.toast_layout, null).apply {
+        toast_text.text = message
+    }
+    show()
+}
 
 fun Context.showOneButtonDialog(
     title: String,
@@ -152,6 +161,21 @@ fun Context.getScreenWidth(): Float {
     val displayMetrics: DisplayMetrics = resources.displayMetrics
 
     return displayMetrics.widthPixels / displayMetrics.density
+}
+
+fun Context.checkSizes(
+    newList: MutableList<Notification>,
+    notifCount: TextView,
+    notifImage: ImageView
+) = PreferenceManager(this).getInt(PUSH_COUNTER)?.let { oldSize ->
+    if (newList.size > oldSize) {
+        notifCount.text = (newList.size - oldSize).toString()
+        notifCount.visible()
+        notifImage.invisible()
+    } else {
+        notifCount.invisible()
+        notifImage.visible()
+    }
 }
 
 fun View.setVisibility(visible: Boolean) {
@@ -337,7 +361,7 @@ fun Activity.makeCall(fragment: Fragment) {
         try {
             startActivity(callIntent)
         } catch (ex: ActivityNotFoundException) {
-            shortToast(getString(R.string.not_find_call_app))
+            showToast(getString(R.string.not_find_call_app))
         }
     }
 }

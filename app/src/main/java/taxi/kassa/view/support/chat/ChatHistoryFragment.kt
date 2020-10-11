@@ -24,7 +24,7 @@ class ChatHistoryFragment : Fragment(R.layout.fragment_chat_history) {
         with(viewModel) {
             getMessages("")
 
-            error.observe(viewLifecycleOwner) { context?.longToast(it) }
+            error.observe(viewLifecycleOwner) { context?.showToast(it) }
 
             messages.observe(viewLifecycleOwner) {
                 nextOffset = it.nextOffset ?: ""
