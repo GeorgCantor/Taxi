@@ -38,7 +38,7 @@ class WithdrawsAdapter(
 
             dates.add(Withdraw(DATE_ITEM_ID, "0", "", this.withdraws[0].date, ""))
 
-            this.withdraws.map {
+            this.withdraws.forEach {
                 if (it.getDate() != lastDate) {
                     dates.add(Withdraw(DATE_ITEM_ID, "0", "", it.date, ""))
                     lastDate = it.getDate()

@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_notification.*
 import org.koin.androidx.viewmodel.ext.android.getSharedViewModel
 import taxi.kassa.R
-import taxi.kassa.util.observe
 
 class NotificationFragment : Fragment(R.layout.fragment_notification) {
 

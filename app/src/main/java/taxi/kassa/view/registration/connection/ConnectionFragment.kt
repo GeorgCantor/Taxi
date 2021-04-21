@@ -63,7 +63,7 @@ class ConnectionFragment : Fragment(R.layout.fragment_connection) {
             city_phone_edit_text
         )
 
-        editTexts.map {
+        editTexts.forEach {
             it.showSoftInputOnFocus = false
 
             it.setOnFocusChangeListener { _, hasFocus ->
@@ -89,13 +89,13 @@ class ConnectionFragment : Fragment(R.layout.fragment_connection) {
             Pair(num_9, R.string.num9)
         )
 
-        keyboardPairs.map {
+        keyboardPairs.forEach {
             setNumberClickListener(it.first, it.second)
         }
 
         erase_btn.setOnClickListener {
             var focusedInput = phone_number_edit_text
-            editTexts.map {
+            editTexts.forEach {
                 if (it.isFocused) focusedInput = it
             }
 
@@ -108,7 +108,7 @@ class ConnectionFragment : Fragment(R.layout.fragment_connection) {
 
         apply_btn.setOnClickListener {
             var focusedInput = phone_number_edit_text
-            editTexts.map {
+            editTexts.forEach {
                 if (it.isFocused) focusedInput = it
             }
 
@@ -123,7 +123,7 @@ class ConnectionFragment : Fragment(R.layout.fragment_connection) {
             gett_phone_edit_text,
             city_phone_edit_text
         )
-        phoneEditTexts.map {
+        phoneEditTexts.forEach {
             it.setMaskListener(null)
         }
 
@@ -399,7 +399,7 @@ class ConnectionFragment : Fragment(R.layout.fragment_connection) {
             city_selfie_edit_text
         )
 
-        inputs.map { editText ->
+        inputs.forEach { editText ->
             editText.setOnClickListener {
                 when (editText.id) {
                     R.id.driver_license_edit_text -> viewModel.setSelected(1)
@@ -441,7 +441,7 @@ class ConnectionFragment : Fragment(R.layout.fragment_connection) {
 
         val allCancelButtons = yandexCancelButtons + gettCancelButtons + cityCancelButtons
 
-        allCancelButtons.map { imageView ->
+        allCancelButtons.forEach { imageView ->
             imageView.setOnClickListener {
                 when (imageView.id) {
                     R.id.driver_license_cancel -> viewModel.removeLoadImage(1)
@@ -504,7 +504,7 @@ class ConnectionFragment : Fragment(R.layout.fragment_connection) {
 
             loadedImages.observe(viewLifecycleOwner, Observer { loadImages ->
                 var id = 1
-                inputViews.map {
+                inputViews.forEach {
                     setInputViewsState(loadImages, id, it)
                     id++
                 }
@@ -532,7 +532,7 @@ class ConnectionFragment : Fragment(R.layout.fragment_connection) {
 
         button.setOnClickListener {
             var focusedInput = phone_number_edit_text
-            editTexts.map {
+            editTexts.forEach {
                 if (it.isFocused) focusedInput = it
             }
 
@@ -544,14 +544,14 @@ class ConnectionFragment : Fragment(R.layout.fragment_connection) {
         cancelButtons: MutableList<ImageView>,
         editTexts: MutableList<EditText>
     ) {
-        cancelButtons.map {
+        cancelButtons.forEach {
             if (!it.isVisible) {
                 context?.showToast(getString(R.string.load_all_photos))
                 return
             }
         }
 
-        editTexts.map {
+        editTexts.forEach {
             if (it.text.isNullOrBlank()) {
                 context?.showToast(getString(R.string.fill_all_fields))
                 return

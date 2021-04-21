@@ -17,7 +17,6 @@ import taxi.kassa.util.Constants.accessToken
 import taxi.kassa.util.Constants.myDateFormatSymbols
 import taxi.kassa.util.NetworkUtils.getNetworkLiveData
 import taxi.kassa.util.hideKeyboard
-import taxi.kassa.util.observe
 import taxi.kassa.util.runDelayed
 import taxi.kassa.util.slideAnim
 import java.text.SimpleDateFormat
@@ -40,7 +39,7 @@ class MainActivity : AppCompatActivity() {
             val dateFormat = SimpleDateFormat(PUSH_PATTERN, myDateFormatSymbols)
             val date: String = dateFormat.format(Date())
 
-            it.keySet().map { key ->
+            it.keySet().forEach { key ->
                 when (key) {
                     TITLE -> title = intent.extras?.get(key) as String
                     MESSAGE -> message = intent.extras?.get(key) as String

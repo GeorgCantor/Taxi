@@ -15,7 +15,6 @@ import taxi.kassa.util.Constants.TINKOFF
 import taxi.kassa.util.Constants.VTB_BANK
 import taxi.kassa.util.Constants.WITHDRAW
 import taxi.kassa.util.Constants.WITHDRAWN
-import taxi.kassa.util.observe
 import taxi.kassa.util.setFormattedText
 import taxi.kassa.util.setVisibility
 import taxi.kassa.util.showToast

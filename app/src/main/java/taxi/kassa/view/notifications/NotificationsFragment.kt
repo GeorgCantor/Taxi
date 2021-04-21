@@ -84,7 +84,7 @@ class NotificationsFragment : Fragment(R.layout.fragment_notifications) {
     override fun onDetach() {
         super.onDetach()
         if (::notifications.isInitialized) {
-            notifications.map {
+            notifications.forEach {
                 if (it.isNew) it.isNew = false
             }
             manager.saveNotifications(NOTIFICATIONS, notifications)

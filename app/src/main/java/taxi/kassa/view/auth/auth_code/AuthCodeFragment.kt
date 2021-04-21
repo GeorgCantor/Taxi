@@ -4,8 +4,6 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
-import android.view.View.GONE
-import android.view.View.VISIBLE
 import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.Fragment
@@ -19,7 +17,6 @@ import org.koin.android.ext.android.inject
 import taxi.kassa.R
 import taxi.kassa.util.Constants.PHONE
 import taxi.kassa.util.Constants.accessToken
-import taxi.kassa.util.observe
 import taxi.kassa.util.oneClick
 import taxi.kassa.util.setVisibility
 
@@ -67,7 +64,7 @@ class AuthCodeFragment : Fragment(R.layout.fragment_auth_code) {
 
         editTexts = listOf(input1, input2, input3, input4)
 
-        editTexts.map {
+        editTexts.forEach {
             it.showSoftInputOnFocus = false
         }
 
@@ -84,12 +81,12 @@ class AuthCodeFragment : Fragment(R.layout.fragment_auth_code) {
             Pair(num_9, R.string.num9)
         )
 
-        keyboardPairs.map {
+        keyboardPairs.forEach {
             setNumberClickListener(it.first, it.second)
         }
 
         erase_btn.setOnClickListener {
-            editTexts.map {
+            editTexts.forEach {
                 if (it.isFocused) {
                     val cursorPosition = it.selectionStart
                     if (cursorPosition > 0) {
@@ -122,7 +119,7 @@ class AuthCodeFragment : Fragment(R.layout.fragment_auth_code) {
             Pair(input3, input4)
         )
 
-        editTextPairs.map {
+        editTextPairs.forEach {
             setTextChangedListener(it.first, it.second)
         }
     }
@@ -145,7 +142,7 @@ class AuthCodeFragment : Fragment(R.layout.fragment_auth_code) {
 
     private fun setNumberClickListener(button: Button, resource: Int) {
         button.setOnClickListener {
-            editTexts.map {
+            editTexts.forEach {
                 if (it.isFocused) {
                     it.text.insert(it.selectionStart, getString(resource))
                     return@setOnClickListener

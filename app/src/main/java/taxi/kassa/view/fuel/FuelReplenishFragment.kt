@@ -94,7 +94,7 @@ class FuelReplenishFragment : Fragment(R.layout.fragment_fuel_replenish) {
                             getString(R.string.gett_title) -> viewModel.selectedTaxi.value = GETT
                         }
 
-                        items.map { view ->
+                        items.forEach { view ->
                             when (view == itemView) {
                                 true -> {
                                     view.background = getDrawable(requireContext(), R.drawable.bg_outline_green)

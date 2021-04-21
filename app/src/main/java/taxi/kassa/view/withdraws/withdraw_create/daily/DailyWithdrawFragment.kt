@@ -115,11 +115,11 @@ class DailyWithdrawFragment : Fragment(R.layout.fragment_daily_withdraw) {
                             setAccountId(account)
 
                             val items = mutableListOf<View>()
-                            (0 until (accounts_recycler.adapter?.itemCount ?: 0)).map {
+                            (0 until (accounts_recycler.adapter?.itemCount ?: 0)).forEach {
                                 items.add(accounts_recycler[it])
                             }
 
-                            items.map {
+                            items.forEach {
                                 if (it == view) {
                                     it.account_background_outline.visible()
                                     it.account_background.invisible()

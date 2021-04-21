@@ -71,7 +71,7 @@ class AccountsFragment : Fragment(R.layout.fragment_accounts) {
             surname_edit_text, name_edit_text, middle_name_edit_text
         )
 
-        fioEditTexts.map {
+        fioEditTexts.forEach {
             it.setOnFocusChangeListener { _, hasFocus ->
                 when (hasFocus) {
                     true -> {
@@ -139,7 +139,7 @@ class AccountsFragment : Fragment(R.layout.fragment_accounts) {
         )
 
         add_account_button.setOnClickListener {
-            editTexts.map {
+            editTexts.forEach {
                 if (it.isEmpty() || account_edit_text.value.length < 20) {
                     context?.showToast(getString(R.string.fill_all_fields))
                     return@setOnClickListener
@@ -217,7 +217,7 @@ class AccountsFragment : Fragment(R.layout.fragment_accounts) {
             Pair(num_9, R.string.num9)
         )
 
-        keyboardPairs.map {
+        keyboardPairs.forEach {
             setNumberClickListener(it.first, it.second)
         }
 
@@ -231,7 +231,7 @@ class AccountsFragment : Fragment(R.layout.fragment_accounts) {
 
         val numberInputs = listOf<TextInputEditText>(account_edit_text, bik_edit_text)
 
-        numberInputs.map {
+        numberInputs.forEach {
             it.showSoftInputOnFocus = false
 
             it.setOnFocusChangeListener { _, hasFocus ->
@@ -258,7 +258,7 @@ class AccountsFragment : Fragment(R.layout.fragment_accounts) {
 
         erase_btn.setOnClickListener {
             var focusedInput = account_edit_text
-            numberInputs.map {
+            numberInputs.forEach {
                 if (it.isFocused) focusedInput = it
             }
 
@@ -271,7 +271,7 @@ class AccountsFragment : Fragment(R.layout.fragment_accounts) {
 
         apply_btn.setOnClickListener {
             var focusedInput = account_edit_text
-            numberInputs.map {
+            numberInputs.forEach {
                 if (it.isFocused) focusedInput = it
             }
 
@@ -287,7 +287,7 @@ class AccountsFragment : Fragment(R.layout.fragment_accounts) {
 
         button.setOnClickListener {
             var focusedInput = account_edit_text
-            editTexts.map {
+            editTexts.forEach {
                 if (it.isFocused) focusedInput = it
             }
 

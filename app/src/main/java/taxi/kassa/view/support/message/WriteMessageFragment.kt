@@ -8,7 +8,6 @@ import kotlinx.android.synthetic.main.fragment_write_message.*
 import org.koin.android.ext.android.inject
 import taxi.kassa.R
 import taxi.kassa.util.hideKeyboard
-import taxi.kassa.util.observe
 import taxi.kassa.util.setVisibility
 import taxi.kassa.util.showToast
 

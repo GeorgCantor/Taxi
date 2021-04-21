@@ -11,7 +11,6 @@ import taxi.kassa.R
 import taxi.kassa.util.Constants.NOT_FROM_PUSH
 import taxi.kassa.util.Constants.WITHDRAW
 import taxi.kassa.util.checkSizes
-import taxi.kassa.util.observe
 import taxi.kassa.util.setVisibility
 import taxi.kassa.util.showToast
 

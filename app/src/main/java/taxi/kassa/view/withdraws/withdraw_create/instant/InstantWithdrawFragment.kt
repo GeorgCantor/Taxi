@@ -115,11 +115,11 @@ class InstantWithdrawFragment : Fragment(R.layout.fragment_instant_withdraw) {
                             cardId = card.id?.toInt() ?: 1
 
                             val items = mutableListOf<View>()
-                            (0 until (cards_recycler.adapter?.itemCount ?: 0)).map {
+                            (0 until (cards_recycler.adapter?.itemCount ?: 0)).forEach {
                                 items.add(cards_recycler[it])
                             }
 
-                            items.map {
+                            items.forEach {
                                 if (it == view) {
                                     it.card_background_outline.visible()
                                     it.card_background.invisible()

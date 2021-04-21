@@ -54,7 +54,7 @@ class ConnectionViewModel(
 
     fun removeLoadImage(selectedNo: Int) {
         var removed = LoadImage(0, null)
-        images.map {
+        images.forEach {
             if (selectedNo == it.id) removed = it
         }
         images.remove(removed)

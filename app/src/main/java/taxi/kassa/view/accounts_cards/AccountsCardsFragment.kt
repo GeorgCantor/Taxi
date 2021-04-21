@@ -9,7 +9,6 @@ import org.koin.android.ext.android.inject
 import taxi.kassa.R
 import taxi.kassa.util.Constants.NOT_FROM_PUSH
 import taxi.kassa.util.checkSizes
-import taxi.kassa.util.observe
 import taxi.kassa.util.showToast
 
 class AccountsCardsFragment : Fragment(R.layout.fragment_accounts_cards) {

@@ -12,7 +12,6 @@ import taxi.kassa.util.Constants.NOT_FROM_PUSH
 import taxi.kassa.util.Constants.TAXI
 import taxi.kassa.util.checkSizes
 import taxi.kassa.util.getTransform
-import taxi.kassa.util.observe
 import taxi.kassa.util.showOneButtonDialog
 
 class WithdrawCreateFragment : Fragment(R.layout.fragment_withdraw_create) {

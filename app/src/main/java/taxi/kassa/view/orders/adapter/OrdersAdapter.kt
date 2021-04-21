@@ -49,7 +49,7 @@ class OrdersAdapter(
                 )
             )
 
-            this.orders.map {
+            this.orders.forEach {
                 if (it.date != lastDate) {
                     dates.add(
                         Order(
@@ -78,7 +78,7 @@ class OrdersAdapter(
     }
 
     fun updateList(orders: MutableList<Order>) {
-        orders.map {
+        orders.forEach {
             if (it.date != lastDate) {
                 dates.add(
                     Order(
