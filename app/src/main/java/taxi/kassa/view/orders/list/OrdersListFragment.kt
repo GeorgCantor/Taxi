@@ -5,6 +5,7 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import androidx.activity.OnBackPressedCallback
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_order.*
@@ -46,7 +47,7 @@ class OrdersListFragment : Fragment(R.layout.fragment_orders_list) {
         with(viewModel) {
             getOrders("")
 
-            isProgressVisible.observe(viewLifecycleOwner) { progress_bar.setVisibility(it) }
+            isProgressVisible.observe(viewLifecycleOwner) { progress_bar.isVisible = it }
 
             error.observe(viewLifecycleOwner) { context?.showToast(it) }
 
@@ -62,7 +63,7 @@ class OrdersListFragment : Fragment(R.layout.fragment_orders_list) {
                         }
                         orders_recycler.adapter = adapter
 
-                        empty_tv.setVisibility(orders_recycler.adapter?.itemCount == 0)
+                        empty_tv.isVisible = orders_recycler.adapter?.itemCount == 0
 
                         firstLoad = false
                     }

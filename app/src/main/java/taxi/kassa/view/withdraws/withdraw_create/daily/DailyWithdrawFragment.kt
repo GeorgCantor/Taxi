@@ -9,6 +9,7 @@ import android.view.View
 import androidx.core.content.ContextCompat.getColor
 import androidx.core.view.get
 import androidx.core.view.isNotEmpty
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_daily_withdraw.*
@@ -88,7 +89,7 @@ class DailyWithdrawFragment : Fragment(R.layout.fragment_daily_withdraw) {
         with(viewModel) {
             getOwnerData()
 
-            isProgressVisible.observe(viewLifecycleOwner) { progress_bar.setVisibility(it) }
+            isProgressVisible.observe(viewLifecycleOwner) { progress_bar.isVisible = it }
 
             error.observe(viewLifecycleOwner) { context?.showToast(it) }
 

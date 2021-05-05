@@ -14,6 +14,7 @@ import androidx.constraintlayout.widget.ConstraintSet.BOTTOM
 import androidx.constraintlayout.widget.ConstraintSet.TOP
 import androidx.core.view.get
 import androidx.core.view.isNotEmpty
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import com.google.android.material.textfield.TextInputEditText
@@ -159,7 +160,7 @@ class AccountsFragment : Fragment(R.layout.fragment_accounts) {
         with(viewModel) {
             getAccounts()
 
-            isProgressVisible.observe(viewLifecycleOwner) { progress_bar.setVisibility(it) }
+            isProgressVisible.observe(viewLifecycleOwner) { progress_bar.isVisible = it }
 
             error.observe(viewLifecycleOwner) { context?.showToast(it) }
 

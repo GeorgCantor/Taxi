@@ -2,6 +2,7 @@ package taxi.kassa.view.auth.auth_phone
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation.findNavController
 import kotlinx.android.synthetic.main.fragment_auth_phone.*
@@ -20,7 +21,7 @@ class AuthPhoneFragment : Fragment(R.layout.fragment_auth_phone) {
         input_title.oneClick()
 
         with(viewModel) {
-            isProgressVisible.observe(viewLifecycleOwner) { progress_bar.setVisibility(it) }
+            isProgressVisible.observe(viewLifecycleOwner) { progress_bar.isVisible = it }
 
             error.observe(viewLifecycleOwner) { phone_input_view.error = it }
 

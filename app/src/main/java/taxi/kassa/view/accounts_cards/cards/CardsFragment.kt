@@ -3,6 +3,7 @@ package taxi.kassa.view.accounts_cards.cards
 import android.content.pm.PackageManager.PERMISSION_GRANTED
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_cards.*
@@ -39,7 +40,7 @@ class CardsFragment : Fragment(R.layout.fragment_cards) {
         with(viewModel) {
             getCardsData()
 
-            isProgressVisible.observe(viewLifecycleOwner) { progress_bar.setVisibility(it) }
+            isProgressVisible.observe(viewLifecycleOwner) { progress_bar.isVisible = it }
 
             error.observe(viewLifecycleOwner) {
                 context?.showToast(it)

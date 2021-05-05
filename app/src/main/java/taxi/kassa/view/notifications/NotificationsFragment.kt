@@ -4,6 +4,7 @@ import android.content.pm.PackageManager.PERMISSION_GRANTED
 import android.os.Bundle
 import android.view.View
 import androidx.activity.OnBackPressedCallback
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_notifications.*
@@ -47,7 +48,7 @@ class NotificationsFragment : Fragment(R.layout.fragment_notifications) {
                 findNavController(this).navigate(R.id.action_notificationsFragment_to_notificationFragment)
             }
 
-            500L.runDelayed { empty_tv.setVisibility(it.isNullOrEmpty()) }
+            500L.runDelayed { empty_tv.isVisible = it.isNullOrEmpty() }
 
             manager = PreferenceManager(requireContext())
 

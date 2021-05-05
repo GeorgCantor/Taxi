@@ -6,6 +6,7 @@ import android.text.TextWatcher
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import kotlinx.android.synthetic.main.fragment_accounts.*
@@ -18,7 +19,6 @@ import taxi.kassa.R
 import taxi.kassa.util.Constants.PHONE
 import taxi.kassa.util.Constants.accessToken
 import taxi.kassa.util.oneClick
-import taxi.kassa.util.setVisibility
 
 class AuthCodeFragment : Fragment(R.layout.fragment_auth_code) {
 
@@ -35,7 +35,7 @@ class AuthCodeFragment : Fragment(R.layout.fragment_auth_code) {
         phone = viewModel.getFromPrefs(PHONE) ?: ""
 
         with(viewModel) {
-            isProgressVisible.observe(viewLifecycleOwner) { progress_bar.setVisibility(it) }
+            isProgressVisible.observe(viewLifecycleOwner) { progress_bar.isVisible = it }
 
             error.observe(viewLifecycleOwner) { error_tv.text = it }
 

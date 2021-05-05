@@ -2,13 +2,13 @@ package taxi.kassa.view.support.message
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_write_message.*
 import org.koin.android.ext.android.inject
 import taxi.kassa.R
 import taxi.kassa.util.hideKeyboard
-import taxi.kassa.util.setVisibility
 import taxi.kassa.util.showToast
 
 class WriteMessageFragment : Fragment(R.layout.fragment_write_message) {
@@ -23,7 +23,7 @@ class WriteMessageFragment : Fragment(R.layout.fragment_write_message) {
         back_arrow.setOnClickListener { activity?.onBackPressed() }
 
         with(viewModel) {
-            isProgressVisible.observe(viewLifecycleOwner) { progress_bar.setVisibility(it) }
+            isProgressVisible.observe(viewLifecycleOwner) { progress_bar.isVisible = it }
 
             error.observe(viewLifecycleOwner) { context?.showToast(it) }
 

@@ -2,6 +2,7 @@ package taxi.kassa.view.withdraws.withdraw
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_withdraw.*
 import org.koin.android.ext.android.inject
@@ -16,7 +17,6 @@ import taxi.kassa.util.Constants.VTB_BANK
 import taxi.kassa.util.Constants.WITHDRAW
 import taxi.kassa.util.Constants.WITHDRAWN
 import taxi.kassa.util.setFormattedText
-import taxi.kassa.util.setVisibility
 import taxi.kassa.util.showToast
 
 class WithdrawFragment : Fragment(R.layout.fragment_withdraw) {
@@ -29,7 +29,7 @@ class WithdrawFragment : Fragment(R.layout.fragment_withdraw) {
         super.onViewCreated(view, savedInstanceState)
 
         with(viewModel) {
-            isProgressVisible.observe(viewLifecycleOwner) { progress_bar.setVisibility(it) }
+            isProgressVisible.observe(viewLifecycleOwner) { progress_bar.isVisible = it }
 
             error.observe(viewLifecycleOwner) { context?.showToast(it) }
 

@@ -36,6 +36,7 @@ import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat.getColor
 import androidx.core.text.HtmlCompat
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.google.android.material.textfield.TextInputLayout
 import com.google.android.material.transition.platform.MaterialArcMotion
@@ -175,10 +176,6 @@ fun Context.checkSizes(
     }
 }
 
-fun View.setVisibility(visible: Boolean) {
-    visibility = if (visible) VISIBLE else GONE
-}
-
 fun View.visible() { visibility = VISIBLE }
 
 fun View.invisible() { visibility = INVISIBLE }
@@ -203,7 +200,7 @@ fun View.slideAnim(rootLayout: ConstraintLayout, show: Boolean) {
         addTarget(this@slideAnim)
         beginDelayedTransition(rootLayout, this)
     }
-    setVisibility(show)
+    isVisible = show
 }
 
 fun View.oneClick() {

@@ -3,6 +3,7 @@ package taxi.kassa.view.balance
 import android.os.Bundle
 import android.view.View
 import androidx.activity.OnBackPressedCallback
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import kotlinx.android.synthetic.main.fragment_balance.*
@@ -33,7 +34,7 @@ class BalanceFragment : Fragment(R.layout.fragment_balance) {
         with(viewModel) {
             getUserData()
 
-            isProgressVisible.observe(viewLifecycleOwner) { progress_bar.setVisibility(it) }
+            isProgressVisible.observe(viewLifecycleOwner) { progress_bar.isVisible = it }
 
             error.observe(viewLifecycleOwner) {
                 context?.showToast(it)
